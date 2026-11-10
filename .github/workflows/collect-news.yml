@@ -1,0 +1,31 @@
+name: Chelsea News Collection
+
+on:
+  workflow_dispatch:
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get project files
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install requirements
+        run: pip install -r requirements.txt
+
+      - name: Collect Chelsea news
+        run: python collect_news.py
+
+      - name: Save collected news
+        uses: actions/upload-artifact@v4
+        with:
+          name: chelsea-news-candidates
+          path: news_candidates.json
+          if-no-files-found: error
+          retention-days: 7
