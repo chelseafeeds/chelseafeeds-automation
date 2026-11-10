@@ -1,0 +1,19 @@
+name: ChelseaFeeds Automation Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Confirm automation is running
+        run: |
+          echo "ChelseaFeeds automation is running!"
+          echo "Checking Python installation..."
+          python --version
+          echo "System test completed successfully."
