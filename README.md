@@ -65,12 +65,6 @@ In repository Settings → Secrets and variables → Actions, add:
 - `BLOGGER_REFRESH_TOKEN` — OAuth refresh token authorized for the Blogger account that owns the blog.
 - `BLOGGER_BLOG_ID` — numeric Blogger blog ID.
 
-**X (only if you want announcements)**
-- `X_API_KEY`
-- `X_API_SECRET`
-- `X_ACCESS_TOKEN`
-- `X_ACCESS_TOKEN_SECRET`
-
 Never put these values in repository files, workflow inputs, issues, or chat. The workflow reads them only from GitHub Actions secrets.
 
 ### How to run it safely
