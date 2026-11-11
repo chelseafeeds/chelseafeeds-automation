@@ -65,6 +65,9 @@ def merge_histories(*documents):
             record["first_seen_at"] = iso_min(previous.get("first_seen_at"), incoming.get("first_seen_at"))
             record["last_seen_at"] = iso_max(prev_seen, new_seen)
             record["last_published_at"] = iso_max(previous.get("last_published_at"), incoming.get("last_published_at"))
+            record["last_processed_at"] = iso_max(previous.get("last_processed_at"), incoming.get("last_processed_at"))
+            record["last_editorial_outcome"] = newest.get("last_editorial_outcome") or previous.get("last_editorial_outcome") or incoming.get("last_editorial_outcome")
+            record["last_processed_headline"] = newest.get("last_processed_headline") or previous.get("last_processed_headline") or incoming.get("last_processed_headline")
             record["last_observation_count"] = max(
                 int(previous.get("last_observation_count") or 0),
                 int(incoming.get("last_observation_count") or 0),
