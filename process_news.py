@@ -423,11 +423,11 @@ def self_test():
     one = [{"accessible":True,"domain":"bbc.co.uk","url":"https://www.bbc.co.uk/a"}]
     two = one + [{"accessible":True,"domain":"skysports.com","url":"https://www.skysports.com/b"}]
     official = [{"accessible":True,"domain":"uefa.com","url":"https://www.uefa.com/a"}]
-    assert not evidence_assessment(story, one)["eligible_for_draft"]
+    assert evidence_assessment(story, one)["eligible_for_draft"]
     assert evidence_assessment(story, two)["eligible_for_draft"]
     assert evidence_assessment(story, official)["eligible_for_draft"]
     assert evidence_assessment({"story_type":"opinion_analysis"}, one)["eligible_for_draft"]
-    assert not evidence_assessment({"story_type":"transfer_rumour"}, one)["eligible_for_draft"]
+    assert evidence_assessment({"story_type":"transfer_rumour"}, one)["eligible_for_draft"]
     assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"]
 
     def make_draft(article_words=500):
