@@ -241,8 +241,12 @@ def brand_image(raw, output_path):
     return output_path.stat().st_size
 
 def make_image_assets(draft, story, images_dir, session, remaining):
-    if IMAGE_PROVIDER != "cloudflare" or remaining <= 0:
-        return [], "not_configured_or_limit_reached", remaining
+    if IMAGE_PROVIDER != "cloudflare":
+        return [], "unsupported_provider", remaining
+    if not (CF_ACCOUNT_ID and CF_API_TOKEN):
+        return [], "not_configured", remaining
+    if remaining <= 0:
+        return [], "per_run_image_limit_reached", remaining
     base = slug(draft.get("title") or story.get("title"))
     prompts = [
         ("thumbnail", str(draft.get("image_prompt", "")) +
@@ -355,7 +359,7 @@ def process(input_path, output_dir):
         "ai_api_configured": bool(AI_API_KEY), "ai_base_url": AI_BASE_URL if AI_API_KEY else None,
         "model": MODEL if AI_API_KEY else None, "image_provider": IMAGE_PROVIDER,
         "image_model": CF_MODEL, "image_api_configured": bool(CF_ACCOUNT_ID and CF_API_TOKEN),
-        "max_images_per_run": MAX_IMAGES_PER_RUN, "image_requests_used": MAX_IMAGES_PER_RUN - images_remaining,
+        "max_images_per_run": MAX_IMAGES_PER_RUN, "image_attempts_used": MAX_IMAGES_PER_RUN - images_remaining,
         "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
             "Evidence accessibility and publisher counts are not factual verification.",
@@ -371,7 +375,7 @@ def process(input_path, output_dir):
         ], "results": results}
     (output_dir / "article_drafts.json").write_text(json.dumps({"processor_version": VERSION, "drafts": drafts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "editorial_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    logging.info("Processor v%s: %d candidates, %d drafts, %d image requests used", VERSION, len(stories), len(drafts), report["image_requests_used"])
+    logging.info("Processor v%s: %d candidates, %d drafts, %d image requests used", VERSION, len(stories), len(drafts), report["image_attempts_used"])
 
 def self_test():
     story = {"story_type":"match_report"}
