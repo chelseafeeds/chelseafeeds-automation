@@ -192,7 +192,7 @@ def cloudflare_image(prompt, session):
     endpoint = "https://api.cloudflare.com/client/v4/accounts/" + CF_ACCOUNT_ID + "/ai/run/" + CF_MODEL
     response = session.post(endpoint, headers={"Authorization": "Bearer " + CF_API_TOKEN,
         "Content-Type": "application/json"},
-        json={"prompt": prompt[:1900], "num_steps": IMAGE_STEPS, "width": 1024, "height": 576},
+        json={"prompt": prompt[:1900], "steps": IMAGE_STEPS, "width": 1024, "height": 576},
         timeout=180)
     response.raise_for_status()
     ctype = response.headers.get("content-type", "").lower()
