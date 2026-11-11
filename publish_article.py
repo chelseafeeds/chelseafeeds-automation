@@ -46,17 +46,21 @@ def attach_featured_image(article_html, image_url, alt_text):
         license_link = urlparse(license_url) if license_url else None
         if source.scheme != "https" or source.netloc != "commons.wikimedia.org" or not source.path.startswith("/wiki/"):
             raise RuntimeError("Commons photo is missing a valid Wikimedia Commons attribution page.")
-        if not license_name or not license_url:
-            raise RuntimeError("Commons photo is missing its licence name or licence URL.")
-        if not license_link or license_link.scheme != "https" or license_link.netloc not in {"creativecommons.org", "creativecommons.org"}:
-            if "public domain" not in license_name.lower() and "cc0" not in license_name.lower():
-                raise RuntimeError("Commons photo licence URL is not an approved Creative Commons URL.")
+        if not license_name:
+            raise RuntimeError("Commons photo is missing its licence name.")
+        if license_link and (license_link.scheme != "https" or license_link.netloc not in {"creativecommons.org", "www.creativecommons.org"}):
+            raise RuntimeError("Commons photo licence URL is not an approved Creative Commons URL.")
+        if not license_link and "public domain" not in license_name.lower() and "cc0" not in license_name.lower():
+            raise RuntimeError("Commons photo is missing its licence URL.")
+        license_caption = (
+            f' · <a href="{html.escape(license_url, quote=True)}" rel="nofollow noopener">{html.escape(license_name)}</a>'
+            if license_url else f' · {html.escape(license_name)}'
+        )
         caption = (
             '<figcaption style="font-size: small; color: #666; text-align: center;">'
             f'{html.escape(credit_text)} · '
-            f'<a href="{html.escape(credit_url, quote=True)}" rel="nofollow noopener">Image source</a> · '
-            f'<a href="{html.escape(license_url, quote=True)}" rel="nofollow noopener">{html.escape(license_name)}</a>'
-            '</figcaption>'
+            f'<a href="{html.escape(credit_url, quote=True)}" rel="nofollow noopener">Image source</a>'
+            f'{license_caption}</figcaption>'
         )
     elif source_type == "ai_generated_illustration":
         caption = '<figcaption style="font-size: small; color: #666; text-align: center;">AI-generated editorial illustration; not a documentary match photograph.</figcaption>'
