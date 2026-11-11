@@ -23,9 +23,9 @@ jobs:
       AI_PROVIDER: groq
       AI_BASE_URL: https://api.groq.com/openai/v1
       AI_MODEL: openai/gpt-oss-120b
-      MAX_DRAFTS_PER_RUN: "3"
-      MAX_SOURCE_PACK: "4"
-      MAX_SOURCE_CHARS: "3500"
+      MAX_DRAFTS_PER_RUN: "10"
+      MAX_SOURCE_PACK: "6"
+      MAX_SOURCE_CHARS: "5000"
 
     steps:
       - name: Get project files
