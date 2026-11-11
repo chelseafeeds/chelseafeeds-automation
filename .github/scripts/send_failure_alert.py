@@ -19,7 +19,7 @@ commit = (failed.get("head_sha") or "")[:12]
 started = failed.get("run_started_at", "unknown")
 finished = failed.get("updated_at", "unknown")
 
-if conclusion != "failure":
+if conclusion not in {"failure", "timed_out"}:
     print(f"No alert sent: workflow conclusion is {conclusion}.")
     raise SystemExit(0)
 
