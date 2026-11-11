@@ -5,6 +5,12 @@ on:
     workflows: ["ChelseaFeeds Evidence and Article Drafts"]
     types: [completed]
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: "Successful ChelseaFeeds editorial processing run ID"
+        required: true
+        type: string
 
 permissions:
   actions: read
@@ -16,7 +22,7 @@ concurrency:
 
 jobs:
   schedule:
-    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -44,7 +50,7 @@ jobs:
         with:
           name: chelseafeeds-editorial-results
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ github.event.workflow_run.id || inputs.source_run_id }}
           path: input
 
       - name: Upload images and schedule every eligible article five minutes after draft creation
