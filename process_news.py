@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ChelseaFeeds v1.3: evidence triage, deterministic sourcing, quality gates and branded image assets."""
+"""ChelseaFeeds v1.4: evidence triage, 500-word editorial gate, deterministic sourcing and branded images."""
 from __future__ import annotations
 import argparse, base64, json, logging, os, re, time
 from collections import Counter
@@ -10,7 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 from PIL import Image, ImageDraw, ImageFont
 
-VERSION = "1.3"
+VERSION = "1.4"
 TIMEOUT = 20
 MAX_FETCH_CHARS = 9000
 MAX_DRAFTS = max(0, min(3, int(os.getenv("MAX_DRAFTS_PER_RUN", "3"))))
@@ -28,7 +28,7 @@ MAX_IMAGES_PER_RUN = max(0, min(6, int(os.getenv("MAX_IMAGES_PER_RUN", "6"))))
 IMAGE_STEPS = max(1, min(4, int(os.getenv("IMAGE_STEPS", "4"))))
 OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com"}
 ESTABLISHED = {"bbc.co.uk", "bbc.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com", "espn.com", "independent.co.uk", "standard.co.uk", "nytimes.com", "theathletic.com", "football365.com", "thetimes.com", "telegraph.co.uk"}
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsEditorialBot/1.3; +https://www.chelseafeeds.com/)"}
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsEditorialBot/1.4; +https://www.chelseafeeds.com/)"}
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 def utcnow():
@@ -138,8 +138,10 @@ def generate_draft(story, evidence, api_key, session):
         "Do not copy source wording. Separate confirmed facts, reported claims and opinion. "
         "For transfers, state clearly whether confirmed or reported; never infer fees or clauses. "
         "For opinion, attribute the view and distinguish its factual premises. Keep men, women and "
-        "academy teams distinct. Write a substantive article of approximately 450-600 words when supplied evidence supports it. "
-        "Use a clear intro and at least three useful H2 headings. Aim for 450-600 words where evidence supports that depth; never pad or invent details. "
+        "academy teams distinct. Write at least 500 substantive words, preferably 550-750, when supplied evidence supports it. "
+        "The article must contain at least 500 words excluding the Sources section, headings, captions and image alt text. "
+        "Use a clear introduction and at least three useful H2 headings. Never pad, repeat points or invent details to reach the minimum. "
+        "If evidence cannot support 500 useful words, explain the limitation in editorial_notes; the processor will reject the draft. "
         "Do not write a Sources section or source hyperlinks; the processor adds a deterministic Sources section using accessible supplied URLs. Do not invent internal links. "
         "Return ONLY JSON keys: title, search_description, focus_keyword, labels, article_html, "
         "excerpt, image_prompt, image_alt_text, editorial_notes, unsupported_or_unverified_points. "
@@ -203,25 +205,45 @@ def add_deterministic_sources(html, fetched):
 def quality_gate(draft, fetched, story):
     html = str(draft.get("article_html", ""))
     soup = BeautifulSoup(html, "html.parser")
-    text = re.sub(r"\s+", " ", soup.get_text(" ", strip=True)).strip()
-    links = {a.get("href") for a in soup.find_all("a", href=True)}
-    allowed_urls = {x["url"] for x in fetched if x["accessible"]}
+
+    # Exclude the deterministic Sources block from the substantive article word count.
+    for heading in list(soup.find_all(["h2", "h3"])):
+        if heading.get_text(" ", strip=True).casefold() == "sources":
+            parent = heading.parent
+            if parent and parent.name == "section":
+                parent.decompose()
+            else:
+                node = heading
+                while node:
+                    nxt = node.find_next_sibling()
+                    node.decompose()
+                    if nxt and nxt.name in {"h2", "h3"}:
+                        break
+                    node = nxt
+
+    text = re.sub(r"\\s+", " ", soup.get_text(" ", strip=True)).strip()
+    word_count = len(text.split())
+    original_soup = BeautifulSoup(html, "html.parser")
+    links = {a.get("href") for a in original_soup.find_all("a", href=True)}
+    allowed_urls = {x["url"] for x in fetched if x.get("accessible") and x.get("url")}
+    title = str(draft.get("title", "")).strip()
+    description = str(draft.get("search_description", "")).strip()
     checks = {
-        "title_present_and_reasonable": 25 <= len(str(draft.get("title", "")).strip()) <= 100,
-        "search_description_length": 100 <= len(str(draft.get("search_description", "")).strip()) <= 180,
-        "substantive_article_body": len(text.split()) >= 350,
-        "has_section_headings": len(soup.find_all(["h2", "h3"])) >= 2,
+        "title_present_and_reasonable": 25 <= len(title) <= 100,
+        "search_description_length": 100 <= len(description) <= 180,
+        "substantive_article_body_minimum_500_words": word_count >= 500,
+        "has_section_headings": len(original_soup.find_all(["h2", "h3"])) >= 2,
         "has_source_links": bool(links & allowed_urls),
         "source_links_are_supplied": links.issubset(allowed_urls),
-        "no_unsafe_html": not bool(re.search(r"<(script|iframe|form|object|embed)\b", html, re.I)),
+        "no_unsafe_html": not bool(re.search(r"<(script|iframe|form|object|embed)\\b", html, re.I)),
         "no_empty_required_seo_fields": all(str(draft.get(k, "")).strip() for k in ("focus_keyword", "excerpt", "image_prompt", "image_alt_text"))
     }
-    score = round(100 * sum(checks.values()) / len(checks))
     failed = [k for k, ok in checks.items() if not ok]
-    # The processor refuses low-substance, unsafe, or source-less drafts. It never declares facts verified.
-    critical = {"substantive_article_body", "has_source_links", "source_links_are_supplied", "no_unsafe_html"}
-    passed = not (critical & set(failed)) and score >= 75
-    return {"passed": passed, "score": score, "checks": checks, "failed_checks": failed,
+    score = round(100 * sum(checks.values()) / len(checks))
+    # Every check is mandatory; a high score cannot override a failed SEO, length, source or safety check.
+    passed = not failed
+    return {"passed": passed, "score": score, "word_count": word_count,
+            "minimum_word_count": 500, "checks": checks, "failed_checks": failed,
             "note": "Automated editorial screening only; it is not independent fact-checking."}
 
 def cloudflare_image(prompt, session):
