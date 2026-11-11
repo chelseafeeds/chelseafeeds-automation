@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ChelseaFeeds v1.2: evidence triage, editorial quality gates and branded image assets."""
+"""ChelseaFeeds v1.3: evidence triage, deterministic sourcing, quality gates and branded image assets."""
 from __future__ import annotations
 import argparse, base64, json, logging, os, re, time
 from collections import Counter
@@ -28,7 +28,7 @@ MAX_IMAGES_PER_RUN = max(0, min(6, int(os.getenv("MAX_IMAGES_PER_RUN", "6"))))
 IMAGE_STEPS = max(1, min(4, int(os.getenv("IMAGE_STEPS", "4"))))
 OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com"}
 ESTABLISHED = {"bbc.co.uk", "bbc.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com", "espn.com", "independent.co.uk", "standard.co.uk", "nytimes.com", "theathletic.com", "football365.com", "thetimes.com", "telegraph.co.uk"}
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsEditorialBot/1.2; +https://www.chelseafeeds.com/)"}
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsEditorialBot/1.3; +https://www.chelseafeeds.com/)"}
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 def utcnow():
