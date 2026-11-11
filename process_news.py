@@ -174,7 +174,8 @@ def _request_chat_completion(payload, api_key, base_url, model, session, provide
                 body = response.text[:700]
                 lower = body.lower()
                 if response.status_code == 429 and any(term in lower for term in
-                        ("insufficient_quota", "billing_not_active", "credit balance", "quota_exceeded")):
+                        ("insufficient_quota", "billing_not_active", "credit balance", "quota_exceeded",
+                         "tokens per day", "daily token limit", "daily limit", "tpd limit")):
                     raise AIQuotaExhausted(f"AI_RATE_LIMIT_QUOTA: {provider_label} reports a quota or billing restriction: {body}")
                 delay = None
                 for header in ("retry-after", "x-ratelimit-reset-requests", "x-ratelimit-reset-tokens"):
