@@ -176,27 +176,46 @@ def generate_draft(story, evidence, api_key, session):
     response = None
     last_error = None
     for attempt in range(AI_MAX_ATTEMPTS):
+        # Requests are serial; a short gap reduces bursts against shared provider quotas.
+        if attempt == 0:
+            time.sleep(5)
         try:
             response = session.post(AI_BASE_URL + "/chat/completions",
                 headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
                 json=req, timeout=AI_REQUEST_TIMEOUT)
             if response.status_code == 429 or response.status_code >= 500:
-                retry_after = response.headers.get("retry-after")
-                delay = min(25, int(retry_after)) if retry_after and retry_after.isdigit() else (3 * (2 ** attempt))
-                logging.warning("AI provider returned HTTP %s; retrying in %ss", response.status_code, delay)
-                time.sleep(delay)
-                continue
+                body = response.text[:1200]
+                if response.status_code == 429 and any(term in body.lower() for term in
+                        ("insufficient_quota", "billing_not_active", "credit balance")):
+                    raise RuntimeError("AI provider reports an account quota or billing restriction; check provider usage and billing.")
+                delay = None
+                for header in ("retry-after", "x-ratelimit-reset-requests"):
+                    value = response.headers.get(header, "").strip()
+                    match = re.fullmatch(r"([0-9]+(?:\\.[0-9]+)?)(ms|s)?", value, re.I)
+                    if match:
+                        seconds = float(match.group(1))
+                        delay = seconds / 1000 if (match.group(2) or "").lower() == "ms" else seconds
+                        break
+                if delay is None:
+                    delay = 20 * (attempt + 1)
+                delay = max(5, min(180, int(delay) + 2))
+                logging.warning("AI provider HTTP %s; retry %s/%s in %ss. Response: %s",
+                                response.status_code, attempt + 1, AI_MAX_ATTEMPTS, delay, body)
+                if attempt < AI_MAX_ATTEMPTS - 1:
+                    time.sleep(delay)
+                    continue
+                break
             response.raise_for_status()
             break
         except requests.RequestException as exc:
             last_error = exc
             if attempt == AI_MAX_ATTEMPTS - 1:
                 raise
-            time.sleep(3 * (2 ** attempt))
+            time.sleep(10 * (attempt + 1))
     if response is None or response.status_code >= 400:
         if last_error:
             raise last_error
-        raise RuntimeError("AI provider retries exhausted")
+        raise RuntimeError("AI provider retries exhausted; inspect provider response and account rate limits.")
     draft = json.loads(response.json()["choices"][0]["message"]["content"])
     draft["search_description"] = normalize_search_description(draft)
     required = {"title", "search_description", "focus_keyword", "labels", "article_html",
