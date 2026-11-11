@@ -221,9 +221,12 @@ def quality_gate(draft, fetched, story):
                         break
                     node = nxt
 
-    text = re.sub(r"\\s+", " ", soup.get_text(" ", strip=True)).strip()
-    word_count = len(text.split())
     original_soup = BeautifulSoup(html, "html.parser")
+    # Headings, captions and image alt text are structure/metadata, not article body words.
+    for node in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6", "figcaption", "img"]):
+        node.decompose()
+    text = re.sub(r"\s+", " ", soup.get_text(" ", strip=True)).strip()
+    word_count = len(text.split())
     links = {a.get("href") for a in original_soup.find_all("a", href=True)}
     allowed_urls = {x["url"] for x in fetched if x.get("accessible") and x.get("url")}
     title = str(draft.get("title", "")).strip()
@@ -235,7 +238,7 @@ def quality_gate(draft, fetched, story):
         "has_section_headings": len(original_soup.find_all(["h2", "h3"])) >= 2,
         "has_source_links": bool(links & allowed_urls),
         "source_links_are_supplied": links.issubset(allowed_urls),
-        "no_unsafe_html": not bool(re.search(r"<(script|iframe|form|object|embed)\\b", html, re.I)),
+        "no_unsafe_html": not bool(re.search(r"<(script|iframe|form|object|embed)\b", html, re.I)),
         "no_empty_required_seo_fields": all(str(draft.get(k, "")).strip() for k in ("focus_keyword", "excerpt", "image_prompt", "image_alt_text"))
     }
     failed = [k for k, ok in checks.items() if not ok]
