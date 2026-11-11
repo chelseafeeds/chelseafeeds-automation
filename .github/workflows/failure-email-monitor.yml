@@ -1,0 +1,36 @@
+name: ChelseaFeeds Failure Email Monitor
+
+on:
+  workflow_run:
+    workflows:
+      - Chelsea News Collection
+      - ChelseaFeeds Evidence and Article Drafts
+      - ChelseaFeeds Auto Schedule Editorial Batch
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: chelseafeeds-failure-email-monitor
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout monitor
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Send failure alert by email
+        env:
+          MONITOR_EMAIL: ${{ secrets.MONITOR_EMAIL }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+        run: python .github/scripts/send_failure_alert.py
