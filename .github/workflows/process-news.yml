@@ -14,7 +14,7 @@ on:
 
 permissions:
   actions: read
-  contents: read
+  contents: write
 
 concurrency:
   group: chelseafeeds-editorial-queue
@@ -60,14 +60,16 @@ jobs:
       - name: Run processor regression tests
         run: python process_news.py --self-test
 
-      - name: Test related internal-link safeguards
-        run: python related_links.py --self-test
+      - name: Test related internal-link safeguards and history persistence
+        run: |
+          python related_links.py --self-test
+          python update_processing_history.py --self-test
 
       - name: Test mixed featured-image safeguards
         run: python generate_featured_images.py --self-test
 
       - name: Compile-check publishing integration
-        run: python -m py_compile process_news.py related_links.py generate_featured_images.py upload_featured_image.py publish_article.py
+        run: python -m py_compile process_news.py related_links.py generate_featured_images.py upload_featured_image.py publish_article.py update_processing_history.py
 
       - name: Download collector candidates
         uses: actions/download-artifact@v4
@@ -95,3 +97,8 @@ jobs:
             output/images/
           if-no-files-found: error
           retention-days: 7
+
+      - name: Persist completed editorial outcomes and prevent duplicate hourly drafts
+        run: |
+          python update_processing_history.py --report output/editorial_report.json
+          python persist_history.py
