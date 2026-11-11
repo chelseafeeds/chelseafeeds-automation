@@ -5,6 +5,7 @@ import json
 import os
 import re
 import sys
+from datetime import datetime, timedelta, timezone
 from urllib.parse import quote, urlparse
 
 import requests
@@ -112,10 +113,11 @@ def main():
     image_alt = required("FEATURED_IMAGE_ALT")
     content = attach_featured_image(article_html, image_url, image_alt)
 
-    # Explicit safety lock: this integration only creates/updates Blogger drafts.
-    if os.getenv("BLOGGER_PUBLISH_LIVE", "false").lower() == "true":
-        raise RuntimeError("Public publishing is disabled in this testing version.")
-    live = False
+    # Publishing is permitted only through an explicit, bounded future schedule.
+    # A zero-minute setting preserves draft-only behaviour.
+    schedule_minutes = int(os.getenv("BLOGGER_AUTO_SCHEDULE_MINUTES", "0"))
+    if schedule_minutes < 0 or schedule_minutes > 1440:
+        raise RuntimeError("BLOGGER_AUTO_SCHEDULE_MINUTES must be between 0 and 1440.")
 
     client_id = required("BLOGGER_CLIENT_ID")
     client_secret = required("BLOGGER_CLIENT_SECRET")
@@ -147,8 +149,16 @@ def main():
     matching_live = [item for item in live_posts if item.get("title") == title and item.get("id")]
     if matching_live:
         raise RuntimeError("A public Blogger post already has this exact title; refusing to create a duplicate.")
+    scheduled_posts = find_posts(session, blog_id, access_token, "scheduled")
+    matching_scheduled = [item for item in scheduled_posts if item.get("title") == title and item.get("id")]
+    if len(matching_scheduled) > 1:
+        raise RuntimeError("Multiple scheduled Blogger posts already have this exact title; refusing an ambiguous update.")
 
-    if matching_drafts:
+    if matching_scheduled:
+        result = matching_scheduled[0]
+        post_id = str(result["id"])
+        blogger_action = "already_scheduled"
+    elif matching_drafts:
         post_id = str(matching_drafts[0]["id"])
         response = session.put(f"{base}/{quote(post_id, safe='')}", params={
             "fetchImages": "true", "fetchBody": "true"
@@ -168,6 +178,21 @@ def main():
     post_id = result.get("id", post_id if "post_id" in locals() else "")
     if not post_id:
         raise RuntimeError("Blogger API returned no post ID; verify the post in Blogger.")
+
+    scheduled_for = None
+    blogger_status = "saved_as_draft"
+    if schedule_minutes and blogger_action != "already_scheduled":
+        scheduled_for = (datetime.now(timezone.utc) + timedelta(minutes=schedule_minutes)).isoformat(timespec="seconds").replace("+00:00", "Z")
+        publish_endpoint = f"{base}/{quote(str(post_id), safe='')}/publish"
+        publish_response = session.post(publish_endpoint, params={"publishDate": scheduled_for}, headers=headers, timeout=45)
+        publish_response.raise_for_status()
+        result = publish_response.json()
+        blogger_status = "scheduled"
+        post_url = result.get("url", post_url)
+    elif blogger_action == "already_scheduled":
+        blogger_status = "already_scheduled"
+        scheduled_for = result.get("published")
+
     images = result.get("images", []) or []
     detected = any(isinstance(item, dict) and item.get("url") == image_url for item in images)
     response_content = result.get("content", "") or ""
@@ -175,17 +200,20 @@ def main():
         "image_present_in_saved_html" if image_url in response_content else "image_embedded_in_request"
     )
     print(json.dumps({
-        "blogger_status": "saved_as_draft",
+        "blogger_status": blogger_status,
         "blogger_action": blogger_action,
         "post_id": str(post_id),
         "title": title,
         "post_url": post_url,
+        "search_description_characters": len(description),
+        "scheduled_for_utc": scheduled_for,
+        "schedule_delay_minutes": schedule_minutes,
         "featured_image_status": image_status,
         "featured_image_source_type": os.getenv("FEATURED_IMAGE_SOURCE_TYPE", "branded_graphic_fallback"),
         "featured_image_url": image_url,
-        "public_publishing_enabled": False
+        "public_publishing_enabled": bool(schedule_minutes)
     }, ensure_ascii=False))
-    print("X announcement skipped (draft-only testing mode; X publishing disabled).")
+    print("X announcement skipped (X publishing remains disabled).")
 
 if __name__ == "__main__":
     try:
