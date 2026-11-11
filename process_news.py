@@ -390,7 +390,7 @@ def self_test():
     assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"]
     base = {"title":"Chelsea analysis headline","search_description":"Chelsea analysis " * 8,
         "focus_keyword":"Chelsea FC","excerpt":"Chelsea analysis excerpt","image_prompt":"Editorial illustration",
-        "image_alt_text":"Chelsea themed illustration","article_html":"<h2>Context</h2><p>" + ("Chelsea football analysis. " * 65) +
+        "image_alt_text":"Chelsea themed illustration","article_html":"<h2>Context</h2><p>" + ("Chelsea football analysis. " * 110) +
         "</p><h2>What next</h2><p>More analysis.</p><p><a href='https://www.bbc.co.uk/a'>Source</a></p>"}
     assert quality_gate(base, one, story)["passed"]
     unsafe = dict(base, article_html=base["article_html"] + "<script>alert(1)</script>")
