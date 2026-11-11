@@ -598,7 +598,9 @@ def process(input_path, output_dir):
                                            "Upload the thumbnail to Blogger and use it as the post featured image.")
                     drafts.append({"event_id": story.get("event_id"), "collector_headline": story.get("title"),
                         "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
-                        "source_urls": story.get("source_urls", []), "evidence_assessment": assessment,
+                        "source_urls": story.get("source_urls", []),
+                        "source_images": [img for src in fetched if src.get("accessible") for img in src.get("source_images", [])],
+                        "evidence_assessment": assessment,
                         "verification_status": "evidence_triaged_not_fact_verified", "claims_verified": False,
                         "editorial_status": "draft_requires_editorial_review", "article_generated": True,
                         "published_to_blogger": False, "published_to_x": False, "draft": draft})
