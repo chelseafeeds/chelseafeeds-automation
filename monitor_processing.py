@@ -33,7 +33,7 @@ def api_get(url, **kwargs):
 def is_live_article(url):
     p=urlparse(url or "")
     return (p.scheme=="https" and p.netloc.lower() in {"www.chelseafeeds.com","chelseafeeds.com"}
-            and re.fullmatch(r"/\\d{4}/\\d{2}/[^/]+\\.html",p.path or "") is not None)
+            and re.fullmatch(r"/\d{4}/\d{2}/[^/]+\\.html",p.path or "") is not None)
 
 def find_json(zf, suffix):
     matches=[n for n in zf.namelist() if n.endswith(suffix)]
@@ -162,7 +162,7 @@ def main():
     lines += ["## Active runs"]
     for r in active: lines.append(f"- Run #{r.get('run_number')}: {r.get('status')} — {r.get('html_url')}")
     with open(os.environ.get("GITHUB_STEP_SUMMARY","monitor-output/summary.md"),"a",encoding="utf-8") as f:
-        f.write("\\n".join(lines)+"\\n")
+        f.write("\n".join(lines)+"\n")
     print(json.dumps(REPORT["summary"],ensure_ascii=False))
     # Verification warnings should be visible but must not prevent the monitor from running again.
 if __name__=="__main__": main()
