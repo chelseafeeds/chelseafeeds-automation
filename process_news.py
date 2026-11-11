@@ -57,6 +57,44 @@ def slug(value):
     value = re.sub(r"[^a-z0-9]+", "-", str(value).lower()).strip("-")
     return (value[:70].strip("-") or "chelsea-story")
 
+def extract_source_images(html, page_url):
+    """Collect images embedded by this exact source page; never perform broad image searches."""
+    soup = BeautifulSoup(html or "", "html.parser")
+    found, seen = [], set()
+    license_name = ""
+    license_url = ""
+    for node in soup.select('meta[name="license"], meta[property="dcterms:license"], meta[name="dcterms.license"], link[rel="license"]'):
+        value = node.get("content") or node.get("href") or ""
+        if value:
+            if value.startswith("/"):
+                from urllib.parse import urljoin
+                value = urljoin(page_url, value)
+            if "creativecommons.org/publicdomain/zero" in value.lower():
+                license_name, license_url = "CC0 1.0", value
+            elif "creativecommons.org/licenses/by/" in value.lower():
+                license_name, license_url = "CC BY (version requires verification)", value
+            elif "creativecommons.org/licenses/by-sa/" in value.lower():
+                license_name, license_url = "CC BY-SA (not accepted)", value
+    nodes = []
+    for selector in ('meta[property="og:image"]', 'meta[name="twitter:image"]', 'article img', 'main img'):
+        nodes.extend(soup.select(selector))
+    from urllib.parse import urljoin
+    for node in nodes:
+        raw = node.get("content") or node.get("src") or node.get("data-src") or ""
+        if not raw:
+            continue
+        url = urljoin(page_url, raw.strip())
+        if not url.startswith("https://") or url in seen:
+            continue
+        seen.add(url)
+        alt = (node.get("alt") or node.get("title") or "").strip()[:250]
+        found.append({"url": url, "page_url": page_url, "alt_text": alt,
+                      "license_name": license_name, "license_url": license_url,
+                      "rights_explicit": bool(license_name)})
+        if len(found) >= 8:
+            break
+    return found
+
 def clean_text(html):
     soup = BeautifulSoup(html or "", "html.parser")
     for node in soup(["script", "style", "noscript", "svg", "nav", "footer", "header", "form"]):
@@ -93,6 +131,7 @@ def fetch_source(url, session):
             return result
         title, desc, body = clean_text(response.text)
         result.update(page_title=title, description=desc, excerpt=body[:MAX_FETCH_CHARS])
+        result["source_images"] = extract_source_images(response.text, response.url)
         result["accessible"] = len(body) >= 180
         if not result["accessible"]:
             result["error"] = "Page returned too little readable text"
@@ -622,7 +661,7 @@ def process(input_path, output_dir):
         "ai_usage": dict(AI_USAGE),
         "run_token_budget": RUN_TOKEN_BUDGET,
         "max_completion_tokens_per_request": MAX_COMPLETION_TOKENS,
-        "thumbnail_method": "local_pillow_branded_template", "external_image_api_required": False,
+        "thumbnail_method": "source_page_images_only_with_explicit_reuse_rights", "external_image_api_required": False,
         "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
             "Evidence accessibility and publisher counts are not factual verification.",
