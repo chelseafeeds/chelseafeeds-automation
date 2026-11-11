@@ -17,7 +17,10 @@ def main():
     artifact = Path(os.getenv("BLOGGER_READY_FILE", "input/blogger_ready_posts.json"))
     if not artifact.exists():
         raise RuntimeError(f"Article artifact not found: {artifact}")
-    posts = json.loads(artifact.read_text(encoding="utf-8"))
+    payload = json.loads(artifact.read_text(encoding="utf-8"))
+    posts = payload.get("posts", []) if isinstance(payload, dict) else payload
+    if not isinstance(posts, list):
+        raise RuntimeError("blogger_ready_posts.json has an unexpected format.")
     event_id = required("ARTICLE_EVENT_ID")
     matches = [p for p in posts if str(p.get("event_id", "")) == event_id]
     if len(matches) != 1:
