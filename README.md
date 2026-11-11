@@ -5,9 +5,10 @@ Chelsea FC news collection, evidence triage, unpublished article drafting and lo
 ## Current pipeline
 
 1. `collect_news.py` collects Chelsea-related RSS items, clusters duplicate events and leaves every candidate pending.
-2. `process_news.py` checks source accessibility and evidence strength, generates article drafts with Groq, applies the editorial quality gate, and creates a branded thumbnail locally with Pillow.
-3. The `ChelseaFeeds Evidence and Article Drafts` workflow runs automatically after a successful `Chelsea News Collection` workflow on `main`.
-4. Results are saved as the `chelseafeeds-editorial-results` GitHub Actions artifact, including `article_drafts.json`, `editorial_report.json` and JPG thumbnails in `images/`.
+2. `process_news.py` checks up to eight source URLs per candidate, generates attributed article drafts with Groq (up to ten per run), applies the editorial quality gate, and creates a branded thumbnail locally with Pillow.
+3. It also exports `blogger_ready_posts.json`, containing Blogger title, HTML body, search description, labels, suggested permalink slug, source URLs and featured-image metadata.
+4. The `ChelseaFeeds Evidence and Article Drafts` workflow runs automatically after a successful `Chelsea News Collection` workflow on `main`.
+5. Results are saved as the `chelseafeeds-editorial-results` GitHub Actions artifact, including `article_drafts.json`, `editorial_report.json` and JPG thumbnails in `images/`.
 
 ## Article generation (Groq)
 
@@ -48,4 +49,4 @@ A later enhancement can use appropriately licensed photographs from Wikimedia Co
 
 ## Workflow artifacts
 
-Open Actions → ChelseaFeeds Evidence and Article Drafts → latest successful run → Artifacts. Download `chelseafeeds-editorial-results`. The `images/` folder contains the ready-to-upload thumbnails. Upload the thumbnail to Blogger and set it as the post's featured image before publishing.
+Open Actions → ChelseaFeeds Evidence and Article Drafts → latest successful run → Artifacts. Download `chelseafeeds-editorial-results`. It includes `blogger_ready_posts.json` for copying into Blogger HTML view and the `images/` folder for featured thumbnails. Upload each thumbnail separately in Blogger; review the draft and sources before publishing. Upload the thumbnail to Blogger and set it as the post's featured image before publishing.
