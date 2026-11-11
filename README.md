@@ -20,22 +20,25 @@ The processor uses Groq's OpenAI-compatible API.
 
 Default model: `openai/gpt-oss-120b`. Model availability and rate limits can change.
 
-## Thumbnail generation — no external image service
+## Mixed featured-image generation and sourcing
 
-ChelseaFeeds thumbnails are now generated entirely inside GitHub Actions using Pillow. **Cloudflare Workers AI and its secrets are no longer required.**
+The featured-image pipeline now follows this order for every article:
 
-Each thumbnail:
-- Is exported as a 1200 × 675 JPEG, suitable for a Blogger featured image.
-- Uses Chelsea blue, deep navy, white and gold.
-- Includes the article headline and CHELSEAFEEDS wordmark.
-- Uses abstract football/stadium graphics, not fabricated club crests, real-player likenesses or fake match photography.
-- Is saved in the workflow artifact under `images/`, with a descriptive filename and ALT text in the article draft JSON.
+1. **Relevant licensed photograph:** search Wikimedia Commons using the article headline and context. A candidate must pass relevance, image-size and licence checks. Only CC0, public-domain, or CC BY 2.0/3.0/4.0 files are accepted automatically. The original file page, creator, licence and attribution are saved with the article.
+2. **AI-generated editorial illustration:** if no sufficiently relevant licensed photo is found, use the OpenAI Images API to create a scene based on the article headline, excerpt and visual prompt. It must be an illustration, not fake documentary photography or an imitation of a real player's likeness. The generated image carries an "AI ILLUSTRATION" disclosure.
+3. **Branded fallback:** if neither source is available, retain the previous locally generated ChelseaFeeds graphic. The report records which method was used.
 
-The design is deterministic: the same article title and layout rules produce a consistent branded style. It does not call an image-generation API, use API credentials, incur image inference charges, or download unverified photographs.
+All final images are normalized to 1200 × 675 JPEGs. Commons images receive a visible creator/source/licence credit in the Blogger article. AI images are identified as illustrations. News-publisher and social-media images are never scraped.
 
-### Optional real football photographs
+### Enable AI-generated fallback
 
-A later enhancement can use appropriately licensed photographs from Wikimedia Commons or another rights-cleared source. This is deliberately not part of the automatic pipeline yet: each image's licence, attribution and relevance must be checked before reuse. Do not automatically scrape images from news publishers or social media.
+In GitHub repository Settings → Secrets and variables → Actions, optionally add:
+
+- `OPENAI_API_KEY` — an OpenAI API key with image-generation API access.
+
+The image workflow uses `gpt-image-2.5-flare` by default. Image generation is a paid API operation; check current API pricing and organization/model access before adding the key. Without this secret, the system still attempts a properly licensed Commons photograph and otherwise uses the branded fallback. The existing Groq key does not automatically provide OpenAI image-generation access.
+
+The system never treats an AI illustration as a real match photograph. A Commons licence does not automatically clear every possible personality, trademark or other non-copyright restriction; source files still need appropriate editorial review.
 
 ## Editorial quality and publishing safeguards
 
@@ -87,3 +90,8 @@ The publisher refuses records that do not match the expected review status and s
 ## Workflow artifacts
 
 Open Actions → ChelseaFeeds Evidence and Article Drafts → latest successful run → Artifacts. Download `chelseafeeds-editorial-results`. It includes `blogger_ready_posts.json` for copying into Blogger HTML view and the `images/` folder for featured thumbnails. Upload each thumbnail separately in Blogger; review the draft and sources before publishing. Upload the thumbnail to Blogger and set it as the post's featured image before publishing.
+
+
+## Draft-only featured-image publishing test
+
+The manual Blogger workflow now accepts only the source workflow run ID and exact article event ID. It has no public-publish or X-posting switches. The publisher itself also rejects a live-publishing request, and always creates or updates a Blogger draft. Check the Blogger draft and the image credit/disclosure before any future change to publication permissions.
