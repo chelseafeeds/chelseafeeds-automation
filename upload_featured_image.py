@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Publish a generated article thumbnail to this public repository and verify its URL."""
-import html
 import json
 import os
 import re
@@ -31,7 +30,7 @@ def main():
     featured = post.get("featured_image") or {}
     filename = str(featured.get("filename", "")).strip()
     local_path = str(featured.get("local_path", "")).strip()
-    if not filename or not re.fullmatch(r"[A-Za-z0-9._-]+\\.(?:jpg|jpeg|png|webp)", filename, re.I):
+    if not filename or not re.fullmatch(r"[A-Za-z0-9._-]+\.(?:jpg|jpeg|png|webp)", filename, re.I):
         raise RuntimeError("Featured image filename is missing or unsafe.")
     if local_path != f"images/{filename}":
         raise RuntimeError("Featured image path does not match the expected images/<filename> layout.")
@@ -42,7 +41,7 @@ def main():
         raise RuntimeError("Featured image size is outside the permitted 1 KB–10 MB range.")
     if featured.get("width") != 1200 or featured.get("height") != 675:
         raise RuntimeError("Featured image dimensions must be 1200 x 675.")
-    if image_path.suffix.lower() in {".jpg", ".jpeg"} and image_path.read_bytes()[:3] != b"\\xff\\xd8\\xff":
+    if image_path.suffix.lower() in {".jpg", ".jpeg"} and image_path.read_bytes()[:3] != b"\xff\xd8\xff":
         raise RuntimeError("Featured image does not contain a valid JPEG signature.")
 
     repository = os.environ.get("GITHUB_REPOSITORY", "").strip()
@@ -83,13 +82,13 @@ def main():
         raise RuntimeError(f"Uploaded image URL could not be verified publicly: {last_error}")
 
     alt = str(featured.get("alt_text") or post.get("image_alt_text") or post.get("title") or "ChelseaFeeds article image").strip()
-    alt = re.sub(r"\\s+", " ", alt)[:250]
+    alt = re.sub(r"\s+", " ", alt)[:250]
     output_file = os.environ.get("GITHUB_OUTPUT")
     if not output_file:
         raise RuntimeError("GITHUB_OUTPUT is unavailable; cannot pass the verified image URL to the publisher.")
     with open(output_file, "a", encoding="utf-8") as out:
-        out.write(f"image_url={image_url}\\n")
-        out.write(f"alt_text={alt.replace(chr(10), ' ').replace(chr(13), ' ')}\\n")
+        out.write(f"image_url={image_url}\n")
+        out.write(f"alt_text={alt.replace(chr(10), ' ').replace(chr(13), ' ')}\n")
     print(json.dumps({"featured_image_status": "uploaded_and_publicly_verified",
                       "image_url": image_url, "filename": filename,
                       "width": 1200, "height": 675}, ensure_ascii=False))
