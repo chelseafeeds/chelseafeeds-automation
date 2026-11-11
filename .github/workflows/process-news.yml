@@ -24,7 +24,7 @@ jobs:
   process:
     if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 55
     env:
       AI_API_KEY: ${{ secrets.GROQ_API_KEY }}
       AI_PROVIDER: groq
@@ -32,9 +32,9 @@ jobs:
       AI_MODEL: openai/gpt-oss-120b
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_IMAGE_MODEL: gpt-image-2.5-flare
-      MAX_DRAFTS_PER_RUN: "10"
-      MAX_SOURCE_PACK: "6"
-      MAX_SOURCE_CHARS: "5000"
+      MAX_DRAFTS_PER_RUN: "25"
+      MAX_SOURCE_PACK: "8"
+      MAX_SOURCE_CHARS: "6500"
       SOURCE_FETCH_WORKERS: "8"
       AI_REQUEST_TIMEOUT: "45"
       AI_MAX_ATTEMPTS: "2"
