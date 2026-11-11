@@ -1,32 +1,34 @@
 #!/usr/bin/env python3
-"""ChelseaFeeds evidence triage and article-draft processor.
-
-This stage checks source accessibility and evidence quality, then creates
-unpublished editorial drafts when the configured evidence threshold is met.
-It never marks claims as verified and never publishes to Blogger or X.
-"""
+"""ChelseaFeeds v1.2: evidence triage, editorial quality gates and branded image assets."""
 from __future__ import annotations
-import argparse, json, logging, os, re, time
+import argparse, base64, json, logging, os, re, time
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
+from PIL import Image, ImageDraw, ImageFont
 
-VERSION = "1.1"
+VERSION = "1.2"
 TIMEOUT = 20
 MAX_FETCH_CHARS = 9000
-MAX_DRAFTS = int(os.getenv("MAX_DRAFTS_PER_RUN", "3"))
+MAX_DRAFTS = max(0, min(3, int(os.getenv("MAX_DRAFTS_PER_RUN", "3"))))
 AI_PROVIDER = os.getenv("AI_PROVIDER", "groq").strip().lower()
 AI_API_KEY = os.getenv("AI_API_KEY", "").strip()
 AI_BASE_URL = os.getenv("AI_BASE_URL", "https://api.groq.com/openai/v1").rstrip("/")
 MODEL = os.getenv("AI_MODEL", "openai/gpt-oss-120b").strip()
 MAX_SOURCE_PACK = int(os.getenv("MAX_SOURCE_PACK", "4"))
 MAX_SOURCE_CHARS = int(os.getenv("MAX_SOURCE_CHARS", "3500"))
+IMAGE_PROVIDER = os.getenv("IMAGE_PROVIDER", "cloudflare").strip().lower()
+CF_ACCOUNT_ID = os.getenv("CLOUDFLARE_ACCOUNT_ID", "").strip()
+CF_API_TOKEN = os.getenv("CLOUDFLARE_API_TOKEN", "").strip()
+CF_MODEL = os.getenv("CLOUDFLARE_IMAGE_MODEL", "@cf/black-forest-labs/flux-1-schnell").strip()
+MAX_IMAGES_PER_RUN = max(0, min(6, int(os.getenv("MAX_IMAGES_PER_RUN", "6"))))
+IMAGE_STEPS = max(1, min(4, int(os.getenv("IMAGE_STEPS", "4"))))
 OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com"}
 ESTABLISHED = {"bbc.co.uk", "bbc.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com", "espn.com", "independent.co.uk", "standard.co.uk", "nytimes.com", "theathletic.com", "football365.com", "thetimes.com", "telegraph.co.uk"}
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsEditorialBot/1.0; +https://www.chelseafeeds.com/)"}
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsEditorialBot/1.2; +https://www.chelseafeeds.com/)"}
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 def utcnow():
@@ -39,13 +41,15 @@ def in_domains(url, domains):
     d = host(url)
     return any(d == x or d.endswith("." + x) for x in domains)
 
+def slug(value):
+    value = re.sub(r"[^a-z0-9]+", "-", str(value).lower()).strip("-")
+    return (value[:70].strip("-") or "chelsea-story")
+
 def clean_text(html):
     soup = BeautifulSoup(html or "", "html.parser")
     for node in soup(["script", "style", "noscript", "svg", "nav", "footer", "header", "form"]):
         node.decompose()
-    title = ""
-    if soup.title:
-        title = soup.title.get_text(" ", strip=True)
+    title = soup.title.get_text(" ", strip=True) if soup.title else ""
     for selector in ['meta[property="og:title"]', 'meta[name="twitter:title"]']:
         node = soup.select_one(selector)
         if node and node.get("content"):
@@ -90,7 +94,6 @@ def evidence_assessment(story, fetched):
     official = [x for x in accessible if in_domains(x["url"], OFFICIAL)]
     established = [x for x in accessible if in_domains(x["url"], ESTABLISHED)]
     typ = story.get("story_type", "general_news")
-    # These are editorial eligibility rules, not proof that every claim is true.
     if official:
         tier = "official_source_accessible"
     elif len({x["domain"] for x in established}) >= 2:
@@ -106,210 +109,290 @@ def evidence_assessment(story, fetched):
         reason = "Opinion draft may be prepared with attribution; factual premises still require checking."
     elif typ in {"transfer_rumour", "confirmed_transfer"}:
         eligible = bool(accessible) and (bool(official) or len({x["domain"] for x in established}) >= 2)
-        reason = "Transfer coverage requires official evidence or two accessible established publishers; rumours must remain explicitly unconfirmed."
-    elif typ in {"match_report", "match_reaction", "match_preview", "injury_update", "team_news", "club_news"}:
-        eligible = bool(official) or len({x["domain"] for x in established}) >= 2
-        reason = "Factual sports coverage requires an accessible official source or two distinct established publisher domains."
+        reason = "Transfer coverage requires official evidence or two accessible established publishers."
     else:
         eligible = bool(official) or len({x["domain"] for x in established}) >= 2
-        reason = "General factual coverage requires an accessible official source or two distinct established publisher domains."
-    # A single syndicated story repeated across URLs from one publisher is not corroboration.
-    return {
-        "evidence_tier": tier,
-        "accessible_source_count": len(accessible),
-        "accessible_publisher_domains": accessible_domains,
-        "official_source_count": len(official),
-        "established_source_domains": sorted({x["domain"] for x in established}),
-        "eligible_for_draft": eligible,
-        "claims_verified": False,
-        "reason": reason,
-        "warning": "Accessibility and publisher count do not prove independent sourcing or factual accuracy."
-    }
+        reason = "Factual coverage requires an accessible official source or two distinct established publishers."
+    return {"evidence_tier": tier, "accessible_source_count": len(accessible),
+            "accessible_publisher_domains": accessible_domains, "official_source_count": len(official),
+            "established_source_domains": sorted({x["domain"] for x in established}),
+            "eligible_for_draft": eligible, "claims_verified": False, "reason": reason,
+            "warning": "Accessibility and publisher count are evidence triage, not proof of factual accuracy."}
 
 def build_prompt(story, evidence):
-    source_pack = []
-    for item in evidence[:MAX_SOURCE_PACK]:
-        if item["accessible"]:
-            source_pack.append({
-                "url": item["url"], "domain": item["domain"],
-                "page_title": item["page_title"], "description": item["description"],
-                "source_excerpt": item["excerpt"][:MAX_SOURCE_CHARS]
-            })
-    return {
-        "story": {
-            "headline": story.get("title"),
-            "story_type": story.get("story_type"),
-            "team_scope": story.get("team_scope"),
-            "published": story.get("published"),
+    pack = [{"url": x["url"], "domain": x["domain"], "page_title": x["page_title"],
+             "description": x["description"], "source_excerpt": x["excerpt"][:MAX_SOURCE_CHARS]}
+            for x in evidence[:MAX_SOURCE_PACK] if x["accessible"]]
+    return {"story": {"headline": story.get("title"), "story_type": story.get("story_type"),
+            "team_scope": story.get("team_scope"), "published": story.get("published"),
             "collector_summary": story.get("best_summary", ""),
-            "original_source_links": story.get("source_urls", [])
-        },
-        "accessible_source_material": source_pack
-    }
+            "original_source_links": story.get("source_urls", [])},
+            "accessible_source_material": pack}
 
 def generate_draft(story, evidence, api_key, session):
     payload = build_prompt(story, evidence)
     system = (
-        "You are a careful Chelsea FC sports journalist and SEO editor for ChelseaFeeds. "
-        "Create an original, readable article using ONLY the supplied source material. "
-        "Do not invent facts, quotes, dates, scores, statistics, injuries, transfer fees, "
-        "contract details, line-ups, venues or motives. If a detail is not supported, omit "
-        "it or explicitly say it has not been confirmed. Do not copy source wording. "
-        "Do not imply two publishers are independent if that is unknown. "
-        "For transfer_rumour, label the story as a report/rumour and attribute it to its "
-        "source; never present interest, talks, bids or fees as confirmed. "
-        "For opinion_analysis, attribute opinions and keep them distinct from facts. "
-        "Keep the correct team scope (men, women or academy) clear. "
-        "Produce a useful 800-1200 word draft when evidence supports it; shorter is better "
-        "than padding or speculation. Include source links in a short Sources section. "
-        "Use natural language, useful subheadings, a concise intro and original analysis. "
-        "Return ONLY valid JSON with keys: title, search_description, focus_keyword, labels "
-        "(array), article_html, excerpt, image_prompt, image_alt_text, editorial_notes "
-        "(array), unsupported_or_unverified_points (array). "
-        "article_html must be Blogger-ready HTML using h2, h3, p, ul/li where useful. "
-        "Do not include schema markup, scripts, iframe, inline ads or fabricated internal links. "
-        "Never state that the article or its claims are verified."
+        "You are a careful Chelsea FC sports journalist and SEO editor. Use ONLY supplied evidence. "
+        "Never invent facts, quotes, dates, scores, stats, injuries, fees, contract clauses, line-ups, "
+        "venues or motives. Do not create direct quotations; paraphrase and attribute instead. "
+        "Do not copy source wording. Separate confirmed facts, reported claims and opinion. "
+        "For transfers, state clearly whether confirmed or reported; never infer fees or clauses. "
+        "For opinion, attribute the view and distinguish its factual premises. Keep men, women and "
+        "academy teams distinct. Write concise, substantive copy; no padding to hit a word count. "
+        "Use useful H2 headings, clear intro, original analysis, and a Sources heading at the end. "
+        "Include ONLY supplied source URLs in the Sources section. Do not invent internal links. "
+        "Return ONLY JSON keys: title, search_description, focus_keyword, labels, article_html, "
+        "excerpt, image_prompt, image_alt_text, editorial_notes, unsupported_or_unverified_points. "
+        "HTML must be Blogger-ready, with no scripts, iframe, form, schema or inline ads. "
+        "Image prompt must request an editorial illustration, not fake documentary match photography "
+        "or a photorealistic depiction of a real player. Chelsea blue #034694, navy #071426, white, gold."
     )
-    req = {
-        "model": MODEL,
-        "response_format": {"type": "json_object"},
-        "messages": [
-            {"role": "system", "content": system},
-            {"role": "user", "content": json.dumps(payload, ensure_ascii=False)}
-        ]
-    }
-    response = session.post(
-        AI_BASE_URL + "/chat/completions",
+    req = {"model": MODEL, "response_format": {"type": "json_object"},
+           "messages": [{"role": "system", "content": system},
+                        {"role": "user", "content": json.dumps(payload, ensure_ascii=False)}]}
+    response = session.post(AI_BASE_URL + "/chat/completions",
         headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
-        json=req, timeout=90
-    )
+        json=req, timeout=90)
     response.raise_for_status()
-    data = response.json()
-    content = data["choices"][0]["message"]["content"]
-    draft = json.loads(content)
+    draft = json.loads(response.json()["choices"][0]["message"]["content"])
     required = {"title", "search_description", "focus_keyword", "labels", "article_html",
-                "excerpt", "image_prompt", "image_alt_text", "editorial_notes",
-                "unsupported_or_unverified_points"}
+                "excerpt", "image_prompt", "image_alt_text", "editorial_notes", "unsupported_or_unverified_points"}
     missing = required - set(draft)
     if missing:
         raise ValueError("Model output missing keys: " + ", ".join(sorted(missing)))
-    html = str(draft["article_html"])
-    if len(html) < 500:
-        raise ValueError("Generated article body is unexpectedly short")
-    if re.search(r"<(script|iframe|form)\b", html, re.I):
-        raise ValueError("Unsafe HTML element detected in generated article")
     return draft
+
+def quality_gate(draft, fetched, story):
+    html = str(draft.get("article_html", ""))
+    soup = BeautifulSoup(html, "html.parser")
+    text = re.sub(r"\s+", " ", soup.get_text(" ", strip=True)).strip()
+    links = {a.get("href") for a in soup.find_all("a", href=True)}
+    allowed_urls = {x["url"] for x in fetched if x["accessible"]}
+    checks = {
+        "title_present_and_reasonable": 25 <= len(str(draft.get("title", "")).strip()) <= 100,
+        "search_description_length": 100 <= len(str(draft.get("search_description", "")).strip()) <= 180,
+        "substantive_article_body": len(text.split()) >= 300,
+        "has_section_headings": len(soup.find_all(["h2", "h3"])) >= 2,
+        "has_source_links": bool(links & allowed_urls),
+        "source_links_are_supplied": links.issubset(allowed_urls),
+        "no_unsafe_html": not bool(re.search(r"<(script|iframe|form|object|embed)\b", html, re.I)),
+        "no_empty_required_seo_fields": all(str(draft.get(k, "")).strip() for k in ("focus_keyword", "excerpt", "image_prompt", "image_alt_text"))
+    }
+    score = round(100 * sum(checks.values()) / len(checks))
+    failed = [k for k, ok in checks.items() if not ok]
+    # The processor refuses low-substance, unsafe, or source-less drafts. It never declares facts verified.
+    critical = {"substantive_article_body", "has_source_links", "source_links_are_supplied", "no_unsafe_html"}
+    passed = not (critical & set(failed)) and score >= 75
+    return {"passed": passed, "score": score, "checks": checks, "failed_checks": failed,
+            "note": "Automated editorial screening only; it is not independent fact-checking."}
+
+def cloudflare_image(prompt, session):
+    if not (CF_ACCOUNT_ID and CF_API_TOKEN):
+        raise RuntimeError("Cloudflare image service is not configured")
+    endpoint = "https://api.cloudflare.com/client/v4/accounts/" + CF_ACCOUNT_ID + "/ai/run/" + CF_MODEL
+    response = session.post(endpoint, headers={"Authorization": "Bearer " + CF_API_TOKEN,
+        "Content-Type": "application/json"},
+        json={"prompt": prompt[:1900], "num_steps": IMAGE_STEPS, "width": 1024, "height": 576},
+        timeout=180)
+    response.raise_for_status()
+    ctype = response.headers.get("content-type", "").lower()
+    if "image/" in ctype:
+        return response.content
+    payload = response.json()
+    result = payload.get("result", {})
+    encoded = result.get("image") if isinstance(result, dict) else result
+    if not encoded and isinstance(payload.get("result"), str):
+        encoded = payload["result"]
+    if not encoded:
+        raise ValueError("Cloudflare response did not contain generated image data")
+    return base64.b64decode(encoded)
+
+def brand_image(raw, output_path):
+    from io import BytesIO
+    image = Image.open(BytesIO(raw)).convert("RGB")
+    # Consistent landscape editorial crop and web-friendly output.
+    target_ratio = 16 / 9
+    ratio = image.width / image.height
+    if ratio > target_ratio:
+        new_w = int(image.height * target_ratio)
+        left = (image.width - new_w) // 2
+        image = image.crop((left, 0, left + new_w, image.height))
+    else:
+        new_h = int(image.width / target_ratio)
+        top = (image.height - new_h) // 2
+        image = image.crop((0, top, image.width, top + new_h))
+    image = image.resize((1200, 675), Image.Resampling.LANCZOS)
+    draw = ImageDraw.Draw(image, "RGBA")
+    font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    try:
+        font = ImageFont.truetype(font_path, 28)
+    except OSError:
+        font = ImageFont.load_default()
+    label = "CHELSEAFEEDS"
+    bbox = draw.textbbox((0, 0), label, font=font)
+    pad_x, pad_y = 22, 13
+    x, y = 24, image.height - (bbox[3] - bbox[1]) - 2 * pad_y - 24
+    draw.rounded_rectangle((x, y, x + bbox[2] - bbox[0] + 2 * pad_x, y + bbox[3] - bbox[1] + 2 * pad_y),
+                           radius=8, fill=(7, 20, 38, 220), outline=(212, 175, 55, 255), width=2)
+    draw.text((x + pad_x, y + pad_y - bbox[1]), label, font=font, fill=(255, 255, 255, 255),
+              stroke_width=0)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    image.save(output_path, "JPEG", quality=88, optimize=True, progressive=True)
+    return output_path.stat().st_size
+
+def make_image_assets(draft, story, images_dir, session, remaining):
+    if IMAGE_PROVIDER != "cloudflare" or remaining <= 0:
+        return [], "not_configured_or_limit_reached", remaining
+    base = slug(draft.get("title") or story.get("title"))
+    prompts = [
+        ("thumbnail", str(draft.get("image_prompt", "")) +
+         ". Wide 16:9 premium editorial illustration for a Chelsea FC news article, no words, no logos, no real identifiable players."),
+        ("inline-01", "A second, distinct supporting editorial illustration for this story: " +
+         str(draft.get("image_prompt", "")) +
+         ". Wide 16:9 composition, complementary visual angle, no words, no logos, no real identifiable players.")
+    ]
+    assets, failures = [], []
+    for role, prompt in prompts:
+        if remaining <= 0:
+            break
+        filename = "chelseafeeds-" + base + "-" + role + ".jpg"
+        path = images_dir / filename
+        try:
+            raw = cloudflare_image(prompt, session)
+            size = brand_image(raw, path)
+            remaining -= 1
+            assets.append({"role": role, "filename": filename, "local_path": "images/" + filename,
+                           "alt_text": str(draft.get("image_alt_text", ""))[:250],
+                           "brand_overlay": "CHELSEAFEEDS bottom-left", "branded": True,
+                           "width": 1200, "height": 675, "bytes": size})
+        except Exception as exc:
+            failures.append(role + ": " + type(exc).__name__ + ": " + str(exc)[:180])
+            logging.warning("Image generation failed for %s/%s: %s", story.get("event_id"), role, exc)
+    status = "generated" if len(assets) == 2 else ("partial" if assets else "failed")
+    if failures:
+        status += "; " + " | ".join(failures)
+    return assets, status, remaining
+
+def insert_inline_placeholder(html, assets):
+    inline = next((x for x in assets if x["role"].startswith("inline")), None)
+    if not inline:
+        return html
+    tag = ('<figure class="separator" style="clear:both;text-align:center">'
+           '<img src="IMAGE_UPLOAD_REQUIRED/' + inline["filename"] + '" alt="' +
+           inline["alt_text"].replace('"', "&quot;") +
+           '" style="max-width:100%;height:auto" loading="lazy"/></figure>')
+    match = re.search(r"</p\s*>", html, re.I)
+    if match:
+        return html[:match.end()] + tag + html[match.end():]
+    return tag + html
 
 def process(input_path, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
+    images_dir = output_dir / "images"
     data = json.loads(input_path.read_text(encoding="utf-8"))
     if data.get("collector_version") != "4.0":
         raise ValueError("Expected Collector v4.0 input; refusing unexpected artifact")
     stories = data.get("stories", [])
-    api_key = AI_API_KEY
     session = requests.Session()
     session.headers.update(HEADERS)
-    drafts, results = [], []
-    counters = Counter()
+    drafts, results, counters = [], [], Counter()
+    images_remaining = MAX_IMAGES_PER_RUN
     for story in stories:
         fetched = [fetch_source(url, session) for url in story.get("source_urls", [])[:5]]
         assessment = evidence_assessment(story, fetched)
-        record = {
-            "event_id": story.get("event_id"),
-            "headline": story.get("title"),
-            "story_type": story.get("story_type"),
-            "team_scope": story.get("team_scope"),
+        record = {"event_id": story.get("event_id"), "headline": story.get("title"),
+            "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
             "source_checks": [{k:v for k,v in x.items() if k != "excerpt"} for x in fetched],
-            "evidence_assessment": assessment,
-            "verification_status": "evidence_triaged_not_fact_verified",
-            "claims_verified": False,
-            "article_generated": False,
-            "published_to_blogger": False,
-            "published_to_x": False
-        }
+            "evidence_assessment": assessment, "verification_status": "evidence_triaged_not_fact_verified",
+            "claims_verified": False, "article_generated": False, "published_to_blogger": False,
+            "published_to_x": False}
         counters[assessment["evidence_tier"]] += 1
         if not assessment["eligible_for_draft"]:
             record["processing_status"] = "held_insufficient_accessible_evidence"
-            results.append(record)
-            continue
-        if not api_key:
+        elif not AI_API_KEY:
             record["processing_status"] = "draft_waiting_for_ai_provider_api_key"
-            results.append(record)
-            continue
-        if len(drafts) >= MAX_DRAFTS:
+        elif len(drafts) >= MAX_DRAFTS:
             record["processing_status"] = "held_run_draft_limit"
-            results.append(record)
-            continue
-        try:
-            draft = generate_draft(story, fetched, api_key, session)
-            draft_record = {
-                "event_id": story.get("event_id"),
-                "collector_headline": story.get("title"),
-                "story_type": story.get("story_type"),
-                "team_scope": story.get("team_scope"),
-                "source_urls": story.get("source_urls", []),
-                "evidence_assessment": assessment,
-                "verification_status": "evidence_triaged_not_fact_verified",
-                "claims_verified": False,
-                "editorial_status": "draft_requires_editorial_review",
-                "article_generated": True,
-                "published_to_blogger": False,
-                "published_to_x": False,
-                "draft": draft
-            }
-            drafts.append(draft_record)
-            record["processing_status"] = "draft_created_unpublished"
-            record["article_generated"] = True
-        except Exception as exc:
-            record["processing_status"] = "draft_generation_failed"
-            record["error"] = type(exc).__name__ + ": " + str(exc)[:350]
-            logging.warning("Draft failed for %s: %s", story.get("event_id"), record["error"])
+        else:
+            try:
+                draft = generate_draft(story, fetched, AI_API_KEY, session)
+                quality = quality_gate(draft, fetched, story)
+                record["quality_gate"] = quality
+                if not quality["passed"]:
+                    record["processing_status"] = "rejected_quality_gate"
+                    record["quality_failures"] = quality["failed_checks"]
+                else:
+                    assets, image_status, images_remaining = make_image_assets(
+                        draft, story, images_dir, session, images_remaining)
+                    draft["article_html"] = insert_inline_placeholder(str(draft["article_html"]), assets)
+                    draft["image_assets"] = assets
+                    draft["image_generation_status"] = image_status
+                    draft["featured_image"] = next((x for x in assets if x["role"] == "thumbnail"), None)
+                    draft["editorial_quality"] = quality
+                    draft["image_note"] = ("Image is an AI-generated editorial illustration, not documentary match photography. "
+                                           "Upload local image assets to Blogger and replace IMAGE_UPLOAD_REQUIRED placeholders before publishing.")
+                    drafts.append({"event_id": story.get("event_id"), "collector_headline": story.get("title"),
+                        "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
+                        "source_urls": story.get("source_urls", []), "evidence_assessment": assessment,
+                        "verification_status": "evidence_triaged_not_fact_verified", "claims_verified": False,
+                        "editorial_status": "draft_requires_editorial_review", "article_generated": True,
+                        "published_to_blogger": False, "published_to_x": False, "draft": draft})
+                    record["processing_status"] = "draft_created_unpublished"
+                    record["article_generated"] = True
+                    record["image_generation_status"] = image_status
+                    record["image_asset_count"] = len(assets)
+            except Exception as exc:
+                record["processing_status"] = "draft_generation_failed"
+                record["error"] = type(exc).__name__ + ": " + str(exc)[:350]
+                logging.warning("Draft failed for %s: %s", story.get("event_id"), record["error"])
         results.append(record)
         time.sleep(0.2)
-    report = {
-        "processor_version": VERSION,
-        "generated_at": utcnow().isoformat(),
-        "collector_version": data.get("collector_version"),
-        "input_candidate_count": len(stories),
-        "evidence_tier_distribution": dict(counters),
-        "drafts_created": len(drafts),
-        "max_drafts_per_run": MAX_DRAFTS,
-        "ai_provider": AI_PROVIDER,
-        "ai_api_configured": bool(api_key),
-        "ai_base_url": AI_BASE_URL if api_key else None,
-        "model": MODEL if api_key else None,
-        "article_publishing_enabled": False,
-        "x_publishing_enabled": False,
-        "claims_marked_verified": 0,
+    report = {"processor_version": VERSION, "generated_at": utcnow().isoformat(),
+        "collector_version": data.get("collector_version"), "input_candidate_count": len(stories),
+        "evidence_tier_distribution": dict(counters), "drafts_created": len(drafts),
+        "max_drafts_per_run": MAX_DRAFTS, "ai_provider": AI_PROVIDER,
+        "ai_api_configured": bool(AI_API_KEY), "ai_base_url": AI_BASE_URL if AI_API_KEY else None,
+        "model": MODEL if AI_API_KEY else None, "image_provider": IMAGE_PROVIDER,
+        "image_model": CF_MODEL, "image_api_configured": bool(CF_ACCOUNT_ID and CF_API_TOKEN),
+        "max_images_per_run": MAX_IMAGES_PER_RUN, "images_generated": MAX_IMAGES_PER_RUN - images_remaining,
+        "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
-            "Source accessibility and publisher counts are evidence triage, not factual verification.",
-            "Multiple URLs from one publisher never count as multiple independent publishers.",
-            "Factual drafts require an accessible official source or two distinct established publisher domains.",
-            "Opinion drafts require an accessible source and must attribute opinions.",
-            "Transfer rumours remain explicitly labelled and unconfirmed unless an official announcement supports completion.",
-            "Every generated draft remains unpublished and requires editorial review.",
-            "No Blogger or X API credentials are read or used by this processor.",
-            "AI generation uses a configurable OpenAI-compatible endpoint; the default is Groq.",
-            "Free-tier quotas and model availability can change; generation failures never bypass evidence gates."
-        ],
-        "results": results
-    }
+            "Evidence accessibility and publisher counts are not factual verification.",
+            "Factual stories require an accessible official source or two distinct established publishers; opinion requires an accessible attributed source.",
+            "Automated quality gate checks article substance, SEO fields, headings, source links and unsafe HTML; it is not independent fact-checking.",
+            "No direct quotations are requested; unsupported claims must be omitted or flagged.",
+            "Generated images are editorial illustrations, not documentary match photographs.",
+            "Every image receives a deterministic CHELSEAFEEDS bottom-left brand overlay using Pillow.",
+            "Image-generation errors never discard a quality-passed article draft.",
+            "Images are attached as workflow artifacts; upload them to Blogger and replace placeholders before publication.",
+            "Cloudflare Workers AI free daily allocation is capped by the provider; this workflow limits each run to six image requests and does not retry failures.",
+            "No Blogger or X credentials are read; publishing remains disabled."
+        ], "results": results}
     (output_dir / "article_drafts.json").write_text(json.dumps({"processor_version": VERSION, "drafts": drafts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "editorial_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    logging.info("Processor v%s: %d candidates, %d drafts created, provider=%s, API configured=%s", VERSION, len(stories), len(drafts), AI_PROVIDER, bool(api_key))
+    logging.info("Processor v%s: %d candidates, %d drafts, %d image requests used", VERSION, len(stories), len(drafts), report["images_generated"])
 
 def self_test():
     story = {"story_type":"match_report"}
     one = [{"accessible":True,"domain":"bbc.co.uk","url":"https://www.bbc.co.uk/a"}]
     two = one + [{"accessible":True,"domain":"skysports.com","url":"https://www.skysports.com/b"}]
     official = [{"accessible":True,"domain":"uefa.com","url":"https://www.uefa.com/a"}]
-    assert evidence_assessment(story, one)["eligible_for_draft"] is False
-    assert evidence_assessment(story, two)["eligible_for_draft"] is True
-    assert evidence_assessment(story, official)["eligible_for_draft"] is True
-    assert evidence_assessment({"story_type":"opinion_analysis"}, one)["eligible_for_draft"] is True
-    assert evidence_assessment({"story_type":"transfer_rumour"}, one)["eligible_for_draft"] is False
-    assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"] is True
-    print("PASS: 6 evidence-gate regression checks")
+    assert not evidence_assessment(story, one)["eligible_for_draft"]
+    assert evidence_assessment(story, two)["eligible_for_draft"]
+    assert evidence_assessment(story, official)["eligible_for_draft"]
+    assert evidence_assessment({"story_type":"opinion_analysis"}, one)["eligible_for_draft"]
+    assert not evidence_assessment({"story_type":"transfer_rumour"}, one)["eligible_for_draft"]
+    assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"]
+    base = {"title":"Chelsea analysis headline","search_description":"Chelsea analysis " * 8,
+        "focus_keyword":"Chelsea FC","excerpt":"Chelsea analysis excerpt","image_prompt":"Editorial illustration",
+        "image_alt_text":"Chelsea themed illustration","article_html":"<h2>Context</h2><p>" + ("Chelsea football analysis. " * 65) +
+        "</p><h2>What next</h2><p>More analysis.</p><p><a href='https://www.bbc.co.uk/a'>Source</a></p>"}
+    assert quality_gate(base, one, story)["passed"]
+    unsafe = dict(base, article_html=base["article_html"] + "<script>alert(1)</script>")
+    assert not quality_gate(unsafe, one, story)["passed"]
+    no_link = dict(base, article_html=base["article_html"].replace("<a href='https://www.bbc.co.uk/a'>Source</a>", "Source"))
+    assert not quality_gate(no_link, one, story)["passed"]
+    print("PASS: 9 evidence, quality and safety regression checks")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
