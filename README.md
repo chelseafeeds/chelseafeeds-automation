@@ -18,7 +18,7 @@ To enable AI article-draft generation, add this repository secret:
 
 GitHub path: repository **Settings → Secrets and variables → Actions → New repository secret**.
 
-Never commit or paste the key into source files, issues, or chat. API usage may incur charges. The workflow uses `gpt-4.1-mini` by default and creates at most six drafts per run.
+Never commit or paste the key into source files, issues, or chat. API usage may incur charges. The workflow uses `gpt-5.4-mini` by default and creates at most six drafts per run.
 
 Without the secret, the evidence checks still run and the report records which candidates passed the evidence gate, but no article drafts are generated.
 
