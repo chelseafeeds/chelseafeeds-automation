@@ -1,6 +1,11 @@
 name: ChelseaFeeds 10-Minute Processing Monitor
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "monitor_processing.py"
+      - ".github/workflows/monitor-processing.yml"
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
