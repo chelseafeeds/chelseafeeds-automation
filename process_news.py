@@ -171,7 +171,7 @@ def _request_chat_completion(payload, api_key, base_url, model, session, provide
                 delay = None
                 for header in ("retry-after", "x-ratelimit-reset-requests", "x-ratelimit-reset-tokens"):
                     value = response.headers.get(header, "").strip()
-                    match = re.fullmatch(r"([0-9]+(?:\\.[0-9]+)?)(ms|s)?", value, re.I)
+                    match = re.fullmatch(r"([0-9]+(?:\.[0-9]+)?)(ms|s)?", value, re.I)
                     if match:
                         seconds = float(match.group(1))
                         delay = seconds / 1000 if (match.group(2) or "").lower() == "ms" else seconds
