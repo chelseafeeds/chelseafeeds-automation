@@ -431,8 +431,14 @@ def process(input_path, output_dir):
     published_articles = fetch_published_articles(session)
     logging.info("Loaded %d published ChelseaFeeds articles for internal-link matching", len(published_articles))
     drafts, results, counters = [], [], Counter()
+    logging.info("Starting editorial batch: %d candidates; source workers=%d; AI timeout=%ds; attempts=%d; draft cap=%d",
+                 len(stories), SOURCE_FETCH_WORKERS, AI_REQUEST_TIMEOUT, AI_MAX_ATTEMPTS, MAX_DRAFTS)
+    batch_started = time.monotonic()
     for story_index, story in enumerate(stories, start=1):
-        logging.info("Candidate %d/%d: %s", story_index, len(stories), str(story.get("title") or story.get("event_id") or "untitled")[:140])
+        candidate_started = time.monotonic()
+        logging.info("CANDIDATE_START %d/%d event=%s headline=%s",
+                     story_index, len(stories), story.get("event_id"),
+                     str(story.get("title") or "untitled")[:140])
         source_urls = story.get("source_urls", [])[:8]
         fetched = fetch_sources(source_urls)
         logging.info("Evidence fetch complete for %s: %d/%d source pages accessible",
@@ -489,8 +495,12 @@ def process(input_path, output_dir):
                 record["error"] = type(exc).__name__ + ": " + str(exc)[:350]
                 logging.warning("Draft failed for %s: %s", story.get("event_id"), record["error"])
         results.append(record)
+        logging.info("CANDIDATE_DONE %d/%d event=%s status=%s elapsed=%.1fs drafts=%d",
+                     story_index, len(stories), story.get("event_id"),
+                     record.get("processing_status"), time.monotonic() - candidate_started, len(drafts))
         time.sleep(0.2)
-    logging.info("Evidence and article processing complete: %d drafts from %d candidates", len(drafts), len(stories))
+    logging.info("BATCH_DONE elapsed=%.1fs candidates=%d drafts=%d",
+                 time.monotonic() - batch_started, len(stories), len(drafts))
     blogger_posts = []
     for item in drafts:
         d = item["draft"]
