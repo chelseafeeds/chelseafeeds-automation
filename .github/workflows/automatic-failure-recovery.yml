@@ -1,0 +1,57 @@
+name: ChelseaFeeds Automatic Failure Recovery
+
+on:
+  workflow_run:
+    workflows:
+      - Chelsea News Collection
+      - ChelseaFeeds Evidence and Article Drafts
+      - ChelseaFeeds Auto Schedule Editorial Batch
+    types: [completed]
+    branches: [main]
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: chelseafeeds-recovery-${{ github.event.workflow_run.id }}
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    if: >-
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.run_attempt < 2 &&
+      github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Retry failed workflow once in a fresh runner session
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          RUN_NAME: ${{ github.event.workflow_run.name }}
+          RUN_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          echo "Failure detected: $RUN_NAME (run $RUN_ID, attempt $RUN_ATTEMPT)."
+          echo "Starting one bounded retry. Published Blogger posts are not deleted or modified by this recovery step."
+          response="$(curl --fail-with-body --silent --show-error \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$REPOSITORY/actions/runs/$RUN_ID/rerun")"
+          echo "$response" | head -c 1000 || true
+          echo "Retry request accepted. GitHub will run the workflow again using a fresh hosted runner."
+      - name: Record recovery summary
+        run: |
+          {
+            echo "## ChelseaFeeds automatic recovery"
+            echo "- Failed workflow: ${{ github.event.workflow_run.name }}"
+            echo "- Original run: ${{ github.event.workflow_run.html_url }}"
+            echo "- Failed attempt: ${{ github.event.workflow_run.run_attempt }}"
+            echo "- Action: one automatic retry requested."
+            echo "- Safety: Blogger live/scheduled articles and editorial history are not purged."
+          } >> "$GITHUB_STEP_SUMMARY"
