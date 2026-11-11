@@ -31,7 +31,7 @@ jobs:
       MAX_SOURCE_CHARS: "5000"
       SOURCE_FETCH_WORKERS: "8"
       AI_REQUEST_TIMEOUT: "60"
-      AI_MAX_ATTEMPTS: "2"
+      AI_MAX_ATTEMPTS: "3"
       OPENAI_IMAGE_TIMEOUT: "90"
 
     steps:
