@@ -49,6 +49,9 @@ jobs:
       - name: Test mixed featured-image safeguards
         run: python generate_featured_images.py --self-test
 
+      - name: Compile-check publishing integration
+        run: python -m py_compile generate_featured_images.py upload_featured_image.py publish_article.py
+
       - name: Download collector candidates
         uses: actions/download-artifact@v4
         with:
