@@ -439,20 +439,43 @@ def make_image_assets(draft, story, images_dir):
     asset = create_branded_thumbnail(draft, story, images_dir)
     return [asset], "generated_branded_template"
 
+TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "rejected_quality_gate", "published", "archived"}
+
+def filter_unprocessed_stories(stories, history):
+    events = history.get("events", {}) if isinstance(history, dict) else {}
+    pending = []
+    skipped = []
+    for story in stories:
+        event_id = story.get("event_id")
+        status = events.get(event_id, {}).get("status")
+        if status in TERMINAL_EVENT_STATUSES:
+            skipped.append(story)
+        else:
+            pending.append(story)
+    return pending, skipped
+
+
 def process(input_path, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
     images_dir = output_dir / "images"
     data = json.loads(input_path.read_text(encoding="utf-8"))
     if data.get("collector_version") != "4.0":
         raise ValueError("Expected Collector v4.0 input; refusing unexpected artifact")
-    stories = data.get("stories", [])
+    all_stories = data.get("stories", [])
+    history_path = Path("seen_stories.json")
+    history = json.loads(history_path.read_text(encoding="utf-8")) if history_path.exists() else {"events": {}}
+    stories, previously_processed = filter_unprocessed_stories(all_stories, history)
     session = requests.Session()
     session.headers.update(HEADERS)
     published_articles = fetch_published_articles(session)
     logging.info("Loaded %d published ChelseaFeeds articles for internal-link matching", len(published_articles))
-    drafts, results, counters = [], [], Counter()
-    logging.info("Starting editorial batch: %d candidates; source workers=%d; AI timeout=%ds; attempts=%d; draft cap=%d",
-                 len(stories), SOURCE_FETCH_WORKERS, AI_REQUEST_TIMEOUT, AI_MAX_ATTEMPTS, MAX_DRAFTS)
+    drafts, counters = [], Counter()
+    results = [{"event_id": item.get("event_id"), "headline": item.get("title"),
+                "processing_status": "skipped_previously_processed",
+                "article_generated": False, "published_to_blogger": False, "published_to_x": False}
+               for item in previously_processed]
+    logging.info("Starting editorial batch: %d input candidates; %d previously processed skipped; %d pending; source workers=%d; AI timeout=%ds; attempts=%d; draft cap=%d",
+                 len(all_stories), len(previously_processed), len(stories), SOURCE_FETCH_WORKERS, AI_REQUEST_TIMEOUT, AI_MAX_ATTEMPTS, MAX_DRAFTS)
     batch_started = time.monotonic()
     for story_index, story in enumerate(stories, start=1):
         candidate_started = time.monotonic()
@@ -547,7 +570,7 @@ def process(input_path, output_dir):
                     "instructions":"Copy content_html into Blogger HTML view. Upload featured_image separately and set it as the post thumbnail. Review claims and sources before publishing.",
                     "posts":blogger_posts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     report = {"processor_version": VERSION, "generated_at": utcnow().isoformat(),
-        "collector_version": data.get("collector_version"), "input_candidate_count": len(stories), "blogger_ready_export_count": len(blogger_posts),
+        "collector_version": data.get("collector_version"), "input_candidate_count": len(all_stories), "unprocessed_candidate_count": len(stories), "skipped_previously_processed_count": len(previously_processed), "blogger_ready_export_count": len(blogger_posts),
         "evidence_tier_distribution": dict(counters), "drafts_created": len(drafts),
         "max_drafts_per_run": MAX_DRAFTS, "ai_provider": AI_PROVIDER,
         "ai_api_configured": bool(AI_API_KEY), "ai_base_url": AI_BASE_URL if AI_API_KEY else None,
@@ -570,6 +593,12 @@ def process(input_path, output_dir):
     logging.info("Processor v%s: %d candidates, %d drafts; local branded thumbnails require no external image API", VERSION, len(stories), len(drafts))
 
 def self_test():
+    pending, skipped = filter_unprocessed_stories(
+        [{"event_id":"done"},{"event_id":"new"}],
+        {"events":{"done":{"status":"draft_created_unpublished"}}})
+    assert [x["event_id"] for x in pending] == ["new"]
+    assert [x["event_id"] for x in skipped] == ["done"]
+
     story = {"story_type":"match_report"}
     one = [{"accessible":True,"domain":"bbc.co.uk","url":"https://www.bbc.co.uk/a"}]
     two = one + [{"accessible":True,"domain":"skysports.com","url":"https://www.skysports.com/b"}]
