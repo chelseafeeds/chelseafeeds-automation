@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "collect_news.py"
+      - "persist_history.py"
       - "process_news.py"
       - "generate_featured_images.py"
       - "requirements.txt"
@@ -39,19 +40,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Test race-safe history merge
+        run: python persist_history.py --self-test
+
       - name: Collect Chelsea news
         run: python collect_news.py
 
-      - name: Save duplicate history to repository
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add seen_stories.json
-          git diff --cached --quiet || (
-            git commit -m "Update ChelseaFeeds story history" &&
-            git pull --rebase origin main &&
-            git push
-          )
+      - name: Merge and save duplicate history safely
+        run: python persist_history.py
 
       - name: Save collected news
         uses: actions/upload-artifact@v4
