@@ -23,6 +23,10 @@ AI_PROVIDER = os.getenv("AI_PROVIDER", "groq").strip().lower()
 AI_API_KEY = os.getenv("AI_API_KEY", "").strip()
 AI_BASE_URL = os.getenv("AI_BASE_URL", "https://api.groq.com/openai/v1").rstrip("/")
 MODEL = os.getenv("AI_MODEL", "openai/gpt-oss-120b").strip()
+AI_FALLBACK_ENABLED = os.getenv("AI_FALLBACK_ENABLED", "false").strip().lower() == "true"
+AI_FALLBACK_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
+AI_FALLBACK_BASE_URL = os.getenv("AI_FALLBACK_BASE_URL", "https://api.openai.com/v1").rstrip("/")
+AI_FALLBACK_MODEL = os.getenv("AI_FALLBACK_MODEL", "gpt-4.1-mini").strip()
 MAX_SOURCE_PACK = int(os.getenv("MAX_SOURCE_PACK", "6"))
 MAX_SOURCE_CHARS = int(os.getenv("MAX_SOURCE_CHARS", "5000"))
 THUMBNAIL_WIDTH = 1200
@@ -149,6 +153,51 @@ def build_prompt(story, evidence):
             "original_source_links": story.get("source_urls", [])},
             "accessible_source_material": pack}
 
+def _request_chat_completion(payload, api_key, base_url, model, session, provider_label):
+    request_payload = dict(payload)
+    request_payload["model"] = model
+    last_error = None
+    for attempt in range(AI_MAX_ATTEMPTS):
+        try:
+            response = session.post(base_url + "/chat/completions",
+                headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
+                json=request_payload, timeout=AI_REQUEST_TIMEOUT)
+            if response.status_code == 429 or response.status_code >= 500:
+                body = response.text[:700]
+                lower = body.lower()
+                if response.status_code == 429 and any(term in lower for term in
+                        ("insufficient_quota", "billing_not_active", "credit balance", "quota_exceeded")):
+                    raise RuntimeError(f"AI_RATE_LIMIT_QUOTA: {provider_label} reports a quota or billing restriction: {body}")
+                delay = None
+                for header in ("retry-after", "x-ratelimit-reset-requests", "x-ratelimit-reset-tokens"):
+                    value = response.headers.get(header, "").strip()
+                    match = re.fullmatch(r"([0-9]+(?:\\.[0-9]+)?)(ms|s)?", value, re.I)
+                    if match:
+                        seconds = float(match.group(1))
+                        delay = seconds / 1000 if (match.group(2) or "").lower() == "ms" else seconds
+                        break
+                if delay is None:
+                    delay = min(60, 15 * (attempt + 1))
+                delay = max(2, min(90, int(delay) + 1))
+                logging.warning("%s HTTP %s; attempt %s/%s; retry delay %ss; response=%s",
+                                provider_label, response.status_code, attempt + 1,
+                                AI_MAX_ATTEMPTS, delay, body)
+                if attempt < AI_MAX_ATTEMPTS - 1:
+                    time.sleep(delay)
+                    continue
+                raise RuntimeError(f"AI_HTTP_{response.status_code}: {provider_label} attempts exhausted: {body}")
+            response.raise_for_status()
+            return response.json()["choices"][0]["message"]["content"]
+        except requests.RequestException as exc:
+            last_error = exc
+            if attempt == AI_MAX_ATTEMPTS - 1:
+                raise RuntimeError(f"{provider_label} request failed: {type(exc).__name__}: {str(exc)[:300]}") from exc
+            time.sleep(min(30, 5 * (attempt + 1)))
+    if last_error:
+        raise RuntimeError(f"{provider_label} request failed: {str(last_error)[:300]}") from last_error
+    raise RuntimeError(f"{provider_label} request failed without a response")
+
+
 def generate_draft(story, evidence, api_key, session):
     payload = build_prompt(story, evidence)
     system = (
@@ -170,53 +219,24 @@ def generate_draft(story, evidence, api_key, session):
         "Image prompt must request an editorial illustration, not fake documentary match photography "
         "or a photorealistic depiction of a real player. Chelsea blue #034694, navy #071426, white, gold."
     )
-    req = {"model": MODEL, "response_format": {"type": "json_object"},
+    req = {"response_format": {"type": "json_object"},
            "messages": [{"role": "system", "content": system},
                         {"role": "user", "content": json.dumps(payload, ensure_ascii=False)}]}
-    response = None
-    last_error = None
-    for attempt in range(AI_MAX_ATTEMPTS):
-        # Requests are serial; a short gap reduces bursts against shared provider quotas.
-        if attempt == 0:
-            time.sleep(5)
-        try:
-            response = session.post(AI_BASE_URL + "/chat/completions",
-                headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
-                json=req, timeout=AI_REQUEST_TIMEOUT)
-            if response.status_code == 429 or response.status_code >= 500:
-                body = response.text[:1200]
-                if response.status_code == 429 and any(term in body.lower() for term in
-                        ("insufficient_quota", "billing_not_active", "credit balance")):
-                    raise RuntimeError("AI provider reports an account quota or billing restriction; check provider usage and billing.")
-                delay = None
-                for header in ("retry-after", "x-ratelimit-reset-requests"):
-                    value = response.headers.get(header, "").strip()
-                    match = re.fullmatch(r"([0-9]+(?:\\.[0-9]+)?)(ms|s)?", value, re.I)
-                    if match:
-                        seconds = float(match.group(1))
-                        delay = seconds / 1000 if (match.group(2) or "").lower() == "ms" else seconds
-                        break
-                if delay is None:
-                    delay = 20 * (attempt + 1)
-                delay = max(5, min(180, int(delay) + 2))
-                logging.warning("AI provider HTTP %s; retry %s/%s in %ss. Response: %s",
-                                response.status_code, attempt + 1, AI_MAX_ATTEMPTS, delay, body)
-                if attempt < AI_MAX_ATTEMPTS - 1:
-                    time.sleep(delay)
-                    continue
-                break
-            response.raise_for_status()
-            break
-        except requests.RequestException as exc:
-            last_error = exc
-            if attempt == AI_MAX_ATTEMPTS - 1:
-                raise
-            time.sleep(10 * (attempt + 1))
-    if response is None or response.status_code >= 400:
-        if last_error:
-            raise last_error
-        raise RuntimeError("AI provider retries exhausted; inspect provider response and account rate limits.")
-    draft = json.loads(response.json()["choices"][0]["message"]["content"])
+    try:
+        content = _request_chat_completion(req, api_key, AI_BASE_URL, MODEL, session, AI_PROVIDER.upper())
+        provider_used = AI_PROVIDER
+    except RuntimeError as exc:
+        fallback_error = str(exc)
+        can_fallback = (AI_FALLBACK_ENABLED and AI_FALLBACK_API_KEY and
+                        ("AI_HTTP_429" in fallback_error or "AI_RATE_LIMIT_QUOTA" in fallback_error or "AI_HTTP_5" in fallback_error))
+        if not can_fallback:
+            raise
+        logging.warning("Primary AI provider unavailable; switching this candidate to configured fallback provider.")
+        content = _request_chat_completion(req, AI_FALLBACK_API_KEY, AI_FALLBACK_BASE_URL,
+                                           AI_FALLBACK_MODEL, session, "OPENAI_FALLBACK")
+        provider_used = "openai_fallback"
+    draft = json.loads(content)
+    draft["ai_provider_used"] = provider_used
     draft["search_description"] = normalize_search_description(draft)
     required = {"title", "search_description", "focus_keyword", "labels", "article_html",
                 "excerpt", "image_prompt", "image_alt_text", "editorial_notes", "unsupported_or_unverified_points"}
