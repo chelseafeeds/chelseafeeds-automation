@@ -1,6 +1,12 @@
 name: Chelsea News Collection
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "process_news.py"
+      - ".github/workflows/process-news.yml"
+      - ".github/workflows/collect-news.yml"
   workflow_dispatch:
   schedule:
     - cron: "0 */2 * * *"
