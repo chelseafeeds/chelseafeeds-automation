@@ -24,7 +24,8 @@ WIDTH, HEIGHT = 1200, 675
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
 OPENAI_IMAGES_API = "https://api.openai.com/v1/images/generations"
 OPENAI_IMAGE_MODEL = os.getenv("OPENAI_IMAGE_MODEL", "gpt-image-2.5-flare")
-TIMEOUT = 45
+TIMEOUT = (5, 30)
+OPENAI_IMAGE_TIMEOUT = max(30, min(120, int(os.getenv("OPENAI_IMAGE_TIMEOUT", "90"))))
 HEADERS = {
     "User-Agent": "ChelseaFeedsImageBot/2.0 (https://www.chelseafeeds.com/; editorial image sourcing)"
 }
@@ -161,7 +162,7 @@ def generate_ai_illustration(story, draft, destination, session, api_key):
             "model": OPENAI_IMAGE_MODEL, "prompt": prompt,
             "size": "1536x864", "quality": "medium",
             "output_format": "jpeg", "output_compression": 88, "n": 1
-        }, timeout=180)
+        }, timeout=OPENAI_IMAGE_TIMEOUT)
     response.raise_for_status()
     data = response.json().get("data") or []
     if not data or not data[0].get("b64_json"):
@@ -329,14 +330,16 @@ def main():
     session.headers.update(HEADERS)
     api_key = os.getenv("OPENAI_API_KEY", "").strip()
     counts = {}
-    for post in ready_posts:
+    for image_index, post in enumerate(ready_posts, start=1):
         event_id = str(post.get("event_id", ""))
         item = next((x for x in draft_items if str(x.get("event_id", "")) == event_id), None)
         if not item:
             continue
         story = stories_by_id.get(event_id, {})
         draft = item.get("draft", {})
+        logging.info("Featured image %d/%d: %s", image_index, len(ready_posts), str(draft.get("title") or event_id)[:130])
         asset = process_one(story, draft, output / "images", session, api_key)
+        logging.info("Featured image complete for %s: %s", event_id, asset.get("source_type"))
         counts[asset["source_type"]] = counts.get(asset["source_type"], 0) + 1
         draft["image_assets"] = [asset]
         draft["featured_image"] = asset
