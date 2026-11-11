@@ -425,7 +425,8 @@ def process(input_path, output_dir):
         "safety_controls": [
             "Evidence accessibility and publisher counts are not factual verification.",
             "Factual stories require an accessible official source or two distinct established publishers; opinion requires an accessible attributed source.",
-            "Automated quality gate checks article substance, SEO fields, headings, source links and unsafe HTML; it is not independent fact-checking.",
+            "Automated quality gate requires at least 500 substantive article words excluding the Sources block; all SEO, heading, source-link and HTML safety checks are mandatory.",
+        "A score cannot override any failed mandatory check; short drafts and invalid SEO metadata are rejected.",
             "No direct quotations are requested; unsupported claims must be omitted or flagged.",
             "Generated images are editorial illustrations, not documentary match photographs.",
             "Every image receives a deterministic CHELSEAFEEDS bottom-left brand overlay using Pillow.",
@@ -449,15 +450,44 @@ def self_test():
     assert evidence_assessment({"story_type":"opinion_analysis"}, one)["eligible_for_draft"]
     assert not evidence_assessment({"story_type":"transfer_rumour"}, one)["eligible_for_draft"]
     assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"]
-    base = {"title":"Chelsea analysis headline","search_description":"Chelsea analysis " * 8,
-        "focus_keyword":"Chelsea FC","excerpt":"Chelsea analysis excerpt","image_prompt":"Editorial illustration",
-        "image_alt_text":"Chelsea themed illustration","article_html":"<h2>Context</h2><p>" + ("Chelsea football analysis. " * 150) +
-        "</p><h2>What next</h2><p>More analysis.</p><p><a href='https://www.bbc.co.uk/a'>Source</a></p>"}
-    assert quality_gate(base, one, story)["passed"]
-    unsafe = dict(base, article_html=base["article_html"] + "<script>alert(1)</script>")
+
+    def make_draft(article_words=500):
+        # The two headings contribute three words; paragraph content supplies the remainder.
+        paragraph_words = max(0, article_words - 3)
+        body = " ".join(["Chelsea"] * paragraph_words)
+        return {
+            "title":"Chelsea analysis: the key issues supporters should understand",
+            "search_description":"Chelsea FC analysis examines the latest evidence, tactical questions and what supporters should watch next this season.",
+            "focus_keyword":"Chelsea FC analysis",
+            "excerpt":"An evidence-led Chelsea FC analysis.",
+            "image_prompt":"Editorial illustration of a football stadium in Chelsea colours.",
+            "image_alt_text":"Editorial illustration in Chelsea blue.",
+            "labels":["Latest News","Opinion & Analysis"],
+            "article_html":"<h2>Context</h2><p>" + body + "</p><h2>Next steps</h2><p><a href='https://www.bbc.co.uk/a'>BBC source</a></p>"
+        }
+
+    valid = make_draft(500)
+    assert quality_gate(valid, one, story)["passed"], quality_gate(valid, one, story)
+    short = make_draft(499)
+    short_result = quality_gate(short, one, story)
+    assert not short_result["passed"] and short_result["word_count"] == 499
+    assert "substantive_article_body_minimum_500_words" in short_result["failed_checks"]
+
+    bad_title = dict(valid, title="Too short")
+    assert not quality_gate(bad_title, one, story)["passed"]
+    assert "title_present_and_reasonable" in quality_gate(bad_title, one, story)["failed_checks"]
+
+    bad_description = dict(valid, search_description="Too short")
+    assert not quality_gate(bad_description, one, story)["passed"]
+    assert "search_description_length" in quality_gate(bad_description, one, story)["failed_checks"]
+
+    unsafe = dict(valid, article_html=valid["article_html"] + "<script>alert(1)</script>")
     assert not quality_gate(unsafe, one, story)["passed"]
-    no_link = dict(base, article_html=base["article_html"].replace("<a href='https://www.bbc.co.uk/a'>Source</a>", "Source"))
+    no_link = dict(valid, article_html=valid["article_html"].replace("<a href='https://www.bbc.co.uk/a'>BBC source</a>", "BBC source"))
     assert not quality_gate(no_link, one, story)["passed"]
+    bad_link = dict(valid, article_html=valid["article_html"] + "<p><a href='https://bad.example/x'>Bad source</a></p>")
+    assert not quality_gate(bad_link, one, story)["passed"]
+
     source_html = add_deterministic_sources("<h2>Analysis</h2><p><a href='https://bad.example/x'>bad link</a></p>", one)
     source_soup = BeautifulSoup(source_html, "html.parser")
     assert source_soup.find("h2", string="Sources") is not None
@@ -466,7 +496,10 @@ def self_test():
     duplicate = add_deterministic_sources("<h2>Analysis</h2><p>Text</p><h2>Sources</h2><p>Fake</p>", one)
     duplicate_soup = BeautifulSoup(duplicate, "html.parser")
     assert len([h for h in duplicate_soup.find_all(["h2", "h3"]) if h.get_text(strip=True) == "Sources"]) == 1
-    print("PASS: 11 evidence, quality, source-link and safety regression checks")
+
+    with_sources = dict(valid, article_html=valid["article_html"] + "<section><h2>Sources</h2><ul><li><a href='https://www.bbc.co.uk/a'>BBC</a></li></ul></section>")
+    assert quality_gate(with_sources, one, story)["word_count"] == 500
+    print("PASS: 16 evidence, 500-word, SEO, source-link, source-exclusion and safety regression checks")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
