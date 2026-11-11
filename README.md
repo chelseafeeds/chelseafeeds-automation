@@ -9,18 +9,25 @@ Chelsea FC news collection, evidence triage and unpublished article-draft prepar
 3. The `ChelseaFeeds Evidence and Article Drafts` workflow runs automatically after a successful `Chelsea News Collection` workflow on `main`.
 4. Editorial results are saved as the `chelseafeeds-editorial-results` GitHub Actions artifact.
 
-## Required repository secret
+## Free AI setup (Groq)
 
-To enable AI article-draft generation, add this repository secret:
+The processor now uses Groq's OpenAI-compatible API by default. Groq offers a free developer plan with per-model rate limits; this is not unlimited service and quotas/model availability can change.
 
-- Name: `OPENAI_API_KEY`
-- Value: your OpenAI API key
+1. Create a Groq account and API key in the official Groq console: https://console.groq.com/keys
+2. In this GitHub repository, open **Settings → Secrets and variables → Actions → New repository secret**.
+3. Set the secret name to `GROQ_API_KEY` and paste the key value into GitHub's secret-value field. Never paste it into source code, issues, or ChatGPT.
+4. Save the secret, then run **Actions → Chelsea News Collection → Run workflow**. The downstream editorial workflow will run after collection succeeds.
 
-GitHub path: repository **Settings → Secrets and variables → Actions → New repository secret**.
+Default configuration:
+- Provider: Groq
+- Model: `openai/gpt-oss-120b`
+- API endpoint: `https://api.groq.com/openai/v1`
+- Maximum: three draft-generation attempts per run
+- Source context: up to four sources, with excerpts capped at 3,500 characters each
 
-Never commit or paste the key into source files, issues, or chat. API usage may incur charges. The workflow uses `gpt-5.4-mini` by default and creates at most six drafts per run.
+The processor can also be configured with `AI_API_KEY`, `AI_BASE_URL`, `AI_MODEL`, and `AI_PROVIDER` environment variables. These are already set in the workflow except for the secret value.
 
-Without the secret, the evidence checks still run and the report records which candidates passed the evidence gate, but no article drafts are generated.
+**Important:** Free access is subject to rate limits and provider terms. If Groq changes its free plan or the selected model is unavailable, generation may fail; collection and evidence reporting should still run. No payment method or upgrade is required for the Groq free plan.
 
 ## Editorial and publishing safeguards
 
@@ -30,7 +37,8 @@ Without the secret, the evidence checks still run and the report records which c
 - Transfer rumours remain explicitly attributed and unconfirmed unless an official announcement supports completion.
 - Opinion drafts must attribute opinions and separate them from facts.
 - Every generated draft remains unpublished and requires editorial review.
-- This repository does not currently publish to Blogger or X.
+- No claims are marked verified automatically.
+- This repository does not publish to Blogger or X. Draft generation does not authorize publication.
 
 ## Workflow artifacts
 
