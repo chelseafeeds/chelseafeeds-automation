@@ -37,7 +37,7 @@ def main():
     description = str(post.get("search_description", "")).strip()
     if not title or not html or not (100 <= len(description) <= 180):
         raise RuntimeError("Article is missing required Blogger title, HTML, or SEO description.")
-    if re.search(r"<\\s*(script|iframe|form|object|embed)\\b", html, re.I):
+    if re.search(r"<\s*(script|iframe|form|object|embed)\b", html, re.I):
         raise RuntimeError("Unsafe HTML detected; refusing to send article to Blogger.")
 
     client_id = required("BLOGGER_CLIENT_ID")
