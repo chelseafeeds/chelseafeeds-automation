@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ChelseaFeeds Collector v3.8: conservative, event-aware RSS collector.
+"""ChelseaFeeds Collector v3.9: conservative, event-aware RSS collector.
 
 Important: collection is not fact verification. Every candidate stays pending.
 Ambiguous stories are kept separate; this intentionally prefers false-split over
@@ -15,7 +15,7 @@ from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
 import feedparser, requests
 from bs4 import BeautifulSoup
 
-VERSION = "3.8"
+VERSION = "3.9"
 ROOT = Path(__file__).resolve().parent
 HISTORY_FILE = ROOT / "seen_stories.json"
 CANDIDATES_FILE = ROOT / "news_candidates.json"
@@ -119,6 +119,11 @@ def date_bucket(iso):
     try: return datetime.fromisoformat(iso).date().isoformat()
     except Exception: return ""
 def stable(value,n=24): return hashlib.sha256(value.encode()).hexdigest()[:n]
+def fixture_key(url):
+    """Extract a publisher's stable fixture ID from match report/live URLs."""
+    path=urlparse(url or "").path.lower()
+    m=re.search(r"/(?:report|live|commentary)/(\d+)(?:/|$)",path)
+    return m.group(1) if m else ""
 def observation(title,summary,url,feed,pub,published):
     title,summary,url=textval(title),textval(summary),normalize_url(url)
     if not title or not url or not relevant(title,summary) or published is None: return None
@@ -126,18 +131,22 @@ def observation(title,summary,url,feed,pub,published):
     d=domain(url); pt=publisher_type(url)
     if not d or pt=="aggregator_unresolved": return None
     scope=team_scope(title,summary,url); typ=classify(title,summary)
-    return {"title":title,"summary":summary[:500],"url":url,"publisher_domain":d,"publisher_name_hint":pub or None,"source_feed":feed,"published":published.isoformat(),"publisher_type":pt,"team_scope":scope,"story_type":typ,"opponent_key":opponent_key(title,summary,url),"subject_key":event_subject(title,summary,typ)}
+    return {"title":title,"summary":summary[:500],"url":url,"publisher_domain":d,"publisher_name_hint":pub or None,"source_feed":feed,"published":published.isoformat(),"publisher_type":pt,"team_scope":scope,"story_type":typ,"opponent_key":opponent_key(title,summary,url),"fixture_key":fixture_key(url),"subject_key":event_subject(title,summary,typ)}
 def same_event(a,b):
     # Canonical identical article URL is safe to collapse regardless of feed.
     if a["url"]==b["url"]: return True
-    # Never merge separate content categories, team scopes, or same-publisher articles.
+    # Never merge separate content categories or team scopes.
     if a["team_scope"]!=b["team_scope"] or a["story_type"]!=b["story_type"]: return False
-    if a["publisher_domain"]==b["publisher_domain"]: return False
     da=datetime.fromisoformat(a["published"]); db=datetime.fromisoformat(b["published"])
     if abs((da-db).total_seconds())>36*3600: return False
     typ=a["story_type"]
+    if a["publisher_domain"]==b["publisher_domain"]:
+        # Same-publisher articles merge only when the publisher's own stable
+        # fixture ID proves they describe the identical match. Shared opponent
+        # names alone are not enough: clubs can meet more than once.
+        return bool(typ=="match_report" and a.get("fixture_key") and a.get("fixture_key")==b.get("fixture_key"))
     if typ in {"match_report","match_reaction","match_preview"}:
-        # Same match only when opponent can be positively identified on both sides.
+        # Across publishers, require a positively identified shared opponent.
         return bool(a["opponent_key"] and a["opponent_key"]==b["opponent_key"])
     if typ in {"transfer_rumour","confirmed_transfer"}:
         return bool(a["subject_key"] and a["subject_key"]==b["subject_key"])
@@ -219,10 +228,17 @@ def write(path,data): path.write_text(json.dumps(data,ensure_ascii=False,indent=
 def run_self_tests():
     base=datetime(2026,11,10,18,tzinfo=timezone.utc)
     def o(title,url,feed,summary="",dt=base):
-        return {"title":title,"summary":summary,"url":url,"publisher_domain":domain(url),"publisher_name_hint":None,"source_feed":feed,"published":dt.isoformat(),"publisher_type":publisher_type(url),"team_scope":team_scope(title,summary,url),"story_type":classify(title,summary),"opponent_key":opponent_key(title,summary,url),"subject_key":event_subject(title,summary,classify(title,summary))}
-    # Hacken reports and live commentary: same women's match.
-    h=[o("Chelsea play out goalless draw with Hacken","https://www.bbc.co.uk/sport/football/a", "BBC"),o("Chelsea frustrated at Hacken in WCL","https://www.skysports.com/football/b", "Sky"),o("Hacken 0-0 Chelsea commentary","https://www.skysports.com/football/bk-hacken-women-vs-chelsea-women/c", "Sky")]
-    gh=cluster(h); assert len(gh)==1 and gh[0]["team_scope"]=="chelsea_women" and gh[0]["observation_count"]==3
+        return {"title":title,"summary":summary,"url":url,"publisher_domain":domain(url),"publisher_name_hint":None,"source_feed":feed,"published":dt.isoformat(),"publisher_type":publisher_type(url),"team_scope":team_scope(title,summary,url),"story_type":classify(title,summary),"opponent_key":opponent_key(title,summary,url),"fixture_key":fixture_key(url),"subject_key":event_subject(title,summary,classify(title,summary))}
+    # Exact live-output regression: BBC coverage plus two different Sky URLs
+    # (live commentary and match report) share the same Sky fixture ID 578259.
+    h=[o("Chelsea play out goalless draw with Hacken","https://www.bbc.co.uk/sport/football/videos/c62keklwjpe0o?at_medium=RSS&at_campaign=rss", "BBC", "Chelsea maintain their unbeaten start in the Women's Champions League but were frustrated by Hacken who pick up their second point in this season's competition.", datetime(2026,11,10,20,7,12,tzinfo=timezone.utc)),o("Hacken 0-0 Chelsea commentary","https://www.skysports.com/football/bk-hcken-women-vs-chelsea-women/live/578259", "Sky", "", datetime(2026,11,10,17,15,tzinfo=timezone.utc)),o("Chelsea frustrated at Hacken in WCL","https://www.skysports.com/football/bk-hcken-women-vs-chelsea-women/report/578259", "Sky", "Chelsea remain unbeaten in the Women's Champions League but they were frustrated in a goalless draw at BK Hacken.", datetime(2026,11,10,19,0,tzinfo=timezone.utc))]
+    gh=cluster(h); assert len(gh)==1 and gh[0]["team_scope"]=="chelsea_women" and gh[0]["observation_count"]==3 and gh[0]["publisher_count"]==2
+    # Same publisher + same opponent is NOT enough when fixture IDs differ.
+    x=[o("Chelsea draw with Hacken","https://www.skysports.com/football/bk-hcken-women-vs-chelsea-women/report/111111","Sky"),o("Chelsea beat Hacken","https://www.skysports.com/football/bk-hcken-women-vs-chelsea-women/report/222222","Sky",dt=base+timedelta(minutes=20))]
+    assert len(cluster(x))==2
+    # Same fixture ID cannot bridge different story stages.
+    x=[o("Chelsea Women face Hacken preview","https://www.skysports.com/football/bk-hcken-women-vs-chelsea-women/report/333333","Sky"),o("Chelsea frustrated at Hacken after goalless draw","https://www.skysports.com/football/bk-hcken-women-vs-chelsea-women/live/333333","Sky")]
+    assert len(cluster(x))==2
     # Unrelated BBC injury/team story and Zubimendi transfer stay apart.
     x=[o("Chelsea staff warned over Fantasy Premier League use","https://www.bbc.co.uk/sport/football/c","BBC"),o("Chelsea named as one of three teams interested in £60m January move for Zubimendi","https://www.talkchelsea.net/d","TalkChelsea")]
     assert len(cluster(x))==2
@@ -242,7 +258,7 @@ def run_self_tests():
     for g in gh+gs:
         assert any(s["title"]==g["representative_title"] and s["url"]==g["representative_url"] for s in g["source_observations"])
         assert set(g["source_urls"])=={s["url"] for s in g["source_observations"]}
-    print("PASS: 9 regression checks (Hacken 3-way merge; false-merge guards; event-type split; opinion classification; Sunderland merge; source integrity).")
+    print("PASS: 11 regression checks (exact live-output Hacken 3-way merge including same-publisher fixture ID; different-fixture guard; story-stage guard; false-merge guards; opinion classification; Sunderland merge; source integrity).")
 def main():
     # Fail fast if a known regression is reintroduced before any live collection.
     run_self_tests()
@@ -257,11 +273,10 @@ def main():
     selected=groups[:MAX_STORIES]; stamp=now(); history=update_history(groups,old)
     statuses=Counter(r["status"] for r in reports)
     candidate={"collector_version":VERSION,"generated_at":stamp.isoformat(),"selection_limit":MAX_STORIES,"queue_semantics":"Pending candidates only. A later verification processor must explicitly approve claims before article generation or publication.","stories":selected}
-    report={"collector_version":VERSION,"run_started_at":started.isoformat(),"run_completed_at":stamp.isoformat(),"duration_seconds":round((stamp-started).total_seconds(),2),"configured_sources":len(reports),"successful_sources":statuses["success"],"empty_sources":statuses["empty"],"failed_sources":statuses["failed"],"raw_observations_collected":len(obs),"unique_events_after_conservative_deduplication":len(groups),"duplicate_observations_merged":len(obs)-len(groups),"selected_pending_candidates":len(selected),"events_not_selected_due_to_limit":max(0,len(groups)-len(selected)),"selected_team_scope_distribution":dict(Counter(g["team_scope"] for g in selected)),"selected_story_type_distribution":dict(Counter(g["story_type"] for g in selected)),"selected_priority_distribution":dict(Counter(g["priority"] for g in selected)),"selected_events_with_multiple_publishers":sum(g["publisher_count"]>1 for g in selected),"selected_source_link_count":sum(len(g["source_urls"]) for g in selected),"source_reports":reports,"excluded_sources":[{"source":"Google News","status":"disabled","reason":"Aggregator URLs not reliably resolved to direct publisher articles."},{"source":"NewsNow","status":"disabled","reason":"Direct article extraction was not reliable."}],"quality_controls":["Conservative event clustering: ambiguous stories remain separate; Chelsea mention alone never causes a merge.","Different publishers only merge when story type, team scope, time window and event-specific opponent/player identity agree.","Different articles from the same publisher never merge unless their normalized URLs are identical.","Match previews, reports and reactions are separate event types.","Chelsea Women and academy scope are detected using headline, summary and URL.","Representative title, summary and URL are sourced from coherent observation records; every original URL remains attached.","RSS excerpts are capped at 500 characters and are source hints only, never article copy.","Multiple publishers do not prove independent confirmation.","All candidates remain pending editorial verification; claims_verified is always false.","Collection does not generate articles or publish to Blogger or X."]}
+    report={"collector_version":VERSION,"run_started_at":started.isoformat(),"run_completed_at":stamp.isoformat(),"duration_seconds":round((stamp-started).total_seconds(),2),"configured_sources":len(reports),"successful_sources":statuses["success"],"empty_sources":statuses["empty"],"failed_sources":statuses["failed"],"raw_observations_collected":len(obs),"unique_events_after_conservative_deduplication":len(groups),"duplicate_observations_merged":len(obs)-len(groups),"selected_pending_candidates":len(selected),"events_not_selected_due_to_limit":max(0,len(groups)-len(selected)),"selected_team_scope_distribution":dict(Counter(g["team_scope"] for g in selected)),"selected_story_type_distribution":dict(Counter(g["story_type"] for g in selected)),"selected_priority_distribution":dict(Counter(g["priority"] for g in selected)),"selected_events_with_multiple_publishers":sum(g["publisher_count"]>1 for g in selected),"selected_source_link_count":sum(len(g["source_urls"]) for g in selected),"source_reports":reports,"excluded_sources":[{"source":"Google News","status":"disabled","reason":"Aggregator URLs not reliably resolved to direct publisher articles."},{"source":"NewsNow","status":"disabled","reason":"Direct article extraction was not reliable."}],"quality_controls":["Conservative event clustering: ambiguous stories remain separate; Chelsea mention alone never causes a merge.","Different publishers only merge when story type, team scope, time window and event-specific opponent/player identity agree.","Different same-publisher match articles merge only when story class, team scope, time window and the publisher fixture ID all match; same opponent alone is insufficient.","Match previews, reports and reactions are separate event types.","Chelsea Women and academy scope are detected using headline, summary and URL.","Representative title, summary and URL are sourced from coherent observation records; every original URL remains attached.","RSS excerpts are capped at 500 characters and are source hints only, never article copy.","Multiple publishers do not prove independent confirmation.","All candidates remain pending editorial verification; claims_verified is always false.","Collection does not generate articles or publish to Blogger or X."]}
     write(CANDIDATES_FILE,candidate); write(REPORT_FILE,report); write(HISTORY_FILE,history)
     logging.info("v%s: %d observations -> %d conservative events -> %d pending candidates",VERSION,len(obs),len(groups),len(selected))
     return 0
 if __name__=="__main__":
     if "--self-test" in sys.argv: run_self_tests()
     else: raise SystemExit(main())
- 
