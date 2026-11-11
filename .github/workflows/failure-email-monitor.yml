@@ -30,7 +30,7 @@ jobs:
 
       - name: Send failure alert by email
         env:
-          MONITOR_EMAIL: ${{ secrets.MONITOR_EMAIL }}
+          MONITOR_EMAIL: omowahala91@gmail.com
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
           SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
         run: python .github/scripts/send_failure_alert.py
