@@ -18,7 +18,7 @@ VERSION = "1.0"
 TIMEOUT = 20
 MAX_FETCH_CHARS = 9000
 MAX_DRAFTS = int(os.getenv("MAX_DRAFTS_PER_RUN", "6"))
-MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+MODEL = os.getenv("OPENAI_MODEL", "gpt-5.4-mini")
 OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com"}
 ESTABLISHED = {"bbc.co.uk", "bbc.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com", "espn.com", "independent.co.uk", "standard.co.uk", "nytimes.com", "theathletic.com", "football365.com", "thetimes.com", "telegraph.co.uk"}
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsEditorialBot/1.0; +https://www.chelseafeeds.com/)"}
@@ -167,7 +167,7 @@ def generate_draft(story, evidence, api_key, session):
     )
     req = {
         "model": MODEL,
-        "temperature": 0.35,
+        "reasoning_effort": "low",
         "response_format": {"type": "json_object"},
         "messages": [
             {"role": "system", "content": system},
