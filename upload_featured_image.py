@@ -83,12 +83,31 @@ def main():
 
     alt = str(featured.get("alt_text") or post.get("image_alt_text") or post.get("title") or "ChelseaFeeds article image").strip()
     alt = re.sub(r"\s+", " ", alt)[:250]
+    source_type = str(featured.get("source_type") or "branded_graphic_fallback").strip()
+    if source_type not in {"licensed_commons_photo", "ai_generated_illustration", "branded_graphic_fallback"}:
+        raise RuntimeError(f"Unsupported featured image source type: {source_type}")
+    credit_text = re.sub(r"\s+", " ", str(featured.get("credit_text") or "ChelseaFeeds editorial graphic")).strip()[:500]
+    credit_url = str(featured.get("source_page") or "").strip()
+    license_name = re.sub(r"\s+", " ", str(featured.get("license_name") or "")).strip()[:100]
+    license_url = str(featured.get("license_url") or "").strip()
+    if source_type == "licensed_commons_photo":
+        from urllib.parse import urlparse
+        parsed_credit = urlparse(credit_url)
+        if parsed_credit.scheme != "https" or parsed_credit.netloc != "commons.wikimedia.org" or not parsed_credit.path.startswith("/wiki/"):
+            raise RuntimeError("Commons photo is missing a valid Wikimedia Commons source page.")
+        if not license_name:
+            raise RuntimeError("Commons photo is missing its licence name.")
     output_file = os.environ.get("GITHUB_OUTPUT")
     if not output_file:
         raise RuntimeError("GITHUB_OUTPUT is unavailable; cannot pass the verified image URL to the publisher.")
     with open(output_file, "a", encoding="utf-8") as out:
         out.write(f"image_url={image_url}\n")
         out.write(f"alt_text={alt.replace(chr(10), ' ').replace(chr(13), ' ')}\n")
+        out.write(f"source_type={source_type}\n")
+        out.write(f"credit_text={credit_text.replace(chr(10), ' ').replace(chr(13), ' ')}\n")
+        out.write(f"credit_url={credit_url}\n")
+        out.write(f"license_name={license_name}\n")
+        out.write(f"license_url={license_url}\n")
     print(json.dumps({"featured_image_status": "uploaded_and_publicly_verified",
                       "image_url": image_url, "filename": filename,
                       "width": 1200, "height": 675}, ensure_ascii=False))
