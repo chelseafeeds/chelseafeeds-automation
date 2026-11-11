@@ -37,7 +37,7 @@ def update(report_path: Path):
             record["last_processed_headline"] = str(result["headline"])[:240]
         changed += 1
     history["updated_at"] = stamp
-    HISTORY.write_text(json.dumps(history, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+    HISTORY.write_text(json.dumps(history, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Recorded {changed} terminal editorial outcomes; transient AI/evidence failures remain eligible for retry.")
 
 def self_test():
