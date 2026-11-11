@@ -114,11 +114,24 @@ def inspect_artifact(run, artifact):
         if image_check["source_type"]=="licensed_commons_photo" and not image_check["attribution"]: issues.append("Commons photo attribution missing")
         article["issues"]=issues
         result["articles"].append(article)
+    processing_results=editorial.get("results",[]) if isinstance(editorial.get("results"),list) else []
+    status_counts={}
+    for item in processing_results:
+        status=item.get("processing_status","unknown")
+        status_counts[status]=status_counts.get(status,0)+1
+        error=str(item.get("error") or "")
+        if "AI provider retries exhausted" in error or "HTTP 429" in error:
+            result["errors"].append(f"AI article generation was rate-limited for candidate: {item.get('headline') or item.get('event_id')}")
     result["editorial_report"]={"input_candidates":editorial.get("input_candidate_count"),
         "drafts_created":editorial.get("drafts_created"),"blogger_ready_export_count":editorial.get("blogger_ready_export_count"),
+        "processing_status_counts":status_counts,
         "article_publishing_enabled":editorial.get("article_publishing_enabled"),
         "x_publishing_enabled":editorial.get("x_publishing_enabled"),
         "featured_image_pipeline":editorial.get("featured_image_pipeline")}
+    if (editorial.get("input_candidate_count") or 0)>0 and (editorial.get("drafts_created") or 0)==0:
+        result["errors"].append("No articles were generated from this processing run.")
+    if len(posts)!=(editorial.get("drafts_created") or 0):
+        result["errors"].append("Blogger-ready post count does not match the editorial draft count.")
     result["errors"].extend([f"{a.get('title')}: {issue}" for a in result["articles"] for issue in a["issues"]])
     result["verification"]="passed" if not result["errors"] else "needs_attention"
     return result
