@@ -1,1 +1,378 @@
-
+{
+  "history_version": "3.6",
+  "updated_at": "2026-11-11T02:56:20.625440+00:00",
+  "stories": {
+    "url:9a4130b15785192890978e5ffc3416a111658f76f878f96adc8309434aff3a3b": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "9a4130b1578519289097",
+      "title": "Chelsea staff warned over Fantasy Premier League use"
+    },
+    "title:9253fade13f89007a4d9cb4e90f855b0c5120f42d4b2009c22ce7e5bc4cc4b41": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "9a4130b1578519289097",
+      "title": "Chelsea staff warned over Fantasy Premier League use"
+    },
+    "url:e011f67d2b80fe848713ff106a357dfca8c850bee6798cb4f1bfbcf59af2adef": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "e011f67d2b80fe848713",
+      "title": "Chelsea play out goalless draw with Hacken"
+    },
+    "title:0de91cdb03d68e1bbcf0ea69931d3c31c97fcfb6e391b5c68cc541ba3a5be615": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "e011f67d2b80fe848713",
+      "title": "Chelsea play out goalless draw with Hacken"
+    },
+    "url:e2df05511a931f47dd6524fdbf051a9ca0c046aefc11468592160909755ed9e1": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "e2df05511a931f47dd65",
+      "title": "Chelsea frustrated at Hacken in WCL"
+    },
+    "title:ad0ba3bbbbffc851b07830996165cb0caa38130e14a5fc58ee3c638bb71125e7": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "e2df05511a931f47dd65",
+      "title": "Chelsea frustrated at Hacken in WCL"
+    },
+    "url:bf00aad98795469daf798bd00162c754b7290553d36229a2c5f9229624085877": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "bf00aad98795469daf79",
+      "title": "Hacken 0-0 Chelsea commentary"
+    },
+    "title:008da904c98e193299b28f78c2b2a939042a7c33a011a2c17696055370f15b34": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "bf00aad98795469daf79",
+      "title": "Hacken 0-0 Chelsea commentary"
+    },
+    "url:f23c12fe72482925c1d28ae2078e59c754129232f16fc723ec83cd0eb41d1fc3": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "f23c12fe72482925c1d2",
+      "title": "Premier League: 10 talking points from the weekend’s action"
+    },
+    "title:f1286d04a8a12f905c8b97342affb01c72e803c5964bdfd16eb2cf5b4e64727f": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "f23c12fe72482925c1d2",
+      "title": "Premier League: 10 talking points from the weekend’s action"
+    },
+    "url:9f83b200fe999ff0ec21a1edbc9d1f98a47b0a0e3f919c33780b3e8f68f82d16": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "9f83b200fe999ff0ec21",
+      "title": "Le Fée’s penalty stuns Chelsea and breathes life into defiant Sunderland"
+    },
+    "title:37d10aeb7830e7f7ced4b536d31062041c0cdc157952a6546e7a309852973608": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "9f83b200fe999ff0ec21",
+      "title": "Le Fée’s penalty stuns Chelsea and breathes life into defiant Sunderland"
+    },
+    "url:e61587bd33815ca365112157c69897d9c363bdcde8dad3b974def8994d3acd4f": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "e61587bd33815ca36511",
+      "title": "Chelsea’s Alonso identity still to form in a midfield that remains a problem"
+    },
+    "title:f0b1165721d597d108317a0af3e27c77b2a19596df1f9096b53fa65993fb4d3c": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "e61587bd33815ca36511",
+      "title": "Chelsea’s Alonso identity still to form in a midfield that remains a problem"
+    },
+    "url:e28ae41d6190838ec5a368834a0cef99119de72ad037527fb4c38c662417a340": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "e28ae41d6190838ec5a3",
+      "title": "Chelsea push ahead with Levi Colwill decision after £75m Barcelona rumours"
+    },
+    "title:b6e57d3646c67205dc84ae8aa9985455d51081b69e3555d3fba92fe7227e4832": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "e28ae41d6190838ec5a3",
+      "title": "Chelsea push ahead with Levi Colwill decision after £75m Barcelona rumours"
+    },
+    "url:181748986a5d6300a70794fd42dcbec92e8e3c7617a6f5ef83c7968de4870830": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "181748986a5d6300a707",
+      "title": "Arsenal choose priority January signing with Arteta to sacrifice £60m Chelsea target to seal transfer"
+    },
+    "title:46b170636f2d322e9fd8725b4ae9f49ce1c38b561e5a257daad27bdc6a074238": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "181748986a5d6300a707",
+      "title": "Arsenal choose priority January signing with Arteta to sacrifice £60m Chelsea target to seal transfer"
+    },
+    "url:b036b464c603ade8f2ceef0a7b1a28e65d6f09ab5a257708974589ffa97a2460": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "b036b464c603ade8f2ce",
+      "title": "Alejandro Garnacho ‘might be finished’ at Aston Villa as verdict reached on ‘backing out’ of Chelsea deal"
+    },
+    "title:ea6016a2fc136680d9f6b5ad733257ca58a41fb387e99abcd3249e25163cf66c": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "b036b464c603ade8f2ce",
+      "title": "Alejandro Garnacho ‘might be finished’ at Aston Villa as verdict reached on ‘backing out’ of Chelsea deal"
+    },
+    "url:6b22b36cf8ea30c5a8568683bd907c20ab9af0b82ef8e104631ec476320f718a": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "6b22b36cf8ea30c5a856",
+      "title": "Chelsea next transfer is clear after player “ragdolled” by striker claims former scout"
+    },
+    "title:6dd9f9d0320f368e34df10d26d6044cfcded6f52d8271b36bff1f7891257277d": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "6b22b36cf8ea30c5a856",
+      "title": "Chelsea next transfer is clear after player “ragdolled” by striker claims former scout"
+    },
+    "url:235a2df1ead86ab5da2c21649508a0a4f34cd5e41dc624949af51585e9a2baaa": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "235a2df1ead86ab5da2c",
+      "title": "Chelsea named as one of three teams interested in £60m January move for Premier League winner"
+    },
+    "title:1a54a21656a9eacc05c14a2678e6caf57bdaa896f83050742c956b20b62a2691": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "235a2df1ead86ab5da2c",
+      "title": "Chelsea named as one of three teams interested in £60m January move for Premier League winner"
+    },
+    "url:b7517283a25e5ca21b4cf11c3719fad4db5f368e23aa16926df6d26847b158cc": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "b7517283a25e5ca21b4c",
+      "title": "Chelsea eye £29m move for Club Brugge striker Nicolo Tresoldi"
+    },
+    "title:ed8e90f7a2b6f4ba4283638db4d2d5facfb54c13a9fe2f5268f1e5401881b90f": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "b7517283a25e5ca21b4c",
+      "title": "Chelsea eye £29m move for Club Brugge striker Nicolo Tresoldi"
+    },
+    "url:06987bd0fb2d3da460d589b5acd1fd0ef42c367c58d61ad0fbc890d87faefcc1": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "06987bd0fb2d3da460d5",
+      "title": "“Huge, massive failure” on the cards for Chelsea if they don’t solve their biggest problem claims pundit"
+    },
+    "title:04e7ba542223f8c38d08f95767ae47238be5709131ed8dbf4be6606e764b32cb": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "06987bd0fb2d3da460d5",
+      "title": "“Huge, massive failure” on the cards for Chelsea if they don’t solve their biggest problem claims pundit"
+    },
+    "url:6eb0987815086dee59091b94db7e5b3e42ff2f11f2de5a07e0d2fbae89c54088": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "6eb0987815086dee5909",
+      "title": "“Trouble understanding” – Chelsea not improving under Alonso claims pundit"
+    },
+    "title:3279d6fecbb7771616259e1d4afa6ec322a25f21571f07d174e3363b8fcd6210": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "6eb0987815086dee5909",
+      "title": "“Trouble understanding” – Chelsea not improving under Alonso claims pundit"
+    },
+    "url:fdbd8da9cb3c801bc7244fab090c4d6ce8d4a4b7a1f562a6782fc9790491c52d": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "fdbd8da9cb3c801bc724",
+      "title": "Mike Penders makes big claim about Chelsea’s tactical improvement which fans might not agree with"
+    },
+    "title:fa9b000af1d1800e4555ab4c05c012065517144ad595c09ba5efbd47c7f30ec5": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "fdbd8da9cb3c801bc724",
+      "title": "Mike Penders makes big claim about Chelsea’s tactical improvement which fans might not agree with"
+    },
+    "url:07bbcd2abff4bd0ba2fe684a594cf600ba11829d73b5fd79c7ba22740b82d2bc": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "07bbcd2abff4bd0ba2fe",
+      "title": "Chelsea Women face Häcken without James and Girma as Manchester City clash looms"
+    },
+    "title:f5d70315de982b93327400f8f84a01617e49685f84d06321a7af561891230e4c": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "07bbcd2abff4bd0ba2fe",
+      "title": "Chelsea Women face Häcken without James and Girma as Manchester City clash looms"
+    },
+    "url:24506c516125a374ab3ea1e614b369885b61532d9857375400d420511bdcf93d": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "24506c516125a374ab3e",
+      "title": "Chelsea’s scary stats with and without injured star show bigger problem than Alonso"
+    },
+    "title:cd090f099cd0046467a1a8844073b5c62c52335d509b18ce551d838b4a6dc3ae": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "24506c516125a374ab3e",
+      "title": "Chelsea’s scary stats with and without injured star show bigger problem than Alonso"
+    },
+    "url:4b4baafa856b8946f8a7ba3c16eb53625bffce50063c3ef85a2daf54b1de6a99": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "4b4baafa856b8946f8a7",
+      "title": "Leeds United want to bring Jamie Gittens on loan in January transfer"
+    },
+    "title:c9991b73e53fccfa4d1857b5d276106fb4746977c50cd1e99b8e395ea964f876": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "4b4baafa856b8946f8a7",
+      "title": "Leeds United want to bring Jamie Gittens on loan in January transfer"
+    },
+    "url:021bb9ea62a655ce7d09909d904aa20e188aad5055ec114aa49a310947a65339": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "021bb9ea62a655ce7d09",
+      "title": "Tuchel leaves a fit Cole Palmer out of England squad, Rogers Chelsea’s only call-up"
+    },
+    "title:e991aafe15d7a45f3abfc5afab6828e69d0a990a6352b566e01d1cb5ded8dc06": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "021bb9ea62a655ce7d09",
+      "title": "Tuchel leaves a fit Cole Palmer out of England squad, Rogers Chelsea’s only call-up"
+    },
+    "url:3dde0824660363499ebaa3cb50aa73d4c6caaee6dbd4742044060526882dc867": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "3dde0824660363499eba",
+      "title": "Quenda races to be fit for Sunderland after muscle problem adds to Chelsea injury list"
+    },
+    "title:b499df494a99d9d9bffde28b43622539ebbf4740553cb13e58b024f01d1ef664": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "3dde0824660363499eba",
+      "title": "Quenda races to be fit for Sunderland after muscle problem adds to Chelsea injury list"
+    },
+    "url:a6dffb420da9a96dda3d2a078c056a0b1c9725097b9077d684d5a9e3c7b5f970": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "a6dffb420da9a96dda3d",
+      "title": "Flora Tallinn knock Chelsea’s Cobham Next Gen out of the Youth League 5-4 on aggregate"
+    },
+    "title:1fcbcfba0c1bda1323658e631b442f26869163c5d7e0042f704570965a85e286": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "a6dffb420da9a96dda3d",
+      "title": "Flora Tallinn knock Chelsea’s Cobham Next Gen out of the Youth League 5-4 on aggregate"
+    },
+    "url:93263cf24b14212277b6a5df653057f1799a17876a2f8946543998c935681931": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "93263cf24b14212277b6",
+      "title": "Steven Gerrard predicts Estevao will give Xabi Alonso a selection problem at Chelsea"
+    },
+    "title:df381e0ed6747931acec71414be8b179f412749ebee4d5b221d5697b36fa50fe": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "93263cf24b14212277b6",
+      "title": "Steven Gerrard predicts Estevao will give Xabi Alonso a selection problem at Chelsea"
+    },
+    "url:6006aa66f32e3513d307a2194d5aa7110da2c68e0e134c9f66407522a2276416": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "6006aa66f32e3513d307",
+      "title": "Anselmino earns first Argentina call-up days after Alonso said he needed more weeks"
+    },
+    "title:1d8fca49a08b5eb3dbcc4bda2cf138f757b9a2d2c36917784676065634d15406": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "6006aa66f32e3513d307",
+      "title": "Anselmino earns first Argentina call-up days after Alonso said he needed more weeks"
+    },
+    "url:5066ff970480b8044a988059169ecc678d82a74e77e1668e7ab1947c34d3a582": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "5066ff970480b8044a98",
+      "title": "Pundit names Xabi Alonso team decision which “really worried” him as Blues lose to Sunderland"
+    },
+    "title:4346748dd0a2a32d0e93a294219f05f3ccd82040a4b78372258b6ceba8016967": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "5066ff970480b8044a98",
+      "title": "Pundit names Xabi Alonso team decision which “really worried” him as Blues lose to Sunderland"
+    },
+    "url:04c4908a52badd902d8251a5ff630ebee6a1e827a37ea60b614b887e7949f504": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "04c4908a52badd902d82",
+      "title": "“Why did Chelsea sign him?” – The question fans would love to ask Xabi Alonso after Sunderland team decision"
+    },
+    "title:c38527484fcf43789dfe9367558362c161335d8bc3aab4222da2daab6db650bf": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "04c4908a52badd902d82",
+      "title": "“Why did Chelsea sign him?” – The question fans would love to ask Xabi Alonso after Sunderland team decision"
+    },
+    "url:203979cfa8c8f94a7d73ddee8b758017de7441645b6e1278a344fc5c0b3b8d23": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "203979cfa8c8f94a7d73",
+      "title": "The “only part” of Chelsea that’s working well right now according to someone who watched Sunderland defeat live"
+    },
+    "title:740a71ec8d97698f6947de3571e11bad548539fc384742635177cf50dfb1912c": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "203979cfa8c8f94a7d73",
+      "title": "The “only part” of Chelsea that’s working well right now according to someone who watched Sunderland defeat live"
+    },
+    "url:71b69df58618455933aa7279874cc77275e2e4339eb96d00ad5309b086e744f5": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "71b69df58618455933aa",
+      "title": "The first summer AFCON in eight years: what 2027 means for Chelsea and the Premier League"
+    },
+    "title:0167e6f412fe71ed9e909870fc79cf26663156f52096bdde0982feb12cccb1d0": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "71b69df58618455933aa",
+      "title": "The first summer AFCON in eight years: what 2027 means for Chelsea and the Premier League"
+    },
+    "url:40610210a9dc29db52e60c068b4e822de5549a0c88a737ffe436b0d22f1ce819": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "40610210a9dc29db52e6",
+      "title": "Le Fée penalty sinks Chelsea at Sunderland as Alonso’s side manage 0.55 expected goals"
+    },
+    "title:e6c4701297a68bbe74e290da3b0828bd7581291be22a21b54e8089110e191441": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "40610210a9dc29db52e6",
+      "title": "Le Fée penalty sinks Chelsea at Sunderland as Alonso’s side manage 0.55 expected goals"
+    },
+    "url:f63b7dfb639c4285516ab1e2240f0af6fdad14e9199f3bda1fd7dadd309d7b84": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "f63b7dfb639c4285516a",
+      "title": "Xabi Alonso blasts Chelsea after missed chance vs Sunderland"
+    },
+    "title:ca4aceb38edbb5520337664d54e316a8f270737ae97a6b121d3a9faa9826d677": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "f63b7dfb639c4285516a",
+      "title": "Xabi Alonso blasts Chelsea after missed chance vs Sunderland"
+    },
+    "url:1b2c0e8530bbf548d936315f749fc9f55c2437b5b9d53550a360df383995e63c": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "1b2c0e8530bbf548d936",
+      "title": "Bompastor says Chelsea were not ruthless enough as Everton draw hands Manchester City top spot"
+    },
+    "title:ce7a61b61a98d4561a1251fe27d87028bd5ed346acf4ee9c3749812534c48086": {
+      "queued_at": "2026-11-11T02:56:20.625343+00:00",
+      "status": "queued",
+      "story_id": "1b2c0e8530bbf548d936",
+      "title": "Bompastor says Chelsea were not ruthless enough as Everton draw hands Manchester City top spot"
+    }
+  }
+}
