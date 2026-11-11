@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 from PIL import Image, ImageDraw, ImageFont
+from related_links import fetch_published_articles, select_related_articles, add_related_links
 
 VERSION = "1.5"
 TIMEOUT = 20
@@ -248,7 +249,7 @@ def normalize_search_description(draft):
     return candidate
 
 
-def quality_gate(draft, fetched, story):
+def quality_gate(draft, fetched, story, allowed_internal_urls=None):
     html = str(draft.get("article_html", ""))
     soup = BeautifulSoup(html, "html.parser")
 
@@ -275,6 +276,7 @@ def quality_gate(draft, fetched, story):
     word_count = len(text.split())
     links = {a.get("href") for a in original_soup.find_all("a", href=True)}
     allowed_urls = {x["url"] for x in fetched if x.get("accessible") and x.get("url")}
+    allowed_internal_urls = set(allowed_internal_urls or [])
     title = str(draft.get("title", "")).strip()
     description = str(draft.get("search_description", "")).strip()
     checks = {
@@ -283,7 +285,7 @@ def quality_gate(draft, fetched, story):
         "substantive_article_body_minimum_400_words": word_count >= 400,
         "has_section_headings": len(original_soup.find_all(["h2", "h3"])) >= 2,
         "has_source_links": bool(links & allowed_urls),
-        "source_links_are_supplied": links.issubset(allowed_urls),
+        "source_links_are_supplied": links.issubset(allowed_urls | allowed_internal_urls),
         "no_unsafe_html": not bool(re.search(r"<(script|iframe|form|object|embed)\b", html, re.I)),
         "no_empty_required_seo_fields": all(str(draft.get(k, "")).strip() for k in ("focus_keyword", "excerpt", "image_prompt", "image_alt_text"))
     }
@@ -389,6 +391,8 @@ def process(input_path, output_dir):
     stories = data.get("stories", [])
     session = requests.Session()
     session.headers.update(HEADERS)
+    published_articles = fetch_published_articles(session)
+    logging.info("Loaded %d published ChelseaFeeds articles for internal-link matching", len(published_articles))
     drafts, results, counters = [], [], Counter()
     for story in stories:
         fetched = [fetch_source(url, session) for url in story.get("source_urls", [])[:8]]
@@ -410,7 +414,10 @@ def process(input_path, output_dir):
             try:
                 draft = generate_draft(story, fetched, AI_API_KEY, session)
                 draft["article_html"] = add_deterministic_sources(draft["article_html"], fetched)
-                quality = quality_gate(draft, fetched, story)
+                related = select_related_articles(draft, story, published_articles)
+                draft["article_html"] = add_related_links(draft["article_html"], related)
+                draft["related_internal_links"] = [{"title": x["title"], "url": x["url"], "score": x["score"]} for x in related]
+                quality = quality_gate(draft, fetched, story, {x["url"] for x in related})
                 record["quality_gate"] = quality
                 if not quality["passed"]:
                     record["processing_status"] = "rejected_quality_gate"
