@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""ChelseaFeeds Collector v3.6 — Publisher-Verified Queue Edition.
+"""ChelseaFeeds Collector v3.7 — Quality & Event Deduplication.
 
-Collects direct publisher RSS feeds, resolves aggregator URLs conservatively,
-rejects unresolved/undated links from the editorial queue, deduplicates, ranks,
-and records only stories actually queued. It does not verify claims, write
-articles, or publish to Blogger/X.
+Collects direct publisher RSS items, classifies Chelsea coverage, merges reports
+about the same event while retaining all source observations, ranks candidates,
+and records observation history without marking stories as published/consumed.
+It does NOT verify claims, write articles, or publish to Blogger/X.
 """
 from __future__ import annotations
 
@@ -18,27 +18,24 @@ from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from urllib.parse import parse_qsl, urlencode, urljoin, urlparse, urlunparse
+from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 import feedparser
 import requests
 from bs4 import BeautifulSoup
 
-VERSION = "3.6"
+VERSION = "3.7"
 BASE_DIR = Path(__file__).resolve().parent
 HISTORY_FILE = BASE_DIR / "seen_stories.json"
 CANDIDATES_FILE = BASE_DIR / "news_candidates.json"
 REPORT_FILE = BASE_DIR / "collection_report.json"
-
 REQUEST_TIMEOUT = 18
 MAX_STORIES = 40
-MAX_HISTORY_ITEMS = 10000
-HISTORY_DAYS = 60
 STORY_MAX_AGE_DAYS = 7
-SIMILARITY_THRESHOLD = 0.88
+HISTORY_DAYS = 90
+MAX_HISTORY_EVENTS = 12000
+EVENT_SIMILARITY_THRESHOLD = 0.38
 
-# Direct publisher feeds only. Google News and NewsNow are excluded because
-# their current links frequently remain aggregator URLs or produce noisy leads.
 FEEDS = [
     {"name": "BBC Sport", "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"},
     {"name": "Sky Sports", "url": "https://www.skysports.com/rss/12040"},
@@ -57,49 +54,26 @@ ESTABLISHED_DOMAINS = {
 }
 AGGREGATOR_DOMAINS = {"news.google.com", "newsnow.com", "c.newsnow.com"}
 
-CHELSEA_TERMS = (
-    "chelsea", "the blues", "stamford bridge", "chelsea fc", "chelsea women",
-    "chelsea academy", "chelsea u21", "chelsea u18",
-)
 IRRELEVANT_TERMS = (
     "chelsea flower show", "chelsea boots", "chelsea handler", "chelsea manning",
     "chelsea hotel", "chelsea neighbourhood", "chelsea neighborhood",
 )
-TRANSFER_TERMS = (
-    "transfer", "sign", "signing", "bid", "deal", "move", "loan", "contract",
-    "interest", "target", "agreed", "fee", "departure", "depart",
-)
-RUMOUR_TERMS = (
-    "rumour", "rumor", "reportedly", "linked", "could sign", "may sign", "claim",
-    "speculation", "potential", "talks", "according to reports", "understood to be",
-    "considering", "monitoring",
-)
-CONFIRMATION_TERMS = (
-    "confirmed", "officially announced", "announced", "completes", "completed",
-    "has signed", "signs for", "joins chelsea", "appointed", "extends contract",
-)
-INJURY_TERMS = (
-    "injury", "injured", "fitness", "hamstring", "knee", "ankle", "ruled out",
-    "return to training", "sidelined", "surgery", "rehabilitation",
-)
-TEAM_TERMS = (
-    "squad", "starting xi", "line-up", "lineup", "team news", "availability",
-    "training", "press conference", "selection", "starting eleven",
-)
-MATCH_TERMS = (
-    "match report", "match reaction", "premier league", "champions league", "fa cup",
-    "carabao cup", "kick-off", "fixture", " vs ", " v ", "full-time", "half-time",
-    "matchday", "league table",
-)
-OPINION_TERMS = (
-    "opinion", "analysis", "why", "should", "tactical", "explained", "player ratings",
-    "power ranking", "verdict", "view",
-)
+CHELSEA_ANCHORS = ("chelsea", "stamford bridge", "cobham")
+WOMEN_TERMS = ("chelsea women", "chelsea women's", "chelsea ladies", "women's champions league", "wcl", "bompastor")
+ACADEMY_TERMS = ("academy", "under-21", "under 21", "u21", "under-18", "under 18", "u18", "youth league", "cobham next gen")
+TRANSFER_ACTIONS = ("transfer", "sign", "signing", "bid", "deal", "move", "loan", "contract", "interest", "target", "fee", "departure", "depart", "release clause")
+TRANSFER_UNCERTAINTY = ("rumour", "rumor", "reportedly", "linked", "could sign", "may sign", "speculation", "potential", "talks", "considering", "monitoring", "interested in", "keen on", "eyeing", "eyes", "wants to sign", "set to sign")
+TRANSFER_CONFIRMATION = ("officially announced", "completes", "completed", "has signed", "signs for", "joins chelsea", "extends contract", "new contract", "deal agreed", "agreement reached")
+INJURY_TERMS = ("injury", "injured", "fitness", "hamstring", "knee", "ankle", "ruled out", "return to training", "sidelined", "surgery", "rehabilitation", "muscle problem")
+TEAM_TERMS = ("squad", "starting xi", "line-up", "lineup", "team news", "availability", "training", "press conference", "selection", "starting eleven", "call-up", "called up")
+MATCH_TERMS = ("match report", "match reaction", "premier league", "champions league", "fa cup", "carabao cup", "kick-off", "fixture", " vs ", " v ", "full-time", "half-time", "matchday", "league table", "draw", "defeat", "win", "beat", "beats", "lost", "loss", "penalty", "commentary", "goalless")
+OPINION_TERMS = ("opinion", "analysis", "why", "should", "tactical", "explained", "player ratings", "power ranking", "verdict", "pundit", "claims", "argues", "believes", "view", "really worried", "failure", "problem")
+STOP_WORDS = set("the a an and or but for to of in on at by with from after before as is are was were be been being this that these those his her their its our your how what why when where who which could would should may might will can has have had into over under about against says said claims claim according report reports latest news fc blues club team side player players manager boss head coach premier league football".split())
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 
-def utc_now():
+def now_utc():
     return datetime.now(timezone.utc)
 
 
@@ -127,191 +101,185 @@ def domain_matches(domain, known):
 def normalize_url(url):
     if not url:
         return ""
-    parsed = urlparse(str(url).strip())
-    if parsed.scheme.lower() not in {"http", "https"} or not parsed.netloc:
+    p = urlparse(str(url).strip())
+    if p.scheme.lower() not in {"http", "https"} or not p.netloc:
         return ""
-    query = [
-        (k, v) for k, v in parse_qsl(parsed.query, keep_blank_values=True)
-        if not k.lower().startswith("utm_")
-        and k.lower() not in {"oc", "fbclid", "gclid", "mc_cid", "mc_eid", "ref", "source"}
-    ]
-    return urlunparse((parsed.scheme.lower(), parsed.netloc.lower(),
-                       parsed.path.rstrip("/") or "/", "", urlencode(query), ""))
-
-
-def is_aggregator(url):
-    return domain_matches(domain_of(url), AGGREGATOR_DOMAINS)
+    query = [(k, v) for k, v in parse_qsl(p.query, keep_blank_values=True)
+             if not k.lower().startswith("utm_") and k.lower() not in {"oc", "fbclid", "gclid", "mc_cid", "mc_eid", "ref", "source"}]
+    return urlunparse((p.scheme.lower(), p.netloc.lower(), p.path.rstrip("/") or "/", "", urlencode(query), ""))
 
 
 def publisher_type(url):
-    domain = domain_of(url)
-    if domain_matches(domain, OFFICIAL_DOMAINS):
+    d = domain_of(url)
+    if domain_matches(d, OFFICIAL_DOMAINS):
         return "official_domain"
-    if domain_matches(domain, ESTABLISHED_DOMAINS):
+    if domain_matches(d, ESTABLISHED_DOMAINS):
         return "established_domain"
-    if is_aggregator(url):
+    if domain_matches(d, AGGREGATOR_DOMAINS):
         return "aggregator_unresolved"
-    return "other_direct_domain" if domain else "unknown_domain"
+    return "other_direct_domain" if d else "unknown_domain"
 
 
 def parse_date(entry):
     for key in ("published", "updated", "created"):
-        value = entry.get(key)
-        if value:
+        raw = entry.get(key)
+        if raw:
             try:
-                dt = parsedate_to_datetime(value)
+                dt = parsedate_to_datetime(raw)
                 if dt.tzinfo is None:
                     dt = dt.replace(tzinfo=timezone.utc)
                 return dt.astimezone(timezone.utc)
             except Exception:
                 pass
     for key in ("published_parsed", "updated_parsed"):
-        value = entry.get(key)
-        if value:
+        raw = entry.get(key)
+        if raw:
             try:
-                return datetime(*value[:6], tzinfo=timezone.utc)
+                return datetime(*raw[:6], tzinfo=timezone.utc)
             except Exception:
                 pass
     return None
 
 
-def is_chelsea_relevant(title, summary):
-    text = f"{title} {summary}".lower()
-    return not any(term in text for term in IRRELEVANT_TERMS) and any(term in text for term in CHELSEA_TERMS)
+def relevant(title, summary):
+    t = f"{title} {summary}".lower()
+    if any(x in t for x in IRRELEVANT_TERMS):
+        return False
+    # Chelsea must be present in title or be strongly anchored in the description.
+    title_has = any(x in title.lower() for x in CHELSEA_ANCHORS)
+    summary_has = any(x in summary.lower() for x in ("chelsea fc", "chelsea football club", "stamford bridge", "chelsea women", "chelsea academy"))
+    return title_has or summary_has
+
+
+def team_scope(title, summary):
+    t = f"{title} {summary}".lower()
+    if any(x in t for x in WOMEN_TERMS):
+        return "chelsea_women"
+    if any(x in t for x in ACADEMY_TERMS):
+        return "academy_youth"
+    if "chelsea" in t or "stamford bridge" in t or "cobham" in t:
+        return "mens_first_team_or_club"
+    return "broader_chelsea_related"
 
 
 def classify_story(title, summary):
-    text = f"{title} {summary}".lower()
-    has_transfer = any(term in text for term in TRANSFER_TERMS)
-    has_rumour = any(term in text for term in RUMOUR_TERMS)
-    if has_transfer and has_rumour:
+    t = f"{title} {summary}".lower()
+    has_transfer_action = any(x in t for x in TRANSFER_ACTIONS)
+    has_transfer_subject = bool(re.search(r"\b(player|striker|midfielder|defender|goalkeeper|forward|winger|chelsea|club)\b", t))
+    confirmed = any(x in t for x in TRANSFER_CONFIRMATION)
+    uncertain = any(x in t for x in TRANSFER_UNCERTAINTY)
+    # Rumour requires a transfer action + transfer subject + uncertainty; pundit
+    # language alone (e.g. 'pundit claims') is never sufficient.
+    has_fee_signal = bool(re.search(r"[£€$]\s?\d", t)) or "transfer window" in t
+    if (has_transfer_action or has_fee_signal) and has_transfer_subject and uncertain and not confirmed:
         return "transfer_rumour"
-    if any(term in text for term in INJURY_TERMS):
+    if has_transfer_action and has_transfer_subject and confirmed:
+        return "transfer_confirmed_or_official_update"
+    if any(x in t for x in INJURY_TERMS):
         return "injury_update"
-    if any(term in text for term in TEAM_TERMS):
+    if any(x in t for x in TEAM_TERMS):
         return "team_news"
-    if any(term in text for term in OPINION_TERMS):
+    if any(x in t for x in OPINION_TERMS):
         return "opinion_analysis"
-    if any(term in text for term in MATCH_TERMS):
+    if any(x in t for x in MATCH_TERMS):
         return "match_or_competition"
-    if has_transfer:
-        return "transfer_update"
+    if has_transfer_action and has_transfer_subject:
+        return "transfer_development_unconfirmed"
     return "general_news"
 
 
-def resolve_article_url(url, session):
-    """Resolve only by HTTP redirect or explicit canonical metadata; never guess."""
-    normalized = normalize_url(url)
-    if not normalized:
-        return "", "invalid_url"
-    if not is_aggregator(normalized):
-        return normalized, "direct_feed_url"
-    try:
-        response = session.get(normalized, timeout=REQUEST_TIMEOUT, allow_redirects=True)
-        response.raise_for_status()
-        final_url = normalize_url(response.url or normalized)
-        if final_url and not is_aggregator(final_url):
-            return final_url, "redirect_resolved"
-        soup = BeautifulSoup(response.text[:1_000_000], "html.parser")
-        candidates = []
-        canonical = soup.find("link", rel=lambda value: value and "canonical" in value)
-        if canonical and canonical.get("href"):
-            candidates.append(canonical.get("href"))
-        for attrs in ({"property": "og:url"}, {"name": "twitter:url"}):
-            tag = soup.find("meta", attrs)
-            if tag and tag.get("content"):
-                candidates.append(tag.get("content"))
-        for candidate in candidates:
-            absolute = normalize_url(urljoin(response.url or normalized, candidate))
-            if absolute and not is_aggregator(absolute):
-                return absolute, "canonical_resolved"
-    except Exception as exc:
-        logging.debug("Could not resolve %s: %s", url, exc)
-    return normalized, "aggregator_unresolved"
-
-
 def publisher_hint(entry):
-    source = entry.get("source")
-    if isinstance(source, dict):
-        name = clean_text(source.get("title", ""))
+    src = entry.get("source")
+    if isinstance(src, dict):
+        name = clean_text(src.get("title", ""))
         if name and name.lower() not in {"google news", "newsnow"}:
             return name[:100]
     return ""
 
 
-def stable_id(url, title_key):
-    return hashlib.sha256((normalize_url(url) or title_key).encode("utf-8")).hexdigest()[:20]
+def stable_hash(value, length=24):
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()[:length]
 
 
-def make_story(title, summary, url, source_name, publisher_name, published, session):
-    title, summary = clean_text(title), clean_text(summary)
-    if not title or not url or not is_chelsea_relevant(title, summary):
+def tokenize(title):
+    words = re.findall(r"[a-z0-9]+", title.lower())
+    return {w for w in words if w not in STOP_WORDS and len(w) > 2}
+
+
+def event_similarity(a, b):
+    # Events are only compared inside a 72-hour publication window.
+    try:
+        da = datetime.fromisoformat(a["published"])
+        db = datetime.fromisoformat(b["published"])
+        if abs((da - db).total_seconds()) > 72 * 3600:
+            return 0.0
+    except Exception:
+        return 0.0
+    ta, tb = a.get("title_key", ""), b.get("title_key", "")
+    if a.get("team_scope") != b.get("team_scope"):
+        return 0.0
+    url_a = a.get("normalized_url") or a.get("url") or a.get("representative_url")
+    url_b = b.get("normalized_url") or b.get("url") or b.get("representative_url")
+    if url_a and url_b and normalize_url(url_a) == normalize_url(url_b):
+        return 1.0
+    sa, sb = tokenize(ta), tokenize(tb)
+    if not sa or not sb:
+        return 0.0
+    jaccard = len(sa & sb) / max(1, len(sa | sb))
+    sequence = SequenceMatcher(None, ta, tb).ratio()
+    shared = len(sa & sb)
+    # A pair of distinctive shared terms can identify a match/event even when
+    # publishers phrase the headline very differently (e.g. 'Hacken 0-0 Chelsea').
+    if shared >= 2 and jaccard >= 0.28:
+        return max(jaccard, 0.40 + min(shared, 4) * 0.05)
+    return max(jaccard, sequence * 0.85)
+
+
+def build_observation(title, summary, url, feed_name, publisher_name, published):
+    title, summary, url = clean_text(title), clean_text(summary), normalize_url(url)
+    if not title or not url or not relevant(title, summary):
         return None
     if published is None:
         return None
-    if published > utc_now() + timedelta(hours=12) or published < utc_now() - timedelta(days=STORY_MAX_AGE_DAYS):
+    now = now_utc()
+    if published > now + timedelta(hours=12) or published < now - timedelta(days=STORY_MAX_AGE_DAYS):
         return None
-    resolved_url, resolution = resolve_article_url(url, session)
-    domain = domain_of(resolved_url)
-    ptype = publisher_type(resolved_url)
-    if not domain or is_aggregator(resolved_url):
+    domain = domain_of(url)
+    ptype = publisher_type(url)
+    if not domain or ptype == "aggregator_unresolved":
         return None
-    story_type = classify_story(title, summary)
+    scope = team_scope(title, summary)
+    stype = classify_story(title, summary)
     title_key = re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()
-    published_iso = published.isoformat()
     return {
-        "id": stable_id(resolved_url, title_key),
-        "title_key": title_key,
         "title": title,
-        "summary": summary[:1600],
-        "url": resolved_url,
-        "original_url": normalize_url(url),
-        "normalized_url": normalize_url(resolved_url),
-        "url_resolution": resolution,
-        "url_resolved": True,
-        "source_feeds": [source_name],
-        "publisher": domain,
-        "publisher_name_hint": publisher_name or None,
-        "publisher_type": ptype,
+        "summary": summary[:1800],
+        "url": url,
         "publisher_domain": domain,
-        "published": published_iso,
-        "date_unverified": False,
-        "story_type": story_type,
-        "verification_status": (
-            "official_domain_requires_claim_check" if ptype == "official_domain" else
-            "established_publisher_requires_claim_check" if ptype == "established_domain" else
-            "direct_publisher_requires_editorial_check"
-        ),
-        "direct_publisher_domains": [domain],
-        "corroborating_publishers": [],
-        "corroboration_count": 1,
-        "corroboration_status": "one_direct_domain_observed_not_independent_confirmation",
-        "priority": "P3_DEVELOPING_OR_UNCONFIRMED",
-        "importance_score": 0,
-        "queue_status": "candidate_not_yet_queued",
-        "previously_queued": False,
+        "publisher_name_hint": publisher_name or None,
+        "source_feed": feed_name,
+        "published": published.isoformat(),
+        "publisher_type": ptype,
+        "team_scope": scope,
+        "story_type": stype,
+        "title_key": title_key,
     }
 
 
-def fetch_rss(config, session):
-    stories = []
-    report = {"source": config["name"], "url": config["url"], "status": "failed",
-              "entries_received": 0, "chelsea_relevant": 0, "stories_collected": 0,
-              "rejected_old": 0, "rejected_undated": 0, "rejected_irrelevant": 0,
-              "rejected_unresolved_aggregator": 0, "error": None}
+def fetch_feed(config, session):
+    observations = []
+    report = {"source": config["name"], "url": config["url"], "status": "failed", "entries_received": 0,
+              "chelsea_relevant": 0, "observations_collected": 0, "rejected_old": 0,
+              "rejected_undated": 0, "rejected_irrelevant": 0, "rejected_unresolved_aggregator": 0, "error": None}
     try:
         response = session.get(config["url"], timeout=REQUEST_TIMEOUT)
         response.raise_for_status()
-        feed = feedparser.parse(response.content)
-        if not feed.entries:
-            report["status"] = "empty"
-            report["error"] = "Feed returned zero entries"
-            return stories, report
-        report["entries_received"] = len(feed.entries)
-        for entry in feed.entries:
+        parsed = feedparser.parse(response.content)
+        report["entries_received"] = len(parsed.entries)
+        for entry in parsed.entries:
             title = clean_text(entry.get("title", ""))
             summary = clean_text(entry.get("summary", entry.get("description", "")))
-            if not is_chelsea_relevant(title, summary):
+            if not relevant(title, summary):
                 report["rejected_irrelevant"] += 1
                 continue
             report["chelsea_relevant"] += 1
@@ -319,151 +287,194 @@ def fetch_rss(config, session):
             if published is None:
                 report["rejected_undated"] += 1
                 continue
-            if published > utc_now() + timedelta(hours=12) or published < utc_now() - timedelta(days=STORY_MAX_AGE_DAYS):
+            if published > now_utc() + timedelta(hours=12) or published < now_utc() - timedelta(days=STORY_MAX_AGE_DAYS):
                 report["rejected_old"] += 1
                 continue
-            link = entry.get("link", "")
-            before = len(stories)
-            story = make_story(title, summary, link, config["name"], publisher_hint(entry), published, session)
-            if story:
-                stories.append(story)
-            elif is_aggregator(link):
+            link = normalize_url(entry.get("link", ""))
+            if domain_matches(domain_of(link), AGGREGATOR_DOMAINS):
                 report["rejected_unresolved_aggregator"] += 1
-        report["stories_collected"] = len(stories)
-        report["status"] = "success" if stories else "empty"
-        if not stories:
-            report["error"] = "No publish-queue-eligible direct Chelsea stories in this feed"
+                continue
+            item = build_observation(title, summary, link, config["name"], publisher_hint(entry), published)
+            if item:
+                observations.append(item)
+        report["observations_collected"] = len(observations)
+        report["status"] = "success" if observations else ("empty" if parsed.entries else "empty")
+        if not observations:
+            report["error"] = "No eligible direct Chelsea stories in this feed"
     except Exception as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"
         logging.warning("Feed failed: %s — %s", config["name"], exc)
-    return stories, report
+    return observations, report
 
 
-def title_similarity(a, b):
-    return SequenceMatcher(None, a.lower(), b.lower()).ratio()
+def merge_event(group, observation):
+    # Keep all publisher observations; never replace a stronger source URL with
+    # another publisher's URL or discard the original evidence trail.
+    group["source_observations"].append(observation)
+    group["source_feeds"] = sorted(set(group["source_feeds"] + [observation["source_feed"]]))
+    domains = sorted(set(group["publisher_domains"] + [observation["publisher_domain"]]))
+    group["publisher_domains"] = domains
+    group["publisher_count"] = len(domains)
+    group["observation_count"] = len(group["source_observations"])
+    group["corroboration_status"] = (
+        "multiple_publishers_observed_independence_not_proven" if len(domains) > 1
+        else "single_publisher_observation"
+    )
+    if len(observation.get("summary", "")) > len(group.get("best_summary", "")):
+        group["best_summary"] = observation["summary"]
+    # Use the strongest source for the representative link, but retain all links.
+    rank = {"official_domain": 4, "established_domain": 3, "other_direct_domain": 1}
+    current = group["representative_publisher_type"]
+    if rank.get(observation["publisher_type"], 0) > rank.get(current, 0):
+        group["representative_url"] = observation["url"]
+        group["representative_publisher"] = observation["publisher_domain"]
+        group["representative_publisher_type"] = observation["publisher_type"]
+        group["representative_title"] = observation["title"]
+    # Prefer the most informative headline, while the representative URL stays
+    # tied to its own source observation in source_observations.
+    if len(observation["title"]) > len(group["title"]):
+        group["title"] = observation["title"]
 
 
-def deduplicate(stories):
+def cluster_events(observations):
     groups = []
-    for story in stories:
-        match = None
-        for existing in groups:
-            if (story.get("normalized_url") and story["normalized_url"] == existing.get("normalized_url")) or (
-                title_similarity(story.get("title_key", ""), existing.get("title_key", "")) >= SIMILARITY_THRESHOLD
-            ):
-                match = existing
-                break
-        if match is None:
-            groups.append(story)
-            continue
-        match["duplicate_observations"] = match.get("duplicate_observations", 0) + 1
-        match["source_feeds"] = sorted(set(match.get("source_feeds", []) + story.get("source_feeds", [])))
-        domains = sorted(set(match.get("direct_publisher_domains", []) + story.get("direct_publisher_domains", [])))
-        match["direct_publisher_domains"] = domains
-        match["corroborating_publishers"] = domains
-        match["corroboration_count"] = len(domains)
-        match["corroboration_status"] = (
-            "multiple_domains_detected_independence_not_proven" if len(domains) > 1
-            else "one_direct_domain_observed_not_independent_confirmation"
-        )
-        if len(story.get("summary", "")) > len(match.get("summary", "")):
-            match["summary"] = story["summary"]
-        rank = {"official_domain": 3, "established_domain": 2, "other_direct_domain": 1}
-        if rank.get(story["publisher_type"], 0) > rank.get(match["publisher_type"], 0):
-            for key in ("url", "normalized_url", "url_resolution", "publisher", "publisher_type",
-                        "publisher_domain", "verification_status", "id"):
-                match[key] = story[key]
-    for story in groups:
-        story.setdefault("duplicate_observations", 0)
-    return groups
+    # Sort by date so near-contemporaneous reports are considered together.
+    observations = sorted(observations, key=lambda x: x["published"])
+    for obs in observations:
+        best_group, best_score = None, 0.0
+        for group in groups:
+            score = event_similarity(obs, group)
+            if score > best_score:
+                best_group, best_score = group, score
+        if best_group is None or best_score < EVENT_SIMILARITY_THRESHOLD:
+            obs_id = stable_hash(obs["url"])
+            groups.append({
+                "event_id": obs_id,
+                "title": obs["title"],
+                "title_key": obs["title_key"],
+                "team_scope": obs["team_scope"],
+                "story_type": obs["story_type"],
+                "published": obs["published"],
+                "best_summary": obs["summary"],
+                "representative_url": obs["url"],
+                "representative_publisher": obs["publisher_domain"],
+                "representative_publisher_type": obs["publisher_type"],
+                "representative_title": obs["title"],
+                "source_observations": [obs],
+                "source_feeds": [obs["source_feed"]],
+                "publisher_domains": [obs["publisher_domain"]],
+                "publisher_count": 1,
+                "observation_count": 1,
+                "corroboration_status": "single_publisher_observation",
+            })
+        else:
+            merge_event(best_group, obs)
+            # Keep the first observation URL as the event identity. Adding a
+            # second publisher must not change the ID and break repeat tracking.
+            # Use the earliest date, not the last feed's date.
+            best_group["published"] = min(best_group["published"], obs["published"])
+            # If reports describe different types, prefer concrete factual type.
+            type_order = {"transfer_confirmed_or_official_update": 8, "injury_update": 7, "team_news": 6,
+                          "match_or_competition": 5, "transfer_rumour": 4, "transfer_development_unconfirmed": 3,
+                          "general_news": 2, "opinion_analysis": 1}
+            if type_order.get(obs["story_type"], 0) > type_order.get(best_group["story_type"], 0):
+                best_group["story_type"] = obs["story_type"]
+    results = []
+    for g in groups:
+        urls = sorted({x["url"] for x in g["source_observations"]})
+        g["source_urls"] = urls
+        g["source_observations"].sort(key=lambda x: (x["publisher_domain"], x["published"], x["url"]))
+        g["title_key"] = re.sub(r"[^a-z0-9]+", " ", g["title"].lower()).strip()
+        results.append(g)
+    return results
 
 
-def importance_and_priority(story):
-    text = f"{story['title']} {story['summary']}".lower()
-    ptype, stype = story["publisher_type"], story["story_type"]
-    rumour = stype == "transfer_rumour" or any(term in text for term in RUMOUR_TERMS)
-    confirmed_language = any(term in text for term in CONFIRMATION_TERMS)
-    score = 25
-    if ptype == "official_domain":
-        score += 40
-    elif ptype == "established_domain":
-        score += 25
-    else:
+def score_event(story):
+    ptype = story["representative_publisher_type"]
+    stype = story["story_type"]
+    scope = story["team_scope"]
+    score = 20
+    score += {"official_domain": 35, "established_domain": 25, "other_direct_domain": 5}.get(ptype, 0)
+    score += min(12, max(0, story["publisher_count"] - 1) * 4)
+    score += {"injury_update": 12, "team_news": 10, "transfer_confirmed_or_official_update": 12,
+              "match_or_competition": 9, "transfer_rumour": -5,
+              "transfer_development_unconfirmed": -2, "opinion_analysis": -8,
+              "general_news": 0}.get(stype, 0)
+    score += {"mens_first_team_or_club": 5, "chelsea_women": 2, "academy_youth": 1,
+              "broader_chelsea_related": -8}.get(scope, 0)
+    summary = story.get("best_summary", "")
+    if len(summary) >= 180:
         score += 5
-    if stype in {"injury_update", "team_news", "transfer_update", "transfer_rumour"}:
-        score += 10
-    if confirmed_language and ptype == "official_domain":
-        score += 8
-    if story.get("corroboration_count", 0) >= 2:
-        score += 5
-    if rumour:
-        score -= 12
+    elif len(summary) < 45:
+        score -= 5
+    age_hours = max(0, (now_utc() - datetime.fromisoformat(story["published"])).total_seconds() / 3600)
+    score -= min(12, int(age_hours // 12))
+    score = max(0, min(100, score))
     if ptype == "official_domain":
         priority = "P1_OFFICIAL_SOURCE_REVIEW"
-    elif ptype == "established_domain" and not rumour:
+    elif ptype == "established_domain" and stype not in {"transfer_rumour", "opinion_analysis"}:
         priority = "P2_ESTABLISHED_REPORT_REVIEW"
-    elif rumour:
-        priority = "P3_RUMOUR_MUST_BE_LABELLED"
+    elif stype == "transfer_rumour":
+        priority = "P3_TRANSFER_RUMOUR_REQUIRES_LABEL"
+    elif stype == "opinion_analysis":
+        priority = "P4_OPINION_LOW_PRIORITY"
     else:
         priority = "P3_SPECIALIST_OR_OTHER_SOURCE_REVIEW"
-    story["importance_score"] = max(0, min(100, score))
+    story["importance_score"] = score
     story["priority"] = priority
-    story["rumour_language_detected"] = rumour
+    story["editorial_status"] = "pending_editorial_verification"
+    story["verification_required"] = True
+    story["claims_verified"] = False
+    story["article_generated"] = False
+    story["published_to_blogger"] = False
+    story["published_to_x"] = False
 
 
 def load_history():
     if not HISTORY_FILE.exists():
-        return {}
+        return {"events": {}}
     try:
         data = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
-        if isinstance(data, dict) and isinstance(data.get("stories"), dict):
-            return data["stories"]
-        if isinstance(data, dict):
+        if isinstance(data, dict) and isinstance(data.get("events"), dict):
             return data
     except Exception as exc:
-        logging.warning("Could not read history: %s", exc)
-    return {}
+        logging.warning("Could not read observation history: %s", exc)
+    # Deliberately do not interpret old v3.6 queued hashes as published items.
+    return {"events": {}}
 
 
-def history_keys(story):
-    keys = []
-    if story.get("normalized_url"):
-        keys.append("url:" + hashlib.sha256(story["normalized_url"].encode()).hexdigest())
-    if story.get("title_key"):
-        keys.append("title:" + hashlib.sha256(story["title_key"].encode()).hexdigest())
-    return keys
-
-
-def prune_history(history):
-    cutoff = utc_now() - timedelta(days=HISTORY_DAYS)
-    cleaned = {}
-    for key, value in history.items():
-        if not isinstance(value, dict) or not value.get("queued_at"):
-            continue
+def update_history(groups, history):
+    events = dict(history.get("events", {}))
+    now = now_utc().isoformat()
+    cutoff = now_utc() - timedelta(days=HISTORY_DAYS)
+    for story in groups:
+        key = story["event_id"]
+        prior = events.get(key, {})
+        first_seen = prior.get("first_seen_at", now)
+        events[key] = {
+            "event_id": key,
+            "title": story["title"][:240],
+            "first_seen_at": first_seen,
+            "last_seen_at": now,
+            "last_published_at": story["published"],
+            "last_observation_count": story["observation_count"],
+            "publisher_domains": story["publisher_domains"],
+            "status": prior.get("status", "observed_not_processed"),
+        }
+    pruned = {}
+    for key, value in events.items():
         try:
-            dt = datetime.fromisoformat(str(value["queued_at"]).replace("Z", "+00:00"))
+            dt = datetime.fromisoformat(value.get("last_seen_at", "").replace("Z", "+00:00"))
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
             if dt >= cutoff:
-                cleaned[key] = value
+                pruned[key] = value
         except Exception:
             continue
-    return cleaned
-
-
-def mark_selected_queued(selected, history):
-    now = utc_now().isoformat()
-    updated = dict(history)
-    for story in selected:
-        story["queue_status"] = "queued_for_editorial_verification"
-        story["queued_at"] = now
-        for key in history_keys(story):
-            updated[key] = {"queued_at": now, "status": "queued",
-                            "story_id": story["id"], "title": story["title"][:180]}
-    if len(updated) > MAX_HISTORY_ITEMS:
-        ordered = sorted(updated.items(), key=lambda item: item[1].get("queued_at", ""))
-        updated = dict(ordered[-MAX_HISTORY_ITEMS:])
-    return updated
+    if len(pruned) > MAX_HISTORY_EVENTS:
+        ordered = sorted(pruned.items(), key=lambda x: x[1].get("last_seen_at", ""))
+        pruned = dict(ordered[-MAX_HISTORY_EVENTS:])
+    return {"history_version": VERSION, "updated_at": now, "events": pruned}
 
 
 def write_json(path, data):
@@ -471,99 +482,82 @@ def write_json(path, data):
 
 
 def main():
-    started = utc_now()
+    started = now_utc()
     session = requests.Session()
     session.headers.update({"User-Agent": f"Mozilla/5.0 (compatible; ChelseaFeedsBot/{VERSION}; +https://www.chelseafeeds.com/)"})
-    all_stories, source_reports = [], []
+    observations, source_reports = [], []
     for config in FEEDS:
-        logging.info("Collecting direct feed: %s", config["name"])
-        stories, report = fetch_rss(config, session)
-        all_stories.extend(stories)
+        logging.info("Collecting: %s", config["name"])
+        items, report = fetch_feed(config, session)
+        observations.extend(items)
         source_reports.append(report)
-        time.sleep(0.2)
+        time.sleep(0.15)
 
-    unique_stories = deduplicate(all_stories)
-    history = prune_history(load_history())
-    eligible, already_queued = [], 0
-    for story in unique_stories:
-        was_queued = any(key in history for key in history_keys(story))
-        story["previously_queued"] = was_queued
-        if was_queued:
-            already_queued += 1
-        else:
-            eligible.append(story)
+    events = cluster_events(observations)
+    for event in events:
+        score_event(event)
+    priority_order = {"P1_OFFICIAL_SOURCE_REVIEW": 0, "P2_ESTABLISHED_REPORT_REVIEW": 1,
+                      "P3_TRANSFER_RUMOUR_REQUIRES_LABEL": 2, "P3_SPECIALIST_OR_OTHER_SOURCE_REVIEW": 3,
+                      "P4_OPINION_LOW_PRIORITY": 4}
+    events.sort(key=lambda x: (priority_order.get(x["priority"], 9), -x["importance_score"], x["published"], x["title"].lower()))
+    selected = events[:MAX_STORIES]
+    completed = now_utc()
+    history = update_history(events, load_history())
+    source_status = Counter(x["status"] for x in source_reports)
+    team_counts = Counter(x["team_scope"] for x in selected)
+    type_counts = Counter(x["story_type"] for x in selected)
+    priority_counts = Counter(x["priority"] for x in selected)
+    repeat_events = sum(1 for x in selected if x["event_id"] in load_history().get("events", {}))
 
-    for story in eligible:
-        importance_and_priority(story)
-
-    priority_order = {
-        "P1_OFFICIAL_SOURCE_REVIEW": 0,
-        "P2_ESTABLISHED_REPORT_REVIEW": 1,
-        "P3_RUMOUR_MUST_BE_LABELLED": 2,
-        "P3_SPECIALIST_OR_OTHER_SOURCE_REVIEW": 3,
+    candidate_data = {
+        "collector_version": VERSION,
+        "generated_at": completed.isoformat(),
+        "selection_limit": MAX_STORIES,
+        "queue_semantics": "Candidates remain pending until a later processor explicitly verifies and records publication. Collection alone never means processed or published.",
+        "stories": selected,
     }
-    def timestamp(item):
-        try:
-            return datetime.fromisoformat(item["published"].replace("Z", "+00:00")).timestamp()
-        except Exception:
-            return 0
-
-    eligible.sort(key=lambda item: (priority_order.get(item["priority"], 9),
-                                    -item["importance_score"], -timestamp(item),
-                                    item["title"].lower()))
-    selected = eligible[:MAX_STORIES]
-    updated_history = mark_selected_queued(selected, history)
-    completed = utc_now()
-    status_counts = Counter(item["status"] for item in source_reports)
-    priority_counts = Counter(item["priority"] for item in selected)
     report_data = {
         "collector_version": VERSION,
         "run_started_at": started.isoformat(),
         "run_completed_at": completed.isoformat(),
         "duration_seconds": round((completed - started).total_seconds(), 2),
         "configured_sources": len(source_reports),
-        "successful_sources": status_counts.get("success", 0),
-        "empty_sources": status_counts.get("empty", 0),
-        "failed_sources": status_counts.get("failed", 0),
-        "total_collected_before_deduplication": len(all_stories),
-        "unique_direct_stories": len(unique_stories),
-        "duplicate_observations_merged": max(0, len(all_stories) - len(unique_stories)),
-        "already_queued_stories_suppressed": already_queued,
-        "eligible_not_previously_queued": len(eligible),
-        "selected_and_queued": len(selected),
-        "eligible_but_not_selected": max(0, len(eligible) - len(selected)),
+        "successful_sources": source_status.get("success", 0),
+        "empty_sources": source_status.get("empty", 0),
+        "failed_sources": source_status.get("failed", 0),
+        "raw_observations_collected": len(observations),
+        "unique_events_after_event_deduplication": len(events),
+        "duplicate_observations_merged": max(0, len(observations) - len(events)),
+        "selected_pending_candidates": len(selected),
+        "events_not_selected_due_to_limit": max(0, len(events) - len(selected)),
+        "selected_events_seen_in_prior_runs": repeat_events,
+        "selected_team_scope_distribution": dict(team_counts),
+        "selected_story_type_distribution": dict(type_counts),
         "selected_priority_distribution": dict(priority_counts),
-        "selected_unresolved_aggregator_links": sum(1 for s in selected if is_aggregator(s["url"])),
-        "selected_direct_publisher_links": sum(1 for s in selected if s.get("url_resolved")),
-        "selected_date_unverified": sum(1 for s in selected if s.get("date_unverified")),
+        "selected_events_with_multiple_publishers": sum(1 for x in selected if x["publisher_count"] > 1),
+        "selected_source_link_count": sum(len(x["source_urls"]) for x in selected),
         "source_reports": source_reports,
         "excluded_sources": [
-            {"source": "Google News Chelsea", "status": "disabled",
-             "reason": "Aggregator links were unresolved in v3.5; excluded until reliable direct publisher resolution is available."},
-            {"source": "Official Chelsea News Search (Google News)", "status": "disabled",
-             "reason": "Search aggregator is not treated as an official Chelsea source."},
-            {"source": "NewsNow", "status": "disabled",
-             "reason": "HTML extraction returned zero usable items and falsely reported success in prior runs."},
+            {"source": "Google News", "status": "disabled", "reason": "Aggregator URLs were not consistently resolvable to direct publisher articles."},
+            {"source": "NewsNow", "status": "disabled", "reason": "Prior extraction did not reliably produce usable direct articles."},
         ],
-        "quality_notes": [
-            "Queue contains only direct publisher URLs; unresolved aggregator URLs are rejected before selection.",
-            "Stories without a trustworthy publication date or outside the seven-day window are rejected.",
-            "A direct link or trusted publisher domain does not prove every claim; every queued story still requires factual checks.",
-            "Official-domain and established-publisher tiers identify source domains, not factual certainty.",
-            "Rumour language is flagged and must remain clearly labelled in any later article.",
-            "Specialist blogs and other direct domains are lower priority and require stronger editorial scrutiny.",
-            "Only selected stories are recorded as queued; rejected and unselected stories are not permanently consumed.",
+        "quality_controls": [
+            "Stories must be Chelsea-relevant, directly linked to a publisher, dated, and no older than seven days.",
+            "Chelsea Women and Academy/Youth are classified separately from men's first-team coverage.",
+            "Transfer rumour classification requires both transfer-related language and uncertainty language; pundit claims alone do not trigger it.",
+            "Opinion and pundit commentary receive a lower priority than factual developments.",
+            "Reports about the same event are clustered and all source URLs are retained.",
+            "Multiple publishers are not automatically treated as independent confirmation.",
+            "Publisher reputation is a ranking signal, not proof that claims are true.",
+            "All selected candidates remain pending editorial verification; no claims are marked verified.",
+            "Observation history records repeated sightings only. It does not suppress candidates or mark them published.",
             "This collector does not generate articles or publish to Blogger or X.",
         ],
     }
-    candidates_data = {"collector_version": VERSION, "generated_at": completed.isoformat(),
-                       "selection_limit": MAX_STORIES, "stories": selected}
-    history_data = {"history_version": VERSION, "updated_at": completed.isoformat(), "stories": updated_history}
-    write_json(CANDIDATES_FILE, candidates_data)
+    write_json(CANDIDATES_FILE, candidate_data)
     write_json(REPORT_FILE, report_data)
-    write_json(HISTORY_FILE, history_data)
-    logging.info("v%s complete: %d direct stories, %d unique, %d eligible, %d queued; %d suppressed.",
-                 VERSION, len(all_stories), len(unique_stories), len(eligible), len(selected), already_queued)
+    write_json(HISTORY_FILE, history)
+    logging.info("v%s finished: %d observations -> %d events -> %d pending candidates", VERSION, len(observations), len(events), len(selected))
     return 0
 
 
