@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: chelseafeeds-editorial-${{ github.event.workflow_run.id }}
+  group: chelseafeeds-editorial-queue
   cancel-in-progress: false
 
 jobs:
