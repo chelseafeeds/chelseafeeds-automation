@@ -16,6 +16,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: chelseafeeds-collection
+  cancel-in-progress: false
+
 jobs:
   collect:
     runs-on: ubuntu-latest
