@@ -1,45 +1,68 @@
 # ChelseaFeeds Automation
 
-Chelsea FC news collection, evidence triage and unpublished article-draft preparation.
+Chelsea FC news collection, evidence triage, unpublished article drafting and branded editorial image assets.
 
 ## Current pipeline
 
 1. `collect_news.py` collects Chelsea-related RSS items, clusters duplicate events and leaves every candidate pending.
-2. `process_news.py` checks source-page accessibility and evidence strength, then creates original Blogger-ready HTML drafts when the evidence threshold is met.
+2. `process_news.py` v1.2 checks source accessibility and evidence strength, generates a draft with Groq, applies an automated editorial quality gate, and optionally generates two branded image assets.
 3. The `ChelseaFeeds Evidence and Article Drafts` workflow runs automatically after a successful `Chelsea News Collection` workflow on `main`.
-4. Editorial results are saved as the `chelseafeeds-editorial-results` GitHub Actions artifact.
+4. Results are saved as the `chelseafeeds-editorial-results` GitHub Actions artifact, including `article_drafts.json`, `editorial_report.json` and generated JPG files in `images/`.
 
-## Free AI setup (Groq)
+## Article generation (Groq)
 
-The processor now uses Groq's OpenAI-compatible API by default. Groq offers a free developer plan with per-model rate limits; this is not unlimited service and quotas/model availability can change.
+The processor uses Groq's OpenAI-compatible API.
 
-1. Create a Groq account and API key in the official Groq console: https://console.groq.com/keys
-2. In this GitHub repository, open **Settings → Secrets and variables → Actions → New repository secret**.
-3. Set the secret name to `GROQ_API_KEY` and paste the key value into GitHub's secret-value field. Never paste it into source code, issues, or ChatGPT.
-4. Save the secret, then run **Actions → Chelsea News Collection → Run workflow**. The downstream editorial workflow will run after collection succeeds.
+1. Create a Groq API key in the official console: https://console.groq.com/keys
+2. In GitHub repository Settings → Secrets and variables → Actions, create `GROQ_API_KEY`.
+3. Save the key only as a GitHub Actions secret. Never commit it or paste it into issues/chat.
 
-Default configuration:
-- Provider: Groq
-- Model: `openai/gpt-oss-120b`
-- API endpoint: `https://api.groq.com/openai/v1`
-- Maximum: three draft-generation attempts per run
-- Source context: up to four sources, with excerpts capped at 3,500 characters each
+Default model: `openai/gpt-oss-120b`. The free plan has changing model availability and rate limits. Groq and Cloudflare are separate services and credentials.
 
-The processor can also be configured with `AI_API_KEY`, `AI_BASE_URL`, `AI_MODEL`, and `AI_PROVIDER` environment variables. These are already set in the workflow except for the secret value.
+## Free-first image generation (Cloudflare Workers AI)
 
-**Important:** Free access is subject to rate limits and provider terms. If Groq changes its free plan or the selected model is unavailable, generation may fail; collection and evidence reporting should still run. No payment method or upgrade is required for the Groq free plan.
+The image service is Cloudflare Workers AI using `@cf/black-forest-labs/flux-1-schnell`. Official documentation:
+- Model/API: https://developers.cloudflare.com/workers-ai/models/flux-1-schnell/
+- REST API: https://developers.cloudflare.com/workers-ai/
+- Pricing and free daily allocation: https://developers.cloudflare.com/workers-ai/platform/pricing/
 
-## Editorial and publishing safeguards
+Cloudflare currently documents a free allocation of 10,000 Neurons per day on Workers Free. The allocation resets daily at 00:00 UTC; when a Free account exceeds it, further inference requests fail rather than being charged. Paid-plan usage above the free allocation is billed, so do not upgrade or enable paid billing without reviewing and approving the account's billing settings. Provider pricing and quotas can change.
 
-- Source accessibility and publisher count are evidence triage, not proof of factual accuracy.
-- Two URLs from the same publisher count as one publisher.
-- Factual drafts require an accessible official source or two distinct established publisher domains.
-- Transfer rumours remain explicitly attributed and unconfirmed unless an official announcement supports completion.
-- Opinion drafts must attribute opinions and separate them from facts.
-- Every generated draft remains unpublished and requires editorial review.
-- No claims are marked verified automatically.
-- This repository does not publish to Blogger or X. Draft generation does not authorize publication.
+### Configure the two required GitHub secrets
+
+1. Sign in to Cloudflare and open the Workers AI dashboard for your account.
+2. Copy your Cloudflare Account ID from the account dashboard.
+3. Create a Cloudflare API token with Workers AI Write permission (minimum required permission for model inference). Restrict it to the relevant account where possible.
+4. In this GitHub repository, open Settings → Secrets and variables → Actions → New repository secret.
+5. Add:
+   - Name: `CLOUDFLARE_ACCOUNT_ID` — Value: your Cloudflare Account ID.
+   - Name: `CLOUDFLARE_API_TOKEN` — Value: the API token.
+6. Never put either value in source files, workflow YAML, commits, screenshots or chat. Do not send the token to anyone.
+
+If either secret is missing, article drafting and the editorial report still run; image generation is skipped gracefully. Image failures do not delete or block an otherwise quality-passed article draft.
+
+### Image and branding rules
+
+- Up to three articles per run; up to six image requests total (one featured thumbnail and one supporting inline image per article).
+- Four inference steps per image; no automatic retry, to avoid repeated quota use.
+- Images are normalized to 1200 × 675 JPEG.
+- Pillow adds the exact `CHELSEAFEEDS` wordmark at the bottom-left on every successful generated image, using a navy panel, white text and gold outline. The AI is not asked to render the brand lettering.
+- Image prompts request editorial illustrations, not fake match photography or exact depictions of real players.
+- The thumbnail and supporting image are separate assets. The supporting image is inserted into article HTML using an `IMAGE_UPLOAD_REQUIRED/` placeholder.
+- Generated images are in the artifact's `images/` folder. Before Blogger publication, upload each image to Blogger and replace the placeholder with its hosted image URL. The processor does not upload images or publish posts.
+- Image ALT text and descriptive filenames are included in the draft metadata.
+
+## Processor v1.2 quality and safety checks
+
+- Source accessibility and publisher counts are evidence triage, not factual verification.
+- Factual stories require an accessible official source or two distinct established publisher domains; opinion requires an accessible source and attribution.
+- Automated quality checks cover substantive article length, title and description fields, headings, source links, allowed source URLs and unsafe HTML. A passing score is not a fact-check.
+- Direct quotations are not requested; unsupported claims should be omitted or flagged.
+- Transfer reports must remain attributed and unconfirmed unless official evidence confirms completion.
+- Generated images are illustrations, not documentary evidence.
+- Every article remains `draft_requires_editorial_review`; `claims_verified` remains false.
+- Blogger and X publishing are disabled. No Blogger or X credentials are read.
 
 ## Workflow artifacts
 
-Open **Actions → ChelseaFeeds Evidence and Article Drafts → latest successful run → Artifacts**. Download `chelseafeeds-editorial-results` to inspect `editorial_report.json` and `article_drafts.json`.
+Open Actions → ChelseaFeeds Evidence and Article Drafts → latest successful run → Artifacts. Download `chelseafeeds-editorial-results` and inspect the JSON reports and image files.
