@@ -32,9 +32,11 @@ jobs:
       AI_MODEL: openai/gpt-oss-120b
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       OPENAI_IMAGE_MODEL: gpt-image-2.5-flare
-      MAX_DRAFTS_PER_RUN: "25"
-      MAX_SOURCE_PACK: "8"
-      MAX_SOURCE_CHARS: "6500"
+      MAX_DRAFTS_PER_RUN: "15"
+      MAX_SOURCE_PACK: "5"
+      MAX_SOURCE_CHARS: "3500"
+      MAX_COMPLETION_TOKENS: "2600"
+      RUN_TOKEN_BUDGET: "150000"
       SOURCE_FETCH_WORKERS: "8"
       AI_REQUEST_TIMEOUT: "45"
       AI_MAX_ATTEMPTS: "2"
