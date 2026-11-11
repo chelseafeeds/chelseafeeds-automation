@@ -14,11 +14,16 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 
-VERSION = "1.0"
+VERSION = "1.1"
 TIMEOUT = 20
 MAX_FETCH_CHARS = 9000
-MAX_DRAFTS = int(os.getenv("MAX_DRAFTS_PER_RUN", "6"))
-MODEL = os.getenv("OPENAI_MODEL", "gpt-5.4-mini")
+MAX_DRAFTS = int(os.getenv("MAX_DRAFTS_PER_RUN", "3"))
+AI_PROVIDER = os.getenv("AI_PROVIDER", "groq").strip().lower()
+AI_API_KEY = os.getenv("AI_API_KEY", "").strip()
+AI_BASE_URL = os.getenv("AI_BASE_URL", "https://api.groq.com/openai/v1").rstrip("/")
+MODEL = os.getenv("AI_MODEL", "openai/gpt-oss-120b").strip()
+MAX_SOURCE_PACK = int(os.getenv("MAX_SOURCE_PACK", "4"))
+MAX_SOURCE_CHARS = int(os.getenv("MAX_SOURCE_CHARS", "3500"))
 OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com"}
 ESTABLISHED = {"bbc.co.uk", "bbc.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com", "espn.com", "independent.co.uk", "standard.co.uk", "nytimes.com", "theathletic.com", "football365.com", "thetimes.com", "telegraph.co.uk"}
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsEditorialBot/1.0; +https://www.chelseafeeds.com/)"}
@@ -123,12 +128,12 @@ def evidence_assessment(story, fetched):
 
 def build_prompt(story, evidence):
     source_pack = []
-    for item in evidence:
+    for item in evidence[:MAX_SOURCE_PACK]:
         if item["accessible"]:
             source_pack.append({
                 "url": item["url"], "domain": item["domain"],
                 "page_title": item["page_title"], "description": item["description"],
-                "source_excerpt": item["excerpt"][:6500]
+                "source_excerpt": item["excerpt"][:MAX_SOURCE_CHARS]
             })
     return {
         "story": {
@@ -167,7 +172,6 @@ def generate_draft(story, evidence, api_key, session):
     )
     req = {
         "model": MODEL,
-        "reasoning_effort": "low",
         "response_format": {"type": "json_object"},
         "messages": [
             {"role": "system", "content": system},
@@ -175,7 +179,7 @@ def generate_draft(story, evidence, api_key, session):
         ]
     }
     response = session.post(
-        "https://api.openai.com/v1/chat/completions",
+        AI_BASE_URL + "/chat/completions",
         headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
         json=req, timeout=90
     )
@@ -202,7 +206,7 @@ def process(input_path, output_dir):
     if data.get("collector_version") != "4.0":
         raise ValueError("Expected Collector v4.0 input; refusing unexpected artifact")
     stories = data.get("stories", [])
-    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    api_key = AI_API_KEY
     session = requests.Session()
     session.headers.update(HEADERS)
     drafts, results = [], []
@@ -229,7 +233,7 @@ def process(input_path, output_dir):
             results.append(record)
             continue
         if not api_key:
-            record["processing_status"] = "draft_waiting_for_openai_api_key"
+            record["processing_status"] = "draft_waiting_for_ai_provider_api_key"
             results.append(record)
             continue
         if len(drafts) >= MAX_DRAFTS:
@@ -270,7 +274,9 @@ def process(input_path, output_dir):
         "evidence_tier_distribution": dict(counters),
         "drafts_created": len(drafts),
         "max_drafts_per_run": MAX_DRAFTS,
-        "openai_api_configured": bool(api_key),
+        "ai_provider": AI_PROVIDER,
+        "ai_api_configured": bool(api_key),
+        "ai_base_url": AI_BASE_URL if api_key else None,
         "model": MODEL if api_key else None,
         "article_publishing_enabled": False,
         "x_publishing_enabled": False,
@@ -282,13 +288,15 @@ def process(input_path, output_dir):
             "Opinion drafts require an accessible source and must attribute opinions.",
             "Transfer rumours remain explicitly labelled and unconfirmed unless an official announcement supports completion.",
             "Every generated draft remains unpublished and requires editorial review.",
-            "No Blogger or X API credentials are read or used by this processor."
+            "No Blogger or X API credentials are read or used by this processor.",
+            "AI generation uses a configurable OpenAI-compatible endpoint; the default is Groq.",
+            "Free-tier quotas and model availability can change; generation failures never bypass evidence gates."
         ],
         "results": results
     }
     (output_dir / "article_drafts.json").write_text(json.dumps({"processor_version": VERSION, "drafts": drafts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "editorial_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    logging.info("Processor v%s: %d candidates, %d eligible drafts, OpenAI configured=%s", VERSION, len(stories), len(drafts), bool(api_key))
+    logging.info("Processor v%s: %d candidates, %d drafts created, provider=%s, API configured=%s", VERSION, len(stories), len(drafts), AI_PROVIDER, bool(api_key))
 
 def self_test():
     story = {"story_type":"match_report"}
