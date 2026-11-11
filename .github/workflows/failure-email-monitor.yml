@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   notify:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'failure'
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.run_attempt >= 2
     runs-on: ubuntu-latest
     steps:
       - name: Checkout monitor
