@@ -32,7 +32,7 @@ Cloudflare currently documents a free allocation of 10,000 Neurons per day on Wo
 
 1. Sign in to Cloudflare and open the Workers AI dashboard for your account.
 2. Copy your Cloudflare Account ID from the account dashboard.
-3. Create a Cloudflare API token with Workers AI Write permission (minimum required permission for model inference). Restrict it to the relevant account where possible.
+3. On the Workers AI page, choose Use REST API → Create a Workers AI API Token (the recommended template). If creating a custom token instead, Cloudflare's REST setup guide specifies both Account → Workers AI → Read and Account → Workers AI → Edit permissions. Restrict the token to the relevant account where possible.
 4. In this GitHub repository, open Settings → Secrets and variables → Actions → New repository secret.
 5. Add:
    - Name: `CLOUDFLARE_ACCOUNT_ID` — Value: your Cloudflare Account ID.
