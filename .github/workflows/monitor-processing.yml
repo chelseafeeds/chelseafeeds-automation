@@ -1,0 +1,43 @@
+name: ChelseaFeeds 10-Minute Processing Monitor
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: chelseafeeds-processing-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Check out monitor
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install monitor dependencies
+        run: pip install requests pillow
+
+      - name: Inspect processing runs, articles, links and images
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python monitor_processing.py
+
+      - name: Save monitor report
+        uses: actions/upload-artifact@v4
+        with:
+          name: chelseafeeds-monitor-report
+          path: monitor-output/
+          if-no-files-found: error
+          retention-days: 14
