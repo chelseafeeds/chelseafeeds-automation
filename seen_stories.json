@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-11T19:50:13.424083+00:00",
+  "updated_at": "2026-11-11T20:00:26.758784+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -483,10 +483,10 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "rejected_quality_gate",
+      "last_processed_at": "2026-11-11T20:00:26.758784+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea latest: 'Blues join race to sign Arsenal midfielder'"
     },
     "9128f46f009149f42ad54708": {
       "event_id": "9128f46f009149f42ad54708",
