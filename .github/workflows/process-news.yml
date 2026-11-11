@@ -26,12 +26,6 @@ jobs:
       MAX_DRAFTS_PER_RUN: "3"
       MAX_SOURCE_PACK: "4"
       MAX_SOURCE_CHARS: "3500"
-      IMAGE_PROVIDER: cloudflare
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_IMAGE_MODEL: "@cf/black-forest-labs/flux-1-schnell"
-      MAX_IMAGES_PER_RUN: "6"
-      IMAGE_STEPS: "4"
 
     steps:
       - name: Get project files
@@ -57,21 +51,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
           path: input
-
-      - name: Verify required secret injection (values never printed)
-        run: |
-          python - <<'PY'
-          import os
-          checks = {
-              "CLOUDFLARE_ACCOUNT_ID": bool(os.getenv("CLOUDFLARE_ACCOUNT_ID", "").strip()),
-              "CLOUDFLARE_API_TOKEN": bool(os.getenv("CLOUDFLARE_API_TOKEN", "").strip()),
-              "GROQ_API_KEY": bool(os.getenv("AI_API_KEY", "").strip()),
-          }
-          for name, present in checks.items():
-              print(f"{name}: {'present' if present else 'MISSING'}")
-          if not all(checks.values()):
-              raise SystemExit("Required secret injection check failed; no secret values were exposed.")
-          PY
 
       - name: Run evidence checks, article quality gate and image generation
         run: |
