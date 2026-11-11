@@ -53,7 +53,7 @@ jobs:
           run-id: ${{ github.event.workflow_run.id || inputs.source_run_id }}
           path: input
 
-      - name: Upload images and schedule every eligible article five minutes after draft creation
+      - name: Schedule articles and announce only after Blogger confirms LIVE
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_RUN_ID: ${{ github.run_id }}
@@ -64,6 +64,10 @@ jobs:
           BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
           BLOGGER_AUTO_SCHEDULE_MINUTES: "5"
           BLOGGER_INPUT_DIR: input
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
         run: |
           set -euo pipefail
           python - <<'PY' > "$RUNNER_TEMP/event_ids.txt"
@@ -77,25 +81,30 @@ jobs:
                   print(event_id)
           PY
 
-          pids=()\n          if [ ! -s "$RUNNER_TEMP/event_ids.txt" ]; then
+          if [ ! -s "$RUNNER_TEMP/event_ids.txt" ]; then
             echo "No eligible Blogger-ready articles in this batch."
             exit 0
           fi
 
+          pids=()
           while IFS= read -r event_id; do
             [ -n "$event_id" ] || continue
             echo "Preparing Blogger article event: $event_id"
-            output_file="$RUNNER_TEMP/featured-image-output"
-            : > "$output_file"
-            ARTICLE_EVENT_ID="$event_id" GITHUB_OUTPUT="$output_file" python upload_featured_image.py
 
-            image_url="$(sed -n 's/^image_url=//p' "$output_file")"
-            image_alt="$(sed -n 's/^alt_text=//p' "$output_file")"
-            image_source_type="$(sed -n 's/^source_type=//p' "$output_file")"
-            image_credit_text="$(sed -n 's/^credit_text=//p' "$output_file")"
-            image_credit_url="$(sed -n 's/^credit_url=//p' "$output_file")"
-            image_license_name="$(sed -n 's/^license_name=//p' "$output_file")"
-            image_license_url="$(sed -n 's/^license_url=//p' "$output_file")"
+            image_output="$RUNNER_TEMP/image-$event_id"
+            publish_output="$RUNNER_TEMP/publish-$event_id"
+            : > "$image_output"
+            : > "$publish_output"
+
+            ARTICLE_EVENT_ID="$event_id" GITHUB_OUTPUT="$image_output" python upload_featured_image.py
+
+            image_url="$(sed -n 's/^image_url=//p' "$image_output")"
+            image_alt="$(sed -n 's/^alt_text=//p' "$image_output")"
+            image_source_type="$(sed -n 's/^source_type=//p' "$image_output")"
+            image_credit_text="$(sed -n 's/^credit_text=//p' "$image_output")"
+            image_credit_url="$(sed -n 's/^credit_url=//p' "$image_output")"
+            image_license_name="$(sed -n 's/^license_name=//p' "$image_output")"
+            image_license_url="$(sed -n 's/^license_url=//p' "$image_output")"
 
             ARTICLE_EVENT_ID="$event_id" \
             FEATURED_IMAGE_URL="$image_url" \
@@ -105,5 +114,48 @@ jobs:
             FEATURED_IMAGE_CREDIT_URL="$image_credit_url" \
             FEATURED_IMAGE_LICENSE_NAME="$image_license_name" \
             FEATURED_IMAGE_LICENSE_URL="$image_license_url" \
+            GITHUB_OUTPUT="$publish_output" \
             python publish_article.py
+
+            post_id="$(sed -n 's/^post_id=//p' "$publish_output")"
+            if [ -z "$post_id" ]; then
+              echo "Missing Blogger post ID; refusing to post to X."
+              exit 1
+            fi
+
+            meta="$(python - "$event_id" <<'PY'
+          import json, sys
+          event_id=sys.argv[1]
+          payload=json.load(open("input/blogger_ready_posts.json",encoding="utf-8"))
+          posts=payload.get("posts",[]) if isinstance(payload,dict) else payload
+          matches=[p for p in posts if str(p.get("event_id",""))==event_id]
+          if len(matches)!=1: raise SystemExit("Article metadata did not resolve uniquely")
+          p=matches[0]
+          image=p.get("featured_image") or {}
+          print(json.dumps({"title":p.get("title",""),"labels":p.get("labels",[]),"image_path":"input/"+image.get("local_path","")}))
+          PY
+          )"
+            title="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["title"])' "$meta")"
+            labels="$(python -c 'import json,sys; print(json.dumps(json.loads(sys.argv[1]).get("labels",[])))' "$meta")"
+            thumbnail="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["image_path"])' "$meta")"
+
+            echo "Waiting for Blogger to confirm LIVE before X announcement: $event_id"
+            BLOGGER_POST_ID="$post_id" \
+            ARTICLE_TITLE="$title" \
+            ARTICLE_LABELS_JSON="$labels" \
+            ARTICLE_THUMBNAIL_PATH="$thumbnail" \
+            python x_publish_when_live.py > "$RUNNER_TEMP/x-$event_id.log" 2>&1 &
+            pids+=("$!")
           done < "$RUNNER_TEMP/event_ids.txt"
+
+          x_failed=0
+          for pid in "${pids[@]}"; do
+            if ! wait "$pid"; then x_failed=1; fi
+          done
+          for log in "$RUNNER_TEMP"/x-*.log; do
+            [ -f "$log" ] && cat "$log"
+          done
+          if [ "$x_failed" -ne 0 ]; then
+            echo "At least one X announcement failed or did not confirm Blogger LIVE."
+            exit 1
+          fi
