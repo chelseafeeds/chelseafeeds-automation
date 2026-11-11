@@ -49,6 +49,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests requests-oauthlib
 
+      - name: Compile-check publisher scripts
+        run: python -m py_compile upload_featured_image.py publish_article.py
+
       - name: Download selected article batch
         uses: actions/download-artifact@v4
         with:
