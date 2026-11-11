@@ -2,6 +2,7 @@
 """ChelseaFeeds v1.5: evidence triage, article quality gate and deterministic branded thumbnails."""
 from __future__ import annotations
 import argparse, json, logging, os, re, time, tempfile
+from concurrent.futures import ThreadPoolExecutor
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -12,7 +13,10 @@ from PIL import Image, ImageDraw, ImageFont
 from related_links import fetch_published_articles, select_related_articles, add_related_links
 
 VERSION = "1.5"
-TIMEOUT = 20
+TIMEOUT = (5, 12)  # bounded connect/read timeout for each source
+SOURCE_FETCH_WORKERS = max(1, min(8, int(os.getenv('SOURCE_FETCH_WORKERS', '8'))))
+AI_REQUEST_TIMEOUT = max(30, min(90, int(os.getenv('AI_REQUEST_TIMEOUT', '75'))))
+AI_MAX_ATTEMPTS = max(1, min(3, int(os.getenv('AI_MAX_ATTEMPTS', '3'))))
 MAX_FETCH_CHARS = 9000
 MAX_DRAFTS = max(0, min(12, int(os.getenv("MAX_DRAFTS_PER_RUN", "10"))))
 AI_PROVIDER = os.getenv("AI_PROVIDER", "groq").strip().lower()
@@ -84,6 +88,20 @@ def fetch_source(url, session):
     except Exception as exc:
         result["error"] = type(exc).__name__ + ": " + str(exc)[:220]
     return result
+
+def fetch_sources(urls):
+    """Fetch one story's source pages concurrently with isolated sessions."""
+    urls = list(urls or [])[:8]
+    if not urls:
+        return []
+    def worker(url):
+        with requests.Session() as worker_session:
+            worker_session.headers.update(HEADERS)
+            return fetch_source(url, worker_session)
+    workers = min(SOURCE_FETCH_WORKERS, len(urls))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        return list(pool.map(worker, urls))
+
 
 def evidence_assessment(story, fetched):
     accessible = [x for x in fetched if x["accessible"]]
@@ -157,14 +175,14 @@ def generate_draft(story, evidence, api_key, session):
                         {"role": "user", "content": json.dumps(payload, ensure_ascii=False)}]}
     response = None
     last_error = None
-    for attempt in range(4):
+    for attempt in range(AI_MAX_ATTEMPTS):
         try:
             response = session.post(AI_BASE_URL + "/chat/completions",
                 headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
-                json=req, timeout=120)
+                json=req, timeout=AI_REQUEST_TIMEOUT)
             if response.status_code == 429 or response.status_code >= 500:
                 retry_after = response.headers.get("retry-after")
-                delay = min(45, int(retry_after)) if retry_after and retry_after.isdigit() else (3 * (2 ** attempt))
+                delay = min(25, int(retry_after)) if retry_after and retry_after.isdigit() else (3 * (2 ** attempt))
                 logging.warning("AI provider returned HTTP %s; retrying in %ss", response.status_code, delay)
                 time.sleep(delay)
                 continue
@@ -172,7 +190,7 @@ def generate_draft(story, evidence, api_key, session):
             break
         except requests.RequestException as exc:
             last_error = exc
-            if attempt == 3:
+            if attempt == AI_MAX_ATTEMPTS - 1:
                 raise
             time.sleep(3 * (2 ** attempt))
     if response is None or response.status_code >= 400:
@@ -394,8 +412,12 @@ def process(input_path, output_dir):
     published_articles = fetch_published_articles(session)
     logging.info("Loaded %d published ChelseaFeeds articles for internal-link matching", len(published_articles))
     drafts, results, counters = [], [], Counter()
-    for story in stories:
-        fetched = [fetch_source(url, session) for url in story.get("source_urls", [])[:8]]
+    for story_index, story in enumerate(stories, start=1):
+        logging.info("Candidate %d/%d: %s", story_index, len(stories), str(story.get("title") or story.get("event_id") or "untitled")[:140])
+        source_urls = story.get("source_urls", [])[:8]
+        fetched = fetch_sources(source_urls)
+        logging.info("Evidence fetch complete for %s: %d/%d source pages accessible",
+                     story.get("event_id"), sum(1 for item in fetched if item.get("accessible")), len(fetched))
         assessment = evidence_assessment(story, fetched)
         record = {"event_id": story.get("event_id"), "headline": story.get("title"),
             "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
@@ -412,7 +434,10 @@ def process(input_path, output_dir):
             record["processing_status"] = "held_run_draft_limit"
         else:
             try:
+                logging.info("Starting AI article generation for %s (timeout=%ss, max attempts=%s)",
+                             story.get("event_id"), AI_REQUEST_TIMEOUT, AI_MAX_ATTEMPTS)
                 draft = generate_draft(story, fetched, AI_API_KEY, session)
+                logging.info("AI article response received for %s", story.get("event_id"))
                 draft["article_html"] = add_deterministic_sources(draft["article_html"], fetched)
                 related = select_related_articles(draft, story, published_articles)
                 draft["article_html"] = add_related_links(draft["article_html"], related)
@@ -446,6 +471,7 @@ def process(input_path, output_dir):
                 logging.warning("Draft failed for %s: %s", story.get("event_id"), record["error"])
         results.append(record)
         time.sleep(0.2)
+    logging.info("Evidence and article processing complete: %d drafts from %d candidates", len(drafts), len(stories))
     blogger_posts = []
     for item in drafts:
         d = item["draft"]
