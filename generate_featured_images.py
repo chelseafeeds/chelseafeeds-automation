@@ -78,45 +78,79 @@ def relevance_score(story, draft, candidate_text):
 
 
 def search_commons(story, draft, session):
-    title = str(draft.get("title") or story.get("title") or "")
-    terms = sorted(tokens(title), key=lambda x: (-len(x), x))[:7]
-    if not terms:
-        return None
-    query = " ".join(terms)
-    response = session.get(COMMONS_API, params={
-        "action": "query", "format": "json", "formatversion": 2,
-        "generator": "search", "gsrnamespace": 6, "gsrsearch": query,
-        "gsrlimit": 25, "prop": "imageinfo",
-        "iiprop": "url|size|extmetadata", "iiurlwidth": 1600
-    }, timeout=TIMEOUT)
-    response.raise_for_status()
-    pages = response.json().get("query", {}).get("pages", [])
-    ranked = []
-    for page in pages:
-        info = (page.get("imageinfo") or [{}])[0]
-        meta = info.get("extmetadata") or {}
-        license_name = clean_meta((meta.get("LicenseShortName") or {}).get("value"))
-        if not license_allowed(license_name):
-            continue
-        width, height = int(info.get("width") or 0), int(info.get("height") or 0)
-        if width < 900 or height < 500 or width / max(height, 1) < 1.25:
-            continue
-        description = clean_meta((meta.get("ImageDescription") or {}).get("value"))
-        artist = clean_meta((meta.get("Artist") or {}).get("value"))
-        text = " ".join([page.get("title", ""), description, artist])
-        score, matched = relevance_score(story, draft, text)
-        if score < 2:
-            continue
-        ranked.append({
-            "score": score, "matched_terms": matched, "page": page,
-            "info": info, "meta": meta, "license": license_name,
-            "description": description, "artist": artist
-        })
-    if not ranked:
-        return None
-    ranked.sort(key=lambda item: (item["score"], item["info"].get("width", 0)), reverse=True)
-    return ranked[0]
+    """Try article-specific Commons searches, then broader Chelsea/football searches.
 
+    Broad fallback images still have to pass the same licence, size and relevance
+    checks. We never scrape arbitrary publishers or reuse copyrighted match photos.
+    """
+    title = str(draft.get("title") or story.get("title") or "")
+    specific_terms = sorted(tokens(title), key=lambda x: (-len(x), x))[:7]
+    queries = []
+    if specific_terms:
+        queries.append(("article_specific", " ".join(specific_terms)))
+    queries.extend([
+        ("chelsea_fc", "Chelsea FC football"),
+        ("chelsea_stadium", "Stamford Bridge Chelsea football stadium"),
+        ("chelsea_match", "Chelsea FC football match")
+    ])
+
+    for query_kind, query in queries:
+        try:
+            response = session.get(COMMONS_API, params={
+                "action": "query", "format": "json", "formatversion": 2,
+                "generator": "search", "gsrnamespace": 6, "gsrsearch": query,
+                "gsrlimit": 35, "prop": "imageinfo",
+                "iiprop": "url|size|extmetadata", "iiurlwidth": 1600
+            }, timeout=TIMEOUT)
+            response.raise_for_status()
+            pages = response.json().get("query", {}).get("pages", [])
+        except Exception as exc:
+            logging.warning("Commons search tier %s failed: %s", query_kind, str(exc)[:160])
+            continue
+
+        ranked = []
+        for page in pages:
+            info = (page.get("imageinfo") or [{}])[0]
+            meta = info.get("extmetadata") or {}
+            license_name = clean_meta((meta.get("LicenseShortName") or {}).get("value"))
+            if not license_allowed(license_name):
+                continue
+            width, height = int(info.get("width") or 0), int(info.get("height") or 0)
+            if width < 900 or height < 500 or width / max(height, 1) < 1.25:
+                continue
+            description = clean_meta((meta.get("ImageDescription") or {}).get("value"))
+            artist = clean_meta((meta.get("Artist") or {}).get("value"))
+            text = " ".join([page.get("title", ""), description, artist])
+            score, matched = relevance_score(story, draft, text)
+
+            # The article-specific query requires two meaningful matches.
+            # Broad Chelsea fallback accepts one Chelsea/football-specific match,
+            # but never a generic unrelated stadium or crowd photo.
+            candidate_terms = tokens(text)
+            has_chelsea_context = bool(candidate_terms & {"chelsea", "stamford", "bridge"})
+            if query_kind == "article_specific":
+                if score < 2:
+                    continue
+            elif not has_chelsea_context:
+                continue
+            elif score < 1:
+                continue
+
+            ranked.append({
+                "score": score, "matched_terms": matched, "page": page,
+                "info": info, "meta": meta, "license": license_name,
+                "description": description, "artist": artist,
+                "search_tier": query_kind
+            })
+        if ranked:
+            ranked.sort(key=lambda item: (
+                item["score"], item["info"].get("width", 0)
+            ), reverse=True)
+            chosen = ranked[0]
+            logging.info("Commons selected %s image via %s search (score=%s)",
+                         chosen["page"].get("title", ""), query_kind, chosen["score"])
+            return chosen
+    return None
 
 def download_commons_photo(candidate, destination, session):
     info = candidate["info"]
