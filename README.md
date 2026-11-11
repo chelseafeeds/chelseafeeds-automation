@@ -1,11 +1,11 @@
 # ChelseaFeeds Automation
 
-Chelsea FC news collection, evidence triage, unpublished article drafting and locally generated branded thumbnails.
+Chelsea FC news collection, evidence triage, unpublished article drafting and mixed licensed-photo / AI-illustration featured images.
 
 ## Current pipeline
 
 1. `collect_news.py` collects Chelsea-related RSS items, clusters duplicate events and leaves every candidate pending.
-2. `process_news.py` checks up to eight source URLs per candidate, generates attributed article drafts with Groq (up to ten per run), applies the editorial quality gate, and creates a branded thumbnail locally with Pillow.
+2. `process_news.py` checks up to eight source URLs per candidate, generates attributed article drafts with Groq (up to ten per run), applies the editorial quality gate, and creates a temporary branded fallback thumbnail.\n3. `generate_featured_images.py` replaces that fallback where possible with a relevant, licence-screened Wikimedia Commons photo; otherwise it requests an article-aware AI illustration if `OPENAI_API_KEY` is configured.
 3. It also exports `blogger_ready_posts.json`, containing Blogger title, HTML body, search description, labels, suggested permalink slug, source URLs and featured-image metadata.
 4. The `ChelseaFeeds Evidence and Article Drafts` workflow runs automatically after a successful `Chelsea News Collection` workflow on `main`.
 5. Results are saved as the `chelseafeeds-editorial-results` GitHub Actions artifact, including `article_drafts.json`, `editorial_report.json` and JPG thumbnails in `images/`.
@@ -75,21 +75,20 @@ Never put these values in repository files, workflow inputs, issues, or chat. Th
 
 ### How to run it safely
 
-1. Add the Blogger secrets first. Enable Blogger API v3 in the matching Google Cloud project and authorize the OAuth client for the blog owner account.
-2. Open Actions → **ChelseaFeeds Publish Reviewed Article** → Run workflow.
-3. Enter the successful editorial processor run ID and the exact `event_id` from that run's `blogger_ready_posts.json`.
-4. Leave **Publish publicly** unchecked for the first test. This creates a Blogger draft only.
-5. Leave **Post to X** unchecked. X is only called when Blogger publication is public and the X option is explicitly selected.
-6. Inspect the created Blogger draft, its formatting, labels, search description and featured image. The thumbnail must still be uploaded/set as the Blogger post image separately.
-7. Only after you have reviewed the article and confirmed the Blogger draft is correct should you manually run the workflow again with **Publish publicly** checked. Select **Post to X** only if you also want the public article announced.
+1. Add the four Blogger secrets listed above. Enable Blogger API v3 in the matching Google Cloud project and authorize the OAuth client for the blog owner account.
+2. For article-aware AI image fallback, optionally add `OPENAI_API_KEY` as a GitHub Actions secret. Without it, the workflow still searches Commons and uses the branded fallback when no suitable photo is found.
+3. Open Actions → **ChelseaFeeds Publish Reviewed Article** → Run workflow.
+4. Enter the successful editorial processor run ID and the exact `event_id` from that run's `blogger_ready_posts.json`.
+5. The workflow automatically uploads the selected featured image, validates its source metadata and creates or updates the matching Blogger draft. There are no public-publish or X-posting switches.
+6. Inspect the Blogger draft, including image relevance, visible image credit or AI disclosure, formatting, labels and search description.
 
-The publisher refuses records that do not match the expected review status and safety flags, checks required SEO fields and rejects unsafe HTML. It selects exactly one article by `event_id`. X announcements are blocked unless Blogger returns a public post URL from a live publication.
+The publisher refuses records that do not match the expected review status and safety flags, checks required SEO fields and rejects unsafe HTML. It selects exactly one article by `event_id`, refuses ambiguous duplicate drafts and refuses to run in live-publishing mode.
 
-**Important:** this is a controlled publishing tool, not unattended auto-publishing. The editorial workflow continues to produce review-required drafts. Credentials must be added by the repository owner; this integration cannot read or create repository secrets on your behalf.
+**Important:** this is a controlled draft-testing tool, not unattended auto-publishing. Public publishing remains hard-disabled in the current publisher code.
 
 ## Workflow artifacts
 
-Open Actions → ChelseaFeeds Evidence and Article Drafts → latest successful run → Artifacts. Download `chelseafeeds-editorial-results`. It includes `blogger_ready_posts.json` for copying into Blogger HTML view and the `images/` folder for featured thumbnails. Upload each thumbnail separately in Blogger; review the draft and sources before publishing. Upload the thumbnail to Blogger and set it as the post's featured image before publishing.
+Open Actions → ChelseaFeeds Evidence and Article Drafts → latest successful run → Artifacts. Download `chelseafeeds-editorial-results` to inspect `blogger_ready_posts.json`, `article_drafts.json`, the editorial report and generated images. The manual draft workflow uploads the selected image to the public ChelseaFeeds image repository and embeds it, together with its credit or AI disclosure, in the Blogger draft.
 
 
 ## Draft-only featured-image publishing test
