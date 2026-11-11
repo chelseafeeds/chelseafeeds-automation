@@ -46,11 +46,14 @@ jobs:
       - name: Run processor regression tests
         run: python process_news.py --self-test
 
+      - name: Test related internal-link safeguards
+        run: python related_links.py --self-test
+
       - name: Test mixed featured-image safeguards
         run: python generate_featured_images.py --self-test
 
       - name: Compile-check publishing integration
-        run: python -m py_compile generate_featured_images.py upload_featured_image.py publish_article.py
+        run: python -m py_compile process_news.py related_links.py generate_featured_images.py upload_featured_image.py publish_article.py
 
       - name: Download collector candidates
         uses: actions/download-artifact@v4
