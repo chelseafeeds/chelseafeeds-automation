@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-11T22:42:20.234613+00:00",
+  "updated_at": "2026-11-11T22:43:22.386217+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -468,10 +468,10 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-11T22:43:22.386217+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea star reaches verdict on leaving in January with transfer to Liverpool now on for two reasons"
     },
     "5f596cb901f438b5057f6780": {
       "event_id": "5f596cb901f438b5057f6780",
@@ -498,10 +498,10 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-11T22:43:22.386217+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Aston Villa push for Romeo Lavia amid decision on continuing at Chelsea – report"
     },
     "f21134b3eed9c7f239cdbb52": {
       "event_id": "f21134b3eed9c7f239cdbb52",
@@ -603,10 +603,10 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-11T22:43:22.386217+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Papers: Arsenal, Chelsea and Liverpool chase Bournemouth star Scott"
     },
     "5b197c8dcf510e4b990f16a5": {
       "event_id": "5b197c8dcf510e4b990f16a5",
@@ -618,10 +618,10 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "rejected_quality_gate",
+      "last_processed_at": "2026-11-11T22:43:22.386217+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Papers: Arsenal, Chelsea and Liverpool chase Bournemouth star Scott"
     }
   }
 }
