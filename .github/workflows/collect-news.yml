@@ -48,6 +48,7 @@ jobs:
           git add seen_stories.json
           git diff --cached --quiet || (
             git commit -m "Update ChelseaFeeds story history" &&
+            git pull --rebase origin main &&
             git push
           )
 
