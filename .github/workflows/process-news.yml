@@ -23,6 +23,8 @@ jobs:
       AI_PROVIDER: groq
       AI_BASE_URL: https://api.groq.com/openai/v1
       AI_MODEL: openai/gpt-oss-120b
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_IMAGE_MODEL: gpt-image-2.5-flare
       MAX_DRAFTS_PER_RUN: "10"
       MAX_SOURCE_PACK: "6"
       MAX_SOURCE_CHARS: "5000"
@@ -44,6 +46,9 @@ jobs:
       - name: Run processor regression tests
         run: python process_news.py --self-test
 
+      - name: Test mixed featured-image safeguards
+        run: python generate_featured_images.py --self-test
+
       - name: Download collector candidates
         uses: actions/download-artifact@v4
         with:
@@ -55,6 +60,9 @@ jobs:
       - name: Run evidence checks, article quality gate and local thumbnail generation
         run: |
           python process_news.py --input input/news_candidates.json --output output
+
+      - name: Select licensed photos or generate article-aware illustrations
+        run: python generate_featured_images.py --output output
 
       - name: Save editorial results and generated images
         uses: actions/upload-artifact@v4
