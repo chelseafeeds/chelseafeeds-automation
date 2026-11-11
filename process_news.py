@@ -179,6 +179,7 @@ def generate_draft(story, evidence, api_key, session):
             raise last_error
         raise RuntimeError("AI provider retries exhausted")
     draft = json.loads(response.json()["choices"][0]["message"]["content"])
+    draft["search_description"] = normalize_search_description(draft)
     required = {"title", "search_description", "focus_keyword", "labels", "article_html",
                 "excerpt", "image_prompt", "image_alt_text", "editorial_notes", "unsupported_or_unverified_points"}
     missing = required - set(draft)
@@ -223,6 +224,29 @@ def add_deterministic_sources(html, fetched):
         section.append(listing)
         soup.append(section)
     return str(soup)
+
+def normalize_search_description(draft):
+    """Build a factual 100-180 character Blogger description from the article itself."""
+    title = re.sub(r"\\s+", " ", str(draft.get("title") or "")).strip()
+    description = re.sub(r"\\s+", " ", str(draft.get("search_description") or "")).strip()
+    if 100 <= len(description) <= 180:
+        return description
+    if len(description) > 180:
+        shortened = description[:178].rsplit(" ", 1)[0].rstrip(" ,;:-")
+        return shortened + "."
+    soup = BeautifulSoup(str(draft.get("article_html") or ""), "html.parser")
+    paragraphs = [re.sub(r"\\s+", " ", p.get_text(" ", strip=True)).strip()
+                  for p in soup.find_all("p")]
+    paragraphs = [p for p in paragraphs if len(p) > 35]
+    factual_intro = " ".join(paragraphs[:2])
+    candidate = (title + ". " + factual_intro).strip(" .")
+    if len(candidate) > 180:
+        candidate = candidate[:178].rsplit(" ", 1)[0].rstrip(" ,;:-") + "."
+    if len(candidate) < 100:
+        # Do not invent filler: keep the available factual wording and allow the quality gate to reject it.
+        return candidate
+    return candidate
+
 
 def quality_gate(draft, fetched, story):
     html = str(draft.get("article_html", ""))
@@ -489,6 +513,17 @@ def self_test():
             "labels":["Latest News","Opinion & Analysis"],
             "article_html":"<h2>Context</h2><p>" + body + "</p><h2>Next steps</h2><p><a href='https://www.bbc.co.uk/a'>BBC source</a></p>"
         }
+
+    # SEO description fallback uses the title and article opening, not invented facts.
+    short_meta = make_draft(400)
+    short_meta["search_description"] = "Chelsea news"
+    short_meta["article_html"] = "<h2>Context</h2><p>Chelsea secured an important result after a disciplined performance across the match, with the supplied report outlining the key moments and tactical details.</p><h2>Analysis</h2><p>Supporters will be watching the next fixture closely.</p><p><a href='https://www.bbc.co.uk/a'>BBC source</a></p>"
+    normalized = normalize_search_description(short_meta)
+    assert 100 <= len(normalized) <= 180, normalized
+    assert "Chelsea analysis: the key issues supporters should understand" in normalized
+    too_long_meta = make_draft(400)
+    too_long_meta["search_description"] = "Chelsea " + ("supporters " * 30)
+    assert len(normalize_search_description(too_long_meta)) <= 180
 
     valid = make_draft(400)
     assert quality_gate(valid, one, story)["passed"], quality_gate(valid, one, story)
