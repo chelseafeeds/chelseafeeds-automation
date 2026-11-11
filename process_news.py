@@ -10,7 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 from PIL import Image, ImageDraw, ImageFont
 
-VERSION = "1.2"
+VERSION = "1.3"
 TIMEOUT = 20
 MAX_FETCH_CHARS = 9000
 MAX_DRAFTS = max(0, min(3, int(os.getenv("MAX_DRAFTS_PER_RUN", "3"))))
@@ -138,9 +138,9 @@ def generate_draft(story, evidence, api_key, session):
         "Do not copy source wording. Separate confirmed facts, reported claims and opinion. "
         "For transfers, state clearly whether confirmed or reported; never infer fees or clauses. "
         "For opinion, attribute the view and distinguish its factual premises. Keep men, women and "
-        "academy teams distinct. Write concise, substantive copy; no padding to hit a word count. "
-        "Use useful H2 headings, clear intro, original analysis, and a Sources heading at the end. "
-        "Include ONLY supplied source URLs in the Sources section. Do not invent internal links. "
+        "academy teams distinct. Write a substantive article of approximately 450-600 words when supplied evidence supports it. "
+        "Use a clear intro and at least three useful H2 headings. Aim for 450-600 words where evidence supports that depth; never pad or invent details. "
+        "Do not write a Sources section or source hyperlinks; the processor adds a deterministic Sources section using accessible supplied URLs. Do not invent internal links. "
         "Return ONLY JSON keys: title, search_description, focus_keyword, labels, article_html, "
         "excerpt, image_prompt, image_alt_text, editorial_notes, unsupported_or_unverified_points. "
         "HTML must be Blogger-ready, with no scripts, iframe, form, schema or inline ads. "
@@ -162,6 +162,44 @@ def generate_draft(story, evidence, api_key, session):
         raise ValueError("Model output missing keys: " + ", ".join(sorted(missing)))
     return draft
 
+def add_deterministic_sources(html, fetched):
+    """Add a reliable Sources section using only accessible URLs supplied by the collector."""
+    soup = BeautifulSoup(str(html or ""), "html.parser")
+    for heading in list(soup.find_all(["h2", "h3"])):
+        if heading.get_text(" ", strip=True).casefold() == "sources":
+            node = heading
+            while node:
+                nxt = node.find_next_sibling()
+                node.decompose()
+                if nxt and nxt.name in {"h2", "h3"}:
+                    break
+                node = nxt
+    allowed = {x["url"] for x in fetched if x.get("accessible") and x.get("url")}
+    for anchor in list(soup.find_all("a", href=True)):
+        if anchor.get("href") not in allowed:
+            anchor.unwrap()
+    source_rows, seen = [], set()
+    for item in fetched:
+        url = item.get("url")
+        if item.get("accessible") and url in allowed and url not in seen:
+            seen.add(url)
+            source_rows.append((host(url), url))
+    if source_rows:
+        section = soup.new_tag("section")
+        heading = soup.new_tag("h2")
+        heading.string = "Sources"
+        section.append(heading)
+        listing = soup.new_tag("ul")
+        for publisher, url in source_rows:
+            li = soup.new_tag("li")
+            anchor = soup.new_tag("a", href=url)
+            anchor.string = publisher
+            li.append(anchor)
+            listing.append(li)
+        section.append(listing)
+        soup.append(section)
+    return str(soup)
+
 def quality_gate(draft, fetched, story):
     html = str(draft.get("article_html", ""))
     soup = BeautifulSoup(html, "html.parser")
@@ -171,7 +209,7 @@ def quality_gate(draft, fetched, story):
     checks = {
         "title_present_and_reasonable": 25 <= len(str(draft.get("title", "")).strip()) <= 100,
         "search_description_length": 100 <= len(str(draft.get("search_description", "")).strip()) <= 180,
-        "substantive_article_body": len(text.split()) >= 300,
+        "substantive_article_body": len(text.split()) >= 350,
         "has_section_headings": len(soup.find_all(["h2", "h3"])) >= 2,
         "has_source_links": bool(links & allowed_urls),
         "source_links_are_supplied": links.issubset(allowed_urls),
@@ -321,6 +359,7 @@ def process(input_path, output_dir):
         else:
             try:
                 draft = generate_draft(story, fetched, AI_API_KEY, session)
+                draft["article_html"] = add_deterministic_sources(draft["article_html"], fetched)
                 quality = quality_gate(draft, fetched, story)
                 record["quality_gate"] = quality
                 if not quality["passed"]:
@@ -390,14 +429,22 @@ def self_test():
     assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"]
     base = {"title":"Chelsea analysis headline","search_description":"Chelsea analysis " * 8,
         "focus_keyword":"Chelsea FC","excerpt":"Chelsea analysis excerpt","image_prompt":"Editorial illustration",
-        "image_alt_text":"Chelsea themed illustration","article_html":"<h2>Context</h2><p>" + ("Chelsea football analysis. " * 110) +
+        "image_alt_text":"Chelsea themed illustration","article_html":"<h2>Context</h2><p>" + ("Chelsea football analysis. " * 150) +
         "</p><h2>What next</h2><p>More analysis.</p><p><a href='https://www.bbc.co.uk/a'>Source</a></p>"}
     assert quality_gate(base, one, story)["passed"]
     unsafe = dict(base, article_html=base["article_html"] + "<script>alert(1)</script>")
     assert not quality_gate(unsafe, one, story)["passed"]
     no_link = dict(base, article_html=base["article_html"].replace("<a href='https://www.bbc.co.uk/a'>Source</a>", "Source"))
     assert not quality_gate(no_link, one, story)["passed"]
-    print("PASS: 9 evidence, quality and safety regression checks")
+    source_html = add_deterministic_sources("<h2>Analysis</h2><p><a href='https://bad.example/x'>bad link</a></p>", one)
+    source_soup = BeautifulSoup(source_html, "html.parser")
+    assert source_soup.find("h2", string="Sources") is not None
+    assert source_soup.find("a", href="https://www.bbc.co.uk/a") is not None
+    assert source_soup.find("a", href="https://bad.example/x") is None
+    duplicate = add_deterministic_sources("<h2>Analysis</h2><p>Text</p><h2>Sources</h2><p>Fake</p>", one)
+    duplicate_soup = BeautifulSoup(duplicate, "html.parser")
+    assert len([h for h in duplicate_soup.find_all(["h2", "h3"]) if h.get_text(strip=True) == "Sources"]) == 1
+    print("PASS: 11 evidence, quality, source-link and safety regression checks")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
