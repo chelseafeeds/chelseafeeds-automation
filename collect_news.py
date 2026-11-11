@@ -264,3 +264,4 @@ def main():
 if __name__=="__main__":
     if "--self-test" in sys.argv: run_self_tests()
     else: raise SystemExit(main())
+ 
