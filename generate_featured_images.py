@@ -29,7 +29,7 @@ HEADERS = {
     "User-Agent": "ChelseaFeedsImageBot/2.0 (https://www.chelseafeeds.com/; editorial image sourcing)"
 }
 STOP = {
-    "chelsea", "football", "fc", "club", "latest", "news", "report", "reports",
+    "football", "fc", "club", "latest", "news", "report", "reports",
     "match", "preview", "analysis", "reaction", "what", "why", "how", "the",
     "and", "for", "with", "from", "after", "before", "over", "under", "into",
     "this", "that", "their", "they", "will", "could", "should", "has", "have",
@@ -352,6 +352,18 @@ def main():
         post["image_alt_text"] = asset["alt_text"]
     drafts_path.write_text(json.dumps(drafts_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     ready_path.write_text(json.dumps(ready_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    report_path = output / "editorial_report.json"
+    if report_path.is_file():
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+        report["thumbnail_method"] = "mixed_commons_photo_then_openai_ai_illustration_then_branded_fallback"
+        report["featured_image_pipeline"] = {
+            "image_counts": counts,
+            "openai_image_api_configured": bool(api_key),
+            "commons_licence_policy": "CC0, Public Domain, or CC BY 2.0/3.0/4.0 only",
+            "ai_images_disclosed": True,
+            "commons_attribution_saved": True
+        }
+        report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
         "featured_image_pipeline": "mixed_commons_then_ai_then_branded_fallback",
         "image_counts": counts, "openai_image_api_configured": bool(api_key),
