@@ -6,6 +6,7 @@ on:
     paths:
       - "collect_news.py"
       - "process_news.py"
+      - "generate_featured_images.py"
       - "requirements.txt"
       - ".github/workflows/process-news.yml"
       - ".github/workflows/collect-news.yml"
