@@ -3,9 +3,15 @@ name: Chelsea News Collection
 on:
   workflow_dispatch:
 
+  schedule:
+    - cron: '17 */2 * * *'
+
 jobs:
   collect:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
 
     steps:
       - name: Get project files
