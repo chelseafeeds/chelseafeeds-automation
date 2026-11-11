@@ -6,6 +6,10 @@ on:
     paths:
       - "collect_news.py"
       - "persist_history.py"
+      - "process_news.py"
+      - "related_links.py"
+      - "generate_featured_images.py"
+      - ".github/workflows/process-news.yml"
       - "requirements.txt"
       - ".github/workflows/collect-news.yml"
   workflow_dispatch:
