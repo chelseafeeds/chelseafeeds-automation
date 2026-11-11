@@ -42,11 +42,11 @@ def attach_featured_image(article_html, image_url, alt_text):
     license_name = os.getenv("FEATURED_IMAGE_LICENSE_NAME", "").strip()
     license_url = os.getenv("FEATURED_IMAGE_LICENSE_URL", "").strip()
 
-    if source_type == "licensed_commons_photo":
+    if source_type in {"licensed_commons_photo", "licensed_original_source_photo"}:
         source = urlparse(credit_url)
         license_link = urlparse(license_url) if license_url else None
-        if source.scheme != "https" or source.netloc != "commons.wikimedia.org" or not source.path.startswith("/wiki/"):
-            raise RuntimeError("Commons photo is missing a valid Wikimedia Commons attribution page.")
+        if source.scheme != "https" or not source.netloc:
+            raise RuntimeError("Licensed source photo is missing a valid HTTPS attribution page.")
         if not license_name:
             raise RuntimeError("Commons photo is missing its licence name.")
         if license_link and (license_link.scheme != "https" or license_link.netloc not in {"creativecommons.org", "www.creativecommons.org"}):
