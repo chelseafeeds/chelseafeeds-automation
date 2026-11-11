@@ -20,8 +20,8 @@ ROOT = Path(__file__).resolve().parent
 HISTORY_FILE = ROOT / "seen_stories.json"
 CANDIDATES_FILE = ROOT / "news_candidates.json"
 REPORT_FILE = ROOT / "collection_report.json"
-TIMEOUT, MAX_AGE_DAYS, MAX_STORIES, HISTORY_DAYS = 18, 7, 40, 90
-MAX_OPINION_CANDIDATES = 4
+TIMEOUT, MAX_AGE_DAYS, MAX_STORIES, HISTORY_DAYS = 18, 7, 60, 90
+MAX_OPINION_CANDIDATES = 8
 
 FEEDS = [
     {"name":"BBC Sport","url":"https://feeds.bbci.co.uk/sport/football/rss.xml"},
@@ -31,6 +31,13 @@ FEEDS = [
     {"name":"Chelsea.news","url":"https://chelsea.news/feed"},
     {"name":"Chelsea FC Latest News","url":"https://chelseafclatestnews.com/feed"},
     {"name":"Football365","url":"https://www.football365.com/rss"},
+    {"name":"BBC Sport Women's Football","url":"https://feeds.bbci.co.uk/sport/football/womens/rss.xml"},
+    {"name":"BBC Sport Premier League","url":"https://feeds.bbci.co.uk/sport/football/premier-league/rss.xml"},
+    {"name":"Sky Sports Football","url":"https://www.skysports.com/rss/11095"},
+    {"name":"The Guardian Football","url":"https://www.theguardian.com/football/rss"},
+    {"name":"The Guardian Women's Football","url":"https://www.theguardian.com/football/womensfootball/rss"},
+    {"name":"The Athletic","url":"https://www.nytimes.com/athletic/rss/news/"},
+    {"name":"ESPN Soccer","url":"https://www.espn.com/espn/rss/soccer/news"},
 ]
 OFFICIAL={"chelseafc.com","premierleague.com","uefa.com","thefa.com"}
 ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.com","apnews.com","espn.com","independent.co.uk","standard.co.uk","nytimes.com","theathletic.com","football365.com","thetimes.com","telegraph.co.uk"}
