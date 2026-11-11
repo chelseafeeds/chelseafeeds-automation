@@ -24,7 +24,7 @@ on:
 
 permissions:
   actions: read
-  contents: read
+  contents: write
 
 concurrency:
   group: chelseafeeds-manual-publish
@@ -36,6 +36,8 @@ jobs:
     steps:
       - name: Checkout publisher
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -51,21 +53,32 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: chelseafeeds-editorial-results
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          run-id: ${{ inputs.source_run_id }}
+          github-token: \${{ secrets.GITHUB_TOKEN }}
+          run-id: \${{ inputs.source_run_id }}
           path: input
+
+      - name: Upload and verify featured image
+        id: featured_image
+        env:
+          ARTICLE_EVENT_ID: \${{ inputs.event_id }}
+          GITHUB_REPOSITORY: \${{ github.repository }}
+          GITHUB_RUN_ID: \${{ github.run_id }}
+          GITHUB_REF_NAME: \${{ github.ref_name }}
+        run: python upload_featured_image.py
 
       - name: Validate and publish selected article
         env:
-          ARTICLE_EVENT_ID: ${{ inputs.event_id }}
-          BLOGGER_PUBLISH_LIVE: ${{ inputs.publish_live }}
-          ENABLE_X_POSTING: ${{ inputs.announce_on_x }}
-          BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
-          BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
-          BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
-          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
-          X_API_KEY: ${{ secrets.X_API_KEY }}
-          X_API_SECRET: ${{ secrets.X_API_SECRET }}
-          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          ARTICLE_EVENT_ID: \${{ inputs.event_id }}
+          BLOGGER_PUBLISH_LIVE: \${{ inputs.publish_live }}
+          ENABLE_X_POSTING: \${{ inputs.announce_on_x }}
+          FEATURED_IMAGE_URL: \${{ steps.featured_image.outputs.image_url }}
+          FEATURED_IMAGE_ALT: \${{ steps.featured_image.outputs.alt_text }}
+          BLOGGER_CLIENT_ID: \${{ secrets.BLOGGER_CLIENT_ID }}
+          BLOGGER_CLIENT_SECRET: \${{ secrets.BLOGGER_CLIENT_SECRET }}
+          BLOGGER_REFRESH_TOKEN: \${{ secrets.BLOGGER_REFRESH_TOKEN }}
+          BLOGGER_BLOG_ID: \${{ secrets.BLOGGER_BLOG_ID }}
+          X_API_KEY: \${{ secrets.X_API_KEY }}
+          X_API_SECRET: \${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: \${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: \${{ secrets.X_ACCESS_TOKEN_SECRET }}
         run: python publish_article.py
