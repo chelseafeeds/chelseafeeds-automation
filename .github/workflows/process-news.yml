@@ -38,7 +38,7 @@ jobs:
       SOURCE_FETCH_WORKERS: "8"
       AI_REQUEST_TIMEOUT: "45"
       AI_MAX_ATTEMPTS: "2"
-      AI_FALLBACK_ENABLED: "false"
+      AI_FALLBACK_ENABLED: "true"
       AI_FALLBACK_BASE_URL: https://api.openai.com/v1
       AI_FALLBACK_MODEL: gpt-4.1-mini
       OPENAI_IMAGE_TIMEOUT: "90"
