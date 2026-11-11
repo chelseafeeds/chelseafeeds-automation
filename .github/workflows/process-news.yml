@@ -1,0 +1,60 @@
+name: ChelseaFeeds Evidence and Article Drafts
+
+on:
+  workflow_run:
+    workflows: ["Chelsea News Collection"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: chelseafeeds-editorial-${{ github.event.workflow_run.id }}
+  cancel-in-progress: false
+
+jobs:
+  process:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get project files
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Download collector candidates
+        uses: actions/download-artifact@v4
+        with:
+          name: chelsea-news-candidates
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          path: input
+
+      - name: Run evidence checks and generate unpublished drafts
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-4.1-mini
+          MAX_DRAFTS_PER_RUN: "6"
+        run: |
+          python process_news.py --input input/news_candidates.json --output output
+
+      - name: Save editorial results
+        uses: actions/upload-artifact@v4
+        with:
+          name: chelseafeeds-editorial-results
+          path: |
+            output/article_drafts.json
+            output/editorial_report.json
+          if-no-files-found: error
+          retention-days: 7
