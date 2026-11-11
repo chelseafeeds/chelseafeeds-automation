@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ChelseaFeeds v1.5: evidence triage, article quality gate and deterministic branded thumbnails."""
 from __future__ import annotations
-import argparse, json, logging, os, re, time
+import argparse, json, logging, os, re, time, tempfile
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -470,9 +470,14 @@ def self_test():
     duplicate_soup = BeautifulSoup(duplicate, "html.parser")
     assert len([h for h in duplicate_soup.find_all(["h2", "h3"]) if h.get_text(strip=True) == "Sources"]) == 1
 
+    with tempfile.TemporaryDirectory() as temp_dir:
+        asset = create_branded_thumbnail(valid, {"title": valid["title"], "story_type":"match_report"}, Path(temp_dir))
+        assert asset["width"] == 1200 and asset["height"] == 675
+        assert asset["role"] == "thumbnail" and asset["branded"] is True
+        assert (Path(temp_dir) / asset["filename"]).is_file()
     with_sources = dict(valid, article_html=valid["article_html"] + "<section><h2>Sources</h2><ul><li><a href='https://www.bbc.co.uk/a'>BBC</a></li></ul></section>")
     assert quality_gate(with_sources, one, story)["word_count"] == 500
-    print("PASS: 16 evidence, 500-word, SEO, source-link, source-exclusion and safety regression checks")
+    print("PASS: evidence, 500-word, SEO, source-link, source-exclusion, safety and local-thumbnail regression checks")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
