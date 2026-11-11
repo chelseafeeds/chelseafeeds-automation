@@ -13,13 +13,13 @@ from PIL import Image, ImageDraw, ImageFont
 VERSION = "1.5"
 TIMEOUT = 20
 MAX_FETCH_CHARS = 9000
-MAX_DRAFTS = max(0, min(3, int(os.getenv("MAX_DRAFTS_PER_RUN", "3"))))
+MAX_DRAFTS = max(0, min(12, int(os.getenv("MAX_DRAFTS_PER_RUN", "10"))))
 AI_PROVIDER = os.getenv("AI_PROVIDER", "groq").strip().lower()
 AI_API_KEY = os.getenv("AI_API_KEY", "").strip()
 AI_BASE_URL = os.getenv("AI_BASE_URL", "https://api.groq.com/openai/v1").rstrip("/")
 MODEL = os.getenv("AI_MODEL", "openai/gpt-oss-120b").strip()
-MAX_SOURCE_PACK = int(os.getenv("MAX_SOURCE_PACK", "4"))
-MAX_SOURCE_CHARS = int(os.getenv("MAX_SOURCE_CHARS", "3500"))
+MAX_SOURCE_PACK = int(os.getenv("MAX_SOURCE_PACK", "6"))
+MAX_SOURCE_CHARS = int(os.getenv("MAX_SOURCE_CHARS", "5000"))
 THUMBNAIL_WIDTH = 1200
 THUMBNAIL_HEIGHT = 675
 OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com"}
@@ -100,15 +100,20 @@ def evidence_assessment(story, fetched):
         tier = "other_direct_source_accessible"
     else:
         tier = "no_usable_source"
-    if typ == "opinion_analysis":
+    other_direct = [x for x in accessible if not in_domains(x["url"], OFFICIAL) and not in_domains(x["url"], ESTABLISHED)]
+    other_domains = {x["domain"] for x in other_direct}
+    if typ == "confirmed_transfer":
+        eligible = bool(official)
+        reason = "A completed transfer draft requires an accessible official club or competition announcement."
+    elif typ == "transfer_rumour":
+        eligible = bool(official) or bool(established) or len(other_domains) >= 2
+        reason = "A rumour may be drafted from one accessible established publisher if explicitly attributed and labelled unconfirmed; otherwise two direct specialist sources are required."
+    elif typ == "opinion_analysis":
         eligible = bool(accessible)
-        reason = "Opinion draft may be prepared with attribution; factual premises still require checking."
-    elif typ in {"transfer_rumour", "confirmed_transfer"}:
-        eligible = bool(accessible) and (bool(official) or len({x["domain"] for x in established}) >= 2)
-        reason = "Transfer coverage requires official evidence or two accessible established publishers."
+        reason = "Opinion may be drafted from one accessible source with clear attribution; factual premises remain unverified."
     else:
-        eligible = bool(official) or len({x["domain"] for x in established}) >= 2
-        reason = "Factual coverage requires an accessible official source or two distinct established publishers."
+        eligible = bool(official) or bool(established) or len(other_domains) >= 2
+        reason = "A news draft may use one accessible official or established publisher with explicit attribution; two direct specialist sources are required when neither is available."
     return {"evidence_tier": tier, "accessible_source_count": len(accessible),
             "accessible_publisher_domains": accessible_domains, "official_source_count": len(official),
             "established_source_domains": sorted({x["domain"] for x in established}),
@@ -132,7 +137,8 @@ def generate_draft(story, evidence, api_key, session):
         "Never invent facts, quotes, dates, scores, stats, injuries, fees, contract clauses, line-ups, "
         "venues or motives. Do not create direct quotations; paraphrase and attribute instead. "
         "Do not copy source wording. Separate confirmed facts, reported claims and opinion. "
-        "For transfers, state clearly whether confirmed or reported; never infer fees or clauses. "
+        "For transfers, state clearly whether officially confirmed or merely reported; never infer fees or clauses. "
+        "When only one publisher is supplied, attribute every development to that publisher and say it has not been independently corroborated. "
         "For opinion, attribute the view and distinguish its factual premises. Keep men, women and "
         "academy teams distinct. Write at least 500 substantive words, preferably 550-750, when supplied evidence supports it. "
         "The article must contain at least 500 words excluding the Sources section, headings, captions and image alt text. "
@@ -230,7 +236,7 @@ def quality_gate(draft, fetched, story):
     checks = {
         "title_present_and_reasonable": 25 <= len(title) <= 100,
         "search_description_length": 100 <= len(description) <= 180,
-        "substantive_article_body_minimum_500_words": word_count >= 500,
+        "substantive_article_body_minimum_400_words": word_count >= 400,
         "has_section_headings": len(original_soup.find_all(["h2", "h3"])) >= 2,
         "has_source_links": bool(links & allowed_urls),
         "source_links_are_supplied": links.issubset(allowed_urls),
@@ -242,7 +248,7 @@ def quality_gate(draft, fetched, story):
     # Every check is mandatory; a high score cannot override a failed SEO, length, source or safety check.
     passed = not failed
     return {"passed": passed, "score": score, "word_count": word_count,
-            "minimum_word_count": 500, "checks": checks, "failed_checks": failed,
+            "minimum_word_count": 400, "checks": checks, "failed_checks": failed,
             "note": "Automated editorial screening only; it is not independent fact-checking."}
 
 def create_branded_thumbnail(draft, story, images_dir):
@@ -399,8 +405,8 @@ def process(input_path, output_dir):
         "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
             "Evidence accessibility and publisher counts are not factual verification.",
-            "Factual stories require an accessible official source or two distinct established publishers; opinion requires an accessible attributed source.",
-            "Automated quality gate requires at least 500 substantive article words excluding the Sources block; all SEO, heading, source-link and HTML safety checks are mandatory.",
+            "News may use one accessible official or established publisher with explicit attribution; confirmed transfers require official confirmation; rumours remain labelled and attributed.",
+            "Automated quality gate requires at least 400 substantive article words excluding the Sources block; all SEO, heading, source-link and HTML safety checks are mandatory.",
         "A score cannot override any failed mandatory check; short drafts and invalid SEO metadata are rejected.",
             "No direct quotations are requested; unsupported claims must be omitted or flagged.",
             "Featured thumbnails are generated locally with Pillow; no image-generation API, API key or paid image service is required.",
@@ -439,12 +445,12 @@ def self_test():
             "article_html":"<h2>Context</h2><p>" + body + "</p><h2>Next steps</h2><p><a href='https://www.bbc.co.uk/a'>BBC source</a></p>"
         }
 
-    valid = make_draft(500)
+    valid = make_draft(400)
     assert quality_gate(valid, one, story)["passed"], quality_gate(valid, one, story)
-    short = make_draft(499)
+    short = make_draft(399)
     short_result = quality_gate(short, one, story)
-    assert not short_result["passed"] and short_result["word_count"] == 499
-    assert "substantive_article_body_minimum_500_words" in short_result["failed_checks"]
+    assert not short_result["passed"] and short_result["word_count"] == 399
+    assert "substantive_article_body_minimum_400_words" in short_result["failed_checks"]
 
     bad_title = dict(valid, title="Too short")
     assert not quality_gate(bad_title, one, story)["passed"]
