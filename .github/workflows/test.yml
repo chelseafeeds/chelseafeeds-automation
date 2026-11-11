@@ -32,3 +32,9 @@ jobs:
 
       - name: Run processor regression tests
         run: python process_news.py --self-test
+
+      - name: Run featured-image sourcing and licence tests
+        run: python generate_featured_images.py --self-test
+
+      - name: Compile-check publishing integration
+        run: python -m py_compile generate_featured_images.py upload_featured_image.py publish_article.py
