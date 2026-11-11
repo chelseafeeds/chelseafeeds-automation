@@ -422,7 +422,9 @@ def process(input_path, output_dir):
         "max_drafts_per_run": MAX_DRAFTS, "ai_provider": AI_PROVIDER,
         "ai_api_configured": bool(AI_API_KEY), "ai_base_url": AI_BASE_URL if AI_API_KEY else None,
         "model": MODEL if AI_API_KEY else None, "image_provider": IMAGE_PROVIDER,
-        "image_model": CF_MODEL, "image_account_id_configured": bool(CF_ACCOUNT_ID),\n        "image_api_token_configured": bool(CF_API_TOKEN),\n        "image_api_configured": bool(CF_ACCOUNT_ID and CF_API_TOKEN),
+        "image_model": CF_MODEL, "image_account_id_configured": bool(CF_ACCOUNT_ID),
+        "image_api_token_configured": bool(CF_API_TOKEN),
+        "image_api_configured": bool(CF_ACCOUNT_ID and CF_API_TOKEN),
         "max_images_per_run": MAX_IMAGES_PER_RUN, "image_attempts_used": MAX_IMAGES_PER_RUN - images_remaining,
         "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
