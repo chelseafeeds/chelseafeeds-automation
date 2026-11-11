@@ -18,7 +18,9 @@ permissions:
 
 concurrency:
   group: chelseafeeds-editorial-queue
-  cancel-in-progress: true
+  # Never discard an active evidence-processing batch when another hourly collection completes.
+  # GitHub queues the next run; event/history deduplication prevents duplicate article processing.
+  cancel-in-progress: false
 
 jobs:
   process:
