@@ -644,6 +644,7 @@ def process(input_path, output_dir):
             "featured_image": featured,
             "image_alt_text": d.get("image_alt_text"),
             "source_urls": item.get("source_urls", []),
+            "source_images": item.get("source_images", []),
             "editorial_status": "draft_requires_editorial_review",
             "claims_verified": False,
             "publishing_enabled": False
