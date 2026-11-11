@@ -44,8 +44,8 @@ ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.co
 AGGREGATORS={"news.google.com","newsnow.com","c.newsnow.com"}
 IRRELEVANT=("chelsea flower show","chelsea boots","chelsea handler","chelsea manning","chelsea hotel")
 STOP=set("the a an and or but for to of in on at by with from after before as is are was were be been being this that these those his her their its our your how what why when where who which could would should may might will can has have had into over under about against says said claims claim according report reports latest news fc blues club team side player players manager boss head coach premier league football".split())
-WOMEN_HINTS=("chelsea women","chelsea women's","chelsea ladies","women's champions league","women champions league","wcl","bompastor")
-YOUTH_HINTS=("academy","under-21","under 21","u21","under-18","under 18","u18","youth league","cobham next gen")
+WOMEN_HINTS=("chelsea women","chelsea women's","chelsea ladies","women's champions league","women champions league","women's super league","women super league","wsl","lucy bronze","bompastor")
+YOUTH_HINTS=("academy","under-21","under 21","u21","under-18","under 18","u18","youth league","cobham next gen","rio ngumoha")
 INJURY=("injury","injured","fitness","hamstring","knee injury","ankle injury","ruled out","return to training","sidelined","surgery","rehabilitation","muscle problem")
 OPINION=("opinion","analysis","why did","why chelsea","what .* means","verdict","pundit","claims","argues","believes","selection problem","biggest problem","failure","not improving","scary stats","might not agree","should chelsea","tactical improvement","identity still","only part")
 TRANSFER_ACTION=("transfer","signing","sign","bid","deal","move","loan","contract","interest","target","fee","departure","depart","release clause","eyeing")
@@ -300,6 +300,8 @@ def run_self_tests():
     assert classify("The first summer AFCON in eight years: what 2027 means for Chelsea and the Premier League","")=="opinion_analysis"
     assert classify("Steven Gerrard predicts Estevao will give Xabi Alonso a selection problem at Chelsea","")=="opinion_analysis"
     assert classify("Chelsea’s scary stats with and without injured star show bigger problem than Alonso","")=="opinion_analysis"
+    assert team_scope("Manchester City break clear of Chelsea in WSL after Bronze’s freak own goal","")=="chelsea_women"
+    assert team_scope("Rio Ngumoha reveals why he left Chelsea to join Liverpool","")=="academy_youth"
     assert classify("Chelsea staff warned over Fantasy Premier League use","")== "club_news"
     assert classify("Chelsea confirm Quenda has a muscle injury","")== "injury_update"
     # Player identity must use distinctive full names, never generic surname fragments.
