@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ChelseaFeeds Collector v3.9: conservative, event-aware RSS collector.
+"""ChelseaFeeds Collector v4.0: editorial-quality, event-aware RSS collector.
 
 Important: collection is not fact verification. Every candidate stays pending.
 Ambiguous stories are kept separate; this intentionally prefers false-split over
@@ -15,12 +15,13 @@ from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
 import feedparser, requests
 from bs4 import BeautifulSoup
 
-VERSION = "3.9"
+VERSION = "4.0"
 ROOT = Path(__file__).resolve().parent
 HISTORY_FILE = ROOT / "seen_stories.json"
 CANDIDATES_FILE = ROOT / "news_candidates.json"
 REPORT_FILE = ROOT / "collection_report.json"
 TIMEOUT, MAX_AGE_DAYS, MAX_STORIES, HISTORY_DAYS = 18, 7, 40, 90
+MAX_OPINION_CANDIDATES = 4
 
 FEEDS = [
     {"name":"BBC Sport","url":"https://feeds.bbci.co.uk/sport/football/rss.xml"},
@@ -88,13 +89,15 @@ def team_scope(title,summary,url=""):
     return "mens_first_team_or_club" if "chelsea" in t or "stamford bridge" in t else "broader_chelsea_related"
 def classify(title,summary):
     t=(title+" "+summary).lower()
+    # FPL/club-policy stories must never be mistaken for player injury updates.
+    if "fantasy premier league" in t or re.search(r"\bfpl\b",t): return "club_news"
     # Transfer signals first, but commentary/analysis must not become transfer news by incidental wording.
     action=any(x in t for x in TRANSFER_ACTION)
     confirmed=any(x in t for x in TRANSFER_CONFIRMED)
     uncertain=any(x in t for x in TRANSFER_UNCERTAIN) or (bool(re.search(r"[£€$]\s?\d",t)) and action) or (bool(re.search(r"[£€$]\s?\d",t)) and any(x in t for x in ("rumour","rumor")))
     if action and confirmed: return "confirmed_transfer"
     if (action and uncertain) or (bool(re.search(r"[£€$]\s?\d",t)) and any(x in t for x in ("rumour","rumor"))): return "transfer_rumour"
-    if any(x in t for x in INJURY) and not any(x in t for x in ("stats with and without","analysis","scary stats")): return "injury_update"
+    if any(x in t for x in INJURY) and not any(x in t for x in ("stats with and without","analysis","scary stats","fantasy premier league","fpl")): return "injury_update"
     if any(re.search(p,t) for p in OPINION): return "opinion_analysis"
     # Distinguish match preview, report and reaction so different stages never merge.
     if any(x in t for x in ("preview","previews","set to face","will face","ahead of")) or re.search(r"face .+ without|before .+ match",t): return "match_preview"
@@ -181,12 +184,45 @@ def cluster(observations):
 def score(g):
     p=g["representative_publisher_type"]; typ=g["story_type"]
     points=20+{"official_domain":35,"established_domain":25,"other_direct_domain":5}.get(p,0)+min(12,(g["publisher_count"]-1)*4)
-    points+={"injury_update":10,"team_news":9,"confirmed_transfer":14,"match_report":10,"match_reaction":5,"match_preview":5,"transfer_rumour":-5,"opinion_analysis":-8,"general_news":0}.get(typ,0)
+    points+={"injury_update":10,"team_news":9,"confirmed_transfer":14,"match_report":10,"match_reaction":5,"match_preview":5,"transfer_rumour":-5,"opinion_analysis":-8,"general_news":0,"club_news":4}.get(typ,0)
     points+={"mens_first_team_or_club":5,"chelsea_women":2,"academy_youth":1}.get(g["team_scope"],0)
     age=max(0,(now()-datetime.fromisoformat(g["published"])).total_seconds()/3600); points-=min(12,int(age//12))
     g["importance_score"]=max(0,min(100,points))
     g["priority"]="P1_OFFICIAL_SOURCE_REVIEW" if p=="official_domain" else ("P2_ESTABLISHED_REPORT_REVIEW" if p=="established_domain" and typ!="opinion_analysis" and typ!="transfer_rumour" else ("P3_TRANSFER_RUMOUR_REQUIRES_LABEL" if typ=="transfer_rumour" else ("P4_OPINION_LOW_PRIORITY" if typ=="opinion_analysis" else "P3_SPECIALIST_OR_OTHER_SOURCE_REVIEW")))
     g.update(editorial_status="pending_editorial_verification",verification_required=True,claims_verified=False,article_generated=False,published_to_blogger=False,published_to_x=False)
+def verification_checklist(g):
+    """Return concrete checks for a human/automated verifier; never imply they passed."""
+    common=[
+        "Open the original source URL and confirm the article is accessible and dated correctly.",
+        "Verify every factual claim against an official or otherwise authoritative primary source.",
+        "Check whether the development is still current; record the verification time and source links.",
+        "Do not treat multiple publishers as independent confirmation without checking their original sourcing."
+    ]
+    typ=g["story_type"]
+    specific={
+        "match_report":["Confirm final score, competition, match date and venue from the competition/club record.","Check that the headline describes the completed match, not a preview or reaction.","Confirm whether the story concerns the men's first team, Chelsea Women or academy."],
+        "match_reaction":["Verify the match result and identify the speaker; check the exact quotation and its context.","Keep opinion/reaction separate from independently established match facts."],
+        "match_preview":["Confirm fixture date, kick-off time, competition, venue and opponent from an official fixture source.","Verify availability/team news separately and label predictions as predictions."],
+        "transfer_rumour":["Identify the original reporter/source and verify the exact wording; do not upgrade a rumour into fact.","Check player's current club, contract situation and any claimed fee/offer with reliable sources.","Clearly label unconfirmed interest, negotiations, bids and completed deals as different stages."],
+        "confirmed_transfer":["Require an official club/league announcement before describing the move as completed.","Verify player identity, contract term and effective date from the announcement."],
+        "injury_update":["Verify the injury and expected availability from a direct club/manager/medical update where available.","Do not infer a diagnosis, recovery date or match availability from vague wording."],
+        "team_news":["Check the official squad/call-up/line-up announcement and the relevant competition/date.","Distinguish selection omission from injury, suspension or confirmed unavailability."],
+        "opinion_analysis":["Attribute opinions and predictions to the named author/commentator; do not present them as facts.","Check any statistics or factual premises independently and add context/caveats."],
+        "club_news":["Verify the exact club-policy/administrative issue and quote from the original source or an official statement.","Explain the context without implying disciplinary action or consequences that are not confirmed."],
+        "general_news":["Confirm the central development and all named people, dates and figures from reliable sources."]
+    }
+    return common+specific.get(typ,specific["general_news"])
+
+def select_candidates(groups,limit=MAX_STORIES,opinion_limit=MAX_OPINION_CANDIDATES):
+    selected=[]; opinions=0
+    for g in groups:
+        if g["story_type"]=="opinion_analysis":
+            if opinions>=opinion_limit: continue
+            opinions+=1
+        selected.append(g)
+        if len(selected)>=limit: break
+    return selected
+
 def fetch_feed(cfg,session):
     out=[]; rep={"source":cfg["name"],"url":cfg["url"],"status":"failed","entries_received":0,"observations_collected":0,"rejected_undated":0,"rejected_old":0,"rejected_irrelevant":0,"rejected_unresolved_aggregator":0,"error":None}
     try:
@@ -251,6 +287,12 @@ def run_self_tests():
     assert classify("The first summer AFCON in eight years: what 2027 means for Chelsea and the Premier League","")=="opinion_analysis"
     assert classify("Steven Gerrard predicts Estevao will give Xabi Alonso a selection problem at Chelsea","")=="opinion_analysis"
     assert classify("Chelsea’s scary stats with and without injured star show bigger problem than Alonso","")=="opinion_analysis"
+    assert classify("Chelsea staff warned over Fantasy Premier League use","")== "club_news"
+    assert classify("Chelsea confirm Quenda has a muscle injury","")== "injury_update"
+    # Opinion cap must not displace higher-ranked factual candidates.
+    queue=[{"story_type":"opinion_analysis","importance_score":90-i} for i in range(7)]+[{"story_type":"match_report","importance_score":80},{"story_type":"team_news","importance_score":79}]
+    picked=select_candidates(queue,limit=8,opinion_limit=4)
+    assert sum(x["story_type"]=="opinion_analysis" for x in picked)==4 and any(x["story_type"]=="match_report" for x in picked) and any(x["story_type"]=="team_news" for x in picked)
     # Same Sunderland result, distinct publishers and clear opponent: merge.
     x=[o("Le Fée penalty sinks Chelsea at Sunderland","https://www.theguardian.com/a","Guardian"),o("Chelsea lose at Sunderland after Le Fee penalty","https://chelsea.news/i","Chelsea.news")]
     gs=cluster(x); assert len(gs)==1 and gs[0]["observation_count"]==2
@@ -258,7 +300,7 @@ def run_self_tests():
     for g in gh+gs:
         assert any(s["title"]==g["representative_title"] and s["url"]==g["representative_url"] for s in g["source_observations"])
         assert set(g["source_urls"])=={s["url"] for s in g["source_observations"]}
-    print("PASS: 11 regression checks (exact live-output Hacken 3-way merge including same-publisher fixture ID; different-fixture guard; story-stage guard; false-merge guards; opinion classification; Sunderland merge; source integrity).")
+    print("PASS: 14 regression checks (Hacken 3-way merge; fixture/stage/false-merge guards; opinion and FPL classification; injury classification; opinion queue cap; Sunderland merge; source integrity).")
 def main():
     # Fail fast if a known regression is reintroduced before any live collection.
     run_self_tests()
@@ -267,13 +309,18 @@ def main():
     for cfg in FEEDS:
         logging.info("Collecting %s",cfg["name"]); items,rep=fetch_feed(cfg,session); obs.extend(items); reports.append(rep); time.sleep(.15)
     groups=cluster(obs)
-    for g in groups: score(g)
+    for g in groups:
+        score(g)
+        g["verification_status"]="not_started"
+        g["verification_checklist"]=verification_checklist(g)
     order={"P1_OFFICIAL_SOURCE_REVIEW":0,"P2_ESTABLISHED_REPORT_REVIEW":1,"P3_TRANSFER_RUMOUR_REQUIRES_LABEL":2,"P3_SPECIALIST_OR_OTHER_SOURCE_REVIEW":3,"P4_OPINION_LOW_PRIORITY":4}
     groups.sort(key=lambda g:(order.get(g["priority"],9),-g["importance_score"],g["published"],g["title"].lower()))
-    selected=groups[:MAX_STORIES]; stamp=now(); history=update_history(groups,old)
+    selected=select_candidates(groups); stamp=now(); history=update_history(groups,old)
     statuses=Counter(r["status"] for r in reports)
     candidate={"collector_version":VERSION,"generated_at":stamp.isoformat(),"selection_limit":MAX_STORIES,"queue_semantics":"Pending candidates only. A later verification processor must explicitly approve claims before article generation or publication.","stories":selected}
-    report={"collector_version":VERSION,"run_started_at":started.isoformat(),"run_completed_at":stamp.isoformat(),"duration_seconds":round((stamp-started).total_seconds(),2),"configured_sources":len(reports),"successful_sources":statuses["success"],"empty_sources":statuses["empty"],"failed_sources":statuses["failed"],"raw_observations_collected":len(obs),"unique_events_after_conservative_deduplication":len(groups),"duplicate_observations_merged":len(obs)-len(groups),"selected_pending_candidates":len(selected),"events_not_selected_due_to_limit":max(0,len(groups)-len(selected)),"selected_team_scope_distribution":dict(Counter(g["team_scope"] for g in selected)),"selected_story_type_distribution":dict(Counter(g["story_type"] for g in selected)),"selected_priority_distribution":dict(Counter(g["priority"] for g in selected)),"selected_events_with_multiple_publishers":sum(g["publisher_count"]>1 for g in selected),"selected_source_link_count":sum(len(g["source_urls"]) for g in selected),"source_reports":reports,"excluded_sources":[{"source":"Google News","status":"disabled","reason":"Aggregator URLs not reliably resolved to direct publisher articles."},{"source":"NewsNow","status":"disabled","reason":"Direct article extraction was not reliable."}],"quality_controls":["Conservative event clustering: ambiguous stories remain separate; Chelsea mention alone never causes a merge.","Different publishers only merge when story type, team scope, time window and event-specific opponent/player identity agree.","Different same-publisher match articles merge only when story class, team scope, time window and the publisher fixture ID all match; same opponent alone is insufficient.","Match previews, reports and reactions are separate event types.","Chelsea Women and academy scope are detected using headline, summary and URL.","Representative title, summary and URL are sourced from coherent observation records; every original URL remains attached.","RSS excerpts are capped at 500 characters and are source hints only, never article copy.","Multiple publishers do not prove independent confirmation.","All candidates remain pending editorial verification; claims_verified is always false.","Collection does not generate articles or publish to Blogger or X."]}
+    report={"collector_version":VERSION,"run_started_at":started.isoformat(),"run_completed_at":stamp.isoformat(),"duration_seconds":round((stamp-started).total_seconds(),2),"configured_sources":len(reports),"successful_sources":statuses["success"],"empty_sources":statuses["empty"],"failed_sources":statuses["failed"],"raw_observations_collected":len(obs),"unique_events_after_conservative_deduplication":len(groups),"duplicate_observations_merged":len(obs)-len(groups),"selected_pending_candidates":len(selected),"opinion_candidate_limit":MAX_OPINION_CANDIDATES,"selected_opinion_candidates":sum(g["story_type"]=="opinion_analysis" for g in selected),"events_not_selected_due_to_limit":max(0,len(groups)-len(selected)),"selected_team_scope_distribution":dict(Counter(g["team_scope"] for g in selected)),"selected_story_type_distribution":dict(Counter(g["story_type"] for g in selected)),"selected_priority_distribution":dict(Counter(g["priority"] for g in selected)),"selected_events_with_multiple_publishers":sum(g["publisher_count"]>1 for g in selected),"selected_source_link_count":sum(len(g["source_urls"]) for g in selected),"source_reports":reports,"excluded_sources":[{"source":"Google News","status":"disabled","reason":"Aggregator URLs not reliably resolved to direct publisher articles."},{"source":"NewsNow","status":"disabled","reason":"Direct article extraction was not reliable."}],"quality_controls":["Conservative event clustering: ambiguous stories remain separate; Chelsea mention alone never causes a merge.","Different publishers only merge when story type, team scope, time window and event-specific opponent/player identity agree.","Different same-publisher match articles merge only when story class, team scope, time window and the publisher fixture ID all match; same opponent alone is insufficient.","Match previews, reports and reactions are separate event types.","Chelsea Women and academy scope are detected using headline, summary and URL.","Representative title, summary and URL are sourced from coherent observation records; every original URL remains attached.","RSS excerpts are capped at 500 characters and are source hints only, never article copy.","Multiple publishers do not prove independent confirmation.","All candidates remain pending editorial verification; claims_verified is always false.",
+        "Opinion/analysis candidates are capped at four per run so factual reporting retains queue space.",
+        "Each candidate carries a type-specific verification checklist; checklist items are instructions, not completed checks.","Collection does not generate articles or publish to Blogger or X."]}
     write(CANDIDATES_FILE,candidate); write(REPORT_FILE,report); write(HISTORY_FILE,history)
     logging.info("v%s: %d observations -> %d conservative events -> %d pending candidates",VERSION,len(obs),len(groups),len(selected))
     return 0
