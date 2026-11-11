@@ -33,7 +33,7 @@ def api_get(url, **kwargs):
 def is_live_article(url):
     p=urlparse(url or "")
     return (p.scheme=="https" and p.netloc.lower() in {"www.chelseafeeds.com","chelseafeeds.com"}
-            and re.fullmatch(r"/\d{4}/\d{2}/[^/]+\\.html",p.path or "") is not None)
+            and re.fullmatch(r"/\d{4}/\d{2}/[^/]+\.html",p.path or "") is not None)
 
 def find_json(zf, suffix):
     matches=[n for n in zf.namelist() if n.endswith(suffix)]
