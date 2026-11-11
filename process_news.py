@@ -455,8 +455,8 @@ def self_test():
     assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"]
 
     def make_draft(article_words=500):
-        # The two headings contribute three words; paragraph content supplies the remainder.
-        paragraph_words = max(0, article_words - 3)
+        # The inline source anchor contributes two words; headings are excluded from the count.
+        paragraph_words = max(0, article_words - 2)
         body = " ".join(["Chelsea"] * paragraph_words)
         return {
             "title":"Chelsea analysis: the key issues supporters should understand",
