@@ -113,10 +113,15 @@ def opponent_key(title,summary,url):
     return ""
 def event_subject(title,summary,stype):
     t=(title+" "+summary).lower()
-    # Extract named player/target strings for transfer and player-specific developments.
-    names=["levi colwill","cole palmer","joao pedro","joão pedro","moises caicedo","moisés caicedo","enzo fernandez","enzo fernández","estevao","estêvão","quenda","nicolo tresoldi","nicolo","zubimendi","garnacho","mike penders","james","gir ma"]
-    found=[n for n in names if n in t]
-    if found: return found[0].replace(" ","_")
+    # Use full, distinctive player names only. Short surnames (for example "James")
+    # create false duplicate clusters across unrelated stories.
+    names=["alejandro garnacho","levi colwill","cole palmer","joao pedro","joão pedro",
+           "moises caicedo","moisés caicedo","enzo fernandez","enzo fernández",
+           "reece james","estevao","estêvão","nicolo tresoldi","mike penders",
+           "andrey santos","kendry paez","tyrique george","nico jackson","zubimendi","quenda"]
+    for name in names:
+        if re.search(r"(?<![a-z])"+re.escape(name)+r"(?![a-z])",t):
+            return name.replace(" ","_")
     return ""
 def date_bucket(iso):
     try: return datetime.fromisoformat(iso).date().isoformat()
@@ -136,10 +141,11 @@ def observation(title,summary,url,feed,pub,published):
     scope=team_scope(title,summary,url); typ=classify(title,summary)
     return {"title":title,"summary":summary[:500],"url":url,"publisher_domain":d,"publisher_name_hint":pub or None,"source_feed":feed,"published":published.isoformat(),"publisher_type":pt,"team_scope":scope,"story_type":typ,"opponent_key":opponent_key(title,summary,url),"fixture_key":fixture_key(url),"subject_key":event_subject(title,summary,typ)}
 def same_event(a,b):
-    # Canonical identical article URL is safe to collapse regardless of feed.
-    if a["url"]==b["url"]: return True
-    # Never merge separate content categories or team scopes.
+    # Never merge separate content categories or team scopes, even if an RSS feed
+    # repeats a canonical URL with inconsistent metadata.
     if a["team_scope"]!=b["team_scope"] or a["story_type"]!=b["story_type"]: return False
+    # Canonical identical article URL is safe to collapse after scope/type checks.
+    if a["url"]==b["url"]: return True
     da=datetime.fromisoformat(a["published"]); db=datetime.fromisoformat(b["published"])
     if abs((da-db).total_seconds())>36*3600: return False
     typ=a["story_type"]
@@ -289,6 +295,13 @@ def run_self_tests():
     assert classify("Chelsea’s scary stats with and without injured star show bigger problem than Alonso","")=="opinion_analysis"
     assert classify("Chelsea staff warned over Fantasy Premier League use","")== "club_news"
     assert classify("Chelsea confirm Quenda has a muscle injury","")== "injury_update"
+    # Player identity must use distinctive full names, never generic surname fragments.
+    assert event_subject("Chelsea linked with Reece James","", "transfer_rumour")=="reece_james"
+    assert event_subject("Chelsea linked with James","", "transfer_rumour")==""
+    # Identical URLs cannot merge across different team scopes or story classes.
+    same_url_a=o("Chelsea Women face Hacken preview","https://www.bbc.co.uk/sport/a","BBC")
+    same_url_b=o("Chelsea Women beat Hacken","https://www.bbc.co.uk/sport/a","BBC")
+    assert not same_event(same_url_a,same_url_b)
     # Opinion cap must not displace higher-ranked factual candidates.
     queue=[{"story_type":"opinion_analysis","importance_score":90-i} for i in range(7)]+[{"story_type":"match_report","importance_score":80},{"story_type":"team_news","importance_score":79}]
     picked=select_candidates(queue,limit=8,opinion_limit=4)
@@ -300,7 +313,7 @@ def run_self_tests():
     for g in gh+gs:
         assert any(s["title"]==g["representative_title"] and s["url"]==g["representative_url"] for s in g["source_observations"])
         assert set(g["source_urls"])=={s["url"] for s in g["source_observations"]}
-    print("PASS: 14 regression checks (Hacken 3-way merge; fixture/stage/false-merge guards; opinion and FPL classification; injury classification; opinion queue cap; Sunderland merge; source integrity).")
+    print("PASS: 17 regression checks (Hacken 3-way merge; fixture/stage/false-merge guards; opinion and FPL classification; injury classification; opinion queue cap; Sunderland merge; source integrity).")
 def main():
     # Fail fast if a known regression is reintroduced before any live collection.
     run_self_tests()
