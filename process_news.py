@@ -291,7 +291,7 @@ def create_branded_thumbnail(draft, story, images_dir):
     story_type = str(story.get("story_type", "chelsea_news")).replace("_", " ").upper()
     draw.text((60, 145), story_type[:34], font=kicker_font, fill=(235,196,92,255))
 
-    title = re.sub(r"\\s+", " ", str(draft.get("title") or story.get("title") or "Chelsea FC latest news")).strip()
+    title = re.sub(r"\s+", " ", str(draft.get("title") or story.get("title") or "Chelsea FC latest news")).strip()
     words, lines, current = title.split(), [], ""
     max_width = 760
     for word in words:
