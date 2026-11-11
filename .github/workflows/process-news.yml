@@ -52,7 +52,7 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           path: input
 
-      - name: Run evidence checks, article quality gate and image generation
+      - name: Run evidence checks, article quality gate and local thumbnail generation
         run: |
           python process_news.py --input input/news_candidates.json --output output
 
