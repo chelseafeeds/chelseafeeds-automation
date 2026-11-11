@@ -1,519 +1,495 @@
 import feedparser
+import requests
 import json
 import re
-import html
-import calendar
 import hashlib
+import html
+import time
+
+from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 from difflib import SequenceMatcher
-from urllib.parse import urlparse, parse_qs, unquote
+from urllib.parse import urlparse, urlunparse
 
-
-# =====================================================
-# CHELSEAFEEDS NEWS COLLECTOR - VERSION 2.0
-# =====================================================
-
-VERSION = "2.0"
-
+VERSION = "3.0"
 MAX_AGE_DAYS = 7
 MAX_STORIES = 50
 
-OUTPUT_FILE = "news_candidates.json"
-
-RSS_FEEDS = {
-    "BBC Sport": (
-        "https://feeds.bbci.co.uk/sport/football/rss.xml"
-    ),
-    "Sky Sports": (
-        "https://www.skysports.com/rss/12040"
-    ),
-    "Google News Chelsea": (
-        "https://news.google.com/rss/search?q=Chelsea+FC+when:7d&hl=en-GB&gl=GB&ceid=GB:en"
-    ),
+NOW = datetime.now(timezone.utc)
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 Chrome/120.0 Safari/537.36"
+    )
 }
 
+FEEDS = [
+    {
+        "name": "BBC Sport",
+        "url": "https://feeds.bbci.co.uk/sport/football/rss.xml"
+    },
+    {
+        "name": "Sky Sports",
+        "url": "https://www.skysports.com/rss/12040"
+    },
+    {
+        "name": "Google News - Chelsea",
+        "url": (
+            "https://news.google.com/rss/search?"
+            "q=Chelsea+FC+when:7d&hl=en-GB&gl=GB&ceid=GB:en"
+        )
+    },
+    {
+        "name": "The Guardian - Chelsea",
+        "url": "https://www.theguardian.com/football/chelsea/rss"
+    },
+    {
+        "name": "TalkChelsea",
+        "url": "https://www.talkchelsea.net/feed/"
+    },
+    {
+        "name": "Chelsea.news",
+        "url": "https://chelsea.news/feed"
+    },
+    {
+        "name": "Chelsea FC Latest News",
+        "url": "https://chelseafclatestnews.com/feed"
+    },
+    {
+        "name": "ChelseaNews.net",
+        "url": "https://chelseanews.net/feed"
+    },
+    {
+        "name": "Google News - Official Chelsea",
+        "url": (
+            "https://news.google.com/rss/search?"
+            "q=site%3Achealseafc.com%2Fen%2Fnews+Chelsea"
+            "&hl=en-GB&gl=GB&ceid=GB:en"
+        )
+    }
+]
+
+NEWSNOW_URL = (
+    "https://www.newsnow.co.uk/h/Sport/Football/"
+    "Premier%20League/Chelsea"
+)
+
 CHELSEA_TERMS = [
-    "chelsea fc",
-    "chelsea football club",
-    "chelsea",
-    "stamford bridge",
-    "the blues",
+    "chelsea", "stamford bridge", "the blues",
+    "chelseafc", "chelsea fc"
 ]
 
 FOOTBALL_TERMS = [
-    "football",
-    "premier league",
-    "fa cup",
-    "carabao cup",
-    "champions league",
-    "europa league",
-    "conference league",
-    "transfer",
-    "manager",
-    "coach",
-    "striker",
-    "midfielder",
-    "defender",
-    "goalkeeper",
-    "squad",
-    "fixture",
-    "match",
-    "goal",
-    "injury",
-    "contract",
-    "footballer",
-    "premier",
-    "uefa",
-]
-
-IMPORTANT_TERMS = [
-    "transfer",
-    "signing",
-    "signed",
-    "official",
-    "confirmed",
-    "injury",
-    "injured",
-    "returns",
-    "return",
-    "manager",
-    "appointment",
-    "sacked",
-    "departure",
-    "leaves",
-    "contract",
-    "premier league",
-    "champions league",
-    "match report",
-    "lineup",
-    "starting xi",
-    "result",
-    "victory",
-    "defeat",
-    "draw",
-    "goal",
-    "suspension",
-    "ban",
-    "academy",
-    "youth",
-    "loan",
-    "record",
+    "football", "premier league", "transfer", "goal",
+    "manager", "coach", "striker", "defender",
+    "midfielder", "match", "fixture", "cup",
+    "champions league", "injury", "squad",
+    "player", "signing", "loan", "academy"
 ]
 
 LOW_VALUE_TERMS = [
-    "quiz",
-    "crossword",
-    "fantasy football",
-    "predicted lineup",
-    "predicted line-up",
-    "player ratings",
-    "how to watch",
-    "where to watch",
-    "live stream",
-    "tickets",
-    "giveaway",
+    "casino", "betting tips", "gambling",
+    "horoscope", "lottery"
+]
+
+RUMOUR_TERMS = [
+    "rumour", "rumor", "linked with", "interested in",
+    "could sign", "reportedly", "keen on",
+    "transfer target", "considering a move",
+    "set to sign", "transfer speculation"
+]
+
+OPINION_TERMS = [
+    "opinion", "should sign", "should sell",
+    "why chelsea must", "explained",
+    "player ratings", "pundit"
 ]
 
 
 def clean_text(value):
-    """Remove HTML and normalize text."""
-
-    if not value:
-        return ""
-
-    value = html.unescape(str(value))
-    value = re.sub(r"<[^>]+>", " ", value)
-    value = re.sub(r"\s+", " ", value)
-
-    return value.strip()
+    value = html.unescape(str(value or ""))
+    value = BeautifulSoup(value, "html.parser").get_text(" ")
+    return re.sub(r"\s+", " ", value).strip()
 
 
 def parse_date(entry):
-    """Convert RSS publication date into UTC."""
+    for key in ("published_parsed", "updated_parsed"):
+        value = entry.get(key)
 
-    date_struct = (
-        entry.get("published_parsed")
-        or entry.get("updated_parsed")
-    )
+        if value:
+            try:
+                return datetime.fromtimestamp(
+                    time.mktime(value), timezone.utc
+                )
+            except Exception:
+                pass
 
-    if not date_struct:
-        return None
-
-    try:
-        timestamp = calendar.timegm(date_struct)
-
-        return datetime.fromtimestamp(
-            timestamp,
-            tz=timezone.utc
-        )
-
-    except (ValueError, TypeError, OverflowError):
-        return None
+    return None
 
 
 def normalize_url(url):
-    """Normalize URLs and unwrap common Google News links."""
-
-    if not url:
-        return ""
-
-    url = html.unescape(url.strip())
-
     try:
         parsed = urlparse(url)
 
-        if "news.google.com" in parsed.netloc:
-            query = parse_qs(parsed.query)
+        if not parsed.scheme or not parsed.netloc:
+            return url
 
-            if query.get("url"):
-                url = query["url"][0]
-            elif "/articles/" in parsed.path:
-                url = url
-
-        parsed = urlparse(url)
-
-        return (
-            parsed.netloc.lower().replace("www.", "")
-            + parsed.path.rstrip("/")
-        )
-
+        return urlunparse((
+            parsed.scheme.lower(),
+            parsed.netloc.lower(),
+            parsed.path.rstrip("/"),
+            "",
+            "",
+            ""
+        ))
     except Exception:
-        return url.lower().rstrip("/")
+        return url
 
 
-def get_source_name(feed_name, entry):
-    """Identify the publisher."""
+def is_relevant(title, summary=""):
+    text = f"{title} {summary}".lower()
 
-    source = entry.get("source", {})
+    has_chelsea = any(term in text for term in CHELSEA_TERMS)
+    has_football = any(term in text for term in FOOTBALL_TERMS)
 
-    if isinstance(source, dict) and source.get("title"):
-        return clean_text(source["title"])
-
-    return feed_name
-
-
-def is_chelsea_relevant(title, summary):
-    """
-    Require Chelsea to appear in the headline or summary.
-    Also require football-related context.
-    """
-
-    title_lower = title.lower()
-    combined = (title + " " + summary).lower()
-
-    has_chelsea_in_title = any(
-        term in title_lower for term in CHELSEA_TERMS
-    )
-
-    has_chelsea_in_content = any(
-        term in combined for term in CHELSEA_TERMS
-    )
-
-    has_football_context = any(
-        term in combined for term in FOOTBALL_TERMS
-    )
-
-    if not has_chelsea_in_content:
+    if not has_chelsea:
         return False
 
-    if not has_football_context:
+    if not has_football:
         return False
 
-    # Chelsea must appear in the headline or in a meaningful summary.
-    if not has_chelsea_in_title and len(summary) < 40:
+    if any(term in text for term in LOW_VALUE_TERMS):
         return False
 
     return True
 
 
-def contains_low_value_term(title):
-    """Identify headlines that are usually not important news."""
-
+def classify_story(title):
     title_lower = title.lower()
 
-    return any(
-        term in title_lower for term in LOW_VALUE_TERMS
-    )
+    if any(term in title_lower for term in RUMOUR_TERMS):
+        return "rumour"
+
+    if any(term in title_lower for term in OPINION_TERMS):
+        return "opinion"
+
+    return "news_candidate"
 
 
-def calculate_relevance_score(title, summary, source):
-    """Score stories according to their Chelsea relevance and importance."""
-
-    title_lower = title.lower()
-    combined = (title + " " + summary).lower()
-
+def relevance_score(title, summary):
+    text = f"{title} {summary}".lower()
     score = 0
 
-    if "chelsea fc" in title_lower:
-        score += 5
+    important_terms = [
+        "chelsea", "transfer", "injury", "manager",
+        "premier league", "champions league",
+        "signing", "official", "confirmed",
+        "match report", "squad", "contract",
+        "goal", "fixture"
+    ]
 
-    elif "chelsea" in title_lower:
-        score += 4
-
-    if "stamford bridge" in title_lower:
-        score += 3
-
-    if "chelsea" in summary.lower():
-        score += 2
-
-    for term in IMPORTANT_TERMS:
-        if term in combined:
+    for term in important_terms:
+        if term in text:
             score += 2
 
-    if source.lower() == "bbc sport":
-        score += 2
+    if "chelsea" in title.lower():
+        score += 5
 
-    elif source.lower() == "sky sports":
-        score += 2
+    if "stamford bridge" in title.lower():
+        score += 3
 
-    elif "google news" in source.lower():
-        score += 1
-
-    if contains_low_value_term(title):
-        score -= 4
-
-    return max(score, 0)
+    return score
 
 
-def title_similarity(title_one, title_two):
-    """Compare two headlines for possible duplicates."""
+def create_id(title, url):
+    raw = (title.lower().strip() + normalize_url(url)).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()[:16]
 
-    first = re.sub(
-        r"[^a-z0-9 ]",
-        "",
-        title_one.lower()
-    )
 
-    second = re.sub(
-        r"[^a-z0-9 ]",
-        "",
-        title_two.lower()
-    )
-
-    similarity = SequenceMatcher(
+def title_similarity(first, second):
+    return SequenceMatcher(
         None,
-        first,
-        second
+        first.lower(),
+        second.lower()
     ).ratio()
 
-    words_one = set(first.split())
-    words_two = set(second.split())
 
-    if not words_one or not words_two:
-        return similarity
+def collect_rss(feed):
+    results = []
+    report = {
+        "source": feed["name"],
+        "type": "RSS",
+        "status": "failed",
+        "stories_found": 0,
+        "error": None
+    }
 
-    overlap = len(words_one & words_two) / min(
-        len(words_one),
-        len(words_two)
-    )
+    try:
+        response = requests.get(
+            feed["url"],
+            headers=HEADERS,
+            timeout=25
+        )
+        response.raise_for_status()
 
-    return max(similarity, overlap)
+        parsed = feedparser.parse(response.content)
 
+        if not parsed.entries:
+            raise ValueError("Feed returned no entries")
 
-def create_story_id(title, url):
-    """Generate a consistent story identifier."""
+        report["status"] = "success"
 
-    value = normalize_url(url) or title.lower()
+        for entry in parsed.entries:
+            title = clean_text(entry.get("title", ""))
+            summary = clean_text(
+                entry.get("summary", entry.get("description", ""))
+            )
+            url = entry.get("link", "")
 
-    return hashlib.sha256(
-        value.encode("utf-8")
-    ).hexdigest()[:16]
+            if not title or not url:
+                continue
 
+            if not is_relevant(title, summary):
+                continue
 
-def main():
+            published = parse_date(entry)
 
-    checked_at = datetime.now(timezone.utc)
-
-    cutoff_date = checked_at - timedelta(
-        days=MAX_AGE_DAYS
-    )
-
-    stories = []
-    rejected_old = 0
-    rejected_irrelevant = 0
-    rejected_empty = 0
-    feed_errors = []
-
-    print("====================================")
-    print("CHELSEAFEEDS COLLECTOR VERSION", VERSION)
-    print("====================================")
-
-    print("Starting Chelsea news collection...")
-    print("Maximum article age:", MAX_AGE_DAYS, "days")
-
-    for feed_name, feed_url in RSS_FEEDS.items():
-
-        print("\nChecking:", feed_name)
-
-        try:
-
-            feed = feedparser.parse(feed_url)
-
-            if feed.bozo and not feed.entries:
-                raise Exception("Feed could not be parsed")
-
-            print("Articles received:", len(feed.entries))
-
-            for entry in feed.entries:
-
-                title = clean_text(
-                    entry.get("title", "")
-                )
-
-                summary = clean_text(
-                    entry.get("summary", "")
-                    or entry.get("description", "")
-                )
-
-                url = entry.get("link", "").strip()
-
-                if not title or not url:
-                    rejected_empty += 1
+            if published:
+                if published < NOW - timedelta(days=MAX_AGE_DAYS):
                     continue
 
-                published = parse_date(entry)
-
-                # Exclude articles older than seven days.
-                if published and published < cutoff_date:
-                    rejected_old += 1
+                if published > NOW + timedelta(days=1):
                     continue
 
-                # Exclude irrelevant football stories.
-                if not is_chelsea_relevant(title, summary):
-                    rejected_irrelevant += 1
-                    continue
+            publisher = feed["name"]
 
-                source = get_source_name(
-                    feed_name,
-                    entry
+            if entry.get("source"):
+                publisher = clean_text(
+                    entry.source.get("title", publisher)
                 )
 
-                score = calculate_relevance_score(
-                    title,
-                    summary,
-                    source
-                )
-
-                story = {
-                    "id": create_story_id(title, url),
-                    "title": title,
-                    "summary": summary,
-                    "url": url,
-                    "normalized_url": normalize_url(url),
-                    "source": source,
-                    "feed": feed_name,
-                    "published": (
-                        published.isoformat()
-                        if published else None
-                    ),
-                    "relevance_score": score,
-                    "possible_duplicate": False,
-                    "duplicate_of": None,
-                    "status": "candidate",
-                }
-
-                stories.append(story)
-
-        except Exception as error:
-
-            message = str(error)
-
-            print("Feed error:", feed_name, message)
-
-            feed_errors.append({
-                "feed": feed_name,
-                "error": message
+            results.append({
+                "title": title,
+                "summary": summary[:1500],
+                "url": url,
+                "normalized_url": normalize_url(url),
+                "source": feed["name"],
+                "publisher": publisher,
+                "published": (
+                    published.isoformat() if published else None
+                ),
+                "date_unverified": published is None,
+                "story_type": classify_story(title),
+                "verification_status": "not_verified",
+                "relevance_score": relevance_score(title, summary),
+                "discovery_method": "RSS"
             })
 
-    # Sort highest relevance first.
+        report["stories_found"] = len(results)
+
+    except Exception as error:
+        report["error"] = str(error)[:300]
+
+    return results, report
+
+
+def collect_newsnow():
+    results = []
+
+    report = {
+        "source": "NewsNow Chelsea",
+        "type": "Webpage discovery",
+        "status": "failed",
+        "stories_found": 0,
+        "error": None
+    }
+
+    try:
+        response = requests.get(
+            NEWSNOW_URL,
+            headers=HEADERS,
+            timeout=25
+        )
+        response.raise_for_status()
+
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        seen = set()
+
+        for link in soup.find_all("a", href=True):
+            title = clean_text(link.get_text(" ", strip=True))
+            href = link["href"]
+
+            if len(title) < 25 or len(title) > 250:
+                continue
+
+            if href.startswith("/"):
+                continue
+
+            parsed = urlparse(href)
+
+            if not parsed.scheme:
+                continue
+
+            if "newsnow.co.uk" in parsed.netloc.lower():
+                continue
+
+            surrounding_text = ""
+
+            parent = link
+
+            for _ in range(3):
+                if parent.parent:
+                    parent = parent.parent
+                    surrounding_text += " " + clean_text(
+                        parent.get_text(" ", strip=True)
+                    )
+
+            if not is_relevant(title, surrounding_text):
+                continue
+
+            normalized = normalize_url(href)
+
+            if normalized in seen:
+                continue
+
+            seen.add(normalized)
+
+            results.append({
+                "title": title,
+                "summary": "",
+                "url": href,
+                "normalized_url": normalized,
+                "source": "NewsNow Chelsea",
+                "publisher": "Publisher not yet verified",
+                "published": None,
+                "date_unverified": True,
+                "story_type": classify_story(title),
+                "verification_status": "not_verified",
+                "relevance_score": relevance_score(title, ""),
+                "discovery_method": "NewsNow webpage"
+            })
+
+        report["status"] = "success"
+        report["stories_found"] = len(results)
+
+    except Exception as error:
+        report["error"] = str(error)[:300]
+
+    return results, report
+
+
+def remove_duplicates(stories):
+    unique = []
+    duplicate_count = 0
+
     stories.sort(
         key=lambda item: item["relevance_score"],
         reverse=True
     )
 
-    # Detect duplicate URLs and similar headlines.
-    unique_stories = []
-    seen_urls = set()
-
     for story in stories:
+        duplicate = False
 
-        normalized_url = story["normalized_url"]
-
-        if normalized_url and normalized_url in seen_urls:
-            continue
-
-        duplicate_found = False
-
-        for existing in unique_stories:
-
-            similarity = title_similarity(
-                story["title"],
-                existing["title"]
+        for existing in unique:
+            same_url = (
+                story["normalized_url"] ==
+                existing["normalized_url"]
             )
 
-            if similarity >= 0.78:
+            similar_title = (
+                title_similarity(
+                    story["title"],
+                    existing["title"]
+                ) >= 0.82
+            )
 
-                story["possible_duplicate"] = True
-
-                story["duplicate_of"] = existing["id"]
-
-                duplicate_found = True
-
+            if same_url or similar_title:
+                duplicate = True
+                duplicate_count += 1
                 break
 
-        # Keep possible duplicates in the output for inspection.
-        # They will not be treated as unique publishing candidates.
-        if normalized_url:
-            seen_urls.add(normalized_url)
+        if not duplicate:
+            story["id"] = create_id(
+                story["title"],
+                story["url"]
+            )
+            unique.append(story)
 
-        unique_stories.append(story)
+    return unique, duplicate_count
 
-    # Prepare output.
+
+def main():
+    all_stories = []
+    source_reports = []
+
+    print(f"ChelseaFeeds collector version {VERSION}")
+    print("Starting collection from 10 sources...")
+
+    for feed in FEEDS:
+        stories, report = collect_rss(feed)
+
+        all_stories.extend(stories)
+        source_reports.append(report)
+
+        print(
+            f'{feed["name"]}: {report["status"]} '
+            f'({report["stories_found"]} stories)'
+        )
+
+    newsnow_stories, newsnow_report = collect_newsnow()
+
+    all_stories.extend(newsnow_stories)
+    source_reports.append(newsnow_report)
+
+    print(
+        f'NewsNow: {newsnow_report["status"]} '
+        f'({newsnow_report["stories_found"]} stories)'
+    )
+
+    unique_stories, duplicate_count = remove_duplicates(
+        all_stories
+    )
+
+    unique_stories = unique_stories[:MAX_STORIES]
+
+    successful_sources = sum(
+        1 for item in source_reports
+        if item["status"] == "success"
+    )
+
     output = {
         "collector_version": VERSION,
-        "checked_at": checked_at.isoformat(),
+        "checked_at": NOW.isoformat(),
         "maximum_age_days": MAX_AGE_DAYS,
-        "total_stories": len(unique_stories),
-        "unique_stories": sum(
-            1 for story in unique_stories
-            if not story["possible_duplicate"]
-        ),
-        "possible_duplicates": sum(
-            1 for story in unique_stories
-            if story["possible_duplicate"]
-        ),
-        "rejected_old": rejected_old,
-        "rejected_irrelevant": rejected_irrelevant,
-        "rejected_empty": rejected_empty,
-        "feed_errors": feed_errors,
-        "stories": unique_stories[:MAX_STORIES],
+        "configured_sources": 10,
+        "successful_sources": successful_sources,
+        "failed_sources": 10 - successful_sources,
+        "total_collected": len(all_stories),
+        "unique_stories": len(unique_stories),
+        "duplicates_removed": duplicate_count,
+        "stories": unique_stories,
+        "source_report": source_reports,
+        "publishing_note": (
+            "All stories are discovery candidates only. "
+            "Verification is required before article generation."
+        )
     }
 
     with open(
-        OUTPUT_FILE,
+        "news_candidates.json",
         "w",
         encoding="utf-8"
     ) as file:
+        json.dump(output, file, indent=2, ensure_ascii=False)
 
-        json.dump(
-            output,
-            file,
-            indent=2,
-            ensure_ascii=False
-        )
+    print("\nCollection completed.")
+    print(f"Successful sources: {successful_sources}/10")
+    print(f"Stories collected: {len(all_stories)}")
+    print(f"Unique stories: {len(unique_stories)}")
+    print(f"Duplicates removed: {duplicate_count}")
 
-    print("\n====================================")
-    print("COLLECTION COMPLETED")
-    print("====================================")
-
-    print("Collector version:", VERSION)
-    print("Stories collected:", output["total_stories"])
-    print("Unique stories:", output["unique_stories"])
-    print("Possible duplicates:", output["possible_duplicates"])
-    print("Rejected old stories:", rejected_old)
-    print("Rejected irrelevant stories:", rejected_irrelevant)
-    print("Feed errors:", len(feed_errors))
-    print("Output file:", OUTPUT_FILE)
+    print("\nSource report saved to news_candidates.json")
 
 
 if __name__ == "__main__":
