@@ -27,8 +27,15 @@ AI_FALLBACK_ENABLED = os.getenv("AI_FALLBACK_ENABLED", "false").strip().lower() 
 AI_FALLBACK_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
 AI_FALLBACK_BASE_URL = os.getenv("AI_FALLBACK_BASE_URL", "https://api.openai.com/v1").rstrip("/")
 AI_FALLBACK_MODEL = os.getenv("AI_FALLBACK_MODEL", "gpt-4.1-mini").strip()
-MAX_SOURCE_PACK = int(os.getenv("MAX_SOURCE_PACK", "6"))
-MAX_SOURCE_CHARS = int(os.getenv("MAX_SOURCE_CHARS", "5000"))
+MAX_SOURCE_PACK = max(1, min(8, int(os.getenv("MAX_SOURCE_PACK", "5"))))
+MAX_SOURCE_CHARS = max(1200, min(6500, int(os.getenv("MAX_SOURCE_CHARS", "3500"))))
+MAX_COMPLETION_TOKENS = max(1200, min(4000, int(os.getenv("MAX_COMPLETION_TOKENS", "2600"))))
+RUN_TOKEN_BUDGET = max(0, int(os.getenv("RUN_TOKEN_BUDGET", "150000")))
+AI_USAGE = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0,
+            "requests": 0, "providers": {}}
+
+class AIQuotaExhausted(RuntimeError):
+    """Stop the batch immediately when a provider reports exhausted quota or billing."""
 THUMBNAIL_WIDTH = 1200
 THUMBNAIL_HEIGHT = 675
 OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com"}
@@ -156,6 +163,7 @@ def build_prompt(story, evidence):
 def _request_chat_completion(payload, api_key, base_url, model, session, provider_label):
     request_payload = dict(payload)
     request_payload["model"] = model
+    request_payload.setdefault("max_tokens", MAX_COMPLETION_TOKENS)
     last_error = None
     for attempt in range(AI_MAX_ATTEMPTS):
         try:
@@ -167,7 +175,7 @@ def _request_chat_completion(payload, api_key, base_url, model, session, provide
                 lower = body.lower()
                 if response.status_code == 429 and any(term in lower for term in
                         ("insufficient_quota", "billing_not_active", "credit balance", "quota_exceeded")):
-                    raise RuntimeError(f"AI_RATE_LIMIT_QUOTA: {provider_label} reports a quota or billing restriction: {body}")
+                    raise AIQuotaExhausted(f"AI_RATE_LIMIT_QUOTA: {provider_label} reports a quota or billing restriction: {body}")
                 delay = None
                 for header in ("retry-after", "x-ratelimit-reset-requests", "x-ratelimit-reset-tokens"):
                     value = response.headers.get(header, "").strip()
@@ -187,7 +195,21 @@ def _request_chat_completion(payload, api_key, base_url, model, session, provide
                     continue
                 raise RuntimeError(f"AI_HTTP_{response.status_code}: {provider_label} attempts exhausted: {body}")
             response.raise_for_status()
-            return response.json()["choices"][0]["message"]["content"]
+            data = response.json()
+            usage = data.get("usage") or {}
+            prompt_tokens = int(usage.get("prompt_tokens") or 0)
+            completion_tokens = int(usage.get("completion_tokens") or 0)
+            total_tokens = int(usage.get("total_tokens") or (prompt_tokens + completion_tokens))
+            AI_USAGE["prompt_tokens"] += prompt_tokens
+            AI_USAGE["completion_tokens"] += completion_tokens
+            AI_USAGE["total_tokens"] += total_tokens
+            AI_USAGE["requests"] += 1
+            provider_usage = AI_USAGE["providers"].setdefault(provider_label, {"requests": 0, "total_tokens": 0})
+            provider_usage["requests"] += 1
+            provider_usage["total_tokens"] += total_tokens
+            logging.info("AI_USAGE provider=%s prompt_tokens=%d completion_tokens=%d total_tokens=%d run_total=%d",
+                         provider_label, prompt_tokens, completion_tokens, total_tokens, AI_USAGE["total_tokens"])
+            return data["choices"][0]["message"]["content"]
         except requests.RequestException as exc:
             last_error = exc
             if attempt == AI_MAX_ATTEMPTS - 1:
@@ -225,6 +247,8 @@ def generate_draft(story, evidence, api_key, session):
     try:
         content = _request_chat_completion(req, api_key, AI_BASE_URL, MODEL, session, AI_PROVIDER.upper())
         provider_used = AI_PROVIDER
+    except AIQuotaExhausted:
+        raise
     except RuntimeError as exc:
         fallback_error = str(exc)
         can_fallback = (AI_FALLBACK_ENABLED and AI_FALLBACK_API_KEY and
@@ -232,8 +256,15 @@ def generate_draft(story, evidence, api_key, session):
         if not can_fallback:
             raise
         logging.warning("Primary AI provider unavailable; switching this candidate to configured fallback provider.")
-        content = _request_chat_completion(req, AI_FALLBACK_API_KEY, AI_FALLBACK_BASE_URL,
-                                           AI_FALLBACK_MODEL, session, "OPENAI_FALLBACK")
+        try:
+            content = _request_chat_completion(req, AI_FALLBACK_API_KEY, AI_FALLBACK_BASE_URL,
+                                               AI_FALLBACK_MODEL, session, "OPENAI_FALLBACK")
+        except AIQuotaExhausted:
+            raise
+        except RuntimeError as fallback_exc:
+            if "AI_RATE_LIMIT_QUOTA" in str(fallback_exc):
+                raise AIQuotaExhausted(str(fallback_exc)) from fallback_exc
+            raise
         provider_used = "openai_fallback"
     draft = json.loads(content)
     draft["ai_provider_used"] = provider_used
@@ -494,7 +525,9 @@ def process(input_path, output_dir):
             "claims_verified": False, "article_generated": False, "published_to_blogger": False,
             "published_to_x": False}
         counters[assessment["evidence_tier"]] += 1
-        if not assessment["eligible_for_draft"]:
+        if AI_USAGE["total_tokens"] >= RUN_TOKEN_BUDGET > 0:
+            record["processing_status"] = "held_run_token_budget"
+        elif not assessment["eligible_for_draft"]:
             record["processing_status"] = "held_insufficient_accessible_evidence"
         elif not AI_API_KEY:
             record["processing_status"] = "draft_waiting_for_ai_provider_api_key"
@@ -533,6 +566,16 @@ def process(input_path, output_dir):
                     record["article_generated"] = True
                     record["image_generation_status"] = image_status
                     record["image_asset_count"] = len(assets)
+            except AIQuotaExhausted as exc:
+                record["processing_status"] = "stopped_provider_quota_exhausted"
+                record["error"] = str(exc)[:350]
+                results.append(record)
+                logging.error("AI provider quota exhausted; stopping batch immediately. Remaining candidates will not be sent.")
+                for remaining in stories[story_index:]:
+                    results.append({"event_id": remaining.get("event_id"), "headline": remaining.get("title"),
+                        "processing_status": "held_provider_quota_exhausted", "article_generated": False,
+                        "published_to_blogger": False, "published_to_x": False})
+                break
             except Exception as exc:
                 record["processing_status"] = "draft_generation_failed"
                 record["error"] = type(exc).__name__ + ": " + str(exc)[:350]
@@ -575,6 +618,9 @@ def process(input_path, output_dir):
         "max_drafts_per_run": MAX_DRAFTS, "ai_provider": AI_PROVIDER,
         "ai_api_configured": bool(AI_API_KEY), "ai_base_url": AI_BASE_URL if AI_API_KEY else None,
         "model": MODEL if AI_API_KEY else None,
+        "ai_usage": dict(AI_USAGE),
+        "run_token_budget": RUN_TOKEN_BUDGET,
+        "max_completion_tokens_per_request": MAX_COMPLETION_TOKENS,
         "thumbnail_method": "local_pillow_branded_template", "external_image_api_required": False,
         "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
@@ -590,7 +636,9 @@ def process(input_path, output_dir):
         ], "results": results}
     (output_dir / "article_drafts.json").write_text(json.dumps({"processor_version": VERSION, "drafts": drafts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "editorial_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    logging.info("Processor v%s: %d candidates, %d drafts; local branded thumbnails require no external image API", VERSION, len(stories), len(drafts))
+    logging.info("Processor v%s: %d candidates, %d drafts; AI requests=%d tokens=%d (prompt=%d completion=%d); local branded thumbnails require no external image API",
+                 VERSION, len(stories), len(drafts), AI_USAGE["requests"], AI_USAGE["total_tokens"],
+                 AI_USAGE["prompt_tokens"], AI_USAGE["completion_tokens"])
 
 def self_test():
     pending, skipped = filter_unprocessed_stories(
