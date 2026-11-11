@@ -1043,7 +1043,7 @@ def collect_rss(config):
             feed.entries
         )
 
-        for entry in feed.entries:
+                for entry in feed.entries:
 
             published = parse_date(entry)
 
@@ -1061,4 +1061,5 @@ def collect_rss(config):
                 entry.get(
                     "summary",
                     entry.get("description", "")
-               
+                )
+            )
