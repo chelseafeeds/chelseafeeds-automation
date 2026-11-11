@@ -394,7 +394,7 @@ def process(input_path, output_dir):
         "evidence_tier_distribution": dict(counters), "drafts_created": len(drafts),
         "max_drafts_per_run": MAX_DRAFTS, "ai_provider": AI_PROVIDER,
         "ai_api_configured": bool(AI_API_KEY), "ai_base_url": AI_BASE_URL if AI_API_KEY else None,
-        "model": MODEL if AI_API_KEY else None, "image_provider": IMAGE_PROVIDER,
+        "model": MODEL if AI_API_KEY else None,
         "thumbnail_method": "local_pillow_branded_template", "external_image_api_required": False,
         "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
