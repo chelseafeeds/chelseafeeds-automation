@@ -1,0 +1,71 @@
+name: ChelseaFeeds Publish Reviewed Article
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: "Successful ChelseaFeeds Evidence and Article Drafts run ID"
+        required: true
+        type: string
+      event_id:
+        description: "Exact event_id from blogger_ready_posts.json"
+        required: true
+        type: string
+      publish_live:
+        description: "Publish publicly (unchecked = save as Blogger draft)"
+        required: true
+        default: false
+        type: boolean
+      announce_on_x:
+        description: "Post to X after successful public Blogger publication"
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: chelseafeeds-manual-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout publisher
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install publisher dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests requests-oauthlib
+
+      - name: Download selected article batch
+        uses: actions/download-artifact@v4
+        with:
+          name: chelseafeeds-editorial-results
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ inputs.source_run_id }}
+          path: input
+
+      - name: Validate and publish selected article
+        env:
+          ARTICLE_EVENT_ID: ${{ inputs.event_id }}
+          BLOGGER_PUBLISH_LIVE: ${{ inputs.publish_live }}
+          ENABLE_X_POSTING: ${{ inputs.announce_on_x }}
+          BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+          BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+          BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python publish_article.py
