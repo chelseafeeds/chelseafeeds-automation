@@ -84,19 +84,22 @@ def main():
     alt = str(featured.get("alt_text") or post.get("image_alt_text") or post.get("title") or "ChelseaFeeds article image").strip()
     alt = re.sub(r"\s+", " ", alt)[:250]
     source_type = str(featured.get("source_type") or "branded_graphic_fallback").strip()
-    if source_type not in {"licensed_commons_photo", "ai_generated_illustration", "branded_graphic_fallback"}:
+    if source_type not in {"licensed_commons_photo", "licensed_original_source_photo"}:
         raise RuntimeError(f"Unsupported featured image source type: {source_type}")
     credit_text = re.sub(r"\s+", " ", str(featured.get("credit_text") or "ChelseaFeeds editorial graphic")).strip()[:500]
     credit_url = str(featured.get("source_page") or "").strip()
     license_name = re.sub(r"\s+", " ", str(featured.get("license_name") or "")).strip()[:100]
     license_url = str(featured.get("license_url") or "").strip()
-    if source_type == "licensed_commons_photo":
+    if source_type == "licensed_original_source_photo":
         from urllib.parse import urlparse
         parsed_credit = urlparse(credit_url)
-        if parsed_credit.scheme != "https" or parsed_credit.netloc != "commons.wikimedia.org" or not parsed_credit.path.startswith("/wiki/"):
-            raise RuntimeError("Commons photo is missing a valid Wikimedia Commons source page.")
-        if not license_name:
-            raise RuntimeError("Commons photo is missing its licence name.")
+        parsed_license = urlparse(license_url)
+        if parsed_credit.scheme != "https" or not parsed_credit.netloc:
+            raise RuntimeError("Original-source image is missing its HTTPS source page.")
+        if parsed_license.scheme != "https" or parsed_license.netloc not in {"creativecommons.org", "www.creativecommons.org"}:
+            raise RuntimeError("Original-source image is missing a verifiable Creative Commons licence URL.")
+        if not license_name or "CC BY " not in license_name.upper() and "CC0" not in license_name.upper() and "PUBLIC DOMAIN" not in license_name.upper():
+            raise RuntimeError("Original-source image has no accepted reuse licence.")
     output_file = os.environ.get("GITHUB_OUTPUT")
     if not output_file:
         raise RuntimeError("GITHUB_OUTPUT is unavailable; cannot pass the verified image URL to the publisher.")
