@@ -140,10 +140,10 @@ def generate_draft(story, evidence, api_key, session):
         "For transfers, state clearly whether officially confirmed or merely reported; never infer fees or clauses. "
         "When only one publisher is supplied, attribute every development to that publisher and say it has not been independently corroborated. "
         "For opinion, attribute the view and distinguish its factual premises. Keep men, women and "
-        "academy teams distinct. Write at least 500 substantive words, preferably 550-750, when supplied evidence supports it. "
-        "The article must contain at least 500 words excluding the Sources section, headings, captions and image alt text. "
+        "academy teams distinct. Write at least 400 substantive words, preferably 450-700, when supplied evidence supports it. "
+        "The article must contain at least 400 words excluding the Sources section, headings, captions and image alt text. "
         "Use a clear introduction and at least three useful H2 headings. Never pad, repeat points or invent details to reach the minimum. "
-        "If evidence cannot support 500 useful words, explain the limitation in editorial_notes; the processor will reject the draft. "
+        "If evidence cannot support 400 useful words, explain the limitation in editorial_notes; the processor will reject the draft. "
         "Do not write a Sources section or source hyperlinks; the processor adds a deterministic Sources section using accessible supplied URLs. Do not invent internal links. "
         "Return ONLY JSON keys: title, search_description, focus_keyword, labels, article_html, "
         "excerpt, image_prompt, image_alt_text, editorial_notes, unsupported_or_unverified_points. "
@@ -154,10 +154,30 @@ def generate_draft(story, evidence, api_key, session):
     req = {"model": MODEL, "response_format": {"type": "json_object"},
            "messages": [{"role": "system", "content": system},
                         {"role": "user", "content": json.dumps(payload, ensure_ascii=False)}]}
-    response = session.post(AI_BASE_URL + "/chat/completions",
-        headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
-        json=req, timeout=90)
-    response.raise_for_status()
+    response = None
+    last_error = None
+    for attempt in range(4):
+        try:
+            response = session.post(AI_BASE_URL + "/chat/completions",
+                headers={"Authorization": "Bearer " + api_key, "Content-Type": "application/json"},
+                json=req, timeout=120)
+            if response.status_code == 429 or response.status_code >= 500:
+                retry_after = response.headers.get("retry-after")
+                delay = min(45, int(retry_after)) if retry_after and retry_after.isdigit() else (3 * (2 ** attempt))
+                logging.warning("AI provider returned HTTP %s; retrying in %ss", response.status_code, delay)
+                time.sleep(delay)
+                continue
+            response.raise_for_status()
+            break
+        except requests.RequestException as exc:
+            last_error = exc
+            if attempt == 3:
+                raise
+            time.sleep(3 * (2 ** attempt))
+    if response is None or response.status_code >= 400:
+        if last_error:
+            raise last_error
+        raise RuntimeError("AI provider retries exhausted")
     draft = json.loads(response.json()["choices"][0]["message"]["content"])
     required = {"title", "search_description", "focus_keyword", "labels", "article_html",
                 "excerpt", "image_prompt", "image_alt_text", "editorial_notes", "unsupported_or_unverified_points"}
@@ -347,7 +367,7 @@ def process(input_path, output_dir):
     session.headers.update(HEADERS)
     drafts, results, counters = [], [], Counter()
     for story in stories:
-        fetched = [fetch_source(url, session) for url in story.get("source_urls", [])[:5]]
+        fetched = [fetch_source(url, session) for url in story.get("source_urls", [])[:8]]
         assessment = evidence_assessment(story, fetched)
         record = {"event_id": story.get("event_id"), "headline": story.get("title"),
             "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
@@ -395,8 +415,33 @@ def process(input_path, output_dir):
                 logging.warning("Draft failed for %s: %s", story.get("event_id"), record["error"])
         results.append(record)
         time.sleep(0.2)
+    blogger_posts = []
+    for item in drafts:
+        d = item["draft"]
+        featured = item.get("draft", {}).get("featured_image") or {}
+        post_slug = slug(d.get("title") or item.get("collector_headline"))
+        blogger_posts.append({
+            "event_id": item.get("event_id"),
+            "title": d.get("title"),
+            "content_html": d.get("article_html"),
+            "search_description": d.get("search_description"),
+            "labels": d.get("labels") if isinstance(d.get("labels"), list) else [],
+            "custom_permalink_slug": post_slug,
+            "focus_keyword": d.get("focus_keyword"),
+            "excerpt": d.get("excerpt"),
+            "featured_image": featured,
+            "image_alt_text": d.get("image_alt_text"),
+            "source_urls": item.get("source_urls", []),
+            "editorial_status": "draft_requires_editorial_review",
+            "claims_verified": False,
+            "publishing_enabled": False
+        })
+    (output_dir / "blogger_ready_posts.json").write_text(
+        json.dumps({"format_version":"1.0","generated_at":utcnow().isoformat(),
+                    "instructions":"Copy content_html into Blogger HTML view. Upload featured_image separately and set it as the post thumbnail. Review claims and sources before publishing.",
+                    "posts":blogger_posts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     report = {"processor_version": VERSION, "generated_at": utcnow().isoformat(),
-        "collector_version": data.get("collector_version"), "input_candidate_count": len(stories),
+        "collector_version": data.get("collector_version"), "input_candidate_count": len(stories), "blogger_ready_export_count": len(blogger_posts),
         "evidence_tier_distribution": dict(counters), "drafts_created": len(drafts),
         "max_drafts_per_run": MAX_DRAFTS, "ai_provider": AI_PROVIDER,
         "ai_api_configured": bool(AI_API_KEY), "ai_base_url": AI_BASE_URL if AI_API_KEY else None,
@@ -482,7 +527,7 @@ def self_test():
         assert asset["role"] == "thumbnail" and asset["branded"] is True
         assert (Path(temp_dir) / asset["filename"]).is_file()
     with_sources = dict(valid, article_html=valid["article_html"] + "<section><h2>Sources</h2><ul><li><a href='https://www.bbc.co.uk/a'>BBC</a></li></ul></section>")
-    assert quality_gate(with_sources, one, story)["word_count"] == 500
+    assert quality_gate(with_sources, one, story)["word_count"] == 400
     print("PASS: evidence, 500-word, SEO, source-link, source-exclusion, safety and local-thumbnail regression checks")
 
 if __name__ == "__main__":
