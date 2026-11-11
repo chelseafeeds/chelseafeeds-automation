@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-11T19:04:42.913356+00:00",
+  "updated_at": "2026-11-11T19:04:48.898Z",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -45,10 +45,10 @@
       "publisher_domains": [
         "bbc.co.uk"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-11T19:04:48.898Z",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea cautions staff after Fantasy Premier League leak hints at Joao Pedro injury"
     },
     "235a2df1ead86ab5da2c2164": {
       "event_id": "235a2df1ead86ab5da2c2164",
