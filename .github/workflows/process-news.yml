@@ -5,6 +5,12 @@ on:
     workflows: ["Chelsea News Collection"]
     types: [completed]
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: "Successful Chelsea News Collection run ID whose candidate artifact should be processed"
+        required: true
+        type: string
 
 permissions:
   actions: read
@@ -12,11 +18,11 @@ permissions:
 
 concurrency:
   group: chelseafeeds-editorial-queue
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   process:
-    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 35
     env:
@@ -30,8 +36,11 @@ jobs:
       MAX_SOURCE_PACK: "6"
       MAX_SOURCE_CHARS: "5000"
       SOURCE_FETCH_WORKERS: "8"
-      AI_REQUEST_TIMEOUT: "30"
-      AI_MAX_ATTEMPTS: "1"
+      AI_REQUEST_TIMEOUT: "45"
+      AI_MAX_ATTEMPTS: "2"
+      AI_FALLBACK_ENABLED: "false"
+      AI_FALLBACK_BASE_URL: https://api.openai.com/v1
+      AI_FALLBACK_MODEL: gpt-4.1-mini
       OPENAI_IMAGE_TIMEOUT: "90"
 
     steps:
@@ -65,7 +74,7 @@ jobs:
         with:
           name: chelsea-news-candidates
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          run-id: ${{ github.event.workflow_run.id }}
+          run-id: ${{ github.event.workflow_run.id || inputs.source_run_id }}
           path: input
 
       - name: Run evidence checks, article quality gate and local thumbnail generation
