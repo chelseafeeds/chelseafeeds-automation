@@ -1,0 +1,103 @@
+name: ChelseaFeeds Auto Schedule Editorial Batch
+
+on:
+  workflow_run:
+    workflows: ["ChelseaFeeds Evidence and Article Drafts"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: chelseafeeds-auto-schedule
+  cancel-in-progress: false
+
+jobs:
+  schedule:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout publisher
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install publisher dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests requests-oauthlib beautifulsoup4 Pillow
+
+      - name: Compile-check publisher scripts
+        run: python -m py_compile upload_featured_image.py publish_article.py
+
+      - name: Download editorial batch
+        uses: actions/download-artifact@v4
+        with:
+          name: chelseafeeds-editorial-results
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+          path: input
+
+      - name: Upload images and schedule every eligible article five minutes after draft creation
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          GITHUB_REF_NAME: main
+          BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+          BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+          BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          BLOGGER_AUTO_SCHEDULE_MINUTES: "5"
+          BLOGGER_INPUT_DIR: input
+        run: |
+          set -euo pipefail
+          python - <<'PY' > "$RUNNER_TEMP/event_ids.txt"
+          import json
+          with open("input/blogger_ready_posts.json", encoding="utf-8") as f:
+              payload = json.load(f)
+          posts = payload.get("posts", []) if isinstance(payload, dict) else payload
+          for post in posts:
+              event_id = str(post.get("event_id", "")).strip()
+              if event_id:
+                  print(event_id)
+          PY
+
+          if [ ! -s "$RUNNER_TEMP/event_ids.txt" ]; then
+            echo "No eligible Blogger-ready articles in this batch."
+            exit 0
+          fi
+
+          while IFS= read -r event_id; do
+            [ -n "$event_id" ] || continue
+            echo "Preparing Blogger article event: $event_id"
+            output_file="$RUNNER_TEMP/featured-image-output"
+            : > "$output_file"
+            ARTICLE_EVENT_ID="$event_id" GITHUB_OUTPUT="$output_file" python upload_featured_image.py
+
+            image_url="$(sed -n 's/^image_url=//p' "$output_file")"
+            image_alt="$(sed -n 's/^alt_text=//p' "$output_file")"
+            image_source_type="$(sed -n 's/^source_type=//p' "$output_file")"
+            image_credit_text="$(sed -n 's/^credit_text=//p' "$output_file")"
+            image_credit_url="$(sed -n 's/^credit_url=//p' "$output_file")"
+            image_license_name="$(sed -n 's/^license_name=//p' "$output_file")"
+            image_license_url="$(sed -n 's/^license_url=//p' "$output_file")"
+
+            ARTICLE_EVENT_ID="$event_id" \
+            FEATURED_IMAGE_URL="$image_url" \
+            FEATURED_IMAGE_ALT="$image_alt" \
+            FEATURED_IMAGE_SOURCE_TYPE="$image_source_type" \
+            FEATURED_IMAGE_CREDIT_TEXT="$image_credit_text" \
+            FEATURED_IMAGE_CREDIT_URL="$image_credit_url" \
+            FEATURED_IMAGE_LICENSE_NAME="$image_license_name" \
+            FEATURED_IMAGE_LICENSE_URL="$image_license_url" \
+            python publish_article.py
+          done < "$RUNNER_TEMP/event_ids.txt"
