@@ -18,7 +18,7 @@ jobs:
   process:
     if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 35
     env:
       AI_API_KEY: ${{ secrets.GROQ_API_KEY }}
       AI_PROVIDER: groq
@@ -30,8 +30,8 @@ jobs:
       MAX_SOURCE_PACK: "6"
       MAX_SOURCE_CHARS: "5000"
       SOURCE_FETCH_WORKERS: "8"
-      AI_REQUEST_TIMEOUT: "60"
-      AI_MAX_ATTEMPTS: "3"
+      AI_REQUEST_TIMEOUT: "30"
+      AI_MAX_ATTEMPTS: "1"
       OPENAI_IMAGE_TIMEOUT: "90"
 
     steps:
