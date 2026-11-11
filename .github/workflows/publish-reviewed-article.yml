@@ -11,16 +11,6 @@ on:
         description: "Exact event_id from blogger_ready_posts.json"
         required: true
         type: string
-      publish_live:
-        description: "Publish publicly (unchecked = save as Blogger draft)"
-        required: true
-        default: false
-        type: boolean
-      announce_on_x:
-        description: "Post to X after successful public Blogger publication"
-        required: true
-        default: false
-        type: boolean
 
 permissions:
   actions: read
@@ -47,10 +37,10 @@ jobs:
       - name: Install publisher dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests requests-oauthlib
+          pip install requests requests-oauthlib beautifulsoup4 Pillow
 
       - name: Compile-check publisher scripts
-        run: python -m py_compile upload_featured_image.py publish_article.py
+        run: python -m py_compile generate_featured_images.py upload_featured_image.py publish_article.py
 
       - name: Download selected article batch
         uses: actions/download-artifact@v4
@@ -69,19 +59,20 @@ jobs:
           GITHUB_REF_NAME: ${{ github.ref_name }}
         run: python upload_featured_image.py
 
-      - name: Validate and publish selected article
+      - name: Validate and save selected article as Blogger draft
         env:
           ARTICLE_EVENT_ID: ${{ inputs.event_id }}
-          BLOGGER_PUBLISH_LIVE: ${{ inputs.publish_live }}
-          ENABLE_X_POSTING: ${{ inputs.announce_on_x }}
+          BLOGGER_PUBLISH_LIVE: "false"
+          ENABLE_X_POSTING: "false"
           FEATURED_IMAGE_URL: ${{ steps.featured_image.outputs.image_url }}
           FEATURED_IMAGE_ALT: ${{ steps.featured_image.outputs.alt_text }}
+          FEATURED_IMAGE_SOURCE_TYPE: ${{ steps.featured_image.outputs.source_type }}
+          FEATURED_IMAGE_CREDIT_TEXT: ${{ steps.featured_image.outputs.credit_text }}
+          FEATURED_IMAGE_CREDIT_URL: ${{ steps.featured_image.outputs.credit_url }}
+          FEATURED_IMAGE_LICENSE_NAME: ${{ steps.featured_image.outputs.license_name }}
+          FEATURED_IMAGE_LICENSE_URL: ${{ steps.featured_image.outputs.license_url }}
           BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
           BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
           BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
           BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
-          X_API_KEY: ${{ secrets.X_API_KEY }}
-          X_API_SECRET: ${{ secrets.X_API_SECRET }}
-          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
         run: python publish_article.py
