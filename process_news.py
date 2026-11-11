@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""ChelseaFeeds v1.4: evidence triage, 500-word editorial gate, deterministic sourcing and branded images."""
+"""ChelseaFeeds v1.5: evidence triage, article quality gate and deterministic branded thumbnails."""
 from __future__ import annotations
-import argparse, base64, json, logging, os, re, time
+import argparse, json, logging, os, re, time
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -10,7 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 from PIL import Image, ImageDraw, ImageFont
 
-VERSION = "1.4"
+VERSION = "1.5"
 TIMEOUT = 20
 MAX_FETCH_CHARS = 9000
 MAX_DRAFTS = max(0, min(3, int(os.getenv("MAX_DRAFTS_PER_RUN", "3"))))
@@ -20,12 +20,8 @@ AI_BASE_URL = os.getenv("AI_BASE_URL", "https://api.groq.com/openai/v1").rstrip(
 MODEL = os.getenv("AI_MODEL", "openai/gpt-oss-120b").strip()
 MAX_SOURCE_PACK = int(os.getenv("MAX_SOURCE_PACK", "4"))
 MAX_SOURCE_CHARS = int(os.getenv("MAX_SOURCE_CHARS", "3500"))
-IMAGE_PROVIDER = os.getenv("IMAGE_PROVIDER", "cloudflare").strip().lower()
-CF_ACCOUNT_ID = os.getenv("CLOUDFLARE_ACCOUNT_ID", "").strip()
-CF_API_TOKEN = os.getenv("CLOUDFLARE_API_TOKEN", "").strip()
-CF_MODEL = os.getenv("CLOUDFLARE_IMAGE_MODEL", "@cf/black-forest-labs/flux-1-schnell").strip()
-MAX_IMAGES_PER_RUN = max(0, min(6, int(os.getenv("MAX_IMAGES_PER_RUN", "6"))))
-IMAGE_STEPS = max(1, min(4, int(os.getenv("IMAGE_STEPS", "4"))))
+THUMBNAIL_WIDTH = 1200
+THUMBNAIL_HEIGHT = 675
 OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com"}
 ESTABLISHED = {"bbc.co.uk", "bbc.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com", "espn.com", "independent.co.uk", "standard.co.uk", "nytimes.com", "theathletic.com", "football365.com", "thetimes.com", "telegraph.co.uk"}
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsEditorialBot/1.4; +https://www.chelseafeeds.com/)"}
@@ -249,110 +245,90 @@ def quality_gate(draft, fetched, story):
             "minimum_word_count": 500, "checks": checks, "failed_checks": failed,
             "note": "Automated editorial screening only; it is not independent fact-checking."}
 
-def cloudflare_image(prompt, session):
-    if not (CF_ACCOUNT_ID and CF_API_TOKEN):
-        raise RuntimeError("Cloudflare image service is not configured")
-    endpoint = "https://api.cloudflare.com/client/v4/accounts/" + CF_ACCOUNT_ID + "/ai/run/" + CF_MODEL
-    response = session.post(endpoint, headers={"Authorization": "Bearer " + CF_API_TOKEN,
-        "Content-Type": "application/json"},
-        json={"prompt": prompt[:1900], "steps": IMAGE_STEPS},
-        timeout=180)
-    response.raise_for_status()
-    ctype = response.headers.get("content-type", "").lower()
-    if "image/" in ctype:
-        return response.content
-    payload = response.json()
-    result = payload.get("result", {})
-    encoded = result.get("image") if isinstance(result, dict) else result
-    if not encoded and isinstance(payload.get("result"), str):
-        encoded = payload["result"]
-    if not encoded:
-        raise ValueError("Cloudflare response did not contain generated image data")
-    return base64.b64decode(encoded)
-
-def brand_image(raw, output_path):
-    from io import BytesIO
-    image = Image.open(BytesIO(raw)).convert("RGB")
-    # Consistent landscape editorial crop and web-friendly output.
-    target_ratio = 16 / 9
-    ratio = image.width / image.height
-    if ratio > target_ratio:
-        new_w = int(image.height * target_ratio)
-        left = (image.width - new_w) // 2
-        image = image.crop((left, 0, left + new_w, image.height))
-    else:
-        new_h = int(image.width / target_ratio)
-        top = (image.height - new_h) // 2
-        image = image.crop((0, top, image.width, top + new_h))
-    image = image.resize((1200, 675), Image.Resampling.LANCZOS)
+def create_branded_thumbnail(draft, story, images_dir):
+    """Create a no-API, no-external-dependency editorial thumbnail with Pillow."""
+    from PIL import Image, ImageDraw, ImageFont
+    width, height = THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT
+    image = Image.new("RGB", (width, height))
+    pixels = image.load()
+    # Chelsea-blue to deep-navy diagonal-style gradient.
+    for y in range(height):
+        for x in range(width):
+            t = min(1.0, (x / width) * 0.72 + (y / height) * 0.28)
+            pixels[x, y] = (int(3 + 4*t), int(70 - 50*t), int(148 - 112*t))
     draw = ImageDraw.Draw(image, "RGBA")
-    font_path = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+
+    # Abstract stadium lights, pitch geometry and football motif; no club crest or player likeness.
+    for cx, cy, radius in [(970, 175, 170), (1080, 520, 245), (770, 590, 180)]:
+        draw.ellipse((cx-radius, cy-radius, cx+radius, cy+radius),
+                     outline=(255,255,255,24), width=3)
+    for i in range(7):
+        x = 760 + i * 62
+        draw.line((x, 0, x-110, 255), fill=(255,255,255,22), width=3)
+    draw.rectangle((0, 520, width, 675), fill=(4, 15, 31, 105))
+    draw.line((760, 560, 1190, 560), fill=(255,255,255,65), width=3)
+    draw.arc((850, 485, 1170, 805), 180, 360, fill=(255,255,255,70), width=3)
+    # Stylized football.
+    bx, by, br = 1050, 365, 72
+    draw.ellipse((bx-br,by-br,bx+br,by+br), fill=(245,247,250,235), outline=(212,175,55,255), width=5)
+    draw.polygon([(bx,by-30),(bx+28,by-9),(bx+17,by+24),(bx-17,by+24),(bx-28,by-9)],
+                 fill=(7,20,38,235))
+    for dx,dy in [(-42,-34),(43,-31),(-46,39),(45,38)]:
+        draw.line((bx,by,bx+dx,by+dy), fill=(7,20,38,180), width=5)
+
+    font_bold = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+    font_regular = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
     try:
-        font = ImageFont.truetype(font_path, 28)
+        brand_font = ImageFont.truetype(font_bold, 27)
+        title_font = ImageFont.truetype(font_bold, 54)
+        kicker_font = ImageFont.truetype(font_regular, 22)
     except OSError:
-        font = ImageFont.load_default()
-    label = "CHELSEAFEEDS"
-    bbox = draw.textbbox((0, 0), label, font=font)
-    pad_x, pad_y = 22, 13
-    x, y = 24, image.height - (bbox[3] - bbox[1]) - 2 * pad_y - 24
-    draw.rounded_rectangle((x, y, x + bbox[2] - bbox[0] + 2 * pad_x, y + bbox[3] - bbox[1] + 2 * pad_y),
-                           radius=8, fill=(7, 20, 38, 220), outline=(212, 175, 55, 255), width=2)
-    draw.text((x + pad_x, y + pad_y - bbox[1]), label, font=font, fill=(255, 255, 255, 255),
-              stroke_width=0)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    image.save(output_path, "JPEG", quality=88, optimize=True, progressive=True)
-    return output_path.stat().st_size
+        brand_font = title_font = kicker_font = ImageFont.load_default()
 
-def make_image_assets(draft, story, images_dir, session, remaining):
-    if IMAGE_PROVIDER != "cloudflare":
-        return [], "unsupported_provider", remaining
-    if not (CF_ACCOUNT_ID and CF_API_TOKEN):
-        return [], "not_configured", remaining
-    if remaining <= 0:
-        return [], "per_run_image_limit_reached", remaining
-    base = slug(draft.get("title") or story.get("title"))
-    prompts = [
-        ("thumbnail", str(draft.get("image_prompt", "")) +
-         ". Wide 16:9 premium editorial illustration for a Chelsea FC news article, no words, no logos, no real identifiable players."),
-        ("inline-01", "A second, distinct supporting editorial illustration for this story: " +
-         str(draft.get("image_prompt", "")) +
-         ". Wide 16:9 composition, complementary visual angle, no words, no logos, no real identifiable players.")
-    ]
-    assets, failures = [], []
-    for role, prompt in prompts:
-        if remaining <= 0:
+    draw.rounded_rectangle((55, 48, 420, 101), radius=12,
+                           fill=(7,20,38,225), outline=(212,175,55,255), width=2)
+    draw.text((76, 59), "CHELSEAFEEDS", font=brand_font, fill=(255,255,255,255))
+    story_type = str(story.get("story_type", "chelsea_news")).replace("_", " ").upper()
+    draw.text((60, 145), story_type[:34], font=kicker_font, fill=(235,196,92,255))
+
+    title = re.sub(r"\\s+", " ", str(draft.get("title") or story.get("title") or "Chelsea FC latest news")).strip()
+    words, lines, current = title.split(), [], ""
+    max_width = 760
+    for word in words:
+        candidate = (current + " " + word).strip()
+        if draw.textbbox((0,0), candidate, font=title_font)[2] <= max_width:
+            current = candidate
+        else:
+            if current:
+                lines.append(current)
+            current = word
+        if len(lines) >= 3:
             break
-        filename = "chelseafeeds-" + base + "-" + role + ".jpg"
-        path = images_dir / filename
-        # Count every provider attempt, including failures, so the run cap is real.
-        remaining -= 1
-        try:
-            raw = cloudflare_image(prompt, session)
-            size = brand_image(raw, path)
-            assets.append({"role": role, "filename": filename, "local_path": "images/" + filename,
-                           "alt_text": str(draft.get("image_alt_text", ""))[:250],
-                           "brand_overlay": "CHELSEAFEEDS bottom-left", "branded": True,
-                           "width": 1200, "height": 675, "bytes": size})
-        except Exception as exc:
-            failures.append(role + ": " + type(exc).__name__ + ": " + str(exc)[:180])
-            logging.warning("Image generation failed for %s/%s: %s", story.get("event_id"), role, exc)
-    status = "generated" if len(assets) == 2 else ("partial" if assets else "failed")
-    if failures:
-        status += "; " + " | ".join(failures)
-    return assets, status, remaining
+    if current and len(lines) < 4:
+        lines.append(current)
+    if len(lines) > 4:
+        lines = lines[:4]
+        lines[-1] = lines[-1].rstrip(" .") + "…"
+    y = 205
+    for line in lines:
+        draw.text((58, y), line, font=title_font, fill=(255,255,255,255),
+                  stroke_width=2, stroke_fill=(4,15,31,150))
+        y += 68
+    draw.rectangle((58, 505, 245, 512), fill=(212,175,55,255))
 
-def insert_inline_placeholder(html, assets):
-    inline = next((x for x in assets if x["role"].startswith("inline")), None)
-    if not inline:
-        return html
-    tag = ('<figure class="separator" style="clear:both;text-align:center">'
-           '<img src="IMAGE_UPLOAD_REQUIRED/' + inline["filename"] + '" alt="' +
-           inline["alt_text"].replace('"', "&quot;") +
-           '" style="max-width:100%;height:auto" loading="lazy"/></figure>')
-    match = re.search(r"</p\s*>", html, re.I)
-    if match:
-        return html[:match.end()] + tag + html[match.end():]
-    return tag + html
+    base = slug(draft.get("title") or story.get("title"))
+    filename = "chelseafeeds-" + base + "-thumbnail.jpg"
+    path = images_dir / filename
+    path.parent.mkdir(parents=True, exist_ok=True)
+    image.save(path, "JPEG", quality=90, optimize=True, progressive=True)
+    return {"role":"thumbnail", "filename":filename, "local_path":"images/"+filename,
+            "alt_text":str(draft.get("image_alt_text") or title)[:250],
+            "brand_overlay":"CHELSEAFEEDS top-left", "branded":True,
+            "width":width, "height":height, "bytes":path.stat().st_size}
+
+def make_image_assets(draft, story, images_dir):
+    asset = create_branded_thumbnail(draft, story, images_dir)
+    return [asset], "generated_branded_template"
 
 def process(input_path, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -364,7 +340,6 @@ def process(input_path, output_dir):
     session = requests.Session()
     session.headers.update(HEADERS)
     drafts, results, counters = [], [], Counter()
-    images_remaining = MAX_IMAGES_PER_RUN
     for story in stories:
         fetched = [fetch_source(url, session) for url in story.get("source_urls", [])[:5]]
         assessment = evidence_assessment(story, fetched)
@@ -391,15 +366,13 @@ def process(input_path, output_dir):
                     record["processing_status"] = "rejected_quality_gate"
                     record["quality_failures"] = quality["failed_checks"]
                 else:
-                    assets, image_status, images_remaining = make_image_assets(
-                        draft, story, images_dir, session, images_remaining)
-                    draft["article_html"] = insert_inline_placeholder(str(draft["article_html"]), assets)
+                    assets, image_status = make_image_assets(draft, story, images_dir)
                     draft["image_assets"] = assets
                     draft["image_generation_status"] = image_status
                     draft["featured_image"] = next((x for x in assets if x["role"] == "thumbnail"), None)
                     draft["editorial_quality"] = quality
-                    draft["image_note"] = ("Image is an AI-generated editorial illustration, not documentary match photography. "
-                                           "Upload local image assets to Blogger and replace IMAGE_UPLOAD_REQUIRED placeholders before publishing.")
+                    draft["image_note"] = ("Thumbnail is a deterministic ChelseaFeeds-branded graphic created locally; it uses no AI image API or external image service. "
+                                           "Upload the thumbnail to Blogger and use it as the post featured image.")
                     drafts.append({"event_id": story.get("event_id"), "collector_headline": story.get("title"),
                         "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
                         "source_urls": story.get("source_urls", []), "evidence_assessment": assessment,
@@ -422,10 +395,7 @@ def process(input_path, output_dir):
         "max_drafts_per_run": MAX_DRAFTS, "ai_provider": AI_PROVIDER,
         "ai_api_configured": bool(AI_API_KEY), "ai_base_url": AI_BASE_URL if AI_API_KEY else None,
         "model": MODEL if AI_API_KEY else None, "image_provider": IMAGE_PROVIDER,
-        "image_model": CF_MODEL, "image_account_id_configured": bool(CF_ACCOUNT_ID),
-        "image_api_token_configured": bool(CF_API_TOKEN),
-        "image_api_configured": bool(CF_ACCOUNT_ID and CF_API_TOKEN),
-        "max_images_per_run": MAX_IMAGES_PER_RUN, "image_attempts_used": MAX_IMAGES_PER_RUN - images_remaining,
+        "thumbnail_method": "local_pillow_branded_template", "external_image_api_required": False,
         "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
             "Evidence accessibility and publisher counts are not factual verification.",
@@ -433,16 +403,14 @@ def process(input_path, output_dir):
             "Automated quality gate requires at least 500 substantive article words excluding the Sources block; all SEO, heading, source-link and HTML safety checks are mandatory.",
         "A score cannot override any failed mandatory check; short drafts and invalid SEO metadata are rejected.",
             "No direct quotations are requested; unsupported claims must be omitted or flagged.",
-            "Generated images are editorial illustrations, not documentary match photographs.",
-            "Every image receives a deterministic CHELSEAFEEDS bottom-left brand overlay using Pillow.",
-            "Image-generation errors never discard a quality-passed article draft.",
-            "Images are attached as workflow artifacts; upload them to Blogger and replace placeholders before publication.",
-            "Cloudflare Workers AI free daily allocation is capped by the provider; this workflow limits each run to six image requests and does not retry failures.",
+            "Featured thumbnails are generated locally with Pillow; no image-generation API, API key or paid image service is required.",
+            "Thumbnails use ChelseaFeeds colours, article headlines and abstract football/stadium graphics; no club crest or real-player likeness is fabricated.",
+            "Thumbnails are attached as workflow artifacts and must be uploaded to Blogger before publication.",
             "No Blogger or X credentials are read; publishing remains disabled."
         ], "results": results}
     (output_dir / "article_drafts.json").write_text(json.dumps({"processor_version": VERSION, "drafts": drafts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "editorial_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    logging.info("Processor v%s: %d candidates, %d drafts, %d image requests used", VERSION, len(stories), len(drafts), report["image_attempts_used"])
+    logging.info("Processor v%s: %d candidates, %d drafts; local branded thumbnails require no external image API", VERSION, len(stories), len(drafts))
 
 def self_test():
     story = {"story_type":"match_report"}
