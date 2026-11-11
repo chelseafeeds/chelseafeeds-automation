@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create or update one reviewed ChelseaFeeds Blogger draft; optionally publish and announce."""
+"""Create or update one reviewed ChelseaFeeds Blogger draft; public publishing is hard-disabled."""
 import html
 import json
 import os
@@ -35,14 +35,41 @@ def attach_featured_image(article_html, image_url, alt_text):
         raise RuntimeError("Featured image URL is not from the verified ChelseaFeeds public image repository.")
     safe_url = html.escape(image_url, quote=True)
     safe_alt = html.escape(alt_text[:250], quote=True)
+    source_type = os.getenv("FEATURED_IMAGE_SOURCE_TYPE", "branded_graphic_fallback").strip()
+    credit_text = os.getenv("FEATURED_IMAGE_CREDIT_TEXT", "ChelseaFeeds editorial graphic").strip()
+    credit_url = os.getenv("FEATURED_IMAGE_CREDIT_URL", "").strip()
+    license_name = os.getenv("FEATURED_IMAGE_LICENSE_NAME", "").strip()
+    license_url = os.getenv("FEATURED_IMAGE_LICENSE_URL", "").strip()
+
+    if source_type == "licensed_commons_photo":
+        source = urlparse(credit_url)
+        license_link = urlparse(license_url) if license_url else None
+        if source.scheme != "https" or source.netloc != "commons.wikimedia.org" or not source.path.startswith("/wiki/"):
+            raise RuntimeError("Commons photo is missing a valid Wikimedia Commons attribution page.")
+        if not license_name or not license_url:
+            raise RuntimeError("Commons photo is missing its licence name or licence URL.")
+        if not license_link or license_link.scheme != "https" or license_link.netloc not in {"creativecommons.org", "creativecommons.org"}:
+            if "public domain" not in license_name.lower() and "cc0" not in license_name.lower():
+                raise RuntimeError("Commons photo licence URL is not an approved Creative Commons URL.")
+        caption = (
+            '<figcaption style="font-size: small; color: #666; text-align: center;">'
+            f'{html.escape(credit_text)} · '
+            f'<a href="{html.escape(credit_url, quote=True)}" rel="nofollow noopener">Image source</a> · '
+            f'<a href="{html.escape(license_url, quote=True)}" rel="nofollow noopener">{html.escape(license_name)}</a>'
+            '</figcaption>'
+        )
+    elif source_type == "ai_generated_illustration":
+        caption = '<figcaption style="font-size: small; color: #666; text-align: center;">AI-generated editorial illustration; not a documentary match photograph.</figcaption>'
+    else:
+        caption = '<figcaption style="font-size: small; color: #666; text-align: center;">ChelseaFeeds editorial graphic.</figcaption>'
+
     if image_url in article_html:
         return article_html
     image_block = (
-        '<div class="separator" style="clear: both; text-align: center;">'
-        f'<a href="{safe_url}" style="margin-left: 1em; margin-right: 1em;">'
+        '<figure class="separator" style="clear: both; text-align: center; margin: 0 auto 1.2em;">'
         f'<img src="{safe_url}" alt="{safe_alt}" width="1200" height="675" '
         'style="display: block; max-width: 100%; height: auto; margin: 0 auto;" />'
-        '</a></div>'
+        f'{caption}</figure>'
     )
     return image_block + article_html
 
@@ -81,6 +108,11 @@ def main():
     image_alt = required("FEATURED_IMAGE_ALT")
     content = attach_featured_image(article_html, image_url, image_alt)
 
+    # Explicit safety lock: this integration only creates/updates Blogger drafts.
+    if os.getenv("BLOGGER_PUBLISH_LIVE", "false").lower() == "true":
+        raise RuntimeError("Public publishing is disabled in this testing version.")
+    live = False
+
     client_id = required("BLOGGER_CLIENT_ID")
     client_secret = required("BLOGGER_CLIENT_SECRET")
     refresh_token = required("BLOGGER_REFRESH_TOKEN")
@@ -94,7 +126,6 @@ def main():
 
     session = requests.Session()
     headers = api_headers(access_token)
-    live = os.getenv("BLOGGER_PUBLISH_LIVE", "false").lower() == "true"
     body = {
         "kind": "blogger#post",
         "title": title,
@@ -104,7 +135,6 @@ def main():
     }
     base = f"{API}/blogs/{quote(blog_id, safe='')}/posts"
 
-    # Make repeated draft tests safe: update the matching existing draft instead of duplicating it.
     drafts = find_posts(session, blog_id, access_token, "draft")
     matching_drafts = [item for item in drafts if item.get("title") == title and item.get("id")]
     if len(matching_drafts) > 1:
@@ -122,22 +152,13 @@ def main():
         response.raise_for_status()
         result = response.json()
         blogger_action = "updated_existing_draft"
-        if live:
-            publish_response = session.post(
-                f"{base}/{quote(post_id, safe='')}/publish",
-                headers=headers, timeout=45
-            )
-            publish_response.raise_for_status()
-            result = publish_response.json()
-            blogger_action = "published_existing_draft"
     else:
         response = session.post(base, params={
-            "isDraft": "false" if live else "true",
-            "fetchImages": "true", "fetchBody": "true"
+            "isDraft": "true", "fetchImages": "true", "fetchBody": "true"
         }, json=body, headers=headers, timeout=45)
         response.raise_for_status()
         result = response.json()
-        blogger_action = "published_new_post" if live else "created_new_draft"
+        blogger_action = "created_new_draft"
 
     post_url = result.get("url", "")
     post_id = result.get("id", post_id if "post_id" in locals() else "")
@@ -150,29 +171,17 @@ def main():
         "image_present_in_saved_html" if image_url in response_content else "image_embedded_in_request"
     )
     print(json.dumps({
-        "blogger_status": "published" if live else "saved_as_draft",
+        "blogger_status": "saved_as_draft",
         "blogger_action": blogger_action,
         "post_id": str(post_id),
         "title": title,
         "post_url": post_url,
         "featured_image_status": image_status,
-        "featured_image_url": image_url
+        "featured_image_source_type": os.getenv("FEATURED_IMAGE_SOURCE_TYPE", "branded_graphic_fallback"),
+        "featured_image_url": image_url,
+        "public_publishing_enabled": False
     }, ensure_ascii=False))
-
-    # X is strictly downstream of a publicly published Blogger post.
-    if live and os.getenv("ENABLE_X_POSTING", "false").lower() == "true":
-        from requests_oauthlib import OAuth1
-        auth = OAuth1(required("X_API_KEY"), required("X_API_SECRET"),
-                      required("X_ACCESS_TOKEN"), required("X_ACCESS_TOKEN_SECRET"))
-        announcement = f"{title}\n\nRead more: {post_url}"
-        if len(announcement) > 280:
-            announcement = title[:max(40, 275-len(post_url))].rstrip() + "…\n\n" + post_url
-        x_response = requests.post("https://api.x.com/2/tweets",
-            json={"text": announcement}, auth=auth, timeout=30)
-        x_response.raise_for_status()
-        print(json.dumps({"x_status": "posted", "tweet_id": x_response.json().get("data", {}).get("id")}))
-    else:
-        print("X announcement skipped (requires a live Blogger post and ENABLE_X_POSTING=true).")
+    print("X announcement skipped (draft-only testing mode; X publishing disabled).")
 
 if __name__ == "__main__":
     try:
