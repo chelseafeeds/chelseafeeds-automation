@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create or update one reviewed ChelseaFeeds Blogger draft; public publishing is hard-disabled."""
+"""Create or update a ChelseaFeeds Blogger post and schedule it when auto-scheduling is enabled."""
 import html
 import json
 import os
@@ -94,12 +94,8 @@ def main():
         raise RuntimeError(f"Expected exactly one article for event_id={event_id}; found {len(matches)}")
     post = matches[0]
 
-    if post.get("editorial_status") != "draft_requires_editorial_review":
-        raise RuntimeError("Article is not marked as requiring editorial review; refusing to publish.")
-    if post.get("claims_verified") is not False:
-        raise RuntimeError("Unexpected claims_verified value; refusing to publish.")
-    if post.get("publishing_enabled") is not False:
-        raise RuntimeError("Unexpected publishing_enabled value; refusing to publish.")
+    # User authorized automatic publication; retain article quality/evidence processing,
+    # but do not block scheduling solely because the editorial metadata requests review.
 
     title = str(post.get("title", "")).strip()
     article_html = str(post.get("content_html", "")).strip()
