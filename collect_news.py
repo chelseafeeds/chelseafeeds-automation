@@ -226,6 +226,14 @@ def verification_checklist(g):
     }
     return common+specific.get(typ,specific["general_news"])
 
+TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "rejected_quality_gate", "published", "archived"}
+
+def filter_pending_candidates(groups, history):
+    """Do not repeatedly generate the same event after a draft or quality rejection."""
+    events = history.get("events", {}) if isinstance(history, dict) else {}
+    return [g for g in groups if events.get(g.get("event_id"), {}).get("status") not in TERMINAL_EVENT_STATUSES]
+
+
 def select_candidates(groups,limit=MAX_STORIES,opinion_limit=MAX_OPINION_CANDIDATES):
     selected=[]; opinions=0
     for g in groups:
@@ -315,6 +323,9 @@ def run_self_tests():
     queue=[{"story_type":"opinion_analysis","importance_score":90-i} for i in range(7)]+[{"story_type":"match_report","importance_score":80},{"story_type":"team_news","importance_score":79}]
     picked=select_candidates(queue,limit=8,opinion_limit=4)
     assert sum(x["story_type"]=="opinion_analysis" for x in picked)==4 and any(x["story_type"]=="match_report" for x in picked) and any(x["story_type"]=="team_news" for x in picked)
+    processed = {"events": {"done": {"status": "draft_created_unpublished"}, "held": {"status": "rejected_quality_gate"}}}
+    pending = filter_pending_candidates([{"event_id":"done"},{"event_id":"held"},{"event_id":"new"}], processed)
+    assert [x["event_id"] for x in pending] == ["new"]
     # Same Sunderland result, distinct publishers and clear opponent: merge.
     x=[o("Le Fée penalty sinks Chelsea at Sunderland","https://www.theguardian.com/a","Guardian"),o("Chelsea lose at Sunderland after Le Fee penalty","https://chelsea.news/i","Chelsea.news")]
     gs=cluster(x); assert len(gs)==1 and gs[0]["observation_count"]==2
@@ -335,12 +346,13 @@ def main():
         score(g)
         g["verification_status"]="not_started"
         g["verification_checklist"]=verification_checklist(g)
+    pending_groups=filter_pending_candidates(groups,old)
     order={"P1_OFFICIAL_SOURCE_REVIEW":0,"P2_ESTABLISHED_REPORT_REVIEW":1,"P3_TRANSFER_RUMOUR_REQUIRES_LABEL":2,"P3_SPECIALIST_OR_OTHER_SOURCE_REVIEW":3,"P4_OPINION_LOW_PRIORITY":4}
-    groups.sort(key=lambda g:(order.get(g["priority"],9),-g["importance_score"],g["published"],g["title"].lower()))
-    selected=select_candidates(groups); stamp=now(); history=update_history(groups,old)
+    pending_groups.sort(key=lambda g:(order.get(g["priority"],9),-g["importance_score"],g["published"],g["title"].lower()))
+    selected=select_candidates(pending_groups); stamp=now(); history=update_history(groups,old)
     statuses=Counter(r["status"] for r in reports)
     candidate={"collector_version":VERSION,"generated_at":stamp.isoformat(),"selection_limit":MAX_STORIES,"queue_semantics":"Pending candidates only. A later verification processor must explicitly approve claims before article generation or publication.","stories":selected}
-    report={"collector_version":VERSION,"run_started_at":started.isoformat(),"run_completed_at":stamp.isoformat(),"duration_seconds":round((stamp-started).total_seconds(),2),"configured_sources":len(reports),"successful_sources":statuses["success"],"empty_sources":statuses["empty"],"failed_sources":statuses["failed"],"raw_observations_collected":len(obs),"unique_events_after_conservative_deduplication":len(groups),"duplicate_observations_merged":len(obs)-len(groups),"selected_pending_candidates":len(selected),"opinion_candidate_limit":MAX_OPINION_CANDIDATES,"selected_opinion_candidates":sum(g["story_type"]=="opinion_analysis" for g in selected),"events_not_selected_due_to_limit":max(0,len(groups)-len(selected)),"selected_team_scope_distribution":dict(Counter(g["team_scope"] for g in selected)),"selected_story_type_distribution":dict(Counter(g["story_type"] for g in selected)),"selected_priority_distribution":dict(Counter(g["priority"] for g in selected)),"selected_events_with_multiple_publishers":sum(g["publisher_count"]>1 for g in selected),"selected_source_link_count":sum(len(g["source_urls"]) for g in selected),"source_reports":reports,"excluded_sources":[{"source":"Google News","status":"disabled","reason":"Aggregator URLs not reliably resolved to direct publisher articles."},{"source":"NewsNow","status":"disabled","reason":"Direct article extraction was not reliable."}],"quality_controls":["Conservative event clustering: ambiguous stories remain separate; Chelsea mention alone never causes a merge.","Different publishers only merge when story type, team scope, time window and event-specific opponent/player identity agree.","Different same-publisher match articles merge only when story class, team scope, time window and the publisher fixture ID all match; same opponent alone is insufficient.","Match previews, reports and reactions are separate event types.","Chelsea Women and academy scope are detected using headline, summary and URL.","Representative title, summary and URL are sourced from coherent observation records; every original URL remains attached.","RSS excerpts are capped at 500 characters and are source hints only, never article copy.","Multiple publishers do not prove independent confirmation.","All candidates remain pending editorial verification; claims_verified is always false.",
+    report={"collector_version":VERSION,"run_started_at":started.isoformat(),"run_completed_at":stamp.isoformat(),"duration_seconds":round((stamp-started).total_seconds(),2),"configured_sources":len(reports),"successful_sources":statuses["success"],"empty_sources":statuses["empty"],"failed_sources":statuses["failed"],"raw_observations_collected":len(obs),"unique_events_after_conservative_deduplication":len(groups),"duplicate_observations_merged":len(obs)-len(groups),"selected_pending_candidates":len(selected),"eligible_unprocessed_events":len(pending_groups),"skipped_previously_processed_events":len(groups)-len(pending_groups),"opinion_candidate_limit":MAX_OPINION_CANDIDATES,"selected_opinion_candidates":sum(g["story_type"]=="opinion_analysis" for g in selected),"events_not_selected_due_to_limit":max(0,len(pending_groups)-len(selected)),"selected_team_scope_distribution":dict(Counter(g["team_scope"] for g in selected)),"selected_story_type_distribution":dict(Counter(g["story_type"] for g in selected)),"selected_priority_distribution":dict(Counter(g["priority"] for g in selected)),"selected_events_with_multiple_publishers":sum(g["publisher_count"]>1 for g in selected),"selected_source_link_count":sum(len(g["source_urls"]) for g in selected),"source_reports":reports,"excluded_sources":[{"source":"Google News","status":"disabled","reason":"Aggregator URLs not reliably resolved to direct publisher articles."},{"source":"NewsNow","status":"disabled","reason":"Direct article extraction was not reliable."}],"quality_controls":["Conservative event clustering: ambiguous stories remain separate; Chelsea mention alone never causes a merge.","Different publishers only merge when story type, team scope, time window and event-specific opponent/player identity agree.","Different same-publisher match articles merge only when story class, team scope, time window and the publisher fixture ID all match; same opponent alone is insufficient.","Match previews, reports and reactions are separate event types.","Chelsea Women and academy scope are detected using headline, summary and URL.","Representative title, summary and URL are sourced from coherent observation records; every original URL remains attached.","RSS excerpts are capped at 500 characters and are source hints only, never article copy.","Multiple publishers do not prove independent confirmation.","All candidates remain pending editorial verification; claims_verified is always false.",
         "Opinion/analysis candidates are capped at four per run so factual reporting retains queue space.",
         "Each candidate carries a type-specific verification checklist; checklist items are instructions, not completed checks.","Collection does not generate articles or publish to Blogger or X."]}
     write(CANDIDATES_FILE,candidate); write(REPORT_FILE,report); write(HISTORY_FILE,history)
