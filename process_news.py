@@ -192,7 +192,7 @@ def cloudflare_image(prompt, session):
     endpoint = "https://api.cloudflare.com/client/v4/accounts/" + CF_ACCOUNT_ID + "/ai/run/" + CF_MODEL
     response = session.post(endpoint, headers={"Authorization": "Bearer " + CF_API_TOKEN,
         "Content-Type": "application/json"},
-        json={"prompt": prompt[:1900], "steps": IMAGE_STEPS, "width": 1024, "height": 576},
+        json={"prompt": prompt[:1900], "steps": IMAGE_STEPS},
         timeout=180)
     response.raise_for_status()
     ctype = response.headers.get("content-type", "").lower()
@@ -257,10 +257,11 @@ def make_image_assets(draft, story, images_dir, session, remaining):
             break
         filename = "chelseafeeds-" + base + "-" + role + ".jpg"
         path = images_dir / filename
+        # Count every provider attempt, including failures, so the run cap is real.
+        remaining -= 1
         try:
             raw = cloudflare_image(prompt, session)
             size = brand_image(raw, path)
-            remaining -= 1
             assets.append({"role": role, "filename": filename, "local_path": "images/" + filename,
                            "alt_text": str(draft.get("image_alt_text", ""))[:250],
                            "brand_overlay": "CHELSEAFEEDS bottom-left", "branded": True,
@@ -354,7 +355,7 @@ def process(input_path, output_dir):
         "ai_api_configured": bool(AI_API_KEY), "ai_base_url": AI_BASE_URL if AI_API_KEY else None,
         "model": MODEL if AI_API_KEY else None, "image_provider": IMAGE_PROVIDER,
         "image_model": CF_MODEL, "image_api_configured": bool(CF_ACCOUNT_ID and CF_API_TOKEN),
-        "max_images_per_run": MAX_IMAGES_PER_RUN, "images_generated": MAX_IMAGES_PER_RUN - images_remaining,
+        "max_images_per_run": MAX_IMAGES_PER_RUN, "image_requests_used": MAX_IMAGES_PER_RUN - images_remaining,
         "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
             "Evidence accessibility and publisher counts are not factual verification.",
@@ -370,7 +371,7 @@ def process(input_path, output_dir):
         ], "results": results}
     (output_dir / "article_drafts.json").write_text(json.dumps({"processor_version": VERSION, "drafts": drafts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "editorial_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    logging.info("Processor v%s: %d candidates, %d drafts, %d image requests used", VERSION, len(stories), len(drafts), report["images_generated"])
+    logging.info("Processor v%s: %d candidates, %d drafts, %d image requests used", VERSION, len(stories), len(drafts), report["image_requests_used"])
 
 def self_test():
     story = {"story_type":"match_report"}
