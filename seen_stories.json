@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-12T18:41:37.885123+00:00",
+  "updated_at": "2026-11-12T18:42:13.258355+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -708,10 +708,10 @@
       "publisher_domains": [
         "nytimes.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-12T18:42:13.258355+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Pochettino the manager, as seen by Tottenham, Chelsea and USMNT reporters"
     }
   }
 }
