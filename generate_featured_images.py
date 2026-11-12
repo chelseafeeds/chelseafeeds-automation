@@ -174,25 +174,36 @@ def main():
     session.headers.update(HEADERS)
     api_key = ""
     counts = {}
+    eligible_posts = []
+    held_for_image_review = []
     for image_index, post in enumerate(ready_posts, start=1):
         event_id = str(post.get("event_id", ""))
         item = next((x for x in draft_items if str(x.get("event_id", "")) == event_id), None)
         if not item:
+            held_for_image_review.append({"event_id": event_id, "reason": "matching article draft not found"})
             continue
         story = stories_by_id.get(event_id, {})
         draft = item.get("draft", {})
         logging.info("Featured image %d/%d: %s", image_index, len(ready_posts), str(draft.get("title") or event_id)[:130])
-        asset = process_one(story, draft, output / "images", session, api_key, item.get("source_images", []))
+        try:
+            asset = process_one(story, draft, output / "images", session, api_key, item.get("source_images", []))
+        except Exception as exc:
+            reason = type(exc).__name__ + ": " + str(exc)[:250]
+            logging.warning("Holding %s: no acceptable original-source image (%s)", event_id, reason)
+            held_for_image_review.append({"event_id": event_id, "reason": reason})
+            draft["image_generation_status"] = "held_image_rights_or_relevance_review"
+            draft["image_note"] = "No relevant original-source image with image-specific reuse rights was available; this article was not sent to Blogger."
+            continue
         logging.info("Featured image complete for %s: %s", event_id, asset.get("source_type"))
         counts[asset["source_type"]] = counts.get(asset["source_type"], 0) + 1
         draft["image_assets"] = [asset]
         draft["featured_image"] = asset
         draft["image_generation_status"] = asset["source_type"]
-        draft["image_note"] = (
-            "Featured image selected from the original article source under image-specific reuse rights with attribution."
-        )
+        draft["image_note"] = "Featured image selected from the original article source under image-specific reuse rights with attribution."
         post["featured_image"] = asset
         post["image_alt_text"] = asset["alt_text"]
+        eligible_posts.append(post)
+    ready_payload["posts"] = eligible_posts
     drafts_path.write_text(json.dumps(drafts_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     ready_path.write_text(json.dumps(ready_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     report_path = output / "editorial_report.json"
@@ -201,14 +212,16 @@ def main():
         report["thumbnail_method"] = "original_source_page_images_only_explicit_reuse_rights"
         report["featured_image_pipeline"] = {
             "image_counts": counts,
-            "openai_image_api_configured": bool(api_key),
+            "eligible_blogger_posts": len(eligible_posts),
+            "held_for_image_review": held_for_image_review,
             "image_rights_policy": "Image/figure-specific CC0 1.0, Public Domain Mark 1.0, or exact CC BY 2.0/3.0/4.0 only",
             "original_source_attribution_saved": True
         }
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
         "featured_image_pipeline": "original_article_images_only_with_image_specific_reuse_rights",
-        "image_counts": counts, "images_directory": str(output / "images"),
+        "image_counts": counts, "eligible_blogger_posts": len(eligible_posts),
+        "held_for_image_review": held_for_image_review, "images_directory": str(output / "images"),
         "license_policy": "Only image/figure-specific CC0 1.0, Public Domain Mark 1.0, or exact CC BY 2.0/3.0/4.0; otherwise hold for review"
     }, ensure_ascii=False))
 
