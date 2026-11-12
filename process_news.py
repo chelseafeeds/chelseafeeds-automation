@@ -321,6 +321,7 @@ def generate_draft(story, evidence, api_key, session):
         "Use a clear introduction and at least three useful H2 headings. Never pad, repeat points or invent details to reach the minimum. "
         "If evidence cannot support 400 useful words, explain the limitation in editorial_notes; the processor will reject the draft. "
         "Do not write a Sources section or source hyperlinks; the processor adds a deterministic Sources section using accessible supplied URLs. Do not invent internal links. "
+        "SEO search_description is critical: write one natural, complete, factual sentence of 140-160 characters (never exceed 180), beginning with the main Chelsea topic or focus keyword. State the specific development and why it matters. Do not end mid-clause, with a dangling conjunction/preposition, or with unfinished attribution. Do not pad with generic phrases. Use only supplied facts; label rumours as unconfirmed and attribute them. "
         "Return ONLY JSON keys: title, search_description, focus_keyword, labels, article_html, "
         "excerpt, image_prompt, image_alt_text, editorial_notes, unsupported_or_unverified_points. "
         "HTML must be Blogger-ready, with no scripts, iframe, form, schema or inline ads. "
@@ -401,27 +402,52 @@ def add_deterministic_sources(html, fetched):
     return str(soup)
 
 def normalize_search_description(draft):
-    """Build a factual 100-180 character Blogger description from the article itself."""
-    title = re.sub(r"\\s+", " ", str(draft.get("title") or "")).strip()
-    description = re.sub(r"\\s+", " ", str(draft.get("search_description") or "")).strip()
-    if 100 <= len(description) <= 180:
+    """Return a complete, factual 100-180 character search snippet."""
+    title = re.sub(r"\s+", " ", str(draft.get("title") or "")).strip()
+    description = re.sub(r"\s+", " ", str(draft.get("search_description") or "")).strip()
+
+    def complete(value):
+        value = value.strip()
+        if not (100 <= len(value) <= 180) or not re.search(r"[.!?]$", value):
+            return False
+        if re.search(r"\b(?:and|or|but|with|as|for|to|from|of|the|a|an|who|which|that|while|amid|including|after|before|because)\s*[.!?]$", value, re.I):
+            return False
+        if re.search(r"\b(?:according to|reported by|journalist|source|claiming|suggesting)\s+[^.!?]*[.!?]$", value, re.I):
+            return False
+        return True
+
+    if complete(description):
         return description
-    if len(description) > 180:
-        shortened = description[:178].rsplit(" ", 1)[0].rstrip(" ,;:-")
-        return shortened + "."
+
     soup = BeautifulSoup(str(draft.get("article_html") or ""), "html.parser")
-    paragraphs = [re.sub(r"\\s+", " ", p.get_text(" ", strip=True)).strip()
+    paragraphs = [re.sub(r"\s+", " ", p.get_text(" ", strip=True)).strip()
                   for p in soup.find_all("p")]
     paragraphs = [p for p in paragraphs if len(p) > 35]
-    factual_intro = " ".join(paragraphs[:2])
-    candidate = (title + ". " + factual_intro).strip(" .")
-    if len(candidate) > 180:
-        candidate = candidate[:178].rsplit(" ", 1)[0].rstrip(" ,;:-") + "."
-    if len(candidate) < 100:
-        # Do not invent filler: keep the available factual wording and allow the quality gate to reject it.
-        return candidate
-    return candidate
+    sentences = []
+    for paragraph in paragraphs[:2]:
+        sentences.extend(re.split(r"(?<=[.!?])\s+", paragraph))
+    sentences = [x.strip() for x in sentences if len(x.strip()) > 25]
+    candidates = []
+    for count in (1, 2, 3):
+        if len(sentences) >= count:
+            candidates.append(" ".join(sentences[:count]))
+    for candidate in candidates:
+        if 100 <= len(candidate) <= 180 and complete(candidate):
+            return candidate
 
+    factual_intro = candidates[0] if candidates else (paragraphs[0] if paragraphs else "")
+    base = factual_intro or title
+    if len(base) > 177:
+        base = base[:177].rsplit(" ", 1)[0].rstrip(" ,;:-")
+        base = base.rstrip(".!?") + "…"
+    elif base and not re.search(r"[.!?…]$", base):
+        base += "."
+    if 100 <= len(base) <= 180:
+        return base
+    combined = (title + ". " + factual_intro).strip(" .")
+    if len(combined) > 180:
+        combined = combined[:177].rsplit(" ", 1)[0].rstrip(" ,;:-") + "…"
+    return combined
 
 def quality_gate(draft, fetched, story, allowed_internal_urls=None):
     html = str(draft.get("article_html", ""))
@@ -456,6 +482,7 @@ def quality_gate(draft, fetched, story, allowed_internal_urls=None):
     checks = {
         "title_present_and_reasonable": 25 <= len(title) <= 100,
         "search_description_length": 100 <= len(description) <= 180,
+        "search_description_is_complete": (bool(re.search(r"[.!?…]$", description)) and not bool(re.search(r"\b(?:and|or|but|with|as|for|to|from|of|the|a|an|who|which|that|while|amid|including|after|before)\s*[.!?]$", description, re.I))),
         "substantive_article_body_minimum_400_words": word_count >= 400,
         "has_section_headings": len(original_soup.find_all(["h2", "h3"])) >= 2,
         "has_source_links": bool(links & allowed_urls),
@@ -693,7 +720,14 @@ def self_test():
     short_meta["article_html"] = "<h2>Context</h2><p>Chelsea secured an important result after a disciplined performance across the match, with the supplied report outlining the key moments and tactical details.</p><h2>Analysis</h2><p>Supporters will be watching the next fixture closely.</p><p><a href='https://www.bbc.co.uk/a'>BBC source</a></p>"
     normalized = normalize_search_description(short_meta)
     assert 100 <= len(normalized) <= 180, normalized
-    assert "Chelsea analysis: the key issues supporters should understand" in normalized
+    assert normalized.endswith((".", "!", "?", "…")), normalized
+    assert "Chelsea secured an important result" in normalized
+    broken_meta = make_draft(400)
+    broken_meta["search_description"] = "Chelsea have reportedly accelerated talks with transfer journalist Simon."
+    broken_meta["article_html"] = "<p>Chelsea have reportedly accelerated talks to sign the forward, according to the supplied report. The club has not confirmed an agreement.</p>"
+    repaired = normalize_search_description(broken_meta)
+    assert repaired.startswith("Chelsea have reportedly accelerated talks to sign"), repaired
+    assert 100 <= len(repaired) <= 180, repaired
     too_long_meta = make_draft(400)
     too_long_meta["search_description"] = "Chelsea " + ("supporters " * 30)
     assert len(normalize_search_description(too_long_meta)) <= 180
