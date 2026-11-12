@@ -37,44 +37,24 @@ def attach_featured_image(article_html, image_url, alt_text):
     safe_url = html.escape(image_url, quote=True)
     safe_alt = html.escape(alt_text[:250], quote=True)
     source_type = os.getenv("FEATURED_IMAGE_SOURCE_TYPE", "").strip()
-    credit_text = os.getenv("FEATURED_IMAGE_CREDIT_TEXT", "ChelseaFeeds editorial graphic").strip()
+    credit_text = os.getenv("FEATURED_IMAGE_CREDIT_TEXT", "ChelseaFeeds").strip()
     credit_url = os.getenv("FEATURED_IMAGE_CREDIT_URL", "").strip()
-    license_name = os.getenv("FEATURED_IMAGE_LICENSE_NAME", "").strip()
-    license_url = os.getenv("FEATURED_IMAGE_LICENSE_URL", "").strip()
-
-    if source_type == "licensed_original_source_photo":
+    if source_type == "article_source_photo":
         source = urlparse(credit_url)
-        license_link = urlparse(license_url) if license_url else None
         if source.scheme != "https" or not source.netloc:
-            raise RuntimeError("Licensed source photo is missing a valid HTTPS attribution page.")
-        accepted = {"CC BY 2.0", "CC BY 3.0", "CC BY 4.0", "CC0 1.0", "PUBLIC DOMAIN MARK 1.0"}
-        if license_name.upper() not in accepted:
-            raise RuntimeError("Original-source image is missing an exact accepted image-specific licence name.")
-        if license_link and (license_link.scheme != "https" or license_link.netloc not in {"creativecommons.org", "www.creativecommons.org"}):
-            raise RuntimeError("Commons photo licence URL is not an approved Creative Commons URL.")
-        if not license_link:
-            raise RuntimeError("Original-source image is missing its licence URL.")
-        license_caption = (
-            f' · <a href="{html.escape(license_url, quote=True)}" rel="nofollow noopener">{html.escape(license_name)}</a>'
-            if license_url else f' · {html.escape(license_name)}'
-        )
-        caption = (
-            '<figcaption style="font-size: small; color: #666; text-align: center;">'
-            f'{html.escape(credit_text)} · '
-            f'<a href="{html.escape(credit_url, quote=True)}" rel="nofollow noopener">Image source</a>'
-            f'{license_caption}</figcaption>'
-        )
+            raise RuntimeError("Source-article photo is missing a valid HTTPS attribution page.")
+        caption = ('<figcaption style="font-size: small; color: #666; text-align: center;">'
+                   f'{html.escape(credit_text)} · <a href="{html.escape(credit_url, quote=True)}" rel="nofollow noopener">Image source</a></figcaption>')
+    elif source_type == "chelseafeeds_blog_logo":
+        caption = ('<figcaption style="font-size: small; color: #666; text-align: center;">ChelseaFeeds</figcaption>')
     else:
-        raise RuntimeError("Refusing to publish an article without a verified original-source featured image.")
-
+        raise RuntimeError("Featured image must be a relevant source-article photo or the ChelseaFeeds blog logo.")
     if image_url in article_html:
         return article_html
-    image_block = (
-        '<figure class="separator" style="clear: both; text-align: center; margin: 0 auto 1.2em;">'
+    image_block = ('<figure class="separator" style="clear: both; text-align: center; margin: 0 auto 1.2em;">'
         f'<img src="{safe_url}" alt="{safe_alt}" width="1200" height="675" '
         'style="display: block; max-width: 100%; height: auto; margin: 0 auto;" />'
-        f'{caption}</figure>'
-    )
+        f'{caption}</figure>')
     return image_block + article_html
 
 def main():
