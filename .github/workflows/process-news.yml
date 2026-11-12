@@ -67,7 +67,7 @@ jobs:
           python related_links.py --self-test
           python update_processing_history.py --self-test
 
-      - name: Test original-source-only featured-image safeguards
+      - name: Test source-photo preference and ChelseaFeeds logo fallback
         run: python generate_featured_images.py --self-test
 
       - name: Compile-check publishing integration
@@ -81,11 +81,11 @@ jobs:
           run-id: ${{ github.event.workflow_run.id || inputs.source_run_id }}
           path: input
 
-      - name: Run evidence checks and article quality gate (no generic thumbnail fallback)
+      - name: Run evidence checks and article quality gate
         run: |
           python process_news.py --input input/news_candidates.json --output output
 
-      - name: Select only relevant, image-specifically licensed photos from original article sources
+      - name: Use relevant source-article photos, with ChelseaFeeds logo fallback
         run: python generate_featured_images.py --output output
 
       - name: Save editorial results and generated images
