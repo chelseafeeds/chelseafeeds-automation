@@ -88,6 +88,16 @@ def main():
     image_alt = required("FEATURED_IMAGE_ALT")
     content = attach_featured_image(article_html, image_url, image_alt)
 
+    # Blogger API v3 no longer persists per-post Search Description metadata.
+    # Put the editorial description in a concise, visible lead summary instead;
+    # Blogger can then derive a meaningful page description from the opening text
+    # when the blog-level Search descriptions switch is disabled.
+    if 'class="article-search-summary"' not in content:
+        summary = ('<p class="article-search-summary" style="font-size:1.05em;line-height:1.6;'
+                   'font-weight:500;margin:0 0 1.2em;">'
+                   + html.escape(description) + '</p>')
+        content = summary + content
+
     # Publishing is permitted only through an explicit, bounded future schedule.
     # A zero-minute setting preserves draft-only behaviour.
     schedule_minutes = int(os.getenv("BLOGGER_AUTO_SCHEDULE_MINUTES", "0"))
@@ -112,7 +122,6 @@ def main():
         "title": title,
         "content": content,
         "labels": post.get("labels", []) if isinstance(post.get("labels"), list) else [],
-        "customMetaData": description
     }
     base = f"{API}/blogs/{quote(blog_id, safe='')}/posts"
 
@@ -181,6 +190,7 @@ def main():
         "title": title,
         "post_url": post_url,
         "search_description_characters": len(description),
+        "search_description_handling": "visible_lead_summary_for_Blogger_excerpt",
         "scheduled_for_utc": scheduled_for,
         "schedule_delay_minutes": schedule_minutes,
         "featured_image_status": image_status,
