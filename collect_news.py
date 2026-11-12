@@ -11,11 +11,11 @@ from collections import Counter
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
-from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode
+from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode, urljoin
 import feedparser, requests
 from bs4 import BeautifulSoup
 
-VERSION = "4.0"
+VERSION = "4.1"
 ROOT = Path(__file__).resolve().parent
 HISTORY_FILE = ROOT / "seen_stories.json"
 CANDIDATES_FILE = ROOT / "news_candidates.json"
@@ -263,6 +263,69 @@ def fetch_feed(cfg,session):
         if not out: rep["error"]="No eligible direct Chelsea stories in this feed"
     except Exception as ex: rep["error"]=f"{type(ex).__name__}: {ex}"; logging.warning("%s: %s",cfg["name"],rep["error"])
     return out,rep
+def fetch_newsnow(session):
+    """Use NewsNow as a discovery index, but retain only resolved publisher URLs.
+
+    NewsNow is not treated as evidence or an article source. Its c.newsnow.com
+    redirect links are followed to the originating publisher before creating
+    candidate observations.
+    """
+    page_url = "https://www.newsnow.com/us/?search=Chelsea"
+    report = {"source":"NewsNow Chelsea discovery","url":page_url,"status":"failed",
+              "entries_received":0,"observations_collected":0,"rejected_unresolved":0,
+              "error":None}
+    out=[]
+    try:
+        response=session.get(page_url,timeout=TIMEOUT,allow_redirects=True)
+        response.raise_for_status()
+        soup=BeautifulSoup(response.text,"html.parser")
+        anchors=[]
+        for a in soup.find_all("a",href=True):
+            href=urljoin(response.url,a.get("href",""))
+            title=textval(a.get_text(" ",strip=True))
+            if not title or len(title)<24 or not matches(domain(href),{"c.newsnow.com","newsnow.com"}):
+                continue
+            if not relevant(title,""): continue
+            anchors.append((a,title))
+        seen=set()
+        for a,title in anchors:
+            if len(out)>=45: break
+            wrapper=a.parent
+            card_text=textval(wrapper.get_text(" ",strip=True)) if wrapper else ""
+            # NewsNow timestamps are displayed as HH:MM; map them to the
+            # closest recent UTC day. The original publisher date is checked
+            # again by the evidence processor before drafting.
+            match=re.search(r"\\b([01]?\\d|2[0-3]):([0-5]\\d)\\b",card_text)
+            published=now()
+            if match:
+                published=published.replace(hour=int(match.group(1)),minute=int(match.group(2)),second=0,microsecond=0)
+                if published>now()+timedelta(minutes=5): published-=timedelta(days=1)
+            try:
+                resolved=session.get(a.get("href"),timeout=TIMEOUT,allow_redirects=True)
+                final_url=normalize_url(resolved.url)
+                if not final_url or matches(domain(final_url),{"newsnow.com","c.newsnow.com"}) or final_url in seen:
+                    report["rejected_unresolved"]+=1; continue
+                seen.add(final_url)
+                # Publisher/source label is retained only as metadata, never as proof.
+                publisher=""
+                for child in wrapper.find_all(["span","small","div"]) if wrapper else []:
+                    candidate=textval(child.get_text(" ",strip=True))
+                    if candidate and candidate!=title and len(candidate)<90:
+                        publisher=candidate; break
+                item=observation(title,"Discovered via NewsNow; publisher article requires direct evidence.",final_url,
+                                 "NewsNow discovery",publisher,published)
+                if item: out.append(item)
+            except requests.RequestException:
+                report["rejected_unresolved"]+=1
+        report["entries_received"]=len(anchors)
+        report["observations_collected"]=len(out)
+        report["status"]="success" if out else "empty"
+        if not out: report["error"]="NewsNow returned no resolvable direct Chelsea publisher links"
+    except Exception as exc:
+        report["error"]=f"{type(exc).__name__}: {str(exc)[:220]}"
+        logging.warning("NewsNow discovery: %s",report["error"])
+    return out,report
+
 def load_history():
     try:
         data=json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
@@ -352,7 +415,7 @@ def main():
     selected=select_candidates(pending_groups); stamp=now(); history=update_history(groups,old)
     statuses=Counter(r["status"] for r in reports)
     candidate={"collector_version":VERSION,"generated_at":stamp.isoformat(),"selection_limit":MAX_STORIES,"queue_semantics":"Pending candidates only. A later verification processor must explicitly approve claims before article generation or publication.","stories":selected}
-    report={"collector_version":VERSION,"run_started_at":started.isoformat(),"run_completed_at":stamp.isoformat(),"duration_seconds":round((stamp-started).total_seconds(),2),"configured_sources":len(reports),"successful_sources":statuses["success"],"empty_sources":statuses["empty"],"failed_sources":statuses["failed"],"raw_observations_collected":len(obs),"unique_events_after_conservative_deduplication":len(groups),"duplicate_observations_merged":len(obs)-len(groups),"selected_pending_candidates":len(selected),"eligible_unprocessed_events":len(pending_groups),"skipped_previously_processed_events":len(groups)-len(pending_groups),"opinion_candidate_limit":MAX_OPINION_CANDIDATES,"selected_opinion_candidates":sum(g["story_type"]=="opinion_analysis" for g in selected),"events_not_selected_due_to_limit":max(0,len(pending_groups)-len(selected)),"selected_team_scope_distribution":dict(Counter(g["team_scope"] for g in selected)),"selected_story_type_distribution":dict(Counter(g["story_type"] for g in selected)),"selected_priority_distribution":dict(Counter(g["priority"] for g in selected)),"selected_events_with_multiple_publishers":sum(g["publisher_count"]>1 for g in selected),"selected_source_link_count":sum(len(g["source_urls"]) for g in selected),"source_reports":reports,"excluded_sources":[{"source":"Google News","status":"disabled","reason":"Aggregator URLs not reliably resolved to direct publisher articles."},{"source":"NewsNow","status":"disabled","reason":"Used as a discovery reference only; resolve headlines to original publisher articles and verify there."}],"quality_controls":["Conservative event clustering: ambiguous stories remain separate; Chelsea mention alone never causes a merge.","Different publishers only merge when story type, team scope, time window and event-specific opponent/player identity agree.","Different same-publisher match articles merge only when story class, team scope, time window and the publisher fixture ID all match; same opponent alone is insufficient.","Match previews, reports and reactions are separate event types.","Chelsea Women and academy scope are detected using headline, summary and URL.","Representative title, summary and URL are sourced from coherent observation records; every original URL remains attached.","RSS excerpts are capped at 500 characters and are source hints only, never article copy.","Multiple publishers do not prove independent confirmation.","All candidates remain pending editorial verification; claims_verified is always false.",
+    report={"collector_version":VERSION,"run_started_at":started.isoformat(),"run_completed_at":stamp.isoformat(),"duration_seconds":round((stamp-started).total_seconds(),2),"configured_sources":len(reports),"newsnow_discovery_enabled":True,"successful_sources":statuses["success"],"empty_sources":statuses["empty"],"failed_sources":statuses["failed"],"raw_observations_collected":len(obs),"unique_events_after_conservative_deduplication":len(groups),"duplicate_observations_merged":len(obs)-len(groups),"selected_pending_candidates":len(selected),"eligible_unprocessed_events":len(pending_groups),"skipped_previously_processed_events":len(groups)-len(pending_groups),"opinion_candidate_limit":MAX_OPINION_CANDIDATES,"selected_opinion_candidates":sum(g["story_type"]=="opinion_analysis" for g in selected),"events_not_selected_due_to_limit":max(0,len(pending_groups)-len(selected)),"selected_team_scope_distribution":dict(Counter(g["team_scope"] for g in selected)),"selected_story_type_distribution":dict(Counter(g["story_type"] for g in selected)),"selected_priority_distribution":dict(Counter(g["priority"] for g in selected)),"selected_events_with_multiple_publishers":sum(g["publisher_count"]>1 for g in selected),"selected_source_link_count":sum(len(g["source_urls"]) for g in selected),"source_reports":reports,"excluded_sources":[{"source":"Google News","status":"disabled","reason":"Aggregator URLs not reliably resolved to direct publisher articles."}],"quality_controls":["Conservative event clustering: ambiguous stories remain separate; Chelsea mention alone never causes a merge.","Different publishers only merge when story type, team scope, time window and event-specific opponent/player identity agree.","Different same-publisher match articles merge only when story class, team scope, time window and the publisher fixture ID all match; same opponent alone is insufficient.","Match previews, reports and reactions are separate event types.","Chelsea Women and academy scope are detected using headline, summary and URL.","Representative title, summary and URL are sourced from coherent observation records; every original URL remains attached.","RSS excerpts are capped at 500 characters and are source hints only, never article copy.","Multiple publishers do not prove independent confirmation.","NewsNow is used only to discover and resolve original publisher URLs; NewsNow itself is never treated as evidence.",\n        "All candidates remain pending editorial verification; claims_verified is always false.",
         "Opinion/analysis candidates are capped at four per run so factual reporting retains queue space.",
         "Each candidate carries a type-specific verification checklist; checklist items are instructions, not completed checks.","Collection does not generate articles or publish to Blogger or X."]}
     write(CANDIDATES_FILE,candidate); write(REPORT_FILE,report); write(HISTORY_FILE,history)
