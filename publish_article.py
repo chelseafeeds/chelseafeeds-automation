@@ -36,7 +36,7 @@ def attach_featured_image(article_html, image_url, alt_text):
         raise RuntimeError("Featured image URL is not from the verified ChelseaFeeds public image repository.")
     safe_url = html.escape(image_url, quote=True)
     safe_alt = html.escape(alt_text[:250], quote=True)
-    source_type = os.getenv("FEATURED_IMAGE_SOURCE_TYPE", "branded_graphic_fallback").strip()
+    source_type = os.getenv("FEATURED_IMAGE_SOURCE_TYPE", "").strip()
     credit_text = os.getenv("FEATURED_IMAGE_CREDIT_TEXT", "ChelseaFeeds editorial graphic").strip()
     credit_url = os.getenv("FEATURED_IMAGE_CREDIT_URL", "").strip()
     license_name = os.getenv("FEATURED_IMAGE_LICENSE_NAME", "").strip()
@@ -64,8 +64,6 @@ def attach_featured_image(article_html, image_url, alt_text):
             f'<a href="{html.escape(credit_url, quote=True)}" rel="nofollow noopener">Image source</a>'
             f'{license_caption}</figcaption>'
         )
-    elif source_type == "ai_generated_illustration":
-        caption = '<figcaption style="font-size: small; color: #666; text-align: center;">AI-generated editorial illustration; not a documentary match photograph.</figcaption>'
     else:
         raise RuntimeError("Refusing to publish an article without a verified original-source featured image.")
 
@@ -206,7 +204,7 @@ def main():
         "scheduled_for_utc": scheduled_for,
         "schedule_delay_minutes": schedule_minutes,
         "featured_image_status": image_status,
-        "featured_image_source_type": os.getenv("FEATURED_IMAGE_SOURCE_TYPE", "branded_graphic_fallback"),
+        "featured_image_source_type": os.getenv("FEATURED_IMAGE_SOURCE_TYPE", ""),
         "featured_image_url": image_url,
         "public_publishing_enabled": bool(schedule_minutes)
     }, ensure_ascii=False))
