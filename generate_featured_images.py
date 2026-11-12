@@ -119,6 +119,7 @@ def process_one(story, draft, images_dir, session, api_key, source_images=None):
         "width": WIDTH, "height": HEIGHT, "bytes": destination.stat().st_size,
         "source_type": "licensed_original_source_photo", "source_page": candidate.get("page_url"),
         "source_image_url": candidate["url"], "license_name": candidate["license_name"],
+        "rights_evidence_scope": candidate.get("rights_evidence_scope"),
         "license_url": candidate.get("license_url", ""), "credit_text": "Image from original article source",
         "matched_terms": matched, "relevance_score": score, "branded": False
     }
