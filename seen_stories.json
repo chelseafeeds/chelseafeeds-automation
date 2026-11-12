@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-12T15:14:04.958150+00:00",
+  "updated_at": "2026-11-12T15:14:57.098662+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -120,10 +120,10 @@
       "publisher_domains": [
         "chelsea.news"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-12T15:14:57.098662+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Tuchel leaves a fit Cole Palmer out of England squad, Rogers Chelsea’s only call-up"
     },
     "f63b7dfb639c4285516ab1e2": {
       "event_id": "f63b7dfb639c4285516ab1e2",
@@ -165,10 +165,10 @@
       "publisher_domains": [
         "chelsea.news"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-12T15:14:57.098662+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Quenda races to be fit for Sunderland after muscle problem adds to Chelsea injury list"
     },
     "1b2c0e8530bbf548d936315f": {
       "event_id": "1b2c0e8530bbf548d936315f",
