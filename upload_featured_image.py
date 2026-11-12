@@ -84,8 +84,8 @@ def main():
     alt = str(featured.get("alt_text") or post.get("image_alt_text") or post.get("title") or "ChelseaFeeds article image").strip()
     alt = re.sub(r"\s+", " ", alt)[:250]
     source_type = str(featured.get("source_type") or "branded_graphic_fallback").strip()
-    if source_type not in {"licensed_commons_photo", "licensed_original_source_photo"}:
-        raise RuntimeError(f"Unsupported featured image source type: {source_type}")
+    if source_type != "licensed_original_source_photo":
+        raise RuntimeError(f"Only an image from the original article source is allowed; received: {source_type}")
     credit_text = re.sub(r"\s+", " ", str(featured.get("credit_text") or "ChelseaFeeds editorial graphic")).strip()[:500]
     credit_url = str(featured.get("source_page") or "").strip()
     license_name = re.sub(r"\s+", " ", str(featured.get("license_name") or "")).strip()[:100]
@@ -98,8 +98,13 @@ def main():
             raise RuntimeError("Original-source image is missing its HTTPS source page.")
         if parsed_license.scheme != "https" or parsed_license.netloc not in {"creativecommons.org", "www.creativecommons.org"}:
             raise RuntimeError("Original-source image is missing a verifiable Creative Commons licence URL.")
-        if not license_name or "CC BY " not in license_name.upper() and "CC0" not in license_name.upper() and "PUBLIC DOMAIN" not in license_name.upper():
-            raise RuntimeError("Original-source image has no accepted reuse licence.")
+        accepted = {"CC BY 2.0", "CC BY 3.0", "CC BY 4.0", "CC0 1.0", "PUBLIC DOMAIN MARK 1.0"}
+        if license_name.upper() not in accepted:
+            raise RuntimeError("Original-source image has no exact accepted image-specific reuse licence.")
+        if not featured.get("source_image_url", "").startswith("https://"):
+            raise RuntimeError("Original-source image URL is missing or insecure.")
+        if featured.get("rights_evidence_scope") != "image_or_figure":
+            raise RuntimeError("Image-specific licence evidence is missing; page-wide licences are not accepted.")
     output_file = os.environ.get("GITHUB_OUTPUT")
     if not output_file:
         raise RuntimeError("GITHUB_OUTPUT is unavailable; cannot pass the verified image URL to the publisher.")
