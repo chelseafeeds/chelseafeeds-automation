@@ -33,8 +33,7 @@ jobs:
       AI_BASE_URL: https://api.groq.com/openai/v1
       AI_MODEL: openai/gpt-oss-120b
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      OPENAI_IMAGE_MODEL: gpt-image-2.5-flare
-      MAX_DRAFTS_PER_RUN: "15"
+            MAX_DRAFTS_PER_RUN: "15"
       MAX_SOURCE_PACK: "5"
       MAX_SOURCE_CHARS: "3500"
       MAX_COMPLETION_TOKENS: "2600"
@@ -45,8 +44,7 @@ jobs:
       AI_FALLBACK_ENABLED: "true"
       AI_FALLBACK_BASE_URL: https://api.openai.com/v1
       AI_FALLBACK_MODEL: gpt-4.1-mini
-      OPENAI_IMAGE_TIMEOUT: "90"
-
+      
     steps:
       - name: Get project files
         uses: actions/checkout@v4
@@ -69,7 +67,7 @@ jobs:
           python related_links.py --self-test
           python update_processing_history.py --self-test
 
-      - name: Test mixed featured-image safeguards
+      - name: Test original-source-only featured-image safeguards
         run: python generate_featured_images.py --self-test
 
       - name: Compile-check publishing integration
@@ -87,7 +85,7 @@ jobs:
         run: |
           python process_news.py --input input/news_candidates.json --output output
 
-      - name: Select licensed photos or generate article-aware illustrations
+      - name: Select only relevant, image-specifically licensed photos from original article sources
         run: python generate_featured_images.py --output output
 
       - name: Save editorial results and generated images
