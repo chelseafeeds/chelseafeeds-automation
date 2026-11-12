@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-12T13:11:09.774557+00:00",
+  "updated_at": "2026-11-12T13:11:59.119333+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -225,10 +225,10 @@
       "publisher_domains": [
         "theguardian.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-12T13:11:59.119333+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea’s Alonso identity still to form in a midfield that remains a problem"
     },
     "afa598f4c5ccf20ffad8a6c8": {
       "event_id": "afa598f4c5ccf20ffad8a6c8",
@@ -648,10 +648,10 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-12T13:11:59.119333+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea transfers: Alonso ‘loves’ Arsenal star and ‘would love to work’ with him – Romano"
     },
     "cf3fbbb8797d2961e8614e82": {
       "event_id": "cf3fbbb8797d2961e8614e82",
