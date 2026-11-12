@@ -295,7 +295,7 @@ def fetch_newsnow(session):
             # NewsNow timestamps are displayed as HH:MM; map them to the
             # closest recent UTC day. The original publisher date is checked
             # again by the evidence processor before drafting.
-            match=re.search(r"\\b([01]?\\d|2[0-3]):([0-5]\\d)\\b",card_text)
+            match=re.search(r"\b([01]?\d|2[0-3]):([0-5]\d)\b",card_text)
             published=now()
             if match:
                 published=published.replace(hour=int(match.group(1)),minute=int(match.group(2)),second=0,microsecond=0)
@@ -404,6 +404,9 @@ def main():
     obs=[]; reports=[]
     for cfg in FEEDS:
         logging.info("Collecting %s",cfg["name"]); items,rep=fetch_feed(cfg,session); obs.extend(items); reports.append(rep); time.sleep(.15)
+    logging.info("Discovering direct publisher links via NewsNow")
+    newsnow_items,newsnow_report=fetch_newsnow(session)
+    obs.extend(newsnow_items); reports.append(newsnow_report)
     groups=cluster(obs)
     for g in groups:
         score(g)
