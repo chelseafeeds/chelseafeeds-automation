@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ChelseaFeeds original-source-only featured-image pipeline; fail closed without image-specific reuse rights."""
+"""Use a relevant image embedded in the source article; otherwise use the ChelseaFeeds logo."""
 from __future__ import annotations
 
 import argparse
@@ -20,7 +20,7 @@ OUTPUT = Path("output")
 IMAGES = OUTPUT / "images"
 WIDTH, HEIGHT = 1200, 675
 TIMEOUT = (5, 30)
-OPENAI_IMAGE_TIMEOUT = max(30, min(120, int(os.getenv("OPENAI_IMAGE_TIMEOUT", "90"))))
+BLOG_LOGO_URL = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_LQEuUeApFnfW2_XrI4dtabQ38WxGe6ULYAvXpFm1XRpbsgd2oEM8x_F-X5I4PzOuBJIqEit80zFgQXXL05oL6ycNSTC1wb9bR0dvlwowu6Z9upUx1zZy15KI5SPFlqRP9zLXR9B37OTjpfbchhhT97kySZ5I36Vh9Qj0LNB_-yMw7pRHbLOo9I_Ceu8/w800/1001060295.png"
 HEADERS = {
     "User-Agent": "ChelseaFeedsImageBot/2.0 (https://www.chelseafeeds.com/; editorial image sourcing)"
 }
@@ -72,37 +72,43 @@ def relevance_score(story, draft, candidate_text):
 
 
 def process_one(story, draft, images_dir, session, api_key, source_images=None):
-    """Use only an article's own source-page image, and only with explicit reusable rights."""
+    """Prefer a clearly relevant image embedded in the original article; fall back to the supplied blog logo."""
     base = re.sub(r"[^a-z0-9]+", "-", str(draft.get("title") or story.get("title") or "chelsea-story").lower()).strip("-")[:75]
-    filename = f"chelseafeeds-{base}-featured.jpg"
-    destination = images_dir / filename
     images_dir.mkdir(parents=True, exist_ok=True)
     article_terms = tokens(" ".join([story.get("title", ""), draft.get("title", ""), draft.get("excerpt", "")]))
     ranked = []
     for candidate in (source_images or []):
-        license_name = str(candidate.get("license_name") or "")
-        license_url = str(candidate.get("license_url") or "")
-        source_page = str(candidate.get("page_url") or "")
-        if (not candidate.get("rights_explicit") or not license_allowed(license_name)
-                or not license_url.startswith("https://") or not source_page.startswith("https://")
-                or candidate.get("rights_evidence_scope") != "image_or_figure"):
+        url = str(candidate.get("url") or "")
+        if not url.startswith("https://"):
             continue
         alt = " ".join([candidate.get("alt_text", ""), candidate.get("caption", "")])
         score, matched = relevance_score(story, draft, alt)
-        # Require article-specific descriptive evidence, not a generic Chelsea image.
-        if score < 2:
-            continue
-        ranked.append((score, candidate, matched))
-    if not ranked:
-        raise RuntimeError("No relevant source-page image with an explicitly accepted reuse licence; article image review required.")
-    ranked.sort(key=lambda x: x[0], reverse=True)
-    score, candidate, matched = ranked[0]
-    response = session.get(candidate["url"], timeout=TIMEOUT)
+        if score >= 2:
+            ranked.append((score, candidate, matched))
+    source_type = "article_source_photo"
+    if ranked:
+        ranked.sort(key=lambda x: x[0], reverse=True)
+        _, candidate, matched = ranked[0]
+        image_url = candidate["url"]
+        credit_text = "Image from the original article source"
+        source_page = candidate.get("page_url", "")
+        alt_text = candidate.get("alt_text") or candidate.get("caption") or draft.get("title", "")
+    else:
+        candidate = {}
+        image_url = BLOG_LOGO_URL
+        matched = []
+        credit_text = "ChelseaFeeds blog logo"
+        source_page = "https://www.chelseafeeds.com/"
+        alt_text = "ChelseaFeeds"
+        source_type = "chelseafeeds_blog_logo"
+    response = session.get(image_url, timeout=TIMEOUT)
     response.raise_for_status()
     if not response.headers.get("content-type", "").lower().startswith("image/"):
-        raise RuntimeError("Source image URL did not return an image.")
-    if len(response.content) < 5000 or len(response.content) > 12 * 1024 * 1024:
-        raise RuntimeError("Source image size is outside the allowed range.")
+        raise RuntimeError("Selected featured-image URL did not return an image.")
+    if len(response.content) < 1000 or len(response.content) > 12 * 1024 * 1024:
+        raise RuntimeError("Selected featured image size is outside the allowed range.")
+    filename = f"chelseafeeds-{base}-featured.jpg"
+    destination = images_dir / filename
     temp = destination.with_suffix(".source")
     temp.write_bytes(response.content)
     try:
@@ -115,15 +121,12 @@ def process_one(story, draft, images_dir, session, api_key, source_images=None):
         temp.unlink(missing_ok=True)
     return {
         "role": "thumbnail", "filename": filename, "local_path": f"images/{filename}",
-        "alt_text": (candidate.get("alt_text") or draft.get("image_alt_text") or draft.get("title", ""))[:250],
-        "width": WIDTH, "height": HEIGHT, "bytes": destination.stat().st_size,
-        "source_type": "licensed_original_source_photo", "source_page": candidate.get("page_url"),
-        "source_image_url": candidate["url"], "license_name": candidate["license_name"],
-        "rights_evidence_scope": candidate.get("rights_evidence_scope"),
-        "license_url": candidate.get("license_url", ""), "credit_text": "Image from original article source",
-        "matched_terms": matched, "relevance_score": score, "branded": False
+        "alt_text": clean_meta(alt_text)[:250], "width": WIDTH, "height": HEIGHT,
+        "bytes": destination.stat().st_size, "source_type": source_type,
+        "source_page": source_page, "source_image_url": image_url,
+        "credit_text": credit_text, "matched_terms": matched,
+        "relevance_score": len(matched), "branded": source_type == "chelseafeeds_blog_logo"
     }
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -131,24 +134,12 @@ def main():
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
     if args.self_test:
-        assert license_allowed("CC BY 4.0")
-        assert license_allowed("CC BY 3.0")
-        assert license_allowed("CC0 1.0")
-        assert license_allowed("Public Domain Mark 1.0")
-        assert not license_allowed("Public domain")
-        assert not license_allowed("CC BY-SA 4.0")
-        assert not license_allowed("All rights reserved")
-        assert not license_allowed("CC BY (version requires verification)")
-        assert not license_allowed("CC BY-SA 4.0")
         assert relevance_score({"title":"Chelsea Sunderland penalty"}, {"title":"Chelsea Sunderland match report"},
-                               "Chelsea Sunderland football penalty") [0] >= 2
+                               "Chelsea Sunderland football penalty")[0] >= 2
         assert relevance_score({"title":"Chelsea injury update"}, {"title":"Chelsea injury update"},
-                               "Generic stadium photo") [0] == 0
-        licensed = {"rights_explicit": True, "license_name": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/", "page_url": "https://source.example/article", "rights_evidence_scope": "image_or_figure", "alt_text": "Chelsea Sunderland penalty match"}
-        assert licensed["rights_explicit"] and license_allowed(licensed["license_name"])
-        unlicensed = dict(licensed, rights_explicit=False, license_name="", license_url="")
-        assert not (unlicensed.get("rights_explicit") and license_allowed(unlicensed.get("license_name", "")))
-        print("PASS: original-source-only image licensing and relevance safeguards")
+                               "Generic stadium photo")[0] == 0
+        assert BLOG_LOGO_URL.startswith("https://")
+        print("PASS: relevant source-photo selection and ChelseaFeeds logo fallback")
         return
 
     output = Path(args.output)
@@ -189,17 +180,17 @@ def main():
             asset = process_one(story, draft, output / "images", session, api_key, item.get("source_images", []))
         except Exception as exc:
             reason = type(exc).__name__ + ": " + str(exc)[:250]
-            logging.warning("Holding %s: no acceptable original-source image (%s)", event_id, reason)
+            logging.warning("Holding %s: featured image unavailable (%s)", event_id, reason)
             held_for_image_review.append({"event_id": event_id, "reason": reason})
-            draft["image_generation_status"] = "held_image_rights_or_relevance_review"
-            draft["image_note"] = "No relevant original-source image with image-specific reuse rights was available; this article was not sent to Blogger."
+            draft["image_generation_status"] = "featured_image_error"
+            draft["image_note"] = "Featured image could not be created; article was not sent to Blogger."
             continue
         logging.info("Featured image complete for %s: %s", event_id, asset.get("source_type"))
         counts[asset["source_type"]] = counts.get(asset["source_type"], 0) + 1
         draft["image_assets"] = [asset]
         draft["featured_image"] = asset
         draft["image_generation_status"] = asset["source_type"]
-        draft["image_note"] = "Featured image selected from the original article source under image-specific reuse rights with attribution."
+        draft["image_note"] = "Relevant source-article photo used when available; otherwise the ChelseaFeeds blog logo was used."
         post["featured_image"] = asset
         post["image_alt_text"] = asset["alt_text"]
         eligible_posts.append(post)
@@ -209,20 +200,20 @@ def main():
     report_path = output / "editorial_report.json"
     if report_path.is_file():
         report = json.loads(report_path.read_text(encoding="utf-8"))
-        report["thumbnail_method"] = "original_source_page_images_only_explicit_reuse_rights"
+        report["thumbnail_method"] = "relevant_source_article_photo_else_chelseafeeds_blog_logo"
         report["featured_image_pipeline"] = {
             "image_counts": counts,
             "eligible_blogger_posts": len(eligible_posts),
             "held_for_image_review": held_for_image_review,
-            "image_rights_policy": "Image/figure-specific CC0 1.0, Public Domain Mark 1.0, or exact CC BY 2.0/3.0/4.0 only",
-            "original_source_attribution_saved": True
+            "fallback_policy": "Use the ChelseaFeeds blog logo when no relevant source-article image is available.",
+            "source_photo_attribution_saved": True
         }
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
-        "featured_image_pipeline": "original_article_images_only_with_image_specific_reuse_rights",
+        "featured_image_pipeline": "relevant_article_photo_else_chelseafeeds_blog_logo",
         "image_counts": counts, "eligible_blogger_posts": len(eligible_posts),
         "held_for_image_review": held_for_image_review, "images_directory": str(output / "images"),
-        "license_policy": "Only image/figure-specific CC0 1.0, Public Domain Mark 1.0, or exact CC BY 2.0/3.0/4.0; otherwise hold for review"
+        "fallback_policy": "ChelseaFeeds blog logo is used whenever no relevant image is available in the source article."
     }, ensure_ascii=False))
 
 
