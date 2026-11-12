@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-12T14:22:33.452971+00:00",
+  "updated_at": "2026-11-12T14:24:17.379182+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -90,10 +90,10 @@
       "publisher_domains": [
         "chelseafclatestnews.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea eye £29m move for Club Brugge striker Nicolo Tresoldi"
     },
     "63ac1d8342a1da6f647ab993": {
       "event_id": "63ac1d8342a1da6f647ab993",
@@ -105,10 +105,10 @@
       "publisher_domains": [
         "chelseafclatestnews.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "rejected_quality_gate",
+      "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Rio Ngumoha reveals why he left Chelsea to join Liverpool"
     },
     "021bb9ea62a655ce7d09909d": {
       "event_id": "021bb9ea62a655ce7d09909d",
@@ -135,10 +135,10 @@
       "publisher_domains": [
         "chelseafclatestnews.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Xabi Alonso blasts Chelsea after missed chance vs Sunderland"
     },
     "07bbcd2abff4bd0ba2fe684a": {
       "event_id": "07bbcd2abff4bd0ba2fe684a",
@@ -150,10 +150,10 @@
       "publisher_domains": [
         "chelsea.news"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea Women face Häcken without James and Girma as Manchester City clash looms"
     },
     "3dde0824660363499ebaa3cb": {
       "event_id": "3dde0824660363499ebaa3cb",
@@ -573,10 +573,10 @@
       "publisher_domains": [
         "chelsea.news"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Gusto open to January Chelsea exit after losing right-back place under Alonso"
     },
     "fab6ec6768b3053d77fcce96": {
       "event_id": "fab6ec6768b3053d77fcce96",
@@ -693,10 +693,10 @@
       "publisher_domains": [
         "chelseafclatestnews.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "rejected_quality_gate",
+      "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Malo Gusto tells club he wants to leave in January transfer"
     }
   }
 }
