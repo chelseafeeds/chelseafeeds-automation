@@ -9,7 +9,6 @@ from pathlib import Path
 from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
-from PIL import Image, ImageDraw, ImageFont
 from related_links import fetch_published_articles, select_related_articles, add_related_links
 
 VERSION = "1.5"
@@ -466,87 +465,6 @@ def quality_gate(draft, fetched, story, allowed_internal_urls=None):
     return {"passed": passed, "score": score, "word_count": word_count,
             "minimum_word_count": 400, "checks": checks, "failed_checks": failed,
             "note": "Automated editorial screening only; it is not independent fact-checking."}
-
-def create_branded_thumbnail(draft, story, images_dir):
-    """Create a no-API, no-external-dependency editorial thumbnail with Pillow."""
-    from PIL import Image, ImageDraw, ImageFont
-    width, height = THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT
-    image = Image.new("RGB", (width, height))
-    pixels = image.load()
-    # Chelsea-blue to deep-navy diagonal-style gradient.
-    for y in range(height):
-        for x in range(width):
-            t = min(1.0, (x / width) * 0.72 + (y / height) * 0.28)
-            pixels[x, y] = (int(3 + 4*t), int(70 - 50*t), int(148 - 112*t))
-    draw = ImageDraw.Draw(image, "RGBA")
-
-    # Abstract stadium lights, pitch geometry and football motif; no club crest or player likeness.
-    for cx, cy, radius in [(970, 175, 170), (1080, 520, 245), (770, 590, 180)]:
-        draw.ellipse((cx-radius, cy-radius, cx+radius, cy+radius),
-                     outline=(255,255,255,24), width=3)
-    for i in range(7):
-        x = 760 + i * 62
-        draw.line((x, 0, x-110, 255), fill=(255,255,255,22), width=3)
-    draw.rectangle((0, 520, width, 675), fill=(4, 15, 31, 105))
-    draw.line((760, 560, 1190, 560), fill=(255,255,255,65), width=3)
-    draw.arc((850, 485, 1170, 805), 180, 360, fill=(255,255,255,70), width=3)
-    # Stylized football.
-    bx, by, br = 1050, 365, 72
-    draw.ellipse((bx-br,by-br,bx+br,by+br), fill=(245,247,250,235), outline=(212,175,55,255), width=5)
-    draw.polygon([(bx,by-30),(bx+28,by-9),(bx+17,by+24),(bx-17,by+24),(bx-28,by-9)],
-                 fill=(7,20,38,235))
-    for dx,dy in [(-42,-34),(43,-31),(-46,39),(45,38)]:
-        draw.line((bx,by,bx+dx,by+dy), fill=(7,20,38,180), width=5)
-
-    font_bold = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-    font_regular = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
-    try:
-        brand_font = ImageFont.truetype(font_bold, 27)
-        title_font = ImageFont.truetype(font_bold, 54)
-        kicker_font = ImageFont.truetype(font_regular, 22)
-    except OSError:
-        brand_font = title_font = kicker_font = ImageFont.load_default()
-
-    draw.rounded_rectangle((55, 48, 420, 101), radius=12,
-                           fill=(7,20,38,225), outline=(212,175,55,255), width=2)
-    draw.text((76, 59), "CHELSEAFEEDS", font=brand_font, fill=(255,255,255,255))
-    story_type = str(story.get("story_type", "chelsea_news")).replace("_", " ").upper()
-    draw.text((60, 145), story_type[:34], font=kicker_font, fill=(235,196,92,255))
-
-    title = re.sub(r"\s+", " ", str(draft.get("title") or story.get("title") or "Chelsea FC latest news")).strip()
-    words, lines, current = title.split(), [], ""
-    max_width = 760
-    for word in words:
-        candidate = (current + " " + word).strip()
-        if draw.textbbox((0,0), candidate, font=title_font)[2] <= max_width:
-            current = candidate
-        else:
-            if current:
-                lines.append(current)
-            current = word
-        if len(lines) >= 3:
-            break
-    if current and len(lines) < 4:
-        lines.append(current)
-    if len(lines) > 4:
-        lines = lines[:4]
-        lines[-1] = lines[-1].rstrip(" .") + "…"
-    y = 205
-    for line in lines:
-        draw.text((58, y), line, font=title_font, fill=(255,255,255,255),
-                  stroke_width=2, stroke_fill=(4,15,31,150))
-        y += 68
-    draw.rectangle((58, 505, 245, 512), fill=(212,175,55,255))
-
-    base = slug(draft.get("title") or story.get("title"))
-    filename = "chelseafeeds-" + base + "-thumbnail.jpg"
-    path = images_dir / filename
-    path.parent.mkdir(parents=True, exist_ok=True)
-    image.save(path, "JPEG", quality=90, optimize=True, progressive=True)
-    return {"role":"thumbnail", "filename":filename, "local_path":"images/"+filename,
-            "alt_text":str(draft.get("image_alt_text") or title)[:250],
-            "brand_overlay":"CHELSEAFEEDS top-left", "branded":True,
-            "width":width, "height":height, "bytes":path.stat().st_size}
 
 def make_image_assets(draft, story, images_dir):
     # Never manufacture a generic thumbnail here. The next pipeline stage must
