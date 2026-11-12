@@ -253,7 +253,7 @@ def fetch_feed(cfg,session):
             if not relevant(title,summary): rep["rejected_irrelevant"]+=1; continue
             dt=parse_date(e)
             if not dt: rep["rejected_undated"]+=1; continue
-            if dt>now()+timedelta(hours=12) or dt<now()-timedelta(days=MAX_AGE_HOURS): rep["rejected_old"]+=1; continue
+            if dt>now()+timedelta(hours=12) or dt<now()-timedelta(hours=MAX_AGE_HOURS): rep["rejected_old"]+=1; continue
             url=normalize_url(e.get("link"))
             if matches(domain(url),AGGREGATORS): rep["rejected_unresolved_aggregator"]+=1; continue
             src=e.get("source") or {}; pub=textval(src.get("title")) if isinstance(src,dict) else ""
