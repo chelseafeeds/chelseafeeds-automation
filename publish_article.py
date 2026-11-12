@@ -42,17 +42,18 @@ def attach_featured_image(article_html, image_url, alt_text):
     license_name = os.getenv("FEATURED_IMAGE_LICENSE_NAME", "").strip()
     license_url = os.getenv("FEATURED_IMAGE_LICENSE_URL", "").strip()
 
-    if source_type in {"licensed_commons_photo", "licensed_original_source_photo"}:
+    if source_type == "licensed_original_source_photo":
         source = urlparse(credit_url)
         license_link = urlparse(license_url) if license_url else None
         if source.scheme != "https" or not source.netloc:
             raise RuntimeError("Licensed source photo is missing a valid HTTPS attribution page.")
-        if not license_name:
-            raise RuntimeError("Commons photo is missing its licence name.")
+        accepted = {"CC BY 2.0", "CC BY 3.0", "CC BY 4.0", "CC0 1.0", "PUBLIC DOMAIN MARK 1.0"}
+        if license_name.upper() not in accepted:
+            raise RuntimeError("Original-source image is missing an exact accepted image-specific licence name.")
         if license_link and (license_link.scheme != "https" or license_link.netloc not in {"creativecommons.org", "www.creativecommons.org"}):
             raise RuntimeError("Commons photo licence URL is not an approved Creative Commons URL.")
-        if not license_link and "public domain" not in license_name.lower() and "cc0" not in license_name.lower():
-            raise RuntimeError("Commons photo is missing its licence URL.")
+        if not license_link:
+            raise RuntimeError("Original-source image is missing its licence URL.")
         license_caption = (
             f' · <a href="{html.escape(license_url, quote=True)}" rel="nofollow noopener">{html.escape(license_name)}</a>'
             if license_url else f' · {html.escape(license_name)}'
@@ -66,7 +67,7 @@ def attach_featured_image(article_html, image_url, alt_text):
     elif source_type == "ai_generated_illustration":
         caption = '<figcaption style="font-size: small; color: #666; text-align: center;">AI-generated editorial illustration; not a documentary match photograph.</figcaption>'
     else:
-        caption = '<figcaption style="font-size: small; color: #666; text-align: center;">ChelseaFeeds editorial graphic.</figcaption>'
+        raise RuntimeError("Refusing to publish an article without a verified original-source featured image.")
 
     if image_url in article_html:
         return article_html
