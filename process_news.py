@@ -216,14 +216,19 @@ def evidence_assessment(story, fetched):
         eligible = bool(official)
         reason = "A completed transfer draft requires an accessible official club or competition announcement."
     elif typ == "transfer_rumour":
-        eligible = bool(official) or bool(established) or len(other_domains) >= 2
-        reason = "A rumour may be drafted from one accessible established publisher if explicitly attributed and labelled unconfirmed; otherwise two direct specialist sources are required."
+        # 50% lower evidence threshold: one accessible direct publisher is enough
+        # to draft a clearly attributed, explicitly unconfirmed rumour.
+        # This is an editorial drafting threshold, not independent corroboration.
+        eligible = bool(official) or bool(established) or len(other_domains) >= 1
+        reason = "A rumour may be drafted from one accessible direct publisher if explicitly attributed and labelled unconfirmed; this does not constitute independent corroboration."
     elif typ == "opinion_analysis":
         eligible = bool(accessible)
         reason = "Opinion may be drafted from one accessible source with clear attribution; factual premises remain unverified."
     else:
-        eligible = bool(official) or bool(established) or len(other_domains) >= 2
-        reason = "A news draft may use one accessible official or established publisher with explicit attribution; two direct specialist sources are required when neither is available."
+        # 50% lower evidence threshold: one accessible direct publisher is
+        # sufficient for a sourced draft; factual claims remain unverified.
+        eligible = bool(official) or bool(established) or len(other_domains) >= 1
+        reason = "A news draft may use one accessible direct publisher with explicit attribution; accessibility is not proof of factual accuracy."
     return {"evidence_tier": tier, "accessible_source_count": len(accessible),
             "accessible_publisher_domains": accessible_domains, "official_source_count": len(official),
             "established_source_domains": sorted({x["domain"] for x in established}),
@@ -661,6 +666,11 @@ def self_test():
     assert evidence_assessment({"story_type":"opinion_analysis"}, one)["eligible_for_draft"]
     assert evidence_assessment({"story_type":"transfer_rumour"}, one)["eligible_for_draft"]
     assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"]
+    specialist = [{"accessible":True,"domain":"talkchelsea.net","url":"https://talkchelsea.net/story"}]
+    assert evidence_assessment(story, specialist)["eligible_for_draft"]
+    assert evidence_assessment({"story_type":"transfer_rumour"}, specialist)["eligible_for_draft"]
+    assert not evidence_assessment(story, [{"accessible":False,"domain":"talkchelsea.net","url":"https://talkchelsea.net/story"}])["eligible_for_draft"]
+    assert not evidence_assessment({"story_type":"confirmed_transfer"}, specialist)["eligible_for_draft"]
 
     def make_draft(article_words=500):
         # The inline source anchor contributes two words; headings are excluded from the count.
