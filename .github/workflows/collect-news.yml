@@ -14,7 +14,7 @@ on:
       - ".github/workflows/collect-news.yml"
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "*/15 * * * *"
 
 permissions:
   contents: write
