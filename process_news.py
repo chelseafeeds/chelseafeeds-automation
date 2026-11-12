@@ -58,40 +58,82 @@ def slug(value):
     return (value[:70].strip("-") or "chelsea-story")
 
 def extract_source_images(html, page_url):
-    """Collect images embedded by this exact source page; never perform broad image searches."""
+    """Extract article-embedded images with image-specific, machine-readable reuse evidence.
+
+    A page-wide licence is deliberately NOT inherited by every image on the page.
+    Images without an explicit licence attached to that image/figure are retained
+    as evidence only and cannot pass the publishing gate.
+    """
+    from urllib.parse import urljoin
     soup = BeautifulSoup(html or "", "html.parser")
     found, seen = [], set()
-    license_name = ""
-    license_url = ""
-    for node in soup.select('meta[name="license"], meta[property="dcterms:license"], meta[name="dcterms.license"], link[rel="license"]'):
-        value = node.get("content") or node.get("href") or ""
-        if value:
-            if value.startswith("/"):
-                from urllib.parse import urljoin
-                value = urljoin(page_url, value)
-            if "creativecommons.org/publicdomain/zero" in value.lower():
-                license_name, license_url = "CC0 1.0", value
-            elif "creativecommons.org/licenses/by/" in value.lower():
-                license_name, license_url = "CC BY (version requires verification)", value
-            elif "creativecommons.org/licenses/by-sa/" in value.lower():
-                license_name, license_url = "CC BY-SA (not accepted)", value
+
+    def licence_for(node):
+        scope = node.find_parent("figure") or node.parent or node
+        evidence_nodes = [node, scope]
+        for evidence in evidence_nodes:
+            for key in ("data-license", "data-licence", "license", "licence", "itemprop"):
+                value = (evidence.get(key) or "").strip()
+                if value and ("license" in key or "licence" in key):
+                    if value.startswith("https://"):
+                        name, url = classify_license(value)
+                        if name:
+                            return name, url
+                    else:
+                        name, url = classify_license(value)
+                        if name:
+                            return name, url
+        for link in scope.select('a[rel~="license"], a[href*="creativecommons.org/licenses/"], a[href*="creativecommons.org/publicdomain/"]'):
+            href = urljoin(page_url, link.get("href", "").strip())
+            name, url = classify_license(href)
+            if name:
+                return name, url
+        for meta in scope.select('[itemprop="license"], meta[name*="license" i], meta[property*="license" i]'):
+            value = meta.get("content") or meta.get("href") or ""
+            name, url = classify_license(urljoin(page_url, value))
+            if name:
+                return name, url
+        return "", ""
+
+    def classify_license(value):
+        from urllib.parse import urlparse
+        raw = str(value or "").strip()
+        low = raw.lower()
+        if "creativecommons.org/licenses/by/" in low:
+            match = re.search(r"/licenses/by/(2\.0|3\.0|4\.0)(?:/|$)", low)
+            if match:
+                return "CC BY " + match.group(1), raw
+        if "creativecommons.org/publicdomain/zero/1.0" in low:
+            return "CC0 1.0", raw
+        if "creativecommons.org/publicdomain/mark/1.0" in low:
+            return "Public Domain Mark 1.0", raw
+        return "", ""
+
     nodes = []
-    for selector in ('meta[property="og:image"]', 'meta[name="twitter:image"]', 'article img', 'main img'):
+    for selector in ('article figure img', 'main figure img', 'article img', 'main img'):
         nodes.extend(soup.select(selector))
-    from urllib.parse import urljoin
+    # OG/Twitter images are accepted as source candidates only if their exact
+    # URL is also represented by an image/figure carrying its own licence.
     for node in nodes:
-        raw = node.get("content") or node.get("src") or node.get("data-src") or ""
-        if not raw:
-            continue
+        raw = node.get("src") or node.get("data-src") or node.get("data-lazy-src") or ""
+        srcset = node.get("srcset") or ""
+        if not raw and srcset:
+            raw = srcset.split(",")[0].strip().split(" ")[0]
         url = urljoin(page_url, raw.strip())
         if not url.startswith("https://") or url in seen:
             continue
         seen.add(url)
-        alt = (node.get("alt") or node.get("title") or "").strip()[:250]
-        found.append({"url": url, "page_url": page_url, "alt_text": alt,
-                      "license_name": license_name, "license_url": license_url,
-                      "rights_explicit": bool(license_name)})
-        if len(found) >= 8:
+        figure = node.find_parent("figure")
+        caption = figure.get_text(" ", strip=True)[:350] if figure else ""
+        alt = (node.get("alt") or node.get("title") or node.get("aria-label") or "").strip()[:250]
+        license_name, license_url = licence_for(node)
+        found.append({
+            "url": url, "page_url": page_url, "alt_text": alt,
+            "caption": caption, "license_name": license_name,
+            "license_url": license_url, "rights_explicit": bool(license_name and license_url),
+            "rights_evidence_scope": "image_or_figure"
+        })
+        if len(found) >= 12:
             break
     return found
 
@@ -507,8 +549,9 @@ def create_branded_thumbnail(draft, story, images_dir):
             "width":width, "height":height, "bytes":path.stat().st_size}
 
 def make_image_assets(draft, story, images_dir):
-    asset = create_branded_thumbnail(draft, story, images_dir)
-    return [asset], "generated_branded_template"
+    # Never manufacture a generic thumbnail here. The next pipeline stage must
+    # attach a relevant, licensed image from the original article source or fail closed.
+    return [], "awaiting_original_source_image_validation"
 
 TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "rejected_quality_gate", "published", "archived"}
 
