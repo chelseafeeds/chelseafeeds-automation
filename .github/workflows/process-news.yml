@@ -33,7 +33,7 @@ jobs:
       AI_BASE_URL: https://api.groq.com/openai/v1
       AI_MODEL: openai/gpt-oss-120b
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-            MAX_DRAFTS_PER_RUN: "15"
+      MAX_DRAFTS_PER_RUN: "15"
       MAX_SOURCE_PACK: "5"
       MAX_SOURCE_CHARS: "3500"
       MAX_COMPLETION_TOKENS: "2600"
@@ -41,10 +41,10 @@ jobs:
       SOURCE_FETCH_WORKERS: "8"
       AI_REQUEST_TIMEOUT: "45"
       AI_MAX_ATTEMPTS: "2"
-      AI_FALLBACK_ENABLED: "true"
+      AI_FALLBACK_ENABLED: "false"
       AI_FALLBACK_BASE_URL: https://api.openai.com/v1
       AI_FALLBACK_MODEL: gpt-4.1-mini
-      
+
     steps:
       - name: Get project files
         uses: actions/checkout@v4
@@ -81,7 +81,7 @@ jobs:
           run-id: ${{ github.event.workflow_run.id || inputs.source_run_id }}
           path: input
 
-      - name: Run evidence checks, article quality gate and local thumbnail generation
+      - name: Run evidence checks and article quality gate (no generic thumbnail fallback)
         run: |
           python process_news.py --input input/news_candidates.json --output output
 
