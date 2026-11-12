@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ChelseaFeeds v1.5: evidence triage, article quality gate and deterministic branded thumbnails."""
+"""ChelseaFeeds v1.6: evidence triage, article quality gate and original-source image handoff."""
 from __future__ import annotations
 import argparse, json, logging, os, re, time, tempfile
 from concurrent.futures import ThreadPoolExecutor
@@ -640,7 +640,7 @@ def process(input_path, output_dir):
         ], "results": results}
     (output_dir / "article_drafts.json").write_text(json.dumps({"processor_version": VERSION, "drafts": drafts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "editorial_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    logging.info("Processor v%s: %d candidates, %d drafts; AI requests=%d tokens=%d (prompt=%d completion=%d); local branded thumbnails require no external image API",
+    logging.info("Processor v%s: %d candidates, %d drafts; AI requests=%d tokens=%d (prompt=%d completion=%d); source-image validation is a mandatory later stage",
                  VERSION, len(stories), len(drafts), AI_USAGE["requests"], AI_USAGE["total_tokens"],
                  AI_USAGE["prompt_tokens"], AI_USAGE["completion_tokens"])
 
@@ -719,14 +719,11 @@ def self_test():
     duplicate_soup = BeautifulSoup(duplicate, "html.parser")
     assert len([h for h in duplicate_soup.find_all(["h2", "h3"]) if h.get_text(strip=True) == "Sources"]) == 1
 
-    with tempfile.TemporaryDirectory() as temp_dir:
-        asset = create_branded_thumbnail(valid, {"title": valid["title"], "story_type":"match_report"}, Path(temp_dir))
-        assert asset["width"] == 1200 and asset["height"] == 675
-        assert asset["role"] == "thumbnail" and asset["branded"] is True
-        assert (Path(temp_dir) / asset["filename"]).is_file()
+    assets, image_status = make_image_assets(valid, {"title": valid["title"], "story_type":"match_report"}, Path("unused"))
+    assert assets == [] and image_status == "awaiting_original_source_image_validation"
     with_sources = dict(valid, article_html=valid["article_html"] + "<section><h2>Sources</h2><ul><li><a href='https://www.bbc.co.uk/a'>BBC</a></li></ul></section>")
     assert quality_gate(with_sources, one, story)["word_count"] == 400
-    print("PASS: evidence, 500-word, SEO, source-link, source-exclusion, safety and local-thumbnail regression checks")
+    print("PASS: evidence, 500-word, SEO, source-link, source-exclusion, safety and no-placeholder-image regression checks")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
