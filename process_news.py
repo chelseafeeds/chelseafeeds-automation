@@ -11,7 +11,7 @@ import requests
 from bs4 import BeautifulSoup
 from related_links import fetch_published_articles, select_related_articles, add_related_links
 
-VERSION = "1.5"
+VERSION = "1.6"
 TIMEOUT = (5, 12)  # bounded connect/read timeout for each source
 SOURCE_FETCH_WORKERS = max(1, min(8, int(os.getenv('SOURCE_FETCH_WORKERS', '8'))))
 AI_REQUEST_TIMEOUT = max(30, min(90, int(os.getenv('AI_REQUEST_TIMEOUT', '75'))))
@@ -160,7 +160,13 @@ def fetch_source(url, session):
     result = {"url": url, "domain": host(url), "http_status": None, "accessible": False,
               "page_title": "", "description": "", "excerpt": "", "error": None}
     try:
-        response = session.get(url, timeout=TIMEOUT, allow_redirects=True)
+        response = None
+        for attempt in range(2):
+            response = session.get(url, timeout=TIMEOUT, allow_redirects=True)
+            if response.status_code in (429, 500, 502, 503, 504) and attempt == 0:
+                time.sleep(1.0)
+                continue
+            break
         result["http_status"] = response.status_code
         result["final_url"] = response.url
         if response.status_code >= 400:
@@ -550,6 +556,11 @@ def process(input_path, output_dir):
         fetched = fetch_sources(source_urls)
         logging.info("Evidence fetch complete for %s: %d/%d source pages accessible",
                      story.get("event_id"), sum(1 for item in fetched if item.get("accessible")), len(fetched))
+        for source_result in fetched:
+            if not source_result.get("accessible"):
+                logging.warning("SOURCE_UNAVAILABLE event=%s domain=%s status=%s error=%s",
+                    story.get("event_id"), source_result.get("domain"),
+                    source_result.get("http_status"), source_result.get("error"))
         assessment = evidence_assessment(story, fetched)
         record = {"event_id": story.get("event_id"), "headline": story.get("title"),
             "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
