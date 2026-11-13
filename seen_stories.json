@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-13T05:58:16.591858+00:00",
+  "updated_at": "2026-11-13T05:58:51.877449+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -738,10 +738,10 @@
       "publisher_domains": [
         "nytimes.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-13T05:58:51.877449+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "The Prospects: Calvin Diakite, Chelsea"
     },
     "a940882a5ae278d6438fc799": {
       "event_id": "a940882a5ae278d6438fc799",
@@ -753,10 +753,10 @@
       "publisher_domains": [
         "nytimes.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-13T05:58:51.877449+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Are Chelsea toothless without Lauren James? This is what the numbers say"
     }
   }
 }
