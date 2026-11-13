@@ -418,9 +418,42 @@ def main():
     selected=select_candidates(pending_groups); stamp=now(); history=update_history(groups,old)
     statuses=Counter(r["status"] for r in reports)
     candidate={"collector_version":VERSION,"generated_at":stamp.isoformat(),"selection_limit":MAX_STORIES,"queue_semantics":"Pending candidates only. A later verification processor must explicitly approve claims before article generation or publication.","stories":selected}
-    report={"collector_version":VERSION,"run_started_at":started.isoformat(),"run_completed_at":stamp.isoformat(),"duration_seconds":round((stamp-started).total_seconds(),2),"configured_sources":len(reports),"newsnow_discovery_enabled":True,"successful_sources":statuses["success"],"empty_sources":statuses["empty"],"failed_sources":statuses["failed"],"raw_observations_collected":len(obs),"unique_events_after_conservative_deduplication":len(groups),"duplicate_observations_merged":len(obs)-len(groups),"selected_pending_candidates":len(selected),"eligible_unprocessed_events":len(pending_groups),"skipped_previously_processed_events":len(groups)-len(pending_groups),"opinion_candidate_limit":MAX_OPINION_CANDIDATES,"selected_opinion_candidates":sum(g["story_type"]=="opinion_analysis" for g in selected),"events_not_selected_due_to_limit":max(0,len(pending_groups)-len(selected)),"selected_team_scope_distribution":dict(Counter(g["team_scope"] for g in selected)),"selected_story_type_distribution":dict(Counter(g["story_type"] for g in selected)),"selected_priority_distribution":dict(Counter(g["priority"] for g in selected)),"selected_events_with_multiple_publishers":sum(g["publisher_count"]>1 for g in selected),"selected_source_link_count":sum(len(g["source_urls"]) for g in selected),"source_reports":reports,"excluded_sources":[{"source":"Google News","status":"disabled","reason":"Aggregator URLs not reliably resolved to direct publisher articles."}],"quality_controls":["Conservative event clustering: ambiguous stories remain separate; Chelsea mention alone never causes a merge.","Different publishers only merge when story type, team scope, time window and event-specific opponent/player identity agree.","Different same-publisher match articles merge only when story class, team scope, time window and the publisher fixture ID all match; same opponent alone is insufficient.","Match previews, reports and reactions are separate event types.","Chelsea Women and academy scope are detected using headline, summary and URL.","Representative title, summary and URL are sourced from coherent observation records; every original URL remains attached.","RSS excerpts are capped at 500 characters and are source hints only, never article copy.","Multiple publishers do not prove independent confirmation.","NewsNow is used only to discover and resolve original publisher URLs; NewsNow itself is never treated as evidence.",\n        "All candidates remain pending editorial verification; claims_verified is always false.",
-        "Opinion/analysis candidates are capped at four per run so factual reporting retains queue space.",
-        "Each candidate carries a type-specific verification checklist; checklist items are instructions, not completed checks.","Collection does not generate articles or publish to Blogger or X."]}
+    report = {
+        "collector_version": VERSION,
+        "run_started_at": started.isoformat(),
+        "run_completed_at": stamp.isoformat(),
+        "duration_seconds": round((stamp-started).total_seconds(), 2),
+        "configured_sources": len(reports),
+        "newsnow_discovery_enabled": True,
+        "successful_sources": statuses["success"],
+        "empty_sources": statuses["empty"],
+        "failed_sources": statuses["failed"],
+        "raw_observations_collected": len(obs),
+        "unique_events_after_conservative_deduplication": len(groups),
+        "duplicate_observations_merged": len(obs)-len(groups),
+        "selected_pending_candidates": len(selected),
+        "eligible_unprocessed_events": len(pending_groups),
+        "skipped_previously_processed_events": len(groups)-len(pending_groups),
+        "opinion_candidate_limit": MAX_OPINION_CANDIDATES,
+        "selected_opinion_candidates": sum(g["story_type"]=="opinion_analysis" for g in selected),
+        "events_not_selected_due_to_limit": max(0, len(pending_groups)-len(selected)),
+        "selected_team_scope_distribution": dict(Counter(g["team_scope"] for g in selected)),
+        "selected_story_type_distribution": dict(Counter(g["story_type"] for g in selected)),
+        "selected_priority_distribution": dict(Counter(g["priority"] for g in selected)),
+        "selected_events_with_multiple_publishers": sum(g["publisher_count"]>1 for g in selected),
+        "selected_source_link_count": sum(len(g["source_urls"]) for g in selected),
+        "source_reports": reports,
+        "excluded_sources": [{"source":"Google News","status":"disabled","reason":"Aggregator URLs are not accepted as evidence."}],
+        "quality_controls": [
+            "Conservative event clustering; ambiguous stories remain separate.",
+            "NewsNow discovers and resolves original publisher URLs only; it is never evidence.",
+            "RSS excerpts are discovery hints, not article copy or factual verification.",
+            "All candidates remain pending editorial verification; claims_verified is always false.",
+            "Opinion/analysis candidates are capped at four per run.",
+            "Type-specific verification checklists are instructions, not completed checks.",
+            "Collection does not generate articles or publish to Blogger or X."
+        ]
+    }
     write(CANDIDATES_FILE,candidate); write(REPORT_FILE,report); write(HISTORY_FILE,history)
     logging.info("v%s: %d observations -> %d conservative events -> %d pending candidates",VERSION,len(obs),len(groups),len(selected))
     return 0
