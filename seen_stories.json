@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-13T14:52:34.315531+00:00",
+  "updated_at": "2026-11-13T14:53:19.381815+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -888,10 +888,10 @@
       "publisher_domains": [
         "theguardian.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-13T14:53:19.381815+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Why Chelsea and Manchester City’s WSL clash is not as season-defining as you think"
     },
     "c9c58ef5dd8fb4e9bc93e64d": {
       "event_id": "c9c58ef5dd8fb4e9bc93e64d",
@@ -903,10 +903,10 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-13T14:53:19.381815+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea receive ‘green light’ to sign Jules Kounde in January as Barcelona star chooses ‘priority’ transfer"
     }
   }
 }
