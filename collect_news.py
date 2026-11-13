@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent
 HISTORY_FILE = ROOT / "seen_stories.json"
 CANDIDATES_FILE = ROOT / "news_candidates.json"
 REPORT_FILE = ROOT / "collection_report.json"
-TIMEOUT, MAX_AGE_HOURS, MAX_STORIES, HISTORY_DAYS = 18, 36, 60, 90
+TIMEOUT, MAX_AGE_HOURS, MAX_STORIES, HISTORY_DAYS = 18, 24, 60, 90
 MAX_OPINION_CANDIDATES = 8
 
 FEEDS = [
