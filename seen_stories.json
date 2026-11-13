@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-13T07:53:16.958947+00:00",
+  "updated_at": "2026-11-13T07:53:25.210908+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -642,7 +642,7 @@
       "event_id": "732d364a410c9a3f90fc35c0",
       "title": "Chelsea transfers: Alonso ‘loves’ Arsenal star and ‘would love to work’ with him – Romano",
       "first_seen_at": "2026-11-12T12:52:53.485882+00:00",
-      "last_seen_at": "2026-11-13T07:52:50.017279+00:00",
+      "last_seen_at": "2026-11-13T07:53:25.210908+00:00",
       "last_published_at": "2026-11-12T12:42:14+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -657,7 +657,7 @@
       "event_id": "cf3fbbb8797d2961e8614e82",
       "title": "Chelsea player with just 6 starts this season says he’s “tired” already",
       "first_seen_at": "2026-11-12T13:11:09.774557+00:00",
-      "last_seen_at": "2026-11-13T07:52:50.017279+00:00",
+      "last_seen_at": "2026-11-13T07:53:25.210908+00:00",
       "last_published_at": "2026-11-12T13:10:15+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -672,7 +672,7 @@
       "event_id": "74f259af6f6f88e524fbc143",
       "title": "Horrific surgery update on Chelsea starter makes it clear return will not be rushed",
       "first_seen_at": "2026-11-12T14:08:24.865027+00:00",
-      "last_seen_at": "2026-11-13T07:52:50.017279+00:00",
+      "last_seen_at": "2026-11-13T07:53:25.210908+00:00",
       "last_published_at": "2026-11-12T14:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -687,7 +687,7 @@
       "event_id": "8d7bcba9818dd09a1131e8f2",
       "title": "Malo Gusto tells club he wants to leave in January transfer",
       "first_seen_at": "2026-11-12T14:08:24.865027+00:00",
-      "last_seen_at": "2026-11-13T07:52:50.017279+00:00",
+      "last_seen_at": "2026-11-13T07:53:25.210908+00:00",
       "last_published_at": "2026-11-12T14:00:33+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -717,7 +717,7 @@
       "event_id": "8f55f5daf7f0f323f4f2bf9d",
       "title": "Man Utd: Pochettino tipped to turn to ex-Chelsea star as shock first signing – ‘that’s first and foremost’",
       "first_seen_at": "2026-11-12T19:44:59.354803+00:00",
-      "last_seen_at": "2026-11-13T07:52:50.017279+00:00",
+      "last_seen_at": "2026-11-13T07:53:25.210908+00:00",
       "last_published_at": "2026-11-12T19:01:11+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -732,7 +732,7 @@
       "event_id": "4b3ff4d98c5fe734e8c0758b",
       "title": "The Prospects: Calvin Diakite, Chelsea",
       "first_seen_at": "2026-11-13T05:58:16.591858+00:00",
-      "last_seen_at": "2026-11-13T07:52:50.017279+00:00",
+      "last_seen_at": "2026-11-13T07:53:25.210908+00:00",
       "last_published_at": "2026-11-13T05:20:44+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -747,7 +747,7 @@
       "event_id": "a940882a5ae278d6438fc799",
       "title": "Are Chelsea toothless without Lauren James? This is what the numbers say",
       "first_seen_at": "2026-11-13T05:58:16.591858+00:00",
-      "last_seen_at": "2026-11-13T07:52:50.017279+00:00",
+      "last_seen_at": "2026-11-13T07:53:25.210908+00:00",
       "last_published_at": "2026-11-13T05:29:50+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -762,7 +762,7 @@
       "event_id": "f18a021dfe2f44757bfc6dd6",
       "title": "Pochettino’s Chelsea maelstrom the best yardstick for what lies ahead at United",
       "first_seen_at": "2026-11-13T07:13:13.580033+00:00",
-      "last_seen_at": "2026-11-13T07:52:50.017279+00:00",
+      "last_seen_at": "2026-11-13T07:53:25.210908+00:00",
       "last_published_at": "2026-11-13T07:00:12+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -772,6 +772,21 @@
       "last_processed_at": "2026-11-13T07:13:48.649109+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Pochettino’s Chelsea maelstrom the best yardstick for what lies ahead at United"
+    },
+    "1b8037a37908214cb60c93cc": {
+      "event_id": "1b8037a37908214cb60c93cc",
+      "title": "‘It’s a lie’ – Rogers hits back at Palmer ‘nonsense’ in passionate 232-word defence of Chelsea teammate",
+      "first_seen_at": "2026-11-13T07:53:25.210908+00:00",
+      "last_seen_at": "2026-11-13T07:53:25.210908+00:00",
+      "last_published_at": "2026-11-13T07:52:14+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "football365.com"
+      ],
+      "status": "observed_not_processed",
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null
     }
   }
 }
