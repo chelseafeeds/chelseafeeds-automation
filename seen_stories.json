@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-13T07:13:13.580033+00:00",
+  "updated_at": "2026-11-13T07:13:48.649109+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -768,10 +768,10 @@
       "publisher_domains": [
         "theguardian.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-13T07:13:48.649109+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Pochettino’s Chelsea maelstrom the best yardstick for what lies ahead at United"
     }
   }
 }
