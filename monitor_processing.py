@@ -266,7 +266,13 @@ def main():
             for issue in a.get("issues",[]): lines.append(f"  - WARNING: {issue}")
         for error in r.get("errors",[]): lines.append(f"- WARNING: {error}")
         lines.append("")
-    lines += ["## Active runs"]
+    lines += ["## Stalled workflow recovery",
+              json.dumps(REPORT.get("stalled_workflow_recovery",[]),ensure_ascii=False,indent=2),
+              "", "## Alerts"]
+    for alert in REPORT.get("alerts",[]):
+        lines.append(f"- ALERT: {alert}")
+        print(f"::error::{alert}")
+    lines += ["", "## Active runs"]
     for r in active: lines.append(f"- Run #{r.get('run_number')}: {r.get('status')} — {r.get('html_url')}")
     with open(os.environ.get("GITHUB_STEP_SUMMARY","monitor-output/summary.md"),"a",encoding="utf-8") as f:
         f.write("\n".join(lines)+"\n")
