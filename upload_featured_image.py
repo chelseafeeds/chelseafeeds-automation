@@ -91,7 +91,7 @@ def main():
     license_name = re.sub(r"\s+", " ", str(featured.get("license_name") or "")).strip()[:100]
     license_url = str(featured.get("license_url") or "").strip()
     if source_type == "article_source_photo":
-        allowed_license = bool(re.match(r"^(CC BY (2\\.0|3\\.0|4\\.0)|CC0 1\\.0|Public Domain Mark 1\\.0)$", license_name, re.I))
+        allowed_license = bool(re.match(r"^(CC BY (2\.0|3\.0|4\.0)|CC0 1\\.0|Public Domain Mark 1\\.0)$", license_name, re.I))
         if (not credit_url.startswith("https://")
                 or not featured.get("source_image_url", "").startswith("https://")
                 or not allowed_license or not license_url.startswith("https://creativecommons.org/")):
