@@ -90,13 +90,17 @@ def main():
     credit_url = str(featured.get("source_page") or "").strip()
     license_name = re.sub(r"\s+", " ", str(featured.get("license_name") or "")).strip()[:100]
     license_url = str(featured.get("license_url") or "").strip()
-    if source_type == "article_source_photo" and (not credit_url.startswith("https://") or not featured.get("source_image_url", "").startswith("https://")):
-        raise RuntimeError("Source-article photo is missing its HTTPS source or attribution URL.")
+    if source_type == "article_source_photo":
+        allowed_license = bool(re.match(r"^(CC BY (2\\.0|3\\.0|4\\.0)|CC0 1\\.0|Public Domain Mark 1\\.0)$", license_name, re.I))
+        if (not credit_url.startswith("https://")
+                or not featured.get("source_image_url", "").startswith("https://")
+                or not allowed_license or not license_url.startswith("https://creativecommons.org/")):
+            raise RuntimeError("Source-article photo lacks an explicit, approved image reuse licence; use the ChelseaFeeds logo fallback.")
     if source_type == "chelseafeeds_blog_logo":
         credit_text = "ChelseaFeeds blog logo"
         credit_url = "https://www.chelseafeeds.com/"
-    license_name = ""
-    license_url = ""
+        license_name = ""
+        license_url = ""
     output_file = os.environ.get("GITHUB_OUTPUT")
     if not output_file:
         raise RuntimeError("GITHUB_OUTPUT is unavailable; cannot pass the verified image URL to the publisher.")
