@@ -206,10 +206,10 @@ def main():
     output_path = os.getenv("GITHUB_OUTPUT")
     if output_path:
         with open(output_path, "a", encoding="utf-8") as output:
-            output.write(f"post_id={post_id}\\n")
-            output.write(f"post_url={post_url}\\n")
-            output.write(f"title={title.replace(chr(10), ' ').replace(chr(13), ' ')}\\n")
-            output.write(f"search_description={description.replace(chr(10), ' ').replace(chr(13), ' ')}\\n")
+            output.write(f"post_id={post_id}\n")
+            output.write(f"post_url={post_url}\n")
+            output.write(f"title={title.replace(chr(10), ' ').replace(chr(13), ' ')}\n")
+            output.write(f"search_description={description.replace(chr(10), ' ').replace(chr(13), ' ')}\n")
     print("Blogger publishing completed; X posting is handled by the live-status-gated workflow step.")
 
 if __name__ == "__main__":
