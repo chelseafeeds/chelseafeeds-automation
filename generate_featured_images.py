@@ -83,15 +83,19 @@ def process_one(story, draft, images_dir, session, api_key, source_images=None):
             continue
         alt = " ".join([candidate.get("alt_text", ""), candidate.get("caption", "")])
         score, matched = relevance_score(story, draft, alt)
-        if score >= 2:
+        # Only reuse photos carrying an explicit image/figure-level licence
+        # that is on the allowlist; source-page attribution alone is not a reuse right.
+        if score >= 3 and candidate.get("rights_explicit") is True and license_allowed(candidate.get("license_name")) and candidate.get("license_url", "").startswith("https://"):
             ranked.append((score, candidate, matched))
     source_type = "article_source_photo"
     if ranked:
         ranked.sort(key=lambda x: x[0], reverse=True)
         _, candidate, matched = ranked[0]
         image_url = candidate["url"]
-        credit_text = "Image from the original article source"
+        credit_text = candidate.get("creator") or "Licensed image from the original article source"
         source_page = candidate.get("page_url", "")
+        license_name = candidate.get("license_name", "")
+        license_url = candidate.get("license_url", "")
         alt_text = candidate.get("alt_text") or candidate.get("caption") or draft.get("title", "")
     else:
         candidate = {}
@@ -99,6 +103,8 @@ def process_one(story, draft, images_dir, session, api_key, source_images=None):
         matched = []
         credit_text = "ChelseaFeeds blog logo"
         source_page = "https://www.chelseafeeds.com/"
+        license_name = ""
+        license_url = ""
         alt_text = "ChelseaFeeds"
         source_type = "chelseafeeds_blog_logo"
     response = session.get(image_url, timeout=TIMEOUT)
@@ -124,7 +130,8 @@ def process_one(story, draft, images_dir, session, api_key, source_images=None):
         "alt_text": clean_meta(alt_text)[:250], "width": WIDTH, "height": HEIGHT,
         "bytes": destination.stat().st_size, "source_type": source_type,
         "source_page": source_page, "source_image_url": image_url,
-        "credit_text": credit_text, "matched_terms": matched,
+        "credit_text": credit_text, "license_name": license_name, "license_url": license_url,
+        "rights_explicit": bool(license_name and license_url), "matched_terms": matched,
         "relevance_score": len(matched), "branded": source_type == "chelseafeeds_blog_logo"
     }
 
@@ -136,6 +143,9 @@ def main():
     if args.self_test:
         assert relevance_score({"title":"Chelsea Sunderland penalty"}, {"title":"Chelsea Sunderland match report"},
                                "Chelsea Sunderland football penalty")[0] >= 2
+        assert license_allowed("CC BY 4.0")
+        assert not license_allowed("")
+        assert not license_allowed("All rights reserved")
         assert relevance_score({"title":"Chelsea injury update"}, {"title":"Chelsea injury update"},
                                "Generic stadium photo")[0] == 0
         assert BLOG_LOGO_URL.startswith("https://")
