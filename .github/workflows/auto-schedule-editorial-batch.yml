@@ -77,8 +77,10 @@ jobs:
           posts = payload.get("posts", []) if isinstance(payload, dict) else payload
           for post in posts:
               event_id = str(post.get("event_id", "")).strip()
-              if event_id:
+              if event_id and post.get("auto_schedule_eligible") is True:
                   print(event_id)
+              elif event_id:
+                  print(f"HELD: {event_id} does not meet the automatic-scheduling evidence threshold.", file=__import__("sys").stderr)
           PY
 
           if [ ! -s "$RUNNER_TEMP/event_ids.txt" ]; then
