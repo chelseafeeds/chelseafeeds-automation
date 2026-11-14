@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-14T12:53:01.091287+00:00",
+  "updated_at": "2026-11-14T12:53:29.813699+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1009,10 +1009,10 @@
       "publisher_domains": [
         "theguardian.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "rejected_quality_gate",
+      "last_processed_at": "2026-11-14T12:53:29.813699+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea v Manchester City: Women’s Super League – live"
     }
   }
 }
