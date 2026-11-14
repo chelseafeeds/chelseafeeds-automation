@@ -1,0 +1,45 @@
+name: ChelseaFeeds Revert Unsafe Scheduled Article
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/revert-unsafe-post.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  revert:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Revert scheduled article to draft pending editorial correction
+        env:
+          BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+          BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+          BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          BLOGGER_POST_ID: "410431177689757977"
+        run: |
+          python - <<'PY'
+          import os, requests
+          token_response = requests.post("https://oauth2.googleapis.com/token", data={
+              "client_id": os.environ["BLOGGER_CLIENT_ID"],
+              "client_secret": os.environ["BLOGGER_CLIENT_SECRET"],
+              "refresh_token": os.environ["BLOGGER_REFRESH_TOKEN"],
+              "grant_type": "refresh_token",
+          }, timeout=30)
+          token_response.raise_for_status()
+          token = token_response.json()["access_token"]
+          blog_id = os.environ["BLOGGER_BLOG_ID"]
+          post_id = os.environ["BLOGGER_POST_ID"]
+          url = f"https://www.googleapis.com/blogger/v3/blogs/{blog_id}/posts/{post_id}/revert"
+          response = requests.post(url, headers={"Authorization": f"Bearer {token}"}, timeout=30)
+          response.raise_for_status()
+          post = response.json()
+          if post.get("status") != "DRAFT":
+              raise SystemExit(f"Expected DRAFT after revert; got {post.get('status')!r}")
+          print(f"Successfully reverted post {post_id} to DRAFT: {post.get('title','')}")
+          PY
