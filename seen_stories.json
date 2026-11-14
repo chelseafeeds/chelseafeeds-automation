@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-14T13:43:53.464331+00:00",
+  "updated_at": "2026-11-14T13:44:20.850766+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1025,10 +1025,10 @@
         "skysports.com",
         "theguardian.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "rejected_quality_gate",
+      "last_processed_at": "2026-11-14T13:44:20.850766+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "WSL LIVE! Chelsea vs Man City under way, Man Utd lead Palace"
     }
   }
 }
