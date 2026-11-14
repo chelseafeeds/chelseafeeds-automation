@@ -138,8 +138,6 @@ def extract_source_images(html, page_url):
 
 def clean_text(html):
     soup = BeautifulSoup(html or "", "html.parser")
-    for node in soup(["script", "style", "noscript", "svg", "nav", "footer", "header", "form"]):
-        node.decompose()
     title = soup.title.get_text(" ", strip=True) if soup.title else ""
     for selector in ['meta[property="og:title"]', 'meta[name="twitter:title"]']:
         node = soup.select_one(selector)
@@ -147,15 +145,54 @@ def clean_text(html):
             title = node["content"].strip()
             break
     desc = ""
-    for selector in ['meta[property="og:description"]', 'meta[name="description"]']:
+    for selector in ['meta[property="og:description"]', 'meta[name="description"]',
+                    'meta[name="twitter:description"]']:
         node = soup.select_one(selector)
         if node and node.get("content"):
             desc = node["content"].strip()
             break
-    article = soup.find("article") or soup.find("main") or soup.body or soup
-    body = re.sub(r"\s+", " ", article.get_text(" ", strip=True))
-    return title[:300], desc[:800], body[:MAX_FETCH_CHARS]
 
+    # Some publishers put the full article body in JSON-LD instead of semantic HTML.
+    structured_bodies = []
+    def collect_article_bodies(value):
+        if isinstance(value, dict):
+            body = value.get("articleBody")
+            if isinstance(body, str) and len(body.strip()) >= 180:
+                structured_bodies.append(body)
+            for child in value.values():
+                collect_article_bodies(child)
+        elif isinstance(value, list):
+            for child in value:
+                collect_article_bodies(child)
+    for script in soup.select('script[type="application/ld+json"]'):
+        try:
+            collect_article_bodies(json.loads(script.string or script.get_text()))
+        except (ValueError, TypeError):
+            continue
+
+    # Cover common CMS article containers that do not use <article>.
+    article_text = ""
+    selectors = [
+        '[itemprop="articleBody"]', '.entry-content', '.article-content',
+        '.post-content', '.article__body', '.story-body', '.article-body',
+        '.post-body', '.content__article-body', 'article', 'main'
+    ]
+    for selector in selectors:
+        nodes = soup.select(selector)
+        if nodes:
+            candidate = max((node.get_text(" ", strip=True) for node in nodes), key=len, default="")
+            candidate = re.sub(r"\\s+", " ", candidate).strip()
+            if len(candidate) > len(article_text):
+                article_text = candidate
+
+    for node in soup(["script", "style", "noscript", "svg", "nav", "footer", "header", "form"]):
+        node.decompose()
+    if len(article_text) < 180 and structured_bodies:
+        article_text = max(structured_bodies, key=len)
+    if len(article_text) < 180:
+        article_text = (soup.body or soup).get_text(" ", strip=True)
+    body = re.sub(r"\\s+", " ", article_text).strip()
+    return title[:300], desc[:800], body[:MAX_FETCH_CHARS]
 def fetch_source(url, session):
     result = {"url": url, "domain": host(url), "http_status": None, "accessible": False,
               "page_title": "", "description": "", "excerpt": "", "error": None}
