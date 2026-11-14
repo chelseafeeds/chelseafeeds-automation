@@ -359,7 +359,10 @@ def generate_draft(story, evidence, api_key, session):
     system = (
         "You are a careful Chelsea FC sports journalist and SEO editor. Use ONLY supplied evidence. "
         "Never invent facts, quotes, dates, scores, stats, injuries, fees, contract clauses, line-ups, "
-        "venues or motives. Do not create direct quotations; paraphrase and attribute instead. "
+        "venues, nationalities, ages, biographies or motives. Never infer a player's nationality, age, "
+        "position, current status or match record from their name or general knowledge; include such details "
+        "only when explicitly stated in supplied source material. Do not add unsupported background or speculation. "
+        "Do not create direct quotations; paraphrase and attribute instead. "
         "Do not copy source wording. Separate confirmed facts, reported claims and opinion. "
         "For transfers, state clearly whether officially confirmed or merely reported; never infer fees or clauses. "
         "When only one publisher is supplied, attribute every development to that publisher and say it has not been independently corroborated. "
@@ -750,7 +753,12 @@ def self_test():
     assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"]
     specialist = [{"accessible":True,"domain":"talkchelsea.net","url":"https://talkchelsea.net/story"}]
     assert evidence_assessment(story, specialist)["eligible_for_draft"]
+    assert not evidence_assessment(story, specialist)["auto_schedule_eligible"]
     assert evidence_assessment({"story_type":"transfer_rumour"}, specialist)["eligible_for_draft"]
+    assert not evidence_assessment({"story_type":"transfer_rumour"}, specialist)["auto_schedule_eligible"]
+    two_established = one + [{"accessible":True,"domain":"skysports.com","url":"https://www.skysports.com/b"}]
+    assert evidence_assessment(story, two_established)["auto_schedule_eligible"]
+    assert evidence_assessment(story, official)["auto_schedule_eligible"]
     assert not evidence_assessment(story, [{"accessible":False,"domain":"talkchelsea.net","url":"https://talkchelsea.net/story"}])["eligible_for_draft"]
     assert not evidence_assessment({"story_type":"confirmed_transfer"}, specialist)["eligible_for_draft"]
 
