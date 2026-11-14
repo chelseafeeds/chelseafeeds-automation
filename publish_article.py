@@ -75,9 +75,9 @@ def main():
 
     # Enforce the processor's explicit evidence gate. Drafts can be retained for
     # editorial review, but public scheduling requires an official source or two
-    # independently accessible established publishers. Never infer verification.
+    # distinct established publisher domains. Never infer verification.
     if not post.get("auto_schedule_eligible", False):
-        raise RuntimeError("Article retained as a draft: it does not meet the independent-evidence threshold for automatic scheduling.")
+        raise RuntimeError("Article retained as a draft: it does not meet the multi-source evidence threshold for automatic scheduling.")
     if post.get("claims_verified") is True and post.get("editorial_status") == "draft_requires_editorial_review":
         raise RuntimeError("Conflicting editorial metadata; refusing automatic scheduling.")
 
