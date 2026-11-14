@@ -136,10 +136,21 @@ def inspect_artifact(run, artifact):
     result["verification"]="passed" if not result["errors"] else "needs_attention"
     return result
 
+def list_workflow_runs(workflow_file, per_page=30):
+    return api_get(f"{API}/actions/workflows/{workflow_file}/runs?branch=main&per_page={per_page}").json().get("workflow_runs", [])
+
+def dispatch_workflow(workflow_file, inputs=None):
+    payload={"ref":"main"}
+    if inputs: payload["inputs"]=inputs
+    response=requests.post(f"{API}/actions/workflows/{workflow_file}/dispatches",
+        headers=HEADERS,json=payload,timeout=30)
+    if response.status_code != 204:
+        return {"ok":False,"status_code":response.status_code,"body":response.text[:500]}
+    return {"ok":True,"status_code":204}
+
 def watchdog_collection():
     """Recover a missed 5-minute cron without starting overlapping collection runs."""
-    url=f"{API}/actions/workflows/collect-news.yml/runs?branch=main&per_page=10"
-    runs=api_get(url).json().get("workflow_runs",[])
+    runs=list_workflow_runs("collect-news.yml",10)
     active=[r for r in runs if r.get("status") in {"queued","in_progress","waiting","requested"}]
     latest=max(runs,key=lambda r:r.get("created_at",""),default=None)
     age_minutes=None
@@ -149,22 +160,78 @@ def watchdog_collection():
             "latest_collection_created_at":latest.get("created_at") if latest else None,
             "latest_collection_age_minutes":round(age_minutes,1) if age_minutes is not None else None,
             "active_collection_runs":len(active),"dispatch_attempted":False,"dispatch_result":"not_needed"}
-    # Scheduled GitHub Actions events can be delayed or dropped. Dispatch only
-    # when no run is active and the last collection is older than eight minutes.
     if not active and (age_minutes is None or age_minutes > 8):
         result["dispatch_attempted"]=True
-        response=requests.post(f"{API}/actions/workflows/collect-news.yml/dispatches",
-            headers=HEADERS,json={"ref":"main"},timeout=30)
-        if response.status_code==204:
-            result["dispatch_result"]="dispatched"
-        else:
-            result["dispatch_result"]=f"HTTP {response.status_code}: {response.text[:300]}"
-            response.raise_for_status()
+        dispatched=dispatch_workflow("collect-news.yml")
+        result["dispatch_result"]="dispatched" if dispatched["ok"] else dispatched
+        if not dispatched["ok"]:
+            REPORT.setdefault("alerts",[]).append("Collector watchdog dispatch failed: "+str(dispatched))
     return result
+
+def recover_stalled_workflows():
+    """Cancel runs with no GitHub activity for 60m, then safely redispatch their stage."""
+    now=datetime.now(timezone.utc)
+    targets=[
+        {"file":"collect-news.yml","label":"collection","source_file":None},
+        {"file":"process-news.yml","label":"editorial processing","source_file":"collect-news.yml"},
+        {"file":"auto-schedule-editorial-batch.yml","label":"Blogger scheduling","source_file":"process-news.yml"},
+    ]
+    report=[]
+    active_states={"queued","in_progress","waiting","requested"}
+    for target in targets:
+        runs=list_workflow_runs(target["file"],50)
+        active=[r for r in runs if r.get("status") in active_states]
+        for run in active:
+            activity=run.get("updated_at") or run.get("run_started_at") or run.get("created_at")
+            if not activity: continue
+            last_activity=datetime.fromisoformat(activity.replace("Z","+00:00"))
+            idle_minutes=(now-last_activity).total_seconds()/60
+            if idle_minutes < 60: continue
+            item={"workflow":target["label"],"stalled_run_id":run["id"],
+                  "run_number":run.get("run_number"),"idle_minutes":round(idle_minutes,1),
+                  "cancelled":False,"restart_attempted":False}
+            cancel=requests.post(f"{API}/actions/runs/{run['id']}/cancel",
+                headers=HEADERS,timeout=30)
+            if cancel.status_code not in (202,409):
+                item["cancel_error"]=f"HTTP {cancel.status_code}: {cancel.text[:300]}"
+                REPORT.setdefault("alerts",[]).append(f"Could not cancel stalled {target['label']} run {run['id']}: {item['cancel_error']}")
+                report.append(item); continue
+            item["cancelled"]=True
+            # Cancelled stale runs are the durable retry ledger. Two recoveries per
+            # workflow in a rolling six-hour window are allowed; then stop and alert.
+            cutoff=now.timestamp()-6*60*60
+            recent_cancellations=0
+            for old in runs:
+                if old.get("conclusion") not in {"cancelled","timed_out"}: continue
+                stamp=old.get("updated_at") or old.get("created_at")
+                if stamp and datetime.fromisoformat(stamp.replace("Z","+00:00")).timestamp() >= cutoff:
+                    recent_cancellations+=1
+            item["recent_recovery_failures_6h"]=recent_cancellations
+            if recent_cancellations >= 2:
+                item["restart_blocked"]="Retry limit reached: two cancelled/timed-out attempts in six hours."
+                REPORT.setdefault("alerts",[]).append(f"Automatic recovery paused for {target['label']} after two failed recovery attempts in six hours. Manual investigation required.")
+                report.append(item); continue
+            inputs=None
+            if target["source_file"]:
+                source_runs=list_workflow_runs(target["source_file"],30)
+                source=next((r for r in source_runs if r.get("status")=="completed" and r.get("conclusion")=="success"),None)
+                if not source:
+                    item["restart_blocked"]="No successful upstream run is available to resume this stage."
+                    REPORT.setdefault("alerts",[]).append(f"Stalled {target['label']} run cancelled, but no successful upstream run was available for restart.")
+                    report.append(item); continue
+                inputs={"source_run_id":str(source["id"])}
+            item["restart_attempted"]=True
+            dispatched=dispatch_workflow(target["file"],inputs)
+            item["restart_result"]="dispatched" if dispatched["ok"] else dispatched
+            if not dispatched["ok"]:
+                REPORT.setdefault("alerts",[]).append(f"Restart failed for {target['label']} after cancelling stalled run {run['id']}: {dispatched}")
+            report.append(item)
+    return report
 
 def main():
     REPORT["collection_watchdog"]=watchdog_collection()
-    runs=api_get(f"{API}/actions/workflows/process-news.yml/runs?branch=main&per_page=15").json().get("workflow_runs",[])
+    REPORT["stalled_workflow_recovery"]=recover_stalled_workflows()
+    runs=list_workflow_runs("process-news.yml",15)
     active=[r for r in runs if r.get("status") in {"queued","in_progress","waiting","requested"}]
     REPORT["active_runs"]=[{"run_number":r.get("run_number"),"id":r["id"],"status":r.get("status"),
         "created_at":r.get("created_at"),"url":r.get("html_url")} for r in active]
