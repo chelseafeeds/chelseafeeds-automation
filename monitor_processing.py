@@ -136,7 +136,34 @@ def inspect_artifact(run, artifact):
     result["verification"]="passed" if not result["errors"] else "needs_attention"
     return result
 
+def watchdog_collection():
+    """Recover a missed 5-minute cron without starting overlapping collection runs."""
+    url=f"{API}/actions/workflows/collect-news.yml/runs?branch=main&per_page=10"
+    runs=api_get(url).json().get("workflow_runs",[])
+    active=[r for r in runs if r.get("status") in {"queued","in_progress","waiting","requested"}]
+    latest=max(runs,key=lambda r:r.get("created_at",""),default=None)
+    age_minutes=None
+    if latest and latest.get("created_at"):
+        age_minutes=(datetime.now(timezone.utc)-datetime.fromisoformat(latest["created_at"].replace("Z","+00:00"))).total_seconds()/60
+    result={"latest_collection_run_id":latest.get("id") if latest else None,
+            "latest_collection_created_at":latest.get("created_at") if latest else None,
+            "latest_collection_age_minutes":round(age_minutes,1) if age_minutes is not None else None,
+            "active_collection_runs":len(active),"dispatch_attempted":False,"dispatch_result":"not_needed"}
+    # Scheduled GitHub Actions events can be delayed or dropped. Dispatch only
+    # when no run is active and the last collection is older than eight minutes.
+    if not active and (age_minutes is None or age_minutes > 8):
+        result["dispatch_attempted"]=True
+        response=requests.post(f"{API}/actions/workflows/collect-news.yml/dispatches",
+            headers=HEADERS,json={"ref":"main"},timeout=30)
+        if response.status_code==204:
+            result["dispatch_result"]="dispatched"
+        else:
+            result["dispatch_result"]=f"HTTP {response.status_code}: {response.text[:300]}"
+            response.raise_for_status()
+    return result
+
 def main():
+    REPORT["collection_watchdog"]=watchdog_collection()
     runs=api_get(f"{API}/actions/workflows/process-news.yml/runs?branch=main&per_page=15").json().get("workflow_runs",[])
     active=[r for r in runs if r.get("status") in {"queued","in_progress","waiting","requested"}]
     REPORT["active_runs"]=[{"run_number":r.get("run_number"),"id":r["id"],"status":r.get("status"),
