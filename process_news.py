@@ -272,10 +272,15 @@ def evidence_assessment(story, fetched):
         # sufficient for a sourced draft; factual claims remain unverified.
         eligible = bool(official) or bool(established) or len(other_domains) >= 1
         reason = "A news draft may use one accessible direct publisher with explicit attribution; accessibility is not proof of factual accuracy."
+    established_domains = sorted({x["domain"] for x in established})
+    # Drafting can use one attributable direct source; automatic scheduling needs
+    # stronger evidence: an accessible official source or two established publishers.
+    auto_schedule_eligible = bool(official) or len(established_domains) >= 2
     return {"evidence_tier": tier, "accessible_source_count": len(accessible),
             "accessible_publisher_domains": accessible_domains, "official_source_count": len(official),
-            "established_source_domains": sorted({x["domain"] for x in established}),
-            "eligible_for_draft": eligible, "claims_verified": False, "reason": reason,
+            "established_source_domains": established_domains,
+            "eligible_for_draft": eligible, "auto_schedule_eligible": auto_schedule_eligible,
+            "claims_verified": False, "reason": reason,
             "warning": "Accessibility and publisher count are evidence triage, not proof of factual accuracy."}
 
 def build_prompt(story, evidence):
@@ -642,6 +647,7 @@ def process(input_path, output_dir):
                         "source_urls": story.get("source_urls", []),
                         "source_images": [img for src in fetched if src.get("accessible") for img in src.get("source_images", [])],
                         "evidence_assessment": assessment,
+                        "auto_schedule_eligible": assessment["auto_schedule_eligible"],
                         "verification_status": "evidence_triaged_not_fact_verified", "claims_verified": False,
                         "editorial_status": "draft_requires_editorial_review", "article_generated": True,
                         "published_to_blogger": False, "published_to_x": False, "draft": draft})
@@ -689,8 +695,9 @@ def process(input_path, output_dir):
             "source_urls": item.get("source_urls", []),
             "source_images": item.get("source_images", []),
             "editorial_status": "draft_requires_editorial_review",
+            "auto_schedule_eligible": item.get("auto_schedule_eligible", False),
             "claims_verified": False,
-            "publishing_enabled": False
+            "publishing_enabled": bool(item.get("auto_schedule_eligible", False))
         })
     (output_dir / "blogger_ready_posts.json").write_text(
         json.dumps({"format_version":"1.0","generated_at":utcnow().isoformat(),
