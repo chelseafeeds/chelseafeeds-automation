@@ -34,6 +34,9 @@ jobs:
       - name: Install monitor dependencies
         run: pip install requests pillow
 
+      - name: Compile-check watchdog recovery logic
+        run: python -m py_compile monitor_processing.py
+
       - name: Inspect processing runs, articles, links and images
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
