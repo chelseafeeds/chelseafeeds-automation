@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-14T18:43:39.437285+00:00",
+  "updated_at": "2026-11-14T18:44:07.437374+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1058,10 +1058,10 @@
       "publisher_domains": [
         "talkchelsea.net"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-14T18:44:07.437374+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea regular slammed for “disastrous evening” for national team"
     }
   }
 }
