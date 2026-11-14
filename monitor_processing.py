@@ -277,5 +277,7 @@ def main():
     with open(os.environ.get("GITHUB_STEP_SUMMARY","monitor-output/summary.md"),"a",encoding="utf-8") as f:
         f.write("\n".join(lines)+"\n")
     print(json.dumps(REPORT["summary"],ensure_ascii=False))
+    if REPORT.get("alerts"):
+        sys.exit(1)
     # Verification warnings should be visible but must not prevent the monitor from running again.
 if __name__=="__main__": main()
