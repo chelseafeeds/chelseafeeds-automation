@@ -1,13 +1,24 @@
-name: ChelseaFeeds 10-Minute Processing Monitor
+name: ChelseaFeeds Watchdog and Processing Monitor
 
 on:
+  # Primary wake-up: run after any pipeline stage completes. This does not
+  # depend on the monitor's own cron firing.
+  workflow_run:
+    workflows:
+      - Chelsea News Collection
+      - ChelseaFeeds Evidence and Article Drafts
+      - ChelseaFeeds Auto Schedule Editorial Batch
+    types: [completed]
+    branches: [main]
+  # Secondary heartbeat: GitHub scheduled events can be delayed, so this is
+  # a periodic backstop rather than the only wake-up mechanism.
+  schedule:
+    - cron: "*/10 * * * *"
   push:
     branches: [main]
     paths:
       - "monitor_processing.py"
       - ".github/workflows/monitor-processing.yml"
-  schedule:
-    - cron: "*/10 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -20,11 +31,19 @@ concurrency:
 
 jobs:
   monitor:
+    # Ignore completions from this monitor itself; only pipeline workflows
+    # should wake it through workflow_run.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.head_branch == 'main' &&
+       contains(fromJSON('["Chelsea News Collection","ChelseaFeeds Evidence and Article Drafts","ChelseaFeeds Auto Schedule Editorial Batch"]'), github.event.workflow_run.name))
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Check out monitor
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
