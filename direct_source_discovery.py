@@ -163,7 +163,7 @@ def discover_pinned_story(session):
             if not published or not title:
                 continue
             if source.get("story_key") == "ezenwata":
-                if not re.search(r"Chizaram\\s+Ezenwata", page_text, re.I) or "Chelsea" not in page_text:
+                if not re.search(r"Chizaram\s+Ezenwata", page_text, re.I) or "Chelsea" not in page_text:
                     continue
                 title = "Report: England MU19s 5-0 Belarus"
                 summary = ("Chelsea academy forward Chizaram Ezenwata converted England's fourth goal "
