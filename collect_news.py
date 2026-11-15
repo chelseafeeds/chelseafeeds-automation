@@ -15,7 +15,7 @@ from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode, urljoin
 import feedparser, requests
 from bs4 import BeautifulSoup
 
-VERSION = "4.1"
+VERSION = "4.2"
 ROOT = Path(__file__).resolve().parent
 HISTORY_FILE = ROOT / "seen_stories.json"
 CANDIDATES_FILE = ROOT / "news_candidates.json"
@@ -227,11 +227,68 @@ def verification_checklist(g):
     return common+specific.get(typ,specific["general_news"])
 
 TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "rejected_quality_gate", "published", "archived"}
+SNAPSHOT_FIELDS = (
+    "event_id", "title", "story_type", "team_scope", "published", "best_summary",
+    "representative_title", "representative_url", "representative_publisher",
+    "representative_publisher_type", "source_observations", "source_urls",
+    "publisher_domains", "source_feeds", "publisher_count", "observation_count",
+    "corroboration_status", "opponent_key", "fixture_key", "subject_key"
+)
 
-def filter_pending_candidates(groups, history):
-    """Do not repeatedly generate the same event after a draft or quality rejection."""
+def candidate_snapshot(group):
+    """Persist the evidence-bearing event data needed to recover an interrupted queue."""
+    return {key: group[key] for key in SNAPSHOT_FIELDS if key in group}
+
+def filter_pending_candidates(groups, history, reference_time=None):
+    """Return current pending events plus recoverable, unprocessed events from the 24h queue.
+
+    Terminal editorial outcomes are never reopened. Legacy history rows without a
+    source snapshot are not fabricated; they can re-enter only if rediscovered in
+    a current feed. Recovered items retain their original source URLs and evidence.
+    """
     events = history.get("events", {}) if isinstance(history, dict) else {}
-    return [g for g in groups if events.get(g.get("event_id"), {}).get("status") not in TERMINAL_EVENT_STATUSES]
+    current = {}
+    for group in groups:
+        event_id = group.get("event_id")
+        if event_id and events.get(event_id, {}).get("status") not in TERMINAL_EVENT_STATUSES:
+            current[event_id] = group
+
+    now_value = reference_time or now()
+    if now_value.tzinfo is None:
+        now_value = now_value.replace(tzinfo=timezone.utc)
+    cutoff = now_value - timedelta(hours=MAX_AGE_HOURS)
+
+    for event_id, record in events.items():
+        if event_id in current or not isinstance(record, dict):
+            continue
+        if record.get("status") in TERMINAL_EVENT_STATUSES:
+            continue
+        if record.get("status", "observed_not_processed") != "observed_not_processed":
+            continue
+        published_value = record.get("last_published_at")
+        try:
+            published = datetime.fromisoformat(str(published_value).replace("Z", "+00:00"))
+            if published.tzinfo is None:
+                published = published.replace(tzinfo=timezone.utc)
+            else:
+                published = published.astimezone(timezone.utc)
+        except (TypeError, ValueError):
+            continue
+        if published < cutoff or published > now_value + timedelta(hours=12):
+            continue
+        snapshot = record.get("candidate_snapshot")
+        if not isinstance(snapshot, dict) or not snapshot.get("source_urls") or not snapshot.get("source_observations"):
+            continue
+        recovered = dict(snapshot)
+        recovered["event_id"] = event_id
+        recovered["published"] = published.isoformat()
+        score(recovered)
+        recovered["verification_status"] = "not_started"
+        recovered["verification_checklist"] = verification_checklist(recovered)
+        recovered["recovered_from_history"] = True
+        current[event_id] = recovered
+
+    return list(current.values())
 
 
 def select_candidates(groups,limit=MAX_STORIES,opinion_limit=MAX_OPINION_CANDIDATES):
@@ -336,7 +393,19 @@ def update_history(groups,history):
     old=history.get("events",{}); ev=dict(old); stamp=now().isoformat(); cutoff=now()-timedelta(days=HISTORY_DAYS)
     for g in groups:
         k=g["event_id"]; prev=ev.get(k,{})
-        ev[k]={"event_id":k,"title":g["title"][:240],"first_seen_at":prev.get("first_seen_at",stamp),"last_seen_at":stamp,"last_published_at":g["published"],"last_observation_count":g["observation_count"],"publisher_domains":g["publisher_domains"],"status":prev.get("status","observed_not_processed")}
+        record=dict(prev)
+        record.update({
+            "event_id":k,
+            "title":g["title"][:240],
+            "first_seen_at":prev.get("first_seen_at",stamp),
+            "last_seen_at":stamp,
+            "last_published_at":g["published"],
+            "last_observation_count":g["observation_count"],
+            "publisher_domains":g["publisher_domains"],
+            "status":prev.get("status","observed_not_processed"),
+            "candidate_snapshot":candidate_snapshot(g)
+        })
+        ev[k]=record
     kept={}
     for k,v in ev.items():
         try:
@@ -389,6 +458,29 @@ def run_self_tests():
     processed = {"events": {"done": {"status": "draft_created_unpublished"}, "held": {"status": "rejected_quality_gate"}}}
     pending = filter_pending_candidates([{"event_id":"done"},{"event_id":"held"},{"event_id":"new"}], processed)
     assert [x["event_id"] for x in pending] == ["new"]
+    # A previously observed but unprocessed story is recovered from its stored
+    # evidence snapshot while it remains inside the 24-hour publication window.
+    recoverable_group = cluster([o("Chelsea Women reaction after Manchester City win",
+        "https://www.espn.com/soccer/story/example", "ESPN", dt=base)])[0]
+    history_with_queue = {"events": {"recoverable": {
+        "status": "observed_not_processed", "last_published_at": base.isoformat(),
+        "candidate_snapshot": {**candidate_snapshot(recoverable_group), "event_id": "recoverable"}
+    }}}
+    recovered = filter_pending_candidates([], history_with_queue, reference_time=base+timedelta(hours=12))
+    assert len(recovered) == 1 and recovered[0]["event_id"] == "recoverable"
+    assert recovered[0]["recovered_from_history"] is True and recovered[0]["source_urls"] == recoverable_group["source_urls"]
+    # Expired queue items and terminal editorial outcomes must never be revived.
+    expired = filter_pending_candidates([], history_with_queue, reference_time=base+timedelta(hours=25))
+    assert expired == []
+    terminal_queue = {"events": {"recoverable": {
+        **history_with_queue["events"]["recoverable"], "status": "rejected_quality_gate"
+    }}}
+    assert filter_pending_candidates([], terminal_queue, reference_time=base+timedelta(hours=12)) == []
+    # A current observation wins over its history snapshot and is not duplicated.
+    current_group = dict(recoverable_group)
+    current_group["title"] = "Current feed headline"
+    current = filter_pending_candidates([current_group], history_with_queue, reference_time=base+timedelta(hours=12))
+    assert len(current) == 1 and current[0]["title"] == "Current feed headline"
     # Same Sunderland result, distinct publishers and clear opponent: merge.
     x=[o("Le Fée penalty sinks Chelsea at Sunderland","https://www.theguardian.com/a","Guardian"),o("Chelsea lose at Sunderland after Le Fee penalty","https://chelsea.news/i","Chelsea.news")]
     gs=cluster(x); assert len(gs)==1 and gs[0]["observation_count"]==2
