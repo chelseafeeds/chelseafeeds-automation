@@ -147,6 +147,11 @@ jobs:
             labels="$(python -c 'import json,sys; print(json.dumps(json.loads(sys.argv[1]).get("labels",[])))' "$meta")"
             thumbnail="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["image_path"])' "$meta")"
 
+            if [ -z "$X_API_KEY" ] || [ -z "$X_API_SECRET" ] || [ -z "$X_ACCESS_TOKEN" ] || [ -z "$X_ACCESS_TOKEN_SECRET" ]; then
+              echo "X credentials are not configured; Blogger post is retained without an X announcement: $event_id"
+              continue
+            fi
+
             echo "Waiting for Blogger to confirm LIVE before X announcement: $event_id"
             BLOGGER_POST_ID="$post_id" \
             ARTICLE_TITLE="$title" \
