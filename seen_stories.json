@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:26:19.996744+00:00",
+  "updated_at": "2026-11-15T18:26:38.384575+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -3919,7 +3919,7 @@
         "nytimes.com",
         "usatoday.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "a1b083a3199deead56853b78",
         "title": "Chelsea go top with 1-0 win against Man City",
@@ -4061,7 +4061,12 @@
         "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result"
       ],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5470940185836379175",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-women-climb-to-top-of-wsl-after.html",
+      "scheduled_for_utc": "2026-11-15T18:31:37Z",
+      "last_blogger_status_updated_at": "2026-11-15T18:26:38.384541+00:00"
     },
     "c8579a9fe38997fb7c646934": {
       "event_id": "c8579a9fe38997fb7c646934",
