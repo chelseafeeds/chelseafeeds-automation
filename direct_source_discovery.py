@@ -208,6 +208,14 @@ def is_official_article_url(url):
             and "/en/news/article/" in parsed.path)
 
 
+def official_title_slug(title):
+    # Chelsea article paths remove apostrophes and normalize punctuation to hyphens.
+    value = c.textval(title).split("|", 1)[0].lower()
+    value = re.sub(r"['’]", "", value)
+    value = re.sub(r"[^a-z0-9]+", "-", value).strip("-")
+    return value
+
+
 def run_self_tests():
     # The live Kaptein article must be recognisable from its own headline and body,
     # while unrelated pages cannot pass the pinned-source guard.
@@ -220,6 +228,7 @@ def run_self_tests():
     assert is_official_article_url("https://www.chelseafc.com/en/news/article/example")
     assert not is_official_article_url("https://news.google.com/rss/articles/example")
     assert not is_official_article_url("https://chelseafc.com.example.org/en/news/article/example")
+    assert official_title_slug("Wieke Kaptein: We can take confidence from Man City victory | News | Official Site - Chelsea Football Club") == "wieke-kaptein-we-can-take-confidence-from-man-city-victory"
     assert all("published_fallback" not in source for source in PINNED_OFFICIAL_SOURCES)
     assert parse_iso("Sun, 15 Nov 2026 13:00:00 GMT") == datetime(2026, 11, 15, 13, 0, tzinfo=timezone.utc)
     title, summary, published = article_metadata(
@@ -317,6 +326,9 @@ def discover_official_sitemaps(session):
             and "/en/news/article/" in urlparse(u).path
         ))[:MAX_SITEMAP_ARTICLES]
         report["entries_received"] = len(article_urls)
+        # Expose the official URL index for exact headline-to-sitemap matching.
+        # Sitemap lastmod remains a discovery hint only, never the publication date.
+        report["article_urls"] = article_urls
 
         cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
         for url in article_urls:
@@ -469,7 +481,7 @@ def discover_pinned_official_story(session, history):
         report["error"] = "No pinned official Chelsea article passed direct-page identity and 24-hour publication checks"
     return pending, report
 
-def discover_google_news_official(session):
+def discover_google_news_official(session, sitemap_report=None):
     """Use Google News RSS only as a discovery index for direct Chelsea articles.
 
     Google News supplies a publication-time hint; it is not counted as evidence.
@@ -486,6 +498,12 @@ def discover_google_news_official(session):
               "entries_received": 0, "observations_collected": 0,
               "rejected_non_official": 0, "query_reports": [], "error": None}
     observations, seen = [], set()
+    sitemap_urls = (sitemap_report or {}).get("article_urls", [])
+    sitemap_by_slug = {
+        urlparse(url).path.rstrip("/").rsplit("/", 1)[-1]: url
+        for url in sitemap_urls if is_official_article_url(url)
+    }
+    report["sitemap_article_urls_available"] = len(sitemap_by_slug)
     cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
     for query in queries:
         row = {"query": query, "entries_received": 0,
@@ -524,9 +542,15 @@ def discover_google_news_official(session):
                     resolved = session.get(raw_url, timeout=c.TIMEOUT, allow_redirects=True)
                     final_url = c.normalize_url(resolved.url)
                     if not is_official_article_url(final_url):
-                        report["rejected_non_official"] += 1
-                        row["rejected_unmapped_url"] += 1
-                        continue
+                        # Google News often leaves its RSS article link on a
+                        # Google redirect in headless runners. Match its exact
+                        # official headline slug to Chelsea's own sitemap URL.
+                        slug = official_title_slug(title)
+                        final_url = sitemap_by_slug.get(slug, "")
+                        if not final_url:
+                            report["rejected_non_official"] += 1
+                            row["rejected_unmapped_url"] += 1
+                            continue
                     if final_url in seen:
                         continue
                     seen.add(final_url)
@@ -683,7 +707,7 @@ def main():
     pinned_groups, pinned_report = discover_pinned_official_story(session, history)
     specialist_obs, specialist_report = discover_specialist_feeds(session)
     bing_obs, bing_report = discover_bing_news(session)
-    google_official_obs, google_official_report = discover_google_news_official(session)
+    google_official_obs, google_official_report = discover_google_news_official(session, sitemap_report)
     new_obs = official_obs + sitemap_obs + specialist_obs + bing_obs + google_official_obs
     groups = c.cluster(new_obs)
     groups.extend(pinned_groups)
