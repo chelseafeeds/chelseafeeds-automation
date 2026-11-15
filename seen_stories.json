@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T12:21:56.921713+00:00",
+  "updated_at": "2026-11-15T12:22:27.133603+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -2202,7 +2202,7 @@
       "publisher_domains": [
         "chelsea.news"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "718c2f697fd26fc4ce6b970f",
         "title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
@@ -2244,9 +2244,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "last_processed_at": "2026-11-15T12:22:27.133603+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil"
     }
   }
 }
