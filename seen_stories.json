@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T19:27:46.150746+00:00",
+  "updated_at": "2026-11-15T19:28:16.651420+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -3489,16 +3489,18 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": "2026-11-15T18:22:07.010649+00:00",
-      "last_editorial_outcome": "draft_created_unpublished",
-      "last_processed_headline": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
+      "last_processed_at": "2026-11-15T19:28:16.651420+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Wieke Kaptein: We can take confidence from Man City victory | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [
-        "weaintgotnohistory.sbnation.com"
+        "chelseafc.com"
       ],
       "last_editorial_source_urls": [
-        "https://weaintgotnohistory.sbnation.com/chelsea-fc-women/174029/chelsea-fcw-1-0-manchester-city-wfc-womens-super-league-post-match-reaction"
+        "https://www.chelseafc.com/en/news/article/wieke-kaptein-we-can-take-confidence-from-man-city-victory"
       ],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     },
     "2e4dfc8f18edcb763cec120b": {
@@ -4246,7 +4248,7 @@
       "publisher_domains": [
         "el-balad.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "1d54b754f28118021164f3cc",
         "title": "Chelsea's 12-minute Kadeisha Buchanan call shaped Joie Stadium win over Manchester City",
@@ -4288,12 +4290,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-15T19:28:16.651420+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea's 12-minute Kadeisha Buchanan call shaped Joie Stadium win over Manchester City",
+      "last_editorial_source_domains": [
+        "el-balad.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.el-balad.com/17067083"
+      ],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     },
     "c0df2ccea43f92257342bae2": {
