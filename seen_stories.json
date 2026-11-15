@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T19:32:46.049560+00:00",
+  "updated_at": "2026-11-15T19:33:14.768222+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -4443,7 +4443,7 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": "2026-11-15T19:26:44.652029+00:00",
+      "last_processed_at": "2026-11-15T19:33:14.768222+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Wieke Kaptein: We can take confidence from Man City victory | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [
@@ -4455,7 +4455,7 @@
       "last_quality_failures": [
         "substantive_article_body_minimum_400_words"
       ],
-      "force_evidence_refresh": true,
+      "force_evidence_refresh": false,
       "force_evidence_refresh_reason": "One-time retry after official-source discovery and correction of same-fixture reaction false-merging; 24-hour and evidence rules unchanged."
     },
     "af1610607b92583a41b4cf97": {
