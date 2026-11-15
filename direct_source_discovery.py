@@ -201,6 +201,13 @@ def pinned_story_matches(source, title, page_text):
             and all(term in body_l for term in source.get("required_body_terms", [])))
 
 
+def is_official_article_url(url):
+    parsed = urlparse(url or "")
+    return (parsed.scheme in {"http", "https"}
+            and c.matches(c.domain(url), {"chelseafc.com"})
+            and "/en/news/article/" in parsed.path)
+
+
 def run_self_tests():
     # The live Kaptein article must be recognisable from its own headline and body,
     # while unrelated pages cannot pass the pinned-source guard.
@@ -210,6 +217,9 @@ def run_self_tests():
         "Kaptein discusses Sandy Baltimore and the upcoming Paris Saint-Germain match.")
     assert not pinned_story_matches(kaptein, "Chelsea latest news",
         "An unrelated club announcement with no matching article details.")
+    assert is_official_article_url("https://www.chelseafc.com/en/news/article/example")
+    assert not is_official_article_url("https://news.google.com/rss/articles/example")
+    assert not is_official_article_url("https://chelseafc.com.example.org/en/news/article/example")
     assert all("published_fallback" not in source for source in PINNED_OFFICIAL_SOURCES)
     assert parse_iso("Sun, 15 Nov 2026 13:00:00 GMT") == datetime(2026, 11, 15, 13, 0, tzinfo=timezone.utc)
     title, summary, published = article_metadata(
@@ -459,6 +469,72 @@ def discover_pinned_official_story(session, history):
         report["error"] = "No pinned official Chelsea article passed direct-page identity and 24-hour publication checks"
     return pending, report
 
+def discover_google_news_official(session):
+    """Use Google News RSS only as a discovery index for direct Chelsea articles.
+
+    Google News supplies a publication-time hint; it is not counted as evidence.
+    Every result must resolve to a first-party Chelsea article URL, and the normal
+    processor must still fetch and verify the article body and all material claims.
+    """
+    from urllib.parse import quote_plus
+    queries = [
+        'site:chelseafc.com/en/news/article Chelsea',
+        'site:chelseafc.com/en/news/article "Wieke Kaptein"',
+    ]
+    report = {"source": "Google News first-party Chelsea article discovery",
+              "url": "https://news.google.com/rss/", "status": "failed",
+              "entries_received": 0, "observations_collected": 0,
+              "rejected_non_official": 0, "query_reports": [], "error": None}
+    observations, seen = [], set()
+    cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
+    for query in queries:
+        row = {"query": query, "entries_received": 0,
+               "observations_collected": 0, "status": "failed"}
+        feed_url = ("https://news.google.com/rss/search?q=" + quote_plus(query)
+                    + "&hl=en-GB&gl=GB&ceid=GB%3Aen")
+        try:
+            response = session.get(feed_url, timeout=c.TIMEOUT)
+            response.raise_for_status()
+            feed = feedparser.parse(response.content)
+            row["entries_received"] = len(feed.entries)
+            report["entries_received"] += len(feed.entries)
+            for entry in feed.entries[:25]:
+                title = c.textval(entry.get("title"))
+                summary = c.textval(entry.get("summary", entry.get("description", "")))
+                published = c.parse_date(entry)
+                if not title or not published or published < cutoff or published > c.now() + timedelta(hours=12):
+                    continue
+                raw_url = entry.get("link", "")
+                try:
+                    resolved = session.get(raw_url, timeout=c.TIMEOUT, allow_redirects=True)
+                    final_url = c.normalize_url(resolved.url)
+                    if not is_official_article_url(final_url):
+                        report["rejected_non_official"] += 1
+                        continue
+                    if final_url in seen:
+                        continue
+                    seen.add(final_url)
+                    item = c.observation(title, summary, final_url,
+                                         "Google News official-source discovery",
+                                         "Chelsea Football Club", published)
+                    if item:
+                        item["publisher_type"] = "official_domain"
+                        item["discovery_timestamp_source"] = "Google News RSS; discovery only"
+                        observations.append(item)
+                        row["observations_collected"] += 1
+                except requests.RequestException:
+                    report["rejected_non_official"] += 1
+            row["status"] = "success" if row["observations_collected"] else "empty"
+        except Exception as exc:
+            row["error"] = f"{type(exc).__name__}: {str(exc)[:160]}"
+        report["query_reports"].append(row)
+    report["observations_collected"] = len(observations)
+    report["status"] = "success" if observations else "empty"
+    if not observations:
+        report["error"] = "Google News returned no fresh results resolving to direct Chelsea article URLs"
+    return observations, report
+
+
 def discover_bing_news(session):
     """Use Bing News only for discovery; resolve every result to its publisher."""
     from urllib.parse import quote_plus
@@ -591,7 +667,8 @@ def main():
     pinned_groups, pinned_report = discover_pinned_official_story(session, history)
     specialist_obs, specialist_report = discover_specialist_feeds(session)
     bing_obs, bing_report = discover_bing_news(session)
-    new_obs = official_obs + sitemap_obs + specialist_obs + bing_obs
+    google_official_obs, google_official_report = discover_google_news_official(session)
+    new_obs = official_obs + sitemap_obs + specialist_obs + bing_obs + google_official_obs
     groups = c.cluster(new_obs)
     groups.extend(pinned_groups)
     for group in groups:
@@ -622,10 +699,10 @@ def main():
     c.write(HISTORY, history_updated)
     report = json.loads(REPORT.read_text(encoding="utf-8")) if REPORT.exists() else {}
     reports = report.setdefault("source_reports", [])
-    reports.extend(official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report])
-    report.update(source_discovery_version="1.3",
+    reports.extend(official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report])
+    report.update(source_discovery_version="1.4",
                   direct_source_observations=len(new_obs) + len(pinned_groups),
-                  direct_official_observations=len(official_obs) + len(sitemap_obs) + len(pinned_groups),
+                  direct_official_observations=len(official_obs) + len(sitemap_obs) + len(google_official_obs) + len(pinned_groups),
                   specialist_feed_observations=len(specialist_obs),
                   bing_discovery_observations=len(bing_obs),
                   selected_pending_candidates=len(selected),
