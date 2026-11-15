@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T14:05:50.264632+00:00",
+  "updated_at": "2026-11-15T14:06:17.226114+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -2370,7 +2370,7 @@
       "publisher_domains": [
         "talkchelsea.net"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "f07469f43a177d90b3498347",
         "title": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first",
@@ -2412,9 +2412,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "last_processed_at": "2026-11-15T14:06:17.226114+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first"
     }
   }
 }
