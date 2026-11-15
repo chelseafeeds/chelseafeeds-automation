@@ -89,7 +89,7 @@ def main():
     verified = update_response.json()
     verified_content = str(verified.get("content", ""))
     current_status = str(verified.get("status", previous_status)).upper()
-    if not verified_content or re.search(r"\\bten shots on target\\b", verified_content, re.I):
+    if not verified_content or re.search(r"\bten shots on target\b", verified_content, re.I):
         verified = None
         for status in ("scheduled", "live", "draft"):
             verify_response = session.get(base, params={
@@ -105,7 +105,7 @@ def main():
             raise RuntimeError("Updated Blogger post could not be found for verification.")
         verified_content = str(verified.get("content", ""))
         current_status = str(verified.get("status", previous_status)).upper()
-    if re.search(r"\\bten shots on target\\b", verified_content, re.I):
+    if re.search(r"\bten shots on target\b", verified_content, re.I):
         raise RuntimeError("Blogger update returned, but the incorrect wording is still present.")
 
     if previous_status == "SCHEDULED" and current_status not in {"SCHEDULED", "LIVE"}:
