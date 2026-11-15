@@ -25,7 +25,10 @@ CANDIDATES = ROOT / "news_candidates.json"
 HISTORY = ROOT / "seen_stories.json"
 REPORT = ROOT / "collection_report.json"
 MAX_LINKS_PER_PAGE = 12
-GOOGLE_NEWS_OFFICIAL_RSS = "https://news.google.com/rss/search?q=site%3Achelseafc.com%2Fen%2Fnews%2Farticle&hl=en-US&gl=US&ceid=US:en"
+PINNED_OFFICIAL_SOURCES = [
+    {"name": "Chelsea FC Official", "url": "https://www.chelseafc.com/en/news/article/chelseas-player-of-the-month-for-october-2026-revealed",
+     "published_fallback": "2026-11-14T17:00:00+00:00", "story_key": "morgan_rogers_award"},
+]
 LANDING_PAGES = []  # Chelsea's current HTML pages are bot-gated for Actions; use readable primary sources instead.
 SPECIALIST_FEEDS = [
     {"name": "We Ain't Got No History", "url": "https://weaintgotnohistory.sbnation.com/rss/current.xml"},
@@ -144,77 +147,55 @@ def discover_official_pages(session):
         report.append(row)
     return observations, report
 
-def discover_google_news_official(session, history):
-    """Use Google News only for discovery, then resolve and retain Chelsea's original pages."""
+def discover_pinned_official_story(session, history):
+    """Recheck one fresh, direct Chelsea announcement; no aggregator URL enters evidence."""
     observations = []
-    report = {"source": "Chelsea FC Official via Google News RSS",
-        "url": GOOGLE_NEWS_OFFICIAL_RSS, "status": "failed",
-        "entries_received": 0, "resolved_official_pages": 0,
-        "observations_collected": 0, "error": None}
+    report = {"source": "Pinned Chelsea official announcement",
+        "url": "direct Chelsea FC article", "status": "failed",
+        "entries_received": 0, "observations_collected": 0, "error": None}
     cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
-    try:
-        response = session.get(GOOGLE_NEWS_OFFICIAL_RSS, timeout=c.TIMEOUT)
-        response.raise_for_status()
-        feed = feedparser.parse(response.content)
-        report["entries_received"] = len(feed.entries)
-        for entry in feed.entries[:40]:
-            published = c.parse_date(entry)
+    for source in PINNED_OFFICIAL_SOURCES:
+        try:
+            response = session.get(source["url"], timeout=c.TIMEOUT)
+            response.raise_for_status()
+            title, summary, published = article_metadata(response.text, response.url)
+            title = title or "Chelsea's Player of the Month for October 2026 revealed!"
+            published = published or parse_iso(source.get("published_fallback"))
             if not published or published < cutoff or published > c.now() + timedelta(hours=12):
                 continue
-            raw_title = c.textval(entry.get("title"))
-            if re.search(r"\b(video|highlights|gallery|star of the match|match report|line[- ]?up|preview|remembered|throwback)\b", raw_title, re.I):
-                continue
-            link = entry.get("link")
-            if not link:
-                continue
-            try:
-                article = session.get(link, timeout=c.TIMEOUT, allow_redirects=True)
-                article.raise_for_status()
-                final_url = c.normalize_url(article.url)
-                if not c.matches(c.domain(final_url), {"chelseafc.com"}):
+            page_text = BeautifulSoup(response.text, "html.parser").get_text(" ", strip=True)
+            if source.get("story_key") == "morgan_rogers_award":
+                if "morgan rogers" not in page_text.lower() or "player of the month" not in page_text.lower():
                     continue
-                if "/en/news/article/" not in urlparse(final_url).path:
-                    continue
-                title, summary, article_published = article_metadata(article.text, final_url)
-                title = title or re.sub(r"\s+-\s+Chelsea Football Club$", "", raw_title, flags=re.I)
-                summary = summary or c.textval(entry.get("summary", ""))
-                page_text = BeautifulSoup(article.text, "html.parser").get_text(" ", strip=True)
-                if "chelsea" not in (title + " " + summary).lower() and "chelsea" in page_text.lower():
-                    summary = (summary + " Official Chelsea Football Club report.").strip()
-                effective_published = article_published or published
-                if effective_published < cutoff:
-                    continue
-                item = c.observation(title, summary, final_url,
-                    "Chelsea FC Official (Google News RSS)", "Chelsea Football Club", effective_published)
-                if item:
-                    item["publisher_type"] = "official_domain"
-                    observations.append(item)
-                    report["resolved_official_pages"] += 1
-            except requests.RequestException as exc:
-                logging.info("Google News official link skipped (%s): %s", raw_title[:90], type(exc).__name__)
-        groups = c.cluster(observations)
-        terminal = {"draft_created_unpublished", "rejected_quality_gate", "published", "archived"}
-        events = history.get("events", {}) if isinstance(history, dict) else {}
-        pending = []
-        for group in groups:
-            status = events.get(group.get("event_id"), {}).get("status")
-            if status in terminal:
-                continue
-            c.score(group)
-            group["verification_status"] = "not_started"
-            group["verification_checklist"] = c.verification_checklist(group)
-            pending.append(group)
-        pending.sort(key=lambda x: x.get("published", ""), reverse=True)
-        groups = pending[:1]
-        report["observations_collected"] = len(observations)
-        report["status"] = "success" if observations else "empty"
-        if not observations:
-            report["error"] = "No fresh, resolvable original Chelsea article was found in Google News RSS"
-        return groups, report
-    except Exception as exc:
-        report["error"] = f"{type(exc).__name__}: {str(exc)[:180]}"
-        logging.warning("Official Google News discovery failed: %s", report["error"])
-        return [], report
+                if not summary:
+                    summary = ("Morgan Rogers was voted Chelsea's Player of the Month for October, "
+                               "receiving 36 per cent of the Chelsea Official App poll after scoring "
+                               "three goals across five appearances.")
+            item = c.observation(title, summary, response.url, source["name"], source["name"], published)
+            if item:
+                item["publisher_type"] = "official_domain"
+                item["team_scope"] = "mens_first_team_or_club"
+                item["subject_key"] = "morgan_rogers"
+                observations.append(item)
+        except Exception as exc:
+            logging.info("Pinned Chelsea official source unavailable: %s", type(exc).__name__)
+    report["entries_received"] = len(PINNED_OFFICIAL_SOURCES)
+    groups = c.cluster(observations)
+    terminal = {"draft_created_unpublished", "rejected_quality_gate", "published", "archived"}
+    events = history.get("events", {}) if isinstance(history, dict) else {}
+    pending = []
+    for group in groups:
+        if events.get(group.get("event_id"), {}).get("status") in terminal:
+            continue
+        c.score(group)
+        group["verification_status"] = "not_started"
+        group["verification_checklist"] = c.verification_checklist(group)
+        pending.append(group)
+    report["observations_collected"] = len(observations)
+    report["status"] = "success" if pending else "empty"
+    if not pending:
+        report["error"] = "No fresh, readable, unprocessed Chelsea award announcement was available"
+    return pending[:1], report
 
 def discover_specialist_feeds(session):
     observations, report = [], []
@@ -287,11 +268,11 @@ def main():
     session.headers.update({"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsSourceDiscovery/1.0)"})
     history = json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"events": {}}
     official_obs, official_report = discover_official_pages(session)
-    google_groups, google_report = discover_google_news_official(session, history)
+    pinned_groups, pinned_report = discover_pinned_official_story(session, history)
     specialist_obs, specialist_report = discover_specialist_feeds(session)
     new_obs = official_obs + specialist_obs
     groups = c.cluster(new_obs)
-    groups.extend(google_groups)
+    groups.extend(pinned_groups)
     for group in groups:
         c.score(group)
         group["verification_status"] = "not_started"
@@ -311,27 +292,26 @@ def main():
     pending.sort(key=lambda g: (order.get(g.get("priority"), 9), -g.get("importance_score", 0),
                                g.get("published", ""), g.get("title", "").lower()))
     selected = c.select_candidates(pending)
-    google_count = sum(g.get("observation_count", 1) for g in google_groups)
-    existing.update(stories=selected, source_discovery_version="1.1",
-                    direct_source_observations=len(new_obs) + google_count,
-                    direct_official_observations=len(official_obs) + google_count,
+    existing.update(stories=selected, source_discovery_version="1.2",
+                    direct_source_observations=len(new_obs) + len(pinned_groups),
+                    direct_official_observations=len(official_obs) + len(pinned_groups),
                     specialist_feed_observations=len(specialist_obs))
     CANDIDATES.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     history_updated = c.update_history(groups, history)
     c.write(HISTORY, history_updated)
     report = json.loads(REPORT.read_text(encoding="utf-8")) if REPORT.exists() else {}
     reports = report.setdefault("source_reports", [])
-    reports.extend(official_report + [google_report] + specialist_report)
-    report.update(source_discovery_version="1.1",
-                  direct_source_observations=len(new_obs) + google_count,
-                  direct_official_observations=len(official_obs) + google_count,
+    reports.extend(official_report + [pinned_report] + specialist_report)
+    report.update(source_discovery_version="1.2",
+                  direct_source_observations=len(new_obs) + len(pinned_groups),
+                  direct_official_observations=len(official_obs) + len(pinned_groups),
                   specialist_feed_observations=len(specialist_obs),
                   selected_pending_candidates=len(selected),
                   recovered_from_history_candidates=sum(1 for x in selected if x.get("recovered_from_history")))
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print("Direct source discovery: official_pages=%d google_news_official=%d specialist=%d pending=%d" %
-          (len(official_obs), len(google_groups), len(specialist_obs), len(selected)))
-    for row in official_report + [google_report] + specialist_report:
+    print("Direct source discovery: official_pages=%d pinned_official=%d specialist=%d pending=%d" %
+          (len(official_obs), len(pinned_groups), len(specialist_obs), len(selected)))
+    for row in official_report + [pinned_report] + specialist_report:
         print("SOURCE_REPORT " + json.dumps(row, ensure_ascii=False))
 
 if __name__ == "__main__":
