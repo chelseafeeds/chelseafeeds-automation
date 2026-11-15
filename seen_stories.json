@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T10:44:18.589284+00:00",
+  "updated_at": "2026-11-15T10:44:43.958221+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1815,7 +1815,7 @@
         "skysports.com",
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "c1a5d3ac915811537f0a62b4",
         "title": "Bompastor gives fitness updates on two Chelsea stars after beating Man City",
@@ -1930,9 +1930,9 @@
         "corroboration_status": "multiple_direct_publishers_observed_independence_not_proven",
         "subject_key": "kadeisha_buchanan_melvine_malard"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "last_processed_at": "2026-11-15T10:44:43.958221+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Bompastor gives fitness updates on two Chelsea stars after beating Man City"
     }
   }
 }
