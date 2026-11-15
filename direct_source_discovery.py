@@ -356,7 +356,7 @@ def discover_pinned_official_story(session, history):
 def discover_bing_news(session):
     """Use Bing News only for discovery; resolve every result to its publisher."""
     from urllib.parse import quote_plus
-    queries = ["Chelsea FC", "Chelsea Women", "Veerle Buurman Chelsea", "Malo Gusto Chelsea"]
+    queries = ["Chelsea FC", "Chelsea Women", "Chelsea Women Manchester City 1-0", "Veerle Buurman Chelsea", "Malo Gusto Chelsea"]
     report = {"source": "Bing News Chelsea discovery", "url": "https://www.bing.com/news/",
               "status": "failed", "entries_received": 0,
               "observations_collected": 0, "rejected_unresolved": 0,
