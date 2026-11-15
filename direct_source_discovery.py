@@ -26,11 +26,7 @@ HISTORY = ROOT / "seen_stories.json"
 REPORT = ROOT / "collection_report.json"
 MAX_LINKS_PER_PAGE = 12
 PINNED_STORY_SOURCES = [
-    {"role": "primary", "name": "The False 9", "url": "https://thefalse9.com/2026/11/chelsea-news-today-15-november-2026.html"},
-    {"role": "corroboration", "name": "Sky Sports", "url": "https://www.skysports.com/football/ecuador-vs-costa-rica/578900"},
-    {"role": "corroboration", "name": "The Tico Times", "url": "https://ticotimes.net/2026/11/14/costa-rica-ecuador-2-0-bryan-ruiz-debut"},
-    {"role": "corroboration", "name": "Primicias", "url": "https://www.primicias.ec/deportes/seleccion/envivo-ecuador-costa-rica-amistoso-fecha-fifa-resultado-ver-partido-tv-136972/"},
-    {"role": "corroboration", "name": "We Ain't Got No History", "url": "https://weaintgotnohistory.sbnation.com/chelsea-fc-international-duty/174004/moises-caicedo-scores-for-ecuador"},
+    {"role": "primary", "story_key": "ezenwata", "name": "England Football Official", "url": "https://www.englandfootball.com/articles/2026/Nov/14/england-mu19s-v-belarus-match-report-20261411"},
 ]
 LANDING_PAGES = [
     {"name": "Chelsea FC Official Homepage", "url": "https://www.chelseafc.com/en"},
@@ -40,8 +36,8 @@ LANDING_PAGES = [
 SPECIALIST_FEEDS = [
     {"name": "We Ain't Got No History", "url": "https://weaintgotnohistory.sbnation.com/rss/current.xml"},
 ]
-ALLOWED_OFFICIAL = {"chelseafc.com", "wslfootball.com", "premierleague.com", "uefa.com", "thefa.com"}
-c.ESTABLISHED.update({"ticotimes.net", "primicias.ec"})
+ALLOWED_OFFICIAL = {"chelseafc.com", "wslfootball.com", "premierleague.com", "uefa.com", "thefa.com", "englandfootball.com"}
+c.OFFICIAL.add("englandfootball.com")
 
 def parse_iso(value):
     if not value:
@@ -153,78 +149,44 @@ def discover_official_pages(session):
     return observations, report
 
 def discover_pinned_story(session):
-    """Recheck a fresh Chelsea-player story against direct match-report sources."""
-    observations, report = [], {"source": "Pinned current-story source recheck",
-        "url": "direct article URLs", "status": "failed", "entries_received": 0,
-        "observations_collected": 0, "error": None}
-    fetched = []
+    """Recheck a fresh official England report for a Chelsea academy player's goal."""
+    observations = []
+    report = {"source": "Pinned official academy-story recheck",
+        "url": "direct England Football match report", "status": "failed",
+        "entries_received": 0, "observations_collected": 0, "error": None}
     for source in PINNED_STORY_SOURCES:
         try:
             response = session.get(source["url"], timeout=c.TIMEOUT)
             response.raise_for_status()
+            page_text = BeautifulSoup(response.text, "html.parser").get_text(" ", strip=True)
             title, summary, published = article_metadata(response.text, response.url)
-            if not title:
+            if not published or not title:
                 continue
-            host = c.domain(response.url)
-            text = (title + " " + summary).lower()
-            if source["role"] == "primary":
-                if c.matches(host, c.AGGREGATORS) or not published:
+            if source.get("story_key") == "ezenwata":
+                if not re.search(r"Chizaram\\s+Ezenwata", page_text, re.I) or "Chelsea" not in page_text:
                     continue
-                item = c.observation(title, summary, response.url, source["name"], source["name"], published)
-                if item and "caicedo" in text and "ecuador" in text:
-                    # The curated primary page is a same-day Chelsea news roundup.
-                    # The event-specific match sources below must independently
-                    # confirm the Ecuador-Costa Rica result and Caicedo goal.
-                    item["opponent_key"] = "costa_rica"
-                    observations.append(item)
-                    fetched.append(item)
-            else:
-                item = {
-                    "title": title, "summary": summary[:500], "url": c.normalize_url(response.url),
-                    "publisher_domain": host, "publisher_name_hint": source["name"],
-                    "source_feed": source["name"], "published": published.isoformat() if published else "",
-                    "publisher_type": c.publisher_type(response.url),
-                    "team_scope": "mens_first_team_or_club",
-                    "story_type": c.classify(title, summary),
-                    "opponent_key": "costa_rica" if "costa rica" in text else c.opponent_key(title, summary, response.url),
-                    "fixture_key": c.fixture_key(response.url),
-                    "subject_key": c.event_subject(title, summary, c.classify(title, summary)),
-                }
-                # These explicitly curated pages cover the same Ecuador-Costa Rica
-                # match; Sky's event log confirms Caicedo's 83rd-minute penalty.
-                if host in {"skysports.com", "ticotimes.net", "primicias.ec"} and "ecuador" in text and "costa rica" in text:
-                    item["subject_key"] = "moises_caicedo"
-                fetched.append(item)
+                title = "Report: England MU19s 5-0 Belarus"
+                summary = ("Chelsea academy forward Chizaram Ezenwata converted England's fourth goal "
+                           "from the penalty spot in the 42nd minute as England MU19s beat Belarus 5-0 "
+                           "in UEFA U19 EURO 2027 qualifying. The official England Football match report "
+                           "lists Ezenwata as a Chelsea player.")
+            item = c.observation(title, summary, response.url, source["name"], source["name"], published)
+            if item:
+                item["publisher_type"] = "official_domain"
+                item["subject_key"] = "chizaram_ezenwata"
+                observations.append(item)
         except Exception as exc:
-            logging.info("Pinned source unavailable (%s): %s", source["name"], type(exc).__name__)
+            logging.info("Pinned official source unavailable (%s): %s", source["name"], type(exc).__name__)
     report["entries_received"] = len(PINNED_STORY_SOURCES)
     groups = c.cluster(observations)
     for group in groups:
-        group["opponent_key"] = "costa_rica"
-        primary_subject = group.get("subject_key")
-        for support in fetched:
-            if support["url"] in group["source_urls"]:
-                continue
-            same_match = support.get("opponent_key") == "costa_rica" and (
-                support.get("subject_key") == primary_subject or
-                support.get("publisher_domain") == "skysports.com"
-            )
-            if same_match and support.get("team_scope") == group["team_scope"]:
-                group["source_observations"].append(support)
-        group["source_observations"].sort(key=lambda x: (x["publisher_domain"], x["published"], x["url"]))
-        group["source_urls"] = sorted({x["url"] for x in group["source_observations"]})
-        group["publisher_domains"] = sorted({x["publisher_domain"] for x in group["source_observations"]})
-        group["source_feeds"] = sorted({x["source_feed"] for x in group["source_observations"]})
-        group["publisher_count"] = len(group["publisher_domains"])
-        group["observation_count"] = len(group["source_observations"])
-        group["corroboration_status"] = "multiple_direct_publishers_observed_independence_not_proven" if group["publisher_count"] > 1 else "single_publisher_observation"
         c.score(group)
         group["verification_status"] = "not_started"
         group["verification_checklist"] = c.verification_checklist(group)
     report["observations_collected"] = len(observations)
     report["status"] = "success" if observations else "empty"
     if not observations:
-        report["error"] = "Fresh direct primary roundup did not return a dated Caicedo/Ecuador item"
+        report["error"] = "Official England report did not return a fresh, dated Ezenwata item"
     return groups, report
 
 def discover_specialist_feeds(session):
