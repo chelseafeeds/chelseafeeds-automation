@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:16:49.033235+00:00",
+  "updated_at": "2026-11-15T18:18:34.826231+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1437,7 +1437,7 @@
         "theguardian.com"
       ],
       "status": "draft_created_unpublished",
-      "last_processed_at": "2026-11-14T15:59:32.168919+00:00",
+      "last_processed_at": "2026-11-15T18:18:34.826231+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea leapfrog Man City to become new WSL leaders",
       "candidate_snapshot": {
@@ -1551,8 +1551,17 @@
         "observation_count": 5,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_editorial_source_domains": [
+        "bbc.co.uk",
+        "bbc.com",
+        "nytimes.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.bbc.co.uk/sport/football/live/cmg474nywwr5t",
+        "https://www.bbc.com/sport/football/live/cmg474nywwr5t",
+        "https://www.bbc.com/sport/football/videos/cm702wwpj9keo",
+        "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result"
+      ],
       "last_quality_failures": []
     },
     "7389ed7606ef8f781573588a": {
@@ -3112,7 +3121,7 @@
         "observation_count": 4,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": "2026-11-15T18:14:29.772611+00:00",
+      "last_processed_at": "2026-11-15T18:18:34.826231+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
       "last_editorial_source_domains": [
@@ -3200,7 +3209,7 @@
       "publisher_domains": [
         "footballinsider247.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "282dbc8c3a18d3f3c8659c03",
         "title": "Behdad Eghbali has exploited loophole for controversial Chelsea scheme - Keith Wyness",
@@ -3242,11 +3251,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-15T18:18:34.826231+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Behdad Eghbali has exploited loophole for controversial Chelsea scheme - Keith Wyness",
+      "last_editorial_source_domains": [
+        "footballinsider247.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.footballinsider247.com/chelsea/finance/behdad-eghbali-has-exploited-loophole-for-controversial-chelsea-scheme-keith-wyness"
+      ],
       "last_quality_failures": []
     },
     "cd4cb09b62681611341b3188": {
@@ -3503,7 +3516,7 @@
       "publisher_domains": [
         "weaintgotnohistory.sbnation.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "2e4dfc8f18edcb763cec120b",
         "title": "Mike Penders wins Premier League Save of the Month",
@@ -3545,12 +3558,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_processed_at": "2026-11-15T18:18:34.826231+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Mike Penders wins Premier League Save of the Month",
+      "last_editorial_source_domains": [
+        "weaintgotnohistory.sbnation.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://weaintgotnohistory.sbnation.com/premier-league/174010/mike-penders-wins-premier-league-save-of-the-month"
+      ],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ]
     },
     "da2813a3c27018c6b0e7b675": {
       "event_id": "da2813a3c27018c6b0e7b675",
@@ -3680,7 +3699,7 @@
       "publisher_domains": [
         "onefootball.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "15f32849eed6bf75ca55e355",
         "title": "Chelsea Women Edge Ten-Player Man City to Go Top | OneFootball",
@@ -3722,11 +3741,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-15T18:18:34.826231+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea Women Edge Ten-Player Man City to Go Top | OneFootball",
+      "last_editorial_source_domains": [
+        "onefootball.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://onefootball.com/en/news/chelsea-women-edge-ten-player-man-city-to-go-top-43777791"
+      ],
       "last_quality_failures": []
     }
   }
