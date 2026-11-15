@@ -1563,7 +1563,8 @@
         "https://www.bbc.com/sport/football/videos/cm702wwpj9keo",
         "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result"
       ],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": true
     },
     "7389ed7606ef8f781573588a": {
       "event_id": "7389ed7606ef8f781573588a",
