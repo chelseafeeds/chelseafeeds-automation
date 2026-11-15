@@ -551,7 +551,7 @@ def run_self_tests():
     weak = filter_pending_candidates([weak_group], old_draft)
     assert weak == []
     # A previously observed but unprocessed story is recovered from its stored
-    # evidence snapshot while it remains inside the 24-hour publication window.
+    # evidence snapshot while it remains inside the 36-hour publication window.
     recoverable_group = cluster([o("Chelsea Women reaction after Manchester City win",
         "https://www.espn.com/soccer/story/example", "ESPN", dt=base)])[0]
     history_with_queue = {"events": {"recoverable": {
@@ -562,7 +562,7 @@ def run_self_tests():
     assert len(recovered) == 1 and recovered[0]["event_id"] == "recoverable"
     assert recovered[0]["recovered_from_history"] is True and recovered[0]["source_urls"] == recoverable_group["source_urls"]
     # Expired queue items and terminal editorial outcomes must never be revived.
-    expired = filter_pending_candidates([], history_with_queue, reference_time=base+timedelta(hours=25))
+    expired = filter_pending_candidates([], history_with_queue, reference_time=base+timedelta(hours=37))
     assert expired == []
     terminal_queue = {"events": {"recoverable": {
         **history_with_queue["events"]["recoverable"], "status": "rejected_quality_gate"
