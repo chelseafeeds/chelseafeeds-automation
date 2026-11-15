@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:27:41.639046+00:00",
+  "updated_at": "2026-11-15T18:28:06.174164+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -3398,7 +3398,7 @@
         "sportstar.thehindu.com",
         "usatoday.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "cd4cb09b62681611341b3188",
         "title": "Chelsea beat 10-player Man City to return to WSL summit",
@@ -3577,7 +3577,12 @@
         "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result"
       ],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4401456022885848294",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-women-edge-manchester-city-1-0.html",
+      "scheduled_for_utc": "2026-11-15T18:33:02Z",
+      "last_blogger_status_updated_at": "2026-11-15T18:28:03.086757+00:00"
     },
     "967b300205c6810d69882c21": {
       "event_id": "967b300205c6810d69882c21",
