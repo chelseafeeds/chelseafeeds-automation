@@ -261,6 +261,7 @@ def find_matching_history_event(group, events):
     return None
 
 
+# One-shot force_evidence_refresh history flags are consumed after the processor re-evaluates the story.
 def filter_pending_candidates(groups, history, reference_time=None):
     """Reopen terminal events only when stronger, new publisher evidence arrives."""
     events = history.get("events", {}) if isinstance(history, dict) else {}
