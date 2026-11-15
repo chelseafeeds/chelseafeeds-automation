@@ -4438,7 +4438,8 @@
       "last_quality_failures": [
         "substantive_article_body_minimum_400_words"
       ],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": true,
+      "force_evidence_refresh_reason": "One-time retry after official-source discovery and correction of same-fixture reaction false-merging; 24-hour and evidence rules unchanged."
     },
     "af1610607b92583a41b4cf97": {
       "event_id": "af1610607b92583a41b4cf97",
