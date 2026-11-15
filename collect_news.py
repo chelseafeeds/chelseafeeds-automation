@@ -232,7 +232,7 @@ SNAPSHOT_FIELDS = (
     "representative_title", "representative_url", "representative_publisher",
     "representative_publisher_type", "source_observations", "source_urls",
     "publisher_domains", "source_feeds", "publisher_count", "observation_count",
-    "corroboration_status", "opponent_key", "fixture_key", "subject_key"
+    "corroboration_status", "opponent_key", "fixture_key", "subject_key", "evidence_refresh"
 )
 
 def candidate_snapshot(group):
@@ -260,7 +260,9 @@ def filter_pending_candidates(groups, history, reference_time=None):
             current_domains = set(group.get("publisher_domains", []))
             # Reconsider a rejected event only when a genuinely new publisher domain
             # adds evidence; a repeated URL or syndicated duplicate is not enough.
-            if current_domains - previous_domains:
+            if group.get("evidence_refresh") is True or current_domains - previous_domains:
+                # Preserve the refresh marker across the collector -> direct-discovery
+                # second pass, where the shared history snapshot may already be updated.
                 group["evidence_refresh"] = True
                 current[event_id] = group
 
@@ -477,6 +479,13 @@ def run_self_tests():
     }}}
     refreshed = filter_pending_candidates([{"event_id":"refresh","publisher_domains":["sports.yahoo.com","talksport.com"]}], rejected_with_source)
     assert len(refreshed) == 1 and refreshed[0]["evidence_refresh"] is True
+    # The marker survives the direct-source discovery pass after history has the new snapshot.
+    second_pass_history = {"events":{"refresh":{
+        "status":"rejected_quality_gate",
+        "candidate_snapshot":{"publisher_domains":["sports.yahoo.com","talksport.com"]}
+    }}}
+    second_pass = filter_pending_candidates(refreshed, second_pass_history)
+    assert len(second_pass) == 1 and second_pass[0]["evidence_refresh"] is True
     unchanged = filter_pending_candidates([{"event_id":"refresh","publisher_domains":["sports.yahoo.com"]}], rejected_with_source)
     assert unchanged == []
     # A previously observed but unprocessed story is recovered from its stored
