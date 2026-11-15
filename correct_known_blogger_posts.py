@@ -64,7 +64,7 @@ def main():
 
     original_content = str(item.get("content", ""))
     corrected_content, replacements = re.subn(
-        r"\\bten shots on target\\b", "ten shots", original_content, flags=re.I
+        r"\bten shots on target\b", "ten shots", original_content, flags=re.I
     )
     if replacements == 0:
         print(f"CORRECTION_NOOP: no incorrect phrase found in post {post_id}; status={previous_status}.")
