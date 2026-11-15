@@ -223,6 +223,10 @@ def main():
         group["verification_status"] = "not_started"
         group["verification_checklist"] = c.verification_checklist(group)
     groups = merge_same_international_event(groups)
+    for group in groups:
+        c.score(group)
+        group["verification_status"] = "not_started"
+        group["verification_checklist"] = c.verification_checklist(group)
     history = json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"events": {}}
     existing = json.loads(CANDIDATES.read_text(encoding="utf-8"))
     stories = existing.get("stories", [])
