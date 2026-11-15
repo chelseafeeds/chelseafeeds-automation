@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:22:07.010649+00:00",
+  "updated_at": "2026-11-15T18:22:17.184438+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -20,7 +20,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "9f83b200fe999ff0ec21a1ed": {
       "event_id": "9f83b200fe999ff0ec21a1ed",
@@ -41,7 +42,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "9a4130b15785192890978e5f": {
       "event_id": "9a4130b15785192890978e5f",
@@ -60,7 +62,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "235a2df1ead86ab5da2c2164": {
       "event_id": "235a2df1ead86ab5da2c2164",
@@ -79,7 +82,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "e28ae41d6190838ec5a36883": {
       "event_id": "e28ae41d6190838ec5a36883",
@@ -98,7 +102,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "b7517283a25e5ca21b4cf11c": {
       "event_id": "b7517283a25e5ca21b4cf11c",
@@ -117,7 +122,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "63ac1d8342a1da6f647ab993": {
       "event_id": "63ac1d8342a1da6f647ab993",
@@ -136,7 +142,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "021bb9ea62a655ce7d09909d": {
       "event_id": "021bb9ea62a655ce7d09909d",
@@ -155,7 +162,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "f63b7dfb639c4285516ab1e2": {
       "event_id": "f63b7dfb639c4285516ab1e2",
@@ -174,7 +182,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "07bbcd2abff4bd0ba2fe684a": {
       "event_id": "07bbcd2abff4bd0ba2fe684a",
@@ -193,7 +202,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "3dde0824660363499ebaa3cb": {
       "event_id": "3dde0824660363499ebaa3cb",
@@ -212,7 +222,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "1b2c0e8530bbf548d936315f": {
       "event_id": "1b2c0e8530bbf548d936315f",
@@ -231,7 +242,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "a6dffb420da9a96dda3d2a07": {
       "event_id": "a6dffb420da9a96dda3d2a07",
@@ -250,7 +262,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "b036b464c603ade8f2ceef0a": {
       "event_id": "b036b464c603ade8f2ceef0a",
@@ -269,7 +282,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "e61587bd33815ca365112157": {
       "event_id": "e61587bd33815ca365112157",
@@ -288,7 +302,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "afa598f4c5ccf20ffad8a6c8": {
       "event_id": "afa598f4c5ccf20ffad8a6c8",
@@ -307,7 +322,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "6b22b36cf8ea30c5a8568683": {
       "event_id": "6b22b36cf8ea30c5a8568683",
@@ -326,7 +342,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "06987bd0fb2d3da460d589b5": {
       "event_id": "06987bd0fb2d3da460d589b5",
@@ -345,7 +362,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "71b69df58618455933aa7279": {
       "event_id": "71b69df58618455933aa7279",
@@ -364,7 +382,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "203979cfa8c8f94a7d73ddee": {
       "event_id": "203979cfa8c8f94a7d73ddee",
@@ -383,7 +402,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "fdbd8da9cb3c801bc7244fab": {
       "event_id": "fdbd8da9cb3c801bc7244fab",
@@ -402,7 +422,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "04c4908a52badd902d8251a5": {
       "event_id": "04c4908a52badd902d8251a5",
@@ -421,7 +442,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "6eb0987815086dee59091b94": {
       "event_id": "6eb0987815086dee59091b94",
@@ -440,7 +462,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "93263cf24b14212277b6a5df": {
       "event_id": "93263cf24b14212277b6a5df",
@@ -459,7 +482,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "e011f67d2b80fe848713ff10": {
       "event_id": "e011f67d2b80fe848713ff10",
@@ -478,7 +502,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "c1197c3f740cd70780a55958": {
       "event_id": "c1197c3f740cd70780a55958",
@@ -497,7 +522,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "e2df05511a931f47dd6524fd": {
       "event_id": "e2df05511a931f47dd6524fd",
@@ -517,7 +543,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "1a45b55a8ef3e98348ca4742": {
       "event_id": "1a45b55a8ef3e98348ca4742",
@@ -538,7 +565,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "bfb3d27a30fbbef40dba46bb": {
       "event_id": "bfb3d27a30fbbef40dba46bb",
@@ -557,7 +585,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "3745caa3bd11b77342d48fdf": {
       "event_id": "3745caa3bd11b77342d48fdf",
@@ -576,7 +605,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "fd390317625d5da07c43264d": {
       "event_id": "fd390317625d5da07c43264d",
@@ -595,7 +625,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "5f596cb901f438b5057f6780": {
       "event_id": "5f596cb901f438b5057f6780",
@@ -614,7 +645,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "9128f46f009149f42ad54708": {
       "event_id": "9128f46f009149f42ad54708",
@@ -633,7 +665,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "f21134b3eed9c7f239cdbb52": {
       "event_id": "f21134b3eed9c7f239cdbb52",
@@ -652,7 +685,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "3a43f32275d9a441c5d6357c": {
       "event_id": "3a43f32275d9a441c5d6357c",
@@ -671,7 +705,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "644b5d541f786965a5caa8b4": {
       "event_id": "644b5d541f786965a5caa8b4",
@@ -690,7 +725,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "4027acf6cfd64abaddc1a6bf": {
       "event_id": "4027acf6cfd64abaddc1a6bf",
@@ -709,7 +745,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "d5fd742c8e1b088742787407": {
       "event_id": "d5fd742c8e1b088742787407",
@@ -728,7 +765,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "fab6ec6768b3053d77fcce96": {
       "event_id": "fab6ec6768b3053d77fcce96",
@@ -747,7 +785,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "2932d7dd6e738ce84ca8ed81": {
       "event_id": "2932d7dd6e738ce84ca8ed81",
@@ -766,7 +805,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "5b197c8dcf510e4b990f16a5": {
       "event_id": "5b197c8dcf510e4b990f16a5",
@@ -785,7 +825,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "aacf410843b707bbed945488": {
       "event_id": "aacf410843b707bbed945488",
@@ -804,7 +845,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "732d364a410c9a3f90fc35c0": {
       "event_id": "732d364a410c9a3f90fc35c0",
@@ -823,7 +865,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "cf3fbbb8797d2961e8614e82": {
       "event_id": "cf3fbbb8797d2961e8614e82",
@@ -842,7 +885,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "74f259af6f6f88e524fbc143": {
       "event_id": "74f259af6f6f88e524fbc143",
@@ -861,7 +905,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "8d7bcba9818dd09a1131e8f2": {
       "event_id": "8d7bcba9818dd09a1131e8f2",
@@ -880,7 +925,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "f4e7f31321911a3808ccecdd": {
       "event_id": "f4e7f31321911a3808ccecdd",
@@ -899,7 +945,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "8f55f5daf7f0f323f4f2bf9d": {
       "event_id": "8f55f5daf7f0f323f4f2bf9d",
@@ -918,7 +965,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "4b3ff4d98c5fe734e8c0758b": {
       "event_id": "4b3ff4d98c5fe734e8c0758b",
@@ -937,7 +985,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "a940882a5ae278d6438fc799": {
       "event_id": "a940882a5ae278d6438fc799",
@@ -956,7 +1005,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "f18a021dfe2f44757bfc6dd6": {
       "event_id": "f18a021dfe2f44757bfc6dd6",
@@ -975,7 +1025,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "1b8037a37908214cb60c93cc": {
       "event_id": "1b8037a37908214cb60c93cc",
@@ -994,7 +1045,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "60c431b7760efa5937abf763": {
       "event_id": "60c431b7760efa5937abf763",
@@ -1013,7 +1065,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "774de1277767822c8b4e389d": {
       "event_id": "774de1277767822c8b4e389d",
@@ -1032,7 +1085,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "7e8cafbe1efa77da8e59060e": {
       "event_id": "7e8cafbe1efa77da8e59060e",
@@ -1051,7 +1105,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "8233c187f083eda813f282d9": {
       "event_id": "8233c187f083eda813f282d9",
@@ -1070,7 +1125,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "72c984fdf222a14c1cef4e3c": {
       "event_id": "72c984fdf222a14c1cef4e3c",
@@ -1089,7 +1145,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "e8dfd76b21f15e1f7d310150": {
       "event_id": "e8dfd76b21f15e1f7d310150",
@@ -1108,7 +1165,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "32a138301beddc92c697c81b": {
       "event_id": "32a138301beddc92c697c81b",
@@ -1127,7 +1185,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "c9c58ef5dd8fb4e9bc93e64d": {
       "event_id": "c9c58ef5dd8fb4e9bc93e64d",
@@ -1146,7 +1205,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "0dcd517f23cabf0bb894117e": {
       "event_id": "0dcd517f23cabf0bb894117e",
@@ -1165,7 +1225,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "fb4558317c922a1ce36f5f4b": {
       "event_id": "fb4558317c922a1ce36f5f4b",
@@ -1184,7 +1245,8 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "b3c4f5b3e82958509ce58c8e": {
       "event_id": "b3c4f5b3e82958509ce58c8e",
@@ -1203,13 +1265,14 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "df20d1a89b2b375d3ba29445": {
       "event_id": "df20d1a89b2b375d3ba29445",
       "title": "How a reunion with scout Bompastor solved Chelsea's striker issue",
       "first_seen_at": "2026-11-14T07:13:53.181130+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-14T06:37:49+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -1262,13 +1325,14 @@
       },
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "001cc43734fdb707c1135298": {
       "event_id": "001cc43734fdb707c1135298",
       "title": "“He’s a complete winger” – Under the radar Chelsea transfer praised by new teammate",
       "first_seen_at": "2026-11-14T10:41:57.198039+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-14T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1321,7 +1385,8 @@
       },
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "a3c896ba5e82d85d1ba8f961": {
       "event_id": "a3c896ba5e82d85d1ba8f961",
@@ -1341,13 +1406,14 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "645815176e7954bb34cfe8ae": {
       "event_id": "645815176e7954bb34cfe8ae",
       "title": "Chelsea 1-0 Manchester City: Women’s Super League – as it happened",
       "first_seen_at": "2026-11-14T12:53:01.091287+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-14T16:02:42+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1400,7 +1466,8 @@
       },
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "c1154e6259cadc2618e85781": {
       "event_id": "c1154e6259cadc2618e85781",
@@ -1420,13 +1487,14 @@
       "candidate_snapshot": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "598b34ea97f175b4ceeacd69": {
       "event_id": "598b34ea97f175b4ceeacd69",
       "title": "Big tactical calls and restricting Shaw - How Chelsea got better of Man City",
       "first_seen_at": "2026-11-14T15:40:02.815557+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-14T10:54:00+00:00",
       "last_observation_count": 9,
       "publisher_domains": [
@@ -1570,7 +1638,7 @@
       "event_id": "7389ed7606ef8f781573588a",
       "title": "Chelsea regular slammed for “disastrous evening” for national team",
       "first_seen_at": "2026-11-14T18:36:55.881251+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-14T18:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1623,13 +1691,14 @@
       },
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "dd6d262e3bf6651c8eb6b5cd": {
       "event_id": "dd6d262e3bf6651c8eb6b5cd",
       "title": "Bompastor's risks pay off as Chelsea go top of WSL",
       "first_seen_at": "2026-11-14T19:25:32.467415+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-14T18:55:34+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -1713,7 +1782,8 @@
       },
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "80f3ef81ba2d56a50fd86ea3": {
       "event_id": "80f3ef81ba2d56a50fd86ea3",
@@ -1775,13 +1845,14 @@
       },
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "173ca446860b0ad609c09a09": {
       "event_id": "173ca446860b0ad609c09a09",
       "title": "Arsenal target Nusa could cost £66m - Sunday's gossip",
       "first_seen_at": "2026-11-14T22:08:20.681107+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-14T21:48:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1834,13 +1905,14 @@
       },
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "e777afa6b92ed1e56bb95aa4": {
       "event_id": "e777afa6b92ed1e56bb95aa4",
       "title": "Chelsea initiate contact over £25m Real Betis winger Jose Antonio Morante",
       "first_seen_at": "2026-11-15T05:50:57.477242+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-15T05:41:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1893,13 +1965,14 @@
       },
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "4533cc88c932ccca56140d8d": {
       "event_id": "4533cc88c932ccca56140d8d",
       "title": "Chelsea FCW vs. Manchester City WFC, Women’s Super League: Confirmed lineups; how to watch",
       "first_seen_at": "2026-11-15T10:34:52.217834+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
       "last_published_at": "2026-11-14T12:50:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1952,7 +2025,8 @@
       "last_processed_headline": "Chelsea FCW vs. Manchester City WFC, Women’s Super League: Confirmed lineups; how to watch",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "b14488f636b930670f695d23": {
       "event_id": "b14488f636b930670f695d23",
@@ -2011,7 +2085,8 @@
       "last_processed_headline": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "1d62913451a84d15d942e5e2": {
       "event_id": "1d62913451a84d15d942e5e2",
@@ -2090,7 +2165,8 @@
       "last_processed_headline": "Chelsea News Today: Estevao in Brazil Loss, Caicedo Penalty and Rogers on Palmer (15 November)",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "c1a5d3ac915811537f0a62b4": {
       "event_id": "c1a5d3ac915811537f0a62b4",
@@ -2226,7 +2302,8 @@
       "last_processed_headline": "Bompastor gives fitness updates on two Chelsea stars after beating Man City",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "2b2ca8de6ab75121f5cab79b": {
       "event_id": "2b2ca8de6ab75121f5cab79b",
@@ -2304,7 +2381,8 @@
       "last_processed_headline": "Gusto to Man Utd or Man City: talkSPORT Reports Chelsea Defender Battle",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "53878f3e637fa2820833d81d": {
       "event_id": "53878f3e637fa2820833d81d",
@@ -2367,7 +2445,8 @@
       "blogger_verified_at": "2026-11-15T10:54:08Z",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "5b7cf0f7cadab2d667a2459a": {
       "event_id": "5b7cf0f7cadab2d667a2459a",
@@ -2512,13 +2591,14 @@
       "last_processed_headline": "Chelsea go top of WSL as Sandy Baltimore bullet sees off Manchester City",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "718c2f697fd26fc4ce6b970f": {
       "event_id": "718c2f697fd26fc4ce6b970f",
       "title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
       "first_seen_at": "2026-11-15T12:21:55.480871+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-15T11:39:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2571,13 +2651,14 @@
       "last_processed_headline": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "e8d72314df136b4288a26e22": {
       "event_id": "e8d72314df136b4288a26e22",
       "title": "Chelsea fans rank ahead of Spurs and Man City for “passion and dedication”",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-15T13:36:29+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2630,13 +2711,14 @@
       "last_processed_headline": "Chelsea fans rank ahead of Spurs and Man City for “passion and dedication”",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "b913f2e03ea20c0efc963348": {
       "event_id": "b913f2e03ea20c0efc963348",
       "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-15T13:38:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2689,13 +2771,14 @@
       "last_processed_headline": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "f07469f43a177d90b3498347": {
       "event_id": "f07469f43a177d90b3498347",
       "title": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first",
       "first_seen_at": "2026-11-15T14:05:48.901252+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-15T13:49:57+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2748,7 +2831,8 @@
       "last_processed_headline": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "01025fe3b473403b4ca8295b": {
       "event_id": "01025fe3b473403b4ca8295b",
@@ -2857,13 +2941,14 @@
       "last_processed_headline": "Chelsea go top with 1-0 win against Man City",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "01a11c53f32c4ba6faac9ab2": {
       "event_id": "01a11c53f32c4ba6faac9ab2",
       "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "first_seen_at": "2026-11-15T16:03:13.171080+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-15T16:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2916,7 +3001,8 @@
       "last_processed_headline": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "f58ea7083e8a093d285570ff": {
       "event_id": "f58ea7083e8a093d285570ff",
@@ -2975,13 +3061,14 @@
       "last_processed_headline": "Chelsea reassert WSL dominance over Man City in front of USWNT boss Hayes",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "298db4b54e81ac6915eb37aa": {
       "event_id": "298db4b54e81ac6915eb37aa",
       "title": "How Xabi Alonso’s Start Compares to Other Chelsea Managers",
       "first_seen_at": "2026-11-15T18:06:24.859426+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
       "last_published_at": "2026-11-15T09:23:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3034,13 +3121,14 @@
       "last_processed_headline": "How Xabi Alonso’s Start Compares to Other Chelsea Managers",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "587ef1dd9d6a7e59ce794ac8": {
       "event_id": "587ef1dd9d6a7e59ce794ac8",
       "title": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
       "first_seen_at": "2026-11-15T18:06:24.859426+00:00",
-      "last_seen_at": "2026-11-15T18:19:50.564858+00:00",
+      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
       "last_published_at": "2026-11-15T04:20:00+00:00",
       "last_observation_count": 4,
       "publisher_domains": [
@@ -3143,7 +3231,7 @@
       "event_id": "3aa34c3e8337fa58034febce",
       "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "first_seen_at": "2026-11-15T18:12:43.261486+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
       "last_published_at": "2026-11-15T08:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3202,13 +3290,14 @@
       ],
       "last_quality_failures": [
         "substantive_article_body_minimum_400_words"
-      ]
+      ],
+      "force_evidence_refresh": false
     },
     "282dbc8c3a18d3f3c8659c03": {
       "event_id": "282dbc8c3a18d3f3c8659c03",
       "title": "Behdad Eghbali has exploited loophole for controversial Chelsea scheme - Keith Wyness",
       "first_seen_at": "2026-11-15T18:16:19.941490+00:00",
-      "last_seen_at": "2026-11-15T18:20:21.348672+00:00",
+      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
       "last_published_at": "2026-11-15T15:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3265,13 +3354,14 @@
       "last_editorial_source_urls": [
         "https://www.footballinsider247.com/chelsea/finance/behdad-eghbali-has-exploited-loophole-for-controversial-chelsea-scheme-keith-wyness"
       ],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "cd4cb09b62681611341b3188": {
       "event_id": "cd4cb09b62681611341b3188",
       "title": "Chelsea beat 10-player Man City to return to WSL summit",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:19:50.564858+00:00",
+      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
       "last_published_at": "2026-11-14T07:29:00+00:00",
       "last_observation_count": 8,
       "publisher_domains": [
@@ -3461,7 +3551,7 @@
       "event_id": "967b300205c6810d69882c21",
       "title": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
       "last_published_at": "2026-11-14T07:30:34+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -3544,7 +3634,7 @@
       "event_id": "2e4dfc8f18edcb763cec120b",
       "title": "Mike Penders wins Premier League Save of the Month",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
       "last_published_at": "2026-11-14T08:26:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3603,13 +3693,14 @@
       ],
       "last_quality_failures": [
         "substantive_article_body_minimum_400_words"
-      ]
+      ],
+      "force_evidence_refresh": false
     },
     "da2813a3c27018c6b0e7b675": {
       "event_id": "da2813a3c27018c6b0e7b675",
       "title": "Chelsea beat Manchester City to top the Women’s Super League — The Guardian",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
       "last_published_at": "2026-11-14T09:43:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3662,13 +3753,14 @@
       "last_processed_headline": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "3385fd1c43a540233b2ed114": {
       "event_id": "3385fd1c43a540233b2ed114",
       "title": "Man Utd transfer news: Fabrizio Romano reveals Pochettino stance on signing Malo Gusto from Chelsea",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
       "last_published_at": "2026-11-14T10:01:04+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3721,13 +3813,14 @@
       "last_processed_headline": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "15f32849eed6bf75ca55e355": {
       "event_id": "15f32849eed6bf75ca55e355",
       "title": "Chelsea Women Edge Ten-Player Man City to Go Top | OneFootball",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
       "last_published_at": "2026-11-14T11:36:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3784,7 +3877,8 @@
       "last_editorial_source_urls": [
         "https://onefootball.com/en/news/chelsea-women-edge-ten-player-man-city-to-go-top-43777791"
       ],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "a1b083a3199deead56853b78": {
       "event_id": "a1b083a3199deead56853b78",
@@ -3933,7 +4027,8 @@
       "last_processed_headline": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "c8579a9fe38997fb7c646934": {
       "event_id": "c8579a9fe38997fb7c646934",
@@ -3992,7 +4087,8 @@
       "last_processed_headline": null,
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     }
   }
 }
