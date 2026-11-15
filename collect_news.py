@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent
 HISTORY_FILE = ROOT / "seen_stories.json"
 CANDIDATES_FILE = ROOT / "news_candidates.json"
 REPORT_FILE = ROOT / "collection_report.json"
-TIMEOUT, MAX_AGE_HOURS, MAX_STORIES, HISTORY_DAYS = 18, 24, 60, 90
+TIMEOUT, MAX_AGE_HOURS, MAX_STORIES, HISTORY_DAYS = 18, 36, 60, 90
 MAX_OPINION_CANDIDATES = 8
 
 FEEDS = [
@@ -31,6 +31,7 @@ FEEDS = [
     {"name":"Chelsea.news","url":"https://chelsea.news/feed"},
     {"name":"Chelsea FC Latest News","url":"https://chelseafclatestnews.com/feed"},
     {"name":"Football365","url":"https://www.football365.com/rss"},
+    {"name":"Football Insider","url":"https://www.footballinsider247.com/feed/"},
     {"name":"BBC Sport Women's Football","url":"https://feeds.bbci.co.uk/sport/football/womens/rss.xml"},
     {"name":"BBC Sport Premier League","url":"https://feeds.bbci.co.uk/sport/football/premier-league/rss.xml"},
     {"name":"Sky Sports Football","url":"https://www.skysports.com/rss/11095"},
@@ -244,30 +245,54 @@ def candidate_snapshot(group):
     """Persist the evidence-bearing event data needed to recover an interrupted queue."""
     return {key: group[key] for key in SNAPSHOT_FIELDS if key in group}
 
-def filter_pending_candidates(groups, history, reference_time=None):
-    """Return current pending events plus recoverable, unprocessed events from the 24h queue.
+def find_matching_history_event(group, events):
+    """Match a new source pack to an earlier event even if its representative URL changed."""
+    for previous_id, record in events.items():
+        if not isinstance(record, dict):
+            continue
+        snapshot = record.get("candidate_snapshot")
+        if not isinstance(snapshot, dict):
+            continue
+        previous_observations = snapshot.get("source_observations") or []
+        if any(same_event(new_observation, old_observation)
+               for new_observation in group.get("source_observations", [])
+               for old_observation in previous_observations):
+            return previous_id
+    return None
 
-    Terminal editorial outcomes are never reopened. Legacy history rows without a
-    source snapshot are not fabricated; they can re-enter only if rediscovered in
-    a current feed. Recovered items retain their original source URLs and evidence.
-    """
+
+def filter_pending_candidates(groups, history, reference_time=None):
+    """Reopen terminal events only when stronger, new publisher evidence arrives."""
     events = history.get("events", {}) if isinstance(history, dict) else {}
     current = {}
     for group in groups:
         event_id = group.get("event_id")
+        if not event_id or event_id not in events:
+            matched_id = find_matching_history_event(group, events)
+            if matched_id:
+                event_id = matched_id
+                group["event_id"] = matched_id
         record = events.get(event_id, {}) if event_id else {}
         status = record.get("status") if isinstance(record, dict) else None
         if event_id and status not in TERMINAL_EVENT_STATUSES and status != "rejected_quality_gate":
             current[event_id] = group
-        elif event_id and status == "rejected_quality_gate":
+            continue
+        if not event_id or status in {"published", "archived"}:
+            continue
+        if status in {"rejected_quality_gate", "draft_created_unpublished"}:
             previous_domains = set(record.get("last_editorial_source_domains") or
                                    (record.get("candidate_snapshot") or {}).get("publisher_domains", []))
             current_domains = set(group.get("publisher_domains", []))
-            # Reconsider a rejected event only when a genuinely new publisher domain
-            # adds evidence; a repeated URL or syndicated duplicate is not enough.
-            if group.get("evidence_refresh") is True or current_domains - previous_domains:
-                # Preserve the refresh marker across the collector -> direct-discovery
-                # second pass, where the shared history snapshot may already be updated.
+            new_domains = current_domains - previous_domains
+            has_official = any(matches(d, OFFICIAL) for d in current_domains)
+            established_domains = {d for d in current_domains if matches(d, ESTABLISHED)}
+            stronger_for_schedule = has_official or len(established_domains) >= 2
+            reopen = bool(group.get("evidence_refresh") is True or new_domains)
+            # Rejected stories may retry on new publisher evidence. Existing drafts
+            # are refreshed only when the new evidence now meets scheduling standards.
+            if status == "draft_created_unpublished":
+                reopen = reopen and stronger_for_schedule
+            if reopen:
                 group["evidence_refresh"] = True
                 current[event_id] = group
 
@@ -498,6 +523,15 @@ def run_self_tests():
     assert len(second_pass) == 1 and second_pass[0]["evidence_refresh"] is True
     unchanged = filter_pending_candidates([{"event_id":"refresh","publisher_domains":["sports.yahoo.com"]}], rejected_with_source)
     assert unchanged == []
+    old_draft = {"events":{"match-old":{
+        "status":"draft_created_unpublished",
+        "last_editorial_source_domains":["bbc.co.uk"],
+        "candidate_snapshot":{"publisher_domains":["bbc.co.uk"]}
+    }}}
+    stronger = filter_pending_candidates([{"event_id":"match-new","publisher_domains":["bbc.co.uk","theguardian.com","skysports.com"]}], old_draft)
+    assert len(stronger) == 1 and stronger[0]["event_id"] == "match-old" and stronger[0]["evidence_refresh"] is True
+    weak = filter_pending_candidates([{"event_id":"match-new","publisher_domains":["bbc.co.uk","talkchelsea.net"]}], old_draft)
+    assert weak == []
     # A previously observed but unprocessed story is recovered from its stored
     # evidence snapshot while it remains inside the 24-hour publication window.
     recoverable_group = cluster([o("Chelsea Women reaction after Manchester City win",
