@@ -150,13 +150,28 @@ def observation(title,summary,url,feed,pub,published):
     if not d or pt=="aggregator_unresolved": return None
     scope=team_scope(title,summary,url); typ=classify(title,summary)
     return {"title":title,"summary":summary[:500],"url":url,"publisher_domain":d,"publisher_name_hint":pub or None,"source_feed":feed,"published":published.isoformat(),"publisher_type":pt,"team_scope":scope,"story_type":typ,"opponent_key":opponent_key(title,summary,url),"fixture_key":fixture_key(url),"subject_key":event_subject(title,summary,typ)}
+def parse_observation_datetime(observation):
+    """Parse a historical observation timestamp without crashing on legacy data."""
+    value = observation.get("published") if isinstance(observation, dict) else None
+    if not isinstance(value, str) or not value.strip():
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.strip().replace("Z", "+00:00"))
+        return parsed.replace(tzinfo=timezone.utc) if parsed.tzinfo is None else parsed
+    except (TypeError, ValueError, OverflowError):
+        return None
+
+
 def same_event(a,b):
     # Never merge separate content categories or team scopes, even if an RSS feed
     # repeats a canonical URL with inconsistent metadata.
-    if a["team_scope"]!=b["team_scope"] or a["story_type"]!=b["story_type"]: return False
+    if a.get("team_scope")!=b.get("team_scope") or a.get("story_type")!=b.get("story_type"): return False
     # Canonical identical article URL is safe to collapse after scope/type checks.
-    if a["url"]==b["url"]: return True
-    da=datetime.fromisoformat(a["published"]); db=datetime.fromisoformat(b["published"])
+    if a.get("url") and a.get("url")==b.get("url"): return True
+    # Historical records can contain missing/empty/malformed timestamps. They
+    # cannot crash collection and must not be time-matched without valid dates.
+    da=parse_observation_datetime(a); db=parse_observation_datetime(b)
+    if da is None or db is None: return False
     if abs((da-db).total_seconds())>36*3600: return False
     typ=a["story_type"]
     if a["publisher_domain"]==b["publisher_domain"]:
@@ -502,6 +517,15 @@ def run_self_tests():
     # Player identity must use distinctive full names, never generic surname fragments.
     assert event_subject("Chelsea linked with Reece James","", "transfer_rumour")=="reece_james"
     assert event_subject("Chelsea linked with James","", "transfer_rumour")==""
+    # Invalid legacy timestamps never crash or trigger fuzzy event merges.
+    valid_observation=o("Chelsea Women beat Manchester City","https://www.bbc.co.uk/sport/chelsea-city","BBC")
+    for bad_timestamp in ("", "   ", None, "not-a-date"):
+        legacy_observation=dict(valid_observation, url="https://www.theguardian.com/football/chelsea-city",
+                                publisher_domain="theguardian.com", published=bad_timestamp)
+        assert not same_event(valid_observation, legacy_observation)
+    # Exact canonical URLs remain safely collapsible even with a malformed legacy date.
+    malformed_same_url=dict(valid_observation, published="")
+    assert same_event(valid_observation, malformed_same_url)
     # Identical URLs cannot merge across different team scopes or story classes.
     same_url_a=o("Chelsea Women face Hacken preview","https://www.bbc.co.uk/sport/a","BBC")
     same_url_b=o("Chelsea Women beat Hacken","https://www.bbc.co.uk/sport/a","BBC")
