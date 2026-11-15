@@ -42,6 +42,8 @@ def update(report_path: Path):
             if source.get("accessible") and source.get("url")
         })
         record["last_quality_failures"] = list(result.get("quality_failures") or [])
+        # A manual one-shot evidence refresh is consumed by this editorial attempt.
+        record["force_evidence_refresh"] = False
         changed += 1
     history["updated_at"] = stamp
     HISTORY.write_text(json.dumps(history, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
