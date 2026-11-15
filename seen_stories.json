@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T10:37:55.794488+00:00",
+  "updated_at": "2026-11-15T10:38:21.698983+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1069,7 +1069,7 @@
       "event_id": "645815176e7954bb34cfe8ae",
       "title": "Chelsea 1-0 Manchester City: Women’s Super League – as it happened",
       "first_seen_at": "2026-11-14T12:53:01.091287+00:00",
-      "last_seen_at": "2026-11-15T10:37:52.614136+00:00",
+      "last_seen_at": "2026-11-15T10:38:19.075882+00:00",
       "last_published_at": "2026-11-14T16:02:42+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1142,7 +1142,7 @@
       "event_id": "598b34ea97f175b4ceeacd69",
       "title": "Big tactical calls and restricting Shaw - How Chelsea got better of Man City",
       "first_seen_at": "2026-11-14T15:40:02.815557+00:00",
-      "last_seen_at": "2026-11-15T10:37:52.614136+00:00",
+      "last_seen_at": "2026-11-15T10:38:19.075882+00:00",
       "last_published_at": "2026-11-14T10:54:00+00:00",
       "last_observation_count": 9,
       "publisher_domains": [
@@ -1303,7 +1303,7 @@
       "event_id": "7389ed7606ef8f781573588a",
       "title": "Chelsea regular slammed for “disastrous evening” for national team",
       "first_seen_at": "2026-11-14T18:36:55.881251+00:00",
-      "last_seen_at": "2026-11-15T10:37:52.614136+00:00",
+      "last_seen_at": "2026-11-15T10:38:19.075882+00:00",
       "last_published_at": "2026-11-14T18:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1359,7 +1359,7 @@
       "event_id": "dd6d262e3bf6651c8eb6b5cd",
       "title": "Bompastor's risks pay off as Chelsea go top of WSL",
       "first_seen_at": "2026-11-14T19:25:32.467415+00:00",
-      "last_seen_at": "2026-11-15T10:37:52.614136+00:00",
+      "last_seen_at": "2026-11-15T10:38:19.075882+00:00",
       "last_published_at": "2026-11-14T18:55:34+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -1505,7 +1505,7 @@
       "event_id": "173ca446860b0ad609c09a09",
       "title": "Arsenal target Nusa could cost £66m - Sunday's gossip",
       "first_seen_at": "2026-11-14T22:08:20.681107+00:00",
-      "last_seen_at": "2026-11-15T10:37:52.614136+00:00",
+      "last_seen_at": "2026-11-15T10:38:19.075882+00:00",
       "last_published_at": "2026-11-14T21:48:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1561,7 +1561,7 @@
       "event_id": "e777afa6b92ed1e56bb95aa4",
       "title": "Chelsea initiate contact over £25m Real Betis winger Jose Antonio Morante",
       "first_seen_at": "2026-11-15T05:50:57.477242+00:00",
-      "last_seen_at": "2026-11-15T10:37:52.614136+00:00",
+      "last_seen_at": "2026-11-15T10:38:19.075882+00:00",
       "last_published_at": "2026-11-15T05:41:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1617,7 +1617,7 @@
       "event_id": "4533cc88c932ccca56140d8d",
       "title": "Chelsea FCW vs. Manchester City WFC, Women’s Super League: Confirmed lineups; how to watch",
       "first_seen_at": "2026-11-15T10:34:52.217834+00:00",
-      "last_seen_at": "2026-11-15T10:37:55.794488+00:00",
+      "last_seen_at": "2026-11-15T10:38:21.698983+00:00",
       "last_published_at": "2026-11-14T12:50:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1673,7 +1673,7 @@
       "event_id": "b14488f636b930670f695d23",
       "title": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
       "first_seen_at": "2026-11-15T10:34:52.217834+00:00",
-      "last_seen_at": "2026-11-15T10:37:55.794488+00:00",
+      "last_seen_at": "2026-11-15T10:38:21.698983+00:00",
       "last_published_at": "2026-11-14T15:30:34+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1729,10 +1729,11 @@
       "event_id": "1d62913451a84d15d942e5e2",
       "title": "Chelsea News Today: Estevao in Brazil Loss, Caicedo Penalty and Rogers on Palmer (15 November)",
       "first_seen_at": "2026-11-15T10:37:55.794488+00:00",
-      "last_seen_at": "2026-11-15T10:37:55.794488+00:00",
+      "last_seen_at": "2026-11-15T10:38:21.698983+00:00",
       "last_published_at": "2026-11-15T06:25:56+00:00",
-      "last_observation_count": 1,
+      "last_observation_count": 2,
       "publisher_domains": [
+        "skysports.com",
         "thefalse9.com"
       ],
       "status": "observed_not_processed",
@@ -1748,6 +1749,21 @@
         "representative_publisher": "thefalse9.com",
         "representative_publisher_type": "other_direct_domain",
         "source_observations": [
+          {
+            "title": "Live Commentary - Ecuador vs Costa Rica | 14.11.2026",
+            "summary": "International Match match Ecuador vs Costa Rica 14.11.2026. Preview and stats followed by live commentary, video highlights and match report.",
+            "url": "https://www.skysports.com/football/ecuador-vs-costa-rica/578900",
+            "publisher_domain": "skysports.com",
+            "publisher_name_hint": "Sky Sports",
+            "source_feed": "Sky Sports",
+            "published": "",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_preview",
+            "opponent_key": "costa_rica",
+            "fixture_key": "",
+            "subject_key": "moises_caicedo"
+          },
           {
             "title": "Chelsea News Today: Estevao in Brazil Loss, Caicedo Penalty and Rogers on Palmer (15 November)",
             "summary": "Chelsea news for 15 November: Estevao starts Brazil's 3-2 defeat to Japan, Moisés Caicedo scores for Ecuador and Morgan Rogers backs Cole Palmer.",
@@ -1765,17 +1781,20 @@
           }
         ],
         "source_urls": [
-          "https://thefalse9.com/2026/11/chelsea-news-today-15-november-2026.html"
+          "https://thefalse9.com/2026/11/chelsea-news-today-15-november-2026.html",
+          "https://www.skysports.com/football/ecuador-vs-costa-rica/578900"
         ],
         "publisher_domains": [
+          "skysports.com",
           "thefalse9.com"
         ],
         "source_feeds": [
+          "Sky Sports",
           "The False 9"
         ],
-        "publisher_count": 1,
-        "observation_count": 1,
-        "corroboration_status": "single_publisher_observation",
+        "publisher_count": 2,
+        "observation_count": 2,
+        "corroboration_status": "multiple_direct_publishers_observed_independence_not_proven",
         "opponent_key": "costa_rica"
       },
       "last_processed_at": null,
