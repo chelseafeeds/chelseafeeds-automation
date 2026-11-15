@@ -1456,7 +1456,50 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": {
+        "event_id": "80f3ef81ba2d56a50fd86ea3",
+        "title": "Sonia Bompastor praises Chelsea's character after risky substitutions in Man City win",
+        "story_type": "match_reaction",
+        "team_scope": "chelsea_women",
+        "published": "2026-11-14T19:29:57+00:00",
+        "best_summary": "Chelsea manager Sonia Bompastor praised her team's character following a 1-0 win over Women's Super League (WSL) holders Manchester City after being forced to make risky substitutions early on.",
+        "representative_title": "Sonia Bompastor praises Chelsea's character after risky substitutions in Man City win",
+        "representative_url": "https://www.espn.com/soccer/story/_/id/50480836/sonia-bompastor-chelsea-man-city-win",
+        "representative_publisher": "espn.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Sonia Bompastor praises Chelsea's character after risky substitutions in Man City win",
+            "summary": "Chelsea manager Sonia Bompastor praised her team's character following a 1-0 win over Women's Super League (WSL) holders Manchester City after being forced to make risky substitutions early on.",
+            "url": "https://www.espn.com/soccer/story/_/id/50480836/sonia-bompastor-chelsea-man-city-win",
+            "publisher_domain": "espn.com",
+            "publisher_name_hint": "ESPN",
+            "source_feed": "ESPN Soccer",
+            "published": "2026-11-14T19:29:57+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "match_reaction",
+            "opponent_key": "manchester_city",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.espn.com/soccer/story/_/id/50480836/sonia-bompastor-chelsea-man-city-win"
+        ],
+        "publisher_domains": [
+          "espn.com"
+        ],
+        "source_feeds": [
+          "ESPN Soccer"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation",
+        "opponent_key": "manchester_city",
+        "fixture_key": "",
+        "subject_key": ""
+      }
     },
     "173ca446860b0ad609c09a09": {
       "event_id": "173ca446860b0ad609c09a09",
