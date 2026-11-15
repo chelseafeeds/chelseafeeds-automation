@@ -523,14 +523,32 @@ def run_self_tests():
     assert len(second_pass) == 1 and second_pass[0]["evidence_refresh"] is True
     unchanged = filter_pending_candidates([{"event_id":"refresh","publisher_domains":["sports.yahoo.com"]}], rejected_with_source)
     assert unchanged == []
+    old_observation = {
+        "team_scope":"chelsea_women","story_type":"match_report",
+        "url":"https://www.bbc.co.uk/sport/football/articles/chelsea-city",
+        "published":"2026-11-14T18:55:34+00:00","publisher_domain":"bbc.co.uk",
+        "opponent_key":"manchester_city","fixture_key":"","subject_key":""
+    }
+    guardian_observation = {
+        "team_scope":"chelsea_women","story_type":"match_report",
+        "url":"https://www.theguardian.com/football/2026/nov/14/chelsea-manchester-city-womens-super-league-match-report",
+        "published":"2026-11-14T15:36:00+00:00","publisher_domain":"theguardian.com",
+        "opponent_key":"manchester_city","fixture_key":"","subject_key":""
+    }
+    sky_observation = dict(guardian_observation, url="https://www.skysports.com/football/chelsea-women-vs-man-city-women/report/575819",
+                           publisher_domain="skysports.com", published="2026-11-14T15:33:00+00:00")
     old_draft = {"events":{"match-old":{
         "status":"draft_created_unpublished",
         "last_editorial_source_domains":["bbc.co.uk"],
-        "candidate_snapshot":{"publisher_domains":["bbc.co.uk"]}
+        "candidate_snapshot":{"publisher_domains":["bbc.co.uk"],"source_observations":[old_observation]}
     }}}
-    stronger = filter_pending_candidates([{"event_id":"match-new","publisher_domains":["bbc.co.uk","theguardian.com","skysports.com"]}], old_draft)
+    stronger_group = {"event_id":"match-new","publisher_domains":["bbc.co.uk","theguardian.com","skysports.com"],
+                      "source_observations":[guardian_observation,sky_observation]}
+    stronger = filter_pending_candidates([stronger_group], old_draft)
     assert len(stronger) == 1 and stronger[0]["event_id"] == "match-old" and stronger[0]["evidence_refresh"] is True
-    weak = filter_pending_candidates([{"event_id":"match-new","publisher_domains":["bbc.co.uk","talkchelsea.net"]}], old_draft)
+    weak_group = {"event_id":"match-new","publisher_domains":["bbc.co.uk","talkchelsea.net"],
+                  "source_observations":[guardian_observation]}
+    weak = filter_pending_candidates([weak_group], old_draft)
     assert weak == []
     # A previously observed but unprocessed story is recovered from its stored
     # evidence snapshot while it remains inside the 24-hour publication window.
