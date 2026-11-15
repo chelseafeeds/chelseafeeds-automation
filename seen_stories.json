@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:26:56.265371+00:00",
+  "updated_at": "2026-11-15T18:27:41.639046+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1505,9 +1505,9 @@
         "theguardian.com"
       ],
       "status": "scheduled",
-      "last_processed_at": "2026-11-15T18:23:58.768370+00:00",
+      "last_processed_at": "2026-11-15T18:27:41.639046+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
-      "last_processed_headline": "Chelsea leapfrog Man City to become new WSL leaders",
+      "last_processed_headline": "Big tactical calls and restricting Shaw - How Chelsea got better of Man City",
       "candidate_snapshot": {
         "event_id": "598b34ea97f175b4ceeacd69",
         "title": "Big tactical calls and restricting Shaw - How Chelsea got better of Man City",
@@ -1622,14 +1622,15 @@
       },
       "last_editorial_source_domains": [
         "bbc.co.uk",
-        "bbc.com",
-        "nytimes.com"
+        "nytimes.com",
+        "skysports.com",
+        "theguardian.com"
       ],
       "last_editorial_source_urls": [
-        "https://www.bbc.co.uk/sport/football/live/cmg474nywwr5t",
-        "https://www.bbc.com/sport/football/live/cmg474nywwr5t",
-        "https://www.bbc.com/sport/football/videos/cm702wwpj9keo",
-        "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result"
+        "https://www.bbc.co.uk/sport/football/videos/cm702wwpj9keo?at_medium=RSS&at_campaign=rss",
+        "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result",
+        "https://www.skysports.com/football/chelsea-women-vs-manchester-city-women/report/575819",
+        "https://www.theguardian.com/football/2026/nov/14/chelsea-manchester-city-womens-super-league-match-report"
       ],
       "last_quality_failures": [],
       "force_evidence_refresh": false,
@@ -3141,7 +3142,7 @@
         "sports.yahoo.com",
         "thefalse9.com"
       ],
-      "status": "rejected_quality_gate",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "587ef1dd9d6a7e59ce794ac8",
         "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
@@ -3235,18 +3236,21 @@
         "observation_count": 4,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": "2026-11-15T18:23:58.768370+00:00",
-      "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
+      "last_processed_at": "2026-11-15T18:27:41.639046+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
       "last_editorial_source_domains": [
-        "sports.yahoo.com"
+        "football365.com",
+        "sports.yahoo.com",
+        "thefalse9.com"
       ],
       "last_editorial_source_urls": [
-        "https://sports.yahoo.com/articles/chelsea-could-block-man-citys-122000936.html"
+        "https://sports.yahoo.com/articles/chelsea-could-block-man-citys-122000936.html",
+        "https://sports.yahoo.com/articles/chelsea-revive-interest-barcelona-outcast-171632539.html",
+        "https://thefalse9.com/2026/11/gusto-man-utd-man-city-talksport-chelsea-january.html",
+        "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window"
       ],
-      "last_quality_failures": [
-        "quality_gate_failed_details_not_retained_by_previous_processor_version"
-      ],
+      "last_quality_failures": [],
       "force_evidence_refresh": false
     },
     "3aa34c3e8337fa58034febce": {
@@ -3556,17 +3560,21 @@
         "observation_count": 8,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": "2026-11-15T18:22:07.010649+00:00",
+      "last_processed_at": "2026-11-15T18:27:41.639046+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea beat 10-player Man City to return to WSL summit",
       "last_editorial_source_domains": [
         "bbc.co.uk",
-        "bbc.com"
+        "bbc.com",
+        "nytimes.com",
+        "sportstar.thehindu.com"
       ],
       "last_editorial_source_urls": [
+        "https://sportstar.thehindu.com/football/womens-football/wsl-scores-results-updates-chelsea-beats-manchester-city-higlights-goals-united-points-table-standings-news/article71704182.ece",
         "https://www.bbc.co.uk/sport/football/live/cmg474nywwr5t",
         "https://www.bbc.com/sport/football/live/cmg474nywwr5t",
-        "https://www.bbc.com/sport/football/videos/cm702wwpj9keo"
+        "https://www.bbc.com/sport/football/videos/cm702wwpj9keo",
+        "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result"
       ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
