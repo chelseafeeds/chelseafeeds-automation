@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
@@ -25,6 +26,9 @@ CANDIDATES = ROOT / "news_candidates.json"
 HISTORY = ROOT / "seen_stories.json"
 REPORT = ROOT / "collection_report.json"
 MAX_LINKS_PER_PAGE = 12
+MAX_SITEMAP_FILES = 8
+MAX_SITEMAP_ARTICLES = 30
+SITEMAP_URL = "https://www.chelseafc.com/sitemap.xml"
 PINNED_OFFICIAL_SOURCES = [
     {"name": "Chelsea FC Official", "url": "https://www.chelseafc.com/en/news/article/chelseas-player-of-the-month-for-october-2026-revealed",
      "published_fallback": "2026-11-14T17:00:00+00:00", "story_key": "morgan_rogers_award"},
@@ -102,6 +106,89 @@ def article_metadata(html, page_url):
             if published:
                 break
     return title, description, published
+
+
+def sitemap_locations(xml_text):
+    """Extract sitemap URLs without trusting sitemap lastmod as article publish time."""
+    root = ET.fromstring(xml_text)
+    entries = []
+    for node in root.iter():
+        if node.tag.rsplit("}", 1)[-1].lower() == "loc" and node.text:
+            entries.append(node.text.strip())
+    return root.tag.rsplit("}", 1)[-1].lower(), entries
+
+
+def discover_official_sitemaps(session):
+    """Discover current Chelsea article URLs from the club's own sitemap.
+
+    Sitemap timestamps are discovery hints only. Every article must still return
+    an accessible page with its own published date before it becomes a candidate.
+    """
+    report = {"source": "Chelsea FC official sitemap", "url": SITEMAP_URL,
+              "status": "failed", "entries_received": 0,
+              "observations_collected": 0, "article_fetches": 0,
+              "rejected_undated_or_stale": 0, "error": None}
+    observations, sitemap_files, article_urls = [], [], []
+    try:
+        response = session.get(SITEMAP_URL, timeout=c.TIMEOUT)
+        response.raise_for_status()
+        kind, locations = sitemap_locations(response.text)
+        if kind == "sitemapindex":
+            sitemap_files = [u for u in locations if c.matches(c.domain(u), ALLOWED_OFFICIAL)][:MAX_SITEMAP_FILES]
+            for sitemap_url in sitemap_files:
+                child = session.get(sitemap_url, timeout=c.TIMEOUT)
+                child.raise_for_status()
+                child_kind, child_locations = sitemap_locations(child.text)
+                if child_kind == "urlset":
+                    article_urls.extend(u for u in child_locations
+                                        if "/en/news/article/" in urlparse(u).path)
+        elif kind == "urlset":
+            article_urls = [u for u in locations if "/en/news/article/" in urlparse(u).path]
+        else:
+            raise ValueError("Unrecognized XML sitemap document")
+
+        # Keep only official Chelsea article URLs; do not use arbitrary sitemap links.
+        article_urls = list(dict.fromkeys(
+            c.normalize_url(u) for u in article_urls
+            if c.matches(c.domain(u), ALLOWED_OFFICIAL)
+            and "/en/news/article/" in urlparse(u).path
+        ))[:MAX_SITEMAP_ARTICLES]
+        report["entries_received"] = len(article_urls)
+
+        cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
+        for url in article_urls:
+            try:
+                article = session.get(url, timeout=c.TIMEOUT, allow_redirects=True)
+                article.raise_for_status()
+                final_url = c.normalize_url(article.url)
+                if not c.matches(c.domain(final_url), ALLOWED_OFFICIAL):
+                    continue
+                title, summary, published = article_metadata(article.text, final_url)
+                if not title or not published or published < cutoff or published > c.now() + timedelta(hours=12):
+                    report["rejected_undated_or_stale"] += 1
+                    continue
+                page_text = BeautifulSoup(article.text, "html.parser").get_text(" ", strip=True)
+                if len(page_text) < 180:
+                    continue
+                item = c.observation(title, summary, final_url,
+                                     "Chelsea FC official sitemap", "Chelsea Football Club", published)
+                if item:
+                    item["publisher_type"] = "official_domain"
+                    observations.append(item)
+            except requests.RequestException as exc:
+                logging.info("Official sitemap article skipped (%s): %s", url, type(exc).__name__)
+            finally:
+                report["article_fetches"] += 1
+
+        report["observations_collected"] = len(observations)
+        report["status"] = "success" if observations else "empty"
+        if not observations:
+            report["error"] = "Sitemap returned no accessible, dated Chelsea articles inside the freshness window"
+    except Exception as exc:
+        report["error"] = f"{type(exc).__name__}: {str(exc)[:200]}"
+        logging.warning("Chelsea official sitemap discovery: %s", report["error"])
+    return observations, report
+
 
 def discover_official_pages(session):
     observations, report = [], []
@@ -268,9 +355,10 @@ def main():
     session.headers.update({"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsSourceDiscovery/1.0)"})
     history = json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"events": {}}
     official_obs, official_report = discover_official_pages(session)
+    sitemap_obs, sitemap_report = discover_official_sitemaps(session)
     pinned_groups, pinned_report = discover_pinned_official_story(session, history)
     specialist_obs, specialist_report = discover_specialist_feeds(session)
-    new_obs = official_obs + specialist_obs
+    new_obs = official_obs + sitemap_obs + specialist_obs
     groups = c.cluster(new_obs)
     groups.extend(pinned_groups)
     for group in groups:
@@ -292,7 +380,7 @@ def main():
     pending.sort(key=lambda g: (order.get(g.get("priority"), 9), -g.get("importance_score", 0),
                                g.get("published", ""), g.get("title", "").lower()))
     selected = c.select_candidates(pending)
-    existing.update(stories=selected, source_discovery_version="1.2",
+    existing.update(stories=selected, source_discovery_version="1.3",
                     direct_source_observations=len(new_obs) + len(pinned_groups),
                     direct_official_observations=len(official_obs) + len(pinned_groups),
                     specialist_feed_observations=len(specialist_obs))
@@ -301,17 +389,17 @@ def main():
     c.write(HISTORY, history_updated)
     report = json.loads(REPORT.read_text(encoding="utf-8")) if REPORT.exists() else {}
     reports = report.setdefault("source_reports", [])
-    reports.extend(official_report + [pinned_report] + specialist_report)
-    report.update(source_discovery_version="1.2",
+    reports.extend(official_report + [sitemap_report, pinned_report] + specialist_report)
+    report.update(source_discovery_version="1.3",
                   direct_source_observations=len(new_obs) + len(pinned_groups),
-                  direct_official_observations=len(official_obs) + len(pinned_groups),
+                  direct_official_observations=len(official_obs) + len(sitemap_obs) + len(pinned_groups),
                   specialist_feed_observations=len(specialist_obs),
                   selected_pending_candidates=len(selected),
                   recovered_from_history_candidates=sum(1 for x in selected if x.get("recovered_from_history")))
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print("Direct source discovery: official_pages=%d pinned_official=%d specialist=%d pending=%d" %
-          (len(official_obs), len(pinned_groups), len(specialist_obs), len(selected)))
-    for row in official_report + [pinned_report] + specialist_report:
+    print("Direct source discovery: official_pages=%d official_sitemap=%d pinned_official=%d specialist=%d pending=%d" %
+          (len(official_obs), len(sitemap_obs), len(pinned_groups), len(specialist_obs), len(selected)))
+    for row in official_report + [sitemap_report, pinned_report] + specialist_report:
         print("SOURCE_REPORT " + json.dumps(row, ensure_ascii=False))
 
 if __name__ == "__main__":
