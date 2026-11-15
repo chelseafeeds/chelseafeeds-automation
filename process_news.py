@@ -54,7 +54,7 @@ def in_domains(url, domains):
 
 def publisher_group(domain):
     """Normalize domains owned by the same newsroom so mirrors do not count twice."""
-    d = host(domain)
+    d = str(domain or "").strip().lower().removeprefix("www.")
     if d in {"bbc.co.uk", "bbc.com"}:
         return "bbc"
     if d in {"nytimes.com", "theathletic.com"}:
