@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "collect_news.py"
+      - "direct_source_discovery.py"
       - "persist_history.py"
       - "process_news.py"
       - "related_links.py"
@@ -47,6 +48,9 @@ jobs:
 
       - name: Collect Chelsea news
         run: python collect_news.py
+
+      - name: Discover direct official and specialist Chelsea sources
+        run: python direct_source_discovery.py
 
       - name: Merge and save duplicate history safely
         run: python persist_history.py
