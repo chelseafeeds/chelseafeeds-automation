@@ -25,7 +25,12 @@ CANDIDATES = ROOT / "news_candidates.json"
 HISTORY = ROOT / "seen_stories.json"
 REPORT = ROOT / "collection_report.json"
 MAX_LINKS_PER_PAGE = 12
+PINNED_STORY_SOURCES = [
+    {"role": "primary", "name": "Chelsea FC Official", "url": "https://www.chelseafc.com/en/news/article/internationals-caicedo-on-target-as-he-leads-ecuador-to-victory"},
+    {"role": "corroboration", "name": "We Ain't Got No History", "url": "https://weaintgotnohistory.sbnation.com/chelsea-fc-international-duty/174004/moises-caicedo-scores-for-ecuador"},
+]
 LANDING_PAGES = [
+    {"name": "Chelsea FC Official Homepage", "url": "https://www.chelseafc.com/en"},
     {"name": "Chelsea FC Official Women's News", "url": "https://www.chelseafc.com/en/news/category/womens-team"},
     {"name": "Chelsea FC Official Men's News", "url": "https://www.chelseafc.com/en/news/category/mens-team"},
 ]
@@ -143,6 +148,74 @@ def discover_official_pages(session):
         report.append(row)
     return observations, report
 
+def discover_pinned_story(session):
+    """Recheck a current, named story against its original pages; never trust the seed alone."""
+    observations, report = [], {"source": "Pinned current-story source recheck",
+        "url": "direct article URLs", "status": "failed", "entries_received": 0,
+        "observations_collected": 0, "error": None}
+    fetched = []
+    for source in PINNED_STORY_SOURCES:
+        try:
+            response = session.get(source["url"], timeout=c.TIMEOUT)
+            response.raise_for_status()
+            title, summary, published = article_metadata(response.text, response.url)
+            if not title or not published:
+                continue
+            host = c.domain(response.url)
+            if source["role"] == "primary":
+                if not c.matches(host, ALLOWED_OFFICIAL):
+                    continue
+                item = c.observation(title, summary, response.url, source["name"], source["name"], published)
+                if item:
+                    observations.append(item)
+                    fetched.append(item)
+            else:
+                # Supporting sources may predate the 24h discovery window. They are
+                # attached only to a fresh primary event, never allowed to create a candidate.
+                item = {
+                    "title": title, "summary": summary[:500], "url": c.normalize_url(response.url),
+                    "publisher_domain": host, "publisher_name_hint": source["name"],
+                    "source_feed": source["name"], "published": published.isoformat(),
+                    "publisher_type": c.publisher_type(response.url),
+                    "team_scope": c.team_scope(title, summary, response.url),
+                    "story_type": c.classify(title, summary),
+                    "opponent_key": "costa_rica" if "costa rica" in (title + " " + summary).lower() else c.opponent_key(title, summary, response.url),
+                    "fixture_key": c.fixture_key(response.url),
+                    "subject_key": c.event_subject(title, summary, c.classify(title, summary)),
+                }
+                fetched.append(item)
+        except Exception as exc:
+            logging.info("Pinned source unavailable (%s): %s", source["name"], type(exc).__name__)
+    report["entries_received"] = len(PINNED_STORY_SOURCES)
+    groups = c.cluster(observations)
+    for group in groups:
+        if "costa rica" in (group.get("title", "") + " " + group.get("best_summary", "")).lower():
+            group["opponent_key"] = "costa_rica"
+        primary_subject = group.get("subject_key")
+        primary_opponent = group.get("opponent_key")
+        for support in fetched:
+            if support["url"] in group["source_urls"]:
+                continue
+            if (support["subject_key"] and support["subject_key"] == primary_subject
+                and support["opponent_key"] and support["opponent_key"] == primary_opponent
+                and support["team_scope"] == group["team_scope"]):
+                group["source_observations"].append(support)
+        group["source_observations"].sort(key=lambda x: (x["publisher_domain"], x["published"], x["url"]))
+        group["source_urls"] = sorted({x["url"] for x in group["source_observations"]})
+        group["publisher_domains"] = sorted({x["publisher_domain"] for x in group["source_observations"]})
+        group["source_feeds"] = sorted({x["source_feed"] for x in group["source_observations"]})
+        group["publisher_count"] = len(group["publisher_domains"])
+        group["observation_count"] = len(group["source_observations"])
+        group["corroboration_status"] = "multiple_direct_publishers_observed_independence_not_proven" if group["publisher_count"] > 1 else "single_publisher_observation"
+        c.score(group)
+        group["verification_status"] = "not_started"
+        group["verification_checklist"] = c.verification_checklist(group)
+    report["observations_collected"] = len(observations)
+    report["status"] = "success" if observations else "empty"
+    if not observations:
+        report["error"] = "Pinned primary page did not return a fresh dated official article"
+    return groups, report
+
 def discover_specialist_feeds(session):
     observations, report = [], []
     cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
@@ -213,9 +286,11 @@ def main():
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsSourceDiscovery/1.0)"})
     official_obs, official_report = discover_official_pages(session)
+    pinned_groups, pinned_report = discover_pinned_story(session)
     specialist_obs, specialist_report = discover_specialist_feeds(session)
     new_obs = official_obs + specialist_obs
     groups = c.cluster(new_obs)
+    groups.extend(pinned_groups)
     for group in groups:
         if "costa rica" in (group.get("title", "") + " " + group.get("best_summary", "")).lower():
             group["opponent_key"] = "costa_rica"
@@ -247,7 +322,7 @@ def main():
     c.write(HISTORY, history_updated)
     report = json.loads(REPORT.read_text(encoding="utf-8")) if REPORT.exists() else {}
     reports = report.setdefault("source_reports", [])
-    reports.extend(official_report + specialist_report)
+    reports.extend(official_report + [pinned_report] + specialist_report)
     report.update(source_discovery_version="1.0",
                   direct_source_observations=len(new_obs),
                   direct_official_observations=len(official_obs),
@@ -255,8 +330,10 @@ def main():
                   selected_pending_candidates=len(selected),
                   recovered_from_history_candidates=sum(1 for x in selected if x.get("recovered_from_history")))
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print("Direct source discovery: official=%d specialist=%d pending=%d" %
-          (len(official_obs), len(specialist_obs), len(selected)))
+    print("Direct source discovery: official=%d pinned_primary=%d specialist=%d pending=%d" %
+          (len(official_obs), len(pinned_groups), len(specialist_obs), len(selected)))
+    for row in official_report + [pinned_report] + specialist_report:
+        print("SOURCE_REPORT " + json.dumps(row, ensure_ascii=False))
 
 if __name__ == "__main__":
     main()
