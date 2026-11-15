@@ -364,7 +364,7 @@ def _request_chat_completion(payload, api_key, base_url, model, session, provide
     raise RuntimeError(f"{provider_label} request failed without a response")
 
 
-def generate_draft(story, evidence, api_key, session):
+def generate_draft(story, evidence, api_key, session, length_repair=False):
     payload = build_prompt(story, evidence)
     system = (
         "You are a careful Chelsea FC sports journalist and SEO editor. Use ONLY supplied evidence. "
@@ -389,6 +389,16 @@ def generate_draft(story, evidence, api_key, session):
         "Image prompt must request an editorial illustration, not fake documentary match photography "
         "or a photorealistic depiction of a real player. Chelsea blue #034694, navy #071426, white, gold."
     )
+    if length_repair:
+        system += (
+            " This is a one-time length-only quality repair. The previous version fell just below "
+            "the 400-word minimum. Produce 430-500 substantive words by fully explaining distinct "
+            "details already present in the supplied evidence: the speaker's points, match context, "
+            "team response, named next fixture and explicitly sourced implications. Do not add new "
+            "facts, unsupported tactical claims, repeated paragraphs or generic padding. If the "
+            "supplied evidence cannot support that length, state the limitation in editorial_notes "
+            "and do not invent material."
+        )
     req = {"response_format": {"type": "json_object"},
            "messages": [{"role": "system", "content": system},
                         {"role": "user", "content": json.dumps(payload, ensure_ascii=False)}]}
@@ -520,6 +530,12 @@ def apply_source_title_fallback(draft, story):
         draft["title"] = fallback
         return True
     return False
+
+def should_retry_length_only(quality):
+    """Allow one evidence-bound rewrite only when article length is the sole failure."""
+    return (not quality.get("passed")
+            and quality.get("failed_checks") == ["substantive_article_body_minimum_400_words"])
+
 
 def quality_gate(draft, fetched, story, allowed_internal_urls=None):
     html = str(draft.get("article_html", ""))
@@ -660,7 +676,38 @@ def process(input_path, output_dir):
                 if title_fallback_applied:
                     logging.info("TITLE_FALLBACK_APPLIED event=%s using source headline", story.get("event_id"))
                 quality = quality_gate(draft, fetched, story, {x["url"] for x in related})
+                length_repair_attempted = False
+                if should_retry_length_only(quality) and AI_USAGE["total_tokens"] < RUN_TOKEN_BUDGET:
+                    length_repair_attempted = True
+                    logging.info("QUALITY_LENGTH_REPAIR event=%s initial_words=%s",
+                                 story.get("event_id"), quality.get("word_count"))
+                    repaired = generate_draft(story, fetched, AI_API_KEY, session, length_repair=True)
+                    repaired["article_html"] = add_deterministic_sources(repaired["article_html"], fetched)
+                    repaired_related = select_related_articles(repaired, story, published_articles)
+                    repaired["article_html"] = add_related_links(repaired["article_html"], repaired_related)
+                    repaired["related_internal_links"] = [
+                        {"title": x["title"], "url": x["url"], "score": x["score"]}
+                        for x in repaired_related
+                    ]
+                    repaired_title_fallback = apply_source_title_fallback(repaired, story)
+                    repaired_quality = quality_gate(
+                        repaired, fetched, story, {x["url"] for x in repaired_related}
+                    )
+                    if repaired_quality["passed"]:
+                        draft, related = repaired, repaired_related
+                        title_fallback_applied = repaired_title_fallback
+                        quality = repaired_quality
+                        logging.info("QUALITY_LENGTH_REPAIR_PASSED event=%s words=%s",
+                                     story.get("event_id"), quality.get("word_count"))
+                    else:
+                        logging.info("QUALITY_LENGTH_REPAIR_REJECTED event=%s words=%s failures=%s",
+                                     story.get("event_id"), repaired_quality.get("word_count"),
+                                     repaired_quality.get("failed_checks"))
+                        quality = repaired_quality
+                        draft = repaired
+                        title_fallback_applied = repaired_title_fallback
                 record["quality_gate"] = quality
+                record["length_repair_attempted"] = length_repair_attempted
                 record["title_fallback_applied"] = title_fallback_applied
                 if not quality["passed"]:
                     record["processing_status"] = "rejected_quality_gate"
@@ -854,6 +901,9 @@ def self_test():
     short = make_draft(399)
     short_result = quality_gate(short, one, story)
     assert not short_result["passed"] and short_result["word_count"] == 399
+    assert should_retry_length_only(short_result)
+    non_length_failure = dict(short_result, failed_checks=["substantive_article_body_minimum_400_words", "has_source_links"])
+    assert not should_retry_length_only(non_length_failure)
     assert "substantive_article_body_minimum_400_words" in short_result["failed_checks"]
 
     bad_title = dict(valid, title="Too short")
