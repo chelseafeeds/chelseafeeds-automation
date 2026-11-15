@@ -68,6 +68,26 @@ def merge_histories(*documents):
             record["last_processed_at"] = iso_max(previous.get("last_processed_at"), incoming.get("last_processed_at"))
             record["last_editorial_outcome"] = newest.get("last_editorial_outcome") or previous.get("last_editorial_outcome") or incoming.get("last_editorial_outcome")
             record["last_processed_headline"] = newest.get("last_processed_headline") or previous.get("last_processed_headline") or incoming.get("last_processed_headline")
+            # Preserve editorial evidence baselines when a collector snapshot is newer
+            # but does not itself contain processor-side fields.
+            record["last_editorial_source_domains"] = (
+                newest.get("last_editorial_source_domains")
+                or previous.get("last_editorial_source_domains")
+                or incoming.get("last_editorial_source_domains")
+                or []
+            )
+            record["last_editorial_source_urls"] = (
+                newest.get("last_editorial_source_urls")
+                or previous.get("last_editorial_source_urls")
+                or incoming.get("last_editorial_source_urls")
+                or []
+            )
+            record["last_quality_failures"] = (
+                newest.get("last_quality_failures")
+                or previous.get("last_quality_failures")
+                or incoming.get("last_quality_failures")
+                or []
+            )
             # Processor-side history writes may not carry collector snapshots.
             # Preserve the latest available source-bearing snapshot across merges.
             record["candidate_snapshot"] = (
@@ -171,7 +191,18 @@ def self_test():
     assert out["events"]["a"]["publisher_domains"] == ["bbc.co.uk", "theguardian.com"]
     assert out["events"]["a"]["status"] == "reviewed"
     assert out["events"]["a"]["candidate_snapshot"] == {"source_urls": ["https://www.bbc.co.uk/sport/a"]}
-    print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union, status and candidate-snapshot preservation")
+    # A newer collector record must not erase processor-side evidence fingerprints.
+    editorial = {"events":{"a":{
+        "event_id":"a","last_seen_at":"2026-11-11T08:00:00+00:00",
+        "last_editorial_source_domains":["sports.yahoo.com"],
+        "last_editorial_source_urls":["https://sports.yahoo.com/story"],
+        "last_quality_failures":["short_article"]
+    }}}
+    merged = merge_histories(editorial, b)
+    assert merged["events"]["a"]["last_editorial_source_domains"] == ["sports.yahoo.com"]
+    assert merged["events"]["a"]["last_editorial_source_urls"] == ["https://sports.yahoo.com/story"]
+    assert merged["events"]["a"]["last_quality_failures"] == ["short_article"]
+    print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union, status, snapshots and editorial evidence baseline preservation")
 
 
 if __name__ == "__main__":
