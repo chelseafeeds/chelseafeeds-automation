@@ -214,8 +214,8 @@ def self_test():
     )
     assert one_shot["events"]["a"]["force_evidence_refresh"] is True
     consumed = merge_histories(
-        {"events":{"a":{"event_id":"a","force_evidence_refresh":False}}},
-        {"events":{"a":{"event_id":"a","force_evidence_refresh":True}}}
+        {"events":{"a":{"event_id":"a","last_seen_at":"2026-11-13T08:00:00+00:00","force_evidence_refresh":False}}},
+        {"events":{"a":{"event_id":"a","last_seen_at":"2026-11-12T08:00:00+00:00","force_evidence_refresh":True}}}
     )
     assert consumed["events"]["a"]["force_evidence_refresh"] is False
     print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union, status, snapshots, evidence baseline and one-shot refresh preservation")
