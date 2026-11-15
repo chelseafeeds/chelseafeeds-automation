@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:20:47.086481+00:00",
+  "updated_at": "2026-11-15T18:22:07.010649+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1437,7 +1437,7 @@
         "theguardian.com"
       ],
       "status": "draft_created_unpublished",
-      "last_processed_at": "2026-11-15T18:18:34.826231+00:00",
+      "last_processed_at": "2026-11-15T18:22:07.010649+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea leapfrog Man City to become new WSL leaders",
       "candidate_snapshot": {
@@ -3125,7 +3125,7 @@
         "observation_count": 3,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": "2026-11-15T18:20:02.591238+00:00",
+      "last_processed_at": "2026-11-15T18:22:07.010649+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
       "last_editorial_source_domains": [
@@ -3136,7 +3136,8 @@
       ],
       "last_quality_failures": [
         "quality_gate_failed_details_not_retained_by_previous_processor_version"
-      ]
+      ],
+      "force_evidence_refresh": false
     },
     "3aa34c3e8337fa58034febce": {
       "event_id": "3aa34c3e8337fa58034febce",
@@ -3441,7 +3442,7 @@
         "observation_count": 8,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": "2026-11-15T18:20:02.591238+00:00",
+      "last_processed_at": "2026-11-15T18:22:07.010649+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea beat 10-player Man City to return to WSL summit",
       "last_editorial_source_domains": [
@@ -3453,7 +3454,8 @@
         "https://www.bbc.com/sport/football/live/cmg474nywwr5t",
         "https://www.bbc.com/sport/football/videos/cm702wwpj9keo"
       ],
-      "last_quality_failures": []
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "967b300205c6810d69882c21": {
       "event_id": "967b300205c6810d69882c21",
@@ -3466,7 +3468,7 @@
         "msn.com",
         "weaintgotnohistory.sbnation.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "967b300205c6810d69882c21",
         "title": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
@@ -3526,12 +3528,17 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": []
+      "last_processed_at": "2026-11-15T18:22:07.010649+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
+      "last_editorial_source_domains": [
+        "weaintgotnohistory.sbnation.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://weaintgotnohistory.sbnation.com/chelsea-fc-women/174029/chelsea-fcw-1-0-manchester-city-wfc-womens-super-league-post-match-reaction"
+      ],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
     },
     "2e4dfc8f18edcb763cec120b": {
       "event_id": "2e4dfc8f18edcb763cec120b",
