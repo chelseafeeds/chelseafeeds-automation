@@ -81,6 +81,15 @@ jobs:
           with open("input/blogger_ready_posts.json", encoding="utf-8") as f:
               payload = json.load(f)
           posts = payload.get("posts", []) if isinstance(payload, dict) else payload
+          with open("seen_stories.json", encoding="utf-8") as f:
+              history = json.load(f).get("events", {})
+
+          OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com", "englandfootball.com"}
+          ESTABLISHED = {"bbc.co.uk", "bbc.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com", "espn.com", "independent.co.uk", "standard.co.uk", "nytimes.com", "theathletic.com", "football365.com", "thetimes.com", "telegraph.co.uk", "ticotimes.net", "primicias.ec", "talksport.com", "footballinsider247.com"}
+
+          def matches(domain, bases):
+              d = str(domain or "").lower().removeprefix("www.")
+              return any(d == base or d.endswith("." + base) for base in bases)
 
           def publisher_group(domain):
               d = str(domain or "").lower().removeprefix("www.")
@@ -94,10 +103,14 @@ jobs:
               event_id = str(post.get("event_id", "")).strip()
               if not event_id:
                   continue
-              domains = post.get("established_source_domains", [])
-              groups = {publisher_group(d) for d in domains if publisher_group(d)}
+              record = history.get(event_id, {})
+              # Prefer the processor's explicit established-domain field; for older
+              # artifacts, use the domains the processor actually fetched successfully.
+              domains = post.get("established_source_domains") or record.get("last_editorial_source_domains", [])
               official_count = int(post.get("official_source_count", 0) or 0)
-              independently_supported = official_count > 0 or len(groups) >= 2
+              has_official = official_count > 0 or any(matches(d, OFFICIAL) for d in domains)
+              groups = {publisher_group(d) for d in domains if matches(d, ESTABLISHED)}
+              independently_supported = has_official or len(groups) >= 2
               if post.get("auto_schedule_eligible") is True and independently_supported:
                   print(event_id)
               else:
