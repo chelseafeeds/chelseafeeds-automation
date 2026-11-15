@@ -25,16 +25,32 @@ ROOT = Path(__file__).resolve().parent
 CANDIDATES = ROOT / "news_candidates.json"
 HISTORY = ROOT / "seen_stories.json"
 REPORT = ROOT / "collection_report.json"
-MAX_LINKS_PER_PAGE = 12
+MAX_LINKS_PER_PAGE = 18
 MAX_SITEMAP_FILES = 8
 MAX_SITEMAP_ARTICLES = 30
 ROBOTS_URL = "https://www.chelseafc.com/robots.txt"
 SITEMAP_FALLBACKS = ["https://www.chelseafc.com/sitemap_index.xml", "https://www.chelseafc.com/sitemap.xml"]
 PINNED_OFFICIAL_SOURCES = [
-    {"name": "Chelsea FC Official", "url": "https://www.chelseafc.com/en/news/article/chelseas-player-of-the-month-for-october-2026-revealed",
-     "published_fallback": "2026-11-14T17:00:00+00:00", "story_key": "morgan_rogers_award"},
+    {
+        "name": "Chelsea FC Official",
+        "url": "https://www.chelseafc.com/en/news/article/wieke-kaptein-we-can-take-confidence-from-man-city-victory",
+        "story_key": "wieke_kaptein_reaction",
+        "required_title_terms": ["wieke kaptein", "man city victory"],
+        "required_body_terms": ["paris saint-germain", "sandy baltimore"],
+    },
+    {
+        "name": "Chelsea FC Official",
+        "url": "https://www.chelseafc.com/en/news/article/chelseas-player-of-the-month-for-october-2026-revealed",
+        "story_key": "morgan_rogers_award",
+        "required_title_terms": ["player of the month", "october"],
+        "required_body_terms": ["morgan rogers"],
+    },
 ]
-LANDING_PAGES = []  # Chelsea's current HTML pages are bot-gated for Actions; use readable primary sources instead.
+# The official latest-news landing page is a discovery index only. Every linked
+# article still needs its own accessible page and publication timestamp.
+LANDING_PAGES = [
+    {"name": "Chelsea FC official latest news", "url": "https://www.chelseafc.com/en"}
+];
 SPECIALIST_FEEDS = [
     {"name": "We Ain't Got No History", "url": "https://weaintgotnohistory.sbnation.com/rss/current.xml"},
     {"name": "The False 9", "url": "https://thefalse9.com/feed/"},
@@ -131,7 +147,23 @@ def sitemap_locations(xml_text):
     return kind, [entry["loc"] for entry in entries]
 
 
+def pinned_story_matches(source, title, page_text):
+    title_l = c.textval(title).lower()
+    body_l = c.textval(page_text).lower()
+    return (all(term in title_l for term in source.get("required_title_terms", []))
+            and all(term in body_l for term in source.get("required_body_terms", [])))
+
+
 def run_self_tests():
+    # The live Kaptein article must be recognisable from its own headline and body,
+    # while unrelated pages cannot pass the pinned-source guard.
+    kaptein = PINNED_OFFICIAL_SOURCES[0]
+    assert pinned_story_matches(kaptein,
+        "Wieke Kaptein: We can take confidence from Man City victory",
+        "Kaptein discusses Sandy Baltimore and the upcoming Paris Saint-Germain match.")
+    assert not pinned_story_matches(kaptein, "Chelsea latest news",
+        "An unrelated club announcement with no matching article details.")
+    assert all("published_fallback" not in source for source in PINNED_OFFICIAL_SOURCES)
     ns = "http://www.sitemaps.org/schemas/sitemap/0.9"
     urlset = f'<urlset xmlns="{ns}"><url><loc>https://www.chelseafc.com/en/news/article/test-story</loc></url></urlset>'
     kind, locations = sitemap_locations(urlset)
@@ -303,38 +335,50 @@ def discover_official_pages(session):
     return observations, report
 
 def discover_pinned_official_story(session, history):
-    """Recheck one fresh, direct Chelsea announcement; no aggregator URL enters evidence."""
+    """Fetch known direct Chelsea announcements; page metadata, not hardcoded dates, gates freshness."""
     observations = []
-    report = {"source": "Pinned Chelsea official announcement",
-        "url": "direct Chelsea FC article", "status": "failed",
-        "entries_received": 0, "observations_collected": 0, "error": None}
+    report = {"source": "Pinned Chelsea official announcements",
+        "url": "direct Chelsea FC article pages", "status": "failed",
+        "entries_received": len(PINNED_OFFICIAL_SOURCES),
+        "observations_collected": 0, "article_checks": [], "error": None}
     cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
     for source in PINNED_OFFICIAL_SOURCES:
+        check = {"story_key": source["story_key"], "url": source["url"], "status": "failed"}
         try:
-            response = session.get(source["url"], timeout=c.TIMEOUT)
+            response = session.get(source["url"], timeout=c.TIMEOUT, allow_redirects=True)
             response.raise_for_status()
-            title, summary, published = article_metadata(response.text, response.url)
-            title = title or "Chelsea's Player of the Month for October 2026 revealed!"
-            published = published or parse_iso(source.get("published_fallback"))
-            if not published or published < cutoff or published > c.now() + timedelta(hours=12):
+            final_url = c.normalize_url(response.url)
+            if not c.matches(c.domain(final_url), ALLOWED_OFFICIAL):
+                check["error"] = "Redirect left the official-source allowlist"
+                report["article_checks"].append(check)
                 continue
+            title, summary, published = article_metadata(response.text, final_url)
             page_text = BeautifulSoup(response.text, "html.parser").get_text(" ", strip=True)
-            if source.get("story_key") == "morgan_rogers_award":
-                if "morgan rogers" not in page_text.lower() or "player of the month" not in page_text.lower():
-                    continue
-                if not summary:
-                    summary = ("Morgan Rogers was voted Chelsea's Player of the Month for October, "
-                               "receiving 36 per cent of the Chelsea Official App poll after scoring "
-                               "three goals across five appearances.")
-            item = c.observation(title, summary, response.url, source["name"], source["name"], published)
-            if item:
-                item["publisher_type"] = "official_domain"
-                item["team_scope"] = "mens_first_team_or_club"
-                item["subject_key"] = "morgan_rogers"
-                observations.append(item)
+            if not title or not published:
+                check["status"] = "rejected"
+                check["error"] = "Official article page did not expose a verifiable title and publication timestamp"
+            elif published < cutoff or published > c.now() + timedelta(hours=12):
+                check["status"] = "stale_or_future"
+                check["published"] = published.isoformat()
+            elif not pinned_story_matches(source, title, page_text):
+                check["status"] = "rejected"
+                check["error"] = "Official page did not match the configured headline/body identity checks"
+            else:
+                item = c.observation(title, summary, final_url, source["name"], "Chelsea Football Club", published)
+                if item:
+                    item["publisher_type"] = "official_domain"
+                    item["official_source_key"] = source["story_key"]
+                    observations.append(item)
+                    check["status"] = "success"
+                    check["published"] = published.isoformat()
+                    check["title"] = title
+                else:
+                    check["status"] = "rejected"
+                    check["error"] = "Official article did not pass the collector relevance/freshness gate"
         except Exception as exc:
-            logging.info("Pinned Chelsea official source unavailable: %s", type(exc).__name__)
-    report["entries_received"] = len(PINNED_OFFICIAL_SOURCES)
+            check["error"] = f"{type(exc).__name__}: {str(exc)[:160]}"
+        report["article_checks"].append(check)
+
     groups = c.cluster(observations)
     terminal = {"draft_created_unpublished", "rejected_quality_gate", "scheduled", "published", "archived"}
     events = history.get("events", {}) if isinstance(history, dict) else {}
@@ -347,11 +391,10 @@ def discover_pinned_official_story(session, history):
         group["verification_checklist"] = c.verification_checklist(group)
         pending.append(group)
     report["observations_collected"] = len(observations)
-    report["status"] = "success" if pending else "empty"
-    if not pending:
-        report["error"] = "No fresh, readable, unprocessed Chelsea award announcement was available"
-    return pending[:1], report
-
+    report["status"] = "success" if observations else "empty"
+    if not observations:
+        report["error"] = "No pinned official Chelsea article passed direct-page identity and 24-hour publication checks"
+    return pending, report
 
 def discover_bing_news(session):
     """Use Bing News only for discovery; resolve every result to its publisher."""
