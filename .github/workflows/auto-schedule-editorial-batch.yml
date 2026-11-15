@@ -186,7 +186,7 @@ jobs:
           history["updated_at"] = datetime.now(timezone.utc).isoformat()
           with open("seen_stories.json", "w", encoding="utf-8") as f:
               json.dump(history, f, ensure_ascii=False, indent=2)
-              f.write("\\n")
+              f.write("\n")
           PY
 
             meta="$(python - "$event_id" <<'PY'
