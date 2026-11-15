@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T19:38:50.857619+00:00",
+  "updated_at": "2026-11-15T19:39:12.715972+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -4366,7 +4366,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "f2856177da0d24daf6debd9b",
         "title": "Wieke Kaptein: We can take confidence from Man City victory | News | Official Site - Chelsea Football Club",
@@ -4420,7 +4420,12 @@
       ],
       "last_quality_failures": [],
       "force_evidence_refresh": false,
-      "force_evidence_refresh_reason": "One-time retry using the new length-only repair; strict 400-word gate and source evidence unchanged."
+      "force_evidence_refresh_reason": "One-time retry using the new length-only repair; strict 400-word gate and source evidence unchanged.",
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1422969368266801888",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/wieke-kaptein-says-chelsea-women-can.html",
+      "scheduled_for_utc": "2026-11-15T19:44:11Z",
+      "last_blogger_status_updated_at": "2026-11-15T19:39:12.715960+00:00"
     },
     "af1610607b92583a41b4cf97": {
       "event_id": "af1610607b92583a41b4cf97",
