@@ -226,7 +226,7 @@ def verification_checklist(g):
     }
     return common+specific.get(typ,specific["general_news"])
 
-TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "rejected_quality_gate", "published", "archived"}
+TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "published", "archived"}
 SNAPSHOT_FIELDS = (
     "event_id", "title", "story_type", "team_scope", "published", "best_summary",
     "representative_title", "representative_url", "representative_publisher",
@@ -250,8 +250,19 @@ def filter_pending_candidates(groups, history, reference_time=None):
     current = {}
     for group in groups:
         event_id = group.get("event_id")
-        if event_id and events.get(event_id, {}).get("status") not in TERMINAL_EVENT_STATUSES:
+        record = events.get(event_id, {}) if event_id else {}
+        status = record.get("status") if isinstance(record, dict) else None
+        if event_id and status not in TERMINAL_EVENT_STATUSES and status != "rejected_quality_gate":
             current[event_id] = group
+        elif event_id and status == "rejected_quality_gate":
+            previous_domains = set(record.get("last_editorial_source_domains") or
+                                   (record.get("candidate_snapshot") or {}).get("publisher_domains", []))
+            current_domains = set(group.get("publisher_domains", []))
+            # Reconsider a rejected event only when a genuinely new publisher domain
+            # adds evidence; a repeated URL or syndicated duplicate is not enough.
+            if current_domains - previous_domains:
+                group["evidence_refresh"] = True
+                current[event_id] = group
 
     now_value = reference_time or now()
     if now_value.tzinfo is None:
@@ -458,6 +469,16 @@ def run_self_tests():
     processed = {"events": {"done": {"status": "draft_created_unpublished"}, "held": {"status": "rejected_quality_gate"}}}
     pending = filter_pending_candidates([{"event_id":"done"},{"event_id":"held"},{"event_id":"new"}], processed)
     assert [x["event_id"] for x in pending] == ["new"]
+    # A quality-rejected event may re-enter only after a new publisher domain adds evidence.
+    rejected_with_source = {"events": {"refresh": {
+        "status": "rejected_quality_gate",
+        "last_editorial_source_domains": ["sports.yahoo.com"],
+        "candidate_snapshot": {"publisher_domains": ["sports.yahoo.com"]}
+    }}}
+    refreshed = filter_pending_candidates([{"event_id":"refresh","publisher_domains":["sports.yahoo.com","talksport.com"]}], rejected_with_source)
+    assert len(refreshed) == 1 and refreshed[0]["evidence_refresh"] is True
+    unchanged = filter_pending_candidates([{"event_id":"refresh","publisher_domains":["sports.yahoo.com"]}], rejected_with_source)
+    assert unchanged == []
     # A previously observed but unprocessed story is recovered from its stored
     # evidence snapshot while it remains inside the 24-hour publication window.
     recoverable_group = cluster([o("Chelsea Women reaction after Manchester City win",
