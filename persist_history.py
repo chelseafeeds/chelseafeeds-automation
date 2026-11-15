@@ -66,29 +66,25 @@ def merge_histories(*documents):
             record["last_seen_at"] = iso_max(prev_seen, new_seen)
             record["last_published_at"] = iso_max(previous.get("last_published_at"), incoming.get("last_published_at"))
             record["last_processed_at"] = iso_max(previous.get("last_processed_at"), incoming.get("last_processed_at"))
-            record["last_editorial_outcome"] = newest.get("last_editorial_outcome") or previous.get("last_editorial_outcome") or incoming.get("last_editorial_outcome")
-            record["last_processed_headline"] = newest.get("last_processed_headline") or previous.get("last_processed_headline") or incoming.get("last_processed_headline")
-            # Preserve editorial evidence baselines when a collector snapshot is newer
-            # but does not itself contain processor-side fields.
-            record["last_editorial_source_domains"] = (
-                newest.get("last_editorial_source_domains")
-                or previous.get("last_editorial_source_domains")
-                or incoming.get("last_editorial_source_domains")
-                or []
-            )
-            record["last_editorial_source_urls"] = (
-                newest.get("last_editorial_source_urls")
-                or previous.get("last_editorial_source_urls")
-                or incoming.get("last_editorial_source_urls")
-                or []
-            )
-            record["last_quality_failures"] = (
-                newest.get("last_quality_failures")
-                or previous.get("last_quality_failures")
-                or incoming.get("last_quality_failures")
-                or []
-            )
-            if "force_evidence_refresh" in newest:
+            processor_records = [r for r in (previous, incoming) if parse_dt(r.get("last_processed_at"))]
+            processor_newest = max(processor_records, key=lambda r: parse_dt(r.get("last_processed_at"))) if processor_records else {}
+            record["last_editorial_outcome"] = processor_newest.get("last_editorial_outcome") or newest.get("last_editorial_outcome") or previous.get("last_editorial_outcome") or incoming.get("last_editorial_outcome")
+            record["last_processed_headline"] = processor_newest.get("last_processed_headline") or newest.get("last_processed_headline") or previous.get("last_processed_headline") or incoming.get("last_processed_headline")
+            # Collector freshness and processor evidence have separate clocks. Prefer
+            # the latest processor-side evidence even when a newer collector snapshot
+            # arrives afterwards.
+            for field in ("last_editorial_source_domains", "last_editorial_source_urls", "last_quality_failures"):
+                if field in processor_newest:
+                    record[field] = processor_newest[field]
+                elif field in newest:
+                    record[field] = newest[field]
+                elif field in previous:
+                    record[field] = previous[field]
+                else:
+                    record[field] = incoming.get(field, [] )
+            if "force_evidence_refresh" in processor_newest:
+                record["force_evidence_refresh"] = bool(processor_newest["force_evidence_refresh"])
+            elif "force_evidence_refresh" in newest:
                 record["force_evidence_refresh"] = bool(newest["force_evidence_refresh"])
             elif "force_evidence_refresh" in previous:
                 record["force_evidence_refresh"] = bool(previous["force_evidence_refresh"])
@@ -218,7 +214,18 @@ def self_test():
         {"events":{"a":{"event_id":"a","last_seen_at":"2026-11-12T08:00:00+00:00","force_evidence_refresh":True}}}
     )
     assert consumed["events"]["a"]["force_evidence_refresh"] is False
-    print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union, status, snapshots, evidence baseline and one-shot refresh preservation")
+    processor_wins = merge_histories(
+        {"events":{"a":{"event_id":"a","last_seen_at":"2026-11-11T08:00:00+00:00",
+                        "last_processed_at":"2026-11-15T18:24:00+00:00",
+                        "last_editorial_source_domains":["bbc.co.uk","nytimes.com"],
+                        "force_evidence_refresh":False}}},
+        {"events":{"a":{"event_id":"a","last_seen_at":"2026-11-15T18:25:00+00:00",
+                        "last_editorial_source_domains":["bbc.co.uk"],
+                        "force_evidence_refresh":True}}}
+    )
+    assert processor_wins["events"]["a"]["last_editorial_source_domains"] == ["bbc.co.uk","nytimes.com"]
+    assert processor_wins["events"]["a"]["force_evidence_refresh"] is False
+    print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union, status, snapshots, processor-clock evidence baseline and one-shot refresh preservation")
 
 
 if __name__ == "__main__":
