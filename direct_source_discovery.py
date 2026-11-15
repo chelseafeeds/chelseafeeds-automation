@@ -489,7 +489,9 @@ def discover_google_news_official(session):
     cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
     for query in queries:
         row = {"query": query, "entries_received": 0,
-               "observations_collected": 0, "status": "failed"}
+               "observations_collected": 0, "status": "failed",
+               "sample_entries": [], "rejected_stale": 0,
+               "rejected_source_mismatch": 0, "rejected_unmapped_url": 0}
         feed_url = ("https://news.google.com/rss/search?q=" + quote_plus(query)
                     + "&hl=en-GB&gl=GB&ceid=GB%3Aen")
         try:
@@ -502,14 +504,28 @@ def discover_google_news_official(session):
                 title = c.textval(entry.get("title"))
                 summary = c.textval(entry.get("summary", entry.get("description", "")))
                 published = c.parse_date(entry)
-                if not title or not published or published < cutoff or published > c.now() + timedelta(hours=12):
-                    continue
+                source_meta = entry.get("source", {}) or {}
+                source_title = c.textval(source_meta.get("title", ""))
+                source_href = source_meta.get("href", "")
                 raw_url = entry.get("link", "")
+                if len(row["sample_entries"]) < 8:
+                    row["sample_entries"].append({
+                        "title": title[:180], "published": published.isoformat() if published else None,
+                        "source_title": source_title, "source_href": source_href,
+                        "link": raw_url[:240]
+                    })
+                if not title or not published or published < cutoff or published > c.now() + timedelta(hours=12):
+                    row["rejected_stale"] += 1
+                    continue
+                if "chelsea" not in (source_title + " " + source_href).lower():
+                    row["rejected_source_mismatch"] += 1
+                    continue
                 try:
                     resolved = session.get(raw_url, timeout=c.TIMEOUT, allow_redirects=True)
                     final_url = c.normalize_url(resolved.url)
                     if not is_official_article_url(final_url):
                         report["rejected_non_official"] += 1
+                        row["rejected_unmapped_url"] += 1
                         continue
                     if final_url in seen:
                         continue
