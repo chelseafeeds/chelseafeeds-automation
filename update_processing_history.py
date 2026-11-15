@@ -35,6 +35,13 @@ def update(report_path: Path):
         record["last_editorial_outcome"] = status
         if result.get("headline"):
             record["last_processed_headline"] = str(result["headline"])[:240]
+        assessment = result.get("evidence_assessment") or {}
+        record["last_editorial_source_domains"] = sorted(set(assessment.get("accessible_publisher_domains") or []))
+        record["last_editorial_source_urls"] = sorted({
+            str(source.get("url")) for source in (result.get("source_checks") or [])
+            if source.get("accessible") and source.get("url")
+        })
+        record["last_quality_failures"] = list(result.get("quality_failures") or [])
         changed += 1
     history["updated_at"] = stamp
     HISTORY.write_text(json.dumps(history, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -57,6 +64,18 @@ def self_test():
         saved = json.loads(HISTORY.read_text())
         assert saved["events"]["a"]["status"] == "draft_created_unpublished"
         assert saved["events"]["b"]["status"] == "observed_not_processed"
+        # Editorial evidence metadata is retained so later collection can detect new publishers.
+        report.write_text(json.dumps({"results":[{
+            "event_id":"a","processing_status":"rejected_quality_gate","headline":"A",
+            "evidence_assessment":{"accessible_publisher_domains":["bbc.co.uk"]},
+            "source_checks":[{"url":"https://www.bbc.co.uk/sport/story","accessible":True}],
+            "quality_failures":["substantive_article_body_minimum_400_words"]
+        }]}))
+        update(report)
+        saved = json.loads(HISTORY.read_text())
+        assert saved["events"]["a"]["last_editorial_source_domains"] == ["bbc.co.uk"]
+        assert saved["events"]["a"]["last_editorial_source_urls"] == ["https://www.bbc.co.uk/sport/story"]
+        assert saved["events"]["a"]["last_quality_failures"] == ["substantive_article_body_minimum_400_words"]
         HISTORY = old
     print("PASS: terminal outcomes persisted; transient failures remain retryable")
 
