@@ -574,7 +574,7 @@ def process(input_path, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
     images_dir = output_dir / "images"
     data = json.loads(input_path.read_text(encoding="utf-8"))
-    if data.get("collector_version") not in {"4.0", "4.1"}:
+    if data.get("collector_version") not in {"4.0", "4.1", "4.2"}:
         raise ValueError("Expected Collector v4.0 input; refusing unexpected artifact")
     all_stories = data.get("stories", [])
     history_path = Path("seen_stories.json")
