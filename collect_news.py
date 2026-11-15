@@ -525,6 +525,7 @@ def main():
         "unique_events_after_conservative_deduplication": len(groups),
         "duplicate_observations_merged": len(obs)-len(groups),
         "selected_pending_candidates": len(selected),
+        "recovered_from_history_candidates": sum(1 for g in selected if g.get("recovered_from_history")),
         "eligible_unprocessed_events": len(pending_groups),
         "skipped_previously_processed_events": len(groups)-len(pending_groups),
         "opinion_candidate_limit": MAX_OPINION_CANDIDATES,
@@ -548,7 +549,7 @@ def main():
         ]
     }
     write(CANDIDATES_FILE,candidate); write(REPORT_FILE,report); write(HISTORY_FILE,history)
-    logging.info("v%s: %d observations -> %d conservative events -> %d pending candidates",VERSION,len(obs),len(groups),len(selected))
+    logging.info("v%s: %d observations -> %d conservative events -> %d pending candidates (%d recovered from history)",VERSION,len(obs),len(groups),len(selected),sum(1 for g in selected if g.get("recovered_from_history")))
     return 0
 if __name__=="__main__":
     if "--self-test" in sys.argv: run_self_tests()
