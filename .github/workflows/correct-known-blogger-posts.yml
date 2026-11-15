@@ -1,6 +1,11 @@
 name: ChelseaFeeds Correct Known Blogger Fact
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "correct_known_blogger_posts.py"
+      - ".github/workflows/correct-known-blogger-posts.yml"
   workflow_run:
     workflows: ["ChelseaFeeds Auto Schedule Editorial Batch"]
     types: [completed]
