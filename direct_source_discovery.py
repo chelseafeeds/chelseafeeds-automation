@@ -162,7 +162,7 @@ def discover_google_news_official(session, history):
             if not published or published < cutoff or published > c.now() + timedelta(hours=12):
                 continue
             raw_title = c.textval(entry.get("title"))
-            if re.search(r"\\b(video|highlights|gallery|star of the match|match report|line[- ]?up|preview|remembered|throwback)\\b", raw_title, re.I):
+            if re.search(r"\b(video|highlights|gallery|star of the match|match report|line[- ]?up|preview|remembered|throwback)\b", raw_title, re.I):
                 continue
             link = entry.get("link")
             if not link:
@@ -176,7 +176,7 @@ def discover_google_news_official(session, history):
                 if "/en/news/article/" not in urlparse(final_url).path:
                     continue
                 title, summary, article_published = article_metadata(article.text, final_url)
-                title = title or re.sub(r"\\s+-\\s+Chelsea Football Club$", "", raw_title, flags=re.I)
+                title = title or re.sub(r"\s+-\s+Chelsea Football Club$", "", raw_title, flags=re.I)
                 summary = summary or c.textval(entry.get("summary", ""))
                 page_text = BeautifulSoup(article.text, "html.parser").get_text(" ", strip=True)
                 if "chelsea" not in (title + " " + summary).lower() and "chelsea" in page_text.lower():
