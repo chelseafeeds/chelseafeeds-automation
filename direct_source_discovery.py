@@ -28,12 +28,7 @@ MAX_LINKS_PER_PAGE = 12
 PINNED_STORY_SOURCES = [
     {"role": "primary", "story_key": "ezenwata", "name": "England Football Official", "url": "https://www.englandfootball.com/articles/2026/Nov/14/england-mu19s-v-belarus-match-report-20261411"},
 ]
-LANDING_PAGES = [
-    {"name": "Chelsea FC Official Homepage", "url": "https://www.chelseafc.com/en"},
-    {"name": "Chelsea FC Official Women's News", "url": "https://www.chelseafc.com/en/news/category/womens-team"},
-    {"name": "Chelsea FC Official Men's News", "url": "https://www.chelseafc.com/en/news/category/mens-team"},
-]
-SPECIALIST_FEEDS = [
+LANDING_PAGES = []  # Chelsea's current HTML pages are bot-gated for Actions; use readable primary sources instead.\nSPECIALIST_FEEDS = [
     {"name": "We Ain't Got No History", "url": "https://weaintgotnohistory.sbnation.com/rss/current.xml"},
 ]
 ALLOWED_OFFICIAL = {"chelseafc.com", "wslfootball.com", "premierleague.com", "uefa.com", "thefa.com", "englandfootball.com"}
