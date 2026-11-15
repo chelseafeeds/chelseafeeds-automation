@@ -86,17 +86,28 @@ def main():
     )
     update_response.raise_for_status()
 
-    verify_response = session.get(f"{base}/{quote(post_id, safe='')}",
-        params={"fetchImages": "true", "fetchBody": "true"},
-        headers=headers, timeout=45)
-    verify_response.raise_for_status()
-    verified = verify_response.json()
+    verified = update_response.json()
     verified_content = str(verified.get("content", ""))
+    current_status = str(verified.get("status", previous_status)).upper()
+    if not verified_content or re.search(r"\\bten shots on target\\b", verified_content, re.I):
+        verified = None
+        for status in ("scheduled", "live", "draft"):
+            verify_response = session.get(base, params={
+                "status": status.upper(), "maxResults": 100, "fetchBodies": "true"
+            }, headers=headers, timeout=30)
+            verify_response.raise_for_status()
+            found = [item for item in verify_response.json().get("items", [])
+                     if str(item.get("id", "")) == post_id]
+            if found:
+                verified = found[0]
+                break
+        if verified is None:
+            raise RuntimeError("Updated Blogger post could not be found for verification.")
+        verified_content = str(verified.get("content", ""))
+        current_status = str(verified.get("status", previous_status)).upper()
     if re.search(r"\\bten shots on target\\b", verified_content, re.I):
         raise RuntimeError("Blogger update returned, but the incorrect wording is still present.")
 
-    current_status = str(verified.get("status", previous_status)).upper()
-    original_publish_time = item.get("published")
     if previous_status == "SCHEDULED" and current_status not in {"SCHEDULED", "LIVE"}:
         if not original_publish_time:
             raise RuntimeError("Scheduled post status changed and original publish time is unavailable.")
