@@ -287,7 +287,7 @@ def filter_pending_candidates(groups, history, reference_time=None):
             has_official = any(matches(d, OFFICIAL) for d in current_domains)
             established_domains = {d for d in current_domains if matches(d, ESTABLISHED)}
             stronger_for_schedule = has_official or len(established_domains) >= 2
-            reopen = bool(group.get("evidence_refresh") is True or new_domains)
+            reopen = bool(group.get("evidence_refresh") is True or record.get("force_evidence_refresh") is True or new_domains)
             # Rejected stories may retry on new publisher evidence. Existing drafts
             # are refreshed only when the new evidence now meets scheduling standards.
             if status == "draft_created_unpublished":
