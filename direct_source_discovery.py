@@ -153,7 +153,7 @@ def discover_official_sitemaps(session):
     report = {"source": "Chelsea FC robots.txt and official sitemap", "url": ROBOTS_URL,
               "status": "failed", "entries_received": 0,
               "observations_collected": 0, "article_fetches": 0,
-              "rejected_undated_or_stale": 0, "sitemap_urls_found": 0, "error": None}
+              "rejected_undated_or_stale": 0, "sitemap_urls_found": 0, "sitemap_candidates": [], "error": None}
     observations, sitemap_files, article_urls = [], [], []
     try:
         sitemap_candidates = []
@@ -172,41 +172,48 @@ def discover_official_sitemaps(session):
             u for u in sitemap_candidates if c.matches(c.domain(u), ALLOWED_OFFICIAL)
         ))
         report["sitemap_urls_found"] = len(sitemap_candidates)
-        root_locations, root_kind, last_error = [], "", None
+        report["sitemap_candidates"] = sitemap_candidates
+        root_documents, last_error = [], None
         for sitemap_url in sitemap_candidates:
             try:
                 response = session.get(sitemap_url, timeout=c.TIMEOUT)
                 response.raise_for_status()
                 root_kind, root_records = sitemap_entries(response.text)
-                report["url"] = sitemap_url
-                break
+                if root_kind in ("urlset", "sitemapindex"):
+                    root_documents.append((sitemap_url, root_kind, root_records))
             except Exception as exc:
                 last_error = exc
-        else:
+                logging.info("Official sitemap endpoint skipped (%s): %s", sitemap_url, type(exc).__name__)
+        if not root_documents:
             raise RuntimeError("No working official sitemap URL found: " + str(last_error or "not declared"))
-        if root_kind == "sitemapindex":
-            sitemap_files = [r for r in root_records if c.matches(c.domain(r.get("loc", "")), ALLOWED_OFFICIAL)]
+
+        article_records, child_sitemaps_seen = [], 0
+        for root_url, root_kind, root_records in root_documents:
+            report["url"] = root_url
+            if root_kind == "urlset":
+                article_records.extend(r for r in root_records
+                                       if "/en/news/article/" in urlparse(r.get("loc", "")).path)
+                continue
+            sitemap_files = [r for r in root_records
+                             if c.matches(c.domain(r.get("loc", "")), ALLOWED_OFFICIAL)]
             sitemap_files.sort(key=lambda r: r.get("lastmod", ""), reverse=True)
             sitemap_files.sort(key=lambda r: 0 if re.search(r"news|article|content", urlparse(r["loc"]).path, re.I) else 1)
-            article_records = []
-            for sitemap_record in sitemap_files[:MAX_SITEMAP_FILES]:
-                sitemap_url = sitemap_record["loc"]
+            for sitemap_record in sitemap_files:
+                if child_sitemaps_seen >= MAX_SITEMAP_FILES:
+                    break
+                child_sitemaps_seen += 1
+                child_url = sitemap_record["loc"]
                 try:
-                    child = session.get(sitemap_url, timeout=c.TIMEOUT)
+                    child = session.get(child_url, timeout=c.TIMEOUT)
                     child.raise_for_status()
                     child_kind, child_records = sitemap_entries(child.text)
                     if child_kind == "urlset":
-                        article_records.extend(r for r in child_records if "/en/news/article/" in urlparse(r.get("loc", "")).path)
+                        article_records.extend(r for r in child_records
+                                               if "/en/news/article/" in urlparse(r.get("loc", "")).path)
                 except Exception as exc:
-                    logging.info("Official child sitemap skipped (%s): %s", sitemap_url, type(exc).__name__)
-            article_records.sort(key=lambda r: r.get("lastmod", ""), reverse=True)
-            article_urls = [r["loc"] for r in article_records]
-        elif root_kind == "urlset":
-            article_records = [r for r in root_records if "/en/news/article/" in urlparse(r.get("loc", "")).path]
-            article_records.sort(key=lambda r: r.get("lastmod", ""), reverse=True)
-            article_urls = [r["loc"] for r in article_records]
-        else:
-            raise ValueError("Unrecognized XML sitemap document")
+                    logging.info("Official child sitemap skipped (%s): %s", child_url, type(exc).__name__)
+        article_records.sort(key=lambda r: r.get("lastmod", ""), reverse=True)
+        article_urls = [r["loc"] for r in article_records]
 
         # Keep only official Chelsea article URLs; do not use arbitrary sitemap links.
         article_urls = list(dict.fromkeys(
