@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T19:01:15.056428+00:00",
+  "updated_at": "2026-11-15T19:01:51.578587+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -2728,7 +2728,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "rejected_quality_gate",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "b913f2e03ea20c0efc963348",
         "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
@@ -2770,11 +2770,20 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": "2026-11-15T14:00:58.057570+00:00",
-      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_at": "2026-11-15T19:01:51.578587+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_editorial_source_domains": [
+        "football365.com",
+        "sports.yahoo.com",
+        "thefalse9.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/chelsea-could-block-man-citys-122000936.html",
+        "https://sports.yahoo.com/articles/chelsea-revive-interest-barcelona-outcast-171632539.html",
+        "https://thefalse9.com/2026/11/gusto-man-utd-man-city-talksport-chelsea-january.html",
+        "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -4218,7 +4227,7 @@
       "publisher_domains": [
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "bc540b010fa00c1c5611a53d",
         "title": "Chelsea see bid rejected for £25m La Liga star",
@@ -4260,11 +4269,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-15T19:01:51.578587+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea see bid rejected for £25m La Liga star",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/chelsea-see-bid-rejected-25m-125000355.html"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     }
