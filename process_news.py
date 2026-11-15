@@ -575,7 +575,7 @@ def make_image_assets(draft, story, images_dir):
     # attach a relevant, licensed image from the original article source or fail closed.
     return [], "awaiting_original_source_image_validation"
 
-TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "rejected_quality_gate", "published", "archived"}
+TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "rejected_quality_gate", "scheduled", "published", "archived"}
 
 def filter_unprocessed_stories(stories, history):
     events = history.get("events", {}) if isinstance(history, dict) else {}
