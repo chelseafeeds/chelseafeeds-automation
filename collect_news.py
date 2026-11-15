@@ -48,8 +48,8 @@ WOMEN_HINTS=("chelsea women","chelsea women's","chelsea ladies","women's champio
 YOUTH_HINTS=("academy","under-21","under 21","u21","under-18","under 18","u18","youth league","cobham next gen","rio ngumoha")
 INJURY=("injury","injured","fitness","hamstring","knee injury","ankle injury","ruled out","return to training","sidelined","surgery","rehabilitation","muscle problem")
 OPINION=("opinion","analysis","why did","why chelsea","what .* means","verdict","pundit","claims","argues","believes","selection problem","biggest problem","failure","not improving","scary stats","might not agree","should chelsea","tactical improvement","identity still","only part")
-TRANSFER_ACTION=("transfer","signing","sign","bid","deal","move","loan","contract","interest","target","fee","departure","depart","release clause","eyeing")
-TRANSFER_UNCERTAIN=("rumour","rumor","reportedly","linked","could sign","may sign","speculation","potential","talks","considering","monitoring","interested in","keen on","eyeing","wants to sign","set to sign","target")
+TRANSFER_ACTION=("transfer","signing","sign","bid","deal","move","loan","contract","interest","target","fee","departure","depart","release clause","eyeing","sell","selling","offload")
+TRANSFER_UNCERTAIN=("rumour","rumor","reportedly","linked","could","may","would","according to reports","report says","speculation","potential","talks","considering","monitoring","interested in","keen on","eyeing","wants to sign","set to sign","target")
 TRANSFER_CONFIRMED=("officially announced","completes","completed","has signed","signs for","joins chelsea","extends contract","new contract","deal agreed","agreement reached")
 MATCH_WORDS=("match report","match reaction","premier league","champions league","fa cup","carabao cup","kick-off","fixture"," vs "," v ","full-time","half-time","matchday","league table","draw","defeat","win","beat","beats","lost","loss","penalty","commentary","goalless")
 PLAYER_AWARD_HINTS=("star of the match","player of the match","player of the month","player of the season","player award","award winner")
@@ -463,6 +463,7 @@ def run_self_tests():
     assert classify("Chelsea staff warned over Fantasy Premier League use","")== "club_news"
     assert classify("Chelsea confirm Quenda has a muscle injury","")== "injury_update"
     assert classify("Veerle Buurman named Star of the Match after Chelsea win","") == "player_award"
+    assert classify("Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window","Chelsea could complicate a move for Malo Gusto according to reports") == "transfer_rumour"
     award_a=o("Veerle Buurman named Star of the Match","https://www.chelseafc.com/en/news/article/award","Chelsea Official")
     award_b=o("Chelsea defender Veerle Buurman wins Star of the Match vote","https://www.bbc.co.uk/sport/football/articles/award","BBC")
     assert len(cluster([award_a,award_b])) == 1
