@@ -68,6 +68,13 @@ def merge_histories(*documents):
             record["last_processed_at"] = iso_max(previous.get("last_processed_at"), incoming.get("last_processed_at"))
             record["last_editorial_outcome"] = newest.get("last_editorial_outcome") or previous.get("last_editorial_outcome") or incoming.get("last_editorial_outcome")
             record["last_processed_headline"] = newest.get("last_processed_headline") or previous.get("last_processed_headline") or incoming.get("last_processed_headline")
+            # Processor-side history writes may not carry collector snapshots.
+            # Preserve the latest available source-bearing snapshot across merges.
+            record["candidate_snapshot"] = (
+                newest.get("candidate_snapshot")
+                or previous.get("candidate_snapshot")
+                or incoming.get("candidate_snapshot")
+            )
             record["last_observation_count"] = max(
                 int(previous.get("last_observation_count") or 0),
                 int(incoming.get("last_observation_count") or 0),
@@ -147,7 +154,8 @@ def self_test():
     a = {"history_version": "4.0", "updated_at": "2026-11-11T10:00:00+00:00", "events": {
         "a": {"event_id": "a", "title": "Older title", "first_seen_at": "2026-11-10T00:00:00+00:00",
               "last_seen_at": "2026-11-11T09:00:00+00:00", "last_published_at": "2026-11-10T00:00:00+00:00",
-              "last_observation_count": 2, "publisher_domains": ["bbc.co.uk"], "status": "observed_not_processed"}}}
+              "last_observation_count": 2, "publisher_domains": ["bbc.co.uk"], "status": "observed_not_processed",
+              "candidate_snapshot": {"source_urls": ["https://www.bbc.co.uk/sport/a"]}}}}
     b = {"history_version": "4.0", "updated_at": "2026-11-11T11:00:00+00:00", "events": {
         "a": {"event_id": "a", "title": "Newer title", "first_seen_at": "2026-11-09T00:00:00+00:00",
               "last_seen_at": "2026-11-11T11:00:00+00:00", "last_published_at": "2026-11-11T10:00:00+00:00",
@@ -162,7 +170,8 @@ def self_test():
     assert out["events"]["a"]["last_observation_count"] == 4
     assert out["events"]["a"]["publisher_domains"] == ["bbc.co.uk", "theguardian.com"]
     assert out["events"]["a"]["status"] == "reviewed"
-    print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union and status preservation")
+    assert out["events"]["a"]["candidate_snapshot"] == {"source_urls": ["https://www.bbc.co.uk/sport/a"]}
+    print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union, status and candidate-snapshot preservation")
 
 
 if __name__ == "__main__":
