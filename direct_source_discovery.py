@@ -336,7 +336,7 @@ def discover_pinned_official_story(session, history):
             logging.info("Pinned Chelsea official source unavailable: %s", type(exc).__name__)
     report["entries_received"] = len(PINNED_OFFICIAL_SOURCES)
     groups = c.cluster(observations)
-    terminal = {"draft_created_unpublished", "rejected_quality_gate", "published", "archived"}
+    terminal = {"draft_created_unpublished", "rejected_quality_gate", "scheduled", "published", "archived"}
     events = history.get("events", {}) if isinstance(history, dict) else {}
     pending = []
     for group in groups:
