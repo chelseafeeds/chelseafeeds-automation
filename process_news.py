@@ -757,6 +757,11 @@ def self_test():
         {"events":{"done":{"status":"draft_created_unpublished"}}})
     assert [x["event_id"] for x in pending] == ["new"]
     assert [x["event_id"] for x in skipped] == ["done"]
+    refreshed, held = filter_unprocessed_stories(
+        [{"event_id":"rejected"},{"event_id":"rejected","evidence_refresh":True}],
+        {"events":{"rejected":{"status":"rejected_quality_gate"}}})
+    assert len(refreshed) == 1 and refreshed[0]["evidence_refresh"] is True
+    assert len(held) == 1
 
     story = {"story_type":"match_report"}
     one = [{"accessible":True,"domain":"bbc.co.uk","url":"https://www.bbc.co.uk/a"}]
