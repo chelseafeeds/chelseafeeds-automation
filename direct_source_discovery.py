@@ -355,46 +355,58 @@ def discover_pinned_official_story(session, history):
 
 def discover_bing_news(session):
     """Use Bing News only for discovery; resolve every result to its publisher."""
-    feed_url = "https://www.bing.com/news/search?q=Chelsea+FC&format=rss"
-    report = {"source": "Bing News Chelsea discovery", "url": feed_url,
+    from urllib.parse import quote_plus
+    queries = ["Chelsea FC", "Chelsea Women", "Veerle Buurman Chelsea", "Malo Gusto Chelsea"]
+    report = {"source": "Bing News Chelsea discovery", "url": "https://www.bing.com/news/",
               "status": "failed", "entries_received": 0,
-              "observations_collected": 0, "rejected_unresolved": 0, "error": None}
+              "observations_collected": 0, "rejected_unresolved": 0,
+              "query_reports": [], "error": None}
     observations, seen = [], set()
     try:
-        response = session.get(feed_url, timeout=c.TIMEOUT)
-        response.raise_for_status()
-        feed = feedparser.parse(response.content)
-        report["entries_received"] = len(feed.entries)
-        for entry in feed.entries[:30]:
-            title = c.textval(entry.get("title"))
-            summary = c.textval(entry.get("summary", entry.get("description", "")))
-            published = c.parse_date(entry)
-            raw_url = entry.get("link", "")
-            if not published or not title or not c.relevant(title, summary):
-                continue
+        for query in queries:
+            feed_url = "https://www.bing.com/news/search?q=" + quote_plus(query) + "&format=rss"
+            query_report = {"query": query, "entries_received": 0, "observations_collected": 0, "status": "failed"}
             try:
-                resolved = session.get(raw_url, timeout=c.TIMEOUT, allow_redirects=True)
-                final_url = c.normalize_url(resolved.url)
-                publisher = c.publisher_type(final_url)
-                if not final_url or publisher in ("aggregator_unresolved", "unknown_domain") or final_url in seen:
-                    report["rejected_unresolved"] += 1
-                    continue
-                seen.add(final_url)
-                item = c.observation(title, summary, final_url, "Bing News discovery",
-                                     c.domain(final_url), published)
-                if item:
-                    observations.append(item)
-            except requests.RequestException:
-                report["rejected_unresolved"] += 1
+                response = session.get(feed_url, timeout=c.TIMEOUT)
+                response.raise_for_status()
+                feed = feedparser.parse(response.content)
+                query_report["entries_received"] = len(feed.entries)
+                report["entries_received"] += len(feed.entries)
+                for entry in feed.entries[:12]:
+                    title = c.textval(entry.get("title"))
+                    summary = c.textval(entry.get("summary", entry.get("description", "")))
+                    published = c.parse_date(entry)
+                    raw_url = entry.get("link", "")
+                    if not published or not title or not c.relevant(title, summary):
+                        continue
+                    try:
+                        resolved = session.get(raw_url, timeout=c.TIMEOUT, allow_redirects=True)
+                        final_url = c.normalize_url(resolved.url)
+                        publisher = c.publisher_type(final_url)
+                        if not final_url or publisher in ("aggregator_unresolved", "unknown_domain") or final_url in seen:
+                            report["rejected_unresolved"] += 1
+                            continue
+                        seen.add(final_url)
+                        item = c.observation(title, summary, final_url, "Bing News discovery: " + query,
+                                             c.domain(final_url), published)
+                        if item:
+                            observations.append(item)
+                            query_report["observations_collected"] += 1
+                    except requests.RequestException:
+                        report["rejected_unresolved"] += 1
+                query_report["status"] = "success" if query_report["observations_collected"] else "empty"
+            except Exception as exc:
+                query_report["error"] = type(exc).__name__ + ": " + str(exc)[:150]
+                logging.info("Bing News query %s unavailable: %s", query, type(exc).__name__)
+            report["query_reports"].append(query_report)
         report["observations_collected"] = len(observations)
         report["status"] = "success" if observations else "empty"
         if not observations:
-            report["error"] = "Bing News returned no fresh Chelsea results resolving to direct publisher pages"
+            report["error"] = "No fresh Chelsea results resolved to direct publisher pages"
     except Exception as exc:
         report["error"] = f"{type(exc).__name__}: {str(exc)[:180]}"
         logging.warning("Bing News discovery: %s", report["error"])
     return observations, report
-
 
 def discover_specialist_feeds(session):
     observations, report = [], []
