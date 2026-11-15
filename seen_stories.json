@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T10:38:21.698983+00:00",
+  "updated_at": "2026-11-15T10:38:23.824024+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1736,7 +1736,7 @@
         "skysports.com",
         "thefalse9.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "1d62913451a84d15d942e5e2",
         "title": "Chelsea News Today: Estevao in Brazil Loss, Caicedo Penalty and Rogers on Palmer (15 November)",
@@ -1797,9 +1797,9 @@
         "corroboration_status": "multiple_direct_publishers_observed_independence_not_proven",
         "opponent_key": "costa_rica"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "last_processed_at": "2026-11-15T10:38:23.824024+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea News Today: Estevao in Brazil Loss, Caicedo Penalty and Rogers on Palmer (15 November)"
     }
   }
 }
