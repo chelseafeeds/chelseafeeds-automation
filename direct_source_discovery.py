@@ -119,6 +119,17 @@ def sitemap_locations(xml_text):
     return root.tag.rsplit("}", 1)[-1].lower(), entries
 
 
+def run_self_tests():
+    ns = "http://www.sitemaps.org/schemas/sitemap/0.9"
+    urlset = f'<urlset xmlns="{ns}"><url><loc>https://www.chelseafc.com/en/news/article/test-story</loc></url></urlset>'
+    kind, locations = sitemap_locations(urlset)
+    assert kind == "urlset" and locations == ["https://www.chelseafc.com/en/news/article/test-story"]
+    index = f'<sitemapindex xmlns="{ns}"><sitemap><loc>https://www.chelseafc.com/news-sitemap.xml</loc></sitemap></sitemapindex>'
+    kind, locations = sitemap_locations(index)
+    assert kind == "sitemapindex" and locations == ["https://www.chelseafc.com/news-sitemap.xml"]
+    print("PASS: official sitemap URL-set and sitemap-index parsing; article dates remain independently required.")
+
+
 def discover_official_sitemaps(session):
     """Discover current Chelsea article URLs from the club's own sitemap.
 
@@ -478,4 +489,8 @@ def main():
         print("SOURCE_REPORT " + json.dumps(row, ensure_ascii=False))
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if "--self-test" in sys.argv:
+        run_self_tests()
+    else:
+        main()
