@@ -40,8 +40,8 @@ FEEDS = [
     {"name":"ESPN Soccer","url":"https://www.espn.com/espn/rss/soccer/news"},
 ]
 OFFICIAL={"chelseafc.com","premierleague.com","uefa.com","thefa.com"}
-ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.com","apnews.com","espn.com","independent.co.uk","standard.co.uk","nytimes.com","theathletic.com","football365.com","thetimes.com","telegraph.co.uk"}
-AGGREGATORS={"news.google.com","newsnow.com","c.newsnow.com"}
+ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.com","apnews.com","espn.com","independent.co.uk","standard.co.uk","nytimes.com","theathletic.com","football365.com","thetimes.com","telegraph.co.uk","talksport.com","footballinsider247.com"}
+AGGREGATORS={"news.google.com","newsnow.com","c.newsnow.com","bing.com"}
 IRRELEVANT=("chelsea flower show","chelsea boots","chelsea handler","chelsea manning","chelsea hotel")
 STOP=set("the a an and or but for to of in on at by with from after before as is are was were be been being this that these those his her their its our your how what why when where who which could would should may might will can has have had into over under about against says said claims claim according report reports latest news fc blues club team side player players manager boss head coach premier league football".split())
 WOMEN_HINTS=("chelsea women","chelsea women's","chelsea ladies","women's champions league","women champions league","women's super league","women super league","wsl","lucy bronze","bompastor")
@@ -124,7 +124,7 @@ def event_subject(title,summary,stype):
     # create false duplicate clusters across unrelated stories.
     names=["alejandro garnacho","levi colwill","cole palmer","joao pedro","joão pedro",
            "moises caicedo","moisés caicedo","enzo fernandez","enzo fernández",
-           "reece james","estevao","estêvão","nicolo tresoldi","mike penders",
+           "reece james","estevao","estêvão","nicolo tresoldi","mike penders","malo gusto",
            "andrey santos","kendry paez","tyrique george","nico jackson","zubimendi","quenda"]
     for name in names:
         if re.search(r"(?<![a-z])"+re.escape(name)+r"(?![a-z])",t):
