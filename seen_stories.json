@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T14:56:17.013245+00:00",
+  "updated_at": "2026-11-15T15:02:04.978075+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1069,7 +1069,7 @@
       "event_id": "645815176e7954bb34cfe8ae",
       "title": "Chelsea 1-0 Manchester City: Women’s Super League – as it happened",
       "first_seen_at": "2026-11-14T12:53:01.091287+00:00",
-      "last_seen_at": "2026-11-15T14:55:55.669575+00:00",
+      "last_seen_at": "2026-11-15T15:02:03.226085+00:00",
       "last_published_at": "2026-11-14T16:02:42+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1303,7 +1303,7 @@
       "event_id": "7389ed7606ef8f781573588a",
       "title": "Chelsea regular slammed for “disastrous evening” for national team",
       "first_seen_at": "2026-11-14T18:36:55.881251+00:00",
-      "last_seen_at": "2026-11-15T14:55:55.669575+00:00",
+      "last_seen_at": "2026-11-15T15:02:03.226085+00:00",
       "last_published_at": "2026-11-14T18:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1359,7 +1359,7 @@
       "event_id": "dd6d262e3bf6651c8eb6b5cd",
       "title": "Bompastor's risks pay off as Chelsea go top of WSL",
       "first_seen_at": "2026-11-14T19:25:32.467415+00:00",
-      "last_seen_at": "2026-11-15T14:55:55.669575+00:00",
+      "last_seen_at": "2026-11-15T15:02:03.226085+00:00",
       "last_published_at": "2026-11-14T18:55:34+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -1505,7 +1505,7 @@
       "event_id": "173ca446860b0ad609c09a09",
       "title": "Arsenal target Nusa could cost £66m - Sunday's gossip",
       "first_seen_at": "2026-11-14T22:08:20.681107+00:00",
-      "last_seen_at": "2026-11-15T14:55:55.669575+00:00",
+      "last_seen_at": "2026-11-15T15:02:03.226085+00:00",
       "last_published_at": "2026-11-14T21:48:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1561,7 +1561,7 @@
       "event_id": "e777afa6b92ed1e56bb95aa4",
       "title": "Chelsea initiate contact over £25m Real Betis winger Jose Antonio Morante",
       "first_seen_at": "2026-11-15T05:50:57.477242+00:00",
-      "last_seen_at": "2026-11-15T14:55:55.669575+00:00",
+      "last_seen_at": "2026-11-15T15:02:03.226085+00:00",
       "last_published_at": "2026-11-15T05:41:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1673,7 +1673,7 @@
       "event_id": "b14488f636b930670f695d23",
       "title": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
       "first_seen_at": "2026-11-15T10:34:52.217834+00:00",
-      "last_seen_at": "2026-11-15T14:55:56.391191+00:00",
+      "last_seen_at": "2026-11-15T15:02:04.978075+00:00",
       "last_published_at": "2026-11-14T15:30:34+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1938,7 +1938,7 @@
       "event_id": "2b2ca8de6ab75121f5cab79b",
       "title": "Gusto to Man Utd or Man City: talkSPORT Reports Chelsea Defender Battle",
       "first_seen_at": "2026-11-15T10:46:44.479367+00:00",
-      "last_seen_at": "2026-11-15T14:30:50.783785+00:00",
+      "last_seen_at": "2026-11-15T15:02:04.978075+00:00",
       "last_published_at": "2026-11-15T07:21:41+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2054,7 +2054,7 @@
       "event_id": "5b7cf0f7cadab2d667a2459a",
       "title": "Chelsea go top of WSL as Sandy Baltimore bullet sees off Manchester City",
       "first_seen_at": "2026-11-15T10:56:57.663120+00:00",
-      "last_seen_at": "2026-11-15T14:55:55.669575+00:00",
+      "last_seen_at": "2026-11-15T15:02:03.226085+00:00",
       "last_published_at": "2026-11-14T15:36:15+00:00",
       "last_observation_count": 7,
       "publisher_domains": [
@@ -2122,21 +2122,6 @@
             "subject_key": ""
           },
           {
-            "title": "Chelsea reassert WSL dominance over Man City in front of USWNT boss Hayes",
-            "summary": "Sonia Bompastor took off Kadeisha Buchanan after 12 minutes and it paid off as Chelsea went top of the WSL by beating defending champions Manchester City.",
-            "url": "https://www.espn.com/soccer/story/_/id/50479087/sonia-bompastor-chelsea-man-city-wsl-emma-hayes",
-            "publisher_domain": "espn.com",
-            "publisher_name_hint": null,
-            "source_feed": "ESPN Soccer",
-            "published": "2026-11-15T08:50:21+00:00",
-            "publisher_type": "established_domain",
-            "team_scope": "chelsea_women",
-            "story_type": "match_report",
-            "opponent_key": "manchester_city",
-            "fixture_key": "",
-            "subject_key": ""
-          },
-          {
             "title": "Chelsea beat 10-player Man City to go top of WSL: How did they do it?",
             "summary": "Sandy Baltimore scored the only goal of the game for the hosts at Stamford Bridge before Ayaka Yamashita was sent off.",
             "url": "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result",
@@ -2184,26 +2169,23 @@
         ],
         "source_urls": [
           "https://www.bbc.co.uk/sport/football/videos/cm702wwpj9keo?at_medium=RSS&at_campaign=rss",
-          "https://www.espn.com/soccer/story/_/id/50479087/sonia-bompastor-chelsea-man-city-wsl-emma-hayes",
           "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result",
           "https://www.theguardian.com/football/2026/nov/14/chelsea-manchester-city-womens-super-league-match-report"
         ],
         "publisher_domains": [
           "bbc.co.uk",
-          "espn.com",
           "nytimes.com",
           "theguardian.com"
         ],
         "source_feeds": [
           "BBC Sport",
           "BBC Sport Women's Football",
-          "ESPN Soccer",
           "The Athletic",
           "The Guardian Football",
           "The Guardian Women's Football"
         ],
-        "publisher_count": 4,
-        "observation_count": 7,
+        "publisher_count": 3,
+        "observation_count": 6,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
       "last_processed_at": "2026-11-15T10:57:25.262491+00:00",
@@ -2214,7 +2196,7 @@
       "event_id": "718c2f697fd26fc4ce6b970f",
       "title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
       "first_seen_at": "2026-11-15T12:21:55.480871+00:00",
-      "last_seen_at": "2026-11-15T14:55:55.669575+00:00",
+      "last_seen_at": "2026-11-15T15:02:03.226085+00:00",
       "last_published_at": "2026-11-15T11:39:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2270,7 +2252,7 @@
       "event_id": "e8d72314df136b4288a26e22",
       "title": "Chelsea fans rank ahead of Spurs and Man City for “passion and dedication”",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-15T14:55:55.669575+00:00",
+      "last_seen_at": "2026-11-15T15:02:03.226085+00:00",
       "last_published_at": "2026-11-15T13:36:29+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2326,7 +2308,7 @@
       "event_id": "b913f2e03ea20c0efc963348",
       "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-15T14:55:55.669575+00:00",
+      "last_seen_at": "2026-11-15T15:02:03.226085+00:00",
       "last_published_at": "2026-11-15T13:38:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2382,7 +2364,7 @@
       "event_id": "f07469f43a177d90b3498347",
       "title": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first",
       "first_seen_at": "2026-11-15T14:05:48.901252+00:00",
-      "last_seen_at": "2026-11-15T14:55:55.669575+00:00",
+      "last_seen_at": "2026-11-15T15:02:03.226085+00:00",
       "last_published_at": "2026-11-15T13:49:57+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
