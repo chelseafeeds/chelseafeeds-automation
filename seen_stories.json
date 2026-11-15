@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T19:27:05.293491+00:00",
+  "updated_at": "2026-11-15T19:27:46.150746+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1856,7 +1856,7 @@
       "event_id": "173ca446860b0ad609c09a09",
       "title": "Arsenal target Nusa could cost £66m - Sunday's gossip",
       "first_seen_at": "2026-11-14T22:08:20.681107+00:00",
-      "last_seen_at": "2026-11-15T19:25:26.018592+00:00",
+      "last_seen_at": "2026-11-15T19:27:17.118908+00:00",
       "last_published_at": "2026-11-14T21:48:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1916,7 +1916,7 @@
       "event_id": "e777afa6b92ed1e56bb95aa4",
       "title": "Chelsea initiate contact over £25m Real Betis winger Jose Antonio Morante",
       "first_seen_at": "2026-11-15T05:50:57.477242+00:00",
-      "last_seen_at": "2026-11-15T19:25:26.018592+00:00",
+      "last_seen_at": "2026-11-15T19:27:17.118908+00:00",
       "last_published_at": "2026-11-15T05:41:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2602,7 +2602,7 @@
       "event_id": "718c2f697fd26fc4ce6b970f",
       "title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
       "first_seen_at": "2026-11-15T12:21:55.480871+00:00",
-      "last_seen_at": "2026-11-15T19:25:26.018592+00:00",
+      "last_seen_at": "2026-11-15T19:27:17.118908+00:00",
       "last_published_at": "2026-11-15T11:39:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2662,7 +2662,7 @@
       "event_id": "e8d72314df136b4288a26e22",
       "title": "Chelsea fans rank ahead of Spurs and Man City for “passion and dedication”",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-15T19:25:26.018592+00:00",
+      "last_seen_at": "2026-11-15T19:27:17.118908+00:00",
       "last_published_at": "2026-11-15T13:36:29+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2791,7 +2791,7 @@
       "event_id": "f07469f43a177d90b3498347",
       "title": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first",
       "first_seen_at": "2026-11-15T14:05:48.901252+00:00",
-      "last_seen_at": "2026-11-15T19:25:26.018592+00:00",
+      "last_seen_at": "2026-11-15T19:27:17.118908+00:00",
       "last_published_at": "2026-11-15T13:49:57+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2961,7 +2961,7 @@
       "event_id": "01a11c53f32c4ba6faac9ab2",
       "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "first_seen_at": "2026-11-15T16:03:13.171080+00:00",
-      "last_seen_at": "2026-11-15T19:25:26.018592+00:00",
+      "last_seen_at": "2026-11-15T19:27:17.118908+00:00",
       "last_published_at": "2026-11-15T16:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3212,7 +3212,7 @@
       "event_id": "3aa34c3e8337fa58034febce",
       "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "first_seen_at": "2026-11-15T18:12:43.261486+00:00",
-      "last_seen_at": "2026-11-15T19:25:57.634557+00:00",
+      "last_seen_at": "2026-11-15T19:27:46.150746+00:00",
       "last_published_at": "2026-11-15T08:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3340,14 +3340,15 @@
     },
     "cd4cb09b62681611341b3188": {
       "event_id": "cd4cb09b62681611341b3188",
-      "title": "Chelsea beat 10-player Man City to return to WSL summit",
+      "title": "Chelsea reassert WSL dominance over Man City in front of USWNT boss Hayes",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:26:56.265371+00:00",
-      "last_published_at": "2026-11-14T07:29:00+00:00",
+      "last_seen_at": "2026-11-15T19:27:17.118908+00:00",
+      "last_published_at": "2026-11-15T08:50:21+00:00",
       "last_observation_count": 8,
       "publisher_domains": [
         "bbc.co.uk",
         "bbc.com",
+        "espn.com",
         "msn.com",
         "nytimes.com",
         "sportstar.thehindu.com",
@@ -3356,164 +3357,44 @@
       "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "cd4cb09b62681611341b3188",
-        "title": "Chelsea beat 10-player Man City to return to WSL summit",
+        "title": "Chelsea reassert WSL dominance over Man City in front of USWNT boss Hayes",
         "story_type": "match_report",
         "team_scope": "chelsea_women",
-        "published": "2026-11-14T07:29:00+00:00",
-        "best_summary": "Chelsea handed champions Manchester City its first defeat of the Women's Super League season on Saturday, Nov. 14, beating their title rivals 1-0 to climb above them into top spot in the table.",
-        "representative_title": "Chelsea beat 10-player Man City to return to WSL summit",
-        "representative_url": "https://www.bbc.com/sport/football/live/cmg474nywwr5t",
-        "representative_publisher": "bbc.com",
+        "published": "2026-11-15T08:50:21+00:00",
+        "best_summary": "Sonia Bompastor took off Kadeisha Buchanan after 12 minutes and it paid off as Chelsea went top of the WSL by beating defending champions Manchester City.",
+        "representative_title": "Chelsea reassert WSL dominance over Man City in front of USWNT boss Hayes",
+        "representative_url": "https://www.espn.com/soccer/story/_/id/50479087/sonia-bompastor-chelsea-man-city-wsl-emma-hayes",
+        "representative_publisher": "espn.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Chelsea beat 10-player Man City to return to WSL summit",
-            "summary": "Chelsea return to the top of the Women's Super League table with a crucial victory over rivals Manchester City, who had goalkeeper Ayaka Yamashita sent off.",
-            "url": "https://www.bbc.co.uk/sport/football/live/cmg474nywwr5t",
-            "publisher_domain": "bbc.co.uk",
-            "publisher_name_hint": "bbc.co.uk",
-            "source_feed": "Bing News discovery: Veerle Buurman Chelsea",
-            "published": "2026-11-14T07:29:00+00:00",
-            "publisher_type": "established_domain",
-            "team_scope": "chelsea_women",
-            "story_type": "match_report",
-            "opponent_key": "manchester_city",
-            "fixture_key": "",
-            "subject_key": ""
-          },
-          {
-            "title": "Chelsea beat 10-player Man City to return to WSL summit",
-            "summary": "Chelsea return to the top of the Women's Super League table with a crucial victory over rivals Manchester City, who had goalkeeper Ayaka Yamashita sent off.",
-            "url": "https://www.bbc.com/sport/football/live/cmg474nywwr5t",
-            "publisher_domain": "bbc.com",
-            "publisher_name_hint": "bbc.com",
-            "source_feed": "Bing News discovery: Chelsea Women Manchester City 1-0",
-            "published": "2026-11-14T07:29:00+00:00",
-            "publisher_type": "established_domain",
-            "team_scope": "chelsea_women",
-            "story_type": "match_report",
-            "opponent_key": "manchester_city",
-            "fixture_key": "",
-            "subject_key": ""
-          },
-          {
-            "title": "Chelsea go top with 1-0 win against Man City",
-            "summary": "Chelsea return to the top of the Women's Super League with a crucial victory over rivals Manchester City who went down to 10 players in the second half.",
-            "url": "https://www.bbc.com/sport/football/videos/cm702wwpj9keo",
-            "publisher_domain": "bbc.com",
-            "publisher_name_hint": "bbc.com",
-            "source_feed": "Bing News discovery: Chelsea Women Manchester City 1-0",
-            "published": "2026-11-14T07:51:00+00:00",
-            "publisher_type": "established_domain",
-            "team_scope": "chelsea_women",
-            "story_type": "match_report",
-            "opponent_key": "manchester_city",
-            "fixture_key": "",
-            "subject_key": ""
-          },
-          {
-            "title": "Chelsea reassert WSL dominance over Man City in front of USWNT boss Emma Hayes",
+            "title": "Chelsea reassert WSL dominance over Man City in front of USWNT boss Hayes",
             "summary": "Sonia Bompastor took off Kadeisha Buchanan after 12 minutes and it paid off as Chelsea went top of the WSL by beating defending champions Manchester City.",
-            "url": "https://www.msn.com/en-us/news/other/chelsea-reassert-wsl-dominance-over-man-city-in-front-of-uswnt-boss-emma-hayes/ar-AA2hqXkY",
-            "publisher_domain": "msn.com",
-            "publisher_name_hint": "msn.com",
-            "source_feed": "Bing News discovery: Chelsea Women",
-            "published": "2026-11-14T09:15:40+00:00",
-            "publisher_type": "other_direct_domain",
+            "url": "https://www.espn.com/soccer/story/_/id/50479087/sonia-bompastor-chelsea-man-city-wsl-emma-hayes",
+            "publisher_domain": "espn.com",
+            "publisher_name_hint": null,
+            "source_feed": "ESPN Soccer",
+            "published": "2026-11-15T08:50:21+00:00",
+            "publisher_type": "established_domain",
             "team_scope": "chelsea_women",
             "story_type": "match_report",
             "opponent_key": "manchester_city",
             "fixture_key": "",
             "subject_key": "kadeisha_buchanan"
-          },
-          {
-            "title": "Chelsea's Bompastor explains Buchanan's 12th minute substitution: 'Not herself'",
-            "summary": "Chelsea manager Sonia Bompastor praised her team's character following a 1-0 win over Women's Super League (WSL) holders Manchester City after being forced to make risky substitutions early on.",
-            "url": "https://www.msn.com/en-us/news/other/chelseas-bompastor-explains-buchanans-12th-minute-substitution-not-herself/ar-AA2hrjUI",
-            "publisher_domain": "msn.com",
-            "publisher_name_hint": "msn.com",
-            "source_feed": "Bing News discovery: Chelsea FC",
-            "published": "2026-11-14T09:47:01+00:00",
-            "publisher_type": "other_direct_domain",
-            "team_scope": "chelsea_women",
-            "story_type": "match_report",
-            "opponent_key": "manchester_city",
-            "fixture_key": "",
-            "subject_key": ""
-          },
-          {
-            "title": "Chelsea beat 10-player Man City to go top of WSL: How did they do it?",
-            "summary": "Sandy Baltimore scored the only goal of the game for the hosts at Stamford Bridge before Ayaka Yamashita was sent off.",
-            "url": "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result",
-            "publisher_domain": "nytimes.com",
-            "publisher_name_hint": "nytimes.com",
-            "source_feed": "Bing News discovery: Chelsea Women",
-            "published": "2026-11-14T07:57:00+00:00",
-            "publisher_type": "established_domain",
-            "team_scope": "chelsea_women",
-            "story_type": "match_report",
-            "opponent_key": "manchester_city",
-            "fixture_key": "",
-            "subject_key": "sandy_baltimore"
-          },
-          {
-            "title": "WSL: Chelsea hands Manchester City first loss of season to go top of table; United beats Crystal Palace",
-            "summary": "Chelsea handed champion Manchester City its first defeat of the Women’s Super League season on Saturday, beating its title rival 1-0 ​to climb above it into the top spot in the table.",
-            "url": "https://sportstar.thehindu.com/football/womens-football/wsl-scores-results-updates-chelsea-beats-manchester-city-higlights-goals-united-points-table-standings-news/article71704182.ece",
-            "publisher_domain": "sportstar.thehindu.com",
-            "publisher_name_hint": "sportstar.thehindu.com",
-            "source_feed": "Bing News discovery: Chelsea Women Manchester City 1-0",
-            "published": "2026-11-14T21:57:00+00:00",
-            "publisher_type": "other_direct_domain",
-            "team_scope": "chelsea_women",
-            "story_type": "match_report",
-            "opponent_key": "manchester_city",
-            "fixture_key": "",
-            "subject_key": ""
-          },
-          {
-            "title": "Chelsea beats WSL champion Manchester City to seize first place",
-            "summary": "Chelsea handed champions Manchester City its first defeat of the Women's Super League season on Saturday, Nov. 14, beating their title rivals 1-0 to climb above them into top spot in the table.",
-            "url": "https://www.usatoday.com/story/sports/soccer/2026/11/14/chelsea-manchester-city-wsl-standings-table/92780263007",
-            "publisher_domain": "usatoday.com",
-            "publisher_name_hint": "usatoday.com",
-            "source_feed": "Bing News discovery: Chelsea Women Manchester City 1-0",
-            "published": "2026-11-14T09:42:00+00:00",
-            "publisher_type": "other_direct_domain",
-            "team_scope": "chelsea_women",
-            "story_type": "match_report",
-            "opponent_key": "manchester_city",
-            "fixture_key": "",
-            "subject_key": ""
           }
         ],
         "source_urls": [
-          "https://sportstar.thehindu.com/football/womens-football/wsl-scores-results-updates-chelsea-beats-manchester-city-higlights-goals-united-points-table-standings-news/article71704182.ece",
-          "https://www.bbc.co.uk/sport/football/live/cmg474nywwr5t",
-          "https://www.bbc.com/sport/football/live/cmg474nywwr5t",
-          "https://www.bbc.com/sport/football/videos/cm702wwpj9keo",
-          "https://www.msn.com/en-us/news/other/chelsea-reassert-wsl-dominance-over-man-city-in-front-of-uswnt-boss-emma-hayes/ar-AA2hqXkY",
-          "https://www.msn.com/en-us/news/other/chelseas-bompastor-explains-buchanans-12th-minute-substitution-not-herself/ar-AA2hrjUI",
-          "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result",
-          "https://www.usatoday.com/story/sports/soccer/2026/11/14/chelsea-manchester-city-wsl-standings-table/92780263007"
+          "https://www.espn.com/soccer/story/_/id/50479087/sonia-bompastor-chelsea-man-city-wsl-emma-hayes"
         ],
         "publisher_domains": [
-          "bbc.co.uk",
-          "bbc.com",
-          "msn.com",
-          "nytimes.com",
-          "sportstar.thehindu.com",
-          "usatoday.com"
+          "espn.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea FC",
-          "Bing News discovery: Chelsea Women",
-          "Bing News discovery: Chelsea Women Manchester City 1-0",
-          "Bing News discovery: Veerle Buurman Chelsea"
+          "ESPN Soccer"
         ],
-        "publisher_count": 6,
-        "observation_count": 8,
-        "corroboration_status": "multiple_publishers_observed_independence_not_proven"
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
       },
       "last_processed_at": "2026-11-15T18:29:19.781256+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
@@ -4231,9 +4112,9 @@
     },
     "4f8d1f964c13ff90f4e657d3": {
       "event_id": "4f8d1f964c13ff90f4e657d3",
-      "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
+      "title": "Manchester City face £75m obstacle in January pursuit of Chelsea defender Malo Gusto",
       "first_seen_at": "2026-11-15T19:15:40.040237+00:00",
-      "last_seen_at": "2026-11-15T19:25:57.634557+00:00",
+      "last_seen_at": "2026-11-15T19:27:46.150746+00:00",
       "last_published_at": "2026-11-15T03:00:00+00:00",
       "last_observation_count": 5,
       "publisher_domains": [
@@ -4245,15 +4126,15 @@
       "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "4f8d1f964c13ff90f4e657d3",
-        "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
+        "title": "Manchester City face £75m obstacle in January pursuit of Chelsea defender Malo Gusto",
         "story_type": "transfer_rumour",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-15T03:00:00+00:00",
-        "best_summary": "Chelsea could complicate a move from Liverpool, Man Utd or Man City for Malo Gusto in the January transfer window because of their asking price, according to reports. Gusto has only made three Premier ...",
-        "representative_title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
-        "representative_url": "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window",
-        "representative_publisher": "football365.com",
-        "representative_publisher_type": "established_domain",
+        "best_summary": "Manchester City's hopes of signing Malo Gusto in the January transfer window could be ended by Chelsea's £75million price tag, sources have told Football Insider. The 23-year-old has told the Blues ...",
+        "representative_title": "Manchester City face £75m obstacle in January pursuit of Chelsea defender Malo Gusto",
+        "representative_url": "https://www.caughtoffside.com/2026/11/15/chelseas-75m-demand-threatens-to-complicate-manchester-city-recruitment-plans",
+        "representative_publisher": "caughtoffside.com",
+        "representative_publisher_type": "other_direct_domain",
         "source_observations": [
           {
             "title": "Manchester City face £75m obstacle in January pursuit of Chelsea defender Malo Gusto",
@@ -4264,21 +4145,6 @@
             "source_feed": "Bing News discovery: Malo Gusto Chelsea",
             "published": "2026-11-15T03:00:00+00:00",
             "publisher_type": "other_direct_domain",
-            "team_scope": "mens_first_team_or_club",
-            "story_type": "transfer_rumour",
-            "opponent_key": "manchester_city",
-            "fixture_key": "",
-            "subject_key": "malo_gusto"
-          },
-          {
-            "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
-            "summary": "Chelsea could complicate a move from Liverpool, Man Utd or Man City for Malo Gusto in the January transfer window because of their asking price, according to reports. Gusto has only made three Premier ...",
-            "url": "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window",
-            "publisher_domain": "football365.com",
-            "publisher_name_hint": "football365.com",
-            "source_feed": "Bing News discovery: Malo Gusto Chelsea",
-            "published": "2026-11-15T05:38:00+00:00",
-            "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "transfer_rumour",
             "opponent_key": "manchester_city",
@@ -4335,12 +4201,10 @@
           "https://sports.yahoo.com/articles/chelsea-could-block-man-citys-122000936.html",
           "https://sports.yahoo.com/articles/chelsea-revive-interest-barcelona-outcast-171632539.html",
           "https://thefalse9.com/2026/11/gusto-man-utd-man-city-talksport-chelsea-january.html",
-          "https://www.caughtoffside.com/2026/11/15/chelseas-75m-demand-threatens-to-complicate-manchester-city-recruitment-plans",
-          "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window"
+          "https://www.caughtoffside.com/2026/11/15/chelseas-75m-demand-threatens-to-complicate-manchester-city-recruitment-plans"
         ],
         "publisher_domains": [
           "caughtoffside.com",
-          "football365.com",
           "sports.yahoo.com",
           "thefalse9.com"
         ],
@@ -4349,8 +4213,8 @@
           "Bing News discovery: Malo Gusto Chelsea",
           "The False 9"
         ],
-        "publisher_count": 4,
-        "observation_count": 5,
+        "publisher_count": 3,
+        "observation_count": 4,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
       "last_processed_at": "2026-11-15T19:17:51.308165+00:00",
@@ -4436,7 +4300,7 @@
       "event_id": "c0df2ccea43f92257342bae2",
       "title": "1996/97 remembered - part three: The signing of Gianfranco Zola | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-15T19:25:57.634557+00:00",
-      "last_seen_at": "2026-11-15T19:25:57.634557+00:00",
+      "last_seen_at": "2026-11-15T19:27:46.150746+00:00",
       "last_published_at": "2026-11-15T06:02:20+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -4499,14 +4363,13 @@
       "blogger_status": "scheduled",
       "blogger_post_id": "6139283784317056954",
       "blogger_post_url": "https://www.chelseafeeds.com/2026/11/how-gianfranco-zolas-1996-arrival.html",
-      "scheduled_for_utc": "2026-11-15T19:32:04Z",
-      "last_blogger_status_updated_at": "2026-11-15T19:27:05.293482+00:00"
+      "scheduled_for_utc": "2026-11-15T19:32:04Z"
     },
     "f2856177da0d24daf6debd9b": {
       "event_id": "f2856177da0d24daf6debd9b",
       "title": "Wieke Kaptein: We can take confidence from Man City victory | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-15T19:25:57.634557+00:00",
-      "last_seen_at": "2026-11-15T19:25:57.634557+00:00",
+      "last_seen_at": "2026-11-15T19:27:46.150746+00:00",
       "last_published_at": "2026-11-15T13:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -4516,8 +4379,8 @@
       "candidate_snapshot": {
         "event_id": "f2856177da0d24daf6debd9b",
         "title": "Wieke Kaptein: We can take confidence from Man City victory | News | Official Site - Chelsea Football Club",
-        "story_type": "general_news",
-        "team_scope": "mens_first_team_or_club",
+        "story_type": "match_reaction",
+        "team_scope": "chelsea_women",
         "published": "2026-11-15T13:00:00+00:00",
         "best_summary": "Wieke Kaptein: We can take confidence from Man City victory | News | Official Site Chelsea Football Club",
         "representative_title": "Wieke Kaptein: We can take confidence from Man City victory | News | Official Site - Chelsea Football Club",
@@ -4534,11 +4397,11 @@
             "source_feed": "Google News official-source discovery",
             "published": "2026-11-15T13:00:00+00:00",
             "publisher_type": "official_domain",
-            "team_scope": "mens_first_team_or_club",
-            "story_type": "general_news",
+            "team_scope": "chelsea_women",
+            "story_type": "match_reaction",
             "opponent_key": "manchester_city",
             "fixture_key": "",
-            "subject_key": "",
+            "subject_key": "wieke_kaptein",
             "discovery_timestamp_source": "Google News RSS; discovery only"
           }
         ],
@@ -4573,7 +4436,7 @@
       "event_id": "af1610607b92583a41b4cf97",
       "title": "Favourite late winners: The semi-final results! | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-15T19:25:57.634557+00:00",
-      "last_seen_at": "2026-11-15T19:25:57.634557+00:00",
+      "last_seen_at": "2026-11-15T19:27:46.150746+00:00",
       "last_published_at": "2026-11-15T14:20:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
