@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parent
 CANDIDATES = ROOT / "news_candidates.json"
 HISTORY = ROOT / "seen_stories.json"
 REPORT = ROOT / "collection_report.json"
-MAX_LINKS_PER_PAGE = 35
+MAX_LINKS_PER_PAGE = 12
 LANDING_PAGES = [
     {"name": "Chelsea FC Official Women's News", "url": "https://www.chelseafc.com/en/news/category/womens-team"},
     {"name": "Chelsea FC Official Men's News", "url": "https://www.chelseafc.com/en/news/category/mens-team"},
