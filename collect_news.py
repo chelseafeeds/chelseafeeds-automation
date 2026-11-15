@@ -232,7 +232,7 @@ def verification_checklist(g):
     }
     return common+specific.get(typ,specific["general_news"])
 
-TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "published", "archived"}
+TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "scheduled", "published", "archived"}
 SNAPSHOT_FIELDS = (
     "event_id", "title", "story_type", "team_scope", "published", "best_summary",
     "representative_title", "representative_url", "representative_publisher",
