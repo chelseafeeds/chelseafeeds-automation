@@ -162,7 +162,7 @@ def article_metadata(html, page_url):
             # publication-date fields, never generic update/creation dates.
             if not published:
                 match = re.search(
-                    r"(?i)[\\"']?(?:datePublished|publishedAt|publishedDate|publishDate|publicationDate)[\\"']?\\s*[:=]\\s*[\\"']([^\\"']{8,50})",
+                    r"""(?i)["']?(?:datePublished|publishedAt|publishedDate|publishDate|publicationDate)["']?\s*[:=]\s*["']([^"']{8,50})""",
                     raw
                 )
                 if match:
@@ -414,7 +414,7 @@ def discover_pinned_official_story(session, history):
             check["html_title"] = c.textval(soup.title.get_text(" ", strip=True)) if soup.title else ""
             check["h1"] = c.textval(soup.find("h1").get_text(" ", strip=True)) if soup.find("h1") else ""
             check["publication_date_fields"] = re.findall(
-                r"(?i)(?:datePublished|publishedAt|publishedDate|publishDate|publicationDate)[\\"']?\\s*[:=]\\s*[\\"']([^\\"']{8,50})",
+                r"""(?i)(?:datePublished|publishedAt|publishedDate|publishDate|publicationDate)["']?\s*[:=]\s*["']([^"']{8,50})""",
                 response.text
             )[:8]
             if not title or not published:
