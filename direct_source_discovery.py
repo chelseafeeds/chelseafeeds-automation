@@ -26,13 +26,18 @@ HISTORY = ROOT / "seen_stories.json"
 REPORT = ROOT / "collection_report.json"
 MAX_LINKS_PER_PAGE = 12
 PINNED_STORY_SOURCES = [
-    {"role": "primary", "story_key": "ezenwata", "name": "England Football Official", "url": "https://www.englandfootball.com/articles/2026/Nov/14/england-mu19s-v-belarus-match-report-20261411"},
+    {"role": "primary", "story_key": "injury_update", "name": "Yahoo Sports / Hayters TV", "url": "https://sports.yahoo.com/articles/bompastor-gives-fitness-updates-two-161400345.html"},
+    {"role": "corroboration", "name": "Sky Sports", "url": "https://www.skysports.com/football/chelsea-women-vs-manchester-city-women/5928984761706749232"},
+    {"role": "corroboration", "name": "BBC Sport", "url": "https://www.bbc.co.uk/sport/football/articles/cmvg25w18q9qo"},
+    {"role": "corroboration", "name": "Chelsea FC Official", "url": "https://www.chelseafc.com/en/news/article/sonia-bompastor-provides-injury-update-on-kadeisha-buchanan-and-melvine"},
+    {"role": "corroboration", "name": "Canadian Soccer Daily", "url": "https://canadiansoccerdaily.com/2026/11/14/canwnt-defender-kadeisha-buchanan-subbed-early-as-chelsea-beat-manchester-city-go-top-of-wsl/"},
 ]
 LANDING_PAGES = []  # Chelsea's current HTML pages are bot-gated for Actions; use readable primary sources instead.\nSPECIALIST_FEEDS = [
     {"name": "We Ain't Got No History", "url": "https://weaintgotnohistory.sbnation.com/rss/current.xml"},
 ]
 ALLOWED_OFFICIAL = {"chelseafc.com", "wslfootball.com", "premierleague.com", "uefa.com", "thefa.com", "englandfootball.com"}
 c.OFFICIAL.add("englandfootball.com")
+c.ESTABLISHED.add("yahoo.com")
 
 def parse_iso(value):
     if not value:
@@ -144,44 +149,64 @@ def discover_official_pages(session):
     return observations, report
 
 def discover_pinned_story(session):
-    """Recheck a fresh official England report for a Chelsea academy player's goal."""
+    """Recheck the fresh Chelsea injury update against direct reporting sources."""
     observations = []
-    report = {"source": "Pinned official academy-story recheck",
-        "url": "direct England Football match report", "status": "failed",
+    support = []
+    report = {"source": "Pinned current Chelsea injury-update recheck",
+        "url": "direct article URLs", "status": "failed",
         "entries_received": 0, "observations_collected": 0, "error": None}
     for source in PINNED_STORY_SOURCES:
         try:
             response = session.get(source["url"], timeout=c.TIMEOUT)
             response.raise_for_status()
-            page_text = BeautifulSoup(response.text, "html.parser").get_text(" ", strip=True)
             title, summary, published = article_metadata(response.text, response.url)
-            if not published or not title:
+            if not title:
                 continue
-            if source.get("story_key") == "ezenwata":
-                if not re.search(r"Chizaram\s+Ezenwata", page_text, re.I) or "Chelsea" not in page_text:
+            if source["role"] == "primary":
+                if not published:
                     continue
-                title = "Report: England MU19s 5-0 Belarus"
-                summary = ("Chelsea academy forward Chizaram Ezenwata converted England's fourth goal "
-                           "from the penalty spot in the 42nd minute as England MU19s beat Belarus 5-0 "
-                           "in UEFA U19 EURO 2027 qualifying. The official England Football match report "
-                           "lists Ezenwata as a Chelsea player.")
-            item = c.observation(title, summary, response.url, source["name"], source["name"], published)
-            if item:
-                item["publisher_type"] = "official_domain"
-                item["subject_key"] = "chizaram_ezenwata"
-                observations.append(item)
+                item = c.observation(title, summary, response.url, source["name"], "Hayters TV", published)
+                if item and "bompastor" in (title + " " + summary).lower():
+                    item["story_type"] = "injury_news"
+                    item["team_scope"] = "chelsea_women"
+                    item["subject_key"] = "kadeisha_buchanan_melvine_malard"
+                    observations.append(item)
+            else:
+                host = c.domain(response.url)
+                support.append({
+                    "title": title, "summary": summary[:500],
+                    "url": c.normalize_url(response.url), "publisher_domain": host,
+                    "publisher_name_hint": source["name"], "source_feed": source["name"],
+                    "published": published.isoformat() if published else "",
+                    "publisher_type": c.publisher_type(response.url),
+                    "team_scope": "chelsea_women", "story_type": "injury_news",
+                    "opponent_key": "", "fixture_key": "",
+                    "subject_key": "kadeisha_buchanan_melvine_malard",
+                })
         except Exception as exc:
-            logging.info("Pinned official source unavailable (%s): %s", source["name"], type(exc).__name__)
+            logging.info("Injury-update source unavailable (%s): %s", source["name"], type(exc).__name__)
     report["entries_received"] = len(PINNED_STORY_SOURCES)
     groups = c.cluster(observations)
     for group in groups:
+        group["story_type"] = "injury_news"
+        group["team_scope"] = "chelsea_women"
+        group["subject_key"] = "kadeisha_buchanan_melvine_malard"
+        group["source_observations"] = sorted(
+            group["source_observations"] + support,
+            key=lambda x: (x["publisher_domain"], x.get("published", ""), x["url"]))
+        group["source_urls"] = sorted({x["url"] for x in group["source_observations"]})
+        group["publisher_domains"] = sorted({x["publisher_domain"] for x in group["source_observations"]})
+        group["source_feeds"] = sorted({x["source_feed"] for x in group["source_observations"]})
+        group["publisher_count"] = len(group["publisher_domains"])
+        group["observation_count"] = len(group["source_observations"])
+        group["corroboration_status"] = "multiple_direct_publishers_observed_independence_not_proven" if group["publisher_count"] > 1 else "single_publisher_observation"
         c.score(group)
         group["verification_status"] = "not_started"
         group["verification_checklist"] = c.verification_checklist(group)
     report["observations_collected"] = len(observations)
     report["status"] = "success" if observations else "empty"
     if not observations:
-        report["error"] = "Official England report did not return a fresh, dated Ezenwata item"
+        report["error"] = "No fresh, dated direct report of Bompastor's injury update was accessible"
     return groups, report
 
 def discover_specialist_feeds(session):
