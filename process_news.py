@@ -575,7 +575,8 @@ def filter_unprocessed_stories(stories, history):
         event_id = story.get("event_id")
         status = events.get(event_id, {}).get("status")
         if status in TERMINAL_EVENT_STATUSES and not (
-            status == "rejected_quality_gate" and story.get("evidence_refresh") is True
+            status in {"rejected_quality_gate", "draft_created_unpublished"}
+            and story.get("evidence_refresh") is True
         ):
             skipped.append(story)
         else:
@@ -762,6 +763,10 @@ def self_test():
         {"events":{"rejected":{"status":"rejected_quality_gate"}}})
     assert len(refreshed) == 1 and refreshed[0]["evidence_refresh"] is True
     assert len(held) == 1
+    refreshed_draft, held_draft = filter_unprocessed_stories(
+        [{"event_id":"old-draft"},{"event_id":"old-draft","evidence_refresh":True}],
+        {"events":{"old-draft":{"status":"draft_created_unpublished"}}})
+    assert len(refreshed_draft) == 1 and len(held_draft) == 1
 
     story = {"story_type":"match_report"}
     one = [{"accessible":True,"domain":"bbc.co.uk","url":"https://www.bbc.co.uk/a"}]
