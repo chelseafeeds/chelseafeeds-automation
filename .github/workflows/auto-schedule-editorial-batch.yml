@@ -77,16 +77,31 @@ jobs:
         run: |
           set -euo pipefail
           python - <<'PY' > "$RUNNER_TEMP/event_ids.txt"
-          import json
+          import json, sys
           with open("input/blogger_ready_posts.json", encoding="utf-8") as f:
               payload = json.load(f)
           posts = payload.get("posts", []) if isinstance(payload, dict) else payload
+
+          def publisher_group(domain):
+              d = str(domain or "").lower().removeprefix("www.")
+              if d in {"bbc.co.uk", "bbc.com"}:
+                  return "bbc"
+              if d in {"nytimes.com", "theathletic.com"}:
+                  return "nytimes"
+              return d
+
           for post in posts:
               event_id = str(post.get("event_id", "")).strip()
-              if event_id and post.get("auto_schedule_eligible") is True:
+              if not event_id:
+                  continue
+              domains = post.get("established_source_domains", [])
+              groups = {publisher_group(d) for d in domains if publisher_group(d)}
+              official_count = int(post.get("official_source_count", 0) or 0)
+              independently_supported = official_count > 0 or len(groups) >= 2
+              if post.get("auto_schedule_eligible") is True and independently_supported:
                   print(event_id)
-              elif event_id:
-                  print(f"HELD: {event_id} does not meet the automatic-scheduling evidence threshold.", file=__import__("sys").stderr)
+              else:
+                  print(f"HELD: {event_id} lacks an accessible official source or two independent established publisher groups.", file=sys.stderr)
           PY
 
           if [ ! -s "$RUNNER_TEMP/event_ids.txt" ]; then
