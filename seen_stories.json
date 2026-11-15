@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T16:03:14.770061+00:00",
+  "updated_at": "2026-11-15T16:20:50.611053+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -2532,7 +2532,7 @@
       "publisher_domains": [
         "talkchelsea.net"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "01a11c53f32c4ba6faac9ab2",
         "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
@@ -2574,9 +2574,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "last_processed_at": "2026-11-15T16:20:50.611053+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea told to bring back loan full back and sell Malo Gusto"
     }
   }
 }
