@@ -88,6 +88,12 @@ def merge_histories(*documents):
                 or incoming.get("last_quality_failures")
                 or []
             )
+            if "force_evidence_refresh" in newest:
+                record["force_evidence_refresh"] = bool(newest["force_evidence_refresh"])
+            elif "force_evidence_refresh" in previous:
+                record["force_evidence_refresh"] = bool(previous["force_evidence_refresh"])
+            else:
+                record["force_evidence_refresh"] = bool(incoming.get("force_evidence_refresh", False))
             # Processor-side history writes may not carry collector snapshots.
             # Preserve the latest available source-bearing snapshot across merges.
             record["candidate_snapshot"] = (
@@ -202,7 +208,17 @@ def self_test():
     assert merged["events"]["a"]["last_editorial_source_domains"] == ["sports.yahoo.com"]
     assert merged["events"]["a"]["last_editorial_source_urls"] == ["https://sports.yahoo.com/story"]
     assert merged["events"]["a"]["last_quality_failures"] == ["short_article"]
-    print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union, status, snapshots and editorial evidence baseline preservation")
+    one_shot = merge_histories(
+        {"events":{"a":{"event_id":"a","force_evidence_refresh":True}}},
+        {"events":{"a":{"event_id":"a","last_seen_at":"2026-11-12T08:00:00+00:00"}}}
+    )
+    assert one_shot["events"]["a"]["force_evidence_refresh"] is True
+    consumed = merge_histories(
+        {"events":{"a":{"event_id":"a","force_evidence_refresh":False}}},
+        {"events":{"a":{"event_id":"a","force_evidence_refresh":True}}}
+    )
+    assert consumed["events"]["a"]["force_evidence_refresh"] is False
+    print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union, status, snapshots, evidence baseline and one-shot refresh preservation")
 
 
 if __name__ == "__main__":
