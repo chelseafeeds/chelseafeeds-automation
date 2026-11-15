@@ -8,6 +8,7 @@ on:
       - "direct_source_discovery.py"
       - "persist_history.py"
       - "process_news.py"
+      - "seen_stories.json"
       - "related_links.py"
       - "generate_featured_images.py"
       - ".github/workflows/process-news.yml"
