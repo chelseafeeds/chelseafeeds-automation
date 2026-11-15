@@ -45,7 +45,7 @@ ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.co
 AGGREGATORS={"news.google.com","newsnow.com","c.newsnow.com","bing.com"}
 IRRELEVANT=("chelsea flower show","chelsea boots","chelsea handler","chelsea manning","chelsea hotel")
 STOP=set("the a an and or but for to of in on at by with from after before as is are was were be been being this that these those his her their its our your how what why when where who which could would should may might will can has have had into over under about against says said claims claim according report reports latest news fc blues club team side player players manager boss head coach premier league football".split())
-WOMEN_HINTS=("chelsea women","chelsea women's","chelsea ladies","women's champions league","women champions league","women's super league","women super league","wsl","lucy bronze","bompastor")
+WOMEN_HINTS=("chelsea women","chelsea women's","chelsea ladies","women's champions league","women champions league","women's super league","women super league","wsl","lucy bronze","bompastor","wieke kaptein")
 YOUTH_HINTS=("academy","under-21","under 21","u21","under-18","under 18","u18","youth league","cobham next gen","rio ngumoha")
 INJURY=("injury","injured","fitness","hamstring","knee injury","ankle injury","ruled out","return to training","sidelined","surgery","rehabilitation","muscle problem")
 OPINION=("opinion","analysis","why did","why chelsea","what .* means","verdict","pundit","claims","argues","believes","selection problem","biggest problem","failure","not improving","scary stats","might not agree","should chelsea","tactical improvement","identity still","only part")
@@ -111,7 +111,7 @@ def classify(title,summary):
     if any(re.search(p,t) for p in OPINION): return "opinion_analysis"
     # Distinguish match preview, report and reaction so different stages never merge.
     if any(x in t for x in ("preview","previews","set to face","will face","ahead of")) or re.search(r"face .+ without|before .+ match",t): return "match_preview"
-    if any(x in t for x in ("not ruthless enough","reaction","reacts","responds")) or re.search(r"after .+ (draw|defeat|win)",t): return "match_reaction"
+    if any(x in t for x in ("not ruthless enough","reaction","reacts","responds","take confidence from","confidence from man city victory")) or re.search(r"after .+ (draw|defeat|win)",t): return "match_reaction"
     if any(x in t for x in MATCH_WORDS) or "wcl" in t or "hacken" in t: return "match_report"
     if any(x in t for x in ("squad","starting xi","line-up","lineup","team news","availability","training","press conference","selection","starting eleven","call-up","called up")): return "team_news"
     return "general_news"
@@ -128,7 +128,7 @@ def event_subject(title,summary,stype):
     names=["alejandro garnacho","levi colwill","cole palmer","joao pedro","joão pedro",
            "moises caicedo","moisés caicedo","enzo fernandez","enzo fernández",
            "reece james","estevao","estêvão","nicolo tresoldi","mike penders","malo gusto","veerle buurman","sandy baltimore","morgan rogers","kadeisha buchanan","melvine malard",
-           "andrey santos","kendry paez","tyrique george","nico jackson","zubimendi","quenda"]
+           "andrey santos","kendry paez","tyrique george","nico jackson","wieke kaptein","zubimendi","quenda"]
     for name in names:
         if re.search(r"(?<![a-z])"+re.escape(name)+r"(?![a-z])",t):
             return name.replace(" ","_")
@@ -510,6 +510,9 @@ def run_self_tests():
     assert classify("Chelsea staff warned over Fantasy Premier League use","")== "club_news"
     assert classify("Chelsea confirm Quenda has a muscle injury","")== "injury_update"
     assert classify("Veerle Buurman named Star of the Match after Chelsea win","") == "player_award"
+    assert classify("Wieke Kaptein: We can take confidence from Man City victory","") == "match_reaction"
+    assert team_scope("Wieke Kaptein: We can take confidence from Man City victory","") == "chelsea_women"
+    assert event_subject("Wieke Kaptein: We can take confidence from Man City victory","", "match_reaction") == "wieke_kaptein"
     assert classify("Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window","Chelsea could complicate a move for Malo Gusto according to reports") == "transfer_rumour"
     award_a=o("Veerle Buurman named Star of the Match","https://www.chelseafc.com/en/news/article/award","Chelsea Official")
     award_b=o("Chelsea defender Veerle Buurman wins Star of the Match vote","https://www.bbc.co.uk/sport/football/articles/award","BBC")
