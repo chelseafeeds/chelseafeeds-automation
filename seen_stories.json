@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T19:26:44.652029+00:00",
+  "updated_at": "2026-11-15T19:27:05.293491+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -4442,7 +4442,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "c0df2ccea43f92257342bae2",
         "title": "1996/97 remembered - part three: The signing of Gianfranco Zola | News | Official Site - Chelsea Football Club",
@@ -4495,7 +4495,12 @@
         "https://www.chelseafc.com/en/news/article/1996-97-remembered-part-three-the-signing-of-gianfranco-zola"
       ],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6139283784317056954",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/how-gianfranco-zolas-1996-arrival.html",
+      "scheduled_for_utc": "2026-11-15T19:32:04Z",
+      "last_blogger_status_updated_at": "2026-11-15T19:27:05.293482+00:00"
     },
     "f2856177da0d24daf6debd9b": {
       "event_id": "f2856177da0d24daf6debd9b",
