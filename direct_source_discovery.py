@@ -81,14 +81,14 @@ def jsonld_articles(value):
         for item in value:
             yield from jsonld_articles(item)
     elif isinstance(value, dict):
-        if any(k in value for k in ("datePublished", "headline", "articleBody")):
+        if any(k in value for k in ("datePublished", "publishedAt", "publishedDate", "publishDate", "publicationDate", "headline", "articleBody")):
             yield value
         graph = value.get("@graph")
         if graph:
             yield from jsonld_articles(graph)
-        for key in ("mainEntity", "mainEntityOfPage", "itemListElement"):
-            if isinstance(value.get(key), (dict, list)):
-                yield from jsonld_articles(value[key])
+        for key, child in value.items():
+            if key in ("mainEntity", "mainEntityOfPage", "itemListElement", "article", "content", "data", "props", "pageProps", "initialState") and isinstance(child, (dict, list)):
+                yield from jsonld_articles(child)
 
 def article_metadata(html, page_url):
     soup = BeautifulSoup(html, "html.parser")
@@ -137,17 +137,36 @@ def article_metadata(html, page_url):
             if published:
                 break
     if not published:
-        for node in soup.find_all("script", type="application/ld+json"):
-            try:
-                payload = json.loads(node.string or node.get_text())
-            except Exception:
+        for node in soup.find_all("script"):
+            raw = node.string or node.get_text()
+            if not raw:
                 continue
-            for item in jsonld_articles(payload):
-                published = parse_iso(item.get("datePublished") or item.get("dateCreated"))
-                if published:
-                    title = title or c.textval(item.get("headline"))
-                    description = description or c.textval(item.get("description"))
-                    break
+            payload = None
+            try:
+                payload = json.loads(raw)
+            except Exception:
+                pass
+            if payload is not None:
+                for item in jsonld_articles(payload):
+                    published = parse_iso(
+                        item.get("datePublished") or item.get("publishedAt") or
+                        item.get("publishedDate") or item.get("publishDate") or
+                        item.get("publicationDate")
+                    )
+                    if published:
+                        title = title or c.textval(item.get("headline") or item.get("name"))
+                        description = description or c.textval(item.get("description"))
+                        break
+            # Some CMS pages embed article metadata in a JavaScript state
+            # assignment rather than JSON-LD. Accept only explicitly named
+            # publication-date fields, never generic update/creation dates.
+            if not published:
+                match = re.search(
+                    r'(?i)["\\']?(?:datePublished|publishedAt|publishedDate|publishDate|publicationDate)["\\']?\\s*[:=]\\s*["\\']([^"\\']{8,50})',
+                    raw
+                )
+                if match:
+                    published = parse_iso(match.group(1))
             if published:
                 break
     return title, description, published
@@ -394,6 +413,10 @@ def discover_pinned_official_story(session, history):
             check["page_text_chars"] = len(page_text)
             check["html_title"] = c.textval(soup.title.get_text(" ", strip=True)) if soup.title else ""
             check["h1"] = c.textval(soup.find("h1").get_text(" ", strip=True)) if soup.find("h1") else ""
+            check["publication_date_fields"] = re.findall(
+                r'(?i)(?:datePublished|publishedAt|publishedDate|publishDate|publicationDate)["\\']?\\s*[:=]\\s*["\\']([^"\\']{8,50})',
+                response.text
+            )[:8]
             if not title or not published:
                 check["status"] = "rejected"
                 check["error"] = "Official article page did not expose a verifiable title and publication timestamp"
