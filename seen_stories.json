@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T12:21:20.243095+00:00",
+  "updated_at": "2026-11-15T12:21:56.921713+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1069,7 +1069,7 @@
       "event_id": "645815176e7954bb34cfe8ae",
       "title": "Chelsea 1-0 Manchester City: Women’s Super League – as it happened",
       "first_seen_at": "2026-11-14T12:53:01.091287+00:00",
-      "last_seen_at": "2026-11-15T12:20:54.685480+00:00",
+      "last_seen_at": "2026-11-15T12:21:55.480871+00:00",
       "last_published_at": "2026-11-14T16:02:42+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1303,7 +1303,7 @@
       "event_id": "7389ed7606ef8f781573588a",
       "title": "Chelsea regular slammed for “disastrous evening” for national team",
       "first_seen_at": "2026-11-14T18:36:55.881251+00:00",
-      "last_seen_at": "2026-11-15T12:20:54.685480+00:00",
+      "last_seen_at": "2026-11-15T12:21:55.480871+00:00",
       "last_published_at": "2026-11-14T18:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1359,7 +1359,7 @@
       "event_id": "dd6d262e3bf6651c8eb6b5cd",
       "title": "Bompastor's risks pay off as Chelsea go top of WSL",
       "first_seen_at": "2026-11-14T19:25:32.467415+00:00",
-      "last_seen_at": "2026-11-15T12:20:54.685480+00:00",
+      "last_seen_at": "2026-11-15T12:21:55.480871+00:00",
       "last_published_at": "2026-11-14T18:55:34+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -1505,7 +1505,7 @@
       "event_id": "173ca446860b0ad609c09a09",
       "title": "Arsenal target Nusa could cost £66m - Sunday's gossip",
       "first_seen_at": "2026-11-14T22:08:20.681107+00:00",
-      "last_seen_at": "2026-11-15T12:20:54.685480+00:00",
+      "last_seen_at": "2026-11-15T12:21:55.480871+00:00",
       "last_published_at": "2026-11-14T21:48:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1561,7 +1561,7 @@
       "event_id": "e777afa6b92ed1e56bb95aa4",
       "title": "Chelsea initiate contact over £25m Real Betis winger Jose Antonio Morante",
       "first_seen_at": "2026-11-15T05:50:57.477242+00:00",
-      "last_seen_at": "2026-11-15T12:20:54.685480+00:00",
+      "last_seen_at": "2026-11-15T12:21:55.480871+00:00",
       "last_published_at": "2026-11-15T05:41:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1617,7 +1617,7 @@
       "event_id": "4533cc88c932ccca56140d8d",
       "title": "Chelsea FCW vs. Manchester City WFC, Women’s Super League: Confirmed lineups; how to watch",
       "first_seen_at": "2026-11-15T10:34:52.217834+00:00",
-      "last_seen_at": "2026-11-15T12:20:56.773884+00:00",
+      "last_seen_at": "2026-11-15T12:21:56.921713+00:00",
       "last_published_at": "2026-11-14T12:50:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1673,7 +1673,7 @@
       "event_id": "b14488f636b930670f695d23",
       "title": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
       "first_seen_at": "2026-11-15T10:34:52.217834+00:00",
-      "last_seen_at": "2026-11-15T12:20:56.773884+00:00",
+      "last_seen_at": "2026-11-15T12:21:56.921713+00:00",
       "last_published_at": "2026-11-14T15:30:34+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1938,7 +1938,7 @@
       "event_id": "2b2ca8de6ab75121f5cab79b",
       "title": "Gusto to Man Utd or Man City: talkSPORT Reports Chelsea Defender Battle",
       "first_seen_at": "2026-11-15T10:46:44.479367+00:00",
-      "last_seen_at": "2026-11-15T12:20:56.773884+00:00",
+      "last_seen_at": "2026-11-15T12:21:56.921713+00:00",
       "last_published_at": "2026-11-15T07:21:41+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2054,7 +2054,7 @@
       "event_id": "5b7cf0f7cadab2d667a2459a",
       "title": "Chelsea go top of WSL as Sandy Baltimore bullet sees off Manchester City",
       "first_seen_at": "2026-11-15T10:56:57.663120+00:00",
-      "last_seen_at": "2026-11-15T12:20:54.685480+00:00",
+      "last_seen_at": "2026-11-15T12:21:55.480871+00:00",
       "last_published_at": "2026-11-14T15:36:15+00:00",
       "last_observation_count": 7,
       "publisher_domains": [
@@ -2191,6 +2191,62 @@
       "last_processed_at": "2026-11-15T10:57:25.262491+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea go top of WSL as Sandy Baltimore bullet sees off Manchester City"
+    },
+    "718c2f697fd26fc4ce6b970f": {
+      "event_id": "718c2f697fd26fc4ce6b970f",
+      "title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
+      "first_seen_at": "2026-11-15T12:21:55.480871+00:00",
+      "last_seen_at": "2026-11-15T12:21:55.480871+00:00",
+      "last_published_at": "2026-11-15T11:39:12+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "chelsea.news"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "718c2f697fd26fc4ce6b970f",
+        "title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
+        "story_type": "injury_update",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-15T11:39:12+00:00",
+        "best_summary": "Two of Chelsea's senior internationals finished on the losing side on Saturday, with Pedro Neto in a heavily beaten Portugal side and Estêvão taken off before Japan's late winner against Brazil. Both have one more international game on Tuesday, and Neto's fitness matters with him leading Chelsea's attack. The post Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil appeared first on Chelsea News .",
+        "representative_title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
+        "representative_url": "https://chelsea.news/2026/11/neto-starts-portugals-4-1-home-loss-to-denmark-as-estevao-is-off-before-japan-beat-brazil",
+        "representative_publisher": "chelsea.news",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
+            "summary": "Two of Chelsea's senior internationals finished on the losing side on Saturday, with Pedro Neto in a heavily beaten Portugal side and Estêvão taken off before Japan's late winner against Brazil. Both have one more international game on Tuesday, and Neto's fitness matters with him leading Chelsea's attack. The post Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil appeared first on Chelsea News .",
+            "url": "https://chelsea.news/2026/11/neto-starts-portugals-4-1-home-loss-to-denmark-as-estevao-is-off-before-japan-beat-brazil",
+            "publisher_domain": "chelsea.news",
+            "publisher_name_hint": null,
+            "source_feed": "Chelsea.news",
+            "published": "2026-11-15T11:39:12+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "estêvão"
+          }
+        ],
+        "source_urls": [
+          "https://chelsea.news/2026/11/neto-starts-portugals-4-1-home-loss-to-denmark-as-estevao-is-off-before-japan-beat-brazil"
+        ],
+        "publisher_domains": [
+          "chelsea.news"
+        ],
+        "source_feeds": [
+          "Chelsea.news"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null
     }
   }
 }
