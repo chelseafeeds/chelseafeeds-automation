@@ -36,13 +36,15 @@ def main():
 
     for status in ("scheduled", "live", "draft"):
         response = session.get(base, params={
-            "status": status.upper(), "maxResults": 100, "fetchBodies": "true"
-        }, headers=headers, timeout=45)
+            "status": status.upper(), "maxResults": 100, "fetchBodies": "false"
+        }, headers=headers, timeout=30)
         response.raise_for_status()
         payload = response.json()
-        for item in payload.get("items", []):
-            if item.get("title") == target_title and item.get("id"):
-                matches.append((status.upper(), item))
+        found = [item for item in payload.get("items", [])
+                 if item.get("title") == target_title and item.get("id")]
+        matches.extend((status.upper(), item) for item in found)
+        if found:
+            break
 
     unique = {}
     for status, item in matches:
