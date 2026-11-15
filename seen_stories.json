@@ -1504,7 +1504,7 @@
         "skysports.com",
         "theguardian.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "last_processed_at": "2026-11-15T18:23:58.768370+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea leapfrog Man City to become new WSL leaders",
@@ -1632,7 +1632,12 @@
         "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result"
       ],
       "last_quality_failures": [],
-      "force_evidence_refresh": true
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "548932843313964682",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-womens-tactical-masterclass.html",
+      "scheduled_for_utc": "2026-11-15T18:29:17Z",
+      "last_blogger_status_updated_at": "2026-11-15T18:24:18Z"
     },
     "7389ed7606ef8f781573588a": {
       "event_id": "7389ed7606ef8f781573588a",
