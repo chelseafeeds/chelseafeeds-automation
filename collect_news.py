@@ -478,6 +478,7 @@ def run_self_tests():
     assert filter_pending_candidates([], terminal_queue, reference_time=base+timedelta(hours=12)) == []
     # A current observation wins over its history snapshot and is not duplicated.
     current_group = dict(recoverable_group)
+    current_group["event_id"] = "recoverable"
     current_group["title"] = "Current feed headline"
     current = filter_pending_candidates([current_group], history_with_queue, reference_time=base+timedelta(hours=12))
     assert len(current) == 1 and current[0]["title"] == "Current feed headline"
