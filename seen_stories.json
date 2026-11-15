@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T19:38:21.204881+00:00",
+  "updated_at": "2026-11-15T19:38:50.857619+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -4366,7 +4366,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "rejected_quality_gate",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "f2856177da0d24daf6debd9b",
         "title": "Wieke Kaptein: We can take confidence from Man City victory | News | Official Site - Chelsea Football Club",
@@ -4409,8 +4409,8 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": "2026-11-15T19:33:14.768222+00:00",
-      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_at": "2026-11-15T19:38:50.857619+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Wieke Kaptein: We can take confidence from Man City victory | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [
         "chelseafc.com"
@@ -4418,10 +4418,8 @@
       "last_editorial_source_urls": [
         "https://www.chelseafc.com/en/news/article/wieke-kaptein-we-can-take-confidence-from-man-city-victory"
       ],
-      "last_quality_failures": [
-        "substantive_article_body_minimum_400_words"
-      ],
-      "force_evidence_refresh": true,
+      "last_quality_failures": [],
+      "force_evidence_refresh": false,
       "force_evidence_refresh_reason": "One-time retry using the new length-only repair; strict 400-word gate and source evidence unchanged."
     },
     "af1610607b92583a41b4cf97": {
