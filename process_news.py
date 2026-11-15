@@ -38,7 +38,7 @@ class AIQuotaExhausted(RuntimeError):
 THUMBNAIL_WIDTH = 1200
 THUMBNAIL_HEIGHT = 675
 OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com", "englandfootball.com"}
-ESTABLISHED = {"bbc.co.uk", "bbc.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com", "espn.com", "independent.co.uk", "standard.co.uk", "nytimes.com", "theathletic.com", "football365.com", "thetimes.com", "telegraph.co.uk", "ticotimes.net", "primicias.ec", "yahoo.com"}
+ESTABLISHED = {"bbc.co.uk", "bbc.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com", "espn.com", "independent.co.uk", "standard.co.uk", "nytimes.com", "theathletic.com", "football365.com", "thetimes.com", "telegraph.co.uk", "ticotimes.net", "primicias.ec", "talksport.com", "footballinsider247.com"}
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; ChelseaFeedsEditorialBot/1.4; +https://www.chelseafeeds.com/)"}
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
