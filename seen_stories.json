@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T15:43:01.826535+00:00",
+  "updated_at": "2026-11-15T15:43:28.940066+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -2427,7 +2427,7 @@
         "bbc.co.uk",
         "nytimes.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "01025fe3b473403b4ca8295b",
         "title": "Chelsea go top with 1-0 win against Man City",
@@ -2518,9 +2518,9 @@
         "observation_count": 4,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null
+      "last_processed_at": "2026-11-15T15:43:28.940066+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea go top with 1-0 win against Man City"
     }
   }
 }
