@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:26:12.448835+00:00",
+  "updated_at": "2026-11-15T18:26:19.996744+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -3725,7 +3725,7 @@
       "publisher_domains": [
         "ua.news"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "da2813a3c27018c6b0e7b675",
         "title": "Chelsea beat Manchester City to top the Women’s Super League — The Guardian",
@@ -3767,12 +3767,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-15T18:26:19.996744+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea beat Manchester City to top the Women’s Super League — The Guardian",
+      "last_editorial_source_domains": [
+        "ua.news"
+      ],
+      "last_editorial_source_urls": [
+        "https://ua.news/en/dovkolo-svitu/chelsi-obigrav-manchester-siti-ta-ocholiv-zhinochu-superligu-the-guardian"
+      ],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     },
     "3385fd1c43a540233b2ed114": {
@@ -3913,7 +3919,7 @@
         "nytimes.com",
         "usatoday.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "a1b083a3199deead56853b78",
         "title": "Chelsea go top with 1-0 win against Man City",
@@ -4041,11 +4047,19 @@
         "observation_count": 6,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-15T18:26:19.996744+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea go top with 1-0 win against Man City",
+      "last_editorial_source_domains": [
+        "bbc.com",
+        "el-balad.com",
+        "nytimes.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.bbc.com/sport/football/videos/cm702wwpj9keo",
+        "https://www.el-balad.com/17067083",
+        "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
