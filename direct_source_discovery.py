@@ -41,7 +41,7 @@ SPECIALIST_FEEDS = [
 ]
 ALLOWED_OFFICIAL = {"chelseafc.com", "wslfootball.com", "premierleague.com", "uefa.com", "thefa.com", "englandfootball.com"}
 c.OFFICIAL.add("englandfootball.com")
-c.ESTABLISHED.add("yahoo.com")
+
 
 def parse_iso(value):
     if not value:
@@ -186,7 +186,8 @@ def discover_official_sitemaps(session):
             raise RuntimeError("No working official sitemap URL found: " + str(last_error or "not declared"))
         if root_kind == "sitemapindex":
             sitemap_files = [r for r in root_records if c.matches(c.domain(r.get("loc", "")), ALLOWED_OFFICIAL)]
-            sitemap_files.sort(key=lambda r: (0 if re.search(r"news|article|content", urlparse(r["loc"]).path, re.I) else 1, r.get("lastmod", "")), reverse=True)
+            sitemap_files.sort(key=lambda r: r.get("lastmod", ""), reverse=True)
+            sitemap_files.sort(key=lambda r: 0 if re.search(r"news|article|content", urlparse(r["loc"]).path, re.I) else 1)
             article_records = []
             for sitemap_record in sitemap_files[:MAX_SITEMAP_FILES]:
                 sitemap_url = sitemap_record["loc"]
