@@ -30,6 +30,9 @@ jobs:
       - name: Run collector regression tests
         run: python collect_news.py --self-test
 
+      - name: Run official source discovery regression tests
+        run: python direct_source_discovery.py --self-test
+
       - name: Run processor regression tests
         run: python process_news.py --self-test
 
