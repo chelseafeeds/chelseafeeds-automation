@@ -2000,7 +2000,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "published",
       "candidate_snapshot": {
         "event_id": "53878f3e637fa2820833d81d",
         "title": "Chelsea's Player of the Month for October 2026 revealed!",
@@ -2043,8 +2043,12 @@
         "corroboration_status": "single_publisher_observation"
       },
       "last_processed_at": "2026-11-15T10:49:20.559793+00:00",
-      "last_editorial_outcome": "draft_created_unpublished",
-      "last_processed_headline": "Chelsea's Player of the Month for October 2026 revealed!"
+      "last_editorial_outcome": "published",
+      "last_processed_headline": "Chelsea's Player of the Month for October 2026 revealed!",
+      "blogger_post_id": "1064276544468100978",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/morgan-rogers-named-chelsea-player-of.html",
+      "blogger_status": "LIVE",
+      "blogger_verified_at": "2026-11-15T10:54:08Z"
     }
   }
 }
