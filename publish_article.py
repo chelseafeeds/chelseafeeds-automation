@@ -137,13 +137,17 @@ def main():
     live_posts = find_posts(session, blog_id, access_token, "live")
     matching_live = [item for item in live_posts if item.get("title") == title and item.get("id")]
     if matching_live:
-        raise RuntimeError("A public Blogger post already has this exact title; refusing to create a duplicate.")
+        result = matching_live[0]
+        post_id = str(result["id"])
+        blogger_action = "already_live"
     scheduled_posts = find_posts(session, blog_id, access_token, "scheduled")
     matching_scheduled = [item for item in scheduled_posts if item.get("title") == title and item.get("id")]
     if len(matching_scheduled) > 1:
         raise RuntimeError("Multiple scheduled Blogger posts already have this exact title; refusing an ambiguous update.")
 
-    if matching_scheduled:
+    if blogger_action == "already_live":
+        pass
+    elif matching_scheduled:
         result = matching_scheduled[0]
         post_id = str(result["id"])
         blogger_action = "already_scheduled"
@@ -170,7 +174,10 @@ def main():
 
     scheduled_for = None
     blogger_status = "saved_as_draft"
-    if schedule_minutes and blogger_action != "already_scheduled":
+    if blogger_action == "already_live":
+        blogger_status = "already_live"
+        scheduled_for = result.get("published")
+    elif schedule_minutes and blogger_action != "already_scheduled":
         scheduled_for = (datetime.now(timezone.utc) + timedelta(minutes=schedule_minutes)).isoformat(timespec="seconds").replace("+00:00", "Z")
         publish_endpoint = f"{base}/{quote(str(post_id), safe='')}/publish"
         publish_response = session.post(publish_endpoint, params={"publishDate": scheduled_for}, headers=headers, timeout=45)
