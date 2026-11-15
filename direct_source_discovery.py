@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+from email.utils import parsedate_to_datetime
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -49,7 +50,8 @@ PINNED_OFFICIAL_SOURCES = [
 # The official latest-news landing page is a discovery index only. Every linked
 # article still needs its own accessible page and publication timestamp.
 LANDING_PAGES = [
-    {"name": "Chelsea FC official latest news", "url": "https://www.chelseafc.com/en"}
+    {"name": "Chelsea FC official homepage news index", "url": "https://www.chelseafc.com/en"},
+    {"name": "Chelsea FC official news index", "url": "https://www.chelseafc.com/en/news"},
 ];
 SPECIALIST_FEEDS = [
     {"name": "We Ain't Got No History", "url": "https://weaintgotnohistory.sbnation.com/rss/current.xml"},
@@ -62,13 +64,17 @@ c.OFFICIAL.add("englandfootball.com")
 def parse_iso(value):
     if not value:
         return None
+    raw = str(value).strip()
     try:
-        dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
-        return dt.astimezone(timezone.utc)
+        dt = datetime.fromisoformat(raw.replace("Z", "+00:00"))
     except (TypeError, ValueError):
-        return None
+        try:
+            dt = parsedate_to_datetime(raw)
+        except (TypeError, ValueError, OverflowError):
+            return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
 
 def jsonld_articles(value):
     if isinstance(value, list):
@@ -101,11 +107,33 @@ def article_metadata(html, page_url):
         if node and node.get("content"):
             description = c.textval(node["content"])
             break
+    if not title and soup.title:
+        title = c.textval(soup.title.get_text(" ", strip=True))
     published = None
-    for selector in ('meta[property="article:published_time"]', 'meta[name="article:published_time"]', 'meta[itemprop="datePublished"]'):
+    # Chelsea and its publishing platform may expose the original publication
+    # date under different standard metadata names. Never substitute modified
+    # timestamps or sitemap lastmod values for publication time.
+    date_selectors = (
+        'meta[property="article:published_time"]',
+        'meta[name="article:published_time"]',
+        'meta[itemprop="datePublished"]',
+        'meta[property="og:published_time"]',
+        'meta[name="date"]',
+        'meta[name="pubdate"]',
+        'meta[name="publish-date"]',
+        'meta[name="parsely-pub-date"]',
+        'meta[name="dc.date.issued"]',
+        'meta[name="DC.date.issued"]',
+    )
+    for selector in date_selectors:
         node = soup.select_one(selector)
         if node:
-            published = parse_iso(node.get("content") or node.get("datetime"))
+            published = parse_iso(node.get("content") or node.get("datetime") or node.get_text(" ", strip=True))
+            if published:
+                break
+    if not published:
+        for node in soup.select('time[itemprop="datePublished"], time[datetime]'):
+            published = parse_iso(node.get("datetime") or node.get_text(" ", strip=True))
             if published:
                 break
     if not published:
@@ -164,6 +192,12 @@ def run_self_tests():
     assert not pinned_story_matches(kaptein, "Chelsea latest news",
         "An unrelated club announcement with no matching article details.")
     assert all("published_fallback" not in source for source in PINNED_OFFICIAL_SOURCES)
+    assert parse_iso("Sun, 15 Nov 2026 13:00:00 GMT") == datetime(2026, 11, 15, 13, 0, tzinfo=timezone.utc)
+    title, summary, published = article_metadata(
+        '<html><head><meta property="og:title" content="Wieke Kaptein: We can take confidence">'
+        '<meta name="pubdate" content="Sun, 15 Nov 2026 13:00:00 GMT"></head>'
+        '<body><h1>Headline</h1><p>Article body</p></body></html>', "https://www.chelseafc.com/en/news/article/test")
+    assert title == "Wieke Kaptein: We can take confidence" and published == datetime(2026, 11, 15, 13, 0, tzinfo=timezone.utc)
     ns = "http://www.sitemaps.org/schemas/sitemap/0.9"
     urlset = f'<urlset xmlns="{ns}"><url><loc>https://www.chelseafc.com/en/news/article/test-story</loc></url></urlset>'
     kind, locations = sitemap_locations(urlset)
@@ -353,7 +387,13 @@ def discover_pinned_official_story(session, history):
                 report["article_checks"].append(check)
                 continue
             title, summary, published = article_metadata(response.text, final_url)
-            page_text = BeautifulSoup(response.text, "html.parser").get_text(" ", strip=True)
+            soup = BeautifulSoup(response.text, "html.parser")
+            page_text = soup.get_text(" ", strip=True)
+            check["http_status"] = response.status_code
+            check["html_chars"] = len(response.text or "")
+            check["page_text_chars"] = len(page_text)
+            check["html_title"] = c.textval(soup.title.get_text(" ", strip=True)) if soup.title else ""
+            check["h1"] = c.textval(soup.find("h1").get_text(" ", strip=True)) if soup.find("h1") else ""
             if not title or not published:
                 check["status"] = "rejected"
                 check["error"] = "Official article page did not expose a verifiable title and publication timestamp"
@@ -399,7 +439,9 @@ def discover_pinned_official_story(session, history):
 def discover_bing_news(session):
     """Use Bing News only for discovery; resolve every result to its publisher."""
     from urllib.parse import quote_plus
-    queries = ["Chelsea FC", "Chelsea Women", "Chelsea Women Manchester City 1-0", "Veerle Buurman Chelsea", "Malo Gusto Chelsea"]
+    queries = ["Chelsea FC", "Chelsea Women", "Chelsea Women Manchester City 1-0",
+               "Veerle Buurman Chelsea", "Malo Gusto Chelsea",
+               "site:chelseafc.com Wieke Kaptein", "site:chelseafc.com Chelsea news"]
     report = {"source": "Bing News Chelsea discovery", "url": "https://www.bing.com/news/",
               "status": "failed", "entries_received": 0,
               "observations_collected": 0, "rejected_unresolved": 0,
