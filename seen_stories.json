@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:19:50.564858+00:00",
+  "updated_at": "2026-11-15T18:20:02.591238+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -3105,7 +3105,7 @@
         "observation_count": 3,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": "2026-11-15T18:18:34.826231+00:00",
+      "last_processed_at": "2026-11-15T18:20:02.591238+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
       "last_editorial_source_domains": [
@@ -3260,7 +3260,7 @@
         "nytimes.com",
         "usatoday.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "cd4cb09b62681611341b3188",
         "title": "Chelsea beat 10-player Man City to return to WSL summit",
@@ -3421,11 +3421,18 @@
         "observation_count": 8,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-15T18:20:02.591238+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea beat 10-player Man City to return to WSL summit",
+      "last_editorial_source_domains": [
+        "bbc.co.uk",
+        "bbc.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.bbc.co.uk/sport/football/live/cmg474nywwr5t",
+        "https://www.bbc.com/sport/football/live/cmg474nywwr5t",
+        "https://www.bbc.com/sport/football/videos/cm702wwpj9keo"
+      ],
       "last_quality_failures": []
     },
     "967b300205c6810d69882c21": {
