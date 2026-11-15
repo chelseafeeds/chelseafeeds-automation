@@ -2688,7 +2688,16 @@
       },
       "last_processed_at": "2026-11-15T18:06:53.583625+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "How Xabi Alonso’s Start Compares to Other Chelsea Managers"
+      "last_processed_headline": "How Xabi Alonso’s Start Compares to Other Chelsea Managers",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/xabi-alonso-start-compares-other-172354191.html"
+      ],
+      "last_quality_failures": [
+        "quality_gate_failed_details_not_retained_by_previous_processor_version"
+      ]
     },
     "587ef1dd9d6a7e59ce794ac8": {
       "event_id": "587ef1dd9d6a7e59ce794ac8",
@@ -2763,7 +2772,16 @@
       },
       "last_processed_at": "2026-11-15T18:06:53.583625+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "Chelsea could block Man City's move for Malo Gusto as price tag revealed"
+      "last_processed_headline": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/chelsea-could-block-man-citys-122000936.html"
+      ],
+      "last_quality_failures": [
+        "quality_gate_failed_details_not_retained_by_previous_processor_version"
+      ]
     }
   }
 }
