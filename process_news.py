@@ -677,7 +677,7 @@ def process(input_path, output_dir):
                     logging.info("TITLE_FALLBACK_APPLIED event=%s using source headline", story.get("event_id"))
                 quality = quality_gate(draft, fetched, story, {x["url"] for x in related})
                 length_repair_attempted = False
-                if should_retry_length_only(quality) and AI_USAGE["total_tokens"] < RUN_TOKEN_BUDGET:
+                if should_retry_length_only(quality) and (RUN_TOKEN_BUDGET == 0 or AI_USAGE["total_tokens"] < RUN_TOKEN_BUDGET):
                     length_repair_attempted = True
                     logging.info("QUALITY_LENGTH_REPAIR event=%s initial_words=%s",
                                  story.get("event_id"), quality.get("word_count"))
