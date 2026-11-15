@@ -28,7 +28,8 @@ REPORT = ROOT / "collection_report.json"
 MAX_LINKS_PER_PAGE = 12
 MAX_SITEMAP_FILES = 8
 MAX_SITEMAP_ARTICLES = 30
-SITEMAP_URL = "https://www.chelseafc.com/sitemap.xml"
+ROBOTS_URL = "https://www.chelseafc.com/robots.txt"
+SITEMAP_FALLBACKS = ["https://www.chelseafc.com/sitemap_index.xml", "https://www.chelseafc.com/sitemap.xml"]
 PINNED_OFFICIAL_SOURCES = [
     {"name": "Chelsea FC Official", "url": "https://www.chelseafc.com/en/news/article/chelseas-player-of-the-month-for-october-2026-revealed",
      "published_fallback": "2026-11-14T17:00:00+00:00", "story_key": "morgan_rogers_award"},
@@ -124,26 +125,54 @@ def discover_official_sitemaps(session):
     Sitemap timestamps are discovery hints only. Every article must still return
     an accessible page with its own published date before it becomes a candidate.
     """
-    report = {"source": "Chelsea FC official sitemap", "url": SITEMAP_URL,
+    report = {"source": "Chelsea FC robots.txt and official sitemap", "url": ROBOTS_URL,
               "status": "failed", "entries_received": 0,
               "observations_collected": 0, "article_fetches": 0,
-              "rejected_undated_or_stale": 0, "error": None}
+              "rejected_undated_or_stale": 0, "sitemap_urls_found": 0, "error": None}
     observations, sitemap_files, article_urls = [], [], []
     try:
-        response = session.get(SITEMAP_URL, timeout=c.TIMEOUT)
-        response.raise_for_status()
-        kind, locations = sitemap_locations(response.text)
-        if kind == "sitemapindex":
-            sitemap_files = [u for u in locations if c.matches(c.domain(u), ALLOWED_OFFICIAL)][:MAX_SITEMAP_FILES]
-            for sitemap_url in sitemap_files:
-                child = session.get(sitemap_url, timeout=c.TIMEOUT)
-                child.raise_for_status()
-                child_kind, child_locations = sitemap_locations(child.text)
-                if child_kind == "urlset":
-                    article_urls.extend(u for u in child_locations
-                                        if "/en/news/article/" in urlparse(u).path)
-        elif kind == "urlset":
-            article_urls = [u for u in locations if "/en/news/article/" in urlparse(u).path]
+        sitemap_candidates = []
+        try:
+            robots = session.get(ROBOTS_URL, timeout=c.TIMEOUT)
+            robots.raise_for_status()
+            sitemap_candidates.extend(
+                line.split(":", 1)[1].strip()
+                for line in robots.text.splitlines()
+                if line.strip().lower().startswith("sitemap:") and ":" in line
+            )
+        except requests.RequestException as exc:
+            logging.info("Chelsea robots.txt unavailable (%s); trying standard sitemap paths", type(exc).__name__)
+        sitemap_candidates.extend(SITEMAP_FALLBACKS)
+        sitemap_candidates = list(dict.fromkeys(
+            u for u in sitemap_candidates if c.matches(c.domain(u), ALLOWED_OFFICIAL)
+        ))
+        report["sitemap_urls_found"] = len(sitemap_candidates)
+        root_locations, root_kind, last_error = [], "", None
+        for sitemap_url in sitemap_candidates:
+            try:
+                response = session.get(sitemap_url, timeout=c.TIMEOUT)
+                response.raise_for_status()
+                root_kind, root_locations = sitemap_locations(response.text)
+                report["url"] = sitemap_url
+                break
+            except Exception as exc:
+                last_error = exc
+        else:
+            raise RuntimeError("No working official sitemap URL found: " + str(last_error or "not declared"))
+        if root_kind == "sitemapindex":
+            sitemap_files = [u for u in root_locations if c.matches(c.domain(u), ALLOWED_OFFICIAL)]
+            sitemap_files.sort(key=lambda u: (0 if re.search(r"news|article|content", urlparse(u).path, re.I) else 1, u))
+            for sitemap_url in sitemap_files[:MAX_SITEMAP_FILES]:
+                try:
+                    child = session.get(sitemap_url, timeout=c.TIMEOUT)
+                    child.raise_for_status()
+                    child_kind, child_locations = sitemap_locations(child.text)
+                    if child_kind == "urlset":
+                        article_urls.extend(u for u in child_locations if "/en/news/article/" in urlparse(u).path)
+                except Exception as exc:
+                    logging.info("Official child sitemap skipped (%s): %s", sitemap_url, type(exc).__name__)
+        elif root_kind == "urlset":
+            article_urls = [u for u in root_locations if "/en/news/article/" in urlparse(u).path]
         else:
             raise ValueError("Unrecognized XML sitemap document")
 
@@ -284,6 +313,50 @@ def discover_pinned_official_story(session, history):
         report["error"] = "No fresh, readable, unprocessed Chelsea award announcement was available"
     return pending[:1], report
 
+
+def discover_bing_news(session):
+    """Use Bing News only for discovery; resolve every result to its publisher."""
+    feed_url = "https://www.bing.com/news/search?q=Chelsea+FC&format=rss"
+    report = {"source": "Bing News Chelsea discovery", "url": feed_url,
+              "status": "failed", "entries_received": 0,
+              "observations_collected": 0, "rejected_unresolved": 0, "error": None}
+    observations, seen = [], set()
+    try:
+        response = session.get(feed_url, timeout=c.TIMEOUT)
+        response.raise_for_status()
+        feed = feedparser.parse(response.content)
+        report["entries_received"] = len(feed.entries)
+        for entry in feed.entries[:30]:
+            title = c.textval(entry.get("title"))
+            summary = c.textval(entry.get("summary", entry.get("description", "")))
+            published = c.parse_date(entry)
+            raw_url = entry.get("link", "")
+            if not published or not title or not c.relevant(title, summary):
+                continue
+            try:
+                resolved = session.get(raw_url, timeout=c.TIMEOUT, allow_redirects=True)
+                final_url = c.normalize_url(resolved.url)
+                publisher = c.publisher_type(final_url)
+                if not final_url or publisher in ("aggregator_unresolved", "unknown_domain") or final_url in seen:
+                    report["rejected_unresolved"] += 1
+                    continue
+                seen.add(final_url)
+                item = c.observation(title, summary, final_url, "Bing News discovery",
+                                     c.domain(final_url), published)
+                if item:
+                    observations.append(item)
+            except requests.RequestException:
+                report["rejected_unresolved"] += 1
+        report["observations_collected"] = len(observations)
+        report["status"] = "success" if observations else "empty"
+        if not observations:
+            report["error"] = "Bing News returned no fresh Chelsea results resolving to direct publisher pages"
+    except Exception as exc:
+        report["error"] = f"{type(exc).__name__}: {str(exc)[:180]}"
+        logging.warning("Bing News discovery: %s", report["error"])
+    return observations, report
+
+
 def discover_specialist_feeds(session):
     observations, report = [], []
     cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
@@ -358,7 +431,8 @@ def main():
     sitemap_obs, sitemap_report = discover_official_sitemaps(session)
     pinned_groups, pinned_report = discover_pinned_official_story(session, history)
     specialist_obs, specialist_report = discover_specialist_feeds(session)
-    new_obs = official_obs + sitemap_obs + specialist_obs
+    bing_obs, bing_report = discover_bing_news(session)
+    new_obs = official_obs + sitemap_obs + specialist_obs + bing_obs
     groups = c.cluster(new_obs)
     groups.extend(pinned_groups)
     for group in groups:
@@ -389,17 +463,18 @@ def main():
     c.write(HISTORY, history_updated)
     report = json.loads(REPORT.read_text(encoding="utf-8")) if REPORT.exists() else {}
     reports = report.setdefault("source_reports", [])
-    reports.extend(official_report + [sitemap_report, pinned_report] + specialist_report)
+    reports.extend(official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report])
     report.update(source_discovery_version="1.3",
                   direct_source_observations=len(new_obs) + len(pinned_groups),
                   direct_official_observations=len(official_obs) + len(sitemap_obs) + len(pinned_groups),
                   specialist_feed_observations=len(specialist_obs),
+                  bing_discovery_observations=len(bing_obs),
                   selected_pending_candidates=len(selected),
                   recovered_from_history_candidates=sum(1 for x in selected if x.get("recovered_from_history")))
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print("Direct source discovery: official_pages=%d official_sitemap=%d pinned_official=%d specialist=%d pending=%d" %
-          (len(official_obs), len(sitemap_obs), len(pinned_groups), len(specialist_obs), len(selected)))
-    for row in official_report + [sitemap_report, pinned_report] + specialist_report:
+    print("Direct source discovery: official_pages=%d official_sitemap=%d pinned_official=%d specialist=%d bing=%d pending=%d" %
+          (len(official_obs), len(sitemap_obs), len(pinned_groups), len(specialist_obs), len(bing_obs), len(selected)))
+    for row in official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report]:
         print("SOURCE_REPORT " + json.dumps(row, ensure_ascii=False))
 
 if __name__ == "__main__":
