@@ -216,6 +216,8 @@ def main():
         with open(output_path, "a", encoding="utf-8") as output:
             output.write(f"post_id={post_id}\n")
             output.write(f"post_url={post_url}\n")
+            output.write(f"blogger_status={blogger_status}\n")
+            output.write(f"scheduled_for_utc={scheduled_for or ''}\n")
             output.write(f"title={title.replace(chr(10), ' ').replace(chr(13), ' ')}\n")
             output.write(f"search_description={description.replace(chr(10), ' ').replace(chr(13), ' ')}\n")
     print("Blogger publishing completed; X posting is handled by the live-status-gated workflow step.")
