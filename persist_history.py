@@ -105,9 +105,19 @@ def merge_histories(*documents):
             record["publisher_domains"] = sorted(domains)
             statuses = [x for x in (previous.get("status"), incoming.get("status")) if x and x != "observed_not_processed"]
             if statuses:
-                record["status"] = newest.get("status") if newest.get("status") in statuses else statuses[-1]
+                status_priority = {"rejected_quality_gate": 1, "draft_created_unpublished": 2,
+                                   "scheduled": 3, "published": 4, "archived": 4}
+                record["status"] = max(statuses, key=lambda value: status_priority.get(value, 1))
             elif previous.get("status") or incoming.get("status"):
                 record["status"] = "observed_not_processed"
+            # Preserve Blogger scheduling metadata when a later collector snapshot arrives.
+            for field in ("blogger_status", "blogger_post_id", "blogger_post_url", "scheduled_for_utc"):
+                if field in newest:
+                    record[field] = newest[field]
+                elif field in previous:
+                    record[field] = previous[field]
+                elif field in incoming:
+                    record[field] = incoming[field]
             merged[event_id] = record
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=RETENTION_DAYS)
@@ -225,7 +235,14 @@ def self_test():
     )
     assert processor_wins["events"]["a"]["last_editorial_source_domains"] == ["bbc.co.uk","nytimes.com"]
     assert processor_wins["events"]["a"]["force_evidence_refresh"] is False
-    print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union, status, snapshots, processor-clock evidence baseline and one-shot refresh preservation")
+    scheduled_wins = merge_histories(
+        {"events":{"a":{"event_id":"a","status":"scheduled","blogger_post_id":"548932843313964682",
+                        "blogger_post_url":"https://www.chelseafeeds.com/2026/11/chelsea-womens-tactical-masterclass.html"}}},
+        {"events":{"a":{"event_id":"a","last_seen_at":"2026-11-15T18:30:00+00:00","status":"draft_created_unpublished"}}}
+    )
+    assert scheduled_wins["events"]["a"]["status"] == "scheduled"
+    assert scheduled_wins["events"]["a"]["blogger_post_id"] == "548932843313964682"
+    print("PASS: history union, latest event data, earliest first-seen, max observation count, publisher union, status priority, Blogger scheduling metadata, processor-clock evidence baseline and one-shot refresh preservation")
 
 
 if __name__ == "__main__":
