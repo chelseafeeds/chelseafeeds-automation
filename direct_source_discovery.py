@@ -216,6 +216,12 @@ def main():
     specialist_obs, specialist_report = discover_specialist_feeds(session)
     new_obs = official_obs + specialist_obs
     groups = c.cluster(new_obs)
+    for group in groups:
+        if "costa rica" in (group.get("title", "") + " " + group.get("best_summary", "")).lower():
+            group["opponent_key"] = "costa_rica"
+        c.score(group)
+        group["verification_status"] = "not_started"
+        group["verification_checklist"] = c.verification_checklist(group)
     groups = merge_same_international_event(groups)
     history = json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else {"events": {}}
     existing = json.loads(CANDIDATES.read_text(encoding="utf-8"))
