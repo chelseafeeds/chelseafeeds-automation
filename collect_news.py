@@ -52,6 +52,7 @@ TRANSFER_ACTION=("transfer","signing","sign","bid","deal","move","loan","contrac
 TRANSFER_UNCERTAIN=("rumour","rumor","reportedly","linked","could sign","may sign","speculation","potential","talks","considering","monitoring","interested in","keen on","eyeing","wants to sign","set to sign","target")
 TRANSFER_CONFIRMED=("officially announced","completes","completed","has signed","signs for","joins chelsea","extends contract","new contract","deal agreed","agreement reached")
 MATCH_WORDS=("match report","match reaction","premier league","champions league","fa cup","carabao cup","kick-off","fixture"," vs "," v ","full-time","half-time","matchday","league table","draw","defeat","win","beat","beats","lost","loss","penalty","commentary","goalless")
+PLAYER_AWARD_HINTS=("star of the match","player of the match","player of the month","player of the season","player award","award winner")
 
 logging.basicConfig(level=logging.INFO,format="%(levelname)s: %(message)s")
 def now(): return datetime.now(timezone.utc)
@@ -105,6 +106,7 @@ def classify(title,summary):
     if action and confirmed: return "confirmed_transfer"
     if (action and uncertain) or (bool(re.search(r"[£€$]\s?\d",t)) and any(x in t for x in ("rumour","rumor"))): return "transfer_rumour"
     if any(x in t for x in INJURY) and not any(x in t for x in ("stats with and without","analysis","scary stats","fantasy premier league","fpl")): return "injury_update"
+    if any(x in t for x in PLAYER_AWARD_HINTS): return "player_award"
     if any(re.search(p,t) for p in OPINION): return "opinion_analysis"
     # Distinguish match preview, report and reaction so different stages never merge.
     if any(x in t for x in ("preview","previews","set to face","will face","ahead of")) or re.search(r"face .+ without|before .+ match",t): return "match_preview"
@@ -124,7 +126,7 @@ def event_subject(title,summary,stype):
     # create false duplicate clusters across unrelated stories.
     names=["alejandro garnacho","levi colwill","cole palmer","joao pedro","joão pedro",
            "moises caicedo","moisés caicedo","enzo fernandez","enzo fernández",
-           "reece james","estevao","estêvão","nicolo tresoldi","mike penders","malo gusto",
+           "reece james","estevao","estêvão","nicolo tresoldi","mike penders","malo gusto","veerle buurman","sandy baltimore","morgan rogers","kadeisha buchanan","melvine malard",
            "andrey santos","kendry paez","tyrique george","nico jackson","zubimendi","quenda"]
     for name in names:
         if re.search(r"(?<![a-z])"+re.escape(name)+r"(?![a-z])",t):
@@ -168,6 +170,8 @@ def same_event(a,b):
         return bool(a["subject_key"] and a["subject_key"]==b["subject_key"])
     if typ=="injury_update":
         return bool(a["subject_key"] and a["subject_key"]==b["subject_key"])
+    if typ=="player_award":
+        return bool(a["subject_key"] and a["subject_key"]==b["subject_key"])
     # For all other classes, only exact normalized URLs can merge.
     return False
 def cluster(observations):
@@ -197,7 +201,7 @@ def cluster(observations):
 def score(g):
     p=g["representative_publisher_type"]; typ=g["story_type"]
     points=20+{"official_domain":35,"established_domain":25,"other_direct_domain":5}.get(p,0)+min(12,(g["publisher_count"]-1)*4)
-    points+={"injury_update":10,"team_news":9,"confirmed_transfer":14,"match_report":10,"match_reaction":5,"match_preview":5,"transfer_rumour":-5,"opinion_analysis":-8,"general_news":0,"club_news":4}.get(typ,0)
+    points+={"injury_update":10,"team_news":9,"confirmed_transfer":14,"match_report":10,"match_reaction":5,"match_preview":5,"transfer_rumour":-5,"opinion_analysis":-8,"general_news":0,"club_news":4,"player_award":8}.get(typ,0)
     points+={"mens_first_team_or_club":5,"chelsea_women":2,"academy_youth":1}.get(g["team_scope"],0)
     age=max(0,(now()-datetime.fromisoformat(g["published"])).total_seconds()/3600); points-=min(12,int(age//12))
     g["importance_score"]=max(0,min(100,points))
@@ -222,6 +226,7 @@ def verification_checklist(g):
         "team_news":["Check the official squad/call-up/line-up announcement and the relevant competition/date.","Distinguish selection omission from injury, suspension or confirmed unavailability."],
         "opinion_analysis":["Attribute opinions and predictions to the named author/commentator; do not present them as facts.","Check any statistics or factual premises independently and add context/caveats."],
         "club_news":["Verify the exact club-policy/administrative issue and quote from the original source or an official statement.","Explain the context without implying disciplinary action or consequences that are not confirmed."],
+        "player_award":["Verify the named winner and award category against the club, competition or organiser announcement.","Treat fan-vote percentages and voting details as facts only when the original announcement states them.","Do not infer performance claims or award criteria beyond the supplied sources."],
         "general_news":["Confirm the central development and all named people, dates and figures from reliable sources."]
     }
     return common+specific.get(typ,specific["general_news"])
@@ -457,6 +462,10 @@ def run_self_tests():
     assert team_scope("Rio Ngumoha reveals why he left Chelsea to join Liverpool","")=="academy_youth"
     assert classify("Chelsea staff warned over Fantasy Premier League use","")== "club_news"
     assert classify("Chelsea confirm Quenda has a muscle injury","")== "injury_update"
+    assert classify("Veerle Buurman named Star of the Match after Chelsea win","") == "player_award"
+    award_a=o("Veerle Buurman named Star of the Match","https://www.chelseafc.com/en/news/article/award","Chelsea Official")
+    award_b=o("Chelsea defender Veerle Buurman wins Star of the Match vote","https://www.bbc.co.uk/sport/football/articles/award","BBC")
+    assert len(cluster([award_a,award_b])) == 1
     # Player identity must use distinctive full names, never generic surname fragments.
     assert event_subject("Chelsea linked with Reece James","", "transfer_rumour")=="reece_james"
     assert event_subject("Chelsea linked with James","", "transfer_rumour")==""
