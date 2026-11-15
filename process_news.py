@@ -52,6 +52,15 @@ def in_domains(url, domains):
     d = host(url)
     return any(d == x or d.endswith("." + x) for x in domains)
 
+def publisher_group(domain):
+    """Normalize domains owned by the same newsroom so mirrors do not count twice."""
+    d = host(domain)
+    if d in {"bbc.co.uk", "bbc.com"}:
+        return "bbc"
+    if d in {"nytimes.com", "theathletic.com"}:
+        return "nytimes"
+    return d
+
 def slug(value):
     value = re.sub(r"[^a-z0-9]+", "-", str(value).lower()).strip("-")
     return (value[:70].strip("-") or "chelsea-story")
@@ -245,7 +254,7 @@ def evidence_assessment(story, fetched):
     typ = story.get("story_type", "general_news")
     if official:
         tier = "official_source_accessible"
-    elif len({x["domain"] for x in established}) >= 2:
+    elif len({publisher_group(x["domain"]) for x in established}) >= 2:
         tier = "multiple_established_publishers_accessible"
     elif established:
         tier = "single_established_publisher_accessible"
@@ -273,12 +282,13 @@ def evidence_assessment(story, fetched):
         eligible = bool(official) or bool(established) or len(other_domains) >= 1
         reason = "A news draft may use one accessible direct publisher with explicit attribution; accessibility is not proof of factual accuracy."
     established_domains = sorted({x["domain"] for x in established})
+    established_groups = sorted({publisher_group(x["domain"]) for x in established})
     # Drafting can use one attributable direct source; automatic scheduling needs
     # stronger evidence: an accessible official source or two established publishers.
-    auto_schedule_eligible = bool(official) or len(established_domains) >= 2
+    auto_schedule_eligible = bool(official) or len(established_groups) >= 2
     return {"evidence_tier": tier, "accessible_source_count": len(accessible),
             "accessible_publisher_domains": accessible_domains, "official_source_count": len(official),
-            "established_source_domains": established_domains,
+            "established_source_domains": established_domains, "established_publisher_groups": established_groups,
             "eligible_for_draft": eligible, "auto_schedule_eligible": auto_schedule_eligible,
             "claims_verified": False, "reason": reason,
             "warning": "Accessibility and publisher count are evidence triage, not proof of factual accuracy."}
@@ -715,6 +725,12 @@ def process(input_path, output_dir):
             "image_alt_text": d.get("image_alt_text"),
             "source_urls": item.get("source_urls", []),
             "source_images": item.get("source_images", []),
+            "evidence_tier": item.get("evidence_tier"),
+            "official_source_count": item.get("official_source_count", 0),
+            "established_source_domains": item.get("established_source_domains", []),
+            "established_publisher_groups": item.get("established_publisher_groups", []),
+            "accessible_publisher_domains": item.get("accessible_publisher_domains", []),
+            "story_type": item.get("story_type"),
             "editorial_status": "draft_requires_editorial_review",
             "auto_schedule_eligible": item.get("auto_schedule_eligible", False),
             "claims_verified": False,
@@ -775,6 +791,10 @@ def self_test():
     assert evidence_assessment(story, one)["eligible_for_draft"]
     assert evidence_assessment(story, two)["eligible_for_draft"]
     assert evidence_assessment(story, official)["eligible_for_draft"]
+    bbc_mirror = one + [{"accessible":True,"domain":"bbc.com","url":"https://www.bbc.com/b"}]
+    assert evidence_assessment(story, bbc_mirror)["auto_schedule_eligible"] is False
+    bbc_plus_nyt = one + [{"accessible":True,"domain":"nytimes.com","url":"https://www.nytimes.com/b"}]
+    assert evidence_assessment(story, bbc_plus_nyt)["auto_schedule_eligible"] is True
     assert evidence_assessment({"story_type":"opinion_analysis"}, one)["eligible_for_draft"]
     assert evidence_assessment({"story_type":"transfer_rumour"}, one)["eligible_for_draft"]
     assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"]
