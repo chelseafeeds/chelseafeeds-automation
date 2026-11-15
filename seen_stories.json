@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:13:17.006590+00:00",
+  "updated_at": "2026-11-15T18:14:01.802630+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1569,7 +1569,7 @@
       "event_id": "dd6d262e3bf6651c8eb6b5cd",
       "title": "Bompastor's risks pay off as Chelsea go top of WSL",
       "first_seen_at": "2026-11-14T19:25:32.467415+00:00",
-      "last_seen_at": "2026-11-15T18:12:19.715373+00:00",
+      "last_seen_at": "2026-11-15T18:13:45.762606+00:00",
       "last_published_at": "2026-11-14T18:55:34+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -1721,7 +1721,7 @@
       "event_id": "173ca446860b0ad609c09a09",
       "title": "Arsenal target Nusa could cost £66m - Sunday's gossip",
       "first_seen_at": "2026-11-14T22:08:20.681107+00:00",
-      "last_seen_at": "2026-11-15T18:12:19.715373+00:00",
+      "last_seen_at": "2026-11-15T18:13:45.762606+00:00",
       "last_published_at": "2026-11-14T21:48:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1780,7 +1780,7 @@
       "event_id": "e777afa6b92ed1e56bb95aa4",
       "title": "Chelsea initiate contact over £25m Real Betis winger Jose Antonio Morante",
       "first_seen_at": "2026-11-15T05:50:57.477242+00:00",
-      "last_seen_at": "2026-11-15T18:12:19.715373+00:00",
+      "last_seen_at": "2026-11-15T18:13:45.762606+00:00",
       "last_published_at": "2026-11-15T05:41:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2439,7 +2439,7 @@
       "event_id": "718c2f697fd26fc4ce6b970f",
       "title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
       "first_seen_at": "2026-11-15T12:21:55.480871+00:00",
-      "last_seen_at": "2026-11-15T18:12:19.715373+00:00",
+      "last_seen_at": "2026-11-15T18:13:45.762606+00:00",
       "last_published_at": "2026-11-15T11:39:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2498,7 +2498,7 @@
       "event_id": "e8d72314df136b4288a26e22",
       "title": "Chelsea fans rank ahead of Spurs and Man City for “passion and dedication”",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-15T18:12:19.715373+00:00",
+      "last_seen_at": "2026-11-15T18:13:45.762606+00:00",
       "last_published_at": "2026-11-15T13:36:29+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2557,7 +2557,7 @@
       "event_id": "b913f2e03ea20c0efc963348",
       "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-15T18:12:43.261486+00:00",
+      "last_seen_at": "2026-11-15T18:13:45.762606+00:00",
       "last_published_at": "2026-11-15T13:38:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2567,10 +2567,10 @@
       "candidate_snapshot": {
         "event_id": "b913f2e03ea20c0efc963348",
         "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
-        "story_type": "match_report",
+        "story_type": "transfer_rumour",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-15T05:38:00+00:00",
-        "best_summary": "Chelsea could complicate a move from Liverpool, Man Utd or Man City for Malo Gusto in the January transfer window because of their asking price, according to reports. Gusto has only made three Premier ...",
+        "published": "2026-11-15T13:38:00+00:00",
+        "best_summary": "Chelsea could complicate a move from Liverpool or Man City for Malo Gusto in January because of their asking price, according to reports.",
         "representative_title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
         "representative_url": "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window",
         "representative_publisher": "football365.com",
@@ -2578,15 +2578,15 @@
         "source_observations": [
           {
             "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
-            "summary": "Chelsea could complicate a move from Liverpool, Man Utd or Man City for Malo Gusto in the January transfer window because of their asking price, according to reports. Gusto has only made three Premier ...",
+            "summary": "Chelsea could complicate a move from Liverpool or Man City for Malo Gusto in January because of their asking price, according to reports.",
             "url": "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window",
             "publisher_domain": "football365.com",
-            "publisher_name_hint": "football365.com",
-            "source_feed": "Bing News discovery: Malo Gusto Chelsea",
-            "published": "2026-11-15T05:38:00+00:00",
+            "publisher_name_hint": null,
+            "source_feed": "Football365",
+            "published": "2026-11-15T13:38:00+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
-            "story_type": "match_report",
+            "story_type": "transfer_rumour",
             "opponent_key": "manchester_city",
             "fixture_key": "",
             "subject_key": "malo_gusto"
@@ -2599,7 +2599,7 @@
           "football365.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Malo Gusto Chelsea"
+          "Football365"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -2616,7 +2616,7 @@
       "event_id": "f07469f43a177d90b3498347",
       "title": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first",
       "first_seen_at": "2026-11-15T14:05:48.901252+00:00",
-      "last_seen_at": "2026-11-15T18:12:19.715373+00:00",
+      "last_seen_at": "2026-11-15T18:13:45.762606+00:00",
       "last_published_at": "2026-11-15T13:49:57+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2784,7 +2784,7 @@
       "event_id": "01a11c53f32c4ba6faac9ab2",
       "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "first_seen_at": "2026-11-15T16:03:13.171080+00:00",
-      "last_seen_at": "2026-11-15T18:12:19.715373+00:00",
+      "last_seen_at": "2026-11-15T18:13:45.762606+00:00",
       "last_published_at": "2026-11-15T16:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2843,7 +2843,7 @@
       "event_id": "f58ea7083e8a093d285570ff",
       "title": "Chelsea reassert WSL dominance over Man City in front of USWNT boss Hayes",
       "first_seen_at": "2026-11-15T16:46:03.764754+00:00",
-      "last_seen_at": "2026-11-15T16:46:03.764754+00:00",
+      "last_seen_at": "2026-11-15T18:13:45.762606+00:00",
       "last_published_at": "2026-11-15T08:50:21+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2875,7 +2875,7 @@
             "story_type": "match_report",
             "opponent_key": "manchester_city",
             "fixture_key": "",
-            "subject_key": ""
+            "subject_key": "kadeisha_buchanan"
           }
         ],
         "source_urls": [
@@ -2902,7 +2902,7 @@
       "event_id": "298db4b54e81ac6915eb37aa",
       "title": "How Xabi Alonso’s Start Compares to Other Chelsea Managers",
       "first_seen_at": "2026-11-15T18:06:24.859426+00:00",
-      "last_seen_at": "2026-11-15T18:12:43.261486+00:00",
+      "last_seen_at": "2026-11-15T18:14:01.802630+00:00",
       "last_published_at": "2026-11-15T09:23:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2959,28 +2959,44 @@
     },
     "587ef1dd9d6a7e59ce794ac8": {
       "event_id": "587ef1dd9d6a7e59ce794ac8",
-      "title": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
+      "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
       "first_seen_at": "2026-11-15T18:06:24.859426+00:00",
-      "last_seen_at": "2026-11-15T18:12:43.261486+00:00",
+      "last_seen_at": "2026-11-15T18:14:01.802630+00:00",
       "last_published_at": "2026-11-15T04:20:00+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
+        "football365.com",
         "sports.yahoo.com",
         "thefalse9.com"
       ],
       "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "587ef1dd9d6a7e59ce794ac8",
-        "title": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
+        "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
         "story_type": "transfer_rumour",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-15T04:20:00+00:00",
-        "best_summary": "Manchester City's hopes of signing Malo Gusto in the January transfer window could be ended by Chelsea's £75million price tag, sources have told Football Insider. The 23-year-old has told the Blues ...",
-        "representative_title": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
-        "representative_url": "https://sports.yahoo.com/articles/chelsea-could-block-man-citys-122000936.html",
-        "representative_publisher": "sports.yahoo.com",
-        "representative_publisher_type": "other_direct_domain",
+        "best_summary": "Chelsea could complicate a move from Liverpool, Man Utd or Man City for Malo Gusto in the January transfer window because of their asking price, according to reports. Gusto has only made three Premier ...",
+        "representative_title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
+        "representative_url": "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window",
+        "representative_publisher": "football365.com",
+        "representative_publisher_type": "established_domain",
         "source_observations": [
+          {
+            "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
+            "summary": "Chelsea could complicate a move from Liverpool, Man Utd or Man City for Malo Gusto in the January transfer window because of their asking price, according to reports. Gusto has only made three Premier ...",
+            "url": "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window",
+            "publisher_domain": "football365.com",
+            "publisher_name_hint": "football365.com",
+            "source_feed": "Bing News discovery: Malo Gusto Chelsea",
+            "published": "2026-11-15T05:38:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "transfer_rumour",
+            "opponent_key": "manchester_city",
+            "fixture_key": "",
+            "subject_key": "malo_gusto"
+          },
           {
             "title": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
             "summary": "Manchester City's hopes of signing Malo Gusto in the January transfer window could be ended by Chelsea's £75million price tag, sources have told Football Insider. The 23-year-old has told the Blues ...",
@@ -3010,36 +3026,20 @@
             "opponent_key": "barcelona",
             "fixture_key": "",
             "subject_key": "malo_gusto"
-          },
-          {
-            "title": "Gusto to Man Utd or Man City: talkSPORT Reports Chelsea Defender Battle",
-            "summary": "BBC Sport's gossip column says talkSPORT reports Man Utd and Man City will battle for Chelsea's Malo Gusto. No fee or bid is reported.",
-            "url": "https://thefalse9.com/2026/11/gusto-man-utd-man-city-talksport-chelsea-january.html",
-            "publisher_domain": "thefalse9.com",
-            "publisher_name_hint": "The False 9",
-            "source_feed": "The False 9",
-            "published": "2026-11-15T07:21:41+00:00",
-            "publisher_type": "other_direct_domain",
-            "team_scope": "mens_first_team_or_club",
-            "story_type": "transfer_rumour",
-            "opponent_key": "manchester_city",
-            "fixture_key": "",
-            "subject_key": "malo_gusto"
           }
         ],
         "source_urls": [
           "https://sports.yahoo.com/articles/chelsea-could-block-man-citys-122000936.html",
           "https://sports.yahoo.com/articles/chelsea-revive-interest-barcelona-outcast-171632539.html",
-          "https://thefalse9.com/2026/11/gusto-man-utd-man-city-talksport-chelsea-january.html"
+          "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window"
         ],
         "publisher_domains": [
-          "sports.yahoo.com",
-          "thefalse9.com"
+          "football365.com",
+          "sports.yahoo.com"
         ],
         "source_feeds": [
           "Bing News discovery: Chelsea FC",
-          "Bing News discovery: Malo Gusto Chelsea",
-          "The False 9"
+          "Bing News discovery: Malo Gusto Chelsea"
         ],
         "publisher_count": 2,
         "observation_count": 3,
@@ -3062,7 +3062,7 @@
       "event_id": "3aa34c3e8337fa58034febce",
       "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "first_seen_at": "2026-11-15T18:12:43.261486+00:00",
-      "last_seen_at": "2026-11-15T18:12:43.261486+00:00",
+      "last_seen_at": "2026-11-15T18:14:01.802630+00:00",
       "last_published_at": "2026-11-15T08:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
