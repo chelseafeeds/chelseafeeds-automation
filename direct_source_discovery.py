@@ -163,12 +163,12 @@ def discover_pinned_story(session):
             response = session.get(source["url"], timeout=c.TIMEOUT)
             response.raise_for_status()
             title, summary, published = article_metadata(response.text, response.url)
-            if not title or not published:
+            if not title:
                 continue
             host = c.domain(response.url)
             text = (title + " " + summary).lower()
             if source["role"] == "primary":
-                if c.matches(host, c.AGGREGATORS):
+                if c.matches(host, c.AGGREGATORS) or not published:
                     continue
                 item = c.observation(title, summary, response.url, source["name"], source["name"], published)
                 if item and "caicedo" in text and "ecuador" in text:
@@ -182,7 +182,7 @@ def discover_pinned_story(session):
                 item = {
                     "title": title, "summary": summary[:500], "url": c.normalize_url(response.url),
                     "publisher_domain": host, "publisher_name_hint": source["name"],
-                    "source_feed": source["name"], "published": published.isoformat(),
+                    "source_feed": source["name"], "published": published.isoformat() if published else "",
                     "publisher_type": c.publisher_type(response.url),
                     "team_scope": "mens_first_team_or_club",
                     "story_type": c.classify(title, summary),
