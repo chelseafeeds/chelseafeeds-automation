@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T10:42:12.182675+00:00",
+  "updated_at": "2026-11-15T10:44:18.589284+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1069,7 +1069,7 @@
       "event_id": "645815176e7954bb34cfe8ae",
       "title": "Chelsea 1-0 Manchester City: Women’s Super League – as it happened",
       "first_seen_at": "2026-11-14T12:53:01.091287+00:00",
-      "last_seen_at": "2026-11-15T10:41:41.668331+00:00",
+      "last_seen_at": "2026-11-15T10:44:13.018174+00:00",
       "last_published_at": "2026-11-14T16:02:42+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1142,7 +1142,7 @@
       "event_id": "598b34ea97f175b4ceeacd69",
       "title": "Big tactical calls and restricting Shaw - How Chelsea got better of Man City",
       "first_seen_at": "2026-11-14T15:40:02.815557+00:00",
-      "last_seen_at": "2026-11-15T10:41:41.668331+00:00",
+      "last_seen_at": "2026-11-15T10:44:13.018174+00:00",
       "last_published_at": "2026-11-14T10:54:00+00:00",
       "last_observation_count": 9,
       "publisher_domains": [
@@ -1303,7 +1303,7 @@
       "event_id": "7389ed7606ef8f781573588a",
       "title": "Chelsea regular slammed for “disastrous evening” for national team",
       "first_seen_at": "2026-11-14T18:36:55.881251+00:00",
-      "last_seen_at": "2026-11-15T10:41:41.668331+00:00",
+      "last_seen_at": "2026-11-15T10:44:13.018174+00:00",
       "last_published_at": "2026-11-14T18:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1359,7 +1359,7 @@
       "event_id": "dd6d262e3bf6651c8eb6b5cd",
       "title": "Bompastor's risks pay off as Chelsea go top of WSL",
       "first_seen_at": "2026-11-14T19:25:32.467415+00:00",
-      "last_seen_at": "2026-11-15T10:41:41.668331+00:00",
+      "last_seen_at": "2026-11-15T10:44:13.018174+00:00",
       "last_published_at": "2026-11-14T18:55:34+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -1505,7 +1505,7 @@
       "event_id": "173ca446860b0ad609c09a09",
       "title": "Arsenal target Nusa could cost £66m - Sunday's gossip",
       "first_seen_at": "2026-11-14T22:08:20.681107+00:00",
-      "last_seen_at": "2026-11-15T10:41:41.668331+00:00",
+      "last_seen_at": "2026-11-15T10:44:13.018174+00:00",
       "last_published_at": "2026-11-14T21:48:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1561,7 +1561,7 @@
       "event_id": "e777afa6b92ed1e56bb95aa4",
       "title": "Chelsea initiate contact over £25m Real Betis winger Jose Antonio Morante",
       "first_seen_at": "2026-11-15T05:50:57.477242+00:00",
-      "last_seen_at": "2026-11-15T10:41:41.668331+00:00",
+      "last_seen_at": "2026-11-15T10:44:13.018174+00:00",
       "last_published_at": "2026-11-15T05:41:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1617,7 +1617,7 @@
       "event_id": "4533cc88c932ccca56140d8d",
       "title": "Chelsea FCW vs. Manchester City WFC, Women’s Super League: Confirmed lineups; how to watch",
       "first_seen_at": "2026-11-15T10:34:52.217834+00:00",
-      "last_seen_at": "2026-11-15T10:41:44.077684+00:00",
+      "last_seen_at": "2026-11-15T10:44:18.589284+00:00",
       "last_published_at": "2026-11-14T12:50:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1673,7 +1673,7 @@
       "event_id": "b14488f636b930670f695d23",
       "title": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
       "first_seen_at": "2026-11-15T10:34:52.217834+00:00",
-      "last_seen_at": "2026-11-15T10:41:44.077684+00:00",
+      "last_seen_at": "2026-11-15T10:44:18.589284+00:00",
       "last_published_at": "2026-11-14T15:30:34+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1800,6 +1800,139 @@
       "last_processed_at": "2026-11-15T10:38:23.824024+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea News Today: Estevao in Brazil Loss, Caicedo Penalty and Rogers on Palmer (15 November)"
+    },
+    "c1a5d3ac915811537f0a62b4": {
+      "event_id": "c1a5d3ac915811537f0a62b4",
+      "title": "Bompastor gives fitness updates on two Chelsea stars after beating Man City",
+      "first_seen_at": "2026-11-15T10:44:18.589284+00:00",
+      "last_seen_at": "2026-11-15T10:44:18.589284+00:00",
+      "last_published_at": "2026-11-14T16:14:00+00:00",
+      "last_observation_count": 5,
+      "publisher_domains": [
+        "bbc.co.uk",
+        "canadiansoccerdaily.com",
+        "chelseafc.com",
+        "skysports.com",
+        "sports.yahoo.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "c1a5d3ac915811537f0a62b4",
+        "title": "Bompastor gives fitness updates on two Chelsea stars after beating Man City",
+        "story_type": "injury_news",
+        "team_scope": "chelsea_women",
+        "published": "2026-11-14T16:14:00+00:00",
+        "best_summary": "Sonia Bompastor said that Melvine Malard was forced off with a hamstring injury and Kadeisha Buchanan took a knock in training yesterday.Chelsea recorded a 1-0 win against Women’s Super League champ...",
+        "representative_title": "Bompastor gives fitness updates on two Chelsea stars after beating Man City",
+        "representative_url": "https://sports.yahoo.com/articles/bompastor-gives-fitness-updates-two-161400345.html",
+        "representative_publisher": "sports.yahoo.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "WSL: Chelsea 1-0 Man City - Sonia Bompastor's risks pay off",
+            "summary": "In any big encounter you will often hear managers say it is the \"fine margins\" that decide a game. In this case, it was Sonia Bompastor's decisions.",
+            "url": "https://www.bbc.co.uk/sport/football/articles/cmvg25w18q9qo",
+            "publisher_domain": "bbc.co.uk",
+            "publisher_name_hint": "BBC Sport",
+            "source_feed": "BBC Sport",
+            "published": "2026-11-14T18:55:34.483000+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "injury_news",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "kadeisha_buchanan_melvine_malard"
+          },
+          {
+            "title": "CanWNT defender Kadeisha Buchanan subbed early as Chelsea beat Manchester City, go top of WSL",
+            "summary": "Canada centre-back Kadeisha Buchanan was subbed after 12 minutes as Chelsea beat Jade Rose's Manchester City, 1-0, on Saturday.",
+            "url": "https://canadiansoccerdaily.com/2026/11/14/canwnt-defender-kadeisha-buchanan-subbed-early-as-chelsea-beat-manchester-city-go-top-of-wsl",
+            "publisher_domain": "canadiansoccerdaily.com",
+            "publisher_name_hint": "Canadian Soccer Daily",
+            "source_feed": "Canadian Soccer Daily",
+            "published": "2026-11-14T19:38:31+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "injury_news",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "kadeisha_buchanan_melvine_malard"
+          },
+          {
+            "title": "Sonia Bompastor provides injury update on Kadeisha Buchanan and Melvine Malard",
+            "summary": "Sonia Bompastor has provided an update on the fitness of Kadeisha Buchanan and Melvine Malard after both Chelsea players were forced off with injuries during our 1-0 victory over Manchester City.",
+            "url": "https://www.chelseafc.com/en/news/article/sonia-bompastor-provides-injury-update-on-kadeisha-buchanan-and-melvine",
+            "publisher_domain": "chelseafc.com",
+            "publisher_name_hint": "Chelsea FC Official",
+            "source_feed": "Chelsea FC Official",
+            "published": "",
+            "publisher_type": "official_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "injury_news",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "kadeisha_buchanan_melvine_malard"
+          },
+          {
+            "title": "Chelsea 1-0 Man City: Sandy Baltimore's winner sees Blues leapfrog 10-player champions at top of the Women's Super League",
+            "summary": "Report and reaction as Chelsea beat Man City to leapfrog the reigning champions at the top of the Womens Super League table; Sandy Baltimore gave Chelsea a deserved half-time lead; Lauren Hemp missed a sitter in the second half before Ayaka Yamashitas red card for fouling Alyssa Thompson",
+            "url": "https://www.skysports.com/football/chelsea-women-vs-manchester-city-women/5928984761706749232",
+            "publisher_domain": "skysports.com",
+            "publisher_name_hint": "Sky Sports",
+            "source_feed": "Sky Sports",
+            "published": "2026-11-14T10:54:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "injury_news",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "kadeisha_buchanan_melvine_malard"
+          },
+          {
+            "title": "Bompastor gives fitness updates on two Chelsea stars after beating Man City",
+            "summary": "Sonia Bompastor said that Melvine Malard was forced off with a hamstring injury and Kadeisha Buchanan took a knock in training yesterday.Chelsea recorded a 1-0 win against Women’s Super League champ...",
+            "url": "https://sports.yahoo.com/articles/bompastor-gives-fitness-updates-two-161400345.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "Hayters TV",
+            "source_feed": "Yahoo Sports / Hayters TV",
+            "published": "2026-11-14T16:14:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "injury_news",
+            "opponent_key": "manchester_city",
+            "fixture_key": "",
+            "subject_key": "kadeisha_buchanan_melvine_malard"
+          }
+        ],
+        "source_urls": [
+          "https://canadiansoccerdaily.com/2026/11/14/canwnt-defender-kadeisha-buchanan-subbed-early-as-chelsea-beat-manchester-city-go-top-of-wsl",
+          "https://sports.yahoo.com/articles/bompastor-gives-fitness-updates-two-161400345.html",
+          "https://www.bbc.co.uk/sport/football/articles/cmvg25w18q9qo",
+          "https://www.chelseafc.com/en/news/article/sonia-bompastor-provides-injury-update-on-kadeisha-buchanan-and-melvine",
+          "https://www.skysports.com/football/chelsea-women-vs-manchester-city-women/5928984761706749232"
+        ],
+        "publisher_domains": [
+          "bbc.co.uk",
+          "canadiansoccerdaily.com",
+          "chelseafc.com",
+          "skysports.com",
+          "sports.yahoo.com"
+        ],
+        "source_feeds": [
+          "BBC Sport",
+          "Canadian Soccer Daily",
+          "Chelsea FC Official",
+          "Sky Sports",
+          "Yahoo Sports / Hayters TV"
+        ],
+        "publisher_count": 5,
+        "observation_count": 5,
+        "corroboration_status": "multiple_direct_publishers_observed_independence_not_proven",
+        "subject_key": "kadeisha_buchanan_melvine_malard"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null
     }
   }
 }
