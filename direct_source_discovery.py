@@ -32,7 +32,8 @@ PINNED_STORY_SOURCES = [
     {"role": "corroboration", "name": "Chelsea FC Official", "url": "https://www.chelseafc.com/en/news/article/sonia-bompastor-provides-injury-update-on-kadeisha-buchanan-and-melvine"},
     {"role": "corroboration", "name": "Canadian Soccer Daily", "url": "https://canadiansoccerdaily.com/2026/11/14/canwnt-defender-kadeisha-buchanan-subbed-early-as-chelsea-beat-manchester-city-go-top-of-wsl/"},
 ]
-LANDING_PAGES = []  # Chelsea's current HTML pages are bot-gated for Actions; use readable primary sources instead.\nSPECIALIST_FEEDS = [
+LANDING_PAGES = []  # Chelsea's current HTML pages are bot-gated for Actions; use readable primary sources instead.
+SPECIALIST_FEEDS = [
     {"name": "We Ain't Got No History", "url": "https://weaintgotnohistory.sbnation.com/rss/current.xml"},
 ]
 ALLOWED_OFFICIAL = {"chelseafc.com", "wslfootball.com", "premierleague.com", "uefa.com", "thefa.com", "englandfootball.com"}
