@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:23:58.768370+00:00",
+  "updated_at": "2026-11-15T18:25:29.705894+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1272,7 +1272,7 @@
       "event_id": "df20d1a89b2b375d3ba29445",
       "title": "How a reunion with scout Bompastor solved Chelsea's striker issue",
       "first_seen_at": "2026-11-14T07:13:53.181130+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-14T06:37:49+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -1332,7 +1332,7 @@
       "event_id": "001cc43734fdb707c1135298",
       "title": "“He’s a complete winger” – Under the radar Chelsea transfer praised by new teammate",
       "first_seen_at": "2026-11-14T10:41:57.198039+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-14T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1413,7 +1413,7 @@
       "event_id": "645815176e7954bb34cfe8ae",
       "title": "Chelsea 1-0 Manchester City: Women’s Super League – as it happened",
       "first_seen_at": "2026-11-14T12:53:01.091287+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-14T16:02:42+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1494,7 +1494,7 @@
       "event_id": "598b34ea97f175b4ceeacd69",
       "title": "Big tactical calls and restricting Shaw - How Chelsea got better of Man City",
       "first_seen_at": "2026-11-14T15:40:02.815557+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-14T10:54:00+00:00",
       "last_observation_count": 9,
       "publisher_domains": [
@@ -1504,7 +1504,7 @@
         "skysports.com",
         "theguardian.com"
       ],
-      "status": "scheduled",
+      "status": "draft_created_unpublished",
       "last_processed_at": "2026-11-15T18:23:58.768370+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea leapfrog Man City to become new WSL leaders",
@@ -1632,17 +1632,13 @@
         "https://www.nytimes.com/athletic/7781531/2026/11/14/chelsea-man-city-womens-super-league-result"
       ],
       "last_quality_failures": [],
-      "force_evidence_refresh": false,
-      "blogger_status": "scheduled",
-      "blogger_post_id": "548932843313964682",
-      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-womens-tactical-masterclass.html",
-      "scheduled_for_utc": "2026-11-15T18:29:17Z"
+      "force_evidence_refresh": true
     },
     "7389ed7606ef8f781573588a": {
       "event_id": "7389ed7606ef8f781573588a",
       "title": "Chelsea regular slammed for “disastrous evening” for national team",
       "first_seen_at": "2026-11-14T18:36:55.881251+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-14T18:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1702,7 +1698,7 @@
       "event_id": "dd6d262e3bf6651c8eb6b5cd",
       "title": "Bompastor's risks pay off as Chelsea go top of WSL",
       "first_seen_at": "2026-11-14T19:25:32.467415+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-14T18:55:34+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -1856,7 +1852,7 @@
       "event_id": "173ca446860b0ad609c09a09",
       "title": "Arsenal target Nusa could cost £66m - Sunday's gossip",
       "first_seen_at": "2026-11-14T22:08:20.681107+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-14T21:48:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1916,7 +1912,7 @@
       "event_id": "e777afa6b92ed1e56bb95aa4",
       "title": "Chelsea initiate contact over £25m Real Betis winger Jose Antonio Morante",
       "first_seen_at": "2026-11-15T05:50:57.477242+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-15T05:41:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -1976,7 +1972,7 @@
       "event_id": "4533cc88c932ccca56140d8d",
       "title": "Chelsea FCW vs. Manchester City WFC, Women’s Super League: Confirmed lineups; how to watch",
       "first_seen_at": "2026-11-15T10:34:52.217834+00:00",
-      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-14T12:50:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2313,7 +2309,7 @@
       "event_id": "2b2ca8de6ab75121f5cab79b",
       "title": "Gusto to Man Utd or Man City: talkSPORT Reports Chelsea Defender Battle",
       "first_seen_at": "2026-11-15T10:46:44.479367+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-15T07:21:41+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -2602,7 +2598,7 @@
       "event_id": "718c2f697fd26fc4ce6b970f",
       "title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
       "first_seen_at": "2026-11-15T12:21:55.480871+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-15T11:39:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2662,7 +2658,7 @@
       "event_id": "e8d72314df136b4288a26e22",
       "title": "Chelsea fans rank ahead of Spurs and Man City for “passion and dedication”",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-15T13:36:29+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2722,7 +2718,7 @@
       "event_id": "b913f2e03ea20c0efc963348",
       "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-15T13:38:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2782,7 +2778,7 @@
       "event_id": "f07469f43a177d90b3498347",
       "title": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first",
       "first_seen_at": "2026-11-15T14:05:48.901252+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-15T13:49:57+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2952,7 +2948,7 @@
       "event_id": "01a11c53f32c4ba6faac9ab2",
       "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "first_seen_at": "2026-11-15T16:03:13.171080+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-15T16:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3072,7 +3068,7 @@
       "event_id": "298db4b54e81ac6915eb37aa",
       "title": "How Xabi Alonso’s Start Compares to Other Chelsea Managers",
       "first_seen_at": "2026-11-15T18:06:24.859426+00:00",
-      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-15T09:23:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3235,7 +3231,7 @@
       "event_id": "3aa34c3e8337fa58034febce",
       "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "first_seen_at": "2026-11-15T18:12:43.261486+00:00",
-      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-15T08:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3301,7 +3297,7 @@
       "event_id": "282dbc8c3a18d3f3c8659c03",
       "title": "Behdad Eghbali has exploited loophole for controversial Chelsea scheme - Keith Wyness",
       "first_seen_at": "2026-11-15T18:16:19.941490+00:00",
-      "last_seen_at": "2026-11-15T18:22:00.752279+00:00",
+      "last_seen_at": "2026-11-15T18:25:02.658374+00:00",
       "last_published_at": "2026-11-15T15:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3555,7 +3551,7 @@
       "event_id": "967b300205c6810d69882c21",
       "title": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-14T07:30:34+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -3638,7 +3634,7 @@
       "event_id": "2e4dfc8f18edcb763cec120b",
       "title": "Mike Penders wins Premier League Save of the Month",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-14T08:26:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3704,7 +3700,7 @@
       "event_id": "da2813a3c27018c6b0e7b675",
       "title": "Chelsea beat Manchester City to top the Women’s Super League — The Guardian",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-14T09:43:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3764,7 +3760,7 @@
       "event_id": "3385fd1c43a540233b2ed114",
       "title": "Man Utd transfer news: Fabrizio Romano reveals Pochettino stance on signing Malo Gusto from Chelsea",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-14T10:01:04+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3824,7 +3820,7 @@
       "event_id": "15f32849eed6bf75ca55e355",
       "title": "Chelsea Women Edge Ten-Player Man City to Go Top | OneFootball",
       "first_seen_at": "2026-11-15T18:16:49.033235+00:00",
-      "last_seen_at": "2026-11-15T18:22:17.184438+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-14T11:36:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3888,7 +3884,7 @@
       "event_id": "a1b083a3199deead56853b78",
       "title": "Chelsea go top with 1-0 win against Man City",
       "first_seen_at": "2026-11-15T18:20:47.086481+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-14T07:51:00+00:00",
       "last_observation_count": 6,
       "publisher_domains": [
@@ -4038,7 +4034,7 @@
       "event_id": "c8579a9fe38997fb7c646934",
       "title": "Chelsea Identify This Barcelona Full-Back As A Target: Should Alonso Snap Him Up?",
       "first_seen_at": "2026-11-15T18:20:47.086481+00:00",
-      "last_seen_at": "2026-11-15T18:20:47.086481+00:00",
+      "last_seen_at": "2026-11-15T18:25:29.705894+00:00",
       "last_published_at": "2026-11-14T11:40:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
