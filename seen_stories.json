@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:14:01.802630+00:00",
+  "updated_at": "2026-11-15T18:14:29.772611+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -3045,7 +3045,7 @@
         "observation_count": 3,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": "2026-11-15T18:13:17.006590+00:00",
+      "last_processed_at": "2026-11-15T18:14:29.772611+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Chelsea could block Man City's move for Malo Gusto as price tag revealed",
       "last_editorial_source_domains": [
