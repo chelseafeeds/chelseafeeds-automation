@@ -36,7 +36,7 @@ def main():
 
     for status in ("scheduled", "live", "draft"):
         response = session.get(base, params={
-            "status": status.upper(), "maxResults": 100, "fetchBodies": "false"
+            "status": status.upper(), "maxResults": 100, "fetchBodies": "true"
         }, headers=headers, timeout=30)
         response.raise_for_status()
         payload = response.json()
@@ -59,7 +59,7 @@ def main():
     post_id = str(item["id"])
     if "content" not in item:
         get_response = session.get(f"{base}/{quote(post_id, safe='')}",
-            params={"fetchImages": "true", "fetchBody": "true"},
+            params={"fetchImages": "true", "fetchBody": "true", "view": "ADMIN"},
             headers=headers, timeout=45)
         get_response.raise_for_status()
         item = get_response.json()
