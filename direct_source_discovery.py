@@ -109,14 +109,26 @@ def article_metadata(html, page_url):
     return title, description, published
 
 
-def sitemap_locations(xml_text):
-    """Extract sitemap URLs without trusting sitemap lastmod as article publish time."""
+def sitemap_entries(xml_text):
+    """Extract sitemap locations with lastmod as a discovery-only sort hint."""
     root = ET.fromstring(xml_text)
+    kind = root.tag.rsplit("}", 1)[-1].lower()
     entries = []
-    for node in root.iter():
-        if node.tag.rsplit("}", 1)[-1].lower() == "loc" and node.text:
-            entries.append(node.text.strip())
-    return root.tag.rsplit("}", 1)[-1].lower(), entries
+    for node in list(root):
+        record = {}
+        for child in list(node):
+            key = child.tag.rsplit("}", 1)[-1].lower()
+            if key in ("loc", "lastmod") and child.text:
+                record[key] = child.text.strip()
+        if record.get("loc"):
+            entries.append(record)
+    return kind, entries
+
+
+def sitemap_locations(xml_text):
+    """Compatibility helper used by regression tests."""
+    kind, entries = sitemap_entries(xml_text)
+    return kind, [entry["loc"] for entry in entries]
 
 
 def run_self_tests():
@@ -124,10 +136,12 @@ def run_self_tests():
     urlset = f'<urlset xmlns="{ns}"><url><loc>https://www.chelseafc.com/en/news/article/test-story</loc></url></urlset>'
     kind, locations = sitemap_locations(urlset)
     assert kind == "urlset" and locations == ["https://www.chelseafc.com/en/news/article/test-story"]
-    index = f'<sitemapindex xmlns="{ns}"><sitemap><loc>https://www.chelseafc.com/news-sitemap.xml</loc></sitemap></sitemapindex>'
+    index = f'<sitemapindex xmlns="{ns}"><sitemap><loc>https://www.chelseafc.com/news-sitemap.xml</loc><lastmod>2026-11-15</lastmod></sitemap></sitemapindex>'
     kind, locations = sitemap_locations(index)
     assert kind == "sitemapindex" and locations == ["https://www.chelseafc.com/news-sitemap.xml"]
-    print("PASS: official sitemap URL-set and sitemap-index parsing; article dates remain independently required.")
+    kind, records = sitemap_entries(index)
+    assert kind == "sitemapindex" and records[0]["lastmod"] == "2026-11-15"
+    print("PASS: sitemap URL-set/index parsing and lastmod extraction; article dates remain independently required.")
 
 
 def discover_official_sitemaps(session):
@@ -163,7 +177,7 @@ def discover_official_sitemaps(session):
             try:
                 response = session.get(sitemap_url, timeout=c.TIMEOUT)
                 response.raise_for_status()
-                root_kind, root_locations = sitemap_locations(response.text)
+                root_kind, root_records = sitemap_entries(response.text)
                 report["url"] = sitemap_url
                 break
             except Exception as exc:
@@ -171,19 +185,25 @@ def discover_official_sitemaps(session):
         else:
             raise RuntimeError("No working official sitemap URL found: " + str(last_error or "not declared"))
         if root_kind == "sitemapindex":
-            sitemap_files = [u for u in root_locations if c.matches(c.domain(u), ALLOWED_OFFICIAL)]
-            sitemap_files.sort(key=lambda u: (0 if re.search(r"news|article|content", urlparse(u).path, re.I) else 1, u))
-            for sitemap_url in sitemap_files[:MAX_SITEMAP_FILES]:
+            sitemap_files = [r for r in root_records if c.matches(c.domain(r.get("loc", "")), ALLOWED_OFFICIAL)]
+            sitemap_files.sort(key=lambda r: (0 if re.search(r"news|article|content", urlparse(r["loc"]).path, re.I) else 1, r.get("lastmod", "")), reverse=True)
+            article_records = []
+            for sitemap_record in sitemap_files[:MAX_SITEMAP_FILES]:
+                sitemap_url = sitemap_record["loc"]
                 try:
                     child = session.get(sitemap_url, timeout=c.TIMEOUT)
                     child.raise_for_status()
-                    child_kind, child_locations = sitemap_locations(child.text)
+                    child_kind, child_records = sitemap_entries(child.text)
                     if child_kind == "urlset":
-                        article_urls.extend(u for u in child_locations if "/en/news/article/" in urlparse(u).path)
+                        article_records.extend(r for r in child_records if "/en/news/article/" in urlparse(r.get("loc", "")).path)
                 except Exception as exc:
                     logging.info("Official child sitemap skipped (%s): %s", sitemap_url, type(exc).__name__)
+            article_records.sort(key=lambda r: r.get("lastmod", ""), reverse=True)
+            article_urls = [r["loc"] for r in article_records]
         elif root_kind == "urlset":
-            article_urls = [u for u in root_locations if "/en/news/article/" in urlparse(u).path]
+            article_records = [r for r in root_records if "/en/news/article/" in urlparse(r.get("loc", "")).path]
+            article_records.sort(key=lambda r: r.get("lastmod", ""), reverse=True)
+            article_urls = [r["loc"] for r in article_records]
         else:
             raise ValueError("Unrecognized XML sitemap document")
 
