@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T19:17:24.496076+00:00",
+  "updated_at": "2026-11-15T19:17:51.308165+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -4242,7 +4242,7 @@
         "sports.yahoo.com",
         "thefalse9.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "4f8d1f964c13ff90f4e657d3",
         "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
@@ -4353,11 +4353,22 @@
         "observation_count": 5,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-15T19:17:51.308165+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
+      "last_editorial_source_domains": [
+        "caughtoffside.com",
+        "football365.com",
+        "sports.yahoo.com",
+        "thefalse9.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/chelsea-could-block-man-citys-122000936.html",
+        "https://sports.yahoo.com/articles/chelsea-revive-interest-barcelona-outcast-171632539.html",
+        "https://thefalse9.com/2026/11/gusto-man-utd-man-city-talksport-chelsea-january.html",
+        "https://www.caughtoffside.com/2026/11/15/chelseas-75m-demand-threatens-to-complicate-manchester-city-recruitment-plans",
+        "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     }
