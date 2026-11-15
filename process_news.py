@@ -500,6 +500,17 @@ def normalize_search_description(draft):
         combined = combined[:177].rsplit(" ", 1)[0].rstrip(" ,;:-") + "…"
     return combined
 
+def apply_source_title_fallback(draft, story):
+    """Use the supplied source headline only when the AI title fails the length rule."""
+    current = str(draft.get("title", "")).strip()
+    if 25 <= len(current) <= 100:
+        return False
+    fallback = str(story.get("title", "")).strip()
+    if 25 <= len(fallback) <= 100:
+        draft["title"] = fallback
+        return True
+    return False
+
 def quality_gate(draft, fetched, story, allowed_internal_urls=None):
     html = str(draft.get("article_html", ""))
     soup = BeautifulSoup(html, "html.parser")
@@ -632,8 +643,12 @@ def process(input_path, output_dir):
                 related = select_related_articles(draft, story, published_articles)
                 draft["article_html"] = add_related_links(draft["article_html"], related)
                 draft["related_internal_links"] = [{"title": x["title"], "url": x["url"], "score": x["score"]} for x in related]
+                title_fallback_applied = apply_source_title_fallback(draft, story)
+                if title_fallback_applied:
+                    logging.info("TITLE_FALLBACK_APPLIED event=%s using source headline", story.get("event_id"))
                 quality = quality_gate(draft, fetched, story, {x["url"] for x in related})
                 record["quality_gate"] = quality
+                record["title_fallback_applied"] = title_fallback_applied
                 if not quality["passed"]:
                     record["processing_status"] = "rejected_quality_gate"
                     record["quality_failures"] = quality["failed_checks"]
@@ -761,6 +776,13 @@ def self_test():
     assert evidence_assessment(story, official)["auto_schedule_eligible"]
     assert not evidence_assessment(story, [{"accessible":False,"domain":"talkchelsea.net","url":"https://talkchelsea.net/story"}])["eligible_for_draft"]
     assert not evidence_assessment({"story_type":"confirmed_transfer"}, specialist)["eligible_for_draft"]
+
+    fallback_draft = {"title": "Chelsea"}
+    fallback_story = {"title": "Bompastor gives fitness updates on two Chelsea stars after beating Man City"}
+    assert apply_source_title_fallback(fallback_draft, fallback_story)
+    assert fallback_draft["title"] == fallback_story["title"]
+    invalid_fallback = {"title": "Short"}
+    assert not apply_source_title_fallback(invalid_fallback, {"title": "Too short"})
 
     def make_draft(article_words=500):
         # The inline source anchor contributes two words; headings are excluded from the count.
