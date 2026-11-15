@@ -154,10 +154,40 @@ jobs:
             python publish_article.py
 
             post_id="$(sed -n 's/^post_id=//p' "$publish_output")"
+            post_url="$(sed -n 's/^post_url=//p' "$publish_output")"
+            blogger_status="$(sed -n 's/^blogger_status=//p' "$publish_output")"
+            scheduled_for_utc="$(sed -n 's/^scheduled_for_utc=//p' "$publish_output")"
             if [ -z "$post_id" ]; then
               echo "Missing Blogger post ID; refusing to post to X."
               exit 1
             fi
+
+            python - "$event_id" "$post_id" "$post_url" "$blogger_status" "$scheduled_for_utc" <<'PY'
+          import json, sys
+          from datetime import datetime, timezone
+          event_id, post_id, post_url, blogger_status, scheduled_for = sys.argv[1:]
+          with open("seen_stories.json", encoding="utf-8") as f:
+              history = json.load(f)
+          record = history.get("events", {}).get(event_id)
+          if not isinstance(record, dict):
+              raise SystemExit(f"Cannot persist Blogger status: event {event_id} is missing from history")
+          if blogger_status in {"scheduled", "already_scheduled"}:
+              record["status"] = "scheduled"
+          elif blogger_status == "already_live":
+              record["status"] = "published"
+          else:
+              record["status"] = "draft_created_unpublished"
+          record["force_evidence_refresh"] = False
+          record["blogger_status"] = blogger_status
+          record["blogger_post_id"] = post_id
+          record["blogger_post_url"] = post_url
+          record["scheduled_for_utc"] = scheduled_for
+          record["last_blogger_status_updated_at"] = datetime.now(timezone.utc).isoformat()
+          history["updated_at"] = datetime.now(timezone.utc).isoformat()
+          with open("seen_stories.json", "w", encoding="utf-8") as f:
+              json.dump(history, f, ensure_ascii=False, indent=2)
+              f.write("\\n")
+          PY
 
             meta="$(python - "$event_id" <<'PY'
           import json, sys
@@ -188,6 +218,9 @@ jobs:
             python x_publish_when_live.py > "$RUNNER_TEMP/x-$event_id.log" 2>&1 &
             pids+=("$!")
           done < "$RUNNER_TEMP/event_ids.txt"
+
+          # Persist scheduled/published Blogger states before waiting for any LIVE-gated X posts.
+          python persist_history.py
 
           x_failed=0
           for pid in "${pids[@]}"; do
