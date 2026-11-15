@@ -574,7 +574,9 @@ def filter_unprocessed_stories(stories, history):
     for story in stories:
         event_id = story.get("event_id")
         status = events.get(event_id, {}).get("status")
-        if status in TERMINAL_EVENT_STATUSES:
+        if status in TERMINAL_EVENT_STATUSES and not (
+            status == "rejected_quality_gate" and story.get("evidence_refresh") is True
+        ):
             skipped.append(story)
         else:
             pending.append(story)
