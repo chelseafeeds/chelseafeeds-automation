@@ -179,7 +179,13 @@ def same_event(a,b):
         # fixture ID proves they describe the identical match. Shared opponent
         # names alone are not enough: clubs can meet more than once.
         return bool(typ=="match_report" and a.get("fixture_key") and a.get("fixture_key")==b.get("fixture_key"))
-    if typ in {"match_report","match_reaction","match_preview"}:
+    if typ=="match_reaction":
+        # Reactions to the same fixture are not automatically the same story:
+        # require the same clearly identified speaker/player to avoid merging
+        # separate interviews, coach comments and publisher-specific reactions.
+        return bool(a.get("opponent_key") and a.get("opponent_key")==b.get("opponent_key")
+                    and a.get("subject_key") and a.get("subject_key")==b.get("subject_key"))
+    if typ in {"match_report","match_preview"}:
         # Across publishers, require a positively identified shared opponent.
         return bool(a["opponent_key"] and a["opponent_key"]==b["opponent_key"])
     if typ in {"transfer_rumour","confirmed_transfer"}:
@@ -513,6 +519,22 @@ def run_self_tests():
     assert classify("Wieke Kaptein: We can take confidence from Man City victory","") == "match_reaction"
     assert team_scope("Wieke Kaptein: We can take confidence from Man City victory","") == "chelsea_women"
     assert event_subject("Wieke Kaptein: We can take confidence from Man City victory","", "match_reaction") == "wieke_kaptein"
+    # A player interview and a generic post-match reaction about the same fixture
+    # must remain separate; two reports of the same player's reaction can merge.
+    wieke=o("Wieke Kaptein: We can take confidence from Man City victory",
+        "https://www.chelseafc.com/en/news/article/wieke-kaptein-we-can-take-confidence-from-man-city-victory",
+        "Chelsea Official", "Wieke Kaptein said the team can take confidence from the win over Manchester City.",
+        datetime(2026,11,15,13,0,tzinfo=timezone.utc))
+    generic_reaction=o("Chelsea Women post-match reaction after Manchester City win",
+        "https://www.theguardian.com/football/chelsea-city-reaction", "Guardian",
+        "Chelsea Women reflect on their victory over Manchester City.",
+        datetime(2026,11,15,14,0,tzinfo=timezone.utc))
+    assert len(cluster([wieke,generic_reaction])) == 2
+    same_speaker=o("Wieke Kaptein reacts after Chelsea victory",
+        "https://www.bbc.co.uk/sport/football/articles/wieke-kaptein-reaction", "BBC",
+        "Wieke Kaptein discusses the Manchester City win.",
+        datetime(2026,11,15,14,30,tzinfo=timezone.utc))
+    assert len(cluster([wieke,same_speaker])) == 1
     assert classify("Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window","Chelsea could complicate a move for Malo Gusto according to reports") == "transfer_rumour"
     award_a=o("Veerle Buurman named Star of the Match","https://www.chelseafc.com/en/news/article/award","Chelsea Official")
     award_b=o("Chelsea defender Veerle Buurman wins Star of the Match vote","https://www.bbc.co.uk/sport/football/articles/award","BBC")
