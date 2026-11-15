@@ -245,10 +245,13 @@ def candidate_snapshot(group):
     """Persist the evidence-bearing event data needed to recover an interrupted queue."""
     return {key: group[key] for key in SNAPSHOT_FIELDS if key in group}
 
-def find_matching_history_event(group, events):
-    """Match a new source pack to an earlier event even if its representative URL changed."""
+def find_matching_history_event(group, events, exclude_event_id=None):
+    """Match a source pack to the strongest prior event even if its representative URL changed."""
+    matches_found = []
+    status_priority = {"published": 5, "scheduled": 4, "draft_created_unpublished": 3,
+                       "rejected_quality_gate": 2, "observed_not_processed": 1}
     for previous_id, record in events.items():
-        if not isinstance(record, dict):
+        if previous_id == exclude_event_id or not isinstance(record, dict):
             continue
         snapshot = record.get("candidate_snapshot")
         if not isinstance(snapshot, dict):
@@ -257,22 +260,25 @@ def find_matching_history_event(group, events):
         if any(same_event(new_observation, old_observation)
                for new_observation in group.get("source_observations", [])
                for old_observation in previous_observations):
-            return previous_id
-    return None
+            matches_found.append((
+                status_priority.get(record.get("status"), 0),
+                str(record.get("last_processed_at") or ""),
+                str(record.get("last_seen_at") or ""),
+                previous_id,
+            ))
+    return max(matches_found)[3] if matches_found else None
 
 
-# One-shot force_evidence_refresh history flags are consumed after the processor re-evaluates the story.
 def filter_pending_candidates(groups, history, reference_time=None):
     """Reopen terminal events only when stronger, new publisher evidence arrives."""
     events = history.get("events", {}) if isinstance(history, dict) else {}
     current = {}
     for group in groups:
         event_id = group.get("event_id")
-        if not event_id or event_id not in events:
-            matched_id = find_matching_history_event(group, events)
-            if matched_id:
-                event_id = matched_id
-                group["event_id"] = matched_id
+        matched_id = find_matching_history_event(group, events, exclude_event_id=event_id)
+        if matched_id:
+            event_id = matched_id
+            group["event_id"] = matched_id
         record = events.get(event_id, {}) if event_id else {}
         status = record.get("status") if isinstance(record, dict) else None
         if event_id and status not in TERMINAL_EVENT_STATUSES and status != "rejected_quality_gate":
@@ -551,6 +557,14 @@ def run_self_tests():
                   "source_observations":[guardian_observation]}
     weak = filter_pending_candidates([weak_group], old_draft)
     assert weak == []
+    duplicate_history = {"events":{
+        "match-old":{"status":"scheduled","candidate_snapshot":{"source_observations":[old_observation]}},
+        "match-new":{"status":"observed_not_processed","candidate_snapshot":{"source_observations":[guardian_observation]}}
+    }}
+    duplicate_group = {"event_id":"match-new","publisher_domains":["bbc.co.uk","theguardian.com"],
+                       "source_observations":[guardian_observation,sky_observation]}
+    duplicate_pending = filter_pending_candidates([duplicate_group], duplicate_history)
+    assert duplicate_pending == []
     # A previously observed but unprocessed story is recovered from its stored
     # evidence snapshot while it remains inside the 36-hour publication window.
     recoverable_group = cluster([o("Chelsea Women reaction after Manchester City win",
