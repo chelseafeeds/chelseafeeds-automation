@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T18:11:43.375574+00:00",
+  "updated_at": "2026-11-15T18:12:04.816320+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -17,7 +17,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "9f83b200fe999ff0ec21a1ed": {
       "event_id": "9f83b200fe999ff0ec21a1ed",
@@ -35,7 +38,10 @@
       "last_processed_at": "2026-11-11T21:03:18.980611+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Le Fée’s penalty stuns Chelsea and breathes life into defiant Sunderland",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "9a4130b15785192890978e5f": {
       "event_id": "9a4130b15785192890978e5f",
@@ -51,7 +57,10 @@
       "last_processed_at": "2026-11-11T19:04:48.898000+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea cautions staff after Fantasy Premier League leak hints at Joao Pedro injury",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "235a2df1ead86ab5da2c2164": {
       "event_id": "235a2df1ead86ab5da2c2164",
@@ -67,7 +76,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "e28ae41d6190838ec5a36883": {
       "event_id": "e28ae41d6190838ec5a36883",
@@ -83,7 +95,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "b7517283a25e5ca21b4cf11c": {
       "event_id": "b7517283a25e5ca21b4cf11c",
@@ -99,7 +114,10 @@
       "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea eye £29m move for Club Brugge striker Nicolo Tresoldi",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "63ac1d8342a1da6f647ab993": {
       "event_id": "63ac1d8342a1da6f647ab993",
@@ -115,7 +133,10 @@
       "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Rio Ngumoha reveals why he left Chelsea to join Liverpool",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "021bb9ea62a655ce7d09909d": {
       "event_id": "021bb9ea62a655ce7d09909d",
@@ -131,7 +152,10 @@
       "last_processed_at": "2026-11-12T15:14:57.098662+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Tuchel leaves a fit Cole Palmer out of England squad, Rogers Chelsea’s only call-up",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "f63b7dfb639c4285516ab1e2": {
       "event_id": "f63b7dfb639c4285516ab1e2",
@@ -147,7 +171,10 @@
       "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Xabi Alonso blasts Chelsea after missed chance vs Sunderland",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "07bbcd2abff4bd0ba2fe684a": {
       "event_id": "07bbcd2abff4bd0ba2fe684a",
@@ -163,7 +190,10 @@
       "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea Women face Häcken without James and Girma as Manchester City clash looms",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "3dde0824660363499ebaa3cb": {
       "event_id": "3dde0824660363499ebaa3cb",
@@ -179,7 +209,10 @@
       "last_processed_at": "2026-11-12T15:14:57.098662+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Quenda races to be fit for Sunderland after muscle problem adds to Chelsea injury list",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "1b2c0e8530bbf548d936315f": {
       "event_id": "1b2c0e8530bbf548d936315f",
@@ -195,7 +228,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "a6dffb420da9a96dda3d2a07": {
       "event_id": "a6dffb420da9a96dda3d2a07",
@@ -211,7 +247,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "b036b464c603ade8f2ceef0a": {
       "event_id": "b036b464c603ade8f2ceef0a",
@@ -227,7 +266,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "e61587bd33815ca365112157": {
       "event_id": "e61587bd33815ca365112157",
@@ -243,7 +285,10 @@
       "last_processed_at": "2026-11-12T13:11:59.119333+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea’s Alonso identity still to form in a midfield that remains a problem",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "afa598f4c5ccf20ffad8a6c8": {
       "event_id": "afa598f4c5ccf20ffad8a6c8",
@@ -259,7 +304,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "6b22b36cf8ea30c5a8568683": {
       "event_id": "6b22b36cf8ea30c5a8568683",
@@ -275,7 +323,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "06987bd0fb2d3da460d589b5": {
       "event_id": "06987bd0fb2d3da460d589b5",
@@ -291,7 +342,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "71b69df58618455933aa7279": {
       "event_id": "71b69df58618455933aa7279",
@@ -307,7 +361,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "203979cfa8c8f94a7d73ddee": {
       "event_id": "203979cfa8c8f94a7d73ddee",
@@ -323,7 +380,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "fdbd8da9cb3c801bc7244fab": {
       "event_id": "fdbd8da9cb3c801bc7244fab",
@@ -339,7 +399,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "04c4908a52badd902d8251a5": {
       "event_id": "04c4908a52badd902d8251a5",
@@ -355,7 +418,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "6eb0987815086dee59091b94": {
       "event_id": "6eb0987815086dee59091b94",
@@ -371,7 +437,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "93263cf24b14212277b6a5df": {
       "event_id": "93263cf24b14212277b6a5df",
@@ -387,7 +456,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "e011f67d2b80fe848713ff10": {
       "event_id": "e011f67d2b80fe848713ff10",
@@ -403,7 +475,10 @@
       "last_processed_at": "2026-11-11T19:17:15.243707+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Chelsea play out goalless draw with Hacken",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "c1197c3f740cd70780a55958": {
       "event_id": "c1197c3f740cd70780a55958",
@@ -419,7 +494,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "e2df05511a931f47dd6524fd": {
       "event_id": "e2df05511a931f47dd6524fd",
@@ -436,7 +514,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "1a45b55a8ef3e98348ca4742": {
       "event_id": "1a45b55a8ef3e98348ca4742",
@@ -454,7 +535,10 @@
       "last_processed_at": "2026-11-11T21:23:58.813651+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Manchester City break clear of Chelsea in WSL after Bronze’s freak own goal",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "bfb3d27a30fbbef40dba46bb": {
       "event_id": "bfb3d27a30fbbef40dba46bb",
@@ -470,7 +554,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "3745caa3bd11b77342d48fdf": {
       "event_id": "3745caa3bd11b77342d48fdf",
@@ -486,7 +573,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "fd390317625d5da07c43264d": {
       "event_id": "fd390317625d5da07c43264d",
@@ -502,7 +592,10 @@
       "last_processed_at": "2026-11-11T22:43:22.386217+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea star reaches verdict on leaving in January with transfer to Liverpool now on for two reasons",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "5f596cb901f438b5057f6780": {
       "event_id": "5f596cb901f438b5057f6780",
@@ -518,7 +611,10 @@
       "last_processed_at": "2026-11-11T20:00:26.758784+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Chelsea latest: 'Blues join race to sign Arsenal midfielder'",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "9128f46f009149f42ad54708": {
       "event_id": "9128f46f009149f42ad54708",
@@ -534,7 +630,10 @@
       "last_processed_at": "2026-11-11T22:43:22.386217+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Aston Villa push for Romeo Lavia amid decision on continuing at Chelsea – report",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "f21134b3eed9c7f239cdbb52": {
       "event_id": "f21134b3eed9c7f239cdbb52",
@@ -550,7 +649,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "3a43f32275d9a441c5d6357c": {
       "event_id": "3a43f32275d9a441c5d6357c",
@@ -566,7 +668,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "644b5d541f786965a5caa8b4": {
       "event_id": "644b5d541f786965a5caa8b4",
@@ -582,7 +687,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "4027acf6cfd64abaddc1a6bf": {
       "event_id": "4027acf6cfd64abaddc1a6bf",
@@ -598,7 +706,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "d5fd742c8e1b088742787407": {
       "event_id": "d5fd742c8e1b088742787407",
@@ -614,7 +725,10 @@
       "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Gusto open to January Chelsea exit after losing right-back place under Alonso",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "fab6ec6768b3053d77fcce96": {
       "event_id": "fab6ec6768b3053d77fcce96",
@@ -630,7 +744,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "2932d7dd6e738ce84ca8ed81": {
       "event_id": "2932d7dd6e738ce84ca8ed81",
@@ -646,7 +763,10 @@
       "last_processed_at": "2026-11-11T22:43:22.386217+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Papers: Arsenal, Chelsea and Liverpool chase Bournemouth star Scott",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "5b197c8dcf510e4b990f16a5": {
       "event_id": "5b197c8dcf510e4b990f16a5",
@@ -662,7 +782,10 @@
       "last_processed_at": "2026-11-11T22:43:22.386217+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Papers: Arsenal, Chelsea and Liverpool chase Bournemouth star Scott",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "aacf410843b707bbed945488": {
       "event_id": "aacf410843b707bbed945488",
@@ -678,7 +801,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "732d364a410c9a3f90fc35c0": {
       "event_id": "732d364a410c9a3f90fc35c0",
@@ -694,7 +820,10 @@
       "last_processed_at": "2026-11-12T13:11:59.119333+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea transfers: Alonso ‘loves’ Arsenal star and ‘would love to work’ with him – Romano",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "cf3fbbb8797d2961e8614e82": {
       "event_id": "cf3fbbb8797d2961e8614e82",
@@ -710,7 +839,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "74f259af6f6f88e524fbc143": {
       "event_id": "74f259af6f6f88e524fbc143",
@@ -726,7 +858,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "8d7bcba9818dd09a1131e8f2": {
       "event_id": "8d7bcba9818dd09a1131e8f2",
@@ -742,7 +877,10 @@
       "last_processed_at": "2026-11-12T14:24:17.379182+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Malo Gusto tells club he wants to leave in January transfer",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "f4e7f31321911a3808ccecdd": {
       "event_id": "f4e7f31321911a3808ccecdd",
@@ -758,7 +896,10 @@
       "last_processed_at": "2026-11-12T18:42:13.258355+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Pochettino the manager, as seen by Tottenham, Chelsea and USMNT reporters",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "8f55f5daf7f0f323f4f2bf9d": {
       "event_id": "8f55f5daf7f0f323f4f2bf9d",
@@ -774,7 +915,10 @@
       "last_processed_at": "2026-11-12T19:45:35.774969+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Man Utd: Pochettino tipped to turn to ex-Chelsea star as shock first signing – ‘that’s first and foremost’",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "4b3ff4d98c5fe734e8c0758b": {
       "event_id": "4b3ff4d98c5fe734e8c0758b",
@@ -790,7 +934,10 @@
       "last_processed_at": "2026-11-13T05:58:51.877449+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "The Prospects: Calvin Diakite, Chelsea",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "a940882a5ae278d6438fc799": {
       "event_id": "a940882a5ae278d6438fc799",
@@ -806,7 +953,10 @@
       "last_processed_at": "2026-11-13T05:58:51.877449+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Are Chelsea toothless without Lauren James? This is what the numbers say",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "f18a021dfe2f44757bfc6dd6": {
       "event_id": "f18a021dfe2f44757bfc6dd6",
@@ -822,7 +972,10 @@
       "last_processed_at": "2026-11-13T07:13:48.649109+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Pochettino’s Chelsea maelstrom the best yardstick for what lies ahead at United",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "1b8037a37908214cb60c93cc": {
       "event_id": "1b8037a37908214cb60c93cc",
@@ -838,7 +991,10 @@
       "last_processed_at": "2026-11-13T07:54:01.202327+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "‘It’s a lie’ – Rogers hits back at Palmer ‘nonsense’ in passionate 232-word defence of Chelsea teammate",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "60c431b7760efa5937abf763": {
       "event_id": "60c431b7760efa5937abf763",
@@ -854,7 +1010,10 @@
       "last_processed_at": "2026-11-13T09:48:00.022601+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Morgan Rogers scores as England beat Croatia 2-1 and reach Nations League quarter-finals",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "774de1277767822c8b4e389d": {
       "event_id": "774de1277767822c8b4e389d",
@@ -870,7 +1029,10 @@
       "last_processed_at": "2026-11-13T09:48:00.022601+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "In a clash of the top two, should Chelsea be considered underdogs?",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "7e8cafbe1efa77da8e59060e": {
       "event_id": "7e8cafbe1efa77da8e59060e",
@@ -886,7 +1048,10 @@
       "last_processed_at": "2026-11-13T09:48:00.022601+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "In a clash of the top two, should Chelsea be considered underdogs?",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "8233c187f083eda813f282d9": {
       "event_id": "8233c187f083eda813f282d9",
@@ -902,7 +1067,10 @@
       "last_processed_at": "2026-11-13T09:48:00.022601+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Man Utd burst into two-horse race for Chelsea star under Pochettino",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "72c984fdf222a14c1cef4e3c": {
       "event_id": "72c984fdf222a14c1cef4e3c",
@@ -918,7 +1086,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "e8dfd76b21f15e1f7d310150": {
       "event_id": "e8dfd76b21f15e1f7d310150",
@@ -934,7 +1105,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "32a138301beddc92c697c81b": {
       "event_id": "32a138301beddc92c697c81b",
@@ -950,7 +1124,10 @@
       "last_processed_at": "2026-11-13T14:53:19.381815+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Why Chelsea and Manchester City’s WSL clash is not as season-defining as you think",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "c9c58ef5dd8fb4e9bc93e64d": {
       "event_id": "c9c58ef5dd8fb4e9bc93e64d",
@@ -966,7 +1143,10 @@
       "last_processed_at": "2026-11-13T14:53:19.381815+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea receive ‘green light’ to sign Jules Kounde in January as Barcelona star chooses ‘priority’ transfer",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "0dcd517f23cabf0bb894117e": {
       "event_id": "0dcd517f23cabf0bb894117e",
@@ -982,7 +1162,10 @@
       "last_processed_at": null,
       "last_editorial_outcome": null,
       "last_processed_headline": null,
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "fb4558317c922a1ce36f5f4b": {
       "event_id": "fb4558317c922a1ce36f5f4b",
@@ -998,7 +1181,10 @@
       "last_processed_at": "2026-11-13T15:40:56.731787+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Aston Villa decision on selling Boubacar Kamara to Chelsea revealed",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "b3c4f5b3e82958509ce58c8e": {
       "event_id": "b3c4f5b3e82958509ce58c8e",
@@ -1014,7 +1200,10 @@
       "last_processed_at": "2026-11-13T22:57:30.479329+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Man Utd want Paz, Chelsea target Kounde - Saturday's gossip",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "df20d1a89b2b375d3ba29445": {
       "event_id": "df20d1a89b2b375d3ba29445",
@@ -1030,7 +1219,10 @@
       "last_processed_at": "2026-11-14T07:14:28.282807+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "How a reunion with scout Bompastor solved Chelsea's striker issue",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "001cc43734fdb707c1135298": {
       "event_id": "001cc43734fdb707c1135298",
@@ -1046,7 +1238,10 @@
       "last_processed_at": "2026-11-14T15:07:02.359090+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "“He’s a complete winger” – Under the radar Chelsea transfer praised by new teammate",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "a3c896ba5e82d85d1ba8f961": {
       "event_id": "a3c896ba5e82d85d1ba8f961",
@@ -1063,7 +1258,10 @@
       "last_processed_at": "2026-11-14T11:21:25.135462+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "WSL LIVE! Chelsea vs Man City plus Man Utd vs Palace LIVE on Sky!",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "645815176e7954bb34cfe8ae": {
       "event_id": "645815176e7954bb34cfe8ae",
@@ -1119,7 +1317,10 @@
         "publisher_count": 1,
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
-      }
+      },
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "c1154e6259cadc2618e85781": {
       "event_id": "c1154e6259cadc2618e85781",
@@ -1136,7 +1337,10 @@
       "last_processed_at": "2026-11-14T13:44:20.850766+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "WSL LIVE! Chelsea vs Man City under way, Man Utd lead Palace",
-      "candidate_snapshot": null
+      "candidate_snapshot": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "598b34ea97f175b4ceeacd69": {
       "event_id": "598b34ea97f175b4ceeacd69",
@@ -1297,7 +1501,10 @@
         "publisher_count": 4,
         "observation_count": 7,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
-      }
+      },
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "7389ed7606ef8f781573588a": {
       "event_id": "7389ed7606ef8f781573588a",
@@ -1353,7 +1560,10 @@
         "publisher_count": 1,
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
-      }
+      },
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "dd6d262e3bf6651c8eb6b5cd": {
       "event_id": "dd6d262e3bf6651c8eb6b5cd",
@@ -1440,7 +1650,10 @@
         "publisher_count": 1,
         "observation_count": 3,
         "corroboration_status": "single_publisher_observation"
-      }
+      },
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "80f3ef81ba2d56a50fd86ea3": {
       "event_id": "80f3ef81ba2d56a50fd86ea3",
@@ -1499,7 +1712,10 @@
         "opponent_key": "manchester_city",
         "fixture_key": "",
         "subject_key": ""
-      }
+      },
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "173ca446860b0ad609c09a09": {
       "event_id": "173ca446860b0ad609c09a09",
@@ -1555,7 +1771,10 @@
         "publisher_count": 1,
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
-      }
+      },
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "e777afa6b92ed1e56bb95aa4": {
       "event_id": "e777afa6b92ed1e56bb95aa4",
@@ -1611,7 +1830,10 @@
         "publisher_count": 1,
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
-      }
+      },
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "4533cc88c932ccca56140d8d": {
       "event_id": "4533cc88c932ccca56140d8d",
@@ -1667,7 +1889,10 @@
       },
       "last_processed_at": "2026-11-15T10:35:26.030663+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "Chelsea FCW vs. Manchester City WFC, Women’s Super League: Confirmed lineups; how to watch"
+      "last_processed_headline": "Chelsea FCW vs. Manchester City WFC, Women’s Super League: Confirmed lineups; how to watch",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "b14488f636b930670f695d23": {
       "event_id": "b14488f636b930670f695d23",
@@ -1723,7 +1948,10 @@
       },
       "last_processed_at": "2026-11-15T10:35:26.030663+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
-      "last_processed_headline": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction"
+      "last_processed_headline": "Chelsea FCW 1-0 Manchester City WFC, Women’s Super League: Post-match reaction",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "1d62913451a84d15d942e5e2": {
       "event_id": "1d62913451a84d15d942e5e2",
@@ -1799,7 +2027,10 @@
       },
       "last_processed_at": "2026-11-15T10:38:23.824024+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
-      "last_processed_headline": "Chelsea News Today: Estevao in Brazil Loss, Caicedo Penalty and Rogers on Palmer (15 November)"
+      "last_processed_headline": "Chelsea News Today: Estevao in Brazil Loss, Caicedo Penalty and Rogers on Palmer (15 November)",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "c1a5d3ac915811537f0a62b4": {
       "event_id": "c1a5d3ac915811537f0a62b4",
@@ -1932,7 +2163,10 @@
       },
       "last_processed_at": "2026-11-15T10:44:43.958221+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "Bompastor gives fitness updates on two Chelsea stars after beating Man City"
+      "last_processed_headline": "Bompastor gives fitness updates on two Chelsea stars after beating Man City",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "2b2ca8de6ab75121f5cab79b": {
       "event_id": "2b2ca8de6ab75121f5cab79b",
@@ -1988,7 +2222,10 @@
       },
       "last_processed_at": "2026-11-15T10:47:08.437313+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "Gusto to Man Utd or Man City: talkSPORT Reports Chelsea Defender Battle"
+      "last_processed_headline": "Gusto to Man Utd or Man City: talkSPORT Reports Chelsea Defender Battle",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "53878f3e637fa2820833d81d": {
       "event_id": "53878f3e637fa2820833d81d",
@@ -2048,7 +2285,10 @@
       "blogger_post_id": "1064276544468100978",
       "blogger_post_url": "https://www.chelseafeeds.com/2026/11/morgan-rogers-named-chelsea-player-of.html",
       "blogger_status": "LIVE",
-      "blogger_verified_at": "2026-11-15T10:54:08Z"
+      "blogger_verified_at": "2026-11-15T10:54:08Z",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "5b7cf0f7cadab2d667a2459a": {
       "event_id": "5b7cf0f7cadab2d667a2459a",
@@ -2190,7 +2430,10 @@
       },
       "last_processed_at": "2026-11-15T10:57:25.262491+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
-      "last_processed_headline": "Chelsea go top of WSL as Sandy Baltimore bullet sees off Manchester City"
+      "last_processed_headline": "Chelsea go top of WSL as Sandy Baltimore bullet sees off Manchester City",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "718c2f697fd26fc4ce6b970f": {
       "event_id": "718c2f697fd26fc4ce6b970f",
@@ -2246,7 +2489,10 @@
       },
       "last_processed_at": "2026-11-15T12:22:27.133603+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
-      "last_processed_headline": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil"
+      "last_processed_headline": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "e8d72314df136b4288a26e22": {
       "event_id": "e8d72314df136b4288a26e22",
@@ -2302,7 +2548,10 @@
       },
       "last_processed_at": "2026-11-15T14:00:58.057570+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
-      "last_processed_headline": "Chelsea fans rank ahead of Spurs and Man City for “passion and dedication”"
+      "last_processed_headline": "Chelsea fans rank ahead of Spurs and Man City for “passion and dedication”",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "b913f2e03ea20c0efc963348": {
       "event_id": "b913f2e03ea20c0efc963348",
@@ -2358,7 +2607,10 @@
       },
       "last_processed_at": "2026-11-15T14:00:58.057570+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window"
+      "last_processed_headline": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "f07469f43a177d90b3498347": {
       "event_id": "f07469f43a177d90b3498347",
@@ -2414,7 +2666,10 @@
       },
       "last_processed_at": "2026-11-15T14:06:17.226114+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first"
+      "last_processed_headline": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "01025fe3b473403b4ca8295b": {
       "event_id": "01025fe3b473403b4ca8295b",
@@ -2520,7 +2775,10 @@
       },
       "last_processed_at": "2026-11-15T15:43:28.940066+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "Chelsea go top with 1-0 win against Man City"
+      "last_processed_headline": "Chelsea go top with 1-0 win against Man City",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "01a11c53f32c4ba6faac9ab2": {
       "event_id": "01a11c53f32c4ba6faac9ab2",
@@ -2576,7 +2834,10 @@
       },
       "last_processed_at": "2026-11-15T16:20:50.611053+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "Chelsea told to bring back loan full back and sell Malo Gusto"
+      "last_processed_headline": "Chelsea told to bring back loan full back and sell Malo Gusto",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "f58ea7083e8a093d285570ff": {
       "event_id": "f58ea7083e8a093d285570ff",
@@ -2632,7 +2893,10 @@
       },
       "last_processed_at": "2026-11-15T16:46:40.999450+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "Chelsea reassert WSL dominance over Man City in front of USWNT boss Hayes"
+      "last_processed_headline": "Chelsea reassert WSL dominance over Man City in front of USWNT boss Hayes",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "298db4b54e81ac6915eb37aa": {
       "event_id": "298db4b54e81ac6915eb37aa",
@@ -2688,7 +2952,10 @@
       },
       "last_processed_at": "2026-11-15T18:06:53.583625+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
-      "last_processed_headline": "How Xabi Alonso’s Start Compares to Other Chelsea Managers"
+      "last_processed_headline": "How Xabi Alonso’s Start Compares to Other Chelsea Managers",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": []
     },
     "587ef1dd9d6a7e59ce794ac8": {
       "event_id": "587ef1dd9d6a7e59ce794ac8",
