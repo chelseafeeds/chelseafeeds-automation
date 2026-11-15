@@ -136,6 +136,7 @@ def main():
         raise RuntimeError("Multiple Blogger drafts already have this exact title; refusing an ambiguous update.")
     live_posts = find_posts(session, blog_id, access_token, "live")
     matching_live = [item for item in live_posts if item.get("title") == title and item.get("id")]
+    blogger_action = ""
     if matching_live:
         result = matching_live[0]
         post_id = str(result["id"])
