@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T10:36:28.726720+00:00",
+  "updated_at": "2026-11-15T10:36:32.898540+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1452,10 +1452,10 @@
       "publisher_domains": [
         "espn.com"
       ],
-      "status": "observed_not_processed",
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "status": "draft_created_unpublished",
+      "last_processed_at": "2026-11-15T10:36:32.898540+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Sonia Bompastor praises Chelsea's character after risky substitutions in Man City win",
       "candidate_snapshot": {
         "event_id": "80f3ef81ba2d56a50fd86ea3",
         "title": "Sonia Bompastor praises Chelsea's character after risky substitutions in Man City win",
