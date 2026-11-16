@@ -489,8 +489,13 @@ def discover_google_news_official(session, sitemap_report=None):
     processor must still fetch and verify the article body and all material claims.
     """
     from urllib.parse import quote_plus
+    # Broad relevance-ranked feeds can bury genuinely new club posts below older
+    # results. Date-constrained and headline-focused queries make recent items visible.
+    after_date = (c.now() - timedelta(days=1)).date().isoformat()
     queries = [
-        'site:chelseafc.com/en/news/article Chelsea',
+        f'site:chelseafc.com/en/news/article after:{after_date} Chelsea',
+        'site:chelseafc.com/en/news/article when:1d Chelsea',
+        'site:chelseafc.com/en/news/article "Chelsea Diary"',
         'site:chelseafc.com/en/news/article "Wieke Kaptein"',
     ]
     report = {"source": "Google News first-party Chelsea article discovery",
@@ -518,7 +523,7 @@ def discover_google_news_official(session, sitemap_report=None):
             feed = feedparser.parse(response.content)
             row["entries_received"] = len(feed.entries)
             report["entries_received"] += len(feed.entries)
-            for entry in feed.entries[:25]:
+            for entry in feed.entries[:100]:
                 title = c.textval(entry.get("title"))
                 summary = c.textval(entry.get("summary", entry.get("description", "")))
                 published = c.parse_date(entry)
@@ -730,9 +735,9 @@ def main():
     pending.sort(key=lambda g: (order.get(g.get("priority"), 9), -g.get("importance_score", 0),
                                g.get("published", ""), g.get("title", "").lower()))
     selected = c.select_candidates(pending)
-    existing.update(stories=selected, source_discovery_version="1.3",
+    existing.update(stories=selected, source_discovery_version="1.5",
                     direct_source_observations=len(new_obs) + len(pinned_groups),
-                    direct_official_observations=len(official_obs) + len(pinned_groups),
+                    direct_official_observations=len(official_obs) + len(sitemap_obs) + len(google_official_obs) + len(pinned_groups),
                     specialist_feed_observations=len(specialist_obs))
     CANDIDATES.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     history_updated = c.update_history(groups, history)
@@ -750,7 +755,7 @@ def main():
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("Direct source discovery: official_pages=%d official_sitemap=%d pinned_official=%d specialist=%d bing=%d pending=%d" %
           (len(official_obs), len(sitemap_obs), len(pinned_groups), len(specialist_obs), len(bing_obs), len(selected)))
-    for row in official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report]:
+    for row in official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report]:
         print("SOURCE_REPORT " + json.dumps(row, ensure_ascii=False))
 
 if __name__ == "__main__":
