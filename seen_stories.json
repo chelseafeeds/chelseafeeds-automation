@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T16:22:49.559347+00:00",
+  "updated_at": "2026-11-16T16:24:21.569111+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -7963,7 +7963,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "a600cb85cd48fc6a3e8f873f",
         "title": "Chelsea star’s England career in danger as 10/10 star ‘is the No 1’ now",
@@ -8005,11 +8005,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T16:24:21.569111+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea star’s England career in danger as 10/10 star ‘is the No 1’ now",
+      "last_editorial_source_domains": [
+        "football365.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football365.com/news/reece-james-england-career-danger-ben-white-10-10"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -8023,7 +8027,7 @@
       "publisher_domains": [
         "dailypost.ng"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "0f11903ffc04d33aa9cbe539",
         "title": "Transfer: Martin Zubimendi now open to Chelsea move as Arsenal set price tag",
@@ -8065,11 +8069,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T16:24:21.569111+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Transfer: Martin Zubimendi now open to Chelsea move as Arsenal set price tag",
+      "last_editorial_source_domains": [
+        "dailypost.ng"
+      ],
+      "last_editorial_source_urls": [
+        "https://dailypost.ng/2026/11/16/transfer-martin-zubimendi-now-open-to-chelsea-move-as-arsenal-set-price-tag"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -8143,7 +8151,7 @@
       "publisher_domains": [
         "goal.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "5eb73d0032535c86650b0172",
         "title": "USWNT Abroad: Lily Yohannes keeps scoring, Alyssa Thompson's Chelsea edge Sam Coffey's Man City and Emily Fox's exit raises concern",
@@ -8185,11 +8193,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T16:24:21.569111+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "USWNT Abroad: Lily Yohannes keeps scoring, Alyssa Thompson's Chelsea edge Sam Coffey's Man City and Emily Fox's exit raises concern",
+      "last_editorial_source_domains": [
+        "goal.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.goal.com/en-us/originals/uswnt-abroad-lily-yohannes-scores-again-emily-fox-suffers-a-collision-and-sam-coffey-gets-the-start/bltb6cfa15993f69805"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -8203,7 +8215,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "53166c278025794f7521e13e",
         "title": "Chelsea emerge as top Premier League destination for elite Inter Milan defender",
@@ -8245,12 +8257,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-16T16:24:21.569111+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea emerge as top Premier League destination for elite Inter Milan defender",
+      "last_editorial_source_domains": [
+        "football365.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football365.com/news/chelsea-emerge-top-premier-league-destination-elite-inter-milan-defender"
+      ],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     },
     "e212ab2ab22438414b78f334": {
@@ -8323,7 +8341,7 @@
       "publisher_domains": [
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "50756e9b6fbfd098e73725f8",
         "title": "Chelsea’s Price Tag For Malo Gusto Revealed Amid Manchester City Transfer Interest",
@@ -8365,11 +8383,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T16:24:21.569111+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea’s Price Tag For Malo Gusto Revealed Amid Manchester City Transfer Interest",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/chelsea-price-tag-malo-gusto-160000382.html"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
