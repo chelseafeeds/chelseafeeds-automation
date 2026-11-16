@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T17:06:00.025673+00:00",
+  "updated_at": "2026-11-16T17:08:29.349868+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -7395,7 +7395,7 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": "2026-11-16T14:45:17.364238+00:00",
+      "last_processed_at": "2026-11-16T17:08:29.349868+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea star tipped to move to Man Utd under Pochettino as one of three PL signings",
       "last_editorial_source_domains": [
@@ -7920,7 +7920,7 @@
       "publisher_domains": [
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "1b701691fccd3ee15fa73b67",
         "title": "USWNT Abroad: Lily Yohannes keeps scoring, Alyssa Thompson's Chelsea edge Sam Coffey's Man City and Emily Fox's exit raises concern",
@@ -7962,12 +7962,19 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-16T17:08:29.349868+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "USWNT Abroad: Lily Yohannes keeps scoring, Alyssa Thompson's Chelsea edge Sam Coffey's Man City and Emily Fox's exit raises concern",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/uswnt-abroad-lily-yohannes-keeps-154953380.html"
+      ],
+      "last_quality_failures": [
+        "title_present_and_reasonable",
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     },
     "a600cb85cd48fc6a3e8f873f": {
@@ -8483,7 +8490,7 @@
       "publisher_domains": [
         "caughtoffside.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "94ab0ec5d62b5b62c06edacd",
         "title": "Chelsea revive interest in €40m wonderkid after failed summer pursuit",
@@ -8525,11 +8532,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T17:08:29.349868+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea revive interest in €40m wonderkid after failed summer pursuit",
+      "last_editorial_source_domains": [
+        "caughtoffside.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.caughtoffside.com/2026/11/16/chelsea-revive-interest-in-e40m-wonderkid-after-failed-summer-pursuit"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -8543,7 +8554,7 @@
       "publisher_domains": [
         "talksport.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "3fb145ad626c4bcc9ed0e9db",
         "title": "Thomas Frank eyes up Chelsea coach for Crystal Palace backroom staff",
@@ -8585,11 +8596,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T17:08:29.349868+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Thomas Frank eyes up Chelsea coach for Crystal Palace backroom staff",
+      "last_editorial_source_domains": [
+        "talksport.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://talksport.com/football/4711236/thomas-frank-crystal-palace-backroom-staff-chelsea-england"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
