@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T21:32:21.205724+00:00",
+  "updated_at": "2026-11-16T21:32:59.123953+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -8808,7 +8808,7 @@
       "publisher_domains": [
         "footballinsider247.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "43c79d12ea57b7f3e48b3244",
         "title": "Marco Palestra can transform Chelsea's right flank, Italy stats show his potential",
@@ -8850,11 +8850,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T21:32:59.123953+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Marco Palestra can transform Chelsea's right flank, Italy stats show his potential",
+      "last_editorial_source_domains": [
+        "footballinsider247.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.footballinsider247.com/chelsea/match/marco-palestra-can-transform-chelseas-right-flank-italy-stats-show-his-potential"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
