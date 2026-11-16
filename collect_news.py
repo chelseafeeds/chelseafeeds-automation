@@ -51,7 +51,7 @@ FEEDS = [
     {"name":"The i Paper Sport","url":"https://inews.co.uk/sport/football/feed"},
 ]
 OFFICIAL={"chelseafc.com","premierleague.com","uefa.com","thefa.com","wslfootball.com","englandfootball.com"}
-ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.com","apnews.com","espn.com","independent.co.uk","standard.co.uk","nytimes.com","theathletic.com","football365.com","thetimes.com","telegraph.co.uk","talksport.com","footballinsider247.com","football.london","90min.com","goal.com","fourfourtwo.com","dailymail.co.uk","mirror.co.uk","thesun.co.uk","inews.co.uk"}
+ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.com","apnews.com","espn.com","independent.co.uk","standard.co.uk","nytimes.com","theathletic.com","football365.com","thetimes.com","telegraph.co.uk","talksport.com","footballinsider247.com","football.london","90min.com","goal.com","fourfourtwo.com","dailymail.co.uk","mirror.co.uk","thesun.co.uk","inews.co.uk","cbssports.com"}
 AGGREGATORS={"news.google.com","newsnow.com","c.newsnow.com","bing.com"}
 IRRELEVANT=("chelsea flower show","chelsea boots","chelsea handler","chelsea manning","chelsea hotel")
 STOP=set("the a an and or but for to of in on at by with from after before as is are was were be been being this that these those his her their its our your how what why when where who which could would should may might will can has have had into over under about against says said claims claim according report reports latest news fc blues club team side player players manager boss head coach premier league football".split())
