@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-15T23:45:27.590020+00:00",
+  "updated_at": "2026-11-16T00:05:53.304299+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -4540,7 +4540,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "6c390c5228a5088f15f02d53",
         "title": "Internationals: Rogers helps England win epic as Belgium and France advance | News | Official Site - Chelsea Football Club",
@@ -4583,12 +4583,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-16T00:05:53.304299+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Internationals: Rogers helps England win epic as Belgium and France advance | News | Official Site - Chelsea Football Club",
+      "last_editorial_source_domains": [
+        "chelseafc.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.chelseafc.com/en/news/article/internationals-rogers-helps-england-win-epic-as-belgium-and-france-advance"
+      ],
+      "last_quality_failures": [
+        "title_present_and_reasonable"
+      ],
       "force_evidence_refresh": false
     }
   }
