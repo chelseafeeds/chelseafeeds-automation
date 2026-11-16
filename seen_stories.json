@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T13:38:16.630006+00:00",
+  "updated_at": "2026-11-16T13:39:19.770357+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -6640,7 +6640,7 @@
       "publisher_domains": [
         "dailypost.ng"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "a59e66ec8f315dc34f34b463",
         "title": "Transfer: João Félix set for Chelsea return in 2027",
@@ -6682,11 +6682,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T13:39:19.770357+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Transfer: João Félix set for Chelsea return in 2027",
+      "last_editorial_source_domains": [
+        "dailypost.ng"
+      ],
+      "last_editorial_source_urls": [
+        "https://dailypost.ng/2026/11/16/transfer-joao-felix-set-for-chelsea-return-in-2027"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -7008,7 +7012,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "90210ebb5b43688bd57c9f59",
         "title": "Arsenal star Zubimendi ‘open’ to Chelsea transfer as Gunners name price for January sale",
@@ -7050,11 +7054,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T13:39:19.770357+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Arsenal star Zubimendi ‘open’ to Chelsea transfer as Gunners name price for January sale",
+      "last_editorial_source_domains": [
+        "football365.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football365.com/news/arsenal-star-zubimendi-open-to-chelsea-transfer-as-gunners-name-price-for-january-sale"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -7068,7 +7076,7 @@
       "publisher_domains": [
         "teamtalk.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "6ad7d3b7c8dc8b1e3874e1e4",
         "title": "Chelsea still planning spectacular swoop for Serie A gem after failed summer deal – Exclusive",
@@ -7110,12 +7118,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-16T13:39:19.770357+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea still planning spectacular swoop for Serie A gem after failed summer deal – Exclusive",
+      "last_editorial_source_domains": [
+        "teamtalk.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.teamtalk.com/chelsea/spectacular-swoop-juventus-gem-still-targeted-after-failed-summer-swoop-exclusive"
+      ],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     }
   }
