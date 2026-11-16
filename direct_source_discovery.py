@@ -69,12 +69,15 @@ SPECIALIST_FEEDS = [
     {"name": "The Independent Football", "url": "https://www.independent.co.uk/sport/football/rss"},
     {"name": "Evening Standard Sport", "url": "https://www.standard.co.uk/sport/rss"},
     {"name": "talkSPORT Football", "url": "https://talksport.com/football/feed/"},
-    {"name": "Tribal Football", "url": "https://www.tribalfootball.com/rss"},
     {"name": "Sky Sports Premier League", "url": "https://www.skysports.com/rss/11661"},
     {"name": "BBC Sport Champions League", "url": "https://feeds.bbci.co.uk/sport/football/champions-league/rss.xml"},
     {"name": "BBC Sport European Football", "url": "https://feeds.bbci.co.uk/sport/football/european/rss.xml"},
-    {"name": "Associated Press Top Stories", "url": "https://flipboard.com/@associatedpress/top-stories-u7govdf1z.rss"},
-    {"name": "Premier League Official News", "url": "https://www.premierleague.com/news.rss"},
+    {"name": "Sky News Sport", "url": "https://feeds.skynews.com/feeds/rss/sports.xml"},
+    {"name": "Yahoo Sports", "url": "https://sports.yahoo.com/rss/"},
+    {"name": "Sports Illustrated", "url": "https://www.si.com/feed"},
+    {"name": "Football Italia", "url": "https://www.football-italia.net/feed/"},
+    {"name": "Planet Football", "url": "https://www.planetfootball.com/feed/"},
+    {"name": "Football España", "url": "https://www.football-espana.net/feed/"},
 ]
 ALLOWED_OFFICIAL = {"chelseafc.com", "wslfootball.com", "premierleague.com", "uefa.com", "thefa.com", "englandfootball.com"}
 c.OFFICIAL.add("englandfootball.com")
@@ -776,7 +779,7 @@ def main():
     pending.sort(key=lambda g: (order.get(g.get("priority"), 9), -g.get("importance_score", 0),
                                g.get("published", ""), g.get("title", "").lower()))
     selected = c.select_candidates(pending)
-    existing.update(stories=selected, source_discovery_version="1.5",
+    existing.update(stories=selected, source_discovery_version="1.7",
                     direct_source_observations=len(new_obs) + len(pinned_groups),
                     direct_official_observations=len(official_obs) + len(sitemap_obs) + len(google_official_obs) + len(pinned_groups),
                     specialist_feed_observations=len(specialist_obs))
@@ -786,7 +789,7 @@ def main():
     report = json.loads(REPORT.read_text(encoding="utf-8")) if REPORT.exists() else {}
     reports = report.setdefault("source_reports", [])
     reports.extend(official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report])
-    report.update(source_discovery_version="1.6",
+    report.update(source_discovery_version="1.7",
                   direct_source_observations=len(new_obs) + len(pinned_groups),
                   direct_official_observations=len(official_obs) + len(sitemap_obs) + len(google_official_obs) + len(pinned_groups),
                   specialist_feed_observations=len(specialist_obs),
@@ -796,7 +799,7 @@ def main():
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("Direct source discovery: official_pages=%d official_sitemap=%d pinned_official=%d specialist=%d bing=%d pending=%d" %
           (len(official_obs), len(sitemap_obs), len(pinned_groups), len(specialist_obs), len(bing_obs), len(selected)))
-    for row in official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report, google_publisher_report]:
+    for row in official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report]:
         print("SOURCE_REPORT " + json.dumps(row, ensure_ascii=False))
 
 if __name__ == "__main__":
