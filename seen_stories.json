@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T18:58:37.088332+00:00",
+  "updated_at": "2026-11-16T18:59:04.967865+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -8988,7 +8988,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "0ad10f023eee60f670767c42",
         "title": "Get your Chelsea fix with CFC+ | News | Official Site - Chelsea Football Club",
@@ -9031,11 +9031,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T18:59:04.967865+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Get your Chelsea fix with CFC+ | News | Official Site - Chelsea Football Club",
+      "last_editorial_source_domains": [
+        "chelseafc.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.chelseafc.com/en/news/article/get-your-chelsea-fix-with-cfc"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
