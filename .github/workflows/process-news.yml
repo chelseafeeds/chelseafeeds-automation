@@ -19,7 +19,7 @@ on:
         type: boolean
 
 permissions:
-  actions: read
+  actions: write
   contents: write
 
 concurrency:
@@ -30,7 +30,7 @@ concurrency:
 
 jobs:
   process:
-    if: (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') || (github.event_name == 'workflow_dispatch' && inputs.recovery_approved == true)
+    if: (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'workflow_dispatch') || (github.event_name == 'workflow_dispatch' && inputs.recovery_approved == true)
     runs-on: ubuntu-latest
     timeout-minutes: 55
     env:
@@ -110,3 +110,14 @@ jobs:
         run: |
           python update_processing_history.py --report output/editorial_report.json
           python persist_history.py
+
+      # Continue the chain explicitly when this processor was started by the
+      # manual/watchdog dispatch path, which can suppress downstream workflow_run events.
+      - name: Dispatch Blogger scheduling for manual or watchdog processing
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run auto-schedule-editorial-batch.yml --ref main \
+            -f source_run_id="$GITHUB_RUN_ID" \
+            -f recovery_approved=true
