@@ -616,8 +616,11 @@ def process(input_path, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
     images_dir = output_dir / "images"
     data = json.loads(input_path.read_text(encoding="utf-8"))
-    if data.get("collector_version") not in {"4.0", "4.1", "4.2"}:
-        raise ValueError("Expected Collector v4.0 input; refusing unexpected artifact")
+    collector_version = str(data.get("collector_version", ""))
+    # Collector 4.x keeps the same candidate schema; accept tested minor releases
+    # while still failing closed on missing or unexpected major versions.
+    if not re.fullmatch(r"4\.\d+", collector_version):
+        raise ValueError(f"Expected Collector v4.x input; refusing unexpected artifact (received {collector_version!r})")
     all_stories = data.get("stories", [])
     history_path = Path("seen_stories.json")
     history = json.loads(history_path.read_text(encoding="utf-8")) if history_path.exists() else {"events": {}}
