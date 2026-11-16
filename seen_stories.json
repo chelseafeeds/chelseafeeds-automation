@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T14:19:09.266418+00:00",
+  "updated_at": "2026-11-16T14:19:47.443710+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -6428,13 +6428,15 @@
         "corroboration_status": "multiple_publishers_observed_independence_not_proven",
         "evidence_refresh": true
       },
-      "last_processed_at": "2026-11-16T12:35:18.410319+00:00",
+      "last_processed_at": "2026-11-16T14:19:47.443710+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea star tipped to move to Man Utd under Pochettino as one of three PL signings",
       "last_editorial_source_domains": [
+        "football.london",
         "football365.com"
       ],
       "last_editorial_source_urls": [
+        "https://www.football.london/chelsea-fc/transfer-news/chelsea-sent-estevao-willian-transfer-34918421",
         "https://www.football365.com/news/chelsea-estevao-tipped-man-utd-transfer-pochettino-hall-calvert-lewin"
       ],
       "last_quality_failures": [],
@@ -7163,7 +7165,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "b17fb7b53be861428a43273f",
         "title": "Andy Burnham issues statement as Arsenal, Chelsea and Tottenham braced over 3pm blackout",
@@ -7205,11 +7207,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T14:19:47.443710+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Andy Burnham issues statement as Arsenal, Chelsea and Tottenham braced over 3pm blackout",
+      "last_editorial_source_domains": [
+        "football.london"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football.london/premier-league/andy-burnham-arsenal-tottenham-chelsea-34918936"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
