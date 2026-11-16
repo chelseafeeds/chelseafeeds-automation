@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T15:56:30.376538+00:00",
+  "updated_at": "2026-11-16T15:58:23.156588+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -7478,7 +7478,7 @@
         "football.london",
         "msn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "679d3a17cd7d2757a486984f",
         "title": "Chelsea sent Estevao Willian transfer message as £100m decision awaits in January window",
@@ -7538,11 +7538,15 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T15:58:23.156588+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea sent Estevao Willian transfer message as £100m decision awaits in January window",
+      "last_editorial_source_domains": [
+        "football.london"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football.london/chelsea-fc/transfer-news/chelsea-sent-estevao-willian-transfer-34918421"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -7626,7 +7630,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "698fe94c49f7758e83e6c77e",
         "title": "Joao Felix ‘could rejoin Chelsea AGAIN thanks to incredible secret transfer clause in Saudi Arabia contract’",
@@ -7684,11 +7688,15 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T15:58:23.156588+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Joao Felix ‘could rejoin Chelsea AGAIN thanks to incredible secret transfer clause in Saudi Arabia contract’",
+      "last_editorial_source_domains": [
+        "thesun.co.uk"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.thesun.co.uk/sport/41038494/joao-felix-chelsea-transfer-return-clause-al-nassr"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -7702,7 +7710,7 @@
       "publisher_domains": [
         "dailymail.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "a17afcc30c02787fdc13f073",
         "title": "Thomas Frank closing in on Crystal Palace job as he eyes raid on Chelsea set-piece guru marginalised under Xabi Alonso",
@@ -7759,11 +7767,15 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T15:58:23.156588+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Thomas Frank closing in on Crystal Palace job as he eyes raid on Chelsea set-piece guru marginalised under Xabi Alonso",
+      "last_editorial_source_domains": [
+        "dailymail.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.dailymail.com/sport/football/article-16296771/thomas-frank-crystal-palace-set-piece-guru.html?ns_mchannel=rss&ns_campaign=1490&ito=1490"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -7777,7 +7789,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "c61d896fb0c731f1ff6eba7d",
         "title": "Chelsea set to be raided by new Crystal Palace boss Thomas Frank for set-piece coach",
@@ -7819,11 +7831,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T15:58:23.156588+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea set to be raided by new Crystal Palace boss Thomas Frank for set-piece coach",
+      "last_editorial_source_domains": [
+        "thesun.co.uk"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.thesun.co.uk/sport/41038815/chelsea-raided-crystal-palace-thomas-frank-bernardo-cueva"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
