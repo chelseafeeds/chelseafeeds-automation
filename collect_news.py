@@ -49,9 +49,18 @@ FEEDS = [
     {"name":"The Mirror Football","url":"https://www.mirror.co.uk/sport/football/rss.xml"},
     {"name":"The Sun Football","url":"https://www.thesun.co.uk/sport/football/feed/"},
     {"name":"The i Paper Sport","url":"https://inews.co.uk/sport/football/feed"},
+    {"name":"The Independent Football","url":"https://www.independent.co.uk/sport/football/rss"},
+    {"name":"Evening Standard Sport","url":"https://www.standard.co.uk/sport/rss"},
+    {"name":"talkSPORT Football","url":"https://talksport.com/football/feed/"},
+    {"name":"Tribal Football","url":"https://www.tribalfootball.com/rss"},
+    {"name":"Sky Sports Premier League","url":"https://www.skysports.com/rss/11661"},
+    {"name":"BBC Sport Champions League","url":"https://feeds.bbci.co.uk/sport/football/champions-league/rss.xml"},
+    {"name":"BBC Sport European Football","url":"https://feeds.bbci.co.uk/sport/football/european/rss.xml"},
+    {"name":"Associated Press Top Stories","url":"https://flipboard.com/@associatedpress/top-stories-u7govdf1z.rss"},
+    {"name":"Premier League Official News","url":"https://www.premierleague.com/news.rss"},
 ]
 OFFICIAL={"chelseafc.com","premierleague.com","uefa.com","thefa.com","wslfootball.com","englandfootball.com"}
-ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.com","apnews.com","espn.com","independent.co.uk","standard.co.uk","nytimes.com","theathletic.com","football365.com","thetimes.com","telegraph.co.uk","talksport.com","footballinsider247.com","football.london","90min.com","goal.com","fourfourtwo.com","dailymail.co.uk","mirror.co.uk","thesun.co.uk","inews.co.uk","cbssports.com"}
+ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.com","apnews.com","espn.com","independent.co.uk","standard.co.uk","nytimes.com","theathletic.com","football365.com","thetimes.com","telegraph.co.uk","talksport.com","footballinsider247.com","independent.co.uk","standard.co.uk","tribalfootball.com","apnews.com","football.london","90min.com","goal.com","fourfourtwo.com","dailymail.co.uk","mirror.co.uk","thesun.co.uk","inews.co.uk","cbssports.com"}
 AGGREGATORS={"news.google.com","newsnow.com","c.newsnow.com","bing.com"}
 IRRELEVANT=("chelsea flower show","chelsea boots","chelsea handler","chelsea manning","chelsea hotel")
 STOP=set("the a an and or but for to of in on at by with from after before as is are was were be been being this that these those his her their its our your how what why when where who which could would should may might will can has have had into over under about against says said claims claim according report reports latest news fc blues club team side player players manager boss head coach premier league football".split())
