@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T07:20:28.352152+00:00",
+  "updated_at": "2026-11-16T07:20:55.284600+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -4836,7 +4836,7 @@
       "publisher_domains": [
         "footballinsider247.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "3b3435781496d6f496a70b40",
         "title": "Stefan Borson reveals exactly how Chelsea's finances can explode",
@@ -4878,11 +4878,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T07:20:55.284600+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Stefan Borson reveals exactly how Chelsea's finances can explode",
+      "last_editorial_source_domains": [
+        "footballinsider247.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.footballinsider247.com/chelsea/stefan-borson-reveals-exactly-how-chelseas-finances-can-explode"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     }
