@@ -39,9 +39,17 @@ FEEDS = [
     {"name":"The Guardian Women's Football","url":"https://www.theguardian.com/football/womensfootball/rss"},
     {"name":"The Athletic","url":"https://www.nytimes.com/athletic/rss/news/"},
     {"name":"ESPN Soccer","url":"https://www.espn.com/espn/rss/soccer/news"},
+    {"name":"Football London Chelsea","url":"https://www.football.london/chelsea-fc/?service=rss"},
+    {"name":"90min Football","url":"https://www.90min.com/rss"},
+    {"name":"Goal.com Football","url":"https://www.goal.com/feeds/en/news"},
+    {"name":"FourFourTwo","url":"https://www.fourfourtwo.com/feeds.xml"},
+    {"name":"Daily Mail Football","url":"https://www.dailymail.co.uk/sport/football/index.rss"},
+    {"name":"The Mirror Football","url":"https://www.mirror.co.uk/sport/football/rss.xml"},
+    {"name":"The Sun Football","url":"https://www.thesun.co.uk/sport/football/feed/"},
+    {"name":"The i Paper Sport","url":"https://inews.co.uk/sport/football/feed"},
 ]
-OFFICIAL={"chelseafc.com","premierleague.com","uefa.com","thefa.com"}
-ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.com","apnews.com","espn.com","independent.co.uk","standard.co.uk","nytimes.com","theathletic.com","football365.com","thetimes.com","telegraph.co.uk","talksport.com","footballinsider247.com"}
+OFFICIAL={"chelseafc.com","premierleague.com","uefa.com","thefa.com","wslfootball.com","englandfootball.com"}
+ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.com","apnews.com","espn.com","independent.co.uk","standard.co.uk","nytimes.com","theathletic.com","football365.com","thetimes.com","telegraph.co.uk","talksport.com","footballinsider247.com","football.london","90min.com","goal.com","fourfourtwo.com","dailymail.co.uk","mirror.co.uk","thesun.co.uk","inews.co.uk"}
 AGGREGATORS={"news.google.com","newsnow.com","c.newsnow.com","bing.com"}
 IRRELEVANT=("chelsea flower show","chelsea boots","chelsea handler","chelsea manning","chelsea hotel")
 STOP=set("the a an and or but for to of in on at by with from after before as is are was were be been being this that these those his her their its our your how what why when where who which could would should may might will can has have had into over under about against says said claims claim according report reports latest news fc blues club team side player players manager boss head coach premier league football".split())
