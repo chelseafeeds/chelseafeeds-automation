@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T11:04:49.864225+00:00",
+  "updated_at": "2026-11-16T11:05:25.756029+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -5554,7 +5554,7 @@
       "publisher_domains": [
         "caughtoffside.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "c4e234c073f68ebb6894cc58",
         "title": "Report: Man Utd and Chelsea push for Barcelona star after huge €100m offers",
@@ -5596,11 +5596,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T11:05:25.756029+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Report: Man Utd and Chelsea push for Barcelona star after huge €100m offers",
+      "last_editorial_source_domains": [
+        "caughtoffside.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.caughtoffside.com/2026/11/16/report-man-utd-chelsea-push-for-barcelona-star-offers"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
