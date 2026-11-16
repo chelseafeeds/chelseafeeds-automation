@@ -28,7 +28,7 @@ concurrency:
 
 jobs:
   schedule:
-    if: (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main') || (github.event_name == 'workflow_dispatch' && inputs.recovery_approved == true)
+    if: (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'workflow_dispatch') || (github.event_name == 'workflow_dispatch' && inputs.recovery_approved == true)
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
