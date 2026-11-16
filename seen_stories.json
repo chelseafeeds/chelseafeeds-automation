@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T14:03:42.192509+00:00",
+  "updated_at": "2026-11-16T14:04:15.202593+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -6950,7 +6950,7 @@
       "publisher_domains": [
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "cfa72260c4979d0a01691449",
         "title": "Portuguese forward eager for Barcelona return has a secret clause that could send him back to Chelsea – report",
@@ -6992,11 +6992,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T14:04:15.202593+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Portuguese forward eager for Barcelona return has a secret clause that could send him back to Chelsea – report",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/portuguese-forward-eager-barcelona-return-130000765.html"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
