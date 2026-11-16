@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T13:11:20.554661+00:00",
+  "updated_at": "2026-11-16T13:13:21.642027+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -6002,7 +6002,7 @@
       "publisher_domains": [
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "8ba960390853097e94694e54",
         "title": "Real Betis right-winger Jose Antonio Morante stays on Chelsea transfer radar with £25m release clause after rejecting summer approach",
@@ -6044,12 +6044,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-16T13:13:21.642027+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Real Betis right-winger Jose Antonio Morante stays on Chelsea transfer radar with £25m release clause after rejecting summer approach",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/real-betis-winger-jose-antonio-104815543.html"
+      ],
+      "last_quality_failures": [
+        "title_present_and_reasonable"
+      ],
       "force_evidence_refresh": false
     },
     "3986e18002f61321f963cda0": {
@@ -6506,7 +6512,7 @@
       "publisher_domains": [
         "three.fm"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "024bb1bad31f1fb7ff6f68c2",
         "title": "Lucy Bronze leads Chelsea to biggest WSL win of season over Man City as Mary Earps gives Arsenal another headache at home",
@@ -6548,11 +6554,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T13:13:21.642027+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Lucy Bronze leads Chelsea to biggest WSL win of season over Man City as Mary Earps gives Arsenal another headache at home",
+      "last_editorial_source_domains": [
+        "skysports.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.skysports.com/football/news/13612488/lucy-bronze-leads-chelsea-to-biggest-wsl-win-of-season-over-man-city-as-mary-earps-gives-arsenal-another-headache-at-home"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -6690,7 +6700,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "b61a67247c9fd448f1c13642",
         "title": "Best and worst comebacks as Ronaldinho returns, including Scholes’ Man Utd title glee and Chelsea icon’s nightmare debut",
@@ -6732,11 +6742,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T13:13:21.642027+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Best and worst comebacks as Ronaldinho returns, including Scholes’ Man Utd title glee and Chelsea icon’s nightmare debut",
+      "last_editorial_source_domains": [
+        "thesun.co.uk"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.thesun.co.uk/sport/41035922/ronaldinho-best-and-worst-football-comebacks"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -6750,7 +6764,7 @@
       "publisher_domains": [
         "dailymail.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "0ff4d9366d8fa58d564c8ca7",
         "title": "Romelu Lukaku announces 'bombshell' international retirement: Former Chelsea star, 33, U-turns on his Belgium future - leaving Belgian press stunned",
@@ -6792,11 +6806,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T13:13:21.642027+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Romelu Lukaku announces 'bombshell' international retirement: Former Chelsea star, 33, U-turns on his Belgium future - leaving Belgian press stunned",
+      "last_editorial_source_domains": [
+        "dailymail.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.dailymail.com/sport/football/article-16296345/Romelu-Lukaku-announces-bombshell-international-retirement.html?ns_mchannel=rss&ns_campaign=1490&ito=1490"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
