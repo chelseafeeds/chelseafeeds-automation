@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T05:21:44.164807+00:00",
+  "updated_at": "2026-11-16T05:38:09.031322+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -1916,7 +1916,7 @@
       "event_id": "e777afa6b92ed1e56bb95aa4",
       "title": "Chelsea initiate contact over £25m Real Betis winger Jose Antonio Morante",
       "first_seen_at": "2026-11-15T05:50:57.477242+00:00",
-      "last_seen_at": "2026-11-16T05:20:48.629839+00:00",
+      "last_seen_at": "2026-11-16T05:37:27.595169+00:00",
       "last_published_at": "2026-11-15T05:41:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2620,7 +2620,7 @@
       "event_id": "718c2f697fd26fc4ce6b970f",
       "title": "Neto starts Portugal’s 4-1 home loss to Denmark as Estêvão is off before Japan beat Brazil",
       "first_seen_at": "2026-11-15T12:21:55.480871+00:00",
-      "last_seen_at": "2026-11-16T05:20:48.629839+00:00",
+      "last_seen_at": "2026-11-16T05:37:27.595169+00:00",
       "last_published_at": "2026-11-15T11:39:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2680,7 +2680,7 @@
       "event_id": "e8d72314df136b4288a26e22",
       "title": "Chelsea fans rank ahead of Spurs and Man City for “passion and dedication”",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-16T05:20:48.629839+00:00",
+      "last_seen_at": "2026-11-16T05:37:27.595169+00:00",
       "last_published_at": "2026-11-15T13:36:29+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2740,7 +2740,7 @@
       "event_id": "b913f2e03ea20c0efc963348",
       "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
       "first_seen_at": "2026-11-15T13:41:29.659238+00:00",
-      "last_seen_at": "2026-11-16T05:21:20.804494+00:00",
+      "last_seen_at": "2026-11-16T05:38:09.031322+00:00",
       "last_published_at": "2026-11-15T13:38:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -2828,7 +2828,7 @@
       "event_id": "f07469f43a177d90b3498347",
       "title": "€35m valued defender on Chelsea’s list – but Blues must shift overpaid problem first",
       "first_seen_at": "2026-11-15T14:05:48.901252+00:00",
-      "last_seen_at": "2026-11-16T05:20:48.629839+00:00",
+      "last_seen_at": "2026-11-16T05:37:27.595169+00:00",
       "last_published_at": "2026-11-15T13:49:57+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -2998,7 +2998,7 @@
       "event_id": "01a11c53f32c4ba6faac9ab2",
       "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "first_seen_at": "2026-11-15T16:03:13.171080+00:00",
-      "last_seen_at": "2026-11-16T05:20:48.629839+00:00",
+      "last_seen_at": "2026-11-16T05:37:27.595169+00:00",
       "last_published_at": "2026-11-15T16:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -3302,7 +3302,7 @@
       "event_id": "3aa34c3e8337fa58034febce",
       "title": "Chelsea told to bring back loan full back and sell Malo Gusto",
       "first_seen_at": "2026-11-15T18:12:43.261486+00:00",
-      "last_seen_at": "2026-11-16T05:21:20.804494+00:00",
+      "last_seen_at": "2026-11-16T05:38:09.031322+00:00",
       "last_published_at": "2026-11-15T08:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -4206,11 +4206,12 @@
       "event_id": "4f8d1f964c13ff90f4e657d3",
       "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
       "first_seen_at": "2026-11-15T19:15:40.040237+00:00",
-      "last_seen_at": "2026-11-16T05:20:48.629839+00:00",
+      "last_seen_at": "2026-11-16T05:37:27.595169+00:00",
       "last_published_at": "2026-11-15T13:38:00+00:00",
       "last_observation_count": 5,
       "publisher_domains": [
         "caughtoffside.com",
+        "chelseafclatestnews.com",
         "football365.com",
         "sports.yahoo.com",
         "thefalse9.com"
@@ -4222,12 +4223,27 @@
         "story_type": "transfer_rumour",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-15T13:38:00+00:00",
-        "best_summary": "Chelsea could complicate a move from Liverpool or Man City for Malo Gusto in January because of their asking price, according to reports.",
+        "best_summary": "Chelsea have reportedly reached a firm decision regarding the future of defender Malo Gusto, placing a massive £75 million valuation on the right-back. Chelsea Set £75m Price Tag on Malo Gusto, Deterring Liverpool and Manchester United Interest This price tag could effectively block potential moves to Premier League rivals Liverpool, Manchester United, or Manchester City […]",
         "representative_title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
         "representative_url": "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window",
         "representative_publisher": "football365.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
+          {
+            "title": "Chelsea decide to demand £75m for Malo Gusto in January transfer window",
+            "summary": "Chelsea have reportedly reached a firm decision regarding the future of defender Malo Gusto, placing a massive £75 million valuation on the right-back. Chelsea Set £75m Price Tag on Malo Gusto, Deterring Liverpool and Manchester United Interest This price tag could effectively block potential moves to Premier League rivals Liverpool, Manchester United, or Manchester City […]",
+            "url": "https://chelseafclatestnews.com/chelsea-decide-to-demand-75m-for-malo-gusto-in-january-transfer-window-204206",
+            "publisher_domain": "chelseafclatestnews.com",
+            "publisher_name_hint": null,
+            "source_feed": "Chelsea FC Latest News",
+            "published": "2026-11-16T05:31:56+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "transfer_rumour",
+            "opponent_key": "manchester_city",
+            "fixture_key": "",
+            "subject_key": "malo_gusto"
+          },
           {
             "title": "Chelsea reach decision on selling star to Liverpool or Man Utd in the January transfer window",
             "summary": "Chelsea could complicate a move from Liverpool or Man City for Malo Gusto in January because of their asking price, according to reports.",
@@ -4245,17 +4261,20 @@
           }
         ],
         "source_urls": [
+          "https://chelseafclatestnews.com/chelsea-decide-to-demand-75m-for-malo-gusto-in-january-transfer-window-204206",
           "https://www.football365.com/news/chelsea-reach-decision-on-selling-star-to-liverpool-or-man-utd-in-the-january-transfer-window"
         ],
         "publisher_domains": [
+          "chelseafclatestnews.com",
           "football365.com"
         ],
         "source_feeds": [
+          "Chelsea FC Latest News",
           "Football365"
         ],
-        "publisher_count": 1,
-        "observation_count": 1,
-        "corroboration_status": "single_publisher_observation"
+        "publisher_count": 2,
+        "observation_count": 2,
+        "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
       "last_processed_at": "2026-11-15T19:17:51.308165+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
@@ -4346,7 +4365,7 @@
       "event_id": "c0df2ccea43f92257342bae2",
       "title": "1996/97 remembered - part three: The signing of Gianfranco Zola | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-15T19:25:57.634557+00:00",
-      "last_seen_at": "2026-11-16T05:21:20.804494+00:00",
+      "last_seen_at": "2026-11-16T05:38:09.031322+00:00",
       "last_published_at": "2026-11-15T06:02:20+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -4415,7 +4434,7 @@
       "event_id": "f2856177da0d24daf6debd9b",
       "title": "Wieke Kaptein: We can take confidence from Man City victory | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-15T19:25:57.634557+00:00",
-      "last_seen_at": "2026-11-16T05:21:20.804494+00:00",
+      "last_seen_at": "2026-11-16T05:38:09.031322+00:00",
       "last_published_at": "2026-11-15T13:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -4486,7 +4505,7 @@
       "event_id": "af1610607b92583a41b4cf97",
       "title": "Favourite late winners: The semi-final results! | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-15T19:25:57.634557+00:00",
-      "last_seen_at": "2026-11-16T05:21:20.804494+00:00",
+      "last_seen_at": "2026-11-16T05:38:09.031322+00:00",
       "last_published_at": "2026-11-15T14:20:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -4620,7 +4639,7 @@
       "event_id": "4ddfabf8635f8021e6d27377",
       "title": "Sonia Bompastor challenges Chelsea to build on Man City victory | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-16T01:56:29.500256+00:00",
-      "last_seen_at": "2026-11-16T05:21:20.804494+00:00",
+      "last_seen_at": "2026-11-16T05:38:09.031322+00:00",
       "last_published_at": "2026-11-15T15:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
