@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T11:00:19.658037+00:00",
+  "updated_at": "2026-11-16T11:01:27.261944+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -5362,7 +5362,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "af3e8b50f491dfe60d48d9bf",
         "title": "The Chelsea issue that Xabi Alonso must immediately fix after 'ups and downs' claim",
@@ -5404,11 +5404,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T11:01:27.261944+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "The Chelsea issue that Xabi Alonso must immediately fix after 'ups and downs' claim",
+      "last_editorial_source_domains": [
+        "football.london"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football.london/chelsea-fc/news/xabi-alonso-premier-league-warning-34909177"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -5422,7 +5426,7 @@
       "publisher_domains": [
         "dailymail.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "390e74f23f32daf8fa2523de",
         "title": "Sonia Bompastor's side show their teeth as Chelsea sink the reigning champions to reclaim top spot in WSL title race: Chelsea 1-0 Man City",
@@ -5464,11 +5468,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T11:01:27.261944+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Sonia Bompastor's side show their teeth as Chelsea sink the reigning champions to reclaim top spot in WSL title race: Chelsea 1-0 Man City",
+      "last_editorial_source_domains": [
+        "dailymail.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.dailymail.com/sport/football/article-16290255/wsl-sonia-bompastor-chelsea-man-city-title-race.html?ns_mchannel=rss&ns_campaign=1490&ito=1490"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -5482,7 +5490,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "a89484287cec60aa6828722c",
         "title": "Mauricio Pochettino sent Cole Palmer transfer instruction after triple £160m Chelsea deal",
@@ -5524,11 +5532,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T11:01:27.261944+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Mauricio Pochettino sent Cole Palmer transfer instruction after triple £160m Chelsea deal",
+      "last_editorial_source_domains": [
+        "football.london"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football.london/chelsea-fc/transfer-news/mauricio-pochettino-sent-cole-palmer-34911344"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     }
