@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T18:59:04.967865+00:00",
+  "updated_at": "2026-11-16T18:59:34.016237+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -8988,7 +8988,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "0ad10f023eee60f670767c42",
         "title": "Get your Chelsea fix with CFC+ | News | Official Site - Chelsea Football Club",
@@ -9041,7 +9041,12 @@
         "https://www.chelseafc.com/en/news/article/get-your-chelsea-fix-with-cfc"
       ],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3137745198516828591",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/unlock-full-chelsea-experience-with-cfc.html",
+      "scheduled_for_utc": "2026-11-16T19:04:33Z",
+      "last_blogger_status_updated_at": "2026-11-16T18:59:34.016224+00:00"
     },
     "e3886738162e6afd4e902486": {
       "event_id": "e3886738162e6afd4e902486",
