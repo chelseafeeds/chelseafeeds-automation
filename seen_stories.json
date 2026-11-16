@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T10:40:30.207660+00:00",
+  "updated_at": "2026-11-16T10:41:18.543868+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -5097,7 +5097,7 @@
       "publisher_domains": [
         "footballinsider247.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "0e0ff36b509c23c965ff7f2a",
         "title": "Chelsea staring at Kevin De Bruyne repeat after 22-year-old's display vs Italy - verdict",
@@ -5139,11 +5139,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T10:41:18.543868+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea staring at Kevin De Bruyne repeat after 22-year-old's display vs Italy - verdict",
+      "last_editorial_source_domains": [
+        "footballinsider247.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.footballinsider247.com/chelsea/chelsea-staring-at-kevin-de-bruyne-repeat-after-22-year-olds-display-vs-italy-verdict"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -5157,7 +5161,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "1d1beb7025b61e9fc5abeb02",
         "title": "Chelsea Diary: European night and a blockbuster Saturday | News | Official Site - Chelsea Football Club",
@@ -5200,11 +5204,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T10:41:18.543868+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea Diary: European night and a blockbuster Saturday | News | Official Site - Chelsea Football Club",
+      "last_editorial_source_domains": [
+        "chelseafc.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.chelseafc.com/en/news/article/chelsea-diary-european-night-and-a-blockbuster-saturday"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -5218,7 +5226,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "378b02a74c40e73be00ad25b",
         "title": "Chelsea Under-18s discover FA Youth Cup third round opponents | News | Official Site - Chelsea Football Club",
@@ -5261,12 +5269,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-16T10:41:18.543868+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea Under-18s discover FA Youth Cup third round opponents | News | Official Site - Chelsea Football Club",
+      "last_editorial_source_domains": [
+        "chelseafc.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.chelseafc.com/en/news/article/chelsea-under-18s-discover-fa-youth-cup-third-round-opponents"
+      ],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     }
   }
