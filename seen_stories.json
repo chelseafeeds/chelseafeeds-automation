@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T10:44:32.151953+00:00",
+  "updated_at": "2026-11-16T10:45:01.751876+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -5298,7 +5298,7 @@
       "publisher_domains": [
         "chelsea.news"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "ab91afae50e8d377e3d7a700",
         "title": "Caicedo plays 84 minutes and scores for Ecuador despite admitting he was tired",
@@ -5340,11 +5340,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T10:45:01.751876+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Caicedo plays 84 minutes and scores for Ecuador despite admitting he was tired",
+      "last_editorial_source_domains": [
+        "chelsea.news"
+      ],
+      "last_editorial_source_urls": [
+        "https://chelsea.news/2026/11/caicedo-plays-84-minutes-and-scores-for-ecuador-despite-admitting-he-was-tired"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     }
