@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T12:58:14.455885+00:00",
+  "updated_at": "2026-11-16T12:59:22.421010+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -6314,7 +6314,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "87edd53f8c9cb71ed5587603",
         "title": "Moises Caicedo could be set for Chelsea role nobody saw coming",
@@ -6356,11 +6356,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T12:59:22.421010+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Moises Caicedo could be set for Chelsea role nobody saw coming",
+      "last_editorial_source_domains": [
+        "football.london"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football.london/chelsea-fc/news/moises-caicedo-could-set-chelsea-34917516"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -6562,7 +6566,7 @@
       "publisher_domains": [
         "theguardian.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "94fbf904817aaee82409e8ad",
         "title": "WSL talking points: Chelsea’s gamble pays off and have Arsenal lost fear factor?",
@@ -6604,11 +6608,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T12:59:22.421010+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "WSL talking points: Chelsea’s gamble pays off and have Arsenal lost fear factor?",
+      "last_editorial_source_domains": [
+        "theguardian.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.theguardian.com/football/2026/nov/16/wsl-talking-points-chelseas-gamble-pays-off-and-have-arsenal-lost-fear-factor"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
