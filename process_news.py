@@ -59,6 +59,8 @@ def publisher_group(domain):
         return "bbc"
     if d in {"nytimes.com", "theathletic.com"}:
         return "nytimes"
+    if d in {"mirror.co.uk", "football.london"}:
+        return "reach"
     return d
 
 def slug(value):
