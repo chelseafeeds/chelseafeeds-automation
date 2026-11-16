@@ -15,7 +15,7 @@ from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode, urljoin
 import feedparser, requests
 from bs4 import BeautifulSoup
 
-VERSION = "4.2"
+VERSION = "4.3"
 ROOT = Path(__file__).resolve().parent
 HISTORY_FILE = ROOT / "seen_stories.json"
 CANDIDATES_FILE = ROOT / "news_candidates.json"
