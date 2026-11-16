@@ -609,6 +609,14 @@ def discover_bing_news(session):
         'Chelsea contract news',
         'Chelsea loan players',
         'Chelsea official announcement',
+        'Cole Palmer Chelsea',
+        'Reece James Chelsea',
+        'Enzo Fernandez Chelsea',
+        'Malo Gusto Chelsea',
+        'Wieke Kaptein Chelsea',
+        'Sonia Bompastor Chelsea',
+        'Chelsea loanees',
+        'Chelsea board ownership finance',
     ]
     report = {"source": "Bing News Chelsea discovery", "url": "https://www.bing.com/news/",
               "status": "failed", "entries_received": 0,
@@ -660,76 +668,6 @@ def discover_bing_news(session):
         report["error"] = f"{type(exc).__name__}: {str(exc)[:180]}"
         logging.warning("Bing News discovery: %s", report["error"])
     return observations, report
-
-def discover_google_news_publishers(session):
-    """Broader Google News discovery; only resolved direct publisher pages become candidates.
-
-    Aggregator timestamps are discovery hints, not evidence. The evidence processor
-    fetches each direct publisher URL and applies the unchanged editorial thresholds.
-    """
-    from urllib.parse import quote_plus
-    queries = [
-        '"Chelsea FC" when:1d',
-        'Chelsea transfer when:1d',
-        'Chelsea injury when:1d',
-        'Chelsea Premier League when:1d',
-        'Chelsea Champions League when:1d',
-        'Chelsea Women WSL when:1d',
-        'Chelsea Women Champions League when:1d',
-        'Chelsea academy youth when:1d',
-        'Chelsea manager players when:1d',
-        'Chelsea contract loan when:1d',
-    ]
-    report = {"source": "Google News broad Chelsea publisher discovery",
-              "url": "https://news.google.com/", "status": "failed",
-              "entries_received": 0, "observations_collected": 0,
-              "rejected_unresolved": 0, "query_reports": [], "error": None}
-    observations, seen = [], set()
-    for query in queries:
-        row = {"query": query, "entries_received": 0,
-               "observations_collected": 0, "status": "failed"}
-        feed_url = "https://news.google.com/rss/search?q=" + quote_plus(query) + "&hl=en-GB&gl=GB&ceid=GB:en"
-        try:
-            response = session.get(feed_url, timeout=c.TIMEOUT)
-            response.raise_for_status()
-            feed = feedparser.parse(response.content)
-            row["entries_received"] = len(feed.entries)
-            report["entries_received"] += len(feed.entries)
-            for entry in feed.entries[:30]:
-                title = c.textval(entry.get("title"))
-                summary = c.textval(entry.get("summary", entry.get("description", "")))
-                published = c.parse_date(entry)
-                raw_url = entry.get("link", "")
-                if not published or not title or not c.relevant(title, summary):
-                    continue
-                try:
-                    resolved = session.get(raw_url, timeout=c.TIMEOUT, allow_redirects=True)
-                    final_url = c.normalize_url(resolved.url)
-                    publisher = c.publisher_type(final_url)
-                    if (not final_url or publisher == "aggregator_unresolved"
-                        or publisher == "unknown_domain" or final_url in seen):
-                        report["rejected_unresolved"] += 1
-                        continue
-                    item = c.observation(title, summary, final_url,
-                                         "Google News broad discovery: " + query,
-                                         c.domain(final_url), published)
-                    if item:
-                        seen.add(final_url)
-                        observations.append(item)
-                        row["observations_collected"] += 1
-                except requests.RequestException:
-                    report["rejected_unresolved"] += 1
-            row["status"] = "success" if row["observations_collected"] else "empty"
-        except Exception as exc:
-            row["error"] = type(exc).__name__ + ": " + str(exc)[:150]
-            logging.info("Google News query %s unavailable: %s", query, type(exc).__name__)
-        report["query_reports"].append(row)
-    report["observations_collected"] = len(observations)
-    report["status"] = "success" if observations else "empty"
-    if not observations:
-        report["error"] = "No fresh Chelsea results resolved to direct publisher pages"
-    return observations, report
-
 
 def discover_specialist_feeds(session):
     observations, report = [], []
@@ -807,8 +745,7 @@ def main():
     specialist_obs, specialist_report = discover_specialist_feeds(session)
     bing_obs, bing_report = discover_bing_news(session)
     google_official_obs, google_official_report = discover_google_news_official(session, sitemap_report)
-    google_publisher_obs, google_publisher_report = discover_google_news_publishers(session)
-    new_obs = official_obs + sitemap_obs + specialist_obs + bing_obs + google_official_obs + google_publisher_obs
+    new_obs = official_obs + sitemap_obs + specialist_obs + bing_obs + google_official_obs
     groups = c.cluster(new_obs)
     groups.extend(pinned_groups)
     for group in groups:
@@ -839,7 +776,7 @@ def main():
     c.write(HISTORY, history_updated)
     report = json.loads(REPORT.read_text(encoding="utf-8")) if REPORT.exists() else {}
     reports = report.setdefault("source_reports", [])
-    reports.extend(official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report, google_publisher_report])
+    reports.extend(official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report])
     report.update(source_discovery_version="1.6",
                   direct_source_observations=len(new_obs) + len(pinned_groups),
                   direct_official_observations=len(official_obs) + len(sitemap_obs) + len(google_official_obs) + len(pinned_groups),
