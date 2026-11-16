@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T17:08:29.349868+00:00",
+  "updated_at": "2026-11-16T17:09:51.679591+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -7962,7 +7962,7 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": "2026-11-16T17:08:29.349868+00:00",
+      "last_processed_at": "2026-11-16T17:09:51.679591+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "USWNT Abroad: Lily Yohannes keeps scoring, Alyssa Thompson's Chelsea edge Sam Coffey's Man City and Emily Fox's exit raises concern",
       "last_editorial_source_domains": [
@@ -8029,7 +8029,7 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": "2026-11-16T16:24:21.569111+00:00",
+      "last_processed_at": "2026-11-16T17:09:51.679591+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea star’s England career in danger as 10/10 star ‘is the No 1’ now",
       "last_editorial_source_domains": [
@@ -8218,7 +8218,7 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": "2026-11-16T16:24:21.569111+00:00",
+      "last_processed_at": "2026-11-16T17:09:51.679591+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "USWNT Abroad: Lily Yohannes keeps scoring, Alyssa Thompson's Chelsea edge Sam Coffey's Man City and Emily Fox's exit raises concern",
       "last_editorial_source_domains": [
