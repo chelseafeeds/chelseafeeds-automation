@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T12:32:14.304111+00:00",
+  "updated_at": "2026-11-16T12:35:18.410319+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -5742,7 +5742,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "07d699901a513cb8cde2e789",
         "title": "England winners and losers: Arsenal star rebuilding as Chelsea man suffers further setback",
@@ -5784,11 +5784,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T12:35:18.410319+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "England winners and losers: Arsenal star rebuilding as Chelsea man suffers further setback",
+      "last_editorial_source_domains": [
+        "standard.co.uk"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.standard.co.uk/sport/football/england-winners-and-losers-white-palmer-alexander-arnold-b1305009.html"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -5802,7 +5806,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "e5d0788f46e109c1c8354699",
         "title": "Romelu Lukaku announces shock Belgium retirement aged 33 as former Man Utd and Chelsea striker posts emotional statement",
@@ -5844,12 +5848,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-16T12:35:18.410319+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Romelu Lukaku announces shock Belgium retirement aged 33 as former Man Utd and Chelsea striker posts emotional statement",
+      "last_editorial_source_domains": [
+        "thesun.co.uk"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.thesun.co.uk/sport/41035993/romelu-lukaku-belgium-retirement-chelsea-man-united"
+      ],
+      "last_quality_failures": [
+        "title_present_and_reasonable"
+      ],
       "force_evidence_refresh": false
     },
     "4ba47da1c5ff0f78f722789c": {
@@ -5862,7 +5872,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "4ba47da1c5ff0f78f722789c",
         "title": "Transfer news LIVE: Paz to Arsenal, Nusa deal; new Man Utd target; Chelsea, Liverpool latest",
@@ -5904,11 +5914,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T12:35:18.410319+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Transfer news LIVE: Paz to Arsenal, Nusa deal; new Man Utd target; Chelsea, Liverpool latest",
+      "last_editorial_source_domains": [
+        "standard.co.uk"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.standard.co.uk/sport/football/transfer-news-live-arsenal-fc-chelsea-man-utd-liverpool-paz-bassey-nusa-b1303142.html"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -5922,7 +5936,7 @@
       "publisher_domains": [
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "60c36850681c1df77e48d9f8",
         "title": "Chelsea staring at Kevin De Bruyne repeat after 22-year-old's display vs Italy - verdict",
@@ -5964,12 +5978,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-16T12:35:18.410319+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea staring at Kevin De Bruyne repeat after 22-year-old's display vs Italy - verdict",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/chelsea-staring-kevin-bruyne-repeat-101055529.html"
+      ],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     },
     "8ba960390853097e94694e54": {
@@ -6102,7 +6122,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "2baea6d1bebb6a0eb2377d53",
         "title": "Ex-Chelsea striker Romelu Lukaku makes major announcement - 'I'm at peace with my decision'",
@@ -6144,11 +6164,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T12:35:18.410319+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Ex-Chelsea striker Romelu Lukaku makes major announcement - 'I'm at peace with my decision'",
+      "last_editorial_source_domains": [
+        "football.london"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football.london/premier-league/breaking-romelu-lukaku-belgium-chelsea-34917208"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -6162,7 +6186,7 @@
       "publisher_domains": [
         "talkchelsea.net"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "f6a793394c4e4302bffe3916",
         "title": "The one thing Chelsea fans need to worry about as Morgan Rogers continues hot streak",
@@ -6204,11 +6228,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T12:35:18.410319+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "The one thing Chelsea fans need to worry about as Morgan Rogers continues hot streak",
+      "last_editorial_source_domains": [
+        "talkchelsea.net"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.talkchelsea.net/news/thing-chelsea-fans-worry-about-morgan-rogers"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -6222,7 +6250,7 @@
       "publisher_domains": [
         "football-italia.net"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "dd1cadc86d2fe5f9b2b0527a",
         "title": "Report: Chelsea still interested in Alajbegovic following Man United interest in McKennie",
@@ -6264,11 +6292,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T12:35:18.410319+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Report: Chelsea still interested in Alajbegovic following Man United interest in McKennie",
+      "last_editorial_source_domains": [
+        "football-italia.net"
+      ],
+      "last_editorial_source_urls": [
+        "https://football-italia.net/report-chelsea-still-interested-in-alajbegovic"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -6342,7 +6374,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "3ee28cc6d14f06cd5b647e18",
         "title": "Chelsea star tipped to move to Man Utd under Pochettino as one of three PL signings",
@@ -6384,11 +6416,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T12:35:18.410319+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea star tipped to move to Man Utd under Pochettino as one of three PL signings",
+      "last_editorial_source_domains": [
+        "football365.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football365.com/news/chelsea-estevao-tipped-man-utd-transfer-pochettino-hall-calvert-lewin"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -6402,7 +6438,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "243bdd4ca56f06e73540a281",
         "title": "Thomas Frank ‘finalising’ Crystal Palace deal as top insider reveals Chelsea man is coming with",
@@ -6444,11 +6480,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T12:35:18.410319+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Thomas Frank ‘finalising’ Crystal Palace deal as top insider reveals Chelsea man is coming with",
+      "last_editorial_source_domains": [
+        "football365.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football365.com/news/thomas-frank-crystal-palace-manager"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
