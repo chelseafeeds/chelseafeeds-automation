@@ -20,6 +20,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: chelseafeeds-collection
@@ -66,3 +67,14 @@ jobs:
             seen_stories.json
           if-no-files-found: error
           retention-days: 7
+
+      # workflow_run does not reliably chain from GITHUB_TOKEN-dispatched runs.
+      # Explicitly start processing after a manual/watchdog collection artifact exists.
+      - name: Dispatch evidence processing for manual or watchdog collections
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run process-news.yml --ref main \
+            -f source_run_id="$GITHUB_RUN_ID" \
+            -f recovery_approved=true
