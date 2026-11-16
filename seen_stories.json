@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T22:09:03.931280+00:00",
+  "updated_at": "2026-11-16T22:09:48.714324+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -9551,7 +9551,7 @@
       "publisher_domains": [
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "08fc4da029abbd89377d27da",
         "title": "Chelsea ready to push hard to sign world-class defender",
@@ -9593,12 +9593,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-16T22:09:48.714324+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea ready to push hard to sign world-class defender",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/chelsea-ready-push-hard-sign-195000427.html"
+      ],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     },
     "d082111e138c0c5a0adae8e4": {
