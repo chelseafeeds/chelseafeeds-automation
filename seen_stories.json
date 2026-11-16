@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T10:41:18.543868+00:00",
+  "updated_at": "2026-11-16T10:41:51.905690+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -5161,7 +5161,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "1d1beb7025b61e9fc5abeb02",
         "title": "Chelsea Diary: European night and a blockbuster Saturday | News | Official Site - Chelsea Football Club",
@@ -5214,7 +5214,12 @@
         "https://www.chelseafc.com/en/news/article/chelsea-diary-european-night-and-a-blockbuster-saturday"
       ],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7812808722009297191",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-diary-european-night-and.html",
+      "scheduled_for_utc": "2026-11-16T10:46:50Z",
+      "last_blogger_status_updated_at": "2026-11-16T10:41:51.905674+00:00"
     },
     "378b02a74c40e73be00ad25b": {
       "event_id": "378b02a74c40e73be00ad25b",
