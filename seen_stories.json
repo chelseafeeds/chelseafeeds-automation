@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T14:45:17.364238+00:00",
+  "updated_at": "2026-11-16T14:48:35.196462+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -7538,7 +7538,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "b94f7315325df5747938f5c5",
         "title": "Cole Palmer: My Football Firsts | News | Official Site - Chelsea Football Club",
@@ -7591,7 +7591,12 @@
         "https://www.chelseafc.com/en/news/article/cole-palmer-my-football-firsts"
       ],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3191486800806420489",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/cole-palmers-football-firsts-from.html",
+      "scheduled_for_utc": "2026-11-16T14:53:34Z",
+      "last_blogger_status_updated_at": "2026-11-16T14:48:35.196449+00:00"
     }
   }
 }
