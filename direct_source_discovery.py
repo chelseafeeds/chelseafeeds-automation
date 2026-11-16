@@ -66,6 +66,15 @@ SPECIALIST_FEEDS = [
     {"name": "The Mirror Football", "url": "https://www.mirror.co.uk/sport/football/rss.xml"},
     {"name": "The Sun Football", "url": "https://www.thesun.co.uk/sport/football/feed/"},
     {"name": "The i Paper Sport", "url": "https://inews.co.uk/sport/football/feed"},
+    {"name": "The Independent Football", "url": "https://www.independent.co.uk/sport/football/rss"},
+    {"name": "Evening Standard Sport", "url": "https://www.standard.co.uk/sport/rss"},
+    {"name": "talkSPORT Football", "url": "https://talksport.com/football/feed/"},
+    {"name": "Tribal Football", "url": "https://www.tribalfootball.com/rss"},
+    {"name": "Sky Sports Premier League", "url": "https://www.skysports.com/rss/11661"},
+    {"name": "BBC Sport Champions League", "url": "https://feeds.bbci.co.uk/sport/football/champions-league/rss.xml"},
+    {"name": "BBC Sport European Football", "url": "https://feeds.bbci.co.uk/sport/football/european/rss.xml"},
+    {"name": "Associated Press Top Stories", "url": "https://flipboard.com/@associatedpress/top-stories-u7govdf1z.rss"},
+    {"name": "Premier League Official News", "url": "https://www.premierleague.com/news.rss"},
 ]
 ALLOWED_OFFICIAL = {"chelseafc.com", "wslfootball.com", "premierleague.com", "uefa.com", "thefa.com", "englandfootball.com"}
 c.OFFICIAL.add("englandfootball.com")
