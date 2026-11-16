@@ -15,7 +15,7 @@ from urllib.parse import urlparse, urlunparse, parse_qsl, urlencode, urljoin
 import feedparser, requests
 from bs4 import BeautifulSoup
 
-VERSION = "4.3"
+VERSION = "4.4"
 ROOT = Path(__file__).resolve().parent
 HISTORY_FILE = ROOT / "seen_stories.json"
 CANDIDATES_FILE = ROOT / "news_candidates.json"
@@ -52,12 +52,15 @@ FEEDS = [
     {"name":"The Independent Football","url":"https://www.independent.co.uk/sport/football/rss"},
     {"name":"Evening Standard Sport","url":"https://www.standard.co.uk/sport/rss"},
     {"name":"talkSPORT Football","url":"https://talksport.com/football/feed/"},
-    {"name":"Tribal Football","url":"https://www.tribalfootball.com/rss"},
     {"name":"Sky Sports Premier League","url":"https://www.skysports.com/rss/11661"},
     {"name":"BBC Sport Champions League","url":"https://feeds.bbci.co.uk/sport/football/champions-league/rss.xml"},
     {"name":"BBC Sport European Football","url":"https://feeds.bbci.co.uk/sport/football/european/rss.xml"},
-    {"name":"Associated Press Top Stories","url":"https://flipboard.com/@associatedpress/top-stories-u7govdf1z.rss"},
-    {"name":"Premier League Official News","url":"https://www.premierleague.com/news.rss"},
+    {"name":"Sky News Sport","url":"https://feeds.skynews.com/feeds/rss/sports.xml"},
+    {"name":"Yahoo Sports","url":"https://sports.yahoo.com/rss/"},
+    {"name":"Sports Illustrated","url":"https://www.si.com/feed"},
+    {"name":"Football Italia","url":"https://www.football-italia.net/feed/"},
+    {"name":"Planet Football","url":"https://www.planetfootball.com/feed/"},
+    {"name":"Football España","url":"https://www.football-espana.net/feed/"},
 ]
 OFFICIAL={"chelseafc.com","premierleague.com","uefa.com","thefa.com","wslfootball.com","englandfootball.com"}
 ESTABLISHED={"bbc.co.uk","bbc.com","skysports.com","theguardian.com","reuters.com","apnews.com","espn.com","independent.co.uk","standard.co.uk","nytimes.com","theathletic.com","football365.com","thetimes.com","telegraph.co.uk","talksport.com","footballinsider247.com","independent.co.uk","standard.co.uk","tribalfootball.com","apnews.com","football.london","90min.com","goal.com","fourfourtwo.com","dailymail.co.uk","mirror.co.uk","thesun.co.uk","inews.co.uk","cbssports.com"}
