@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T21:41:18.935989+00:00",
+  "updated_at": "2026-11-16T21:41:58.571321+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -9301,7 +9301,7 @@
       "publisher_domains": [
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "ffdf446145db50c90d444452",
         "title": "Marco Palestra can transform Chelsea's right flank, Italy stats show his potential",
@@ -9343,12 +9343,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-16T21:41:58.571321+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Marco Palestra can transform Chelsea's right flank, Italy stats show his potential",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/marco-palestra-transform-chelseas-flank-174500511.html"
+      ],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     },
     "95a976c21a1fb11793b63c3c": {
