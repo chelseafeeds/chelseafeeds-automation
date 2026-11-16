@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-16T14:43:38.333988+00:00",
+  "updated_at": "2026-11-16T14:45:17.364238+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -7245,7 +7245,7 @@
       "publisher_domains": [
         "msn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "14f0ae15c90baa8068aa2eb3",
         "title": "Arsenal star Zubimendi open to Chelsea transfer as Gunners name price for January sale",
@@ -7287,11 +7287,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T14:45:17.364238+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Arsenal star Zubimendi ‘open’ to Chelsea transfer as Gunners name price for January sale",
+      "last_editorial_source_domains": [
+        "football365.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football365.com/news/arsenal-star-zubimendi-open-to-chelsea-transfer-as-gunners-name-price-for-january-sale"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -7307,7 +7311,7 @@
         "football365.com",
         "msn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "1ee92d8d8cab2a01a53200bc",
         "title": "Chelsea star tipped to move to Man Utd under Pochettino as one of three PL signings",
@@ -7367,11 +7371,17 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T14:45:17.364238+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea star tipped to move to Man Utd under Pochettino as one of three PL signings",
+      "last_editorial_source_domains": [
+        "football.london",
+        "football365.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football.london/chelsea-fc/transfer-news/chelsea-sent-estevao-willian-transfer-34918421",
+        "https://www.football365.com/news/chelsea-estevao-tipped-man-utd-transfer-pochettino-hall-calvert-lewin"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -7385,7 +7395,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "20767dc8159299613cf254b1",
         "title": "Cole Palmer enjoys kickabout with kids on Dubai holiday as Chelsea star gets over England snub with Wag Olivia Holder",
@@ -7427,11 +7437,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T14:45:17.364238+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Cole Palmer enjoys kickabout with kids on Dubai holiday as Chelsea star gets over England snub with Wag Olivia Holder",
+      "last_editorial_source_domains": [
+        "thesun.co.uk"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.thesun.co.uk/sport/41038213/cole-palmer-dubai-kickabout-olivia-holder-england-snub-chelsea"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -7524,7 +7538,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "b94f7315325df5747938f5c5",
         "title": "Cole Palmer: My Football Firsts | News | Official Site - Chelsea Football Club",
@@ -7567,11 +7581,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-16T14:45:17.364238+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Cole Palmer: My Football Firsts | News | Official Site - Chelsea Football Club",
+      "last_editorial_source_domains": [
+        "chelseafc.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.chelseafc.com/en/news/article/cole-palmer-my-football-firsts"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     }
