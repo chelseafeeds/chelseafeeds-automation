@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T17:19:13.393125+00:00",
+  "updated_at": "2026-11-17T17:28:56.482250+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -632,7 +632,7 @@
       "event_id": "5f596cb901f438b5057f6780",
       "title": "Chelsea latest: Estevao scores in dominant Brazil win",
       "first_seen_at": "2026-11-11T12:51:34.962528+00:00",
-      "last_seen_at": "2026-11-17T17:16:17.590854+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-17T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -7701,7 +7701,7 @@
       "event_id": "a17afcc30c02787fdc13f073",
       "title": "Thomas Frank announced as Crystal Palace boss as he eyes raid on Chelsea set-piece guru marginalised under Xabi Alonso",
       "first_seen_at": "2026-11-16T15:53:25.954943+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-16T18:08:07+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -9076,7 +9076,7 @@
       "event_id": "e3886738162e6afd4e902486",
       "title": "Latest: Crystal Palace chase Chelsea’s £1m coach",
       "first_seen_at": "2026-11-16T18:31:01.807808+00:00",
-      "last_seen_at": "2026-11-17T17:16:17.590854+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-16T18:08:15+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -10031,7 +10031,7 @@
       "event_id": "f5724637e066c01abe24642a",
       "title": "Chelsea squad ladder: Joao Pedro up to top spot but Malo Gusto falling out of favour",
       "first_seen_at": "2026-11-17T05:29:02.844378+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-16T21:16:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -10056,7 +10056,7 @@
             "url": "https://www.nytimes.com/athletic/7776731/2026/11/17/chelsea-squad-ladder-joao-pedro-gusto-analysis",
             "publisher_domain": "nytimes.com",
             "publisher_name_hint": "nytimes.com",
-            "source_feed": "Bing News discovery: Malo Gusto Chelsea",
+            "source_feed": "Bing News discovery: Chelsea Premier League",
             "published": "2026-11-16T21:16:00+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
@@ -10073,7 +10073,7 @@
           "nytimes.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Malo Gusto Chelsea"
+          "Bing News discovery: Chelsea Premier League"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -10244,7 +10244,7 @@
       "event_id": "7753a941665da50aa52a88d0",
       "title": "Sunderland’s Chelsea Revival: Evolution, Devolution or Turning Point?",
       "first_seen_at": "2026-11-17T06:23:35.870612+00:00",
-      "last_seen_at": "2026-11-17T16:25:47.443326+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-16T22:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -10490,7 +10490,7 @@
       "event_id": "3a769934c78b89e9ac946b19",
       "title": "Xabi Alonso accused of making Chelsea star 'easy scapegoat' with brutal decision",
       "first_seen_at": "2026-11-17T07:09:43.170244+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T07:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -10618,7 +10618,7 @@
       "event_id": "116d5313fb6e553eb171f0a2",
       "title": "Transfer news LIVE: Arsenal triple deal, Vinicius talks; Man Utd eye Hall; Chelsea, Liverpool latest",
       "first_seen_at": "2026-11-17T07:22:31.111640+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T14:24:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -10870,7 +10870,7 @@
       "event_id": "1123ed1d4458a0e3cbbc84e0",
       "title": "Chelsea's Baltimore enjoying partnership with Malard ahead of UWCL clash against PSG",
       "first_seen_at": "2026-11-17T07:55:33.636252+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-16T23:47:57+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -10895,7 +10895,7 @@
             "url": "https://www.msn.com/en-us/news/other/chelseas-baltimore-enjoying-partnership-with-malard-ahead-of-uwcl-clash-against-psg/ar-AA2hBuZ2",
             "publisher_domain": "msn.com",
             "publisher_name_hint": "msn.com",
-            "source_feed": "Bing News discovery: Chelsea Women WSL",
+            "source_feed": "Bing News discovery: Chelsea Champions League",
             "published": "2026-11-16T23:32:10+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "chelsea_women",
@@ -10912,7 +10912,7 @@
           "msn.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea Women WSL"
+          "Bing News discovery: Chelsea Champions League"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -10930,7 +10930,7 @@
       "event_id": "f4d50cc17f46e83804ee9f00",
       "title": "Chelsea Women beat Man City 1-0 to go top of WSL table",
       "first_seen_at": "2026-11-17T08:23:06.313211+00:00",
-      "last_seen_at": "2026-11-17T15:23:13.659224+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-16T21:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -10990,7 +10990,7 @@
       "event_id": "f03eac19e0ec496fc2d863c9",
       "title": "Watch Chelsea FC Women vs Paris Saint Germain live: Who is broadcasting the match on TV and via live stream?",
       "first_seen_at": "2026-11-17T08:23:06.313211+00:00",
-      "last_seen_at": "2026-11-17T16:53:54.212727+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T00:04:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -11304,7 +11304,7 @@
       "event_id": "675e26695031ea5d933a03c9",
       "title": "Internationals: Jashayde Greenwood nets for England Under-18s | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-17T08:47:26.673194+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T08:59:36+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -11367,7 +11367,7 @@
       "event_id": "1fb98df005fd5265fa31956b",
       "title": "Does João Félix have a ‘secret clause’ to return to Chelsea next summer?",
       "first_seen_at": "2026-11-17T08:47:26.673194+00:00",
-      "last_seen_at": "2026-11-17T15:49:04.226860+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T00:09:54+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -11392,7 +11392,7 @@
             "url": "https://www.msn.com/en-us/news/other/does-jo%C3%A3o-f%C3%A9lix-have-a-secret-clause-to-return-to-chelsea-next-summer/ar-AA2hBSkq",
             "publisher_domain": "msn.com",
             "publisher_name_hint": "msn.com",
-            "source_feed": "Bing News discovery: Chelsea transfer news",
+            "source_feed": "Bing News discovery: \"Chelsea FC\" latest",
             "published": "2026-11-17T00:09:54+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
@@ -11409,7 +11409,7 @@
           "msn.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea transfer news"
+          "Bing News discovery: \"Chelsea FC\" latest"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -11487,7 +11487,7 @@
       "event_id": "6e4dc4ded55b381650304e54",
       "title": "Does João Félix have a ‘secret clause’ to return to Chelsea next summer?",
       "first_seen_at": "2026-11-17T08:47:26.673194+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T08:09:54+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -11547,7 +11547,7 @@
       "event_id": "b0e94a77dfcf61f5153940d0",
       "title": "Chelsea emerge as leading Premier League contenders to sign £70m rated defender",
       "first_seen_at": "2026-11-17T08:54:55.996417+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T08:50:45+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -11727,7 +11727,7 @@
       "event_id": "bd192ad87f6a96f2d20df5db",
       "title": "Chelsea plotting £150m double transfer raid",
       "first_seen_at": "2026-11-17T09:27:50.883321+00:00",
-      "last_seen_at": "2026-11-17T16:53:54.212727+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T00:49:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -11847,7 +11847,7 @@
       "event_id": "7f09ab1976edaa75096b7ed8",
       "title": "Sources: Liverpool have done a lot of work on signing €70m Chelsea transfer target",
       "first_seen_at": "2026-11-17T09:51:01.970939+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T09:27:34+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -11907,7 +11907,7 @@
       "event_id": "f0eaf4921a78a4611f84e625",
       "title": "Chelsea could revisit move for highly-rated Spanish winger with €30m clause",
       "first_seen_at": "2026-11-17T09:51:01.970939+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T09:36:48+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -11967,7 +11967,7 @@
       "event_id": "2f0e4adc69db2fe2cbd2bcb9",
       "title": "Chelsea rival Arsenal for transfer of elite 20-year-old talent",
       "first_seen_at": "2026-11-17T10:03:40.730973+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T09:57:49+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -12087,7 +12087,7 @@
       "event_id": "26832c443f28336dce20bf64",
       "title": "Chelsea kits reduced in Black Friday sale – get 20 per cent off any orders over £50 with discount code",
       "first_seen_at": "2026-11-17T10:31:04.320503+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T10:04:54+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -12207,7 +12207,7 @@
       "event_id": "6b3b5ce55c2b9cd765788b9a",
       "title": "Roma chase next Malen as they target unhappy Chelsea and Forest wingers",
       "first_seen_at": "2026-11-17T10:31:04.320503+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T10:18:56+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -12267,7 +12267,7 @@
       "event_id": "b4d8749620c408f04d18a702",
       "title": "Ex-Manchester United defender names Chelsea star as dream first Mauricio Pochettino signing",
       "first_seen_at": "2026-11-17T10:31:04.320503+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T10:25:35+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -12329,7 +12329,7 @@
       "event_id": "10750930c668d9c57d0c65c7",
       "title": "Man Utd submit stunning €100m bid for Barcelona ace to hijack Chelsea deal",
       "first_seen_at": "2026-11-17T10:56:02.099049+00:00",
-      "last_seen_at": "2026-11-17T17:16:17.590854+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-17T10:42:39+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -12389,7 +12389,7 @@
       "event_id": "f9c0a377328e14e0c99eb9e9",
       "title": "Chelsea's Malo Gusto named 'biggest disappointment of the Zidane era'... and Liverpool's £123m man Bradley Barcola 'lacked accuracy and composure' in damning verdict on France's Premier League stars",
       "first_seen_at": "2026-11-17T11:06:50.119956+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T16:31:21+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -12524,7 +12524,7 @@
       "event_id": "84c4191a1c54f2c28bfb19c3",
       "title": "Squad debutant among six Blues called up by England Women | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-17T11:09:36.035875+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T11:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -12587,7 +12587,7 @@
       "event_id": "dcb6182b694172375da2f62a",
       "title": "Xabi Alonso handed crucial Chelsea injury green light ahead of Leeds showdown",
       "first_seen_at": "2026-11-17T11:36:10.457952+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T11:07:10+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -12707,7 +12707,7 @@
       "event_id": "39a9cdcf4af0209425457d5a",
       "title": "Chelsea's Malo Gusto named biggest disappointment in hard verdict on France's Premier League stars",
       "first_seen_at": "2026-11-17T11:38:20.628719+00:00",
-      "last_seen_at": "2026-11-17T16:53:54.212727+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T03:01:20+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -12887,7 +12887,7 @@
       "event_id": "49f57b2da7ee2f757204fbaf",
       "title": "Chelsea emerge as leading Premier League contenders to sign £70m rated defender",
       "first_seen_at": "2026-11-17T11:38:20.628719+00:00",
-      "last_seen_at": "2026-11-17T16:53:54.212727+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T03:06:37+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13007,7 +13007,7 @@
       "event_id": "1ae730b605802b0310029c59",
       "title": "'He's a good player for sure' - Manchester United urged to launch shock Chelsea transfer raid to kickstart Mauricio Pochettino era",
       "first_seen_at": "2026-11-17T11:38:20.628719+00:00",
-      "last_seen_at": "2026-11-17T16:13:50.729947+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T03:22:17+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13127,7 +13127,7 @@
       "event_id": "7ee811122c7b323e1cbabb8c",
       "title": "Chelsea icon and Italy legend join current Arsenal and Tottenham stars in new £15.5m investment",
       "first_seen_at": "2026-11-17T11:51:55.453446+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T11:35:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13187,7 +13187,7 @@
       "event_id": "71513f3c868dc638c342ae95",
       "title": "What Cole Palmer has been doing over international break in Chelsea boost for Xabi Alonso",
       "first_seen_at": "2026-11-17T11:51:55.453446+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T11:41:43+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13247,7 +13247,7 @@
       "event_id": "95899698f1dcc07969b0aba9",
       "title": "Chelsea owners set to nab Championship boss when Strasbourg manager is sacked",
       "first_seen_at": "2026-11-17T11:51:55.453446+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T11:42:44+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13367,7 +13367,7 @@
       "event_id": "e306282f1a85a88671fa2eca",
       "title": "Chelsea latest: Estevao scores in dominant Brazil win",
       "first_seen_at": "2026-11-17T12:26:08.616179+00:00",
-      "last_seen_at": "2026-11-17T17:16:17.590854+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-17T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13429,7 +13429,7 @@
       "event_id": "f624ce674540d0601d2c171a",
       "title": "Chelsea latest: Estevao scores in dominant Brazil win",
       "first_seen_at": "2026-11-17T12:26:08.616179+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13552,7 +13552,7 @@
       "event_id": "124a277611f8073811fded7f",
       "title": "What Cole Palmer has been doing over international break in Chelsea boost for Xabi Alonso",
       "first_seen_at": "2026-11-17T12:28:47.015195+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T03:42:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13612,7 +13612,7 @@
       "event_id": "3218be43c1cc9e6d8f4b195a",
       "title": "Chelsea handed huge Emi Martinez injury boost with keeper to make Argentina return",
       "first_seen_at": "2026-11-17T12:51:05.100137+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T12:34:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13792,7 +13792,7 @@
       "event_id": "f39bacafff4fa8096a07386c",
       "title": "Liverpool or Chelsea? Lamine Camara most ‘likely destination’ revealed with agreement ‘close’",
       "first_seen_at": "2026-11-17T13:31:16.235803+00:00",
-      "last_seen_at": "2026-11-17T17:16:17.590854+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-17T13:26:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13852,7 +13852,7 @@
       "event_id": "7ace364f01acab655b470832",
       "title": "Chelsea have unfinished business in January transfer window with £100m reality clear",
       "first_seen_at": "2026-11-17T13:31:16.235803+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T13:29:11+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13972,7 +13972,7 @@
       "event_id": "779c592d7f24e56fa59e6744",
       "title": "Dramatic Palmer strike voted your favourite late Chelsea winner! | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-17T13:33:55.938156+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T13:15:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -14035,7 +14035,7 @@
       "event_id": "44d20ea0bc3e37e874137023",
       "title": "Sources: Jules Kounde pushing for January transfer amid Chelsea latest",
       "first_seen_at": "2026-11-17T13:56:03.085312+00:00",
-      "last_seen_at": "2026-11-17T17:16:17.590854+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-17T13:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -14095,7 +14095,7 @@
       "event_id": "c7d8ba9f5c188a6495c832c5",
       "title": "Chelsea back on top as Baltimore bullet stuns Manchester City: Women’s Football Weekly – podcast",
       "first_seen_at": "2026-11-17T13:56:03.085312+00:00",
-      "last_seen_at": "2026-11-17T17:16:17.590854+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-17T13:39:23+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -14291,7 +14291,7 @@
       "event_id": "945480ec825ce8565b46036f",
       "title": "Internationals: Estevao nets and assists in big Brazil win | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-17T13:58:35.344070+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T13:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -14354,7 +14354,7 @@
       "event_id": "3c5b87f20558d91d3012ec7a",
       "title": "Sandy Baltimore grateful for Paris education but not looking back | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-17T13:58:35.344070+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T13:45:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -14418,7 +14418,7 @@
       "event_id": "7cf962255988b0207437cf07",
       "title": "Chelsea prepare for five game run which could make or break Xabi Alonso’s first season",
       "first_seen_at": "2026-11-17T14:17:03.342862+00:00",
-      "last_seen_at": "2026-11-17T17:16:17.590854+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-17T14:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -14538,7 +14538,7 @@
       "event_id": "b434b36757bf36166f942f5a",
       "title": "Chelsea Defender Provides Positive Injury Update As He Begins Individual Training",
       "first_seen_at": "2026-11-17T14:20:17.261820+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T05:27:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -14598,7 +14598,7 @@
       "event_id": "b6afd136a4156d82e1d08d4f",
       "title": "Chelsea enter race for Inter Milan star Bastoni in January swoop",
       "first_seen_at": "2026-11-17T14:23:14.365732+00:00",
-      "last_seen_at": "2026-11-17T17:16:17.590854+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-17T14:22:29+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -14658,7 +14658,7 @@
       "event_id": "4eda29c51a6f65e11faaceba",
       "title": "‘Alex Scott is a complete midfielder - he can play for a bigger club than Chelsea’",
       "first_seen_at": "2026-11-17T15:14:33.389384+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T14:57:03+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -14718,7 +14718,7 @@
       "event_id": "375a10f8fa82603aea2bda44",
       "title": "Chelsea Handed Emiliano Martinez Update as Argentina Confirms Goalkeeper’s Status",
       "first_seen_at": "2026-11-17T15:14:33.389384+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T15:00:01+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -14838,7 +14838,7 @@
       "event_id": "cc63df7d5fcf13dbf31cc923",
       "title": "Flying full-back your Chelsea Women Player of the Month | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-17T15:18:18.179920+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T08:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15141,7 +15141,7 @@
       "event_id": "3487a174e2669096e69e2cd3",
       "title": "Chelsea flop branded ‘biggest disappointment of Zidane era’ as France are brutally exposed during international break",
       "first_seen_at": "2026-11-17T16:11:09.236400+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T15:48:58+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -15153,13 +15153,28 @@
         "title": "Chelsea flop branded ‘biggest disappointment of Zidane era’ as France are brutally exposed during international break",
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-17T15:48:58+00:00",
+        "published": "2026-11-17T07:48:00+00:00",
         "best_summary": "MALO GUSTO has been branded the \"biggest disappointment\" of France's international break following a nightmare performance against Italy, with two more Premier League stars also in the firing line. France are still fresh into the Zinedine Zidane era, with this only being their second international break with the World Cup winner in charge. However, a...",
         "representative_title": "Chelsea flop branded ‘biggest disappointment of Zidane era’ as France are brutally exposed during international break",
         "representative_url": "https://www.thesun.co.uk/sport/41050411/chelsea-flop-malo-gusto-biggest-disappointment-france-zidane",
         "representative_publisher": "thesun.co.uk",
         "representative_publisher_type": "established_domain",
         "source_observations": [
+          {
+            "title": "Chelsea flop branded ‘biggest disappointment of Zidane era’ as France are brutally exposed during international break",
+            "summary": "MALO GUSTO has been branded the “biggest disappointment” of France’s international break following a nightmare performance against Italy, with two more Premier League stars also ...",
+            "url": "https://www.thesun.co.uk/sport/41050411/chelsea-flop-malo-gusto-biggest-disappointment-france-zidane",
+            "publisher_domain": "thesun.co.uk",
+            "publisher_name_hint": "thesun.co.uk",
+            "source_feed": "Bing News discovery: Malo Gusto Chelsea",
+            "published": "2026-11-17T07:48:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "malo_gusto"
+          },
           {
             "title": "Chelsea flop branded ‘biggest disappointment of Zidane era’ as France are brutally exposed during international break",
             "summary": "MALO GUSTO has been branded the \"biggest disappointment\" of France's international break following a nightmare performance against Italy, with two more Premier League stars also in the firing line. France are still fresh into the Zinedine Zidane era, with this only being their second international break with the World Cup winner in charge. However, a...",
@@ -15183,10 +15198,11 @@
           "thesun.co.uk"
         ],
         "source_feeds": [
+          "Bing News discovery: Malo Gusto Chelsea",
           "The Sun Football"
         ],
         "publisher_count": 1,
-        "observation_count": 1,
+        "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
       "last_processed_at": null,
@@ -15201,7 +15217,7 @@
       "event_id": "f34d4f0dd5145ba388e3940f",
       "title": "Why the jury remains out on Xabi Alonso despite Chelsea progress with rest of season predicted",
       "first_seen_at": "2026-11-17T16:11:09.236400+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T15:50:10+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15261,7 +15277,7 @@
       "event_id": "2858580310e774384f07f768",
       "title": "Sources say rising Premier League striker “one to watch” for Chelsea next summer",
       "first_seen_at": "2026-11-17T16:11:09.236400+00:00",
-      "last_seen_at": "2026-11-17T17:16:17.590854+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-17T16:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15321,7 +15337,7 @@
       "event_id": "598f0ddfd0568fd5bc903f6f",
       "title": "Limited-edition Ken Bates memorial share | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-17T16:13:50.729947+00:00",
-      "last_seen_at": "2026-11-17T16:13:50.729947+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T00:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15444,7 +15460,7 @@
       "event_id": "9325383f94b152ff049b2c4a",
       "title": "Preview: Chelsea v. Paris",
       "first_seen_at": "2026-11-17T16:13:50.729947+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T08:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15504,7 +15520,7 @@
       "event_id": "4485472776c88c13d951a07d",
       "title": "Sources say rising Premier League striker “one to watch” for Chelsea next summer",
       "first_seen_at": "2026-11-17T16:13:50.729947+00:00",
-      "last_seen_at": "2026-11-17T16:53:54.212727+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T16:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15624,7 +15640,7 @@
       "event_id": "f17388884ce8553e2b8fe05a",
       "title": "Chelsea handed £70m Alessandro Bastoni transfer opening as Barcelona doubts emerge",
       "first_seen_at": "2026-11-17T16:25:47.443326+00:00",
-      "last_seen_at": "2026-11-17T16:53:54.212727+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T08:16:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15744,7 +15760,7 @@
       "event_id": "074bbe3d849ccb048685a751",
       "title": "Estevao Willian breaks silence on Chelsea minutes as transfer question asked",
       "first_seen_at": "2026-11-17T16:51:08.840085+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T16:45:08+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15804,7 +15820,7 @@
       "event_id": "622f943973f08383be211c6f",
       "title": "Arsenal tipped to beat Chelsea to £100m deal as ‘cultured’ star told to ‘look higher’",
       "first_seen_at": "2026-11-17T16:51:08.840085+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:26:34.931235+00:00",
       "last_published_at": "2026-11-17T16:47:19+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15816,8 +15832,8 @@
         "title": "Arsenal tipped to beat Chelsea to £100m deal as ‘cultured’ star told to ‘look higher’",
         "story_type": "transfer_rumour",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-17T08:47:00+00:00",
-        "best_summary": "Bournemouth maestro Alex Scott should reject the chance to join Chelsea and prioritise a move to one of the ‘biggest teams in Europe’ such as Arsenal, Real Madrid or Barcelona, according to Chris ...",
+        "published": "2026-11-17T16:47:19+00:00",
+        "best_summary": "A £100million star has been urged to snub Chelsea for one of the ‘biggest teams in Europe’, such as Arsenal",
         "representative_title": "Arsenal tipped to beat Chelsea to £100m deal as ‘cultured’ star told to ‘look higher’",
         "representative_url": "https://www.football365.com/news/arsenal-news-alex-scott-tipped-beat-chelsea-100-million-star-told-look-higher",
         "representative_publisher": "football365.com",
@@ -15825,12 +15841,12 @@
         "source_observations": [
           {
             "title": "Arsenal tipped to beat Chelsea to £100m deal as ‘cultured’ star told to ‘look higher’",
-            "summary": "Bournemouth maestro Alex Scott should reject the chance to join Chelsea and prioritise a move to one of the ‘biggest teams in Europe’ such as Arsenal, Real Madrid or Barcelona, according to Chris ...",
+            "summary": "A £100million star has been urged to snub Chelsea for one of the ‘biggest teams in Europe’, such as Arsenal",
             "url": "https://www.football365.com/news/arsenal-news-alex-scott-tipped-beat-chelsea-100-million-star-told-look-higher",
             "publisher_domain": "football365.com",
-            "publisher_name_hint": "football365.com",
-            "source_feed": "Bing News discovery: Chelsea Premier League",
-            "published": "2026-11-17T08:47:00+00:00",
+            "publisher_name_hint": null,
+            "source_feed": "Football365",
+            "published": "2026-11-17T16:47:19+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "transfer_rumour",
@@ -15846,7 +15862,7 @@
           "football365.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea Premier League"
+          "Football365"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -15864,7 +15880,7 @@
       "event_id": "2fa0dbc3343627423bbb4201",
       "title": "Revealed: What Cole Palmer Has Been Doing During International Break Ahead Of Chelsea vs Leeds",
       "first_seen_at": "2026-11-17T16:53:54.212727+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T08:13:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15924,7 +15940,7 @@
       "event_id": "97cbfb3b86cd3decf8c27143",
       "title": "Bompastor updates on Buchanan, Dragoni, Malard and Matsukubo ahead of PSG | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-17T16:53:54.212727+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T16:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -15986,27 +16002,42 @@
     },
     "05a0e75e8468d38a5f3b393f": {
       "event_id": "05a0e75e8468d38a5f3b393f",
-      "title": "Chelsea could revive long-standing interest in 28-year-old La Liga winner",
+      "title": "Chelsea handed January transfer opportunity as Jules Kounde pushes to leave Barcelona",
       "first_seen_at": "2026-11-17T17:16:17.590854+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T17:00:00+00:00",
-      "last_observation_count": 1,
+      "last_observation_count": 2,
       "publisher_domains": [
         "caughtoffside.com"
       ],
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "05a0e75e8468d38a5f3b393f",
-        "title": "Chelsea could revive long-standing interest in 28-year-old La Liga winner",
+        "title": "Chelsea handed January transfer opportunity as Jules Kounde pushes to leave Barcelona",
         "story_type": "transfer_rumour",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-17T17:00:00+00:00",
+        "published": "2026-11-17T08:16:00+00:00",
         "best_summary": "Chelsea have been handed a potential opportunity to sign Jules Kounde in January, with the Barcelona defender reportedly keen to leave the Spanish giants in search of regular first-team football. The France international has struggled to establish himself as a regular starter under Hansi Flick this season, and his situation at the Camp Nou could […] The post Chelsea could revive long-standing interest in 28-year-old La Liga winner appeared first on CaughtOffside .",
-        "representative_title": "Chelsea could revive long-standing interest in 28-year-old La Liga winner",
+        "representative_title": "Chelsea handed January transfer opportunity as Jules Kounde pushes to leave Barcelona",
         "representative_url": "https://www.caughtoffside.com/2026/11/17/chelsea-could-revive-long-standing-interest-in-28-year-old-la-liga-winner",
         "representative_publisher": "caughtoffside.com",
         "representative_publisher_type": "other_direct_domain",
         "source_observations": [
+          {
+            "title": "Chelsea handed January transfer opportunity as Jules Kounde pushes to leave Barcelona",
+            "summary": "Chelsea have been handed a potential opportunity to sign Jules Kounde in January, with the Barcelona defender reportedly keen to leave the Spanish giants in search of regular first-team football.",
+            "url": "https://www.caughtoffside.com/2026/11/17/chelsea-could-revive-long-standing-interest-in-28-year-old-la-liga-winner",
+            "publisher_domain": "caughtoffside.com",
+            "publisher_name_hint": "caughtoffside.com",
+            "source_feed": "Bing News discovery: Chelsea transfer news",
+            "published": "2026-11-17T08:16:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "transfer_rumour",
+            "opponent_key": "barcelona",
+            "fixture_key": "",
+            "subject_key": ""
+          },
           {
             "title": "Chelsea could revive long-standing interest in 28-year-old La Liga winner",
             "summary": "Chelsea have been handed a potential opportunity to sign Jules Kounde in January, with the Barcelona defender reportedly keen to leave the Spanish giants in search of regular first-team football. The France international has struggled to establish himself as a regular starter under Hansi Flick this season, and his situation at the Camp Nou could […] The post Chelsea could revive long-standing interest in 28-year-old La Liga winner appeared first on CaughtOffside .",
@@ -16030,10 +16061,11 @@
           "caughtoffside.com"
         ],
         "source_feeds": [
+          "Bing News discovery: Chelsea transfer news",
           "CaughtOffside"
         ],
         "publisher_count": 1,
-        "observation_count": 1,
+        "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
       "last_processed_at": null,
@@ -16348,7 +16380,7 @@
       "event_id": "c4e181ace730d623d8c20588",
       "title": "Estevao Willian breaks silence on Chelsea minutes as transfer question asked",
       "first_seen_at": "2026-11-17T17:18:46.127583+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T08:46:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -16408,7 +16440,7 @@
       "event_id": "2120682e6900de3ab4939e72",
       "title": "Training gallery: Back to it at Cobham | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-17T17:18:46.127583+00:00",
-      "last_seen_at": "2026-11-17T17:18:46.127583+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
       "last_published_at": "2026-11-17T17:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -16465,6 +16497,66 @@
       "last_quality_failures": [
         "substantive_article_body_minimum_250_words"
       ],
+      "force_evidence_refresh": false
+    },
+    "ed1bb2704f3b795b2d5de6ea": {
+      "event_id": "ed1bb2704f3b795b2d5de6ea",
+      "title": "Bompastor gives updates on Malard, Buchanan and other Chelsea injuries ahead of PSG tie",
+      "first_seen_at": "2026-11-17T17:28:56.482250+00:00",
+      "last_seen_at": "2026-11-17T17:28:56.482250+00:00",
+      "last_published_at": "2026-11-17T08:49:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "sports.yahoo.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "ed1bb2704f3b795b2d5de6ea",
+        "title": "Bompastor gives updates on Malard, Buchanan and other Chelsea injuries ahead of PSG tie",
+        "story_type": "injury_update",
+        "team_scope": "chelsea_women",
+        "published": "2026-11-17T08:49:00+00:00",
+        "best_summary": "Chelsea Women boss Sonia Bompastor has confirmed Melvine Malard will miss Wednesday’s Champions League clash with Paris Saint-Germain after suffering a hamstring injury.Malard was forced off during ...",
+        "representative_title": "Bompastor gives updates on Malard, Buchanan and other Chelsea injuries ahead of PSG tie",
+        "representative_url": "https://sports.yahoo.com/articles/bompastor-gives-updates-malard-buchanan-164900807.html",
+        "representative_publisher": "sports.yahoo.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Bompastor gives updates on Malard, Buchanan and other Chelsea injuries ahead of PSG tie",
+            "summary": "Chelsea Women boss Sonia Bompastor has confirmed Melvine Malard will miss Wednesday’s Champions League clash with Paris Saint-Germain after suffering a hamstring injury.Malard was forced off during ...",
+            "url": "https://sports.yahoo.com/articles/bompastor-gives-updates-malard-buchanan-164900807.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "sports.yahoo.com",
+            "source_feed": "Bing News discovery: Chelsea Champions League",
+            "published": "2026-11-17T08:49:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "melvine_malard"
+          }
+        ],
+        "source_urls": [
+          "https://sports.yahoo.com/articles/bompastor-gives-updates-malard-buchanan-164900807.html"
+        ],
+        "publisher_domains": [
+          "sports.yahoo.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea Champions League"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
       "force_evidence_refresh": false
     }
   }
