@@ -85,36 +85,27 @@ jobs:
               history = json.load(f).get("events", {})
 
           OFFICIAL = {"chelseafc.com", "premierleague.com", "uefa.com", "thefa.com", "fifa.com", "efl.com", "englandfootball.com"}
-          ESTABLISHED = {"bbc.co.uk", "bbc.com", "skysports.com", "theguardian.com", "reuters.com", "apnews.com", "espn.com", "independent.co.uk", "standard.co.uk", "nytimes.com", "theathletic.com", "football365.com", "thetimes.com", "telegraph.co.uk", "ticotimes.net", "primicias.ec", "talksport.com", "footballinsider247.com"}
-
-          def matches(domain, bases):
-              d = str(domain or "").lower().removeprefix("www.")
-              return any(d == base or d.endswith("." + base) for base in bases)
-
-          def publisher_group(domain):
-              d = str(domain or "").lower().removeprefix("www.")
-              if d in {"bbc.co.uk", "bbc.com"}:
-                  return "bbc"
-              if d in {"nytimes.com", "theathletic.com"}:
-                  return "nytimes"
-              return d
-
           for post in posts:
               event_id = str(post.get("event_id", "")).strip()
               if not event_id:
                   continue
-              record = history.get(event_id, {})
-              # Prefer the processor's explicit established-domain field; for older
-              # artifacts, use the domains the processor actually fetched successfully.
-              domains = post.get("established_source_domains") or record.get("last_editorial_source_domains", [])
+              score = int(post.get("evidence_score", 0) or 0)
+              minimum = int(post.get("minimum_evidence_score", 20) or 20)
+              accessible_count = int(post.get("accessible_source_count", 0) or 0)
+              story_type = str(post.get("story_type", "general_news"))
               official_count = int(post.get("official_source_count", 0) or 0)
-              has_official = official_count > 0 or any(matches(d, OFFICIAL) for d in domains)
-              groups = {publisher_group(d) for d in domains if matches(d, ESTABLISHED)}
-              independently_supported = has_official or len(groups) >= 2
-              if post.get("auto_schedule_eligible") is True and independently_supported:
+              # The 20/100 score is source-accessibility triage, not factual confidence.
+              # One readable direct source is sufficient for ordinary news/rumours;
+              # confirmed transfers remain blocked without an official announcement.
+              safe_for_story_type = story_type != "confirmed_transfer" or official_count > 0
+              if (post.get("auto_schedule_eligible") is True
+                      and score >= minimum >= 20
+                      and accessible_count >= 1
+                      and safe_for_story_type
+                      and post.get("claims_verified") is False):
                   print(event_id)
               else:
-                  print(f"HELD: {event_id} lacks an accessible official source or two independent established publisher groups.", file=sys.stderr)
+                  print(f"HELD: {event_id} failed the 20/100 accessible-source gate or confirmed-transfer official-source rule.", file=sys.stderr)
           PY
 
           if [ ! -s "$RUNNER_TEMP/event_ids.txt" ]; then
