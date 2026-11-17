@@ -315,15 +315,43 @@ def evidence_assessment(story, fetched):
             "claims_verified": False, "reason": reason,
             "warning": "20/100 is a low evidence-triage threshold, not factual confidence. Every claim must remain attributed; unsupported claims must be omitted. Confirmed transfers require official confirmation."}
 
+def story_source_records(story):
+    """Publisher observations supplied by the collector; no article-page fetch."""
+    records, seen = [], set()
+    for item in story.get("source_observations", []) or []:
+        if not isinstance(item, dict): continue
+        url = str(item.get("url") or "").strip()
+        if not url or url in seen: continue
+        seen.add(url)
+        records.append({"title": str(item.get("title") or story.get("title") or "")[:300],
+            "url": url, "publisher": str(item.get("publisher_name_hint") or item.get("publisher_domain") or host(url))[:120],
+            "published": str(item.get("published") or "")[:80],
+            "summary": str(item.get("summary") or "")[:1200],
+            "source_feed": str(item.get("source_feed") or "")[:120]})
+    if not records:
+        urls = story.get("source_urls") or [story.get("representative_url")]
+        for url in urls:
+            url = str(url or "").strip()
+            if url and url not in seen:
+                seen.add(url)
+                records.append({"title": str(story.get("title") or "")[:300], "url": url,
+                    "publisher": str(story.get("representative_publisher") or host(url)),
+                    "published": str(story.get("published") or ""),
+                    "summary": str(story.get("best_summary") or "")[:1200], "source_feed": "collector"})
+    return records[:8]
+
+
 def build_prompt(story, evidence):
     pack = [{"url": x["url"], "domain": x["domain"], "page_title": x["page_title"],
              "description": x["description"], "source_excerpt": x["excerpt"][:MAX_SOURCE_CHARS]}
-            for x in evidence[:MAX_SOURCE_PACK] if x["accessible"]]
+            for x in evidence[:MAX_SOURCE_PACK] if x.get("accessible")]
     return {"story": {"headline": story.get("title"), "story_type": story.get("story_type"),
             "team_scope": story.get("team_scope"), "published": story.get("published"),
             "collector_summary": story.get("best_summary", ""),
             "original_source_links": story.get("source_urls", [])},
-            "accessible_source_material": pack}
+            "collector_observations": story_source_records(story),
+            "accessible_source_material": pack,
+            "editorial_limit": "Source pages are not fetched in this mode. Treat collector headlines and summaries as unverified reported material; attribute claims to the named publisher/feed, do not invent missing details, and do not describe transfers as officially confirmed unless the supplied collector record explicitly identifies an official club announcement."}
 
 def _request_chat_completion(payload, api_key, base_url, model, session, provider_label):
     request_payload = dict(payload)
@@ -389,21 +417,21 @@ def _request_chat_completion(payload, api_key, base_url, model, session, provide
 def generate_draft(story, evidence, api_key, session, length_repair=False):
     payload = build_prompt(story, evidence)
     system = (
-        "You are a careful Chelsea FC sports journalist and SEO editor. Use ONLY supplied evidence. "
+        "You are a careful Chelsea FC sports journalist and SEO editor. Use ONLY supplied collector headlines, timestamps and summaries. "
         "Never invent facts, quotes, dates, scores, stats, injuries, fees, contract clauses, line-ups, "
         "venues, nationalities, ages, biographies or motives. Never infer a player's nationality, age, "
         "position, current status or match record from their name or general knowledge; include such details "
         "only when explicitly stated in supplied source material. Do not add unsupported background or speculation. "
         "Do not create direct quotations; paraphrase and attribute instead. "
-        "Do not copy source wording. Separate confirmed facts, reported claims and opinion. "
-        "For transfers, state clearly whether officially confirmed or merely reported; never infer fees or clauses. "
-        "When only one publisher is supplied, attribute every development to that publisher and say it has not been independently corroborated. "
+        "Do not copy source wording. Treat collector-only material as unverified reporting, not independently verified fact. "
+        "Attribute each development to the publisher/feed named in the supplied observation. Do not claim a source page was opened or checked. "
+        "For transfers, label interest, bids and negotiations as unconfirmed reports; do not call a transfer completed or officially confirmed unless the supplied collector record explicitly identifies an official club announcement. Never infer fees or clauses. "
         "For opinion, attribute the view and distinguish its factual premises. Keep men, women and "
         "academy teams distinct. Target 300 substantive words; acceptable range is 250-350 words. "
         "Count only substantive article text; exclude Sources, headings, captions and image alt text. Never exceed 350 words. "
         "Use a clear introduction and two or three useful H2 headings. Never pad, repeat points or invent details to reach the minimum. "
-        "If evidence cannot support 250 useful words, explain the limitation in editorial_notes; the processor will reject the draft. "
-        "Do not write a Sources section or source hyperlinks; the processor adds a deterministic Sources section using accessible supplied URLs. Do not invent internal links. "
+        "If collector summaries cannot support 250 useful words, explain the limitation in editorial_notes; the processor will reject the draft. "
+        "Do not write a Sources section or source hyperlinks; the processor adds a deterministic Sources section using publisher URLs supplied by the collector. Do not invent internal links. "
         "SEO search_description is critical: write one natural, complete, factual sentence of 140-160 characters (never exceed 180), beginning with the main Chelsea topic or focus keyword. State the specific development and why it matters. Do not end mid-clause, with a dangling conjunction/preposition, or with unfinished attribution. Do not pad with generic phrases. Use only supplied facts; label rumours as unconfirmed and attribute them. "
         "Return ONLY JSON keys: title, search_description, focus_keyword, labels, article_html, "
         "excerpt, image_prompt, image_alt_text, editorial_notes, unsupported_or_unverified_points. "
@@ -456,8 +484,8 @@ def generate_draft(story, evidence, api_key, session, length_repair=False):
         raise ValueError("Model output missing keys: " + ", ".join(sorted(missing)))
     return draft
 
-def add_deterministic_sources(html, fetched):
-    """Add a reliable Sources section using only accessible URLs supplied by the collector."""
+def add_deterministic_sources(html, fetched, story=None):
+    """Add collector-supplied publisher links without asserting page accessibility."""
     soup = BeautifulSoup(str(html or ""), "html.parser")
     for heading in list(soup.find_all(["h2", "h3"])):
         if heading.get_text(" ", strip=True).casefold() == "sources":
@@ -468,7 +496,9 @@ def add_deterministic_sources(html, fetched):
                 if nxt and nxt.name in {"h2", "h3"}:
                     break
                 node = nxt
-    allowed = {x["url"] for x in fetched if x.get("accessible") and x.get("url")}
+    collector_records = story_source_records(story or {})
+    allowed = ({x["url"] for x in fetched if x.get("accessible") and x.get("url")}
+               | {x["url"] for x in collector_records if x.get("url")})
     for anchor in list(soup.find_all("a", href=True)):
         if anchor.get("href") not in allowed:
             anchor.unwrap()
@@ -478,6 +508,11 @@ def add_deterministic_sources(html, fetched):
         if item.get("accessible") and url in allowed and url not in seen:
             seen.add(url)
             source_rows.append((host(url), url))
+    for item in collector_records:
+        url = item.get("url")
+        if url in allowed and url not in seen:
+            seen.add(url)
+            source_rows.append((item.get("publisher") or host(url), url))
     if source_rows:
         section = soup.new_tag("section")
         heading = soup.new_tag("h2")
@@ -587,7 +622,8 @@ def quality_gate(draft, fetched, story, allowed_internal_urls=None):
     text = re.sub(r"\s+", " ", soup.get_text(" ", strip=True)).strip()
     word_count = len(text.split())
     links = {a.get("href") for a in original_soup.find_all("a", href=True)}
-    allowed_urls = {x["url"] for x in fetched if x.get("accessible") and x.get("url")}
+    allowed_urls = ({x["url"] for x in fetched if x.get("accessible") and x.get("url")}
+                    | {x["url"] for x in story_source_records(story) if x.get("url")})
     allowed_internal_urls = set(allowed_internal_urls or [])
     title = str(draft.get("title", "")).strip()
     description = str(draft.get("search_description", "")).strip()
@@ -665,27 +701,27 @@ def process(input_path, output_dir):
         logging.info("CANDIDATE_START %d/%d event=%s headline=%s",
                      story_index, len(stories), story.get("event_id"),
                      str(story.get("title") or "untitled")[:140])
-        source_urls = ranked_source_urls(story, limit=8)
-        fetched = fetch_sources(source_urls)
-        logging.info("Evidence fetch complete for %s: %d/%d source pages accessible",
-                     story.get("event_id"), sum(1 for item in fetched if item.get("accessible")), len(fetched))
-        for source_result in fetched:
-            if not source_result.get("accessible"):
-                logging.warning("SOURCE_UNAVAILABLE event=%s domain=%s status=%s error=%s",
-                    story.get("event_id"), source_result.get("domain"),
-                    source_result.get("http_status"), source_result.get("error"))
-        assessment = evidence_assessment(story, fetched)
+        source_urls = [x["url"] for x in story_source_records(story)]
+        fetched = []
+        assessment = {"evidence_tier": "collector_only_no_page_fetch", "evidence_score": 0,
+            "minimum_evidence_score": 0, "accessible_source_count": 0,
+            "accessible_publisher_domains": [], "official_source_count": 0,
+            "established_source_domains": [], "established_publisher_groups": [],
+            "eligible_for_draft": True, "auto_schedule_eligible": True,
+            "claims_verified": False,
+            "reason": "Source-page evidence checks and eligibility gates are disabled at user request.",
+            "warning": "Collector headlines and summaries are unverified leads. Attribute claims, label rumours, and do not invent unsupported details."}
+        logging.info("SOURCE_EVIDENCE_CHECK_SKIPPED event=%s collector_observations=%d source_links=%d",
+                     story.get("event_id"), len(story_source_records(story)), len(source_urls))
         record = {"event_id": story.get("event_id"), "headline": story.get("title"),
             "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
-            "source_checks": [{k:v for k,v in x.items() if k != "excerpt"} for x in fetched],
-            "evidence_assessment": assessment, "verification_status": "evidence_triaged_not_fact_verified",
+            "source_checks": [], "evidence_assessment": assessment,
+            "verification_status": "collector_only_not_independently_verified",
             "claims_verified": False, "article_generated": False, "published_to_blogger": False,
             "published_to_x": False}
         counters[assessment["evidence_tier"]] += 1
         if AI_USAGE["total_tokens"] >= RUN_TOKEN_BUDGET > 0:
             record["processing_status"] = "held_run_token_budget"
-        elif not assessment["eligible_for_draft"]:
-            record["processing_status"] = "held_insufficient_accessible_evidence"
         elif not AI_API_KEY:
             record["processing_status"] = "draft_waiting_for_ai_provider_api_key"
         elif len(drafts) >= MAX_DRAFTS:
@@ -696,7 +732,7 @@ def process(input_path, output_dir):
                              story.get("event_id"), AI_REQUEST_TIMEOUT, AI_MAX_ATTEMPTS)
                 draft = generate_draft(story, fetched, AI_API_KEY, session)
                 logging.info("AI article response received for %s", story.get("event_id"))
-                draft["article_html"] = add_deterministic_sources(draft["article_html"], fetched)
+                draft["article_html"] = add_deterministic_sources(draft["article_html"], fetched, story)
                 related = select_related_articles(draft, story, published_articles)
                 draft["article_html"] = add_related_links(draft["article_html"], related)
                 draft["related_internal_links"] = [{"title": x["title"], "url": x["url"], "score": x["score"]} for x in related]
@@ -710,7 +746,7 @@ def process(input_path, output_dir):
                     logging.info("QUALITY_LENGTH_REPAIR event=%s initial_words=%s",
                                  story.get("event_id"), quality.get("word_count"))
                     repaired = generate_draft(story, fetched, AI_API_KEY, session, length_repair=True)
-                    repaired["article_html"] = add_deterministic_sources(repaired["article_html"], fetched)
+                    repaired["article_html"] = add_deterministic_sources(repaired["article_html"], fetched, story)
                     repaired_related = select_related_articles(repaired, story, published_articles)
                     repaired["article_html"] = add_related_links(repaired["article_html"], repaired_related)
                     repaired["related_internal_links"] = [
@@ -750,11 +786,11 @@ def process(input_path, output_dir):
                                            "Upload the thumbnail to Blogger and use it as the post featured image.")
                     drafts.append({"event_id": story.get("event_id"), "collector_headline": story.get("title"),
                         "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
-                        "source_urls": story.get("source_urls", []),
-                        "source_images": [img for src in fetched if src.get("accessible") for img in src.get("source_images", [])],
+                        "source_urls": source_urls,
+                        "source_images": [],
                         "evidence_assessment": assessment,
-                        "auto_schedule_eligible": assessment["auto_schedule_eligible"],
-                        "verification_status": "evidence_triaged_not_fact_verified", "claims_verified": False,
+                        "auto_schedule_eligible": True,
+                        "verification_status": "collector_only_not_independently_verified", "claims_verified": False,
                         "editorial_status": "draft_requires_editorial_review", "article_generated": True,
                         "published_to_blogger": False, "published_to_x": False, "draft": draft})
                     record["processing_status"] = "draft_created_unpublished"
@@ -800,14 +836,14 @@ def process(input_path, output_dir):
             "image_alt_text": d.get("image_alt_text"),
             "source_urls": item.get("source_urls", []),
             "source_images": item.get("source_images", []),
-            "evidence_tier": item.get("evidence_tier"),
-            "evidence_score": (item.get("evidence_assessment") or {}).get("evidence_score", 0),
-            "minimum_evidence_score": (item.get("evidence_assessment") or {}).get("minimum_evidence_score", 20),
-            "accessible_source_count": (item.get("evidence_assessment") or {}).get("accessible_source_count", 0),
-            "official_source_count": item.get("official_source_count", 0),
-            "established_source_domains": item.get("established_source_domains", []),
-            "established_publisher_groups": item.get("established_publisher_groups", []),
-            "accessible_publisher_domains": item.get("accessible_publisher_domains", []),
+            "evidence_tier": "collector_only_no_page_fetch",
+            "evidence_score": 0,
+            "minimum_evidence_score": 0,
+            "accessible_source_count": 0,
+            "official_source_count": 0,
+            "established_source_domains": [],
+            "established_publisher_groups": [],
+            "accessible_publisher_domains": [],
             "story_type": item.get("story_type"),
             "editorial_status": "draft_requires_editorial_review",
             "auto_schedule_eligible": item.get("auto_schedule_eligible", False),
@@ -816,7 +852,7 @@ def process(input_path, output_dir):
         })
     (output_dir / "blogger_ready_posts.json").write_text(
         json.dumps({"format_version":"1.0","generated_at":utcnow().isoformat(),
-                    "instructions":"Copy content_html into Blogger HTML view. Upload featured_image separately and set it as the post thumbnail. Review claims and sources before publishing.",
+                    "instructions":"Collector-only mode: source pages were not fetched or independently verified. Article claims remain attributed and unverified; source URLs are collector publisher links.",
                     "posts":blogger_posts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     report = {"processor_version": VERSION, "generated_at": utcnow().isoformat(),
         "collector_version": data.get("collector_version"), "input_candidate_count": len(all_stories), "unprocessed_candidate_count": len(stories), "skipped_previously_processed_count": len(previously_processed), "blogger_ready_export_count": len(blogger_posts),
@@ -830,16 +866,15 @@ def process(input_path, output_dir):
         "thumbnail_method": "source_page_images_only_with_explicit_reuse_rights", "external_image_api_required": False,
         "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
-            "Evidence score threshold is 20/100 for directly accessible source pages; this is triage, not factual confidence.",
-            "Confirmed transfers still require official confirmation; rumours must remain clearly labelled and attributed.",
-            "News may use one accessible direct publisher at the 20/100 triage threshold with explicit attribution; confirmed transfers require official confirmation; rumours remain labelled and attributed.",
-            "Automated quality gate requires 250-350 substantive article words (300-word target) excluding the Sources block; all SEO, heading, source-link and HTML safety checks are mandatory.",
+            "Source-page fetching and evidence eligibility gates are disabled; drafts use collector headlines, timestamps and summaries only.",
+            "Collector-only claims are not independently verified; attribute reports, label rumours, and do not invent unsupported facts.",
+            "Automated quality gate requires 250-350 substantive article words (300-word target) excluding the Sources block; SEO, heading, collector-source-link and HTML safety checks remain mandatory.",
         "A score cannot override any failed mandatory check; short drafts and invalid SEO metadata are rejected.",
             "No direct quotations are requested; unsupported claims must be omitted or flagged.",
             "Featured thumbnails are generated locally with Pillow; no image-generation API, API key or paid image service is required.",
             "Thumbnails use ChelseaFeeds colours, article headlines and abstract football/stadium graphics; no club crest or real-player likeness is fabricated.",
             "Thumbnails are attached as workflow artifacts and must be uploaded to Blogger before publication.",
-            "No Blogger or X credentials are read; publishing remains disabled."
+            "Blogger/X publishing is handled downstream only after the retained article-content and HTML quality checks pass."
         ], "results": results}
     (output_dir / "article_drafts.json").write_text(json.dumps({"processor_version": VERSION, "drafts": drafts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output_dir / "editorial_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -894,6 +929,14 @@ def self_test():
     assert evidence_assessment(story, official)["auto_schedule_eligible"]
     assert not evidence_assessment(story, [{"accessible":False,"domain":"talkchelsea.net","url":"https://talkchelsea.net/story"}])["eligible_for_draft"]
     assert evidence_assessment(story, specialist)["evidence_score"] == 20
+    collector_only_story = {"title":"Chelsea update","best_summary":"A publisher reports a Chelsea development.",
+        "source_urls":["https://example.com/chelsea-update"],
+        "source_observations":[{"title":"Chelsea update","summary":"A publisher reports a Chelsea development.",
+          "url":"https://example.com/chelsea-update","publisher_domain":"example.com","published":"2026-11-17T07:00:00+00:00"}]}
+    assert story_source_records(collector_only_story)[0]["summary"] == "A publisher reports a Chelsea development."
+    assert "collector_observations" in build_prompt(collector_only_story, [])
+    collector_source_html = add_deterministic_sources("<h2>Context</h2><p>Story</p>", [], collector_only_story)
+    assert "https://example.com/chelsea-update" in collector_source_html
     assert evidence_assessment(story, one)["evidence_score"] == 40
     assert evidence_assessment(story, official)["evidence_score"] == 100
     assert not evidence_assessment({"story_type":"confirmed_transfer"}, specialist)["eligible_for_draft"]
