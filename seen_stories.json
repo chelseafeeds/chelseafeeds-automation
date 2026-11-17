@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T00:03:21.171768+00:00",
+  "updated_at": "2026-11-17T00:03:49.175960+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -9733,7 +9733,7 @@
         "dailypost.ng",
         "msn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "7303d0097d0326e07b47d632",
         "title": "Arsenal star Zubimendi open to Chelsea transfer as Gunners name price for January sale",
@@ -9792,11 +9792,15 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-17T00:03:49.175960+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Arsenal star Zubimendi open to Chelsea transfer as Gunners name price for January sale",
+      "last_editorial_source_domains": [
+        "dailypost.ng"
+      ],
+      "last_editorial_source_urls": [
+        "https://dailypost.ng/2026/11/16/transfer-martin-zubimendi-now-open-to-chelsea-move-as-arsenal-set-price-tag"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
