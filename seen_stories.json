@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T22:58:23.496080+00:00",
+  "updated_at": "2026-11-17T22:58:51.847904+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -18273,7 +18273,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "bf1de0ccb759e9e70123d270",
         "title": "Wales beaten by 10-man Portugal as Neto scores but is sent off",
@@ -18331,9 +18331,9 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-17T22:58:51.847904+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Wales beaten by 10-man Portugal as Neto scores but is sent off",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
