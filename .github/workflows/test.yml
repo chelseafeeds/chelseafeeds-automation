@@ -43,4 +43,4 @@ jobs:
         run: python generate_featured_images.py --self-test
 
       - name: Compile-check publishing integration
-        run: python -m py_compile generate_featured_images.py upload_featured_image.py publish_article.py
+        run: python -m py_compile process_news.py monitor_processing.py direct_source_discovery.py generate_featured_images.py upload_featured_image.py publish_article.py
