@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T07:42:20.112797+00:00",
+  "updated_at": "2026-11-17T07:42:42.248619+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -10757,7 +10757,7 @@
       "publisher_domains": [
         "espn.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "16796ffa1ee494eef07982c4",
         "title": "Chelsea's Baltimore enjoying partnership with Malard ahead of UWCL clash against PSG",
@@ -10805,7 +10805,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3294298060495493559",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-baltimore-enjoying-partnership.html",
+      "scheduled_for_utc": "2026-11-17T07:47:41Z",
+      "last_blogger_status_updated_at": "2026-11-17T07:42:42.248604+00:00"
     }
   }
 }
