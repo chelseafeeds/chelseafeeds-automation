@@ -239,7 +239,7 @@ def recover_zero_draft_run(run, inspected):
     result = {"source_run_id": None, "attempted": False, "status": "not_required"}
     if candidates <= 0 or drafts > 0:
         return result
-    match = re.search(r"\\bsource=(\\d+)", str(run.get("name") or ""))
+    match = re.search(r"\bsource=(\d+)", str(run.get("name") or ""))
     if not match:
         result["status"] = "blocked_missing_source_run_id"
         REPORT.setdefault("alerts", []).append("Zero-draft recovery blocked: processor run name lacks collector source_run_id.")
@@ -251,7 +251,7 @@ def recover_zero_draft_run(run, inspected):
         return result
     process_runs = list_workflow_runs("process-news.yml", 100)
     retries = [x for x in process_runs if x.get("event") == "workflow_dispatch" and
-               re.search(r"\\bsource=" + re.escape(source_id) + r"\\b", str(x.get("name") or ""))]
+               re.search(r"\bsource=" + re.escape(source_id) + r"\b", str(x.get("name") or ""))]
     if any(x.get("status") in {"queued", "in_progress", "waiting", "requested"} for x in retries):
         result["status"] = "recovery_already_active"
         return result
