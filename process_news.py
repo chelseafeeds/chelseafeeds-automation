@@ -535,7 +535,9 @@ def apply_source_title_fallback(draft, story):
 def should_retry_length_only(quality):
     """Allow one evidence-bound rewrite only when article length is the sole failure."""
     return (not quality.get("passed")
-            and quality.get("failed_checks") == ["substantive_article_body_minimum_250_words"])
+            and quality.get("failed_checks") in (
+                ["substantive_article_body_minimum_250_words"],
+                ["substantive_article_body_maximum_350_words"]))
 
 
 def quality_gate(draft, fetched, story, allowed_internal_urls=None):
