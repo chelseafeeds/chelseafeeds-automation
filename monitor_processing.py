@@ -246,6 +246,16 @@ def recover_zero_draft_run(run, inspected):
         return result
     source_id = match.group(1)
     result["source_run_id"] = source_id
+    created = run.get("created_at")
+    if not created:
+        result["status"] = "blocked_missing_collection_time"
+        return result
+    created_at = datetime.fromisoformat(created.replace("Z", "+00:00"))
+    age_hours = (datetime.now(timezone.utc) - created_at).total_seconds() / 3600
+    if age_hours < 0 or age_hours > 24:
+        result["status"] = "blocked_source_outside_24h_freshness_window"
+        result["source_age_hours"] = round(age_hours, 2)
+        return result
     if run.get("event") == "workflow_dispatch":
         result["status"] = "recovery_run_already_used"
         return result
