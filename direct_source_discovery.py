@@ -703,8 +703,6 @@ def discover_google_news_publishers(session):
         f'Chelsea Women WSL after:{after_date}',
         f'Chelsea Women Champions League after:{after_date}',
         f'Chelsea academy U21 U18 after:{after_date}',
-        f'Chelsea press conference interview after:{after_date}',
-        f'Chelsea loan players contract after:{after_date}',
         f'Chelsea match report reaction after:{after_date}',
         f'Chelsea players international duty after:{after_date}',
         f'Chelsea ownership finance board after:{after_date}',
@@ -744,7 +742,7 @@ def discover_google_news_publishers(session):
             feed = feedparser.parse(response.content)
             row["entries_received"] = len(feed.entries)
             report["entries_received"] += len(feed.entries)
-            for entry in feed.entries[:30]:
+            for entry in feed.entries[:12]:
                 title = c.textval(entry.get("title"))
                 summary = c.textval(entry.get("summary", entry.get("description", "")))
                 published = c.parse_date(entry)
