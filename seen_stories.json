@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T01:17:33.421345+00:00",
+  "updated_at": "2026-11-17T01:18:09.333944+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -9083,7 +9083,7 @@
       "publisher_domains": [
         "talkchelsea.net"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "e3886738162e6afd4e902486",
         "title": "Latest: Crystal Palace chase Chelsea’s £1m coach",
@@ -9125,11 +9125,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-17T01:18:09.333944+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Latest: Crystal Palace chase Chelsea’s £1m coach",
+      "last_editorial_source_domains": [
+        "talkchelsea.net"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.talkchelsea.net/news/crystal-palace-chase-chelsea-coach"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
