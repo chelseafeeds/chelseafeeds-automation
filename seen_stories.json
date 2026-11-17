@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T12:28:47.015195+00:00",
+  "updated_at": "2026-11-17T12:29:19.611913+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -12553,7 +12553,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "dcb6182b694172375da2f62a",
         "title": "Xabi Alonso handed crucial Chelsea injury green light ahead of Leeds showdown",
@@ -12595,9 +12595,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-17T12:29:19.611913+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Xabi Alonso handed crucial Chelsea injury green light ahead of Leeds showdown",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
