@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T21:05:02.432013+00:00",
+  "updated_at": "2026-11-17T21:05:30.065721+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -14105,7 +14105,7 @@
       "publisher_domains": [
         "theguardian.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "c7d8ba9f5c188a6495c832c5",
         "title": "Chelsea back on top as Baltimore bullet stuns Manchester City: Women’s Football Weekly – podcast",
@@ -14163,9 +14163,9 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-17T21:05:30.065721+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea back on top as Baltimore bullet stuns Manchester City: Women’s Football Weekly – podcast",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
