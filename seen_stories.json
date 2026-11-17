@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T22:58:51.847904+00:00",
+  "updated_at": "2026-11-17T22:59:08.726212+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -18273,7 +18273,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "bf1de0ccb759e9e70123d270",
         "title": "Wales beaten by 10-man Portugal as Neto scores but is sent off",
@@ -18337,7 +18337,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7883989646310591703",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/pedro-netos-red-card-highlights-wales-3.html",
+      "scheduled_for_utc": "2026-11-17T23:04:08Z",
+      "last_blogger_status_updated_at": "2026-11-17T22:59:08.726201+00:00"
     },
     "cc4ed898ffc19f371bfce37a": {
       "event_id": "cc4ed898ffc19f371bfce37a",
