@@ -287,35 +287,33 @@ def evidence_assessment(story, fetched):
     else:
         tier = "no_usable_source"
     other_direct = [x for x in accessible if not in_domains(x["url"], OFFICIAL) and not in_domains(x["url"], ESTABLISHED)]
-    other_domains = {x["domain"] for x in other_direct}
+    # Evidence score is a triage threshold, NOT a probability that a claim is true:
+    # 20 points = one directly accessible publisher page; 40 = established publisher;
+    # 100 = official club/competition source. No accessible page scores zero.
+    evidence_score = 100 if official else 40 if established else 20 if accessible else 0
+    minimum_evidence_score = 20
     if typ == "confirmed_transfer":
         eligible = bool(official)
-        reason = "A completed transfer draft requires an accessible official club or competition announcement."
+        reason = "Confirmed transfers still require an accessible official club or competition announcement."
     elif typ == "transfer_rumour":
-        # 50% lower evidence threshold: one accessible direct publisher is enough
-        # to draft a clearly attributed, explicitly unconfirmed rumour.
-        # This is an editorial drafting threshold, not independent corroboration.
-        eligible = bool(official) or bool(established) or len(other_domains) >= 1
-        reason = "A rumour may be drafted from one accessible direct publisher if explicitly attributed and labelled unconfirmed; this does not constitute independent corroboration."
-    elif typ == "opinion_analysis":
-        eligible = bool(accessible)
-        reason = "Opinion may be drafted from one accessible source with clear attribution; factual premises remain unverified."
+        eligible = evidence_score >= minimum_evidence_score
+        reason = "At 20/100 triage points, one accessible direct publisher can support an explicitly attributed and clearly unconfirmed rumour; it is not independently corroborated."
     else:
-        # 50% lower evidence threshold: one accessible direct publisher is
-        # sufficient for a sourced draft; factual claims remain unverified.
-        eligible = bool(official) or bool(established) or len(other_domains) >= 1
-        reason = "A news draft may use one accessible direct publisher with explicit attribution; accessibility is not proof of factual accuracy."
+        eligible = evidence_score >= minimum_evidence_score
+        reason = "At 20/100 triage points, one accessible direct publisher can support a clearly attributed draft; accessibility is not proof of factual accuracy."
     established_domains = sorted({x["domain"] for x in established})
     established_groups = sorted({publisher_group(x["domain"]) for x in established})
-    # Drafting can use one attributable direct source; automatic scheduling needs
-    # stronger evidence: an accessible official source or two established publishers.
-    auto_schedule_eligible = bool(official) or len(established_groups) >= 2
-    return {"evidence_tier": tier, "accessible_source_count": len(accessible),
+    # The requested 20/100 threshold applies to drafting and automatic scheduling.
+    # A real, readable direct source remains mandatory; confirmed transfers remain official-only.
+    auto_schedule_eligible = evidence_score >= minimum_evidence_score and bool(accessible) and (typ != "confirmed_transfer" or bool(official))
+    return {"evidence_tier": tier, "evidence_score": evidence_score,
+            "minimum_evidence_score": minimum_evidence_score,
+            "accessible_source_count": len(accessible),
             "accessible_publisher_domains": accessible_domains, "official_source_count": len(official),
             "established_source_domains": established_domains, "established_publisher_groups": established_groups,
             "eligible_for_draft": eligible, "auto_schedule_eligible": auto_schedule_eligible,
             "claims_verified": False, "reason": reason,
-            "warning": "Accessibility and publisher count are evidence triage, not proof of factual accuracy."}
+            "warning": "20/100 is a low evidence-triage threshold, not factual confidence. Every claim must remain attributed; unsupported claims must be omitted. Confirmed transfers require official confirmation."}
 
 def build_prompt(story, evidence):
     pack = [{"url": x["url"], "domain": x["domain"], "page_title": x["page_title"],
@@ -803,6 +801,9 @@ def process(input_path, output_dir):
             "source_urls": item.get("source_urls", []),
             "source_images": item.get("source_images", []),
             "evidence_tier": item.get("evidence_tier"),
+            "evidence_score": (item.get("evidence_assessment") or {}).get("evidence_score", 0),
+            "minimum_evidence_score": (item.get("evidence_assessment") or {}).get("minimum_evidence_score", 20),
+            "accessible_source_count": (item.get("evidence_assessment") or {}).get("accessible_source_count", 0),
             "official_source_count": item.get("official_source_count", 0),
             "established_source_domains": item.get("established_source_domains", []),
             "established_publisher_groups": item.get("established_publisher_groups", []),
@@ -829,8 +830,9 @@ def process(input_path, output_dir):
         "thumbnail_method": "source_page_images_only_with_explicit_reuse_rights", "external_image_api_required": False,
         "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
         "safety_controls": [
-            "Evidence accessibility and publisher counts are not factual verification.",
-            "News may use one accessible official or established publisher with explicit attribution; confirmed transfers require official confirmation; rumours remain labelled and attributed.",
+            "Evidence score threshold is 20/100 for directly accessible source pages; this is triage, not factual confidence.",
+            "Confirmed transfers still require official confirmation; rumours must remain clearly labelled and attributed.",
+            "News may use one accessible direct publisher at the 20/100 triage threshold with explicit attribution; confirmed transfers require official confirmation; rumours remain labelled and attributed.",
             "Automated quality gate requires 250-350 substantive article words (300-word target) excluding the Sources block; all SEO, heading, source-link and HTML safety checks are mandatory.",
         "A score cannot override any failed mandatory check; short drafts and invalid SEO metadata are rejected.",
             "No direct quotations are requested; unsupported claims must be omitted or flagged.",
@@ -876,7 +878,7 @@ def self_test():
     assert evidence_assessment(story, two)["eligible_for_draft"]
     assert evidence_assessment(story, official)["eligible_for_draft"]
     bbc_mirror = one + [{"accessible":True,"domain":"bbc.com","url":"https://www.bbc.com/b"}]
-    assert evidence_assessment(story, bbc_mirror)["auto_schedule_eligible"] is False
+    assert evidence_assessment(story, bbc_mirror)["auto_schedule_eligible"] is True
     bbc_plus_nyt = one + [{"accessible":True,"domain":"nytimes.com","url":"https://www.nytimes.com/b"}]
     assert evidence_assessment(story, bbc_plus_nyt)["auto_schedule_eligible"] is True
     assert evidence_assessment({"story_type":"opinion_analysis"}, one)["eligible_for_draft"]
@@ -884,13 +886,16 @@ def self_test():
     assert evidence_assessment({"story_type":"transfer_rumour"}, two)["eligible_for_draft"]
     specialist = [{"accessible":True,"domain":"talkchelsea.net","url":"https://talkchelsea.net/story"}]
     assert evidence_assessment(story, specialist)["eligible_for_draft"]
-    assert not evidence_assessment(story, specialist)["auto_schedule_eligible"]
+    assert evidence_assessment(story, specialist)["auto_schedule_eligible"] is True
     assert evidence_assessment({"story_type":"transfer_rumour"}, specialist)["eligible_for_draft"]
-    assert not evidence_assessment({"story_type":"transfer_rumour"}, specialist)["auto_schedule_eligible"]
+    assert evidence_assessment({"story_type":"transfer_rumour"}, specialist)["auto_schedule_eligible"] is True
     two_established = one + [{"accessible":True,"domain":"skysports.com","url":"https://www.skysports.com/b"}]
     assert evidence_assessment(story, two_established)["auto_schedule_eligible"]
     assert evidence_assessment(story, official)["auto_schedule_eligible"]
     assert not evidence_assessment(story, [{"accessible":False,"domain":"talkchelsea.net","url":"https://talkchelsea.net/story"}])["eligible_for_draft"]
+    assert evidence_assessment(story, specialist)["evidence_score"] == 20
+    assert evidence_assessment(story, one)["evidence_score"] == 40
+    assert evidence_assessment(story, official)["evidence_score"] == 100
     assert not evidence_assessment({"story_type":"confirmed_transfer"}, specialist)["eligible_for_draft"]
 
     fallback_draft = {"title": "Chelsea"}
