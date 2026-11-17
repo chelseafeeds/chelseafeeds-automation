@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T07:13:01.862990+00:00",
+  "updated_at": "2026-11-17T07:13:37.866975+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -10481,7 +10481,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "3a769934c78b89e9ac946b19",
         "title": "Xabi Alonso accused of making Chelsea star 'easy scapegoat' with brutal decision",
@@ -10523,11 +10523,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-17T07:13:37.866975+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Xabi Alonso accused of making Chelsea star 'easy scapegoat' with brutal decision",
+      "last_editorial_source_domains": [
+        "football.london"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.football.london/chelsea-fc/news/xabi-alonso-robert-sanchez-transfer-34918306"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
@@ -10541,7 +10545,7 @@
       "publisher_domains": [
         "theprideoflondon.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "4090cff0c7dd74c975b9945d",
         "title": "Chelsea vs PSG: Women's Champions League preview, predictions, team news and TV info",
@@ -10583,11 +10587,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-17T07:13:37.866975+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea vs PSG: Women's Champions League preview, predictions, team news and TV info",
+      "last_editorial_source_domains": [
+        "theprideoflondon.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://theprideoflondon.com/chelsea-vs-psg-women-s-champions-league-preview-predictions-team-news-and-tv-info"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     }
