@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T06:23:35.870612+00:00",
+  "updated_at": "2026-11-17T06:24:01.997185+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -10170,7 +10170,7 @@
       "publisher_domains": [
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "15cfb4b191f4ad42d18386af",
         "title": "Sunderland’s Chelsea Revival: Evolution, Devolution or Turning Point?",
@@ -10212,12 +10212,18 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_processed_at": "2026-11-17T06:24:01.997185+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Sunderland’s Chelsea Revival: Evolution, Devolution or Turning Point?",
+      "last_editorial_source_domains": [
+        "sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://sports.yahoo.com/articles/sunderland-chelsea-revival-evolution-devolution-060000903.html"
+      ],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_400_words"
+      ],
       "force_evidence_refresh": false
     },
     "7753a941665da50aa52a88d0": {
