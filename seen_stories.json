@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T07:25:15.980632+00:00",
+  "updated_at": "2026-11-17T07:25:51.378226+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -10627,7 +10627,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "116d5313fb6e553eb171f0a2",
         "title": "Transfer news LIVE: Arsenal revive Vinicius talks; Man Utd eye Hall; Chelsea plot Barca raid, Liverpool latest",
@@ -10669,11 +10669,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-17T07:25:51.378226+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Transfer news LIVE: Arsenal revive Vinicius talks; Man Utd eye Hall; Chelsea plot Barca raid, Liverpool latest",
+      "last_editorial_source_domains": [
+        "standard.co.uk"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.standard.co.uk/sport/football/transfer-news-live-arsenal-fc-chelsea-man-utd-liverpool-vinicius-hall-b1303142.html"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     }
