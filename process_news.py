@@ -897,6 +897,7 @@ def process(input_path, output_dir):
                  AI_USAGE["prompt_tokens"], AI_USAGE["completion_tokens"])
 
 def self_test():
+    global _request_chat_completion, AI_PROVIDER, AI_FALLBACK_ENABLED, AI_FALLBACK_API_KEY
     pending, skipped = filter_unprocessed_stories(
         [{"event_id":"done"},{"event_id":"new"}],
         {"events":{"done":{"status":"draft_created_unpublished"}}})
