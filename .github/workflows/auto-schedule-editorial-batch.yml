@@ -89,23 +89,15 @@ jobs:
               event_id = str(post.get("event_id", "")).strip()
               if not event_id:
                   continue
-              score = int(post.get("evidence_score", 0) or 0)
-              minimum = int(post.get("minimum_evidence_score", 20) or 20)
-              accessible_count = int(post.get("accessible_source_count", 0) or 0)
-              story_type = str(post.get("story_type", "general_news"))
-              official_count = int(post.get("official_source_count", 0) or 0)
-              # The 20/100 score is source-accessibility triage, not factual confidence.
-              # One readable direct source is sufficient for ordinary news/rumours;
-              # confirmed transfers remain blocked without an official announcement.
-              safe_for_story_type = story_type != "confirmed_transfer" or official_count > 0
-              if (post.get("auto_schedule_eligible") is True
-                      and score >= minimum >= 20
-                      and accessible_count >= 1
-                      and safe_for_story_type
-                      and post.get("claims_verified") is False):
+              # Evidence/page-fetch checks are disabled by the user.
+              # Keep basic payload integrity checks; do not gate on evidence scores,
+              # accessible page counts, official domains, or verification flags.
+              has_article = bool(str(post.get("title") or "").strip()
+                                 and str(post.get("content_html") or "").strip())
+              if has_article:
                   print(event_id)
               else:
-                  print(f"HELD: {event_id} failed the 20/100 accessible-source gate or confirmed-transfer official-source rule.", file=sys.stderr)
+                  print(f"HELD: {event_id} has no title or article HTML.", file=sys.stderr)
           PY
 
           if [ ! -s "$RUNNER_TEMP/event_ids.txt" ]; then
