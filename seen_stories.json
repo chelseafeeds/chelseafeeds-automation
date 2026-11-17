@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T20:32:13.056807+00:00",
+  "updated_at": "2026-11-17T20:32:34.452031+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -16807,7 +16807,7 @@
       "publisher_domains": [
         "goal.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "9f7844c820cba8be14b9c2d4",
         "title": "Watch Chelsea FC Women vs Paris Saint Germain live: Who is broadcasting the match on TV and via live stream?",
@@ -16855,7 +16855,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "8129491734446628976",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/how-to-watch-chelsea-fc-women-vs-paris_01749301486.html",
+      "scheduled_for_utc": "2026-11-17T20:37:33Z",
+      "last_blogger_status_updated_at": "2026-11-17T20:32:34.452017+00:00"
     },
     "7dbafd24e1dbe5001fe1ef33": {
       "event_id": "7dbafd24e1dbe5001fe1ef33",
