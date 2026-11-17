@@ -681,6 +681,128 @@ def discover_bing_news(session):
         logging.warning("Bing News discovery: %s", report["error"])
     return observations, report
 
+
+def discover_google_news_publishers(session):
+    """Discover Chelsea coverage across publishers beyond the configured RSS list.
+
+    Google News is used strictly as a discovery index. Only fresh results that
+    resolve to a direct publisher article URL become observations; aggregator
+    URLs and unresolved redirects are discarded. The evidence processor still
+    fetches every article independently before drafting.
+    """
+    from urllib.parse import quote_plus
+
+    after_date = (c.now() - timedelta(days=1)).date().isoformat()
+    queries = [
+        f'"Chelsea FC" after:{after_date}',
+        f'"Chelsea Football Club" after:{after_date}',
+        f'Chelsea transfer after:{after_date}',
+        f'Chelsea injury team news after:{after_date}',
+        f'Chelsea Premier League after:{after_date}',
+        f'Chelsea Champions League after:{after_date}',
+        f'Chelsea Women WSL after:{after_date}',
+        f'Chelsea Women Champions League after:{after_date}',
+        f'Chelsea academy U21 U18 after:{after_date}',
+        f'Chelsea press conference interview after:{after_date}',
+        f'Chelsea loan players contract after:{after_date}',
+        f'Chelsea match report reaction after:{after_date}',
+        f'Chelsea players international duty after:{after_date}',
+        f'Chelsea ownership finance board after:{after_date}',
+    ]
+    report = {
+        "source": "Google News broad direct-publisher discovery",
+        "url": "https://news.google.com/rss/",
+        "status": "failed",
+        "queries_attempted": len(queries),
+        "entries_received": 0,
+        "observations_collected": 0,
+        "rejected_stale_or_irrelevant": 0,
+        "rejected_aggregator_or_unresolved": 0,
+        "publisher_domains_found": [],
+        "query_reports": [],
+        "error": None,
+    }
+    observations, seen = [], set()
+    cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
+    for query in queries:
+        row = {
+            "query": query,
+            "entries_received": 0,
+            "observations_collected": 0,
+            "rejected_stale_or_irrelevant": 0,
+            "rejected_aggregator_or_unresolved": 0,
+            "status": "failed",
+            "error": None,
+        }
+        feed_url = (
+            "https://news.google.com/rss/search?q=" + quote_plus(query)
+            + "&hl=en-GB&gl=GB&ceid=GB%3Aen"
+        )
+        try:
+            response = session.get(feed_url, timeout=c.TIMEOUT)
+            response.raise_for_status()
+            feed = feedparser.parse(response.content)
+            row["entries_received"] = len(feed.entries)
+            report["entries_received"] += len(feed.entries)
+            for entry in feed.entries[:30]:
+                title = c.textval(entry.get("title"))
+                summary = c.textval(entry.get("summary", entry.get("description", "")))
+                published = c.parse_date(entry)
+                if (not title or not published or published < cutoff
+                        or published > c.now() + timedelta(hours=12)
+                        or not c.relevant(title, summary)):
+                    row["rejected_stale_or_irrelevant"] += 1
+                    report["rejected_stale_or_irrelevant"] += 1
+                    continue
+                raw_url = entry.get("link", "")
+                if not raw_url:
+                    row["rejected_aggregator_or_unresolved"] += 1
+                    report["rejected_aggregator_or_unresolved"] += 1
+                    continue
+                try:
+                    resolved = session.get(
+                        raw_url, timeout=c.TIMEOUT, allow_redirects=True
+                    )
+                    resolved.raise_for_status()
+                    final_url = c.normalize_url(resolved.url)
+                    domain = c.domain(final_url)
+                    publisher = c.publisher_type(final_url)
+                    if (not final_url or not domain
+                            or domain in {"news.google.com", "google.com", "bing.com", "newsnow.com"}
+                            or publisher in {"aggregator_unresolved", "unknown_domain"}
+                            or final_url in seen):
+                        row["rejected_aggregator_or_unresolved"] += 1
+                        report["rejected_aggregator_or_unresolved"] += 1
+                        continue
+                    seen.add(final_url)
+                    item = c.observation(
+                        title, summary, final_url,
+                        "Google News publisher discovery: " + query,
+                        domain, published
+                    )
+                    if item:
+                        observations.append(item)
+                        row["observations_collected"] += 1
+                    else:
+                        row["rejected_stale_or_irrelevant"] += 1
+                        report["rejected_stale_or_irrelevant"] += 1
+                except requests.RequestException:
+                    row["rejected_aggregator_or_unresolved"] += 1
+                    report["rejected_aggregator_or_unresolved"] += 1
+            row["status"] = "success" if row["observations_collected"] else "empty"
+        except Exception as exc:
+            row["error"] = f"{type(exc).__name__}: {str(exc)[:160]}"
+            logging.info("Google News publisher query failed (%s): %s", query, type(exc).__name__)
+        report["query_reports"].append(row)
+    report["observations_collected"] = len(observations)
+    report["publisher_domains_found"] = sorted({x["publisher_domain"] for x in observations})
+    report["new_publisher_domain_count"] = len(report["publisher_domains_found"])
+    report["status"] = "success" if observations else "empty"
+    if not observations:
+        report["error"] = "No fresh Chelsea results resolved to direct publisher article URLs"
+    return observations, report
+
+
 def discover_specialist_feeds(session):
     observations, report = [], []
     cutoff = c.now() - timedelta(hours=c.MAX_AGE_HOURS)
@@ -757,7 +879,8 @@ def main():
     specialist_obs, specialist_report = discover_specialist_feeds(session)
     bing_obs, bing_report = discover_bing_news(session)
     google_official_obs, google_official_report = discover_google_news_official(session, sitemap_report)
-    new_obs = official_obs + sitemap_obs + specialist_obs + bing_obs + google_official_obs
+    google_publisher_obs, google_publisher_report = discover_google_news_publishers(session)
+    new_obs = official_obs + sitemap_obs + specialist_obs + bing_obs + google_official_obs + google_publisher_obs
     groups = c.cluster(new_obs)
     groups.extend(pinned_groups)
     for group in groups:
@@ -788,18 +911,20 @@ def main():
     c.write(HISTORY, history_updated)
     report = json.loads(REPORT.read_text(encoding="utf-8")) if REPORT.exists() else {}
     reports = report.setdefault("source_reports", [])
-    reports.extend(official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report])
+    reports.extend(official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report, google_publisher_report])
     report.update(source_discovery_version="1.7",
                   direct_source_observations=len(new_obs) + len(pinned_groups),
                   direct_official_observations=len(official_obs) + len(sitemap_obs) + len(google_official_obs) + len(pinned_groups),
                   specialist_feed_observations=len(specialist_obs),
                   bing_discovery_observations=len(bing_obs),
+                  google_publisher_discovery_observations=len(google_publisher_obs),
+                  new_publisher_domains=google_publisher_report.get("publisher_domains_found", []),
                   selected_pending_candidates=len(selected),
                   recovered_from_history_candidates=sum(1 for x in selected if x.get("recovered_from_history")))
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print("Direct source discovery: official_pages=%d official_sitemap=%d pinned_official=%d specialist=%d bing=%d pending=%d" %
-          (len(official_obs), len(sitemap_obs), len(pinned_groups), len(specialist_obs), len(bing_obs), len(selected)))
-    for row in official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report]:
+          (len(official_obs), len(sitemap_obs), len(pinned_groups), len(specialist_obs), len(bing_obs) + len(google_publisher_obs), len(selected)))
+    for row in official_report + [sitemap_report, pinned_report] + specialist_report + [bing_report, google_official_report, google_publisher_report]:
         print("SOURCE_REPORT " + json.dumps(row, ensure_ascii=False))
 
 if __name__ == "__main__":
