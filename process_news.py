@@ -905,9 +905,9 @@ def self_test():
 
     valid = make_draft(300)
     assert quality_gate(valid, one, story)["passed"], quality_gate(valid, one, story)
-    short = make_draft(399)
+    short = make_draft(249)
     short_result = quality_gate(short, one, story)
-    assert not short_result["passed"] and short_result["word_count"] == 399
+    assert not short_result["passed"] and short_result["word_count"] == 249
     assert should_retry_length_only(short_result)
     non_length_failure = dict(short_result, failed_checks=["substantive_article_body_minimum_250_words", "has_source_links"])
     assert not should_retry_length_only(non_length_failure)
@@ -928,6 +928,11 @@ def self_test():
     bad_link = dict(valid, article_html=valid["article_html"] + "<p><a href='https://bad.example/x'>Bad source</a></p>")
     assert not quality_gate(bad_link, one, story)["passed"]
 
+    # Regression: readable body text is whitespace-normalized and boilerplate is excluded.
+    test_html = '<html><head><title>Chelsea report</title></head><body><nav>Navigation ' + ('menu ' * 50) + '</nav><article><p>' + ('Chelsea evidence ' * 40) + '</p></article><footer>Footer ' + ('links ' * 40) + '</footer></body></html>'
+    source_title, source_desc, source_body = clean_text(test_html)
+    assert 'Navigation' not in source_body and 'Footer' not in source_body
+    assert len(source_body) >= 180 and '  ' not in source_body
     source_html = add_deterministic_sources("<h2>Analysis</h2><p><a href='https://bad.example/x'>bad link</a></p>", one)
     source_soup = BeautifulSoup(source_html, "html.parser")
     assert source_soup.find("h2", string="Sources") is not None
@@ -941,7 +946,7 @@ def self_test():
     assert assets == [] and image_status == "awaiting_original_source_image_validation"
     with_sources = dict(valid, article_html=valid["article_html"] + "<section><h2>Sources</h2><ul><li><a href='https://www.bbc.co.uk/a'>BBC</a></li></ul></section>")
     assert quality_gate(with_sources, one, story)["word_count"] == 300
-    print("PASS: evidence, 500-word, SEO, source-link, source-exclusion, safety and no-placeholder-image regression checks")
+    print("PASS: evidence, 300-word range, SEO, source extraction, source-link, safety and no-placeholder-image regression checks")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
