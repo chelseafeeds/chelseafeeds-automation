@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T06:32:33.627315+00:00",
+  "updated_at": "2026-11-17T06:33:07.446106+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -10315,7 +10315,7 @@
       "publisher_domains": [
         "caughtoffside.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "51f0f9e28f19225fe483b561",
         "title": "Talks held: Chelsea working to convince Arsenal transfer target to join",
@@ -10357,11 +10357,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-17T06:33:07.446106+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Talks held: Chelsea working to convince Arsenal transfer target to join",
+      "last_editorial_source_domains": [
+        "caughtoffside.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.caughtoffside.com/2026/11/17/chelsea-and-arsenal-eye-leonard-prescott-transfer"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
