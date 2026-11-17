@@ -39,8 +39,6 @@ class AIQuotaExhausted(RuntimeError):
 class AIProviderPoolUnavailable(AIQuotaExhausted):
     """Every configured AI provider is unavailable for the remainder of this run."""
 
-# Once a provider fails with quota, rate-limit, authentication, or service errors,
-# quarantine it for this process run. This prevents repeatedly hitting a dead provider.
 AI_DISABLED_PROVIDERS = set()
 THUMBNAIL_WIDTH = 1200
 THUMBNAIL_HEIGHT = 675
@@ -480,21 +478,456 @@ def generate_draft(story, evidence, api_key, session, length_repair=False):
             provider_used = label.lower()
             logging.info("AI_PROVIDER_SELECTED provider=%s", label)
             break
-        except (AIQuotaExhausted, RuntimeError) as exc:
+        except RuntimeError as exc:
             AI_DISABLED_PROVIDERS.add(label)
             provider_errors.append(f"{label}: {str(exc)[:240]}")
             logging.error("AI_PROVIDER_QUARANTINED provider=%s reason=%s; it will not be called again in this run.",
                           label, str(exc)[:240])
-            # Move immediately to the next configured provider. Never retry a
-            # quota-exhausted provider for every remaining story in this batch.
             continue
     if content is None:
         details = " | ".join(provider_errors) or "all configured providers were already quarantined"
         raise AIProviderPoolUnavailable("No configured AI provider is currently usable. " + details)
 
-    if provider_used == "openai_fallback":
-        provider_used = "openai_fallback"
-o_schedule_eligible"] is True
+    draft = json.loads(content)
+    draft["ai_provider_used"] = provider_used
+    draft["search_description"] = normalize_search_description(draft)
+    required = {"title", "search_description", "focus_keyword", "labels", "article_html",
+                "excerpt", "image_prompt", "image_alt_text", "editorial_notes", "unsupported_or_unverified_points"}
+    missing = required - set(draft)
+    if missing:
+        raise ValueError("Model output missing keys: " + ", ".join(sorted(missing)))
+    return draft
+
+def add_deterministic_sources(html, fetched, story=None):
+    """Add collector-supplied publisher links without asserting page accessibility."""
+    soup = BeautifulSoup(str(html or ""), "html.parser")
+    for heading in list(soup.find_all(["h2", "h3"])):
+        if heading.get_text(" ", strip=True).casefold() == "sources":
+            node = heading
+            while node:
+                nxt = node.find_next_sibling()
+                node.decompose()
+                if nxt and nxt.name in {"h2", "h3"}:
+                    break
+                node = nxt
+    collector_records = story_source_records(story or {})
+    allowed = ({x["url"] for x in fetched if x.get("accessible") and x.get("url")}
+               | {x["url"] for x in collector_records if x.get("url")})
+    for anchor in list(soup.find_all("a", href=True)):
+        if anchor.get("href") not in allowed:
+            anchor.unwrap()
+    source_rows, seen = [], set()
+    for item in fetched:
+        url = item.get("url")
+        if item.get("accessible") and url in allowed and url not in seen:
+            seen.add(url)
+            source_rows.append((host(url), url))
+    for item in collector_records:
+        url = item.get("url")
+        if url in allowed and url not in seen:
+            seen.add(url)
+            source_rows.append((item.get("publisher") or host(url), url))
+    if source_rows:
+        section = soup.new_tag("section")
+        heading = soup.new_tag("h2")
+        heading.string = "Sources"
+        section.append(heading)
+        listing = soup.new_tag("ul")
+        for publisher, url in source_rows:
+            li = soup.new_tag("li")
+            anchor = soup.new_tag("a", href=url)
+            anchor.string = publisher
+            li.append(anchor)
+            listing.append(li)
+        section.append(listing)
+        soup.append(section)
+    return str(soup)
+
+def normalize_search_description(draft):
+    """Return a complete, factual 100-180 character search snippet."""
+    title = re.sub(r"\s+", " ", str(draft.get("title") or "")).strip()
+    description = re.sub(r"\s+", " ", str(draft.get("search_description") or "")).strip()
+
+    def complete(value):
+        value = value.strip()
+        if not (100 <= len(value) <= 180) or not re.search(r"[.!?]$", value):
+            return False
+        if re.search(r"\b(?:and|or|but|with|as|for|to|from|of|the|a|an|who|which|that|while|amid|including|after|before|because)\s*[.!?]$", value, re.I):
+            return False
+        if re.search(r"\b(?:according to|reported by|journalist|source|claiming|suggesting)\s+[^.!?]*[.!?]$", value, re.I):
+            return False
+        return True
+
+    if complete(description):
+        return description
+
+    soup = BeautifulSoup(str(draft.get("article_html") or ""), "html.parser")
+    paragraphs = [re.sub(r"\s+", " ", p.get_text(" ", strip=True)).strip()
+                  for p in soup.find_all("p")]
+    paragraphs = [p for p in paragraphs if len(p) > 35]
+    sentences = []
+    for paragraph in paragraphs[:2]:
+        sentences.extend(re.split(r"(?<=[.!?])\s+", paragraph))
+    sentences = [x.strip() for x in sentences if len(x.strip()) > 25]
+    candidates = []
+    for count in (1, 2, 3):
+        if len(sentences) >= count:
+            candidates.append(" ".join(sentences[:count]))
+    for candidate in candidates:
+        if 100 <= len(candidate) <= 180 and complete(candidate):
+            return candidate
+
+    factual_intro = candidates[0] if candidates else (paragraphs[0] if paragraphs else "")
+    base = factual_intro or title
+    if len(base) > 177:
+        base = base[:177].rsplit(" ", 1)[0].rstrip(" ,;:-")
+        base = base.rstrip(".!?") + "…"
+    elif base and not re.search(r"[.!?…]$", base):
+        base += "."
+    if 100 <= len(base) <= 180:
+        return base
+    combined = (title + ". " + factual_intro).strip(" .")
+    if len(combined) > 180:
+        combined = combined[:177].rsplit(" ", 1)[0].rstrip(" ,;:-") + "…"
+    return combined
+
+def apply_source_title_fallback(draft, story):
+    """Use the supplied source headline only when the AI title fails the length rule."""
+    current = str(draft.get("title", "")).strip()
+    if 25 <= len(current) <= 100:
+        return False
+    fallback = str(story.get("title", "")).strip()
+    if 25 <= len(fallback) <= 100:
+        draft["title"] = fallback
+        return True
+    return False
+
+def should_retry_length_only(quality):
+    """Allow one evidence-bound rewrite only when article length is the sole failure."""
+    return (not quality.get("passed")
+            and quality.get("failed_checks") in (
+                ["substantive_article_body_minimum_250_words"],
+                ["substantive_article_body_maximum_350_words"]))
+
+
+def quality_gate(draft, fetched, story, allowed_internal_urls=None):
+    html = str(draft.get("article_html", ""))
+    soup = BeautifulSoup(html, "html.parser")
+
+    # Exclude the deterministic Sources block from the substantive article word count.
+    for heading in list(soup.find_all(["h2", "h3"])):
+        if heading.get_text(" ", strip=True).casefold() == "sources":
+            parent = heading.parent
+            if parent and parent.name == "section":
+                parent.decompose()
+            else:
+                node = heading
+                while node:
+                    nxt = node.find_next_sibling()
+                    node.decompose()
+                    if nxt and nxt.name in {"h2", "h3"}:
+                        break
+                    node = nxt
+
+    original_soup = BeautifulSoup(html, "html.parser")
+    # Headings, captions and image alt text are structure/metadata, not article body words.
+    for node in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6", "figcaption", "img"]):
+        node.decompose()
+    text = re.sub(r"\s+", " ", soup.get_text(" ", strip=True)).strip()
+    word_count = len(text.split())
+    links = {a.get("href") for a in original_soup.find_all("a", href=True)}
+    allowed_urls = ({x["url"] for x in fetched if x.get("accessible") and x.get("url")}
+                    | {x["url"] for x in story_source_records(story) if x.get("url")})
+    allowed_internal_urls = set(allowed_internal_urls or [])
+    title = str(draft.get("title", "")).strip()
+    description = str(draft.get("search_description", "")).strip()
+    checks = {
+        "title_present_and_reasonable": 25 <= len(title) <= 100,
+        "search_description_length": 100 <= len(description) <= 180,
+        "search_description_is_complete": (bool(re.search(r"[.!?…]$", description)) and not bool(re.search(r"\b(?:and|or|but|with|as|for|to|from|of|the|a|an|who|which|that|while|amid|including|after|before)\s*[.!?]$", description, re.I))),
+        "substantive_article_body_minimum_250_words": word_count >= 250,
+        "substantive_article_body_maximum_350_words": word_count <= 350,
+        "has_section_headings": len(original_soup.find_all(["h2", "h3"])) >= 2,
+        "has_source_links": bool(links & allowed_urls),
+        "source_links_are_supplied": links.issubset(allowed_urls | allowed_internal_urls),
+        "no_unsafe_html": not bool(re.search(r"<(script|iframe|form|object|embed)\b", html, re.I)),
+        "no_empty_required_seo_fields": all(str(draft.get(k, "")).strip() for k in ("focus_keyword", "excerpt", "image_prompt", "image_alt_text"))
+    }
+    failed = [k for k, ok in checks.items() if not ok]
+    score = round(100 * sum(checks.values()) / len(checks))
+    # Every check is mandatory; a high score cannot override a failed SEO, length, source or safety check.
+    passed = not failed
+    return {"passed": passed, "score": score, "word_count": word_count,
+            "minimum_word_count": 250, "target_word_count": 300, "maximum_word_count": 350, "checks": checks, "failed_checks": failed,
+            "note": "Automated editorial screening only; it is not independent fact-checking."}
+
+def make_image_assets(draft, story, images_dir):
+    # Never manufacture a generic thumbnail here. The next pipeline stage must
+    # attach a relevant, licensed image from the original article source or fail closed.
+    return [], "awaiting_original_source_image_validation"
+
+TERMINAL_EVENT_STATUSES = {"draft_created_unpublished", "rejected_quality_gate", "scheduled", "published", "archived"}
+
+def filter_unprocessed_stories(stories, history):
+    events = history.get("events", {}) if isinstance(history, dict) else {}
+    pending = []
+    skipped = []
+    for story in stories:
+        event_id = story.get("event_id")
+        status = events.get(event_id, {}).get("status")
+        if status in TERMINAL_EVENT_STATUSES and not (
+            status in {"rejected_quality_gate", "draft_created_unpublished"}
+            and story.get("evidence_refresh") is True
+        ):
+            skipped.append(story)
+        else:
+            pending.append(story)
+    return pending, skipped
+
+
+def process(input_path, output_dir):
+    output_dir.mkdir(parents=True, exist_ok=True)
+    images_dir = output_dir / "images"
+    data = json.loads(input_path.read_text(encoding="utf-8"))
+    collector_version = str(data.get("collector_version", ""))
+    # Collector 4.x keeps the same candidate schema; accept tested minor releases
+    # while still failing closed on missing or unexpected major versions.
+    if not re.fullmatch(r"4\.\d+", collector_version):
+        raise ValueError(f"Expected Collector v4.x input; refusing unexpected artifact (received {collector_version!r})")
+    all_stories = data.get("stories", [])
+    history_path = Path("seen_stories.json")
+    history = json.loads(history_path.read_text(encoding="utf-8")) if history_path.exists() else {"events": {}}
+    stories, previously_processed = filter_unprocessed_stories(all_stories, history)
+    session = requests.Session()
+    session.headers.update(HEADERS)
+    published_articles = fetch_published_articles(session)
+    logging.info("Loaded %d published ChelseaFeeds articles for internal-link matching", len(published_articles))
+    drafts, counters = [], Counter()
+    results = [{"event_id": item.get("event_id"), "headline": item.get("title"),
+                "processing_status": "skipped_previously_processed",
+                "article_generated": False, "published_to_blogger": False, "published_to_x": False}
+               for item in previously_processed]
+    logging.info("Starting editorial batch: %d input candidates; %d previously processed skipped; %d pending; source workers=%d; AI timeout=%ds; attempts=%d; draft cap=%d",
+                 len(all_stories), len(previously_processed), len(stories), SOURCE_FETCH_WORKERS, AI_REQUEST_TIMEOUT, AI_MAX_ATTEMPTS, MAX_DRAFTS)
+    batch_started = time.monotonic()
+    for story_index, story in enumerate(stories, start=1):
+        candidate_started = time.monotonic()
+        logging.info("CANDIDATE_START %d/%d event=%s headline=%s",
+                     story_index, len(stories), story.get("event_id"),
+                     str(story.get("title") or "untitled")[:140])
+        source_urls = [x["url"] for x in story_source_records(story)]
+        fetched = []
+        assessment = {"evidence_tier": "collector_only_no_page_fetch", "evidence_score": 0,
+            "minimum_evidence_score": 0, "accessible_source_count": 0,
+            "accessible_publisher_domains": [], "official_source_count": 0,
+            "established_source_domains": [], "established_publisher_groups": [],
+            "eligible_for_draft": True, "auto_schedule_eligible": True,
+            "claims_verified": False,
+            "reason": "Source-page evidence checks and eligibility gates are disabled at user request.",
+            "warning": "Collector headlines and summaries are unverified leads. Attribute claims, label rumours, and do not invent unsupported details."}
+        logging.info("SOURCE_EVIDENCE_CHECK_SKIPPED event=%s collector_observations=%d source_links=%d",
+                     story.get("event_id"), len(story_source_records(story)), len(source_urls))
+        record = {"event_id": story.get("event_id"), "headline": story.get("title"),
+            "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
+            "source_checks": [], "evidence_assessment": assessment,
+            "verification_status": "collector_only_not_independently_verified",
+            "claims_verified": False, "article_generated": False, "published_to_blogger": False,
+            "published_to_x": False}
+        counters[assessment["evidence_tier"]] += 1
+        if AI_USAGE["total_tokens"] >= RUN_TOKEN_BUDGET > 0:
+            record["processing_status"] = "held_run_token_budget"
+        elif not AI_API_KEY and not (AI_FALLBACK_ENABLED and AI_FALLBACK_API_KEY):
+            record["processing_status"] = "draft_waiting_for_ai_provider_api_key"
+        elif len(drafts) >= MAX_DRAFTS:
+            record["processing_status"] = "held_run_draft_limit"
+        else:
+            try:
+                logging.info("Starting AI article generation for %s (timeout=%ss, max attempts=%s)",
+                             story.get("event_id"), AI_REQUEST_TIMEOUT, AI_MAX_ATTEMPTS)
+                draft = generate_draft(story, fetched, AI_API_KEY, session)
+                logging.info("AI article response received for %s", story.get("event_id"))
+                draft["article_html"] = add_deterministic_sources(draft["article_html"], fetched, story)
+                related = select_related_articles(draft, story, published_articles)
+                draft["article_html"] = add_related_links(draft["article_html"], related)
+                draft["related_internal_links"] = [{"title": x["title"], "url": x["url"], "score": x["score"]} for x in related]
+                title_fallback_applied = apply_source_title_fallback(draft, story)
+                if title_fallback_applied:
+                    logging.info("TITLE_FALLBACK_APPLIED event=%s using source headline", story.get("event_id"))
+                quality = quality_gate(draft, fetched, story, {x["url"] for x in related})
+                length_repair_attempted = False
+                if should_retry_length_only(quality) and (RUN_TOKEN_BUDGET == 0 or AI_USAGE["total_tokens"] < RUN_TOKEN_BUDGET):
+                    length_repair_attempted = True
+                    logging.info("QUALITY_LENGTH_REPAIR event=%s initial_words=%s",
+                                 story.get("event_id"), quality.get("word_count"))
+                    repaired = generate_draft(story, fetched, AI_API_KEY, session, length_repair=True)
+                    repaired["article_html"] = add_deterministic_sources(repaired["article_html"], fetched, story)
+                    repaired_related = select_related_articles(repaired, story, published_articles)
+                    repaired["article_html"] = add_related_links(repaired["article_html"], repaired_related)
+                    repaired["related_internal_links"] = [
+                        {"title": x["title"], "url": x["url"], "score": x["score"]}
+                        for x in repaired_related
+                    ]
+                    repaired_title_fallback = apply_source_title_fallback(repaired, story)
+                    repaired_quality = quality_gate(
+                        repaired, fetched, story, {x["url"] for x in repaired_related}
+                    )
+                    if repaired_quality["passed"]:
+                        draft, related = repaired, repaired_related
+                        title_fallback_applied = repaired_title_fallback
+                        quality = repaired_quality
+                        logging.info("QUALITY_LENGTH_REPAIR_PASSED event=%s words=%s",
+                                     story.get("event_id"), quality.get("word_count"))
+                    else:
+                        logging.info("QUALITY_LENGTH_REPAIR_REJECTED event=%s words=%s failures=%s",
+                                     story.get("event_id"), repaired_quality.get("word_count"),
+                                     repaired_quality.get("failed_checks"))
+                        quality = repaired_quality
+                        draft = repaired
+                        title_fallback_applied = repaired_title_fallback
+                record["quality_gate"] = quality
+                record["length_repair_attempted"] = length_repair_attempted
+                record["title_fallback_applied"] = title_fallback_applied
+                if not quality["passed"]:
+                    record["processing_status"] = "rejected_quality_gate"
+                    record["quality_failures"] = quality["failed_checks"]
+                else:
+                    assets, image_status = make_image_assets(draft, story, images_dir)
+                    draft["image_assets"] = assets
+                    draft["image_generation_status"] = image_status
+                    draft["featured_image"] = next((x for x in assets if x["role"] == "thumbnail"), None)
+                    draft["editorial_quality"] = quality
+                    draft["image_note"] = ("Thumbnail is a deterministic ChelseaFeeds-branded graphic created locally; it uses no AI image API or external image service. "
+                                           "Upload the thumbnail to Blogger and use it as the post featured image.")
+                    drafts.append({"event_id": story.get("event_id"), "collector_headline": story.get("title"),
+                        "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
+                        "source_urls": source_urls,
+                        "source_images": [],
+                        "evidence_assessment": assessment,
+                        "auto_schedule_eligible": True,
+                        "verification_status": "collector_only_not_independently_verified", "claims_verified": False,
+                        "editorial_status": "draft_requires_editorial_review", "article_generated": True,
+                        "published_to_blogger": False, "published_to_x": False, "draft": draft})
+                    record["processing_status"] = "draft_created_unpublished"
+                    record["article_generated"] = True
+                    record["image_generation_status"] = image_status
+                    record["image_asset_count"] = len(assets)
+            except AIQuotaExhausted as exc:
+                record["processing_status"] = "stopped_ai_provider_pool_unavailable"
+                record["error"] = str(exc)[:350]
+                results.append(record)
+                logging.error("All configured AI providers are unavailable; stopping this batch. Provider quarantine prevents repeated failed calls.")
+                for remaining in stories[story_index:]:
+                    results.append({"event_id": remaining.get("event_id"), "headline": remaining.get("title"),
+                        "processing_status": "held_ai_provider_pool_unavailable", "article_generated": False,
+                        "published_to_blogger": False, "published_to_x": False})
+                break
+            except Exception as exc:
+                record["processing_status"] = "draft_generation_failed"
+                record["error"] = type(exc).__name__ + ": " + str(exc)[:350]
+                logging.warning("Draft failed for %s: %s", story.get("event_id"), record["error"])
+        results.append(record)
+        logging.info("CANDIDATE_DONE %d/%d event=%s status=%s elapsed=%.1fs drafts=%d",
+                     story_index, len(stories), story.get("event_id"),
+                     record.get("processing_status"), time.monotonic() - candidate_started, len(drafts))
+        time.sleep(0.2)
+    logging.info("BATCH_DONE elapsed=%.1fs candidates=%d drafts=%d",
+                 time.monotonic() - batch_started, len(stories), len(drafts))
+    blogger_posts = []
+    for item in drafts:
+        d = item["draft"]
+        featured = item.get("draft", {}).get("featured_image") or {}
+        post_slug = slug(d.get("title") or item.get("collector_headline"))
+        blogger_posts.append({
+            "event_id": item.get("event_id"),
+            "title": d.get("title"),
+            "content_html": d.get("article_html"),
+            "search_description": d.get("search_description"),
+            "labels": d.get("labels") if isinstance(d.get("labels"), list) else [],
+            "custom_permalink_slug": post_slug,
+            "focus_keyword": d.get("focus_keyword"),
+            "excerpt": d.get("excerpt"),
+            "featured_image": featured,
+            "image_alt_text": d.get("image_alt_text"),
+            "source_urls": item.get("source_urls", []),
+            "source_images": item.get("source_images", []),
+            "evidence_tier": "collector_only_no_page_fetch",
+            "evidence_score": 0,
+            "minimum_evidence_score": 0,
+            "accessible_source_count": 0,
+            "official_source_count": 0,
+            "established_source_domains": [],
+            "established_publisher_groups": [],
+            "accessible_publisher_domains": [],
+            "story_type": item.get("story_type"),
+            "editorial_status": "draft_requires_editorial_review",
+            "auto_schedule_eligible": item.get("auto_schedule_eligible", False),
+            "claims_verified": False,
+            "publishing_enabled": bool(item.get("auto_schedule_eligible", False))
+        })
+    (output_dir / "blogger_ready_posts.json").write_text(
+        json.dumps({"format_version":"1.0","generated_at":utcnow().isoformat(),
+                    "instructions":"Collector-only mode: source pages were not fetched or independently verified. Article claims remain attributed and unverified; source URLs are collector publisher links.",
+                    "posts":blogger_posts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    report = {"processor_version": VERSION, "generated_at": utcnow().isoformat(),
+        "collector_version": data.get("collector_version"), "input_candidate_count": len(all_stories), "unprocessed_candidate_count": len(stories), "skipped_previously_processed_count": len(previously_processed), "blogger_ready_export_count": len(blogger_posts),
+        "evidence_tier_distribution": dict(counters), "drafts_created": len(drafts),
+        "max_drafts_per_run": MAX_DRAFTS, "ai_provider": AI_PROVIDER,
+        "ai_api_configured": bool(AI_API_KEY), "ai_base_url": AI_BASE_URL if AI_API_KEY else None,
+        "model": MODEL if AI_API_KEY else None,
+        "ai_usage": dict(AI_USAGE),
+        "run_token_budget": RUN_TOKEN_BUDGET,
+        "max_completion_tokens_per_request": MAX_COMPLETION_TOKENS,
+        "thumbnail_method": "source_page_images_only_with_explicit_reuse_rights", "external_image_api_required": False,
+        "article_publishing_enabled": False, "x_publishing_enabled": False, "claims_marked_verified": 0,
+        "safety_controls": [
+            "Source-page fetching and evidence eligibility gates are disabled; drafts use collector headlines, timestamps and summaries only.",
+            "Collector-only claims are not independently verified; attribute reports, label rumours, and do not invent unsupported facts.",
+            "Automated quality gate requires 250-350 substantive article words (300-word target) excluding the Sources block; SEO, heading, collector-source-link and HTML safety checks remain mandatory.",
+        "A score cannot override any failed mandatory check; short drafts and invalid SEO metadata are rejected.",
+            "No direct quotations are requested; unsupported claims must be omitted or flagged.",
+            "Featured thumbnails are generated locally with Pillow; no image-generation API, API key or paid image service is required.",
+            "Thumbnails use ChelseaFeeds colours, article headlines and abstract football/stadium graphics; no club crest or real-player likeness is fabricated.",
+            "Thumbnails are attached as workflow artifacts and must be uploaded to Blogger before publication.",
+            "Blogger/X publishing is handled downstream only after the retained article-content and HTML quality checks pass."
+        ], "results": results}
+    (output_dir / "article_drafts.json").write_text(json.dumps({"processor_version": VERSION, "drafts": drafts}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (output_dir / "editorial_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    logging.info("Processor v%s: %d candidates, %d drafts; AI requests=%d tokens=%d (prompt=%d completion=%d); source-image validation is a mandatory later stage",
+                 VERSION, len(stories), len(drafts), AI_USAGE["requests"], AI_USAGE["total_tokens"],
+                 AI_USAGE["prompt_tokens"], AI_USAGE["completion_tokens"])
+
+def self_test():
+    pending, skipped = filter_unprocessed_stories(
+        [{"event_id":"done"},{"event_id":"new"}],
+        {"events":{"done":{"status":"draft_created_unpublished"}}})
+    assert [x["event_id"] for x in pending] == ["new"]
+    assert [x["event_id"] for x in skipped] == ["done"]
+    refreshed, held = filter_unprocessed_stories(
+        [{"event_id":"rejected"},{"event_id":"rejected","evidence_refresh":True}],
+        {"events":{"rejected":{"status":"rejected_quality_gate"}}})
+    assert len(refreshed) == 1 and refreshed[0]["evidence_refresh"] is True
+    assert len(held) == 1
+    refreshed_draft, held_draft = filter_unprocessed_stories(
+        [{"event_id":"old-draft"},{"event_id":"old-draft","evidence_refresh":True}],
+        {"events":{"old-draft":{"status":"draft_created_unpublished"}}})
+    assert len(refreshed_draft) == 1 and len(held_draft) == 1
+
+    story = {"story_type":"match_report"}
+    ranked = ranked_source_urls({
+        "source_urls": ["https://talkchelsea.net/a", "https://www.bbc.co.uk/b"],
+        "source_observations": [{"url":"https://www.skysports.com/c"}],
+        "representative_url": "https://www.chelseafc.com/en/news/article/d"
+    })
+    assert ranked[0].startswith("https://www.chelseafc.com/")
+    assert len({host(x) for x in ranked}) == len(ranked)
+    one = [{"accessible":True,"domain":"bbc.co.uk","url":"https://www.bbc.co.uk/a"}]
+    two = one + [{"accessible":True,"domain":"skysports.com","url":"https://www.skysports.com/b"}]
+    official = [{"accessible":True,"domain":"uefa.com","url":"https://www.uefa.com/a"}]
+    assert evidence_assessment(story, one)["eligible_for_draft"]
+    assert evidence_assessment(story, two)["eligible_for_draft"]
+    assert evidence_assessment(story, official)["eligible_for_draft"]
+    bbc_mirror = one + [{"accessible":True,"domain":"bbc.com","url":"https://www.bbc.com/b"}]
+    assert evidence_assessment(story, bbc_mirror)["auto_schedule_eligible"] is True
     bbc_plus_nyt = one + [{"accessible":True,"domain":"nytimes.com","url":"https://www.nytimes.com/b"}]
     assert evidence_assessment(story, bbc_plus_nyt)["auto_schedule_eligible"] is True
     assert evidence_assessment({"story_type":"opinion_analysis"}, one)["eligible_for_draft"]
@@ -605,8 +1038,7 @@ o_schedule_eligible"] is True
     assert assets == [] and image_status == "awaiting_original_source_image_validation"
     with_sources = dict(valid, article_html=valid["article_html"] + "<section><h2>Sources</h2><ul><li><a href='https://www.bbc.co.uk/a'>BBC</a></li></ul></section>")
     assert quality_gate(with_sources, one, story)["word_count"] == 300
-    # Provider failover regression: quota exhaustion must switch immediately and quarantine
-    # the exhausted provider for all remaining candidates in this processing run.
+    # Quota failover: switch to OpenAI once, then quarantine Groq for the rest of the run.
     original_request = _request_chat_completion
     original_provider = AI_PROVIDER
     original_fallback_enabled = AI_FALLBACK_ENABLED
@@ -647,7 +1079,7 @@ o_schedule_eligible"] is True
         AI_DISABLED_PROVIDERS.clear()
         AI_DISABLED_PROVIDERS.update(original_disabled)
 
-    print("PASS: evidence, 300-word range, SEO, source extraction, source-link, safety, no-placeholder-image and AI provider failover/quarantine regression checks")
+    print("PASS: evidence, 300-word range, SEO, source extraction, source-link, safety, no-placeholder-image and AI failover/quarantine checks")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
