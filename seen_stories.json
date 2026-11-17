@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T07:41:46.463038+00:00",
+  "updated_at": "2026-11-17T07:42:20.112797+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -7826,7 +7826,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "cfa4270b5bd9ce8fa7be1d50",
         "title": "Vote for your favourite late Stamford Bridge winner: Estevao or Palmer? | News | Official Site - Chelsea Football Club",
@@ -7869,12 +7869,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-17T07:42:20.112797+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Vote for your favourite late Stamford Bridge winner: Estevao or Palmer? | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "1b701691fccd3ee15fa73b67": {
@@ -10755,7 +10757,7 @@
       "publisher_domains": [
         "espn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "16796ffa1ee494eef07982c4",
         "title": "Chelsea's Baltimore enjoying partnership with Malard ahead of UWCL clash against PSG",
@@ -10797,9 +10799,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-17T07:42:20.112797+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea's Baltimore enjoying partnership with Malard ahead of UWCL clash against PSG",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
