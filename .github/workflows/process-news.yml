@@ -65,6 +65,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Report configured AI providers without exposing secrets
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -n "$GROQ_API_KEY" ]; then echo "AI_PROVIDER_READY=GROQ"; else echo "AI_PROVIDER_MISSING=GROQ"; fi
+          if [ -n "$OPENAI_API_KEY" ]; then echo "AI_PROVIDER_READY=OPENAI_FALLBACK"; else echo "::warning::OPENAI_API_KEY is not configured; Groq quota exhaustion will leave no fallback provider."; fi
+
       - name: Run processor regression tests
         run: python process_news.py --self-test
 
