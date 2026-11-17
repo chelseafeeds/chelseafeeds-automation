@@ -16,7 +16,8 @@ on:
       - ".github/workflows/collect-news.yml"
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *"
+    # Run every five minutes in UTC; GitHub may delay scheduled events during load.
+    - cron: '*/5 * * * *'
 
 permissions:
   contents: write
