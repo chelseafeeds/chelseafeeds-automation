@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T02:58:52.123957+00:00",
+  "updated_at": "2026-11-17T02:59:24.228519+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -8940,7 +8940,7 @@
       "publisher_domains": [
         "footballfancast.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "ca943b28d78b292716449e02",
         "title": "He needs to play: Chelsea have another Reece James sat among the subs",
@@ -8982,11 +8982,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-17T02:59:24.228519+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "He needs to play: Chelsea have another Reece James sat among the subs",
+      "last_editorial_source_domains": [
+        "footballfancast.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://www.footballfancast.com/chelsea-valentin-barco-another-reece-james-warming-the-bench"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
