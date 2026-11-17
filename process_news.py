@@ -605,7 +605,49 @@ o_schedule_eligible"] is True
     assert assets == [] and image_status == "awaiting_original_source_image_validation"
     with_sources = dict(valid, article_html=valid["article_html"] + "<section><h2>Sources</h2><ul><li><a href='https://www.bbc.co.uk/a'>BBC</a></li></ul></section>")
     assert quality_gate(with_sources, one, story)["word_count"] == 300
-    print("PASS: evidence, 300-word range, SEO, source extraction, source-link, safety and no-placeholder-image regression checks")
+    # Provider failover regression: quota exhaustion must switch immediately and quarantine
+    # the exhausted provider for all remaining candidates in this processing run.
+    original_request = _request_chat_completion
+    original_provider = AI_PROVIDER
+    original_fallback_enabled = AI_FALLBACK_ENABLED
+    original_fallback_key = AI_FALLBACK_API_KEY
+    original_disabled = set(AI_DISABLED_PROVIDERS)
+    provider_calls = []
+    provider_response = json.dumps({
+        "title":"Chelsea provide an update on the latest team situation",
+        "search_description":"Chelsea provide an update on the latest team situation, with the reported details offering supporters a clearer picture of the club's current plans.",
+        "focus_keyword":"Chelsea team news","labels":["Latest News"],
+        "article_html":"<h2>Update</h2><p>Reported details.</p><h2>What it means</h2><p>Further context.</p>",
+        "excerpt":"Chelsea team update","image_prompt":"Editorial Chelsea illustration",
+        "image_alt_text":"Chelsea editorial illustration","editorial_notes":"",
+        "unsupported_or_unverified_points":[]
+    })
+    def fake_provider_request(payload, key, base_url, model, session, label):
+        provider_calls.append(label)
+        if label == "GROQ":
+            raise AIQuotaExhausted("AI_RATE_LIMIT_QUOTA: simulated Groq quota exhaustion")
+        return provider_response
+    try:
+        _request_chat_completion = fake_provider_request
+        AI_PROVIDER = "groq"
+        AI_FALLBACK_ENABLED = True
+        AI_FALLBACK_API_KEY = "test-openai-key"
+        AI_DISABLED_PROVIDERS.clear()
+        failover_one = generate_draft(collector_only_story, [], "test-groq-key", None)
+        assert failover_one["ai_provider_used"] == "openai_fallback"
+        assert provider_calls == ["GROQ", "OPENAI_FALLBACK"], provider_calls
+        failover_two = generate_draft(collector_only_story, [], "test-groq-key", None)
+        assert failover_two["ai_provider_used"] == "openai_fallback"
+        assert provider_calls == ["GROQ", "OPENAI_FALLBACK", "OPENAI_FALLBACK"], provider_calls
+    finally:
+        _request_chat_completion = original_request
+        AI_PROVIDER = original_provider
+        AI_FALLBACK_ENABLED = original_fallback_enabled
+        AI_FALLBACK_API_KEY = original_fallback_key
+        AI_DISABLED_PROVIDERS.clear()
+        AI_DISABLED_PROVIDERS.update(original_disabled)
+
+    print("PASS: evidence, 300-word range, SEO, source extraction, source-link, safety, no-placeholder-image and AI provider failover/quarantine regression checks")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
