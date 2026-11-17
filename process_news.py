@@ -11,7 +11,7 @@ import requests
 from bs4 import BeautifulSoup
 from related_links import fetch_published_articles, select_related_articles, add_related_links
 
-VERSION = "1.6"
+VERSION = "1.7"
 TIMEOUT = (5, 12)  # bounded connect/read timeout for each source
 SOURCE_FETCH_WORKERS = max(1, min(8, int(os.getenv('SOURCE_FETCH_WORKERS', '8'))))
 AI_REQUEST_TIMEOUT = max(30, min(90, int(os.getenv('AI_REQUEST_TIMEOUT', '75'))))
@@ -28,7 +28,7 @@ AI_FALLBACK_BASE_URL = os.getenv("AI_FALLBACK_BASE_URL", "https://api.openai.com
 AI_FALLBACK_MODEL = os.getenv("AI_FALLBACK_MODEL", "gpt-4.1-mini").strip()
 MAX_SOURCE_PACK = max(1, min(8, int(os.getenv("MAX_SOURCE_PACK", "5"))))
 MAX_SOURCE_CHARS = max(1200, min(6500, int(os.getenv("MAX_SOURCE_CHARS", "3500"))))
-MAX_COMPLETION_TOKENS = max(1200, min(4000, int(os.getenv("MAX_COMPLETION_TOKENS", "2600"))))
+MAX_COMPLETION_TOKENS = max(1200, min(4000, int(os.getenv("MAX_COMPLETION_TOKENS", "2000"))))
 RUN_TOKEN_BUDGET = max(0, int(os.getenv("RUN_TOKEN_BUDGET", "150000")))
 AI_USAGE = {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0,
             "requests": 0, "providers": {}}
@@ -181,28 +181,27 @@ def clean_text(html):
         except (ValueError, TypeError):
             continue
 
-    # Cover common CMS article containers that do not use <article>.
+    # Remove boilerplate before selecting the article container.
+    for node in soup(["script", "style", "noscript", "svg", "nav", "footer", "header", "form"]):
+        node.decompose()
+    for node in soup.select('[role="navigation"], [aria-hidden="true"], .cookie, .advert, .advertisement, .social-share, .related-articles'):
+        node.decompose()
     article_text = ""
-    selectors = [
-        '[itemprop="articleBody"]', '.entry-content', '.article-content',
-        '.post-content', '.article__body', '.story-body', '.article-body',
-        '.post-body', '.content__article-body', 'article', 'main'
-    ]
+    selectors = ['[itemprop="articleBody"]', 'article .entry-content', '.entry-content',
+                 '.article-content', '.post-content', '.article__body', '.story-body',
+                 '.article-body', '.post-body', '.content__article-body', 'article', 'main']
     for selector in selectors:
         nodes = soup.select(selector)
         if nodes:
             candidate = max((node.get_text(" ", strip=True) for node in nodes), key=len, default="")
-            candidate = re.sub(r"\\s+", " ", candidate).strip()
+            candidate = re.sub(r"\s+", " ", candidate).strip()
             if len(candidate) > len(article_text):
                 article_text = candidate
-
-    for node in soup(["script", "style", "noscript", "svg", "nav", "footer", "header", "form"]):
-        node.decompose()
     if len(article_text) < 180 and structured_bodies:
         article_text = max(structured_bodies, key=len)
     if len(article_text) < 180:
         article_text = (soup.body or soup).get_text(" ", strip=True)
-    body = re.sub(r"\\s+", " ", article_text).strip()
+    body = re.sub(r"\s+", " ", article_text).strip()
     return title[:300], desc[:800], body[:MAX_FETCH_CHARS]
 def fetch_source(url, session):
     result = {"url": url, "domain": host(url), "http_status": None, "accessible": False,
@@ -379,10 +378,10 @@ def generate_draft(story, evidence, api_key, session, length_repair=False):
         "For transfers, state clearly whether officially confirmed or merely reported; never infer fees or clauses. "
         "When only one publisher is supplied, attribute every development to that publisher and say it has not been independently corroborated. "
         "For opinion, attribute the view and distinguish its factual premises. Keep men, women and "
-        "academy teams distinct. Write at least 400 substantive words, preferably 450-700, when supplied evidence supports it. "
-        "The article must contain at least 400 words excluding the Sources section, headings, captions and image alt text. "
-        "Use a clear introduction and at least three useful H2 headings. Never pad, repeat points or invent details to reach the minimum. "
-        "If evidence cannot support 400 useful words, explain the limitation in editorial_notes; the processor will reject the draft. "
+        "academy teams distinct. Target 300 substantive words; acceptable range is 250-350 words. "
+        "Count only substantive article text; exclude Sources, headings, captions and image alt text. Never exceed 350 words. "
+        "Use a clear introduction and two or three useful H2 headings. Never pad, repeat points or invent details to reach the minimum. "
+        "If evidence cannot support 250 useful words, explain the limitation in editorial_notes; the processor will reject the draft. "
         "Do not write a Sources section or source hyperlinks; the processor adds a deterministic Sources section using accessible supplied URLs. Do not invent internal links. "
         "SEO search_description is critical: write one natural, complete, factual sentence of 140-160 characters (never exceed 180), beginning with the main Chelsea topic or focus keyword. State the specific development and why it matters. Do not end mid-clause, with a dangling conjunction/preposition, or with unfinished attribution. Do not pad with generic phrases. Use only supplied facts; label rumours as unconfirmed and attribute them. "
         "Return ONLY JSON keys: title, search_description, focus_keyword, labels, article_html, "
@@ -394,7 +393,7 @@ def generate_draft(story, evidence, api_key, session, length_repair=False):
     if length_repair:
         system += (
             " This is a one-time length-only quality repair. The previous version fell just below "
-            "the 400-word minimum. Produce 430-500 substantive words by fully explaining distinct "
+            "the 250-350-word range. Produce 270-330 substantive words by fully explaining distinct "
             "details already present in the supplied evidence: the speaker's points, match context, "
             "team response, named next fixture and explicitly sourced implications. Do not add new "
             "facts, unsupported tactical claims, repeated paragraphs or generic padding. If the "
@@ -536,7 +535,7 @@ def apply_source_title_fallback(draft, story):
 def should_retry_length_only(quality):
     """Allow one evidence-bound rewrite only when article length is the sole failure."""
     return (not quality.get("passed")
-            and quality.get("failed_checks") == ["substantive_article_body_minimum_400_words"])
+            and quality.get("failed_checks") == ["substantive_article_body_minimum_250_words"])
 
 
 def quality_gate(draft, fetched, story, allowed_internal_urls=None):
@@ -573,7 +572,8 @@ def quality_gate(draft, fetched, story, allowed_internal_urls=None):
         "title_present_and_reasonable": 25 <= len(title) <= 100,
         "search_description_length": 100 <= len(description) <= 180,
         "search_description_is_complete": (bool(re.search(r"[.!?…]$", description)) and not bool(re.search(r"\b(?:and|or|but|with|as|for|to|from|of|the|a|an|who|which|that|while|amid|including|after|before)\s*[.!?]$", description, re.I))),
-        "substantive_article_body_minimum_400_words": word_count >= 400,
+        "substantive_article_body_minimum_250_words": word_count >= 250,
+        "substantive_article_body_maximum_350_words": word_count <= 350,
         "has_section_headings": len(original_soup.find_all(["h2", "h3"])) >= 2,
         "has_source_links": bool(links & allowed_urls),
         "source_links_are_supplied": links.issubset(allowed_urls | allowed_internal_urls),
@@ -585,7 +585,7 @@ def quality_gate(draft, fetched, story, allowed_internal_urls=None):
     # Every check is mandatory; a high score cannot override a failed SEO, length, source or safety check.
     passed = not failed
     return {"passed": passed, "score": score, "word_count": word_count,
-            "minimum_word_count": 400, "checks": checks, "failed_checks": failed,
+            "minimum_word_count": 250, "target_word_count": 300, "maximum_word_count": 350, "checks": checks, "failed_checks": failed,
             "note": "Automated editorial screening only; it is not independent fact-checking."}
 
 def make_image_assets(draft, story, images_dir):
@@ -806,7 +806,7 @@ def process(input_path, output_dir):
         "safety_controls": [
             "Evidence accessibility and publisher counts are not factual verification.",
             "News may use one accessible official or established publisher with explicit attribution; confirmed transfers require official confirmation; rumours remain labelled and attributed.",
-            "Automated quality gate requires at least 400 substantive article words excluding the Sources block; all SEO, heading, source-link and HTML safety checks are mandatory.",
+            "Automated quality gate requires 250-350 substantive article words (300-word target) excluding the Sources block; all SEO, heading, source-link and HTML safety checks are mandatory.",
         "A score cannot override any failed mandatory check; short drafts and invalid SEO metadata are rejected.",
             "No direct quotations are requested; unsupported claims must be omitted or flagged.",
             "Featured thumbnails are generated locally with Pillow; no image-generation API, API key or paid image service is required.",
@@ -884,32 +884,32 @@ def self_test():
         }
 
     # SEO description fallback uses the title and article opening, not invented facts.
-    short_meta = make_draft(400)
+    short_meta = make_draft(300)
     short_meta["search_description"] = "Chelsea news"
     short_meta["article_html"] = "<h2>Context</h2><p>Chelsea secured an important result after a disciplined performance across the match, with the supplied report outlining the key moments and tactical details.</p><h2>Analysis</h2><p>Supporters will be watching the next fixture closely.</p><p><a href='https://www.bbc.co.uk/a'>BBC source</a></p>"
     normalized = normalize_search_description(short_meta)
     assert 100 <= len(normalized) <= 180, normalized
     assert normalized.endswith((".", "!", "?", "…")), normalized
     assert "Chelsea secured an important result" in normalized
-    broken_meta = make_draft(400)
+    broken_meta = make_draft(300)
     broken_meta["search_description"] = "Chelsea have reportedly accelerated talks with transfer journalist Simon."
     broken_meta["article_html"] = "<p>Chelsea have reportedly accelerated talks to sign the forward, according to the supplied report. The club has not confirmed an agreement.</p>"
     repaired = normalize_search_description(broken_meta)
     assert repaired.startswith("Chelsea have reportedly accelerated talks to sign"), repaired
     assert 100 <= len(repaired) <= 180, repaired
-    too_long_meta = make_draft(400)
+    too_long_meta = make_draft(300)
     too_long_meta["search_description"] = "Chelsea " + ("supporters " * 30)
     assert len(normalize_search_description(too_long_meta)) <= 180
 
-    valid = make_draft(400)
+    valid = make_draft(300)
     assert quality_gate(valid, one, story)["passed"], quality_gate(valid, one, story)
     short = make_draft(399)
     short_result = quality_gate(short, one, story)
     assert not short_result["passed"] and short_result["word_count"] == 399
     assert should_retry_length_only(short_result)
-    non_length_failure = dict(short_result, failed_checks=["substantive_article_body_minimum_400_words", "has_source_links"])
+    non_length_failure = dict(short_result, failed_checks=["substantive_article_body_minimum_250_words", "has_source_links"])
     assert not should_retry_length_only(non_length_failure)
-    assert "substantive_article_body_minimum_400_words" in short_result["failed_checks"]
+    assert "substantive_article_body_minimum_250_words" in short_result["failed_checks"]
 
     bad_title = dict(valid, title="Too short")
     assert not quality_gate(bad_title, one, story)["passed"]
@@ -938,7 +938,7 @@ def self_test():
     assets, image_status = make_image_assets(valid, {"title": valid["title"], "story_type":"match_report"}, Path("unused"))
     assert assets == [] and image_status == "awaiting_original_source_image_validation"
     with_sources = dict(valid, article_html=valid["article_html"] + "<section><h2>Sources</h2><ul><li><a href='https://www.bbc.co.uk/a'>BBC</a></li></ul></section>")
-    assert quality_gate(with_sources, one, story)["word_count"] == 400
+    assert quality_gate(with_sources, one, story)["word_count"] == 300
     print("PASS: evidence, 500-word, SEO, source-link, source-exclusion, safety and no-placeholder-image regression checks")
 
 if __name__ == "__main__":
