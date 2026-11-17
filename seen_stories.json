@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T05:31:29.880122+00:00",
+  "updated_at": "2026-11-17T05:32:02.747382+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -10120,7 +10120,7 @@
       "publisher_domains": [
         "uk.sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "a34c0aa21f17aedf36c6716c",
         "title": "Chelsea beat Man City 1-0 to go top after ‘fight like dogs’ team talk",
@@ -10162,11 +10162,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
-      "last_editorial_source_domains": [],
-      "last_editorial_source_urls": [],
+      "last_processed_at": "2026-11-17T05:32:02.747382+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea beat Man City 1-0 to go top after ‘fight like dogs’ team talk",
+      "last_editorial_source_domains": [
+        "uk.sports.yahoo.com"
+      ],
+      "last_editorial_source_urls": [
+        "https://uk.sports.yahoo.com/news/chelsea-beat-man-city-1-050000246.html"
+      ],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     }
