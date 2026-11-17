@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-17T19:18:55.363587+00:00",
+  "updated_at": "2026-11-17T19:19:24.633020+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -16922,7 +16922,7 @@
       "publisher_domains": [
         "espn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "b6e6933ec2e7c16a203c98e8",
         "title": "Chelsea's Melvine Malard to miss PSG Women's Champions League clash - Bompastor",
@@ -16964,12 +16964,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-17T19:19:24.633020+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea's Melvine Malard to miss PSG Women's Champions League clash - Bompastor",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "2f8f06c59efd06ca6915c090": {
