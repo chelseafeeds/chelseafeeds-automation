@@ -228,6 +228,44 @@ def recover_stalled_workflows():
             report.append(item)
     return report
 
+def recover_zero_draft_run(run, inspected):
+    """Retry one successful zero-draft batch from its exact collector artifact.
+    Recovery is limited to one manual redispatch per source run and never
+    changes evidence, editorial, Blogger or X publication gates.
+    """
+    editorial = inspected.get("editorial_report", {})
+    candidates = int(editorial.get("input_candidates") or 0)
+    drafts = int(editorial.get("drafts_created") or 0)
+    result = {"source_run_id": None, "attempted": False, "status": "not_required"}
+    if candidates <= 0 or drafts > 0:
+        return result
+    match = re.search(r"\\bsource=(\\d+)", str(run.get("name") or ""))
+    if not match:
+        result["status"] = "blocked_missing_source_run_id"
+        REPORT.setdefault("alerts", []).append("Zero-draft recovery blocked: processor run name lacks collector source_run_id.")
+        return result
+    source_id = match.group(1)
+    result["source_run_id"] = source_id
+    if run.get("event") == "workflow_dispatch":
+        result["status"] = "recovery_run_already_used"
+        return result
+    process_runs = list_workflow_runs("process-news.yml", 100)
+    retries = [x for x in process_runs if x.get("event") == "workflow_dispatch" and
+               re.search(r"\\bsource=" + re.escape(source_id) + r"\\b", str(x.get("name") or ""))]
+    if any(x.get("status") in {"queued", "in_progress", "waiting", "requested"} for x in retries):
+        result["status"] = "recovery_already_active"
+        return result
+    if retries:
+        result["status"] = "one_retry_already_consumed"
+        return result
+    result["attempted"] = True
+    dispatched = dispatch_workflow("process-news.yml", {"source_run_id": source_id, "recovery_approved": "true"})
+    result["status"] = "dispatched" if dispatched["ok"] else "dispatch_failed"
+    result["dispatch_result"] = dispatched
+    if not dispatched["ok"]:
+        REPORT.setdefault("alerts", []).append("Zero-draft recovery dispatch failed: " + str(dispatched))
+    return result
+
 def main():
     REPORT["collection_watchdog"]=watchdog_collection()
     REPORT["stalled_workflow_recovery"]=recover_stalled_workflows()
@@ -240,7 +278,10 @@ def main():
         artifacts=api_get(f"{API}/actions/runs/{run['id']}/artifacts?per_page=20").json().get("artifacts",[])
         artifact=next((a for a in artifacts if a.get("name")=="chelseafeeds-editorial-results"),None)
         if not artifact: continue
-        try: REPORT["runs"].append(inspect_artifact(run,artifact))
+        try:
+            inspected = inspect_artifact(run,artifact)
+            inspected["zero_draft_recovery"] = recover_zero_draft_run(run, inspected)
+            REPORT["runs"].append(inspected)
         except Exception as exc:
             REPORT["runs"].append({"run_number":run.get("run_number"),"run_id":run["id"],
                 "verification":"monitor_error","errors":[type(exc).__name__+": "+str(exc)[:300]]})
