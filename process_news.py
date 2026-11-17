@@ -247,6 +247,29 @@ def fetch_sources(urls):
         return list(pool.map(worker, urls))
 
 
+def ranked_source_urls(story, limit=8):
+    """Recover alternative direct publisher links and prefer the strongest distinct domains."""
+    raw = list(story.get("source_urls") or [])
+    raw.extend(x.get("url") for x in story.get("source_observations", []) if isinstance(x, dict))
+    raw.append(story.get("representative_url"))
+    unique = list(dict.fromkeys(str(url).strip() for url in raw if str(url or "").strip()))
+    def rank(url):
+        if in_domains(url, OFFICIAL): return 0
+        if in_domains(url, ESTABLISHED): return 1
+        return 2
+    unique.sort(key=lambda url: (rank(url), host(url), url))
+    selected, used_domains = [], set()
+    # First pass guarantees source diversity; second pass fills remaining slots.
+    for url in unique:
+        domain = host(url)
+        if domain and domain not in used_domains and len(selected) < limit:
+            selected.append(url)
+            used_domains.add(domain)
+    for url in unique:
+        if len(selected) >= limit: break
+        if url not in selected: selected.append(url)
+    return selected
+
 def evidence_assessment(story, fetched):
     accessible = [x for x in fetched if x["accessible"]]
     accessible_domains = sorted({x["domain"] for x in accessible})
@@ -644,7 +667,7 @@ def process(input_path, output_dir):
         logging.info("CANDIDATE_START %d/%d event=%s headline=%s",
                      story_index, len(stories), story.get("event_id"),
                      str(story.get("title") or "untitled")[:140])
-        source_urls = story.get("source_urls", [])[:8]
+        source_urls = ranked_source_urls(story, limit=8)
         fetched = fetch_sources(source_urls)
         logging.info("Evidence fetch complete for %s: %d/%d source pages accessible",
                      story.get("event_id"), sum(1 for item in fetched if item.get("accessible")), len(fetched))
@@ -839,6 +862,13 @@ def self_test():
     assert len(refreshed_draft) == 1 and len(held_draft) == 1
 
     story = {"story_type":"match_report"}
+    ranked = ranked_source_urls({
+        "source_urls": ["https://talkchelsea.net/a", "https://www.bbc.co.uk/b"],
+        "source_observations": [{"url":"https://www.skysports.com/c"}],
+        "representative_url": "https://www.chelseafc.com/en/news/article/d"
+    })
+    assert ranked[0].startswith("https://www.chelseafc.com/")
+    assert len({host(x) for x in ranked}) == len(ranked)
     one = [{"accessible":True,"domain":"bbc.co.uk","url":"https://www.bbc.co.uk/a"}]
     two = one + [{"accessible":True,"domain":"skysports.com","url":"https://www.skysports.com/b"}]
     official = [{"accessible":True,"domain":"uefa.com","url":"https://www.uefa.com/a"}]
