@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T18:13:42.037716+00:00",
+  "updated_at": "2026-11-18T18:14:04.007727+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -21452,7 +21452,7 @@
         "msn.com",
         "talkchelsea.net"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "b853f00a27517b42dbe9f541",
         "title": "Xabi Alonso handed major injury scare as Chelsea star taken off at half-time",
@@ -21518,7 +21518,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7146795988039062617",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-moises-caicedo-faces-fresh.html",
+      "scheduled_for_utc": "2026-11-18T18:19:02Z",
+      "last_blogger_status_updated_at": "2026-11-18T18:14:04.007713+00:00"
     },
     "f0ffdd01af076a84d270d43d": {
       "event_id": "f0ffdd01af076a84d270d43d",
