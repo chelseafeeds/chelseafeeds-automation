@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T00:49:01.986951+00:00",
+  "updated_at": "2026-11-18T00:49:18.882590+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -19034,7 +19034,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "111abcc3b526fa757f75fc52",
         "title": "Chelsea star Pedro Neto restrained by Craig Bellamy as he clashes with Wales bench after being sent off for Portugal",
@@ -19082,7 +19082,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "870782224895098318",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/pedro-neto-restrained-by-craig-bellamy.html",
+      "scheduled_for_utc": "2026-11-18T00:54:18Z",
+      "last_blogger_status_updated_at": "2026-11-18T00:49:18.882580+00:00"
     },
     "010dd77a5a341be9b48626c3": {
       "event_id": "010dd77a5a341be9b48626c3",
