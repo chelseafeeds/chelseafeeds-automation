@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T09:54:02.989508+00:00",
+  "updated_at": "2026-11-18T09:54:21.025772+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -19879,7 +19879,7 @@
       "publisher_domains": [
         "goal.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "52040765d3ec1ded1a9c0c65",
         "title": "Lauren James injury leaves Chelsea needing to find a new attacking spark ahead of women's winter break",
@@ -19927,7 +19927,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3805920895355991541",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/lauren-james-injury-forces-chelsea.html",
+      "scheduled_for_utc": "2026-11-18T09:59:20Z",
+      "last_blogger_status_updated_at": "2026-11-18T09:54:21.025754+00:00"
     },
     "3482b2a10761513757515c67": {
       "event_id": "3482b2a10761513757515c67",
