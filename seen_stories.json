@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T03:08:52.639945+00:00",
+  "updated_at": "2026-11-18T03:09:22.394594+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -13133,7 +13133,7 @@
       "publisher_domains": [
         "fourfourtwo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "7ee811122c7b323e1cbabb8c",
         "title": "Chelsea icon and Italy legend join current Arsenal and Tottenham stars in new £15.5m investment",
@@ -13175,12 +13175,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-18T03:09:22.394594+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea icon and Italy legend join current Arsenal and Tottenham stars in new £15.5m investment",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "71513f3c868dc638c342ae95": {
