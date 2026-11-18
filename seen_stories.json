@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T17:38:27.301392+00:00",
+  "updated_at": "2026-11-18T17:38:48.640094+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -21306,7 +21306,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "528fb9a01676f3e32ddd984e",
         "title": "Xabi Alonso handed major injury scare as Chelsea star taken off at half-time",
@@ -21354,7 +21354,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5155717649305459739",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-moises-caicedo-faces-another.html",
+      "scheduled_for_utc": "2026-11-18T17:43:47Z",
+      "last_blogger_status_updated_at": "2026-11-18T17:38:48.640078+00:00"
     },
     "4028a039919475c9a5018c0d": {
       "event_id": "4028a039919475c9a5018c0d",
