@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T17:13:05.674104+00:00",
+  "updated_at": "2026-11-18T17:13:42.556108+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -21348,7 +21348,7 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": "2026-11-18T14:44:35.778000+00:00",
+      "last_processed_at": "2026-11-18T17:13:42.556108+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
       "last_processed_headline": "Xabi Alonso handed major injury scare as Chelsea star taken off at half-time",
       "last_editorial_source_domains": [],
