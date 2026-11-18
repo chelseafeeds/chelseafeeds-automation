@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T21:08:11.996918+00:00",
+  "updated_at": "2026-11-18T21:08:34.115053+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -24158,7 +24158,7 @@
         "bbc.com",
         "msn.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "52174ffe31f962dd53c9c87d",
         "title": "Women's Champions League: Hemp & Shaw secure Man City win, Chelsea to come",
@@ -24206,7 +24206,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3339826910317734143",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/live-updates-chelsea-women-take-on.html",
+      "scheduled_for_utc": "2026-11-18T21:13:32Z",
+      "last_blogger_status_updated_at": "2026-11-18T21:08:34.115034+00:00"
     },
     "35376ca060f85b6f4cdba232": {
       "event_id": "35376ca060f85b6f4cdba232",
