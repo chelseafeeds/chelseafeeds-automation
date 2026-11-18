@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T07:43:50.278619+00:00",
+  "updated_at": "2026-11-18T07:44:05.354683+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -19468,7 +19468,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "fad8a4b9c67618fb874d3a1e",
         "title": "Estevao decision and crucial Chelsea star returns - Xabi Alonso to consider three changes for Leeds",
@@ -19516,7 +19516,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5732384095148054649",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/estevao-decision-and-crucial-chelsea.html",
+      "scheduled_for_utc": "2026-11-18T07:49:04Z",
+      "last_blogger_status_updated_at": "2026-11-18T07:44:05.354673+00:00"
     },
     "e7f5a9c31b803552e694248f": {
       "event_id": "e7f5a9c31b803552e694248f",
