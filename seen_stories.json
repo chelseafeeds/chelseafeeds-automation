@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T04:34:38.675438+00:00",
+  "updated_at": "2026-11-18T04:34:56.604994+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -14049,7 +14049,7 @@
       "publisher_domains": [
         "footballinsider247.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "44d20ea0bc3e37e874137023",
         "title": "Sources: Jules Kounde pushing for January transfer amid Chelsea latest",
@@ -14097,7 +14097,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7263237368223772696",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/unverified-report-claims-jules-kounde.html",
+      "scheduled_for_utc": "2026-11-18T04:39:56Z",
+      "last_blogger_status_updated_at": "2026-11-18T04:34:56.604980+00:00"
     },
     "c7d8ba9f5c188a6495c832c5": {
       "event_id": "c7d8ba9f5c188a6495c832c5",
