@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T05:14:03.736503+00:00",
+  "updated_at": "2026-11-18T05:14:23.843320+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -18553,7 +18553,7 @@
       "publisher_domains": [
         "bbc.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "3856202ce2ac5392ea51e891",
         "title": "Liverpool lead Chelsea in Camara race - Wednesday's gossip",
@@ -18601,7 +18601,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "8848288665003494577",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-in-hot-pursuit-of-monaco.html",
+      "scheduled_for_utc": "2026-11-18T05:19:23Z",
+      "last_blogger_status_updated_at": "2026-11-18T05:14:23.843309+00:00"
     },
     "6030afd9fb30e916aa2e3e14": {
       "event_id": "6030afd9fb30e916aa2e3e14",
