@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T01:13:39.643881+00:00",
+  "updated_at": "2026-11-18T01:14:09.268830+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -17957,7 +17957,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "085c9ed167dcb2c5e8aec8b6",
         "title": "Estevao responds to Chelsea transfer question after impressing on Brazil duty",
@@ -17999,12 +17999,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-18T01:14:09.268830+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Estevao responds to Chelsea transfer question after impressing on Brazil duty",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "2928a348724de038745fe834": {
