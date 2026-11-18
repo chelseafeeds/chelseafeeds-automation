@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T05:13:32.686489+00:00",
+  "updated_at": "2026-11-18T05:14:03.736503+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -18553,7 +18553,7 @@
       "publisher_domains": [
         "bbc.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "3856202ce2ac5392ea51e891",
         "title": "Liverpool lead Chelsea in Camara race - Wednesday's gossip",
@@ -18595,9 +18595,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-18T05:14:03.736503+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Liverpool lead Chelsea in Camara race - Wednesday's gossip",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
