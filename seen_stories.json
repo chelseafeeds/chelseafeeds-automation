@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T10:18:36.927025+00:00",
+  "updated_at": "2026-11-18T10:19:09.755623+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -20430,7 +20430,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "6d075a399acb9cc07e6ccf19",
         "title": "Xabi Alonso wants Chelsea to sign German creator and makes ‘immense effort’ to stop Liverpool deal",
@@ -20472,12 +20472,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-18T10:19:09.755623+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Xabi Alonso wants Chelsea to sign German creator and makes ‘immense effort’ to stop Liverpool deal",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "a2b4f8c0c0a72b7421bd8d10": {
