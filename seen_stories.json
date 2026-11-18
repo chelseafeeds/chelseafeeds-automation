@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T23:23:32.443395+00:00",
+  "updated_at": "2026-11-18T23:24:10.240251+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -24754,7 +24754,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "350ccca9b1bebeeee86690de",
         "title": "Ex-Chelsea chief accepts new role at former Premier League champions",
@@ -24796,9 +24796,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-18T23:24:10.240251+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Ex-Chelsea chief accepts new role at former Premier League champions",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
