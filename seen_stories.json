@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-18T22:27:59.785699+00:00",
+  "updated_at": "2026-11-18T22:28:31.085342+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -10162,15 +10162,11 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": "2026-11-17T05:32:02.747382+00:00",
+      "last_processed_at": "2026-11-18T22:28:31.085342+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
-      "last_processed_headline": "Chelsea beat Man City 1-0 to go top after ‘fight like dogs’ team talk",
-      "last_editorial_source_domains": [
-        "uk.sports.yahoo.com"
-      ],
-      "last_editorial_source_urls": [
-        "https://uk.sports.yahoo.com/news/chelsea-beat-man-city-1-050000246.html"
-      ],
+      "last_processed_headline": "Women's Champions League: Chelsea score late to see off Paris St-Germain",
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
       "last_quality_failures": [],
       "force_evidence_refresh": false
     },
