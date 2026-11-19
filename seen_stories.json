@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T06:12:54.459031+00:00",
+  "updated_at": "2026-11-19T06:13:25.175029+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -27501,7 +27501,7 @@
       "publisher_domains": [
         "espn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "28af193239c8e80001d3144f",
         "title": "Chelsea's defense shines, but will scoring woes be their undoing in UWCL?",
@@ -27543,9 +27543,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-19T06:13:25.175029+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea's defense shines, but will scoring woes be their undoing in UWCL?",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
