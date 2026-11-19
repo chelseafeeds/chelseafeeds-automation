@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T06:13:47.634233+00:00",
+  "updated_at": "2026-11-19T06:13:51.633641+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -27501,7 +27501,7 @@
       "publisher_domains": [
         "espn.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "28af193239c8e80001d3144f",
         "title": "Chelsea's defense shines, but will scoring woes be their undoing in UWCL?",
@@ -27549,7 +27549,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3196518072308052460",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-defense-shines-but-will.html",
+      "scheduled_for_utc": "2026-11-19T06:18:50Z",
+      "last_blogger_status_updated_at": "2026-11-19T06:13:51.633629+00:00"
     },
     "5308f889108a57bbe72dc697": {
       "event_id": "5308f889108a57bbe72dc697",
