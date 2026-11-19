@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T03:08:31.254905+00:00",
+  "updated_at": "2026-11-19T03:09:00.499218+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -28211,7 +28211,7 @@
       "publisher_domains": [
         "espn.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "63c0abbe74170763fe8a9512",
         "title": "Sonia Bompastor: Chelsea need to find better balance between attack and defence",
@@ -28259,7 +28259,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3783710984574673292",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/sonia-bompastor-urges-chelsea-women-to.html",
+      "scheduled_for_utc": "2026-11-19T03:13:59Z",
+      "last_blogger_status_updated_at": "2026-11-19T03:09:00.499207+00:00"
     },
     "1c7f72f5022820d6fe60b5be": {
       "event_id": "1c7f72f5022820d6fe60b5be",
