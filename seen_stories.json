@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T04:33:18.290172+00:00",
+  "updated_at": "2026-11-19T04:33:46.117643+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -25567,7 +25567,7 @@
       "publisher_domains": [
         "bbc.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "5feb0ac216d0b2be5d8bc5ff",
         "title": "Buurman rescues late Chelsea win against PSG",
@@ -25625,12 +25625,14 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-19T04:33:46.117643+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Buurman rescues late Chelsea win against PSG",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "586a4f551065627b667856fe": {
