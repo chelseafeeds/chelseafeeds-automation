@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T16:13:52.880809+00:00",
+  "updated_at": "2026-11-19T16:14:15.776930+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -30085,7 +30085,7 @@
         "football.london",
         "sports.yahoo.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "8e4a137937039d02b500d9b5",
         "title": "Arsenal, Chelsea and Tottenham vote for extra protection as Man City case rumbles on",
@@ -30151,7 +30151,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "8364788502304490599",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-weekend-outlook-and-boardroom.html",
+      "scheduled_for_utc": "2026-11-19T16:19:15Z",
+      "last_blogger_status_updated_at": "2026-11-19T16:14:15.776917+00:00"
     },
     "70ef9242343baf5df721e5cf": {
       "event_id": "70ef9242343baf5df721e5cf",
