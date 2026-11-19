@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T03:42:09.478920+00:00",
+  "updated_at": "2026-11-19T03:42:32.595414+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -24071,7 +24071,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "47b61fb6133e7f4d97f5abaa",
         "title": "Chelsea snatch late winner vs PSG to move top of WCL table",
@@ -24135,7 +24135,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1911381150273619723",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-women-edge-psg-with-late.html",
+      "scheduled_for_utc": "2026-11-19T03:47:31Z",
+      "last_blogger_status_updated_at": "2026-11-19T03:42:32.595393+00:00"
     },
     "52174ffe31f962dd53c9c87d": {
       "event_id": "52174ffe31f962dd53c9c87d",
