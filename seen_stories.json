@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T20:44:01.881309+00:00",
+  "updated_at": "2026-11-19T20:44:21.370777+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -27675,7 +27675,7 @@
       "publisher_domains": [
         "the4thofficial.net"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "7ddc97ac5613fa158ac14427",
         "title": "Martinez, Acheampong And Estevao To Start | 4-2-3-1 Chelsea Predicted Lineup Vs Leeds United",
@@ -27723,7 +27723,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "2944261443389254680",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-aim-to-rebound-against-inform.html",
+      "scheduled_for_utc": "2026-11-19T20:49:20Z",
+      "last_blogger_status_updated_at": "2026-11-19T20:44:21.370766+00:00"
     },
     "f9b8b8a673018ccaf2c41b99": {
       "event_id": "f9b8b8a673018ccaf2c41b99",
