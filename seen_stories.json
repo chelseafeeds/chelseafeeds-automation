@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T16:13:22.777228+00:00",
+  "updated_at": "2026-11-19T16:13:52.880809+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -30085,7 +30085,7 @@
         "football.london",
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "8e4a137937039d02b500d9b5",
         "title": "Arsenal, Chelsea and Tottenham vote for extra protection as Man City case rumbles on",
@@ -30145,9 +30145,9 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-19T16:13:52.880809+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Arsenal, Chelsea and Tottenham vote for extra protection as Man City case rumbles on",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
