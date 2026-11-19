@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T06:37:58.916793+00:00",
+  "updated_at": "2026-11-19T06:38:16.591192+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -28578,7 +28578,7 @@
       "publisher_domains": [
         "independent.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "c7a138880a75335311db2635",
         "title": "Buurman scores late winner for Chelsea while Man City earn back-to-back Champions League victories",
@@ -28626,7 +28626,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "2903337083170497599",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-women-secure-late-win-as.html",
+      "scheduled_for_utc": "2026-11-19T06:43:16Z",
+      "last_blogger_status_updated_at": "2026-11-19T06:38:16.591175+00:00"
     },
     "11c41aab1ad74d924370198d": {
       "event_id": "11c41aab1ad74d924370198d",
