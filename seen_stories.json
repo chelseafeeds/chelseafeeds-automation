@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T04:08:16.975848+00:00",
+  "updated_at": "2026-11-19T04:08:37.218742+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -23708,7 +23708,7 @@
         "sports.yahoo.com",
         "theguardian.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "d5715b924c207e6b7f7b307c",
         "title": "Chelsea v Paris Saint-Germain: Women’s Champions League – live",
@@ -23756,7 +23756,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "265025948065163334",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-women-vs-paris-saintgermain.html",
+      "scheduled_for_utc": "2026-11-19T04:13:35Z",
+      "last_blogger_status_updated_at": "2026-11-19T04:08:37.218729+00:00"
     },
     "9c6a601749606f2af33689db": {
       "event_id": "9c6a601749606f2af33689db",
