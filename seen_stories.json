@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T14:48:14.500560+00:00",
+  "updated_at": "2026-11-19T14:48:35.423208+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -27226,7 +27226,7 @@
         "goal.com",
         "msn.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "6ba0a0030cee5da2cca74bd1",
         "title": "How to get Manchester City vs Chelsea tickets: Premier League prices, fixture information, last-minute sales & more",
@@ -27292,7 +27292,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4274079715952140018",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/how-to-secure-manchester-city-vs_0438482122.html",
+      "scheduled_for_utc": "2026-11-19T14:53:34Z",
+      "last_blogger_status_updated_at": "2026-11-19T14:48:35.423190+00:00"
     },
     "f225da81dd22fc40c22a74ea": {
       "event_id": "f225da81dd22fc40c22a74ea",
