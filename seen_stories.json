@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T15:43:28.211327+00:00",
+  "updated_at": "2026-11-19T15:43:48.315085+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -30347,7 +30347,7 @@
         "101greatgoals.com",
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "88bde8ccdfa763e10b95b2e4",
         "title": "Arsenal, Chelsea and Tottenham vote for extra protection as Man City case rumbles on",
@@ -30413,7 +30413,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "235569912171576973",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/arsenal-chelsea-and-tottenham-vote-for.html",
+      "scheduled_for_utc": "2026-11-19T15:48:47Z",
+      "last_blogger_status_updated_at": "2026-11-19T15:43:48.315060+00:00"
     },
     "2440c2c076e58a9a3eed22e3": {
       "event_id": "2440c2c076e58a9a3eed22e3",
