@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T20:18:52.332658+00:00",
+  "updated_at": "2026-11-19T20:19:10.740895+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -33204,7 +33204,7 @@
         "cbssports.com",
         "sports.yahoo.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "492d7a380e185dabbf951462",
         "title": "Chelsea looks to rebound against in-form James Trafford, Leeds",
@@ -33270,7 +33270,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4930996527689200280",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-aim-to-bounce-back-as-leeds.html",
+      "scheduled_for_utc": "2026-11-19T20:24:10Z",
+      "last_blogger_status_updated_at": "2026-11-19T20:19:10.740886+00:00"
     },
     "9ad8229c35c31b799306a6cb": {
       "event_id": "9ad8229c35c31b799306a6cb",
