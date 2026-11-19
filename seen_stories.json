@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T03:08:00.543887+00:00",
+  "updated_at": "2026-11-19T03:08:31.254905+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -28211,7 +28211,7 @@
       "publisher_domains": [
         "espn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "63c0abbe74170763fe8a9512",
         "title": "Sonia Bompastor: Chelsea need to find better balance between attack and defence",
@@ -28253,9 +28253,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-19T03:08:31.254905+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Sonia Bompastor: Chelsea need to find better balance between attack and defence",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
