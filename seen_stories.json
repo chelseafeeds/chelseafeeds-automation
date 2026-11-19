@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T06:37:30.146772+00:00",
+  "updated_at": "2026-11-19T06:37:58.916793+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -28578,7 +28578,7 @@
       "publisher_domains": [
         "independent.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "c7a138880a75335311db2635",
         "title": "Buurman scores late winner for Chelsea while Man City earn back-to-back Champions League victories",
@@ -28620,9 +28620,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-19T06:37:58.916793+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Man City and Real Madrid win in Women’s Champions League. Chelsea hosting Paris Saint-Germain",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
