@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T23:53:19.980566+00:00",
+  "updated_at": "2026-11-19T23:53:40.824660+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -35325,7 +35325,7 @@
       "publisher_domains": [
         "tribalfootball.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "3d2dd21e03d87135036e75ce",
         "title": "Chelsea youngster Pennie signs first professional contract",
@@ -35373,7 +35373,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1723650807978668944",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-youngster-andrew-pennie-signs.html",
+      "scheduled_for_utc": "2026-11-19T23:58:39Z",
+      "last_blogger_status_updated_at": "2026-11-19T23:53:40.824646+00:00"
     },
     "4d24da16bcabe06a5fd22cb8": {
       "event_id": "4d24da16bcabe06a5fd22cb8",
