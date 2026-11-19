@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T07:17:44.492222+00:00",
+  "updated_at": "2026-11-19T07:18:15.537507+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -28761,7 +28761,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "5607d26269c9d5cf662c0d36",
         "title": "Chelsea injury update: Joao Pedro, Emi Martinez, Reece James latest news and return dates",
@@ -28803,9 +28803,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-19T07:18:15.537507+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea injury update: Joao Pedro, Emi Martinez, Reece James latest news and return dates",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
