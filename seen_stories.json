@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T09:28:34.446423+00:00",
+  "updated_at": "2026-11-19T09:53:40.519636+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -20521,7 +20521,7 @@
       "event_id": "c6e5b69c8b7286f49d35ec54",
       "title": "25 criticisms of Mauricio Pochettino at Chelsea and how much Man Utd should really worry",
       "first_seen_at": "2026-11-18T10:16:14.319211+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T09:56:57+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -20581,7 +20581,7 @@
       "event_id": "2996c229e2226b424d7dbbe1",
       "title": "Chelsea could have new loan pathway after brilliant 17 year old winger shines in Championship",
       "first_seen_at": "2026-11-18T10:16:14.319211+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -20761,7 +20761,7 @@
       "event_id": "942b8c043f226e65b696ee5f",
       "title": "Chelsea FCW vs. Paris Saint-Germain Féminine, Women’s Champions League: Preview, team news, how to watch",
       "first_seen_at": "2026-11-18T10:18:36.927025+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T10:09:34+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -21241,7 +21241,7 @@
       "event_id": "aba69f59b1bdd93ccde1d05b",
       "title": "Internationals: Martinez returns and Anselmino debuts in huge Argentina win | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-18T11:18:48.304075+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-19T08:39:41+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -21304,14 +21304,15 @@
       "event_id": "528fb9a01676f3e32ddd984e",
       "title": "Xabi Alonso handed major injury scare as Chelsea star taken off at half-time",
       "first_seen_at": "2026-11-18T11:18:48.304075+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T11:05:09+00:00",
       "last_observation_count": 4,
       "publisher_domains": [
         "football.london",
         "goal.com",
         "leeds-live.co.uk",
-        "sports.yahoo.com"
+        "sports.yahoo.com",
+        "standard.co.uk"
       ],
       "status": "scheduled",
       "candidate_snapshot": {
@@ -21355,22 +21356,40 @@
             "opponent_key": "",
             "fixture_key": "",
             "subject_key": "moises_caicedo"
+          },
+          {
+            "title": "Chelsea blow as Moises Caicedo confirms fitness scare on international duty",
+            "summary": "Midfielder has endured an injury-impacted season for Chelsea",
+            "url": "https://www.standard.co.uk/sport/football/caicedo-injury-update-chelsea-fc-b1305504.html",
+            "publisher_domain": "standard.co.uk",
+            "publisher_name_hint": "Evening Standard Sport",
+            "source_feed": "Evening Standard Sport",
+            "published": "2026-11-19T09:35:36+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "moises_caicedo"
           }
         ],
         "source_urls": [
           "https://www.football.london/chelsea-fc/news/xabi-alonso-handed-major-injury-34928548",
-          "https://www.goal.com/en-us/news/chelsea-injury-moises-caicedo-ecuador-substitution-leeds-united/blt1bd5f87a0aa56975"
+          "https://www.goal.com/en-us/news/chelsea-injury-moises-caicedo-ecuador-substitution-leeds-united/blt1bd5f87a0aa56975",
+          "https://www.standard.co.uk/sport/football/caicedo-injury-update-chelsea-fc-b1305504.html"
         ],
         "publisher_domains": [
           "football.london",
-          "goal.com"
+          "goal.com",
+          "standard.co.uk"
         ],
         "source_feeds": [
           "Bing News discovery: Chelsea injury team news",
+          "Evening Standard Sport",
           "Football London Chelsea"
         ],
-        "publisher_count": 2,
-        "observation_count": 2,
+        "publisher_count": 3,
+        "observation_count": 3,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
       "last_processed_at": "2026-11-18T17:38:27.301392+00:00",
@@ -21450,13 +21469,14 @@
       "event_id": "b853f00a27517b42dbe9f541",
       "title": "Xabi Alonso handed major injury scare as Chelsea star taken off at half-time",
       "first_seen_at": "2026-11-18T11:57:59.980930+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T11:05:09+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
         "football.london",
         "msn.com",
         "sports.yahoo.com",
+        "standard.co.uk",
         "talkchelsea.net"
       ],
       "status": "scheduled",
@@ -21488,6 +21508,21 @@
             "subject_key": "moises_caicedo"
           },
           {
+            "title": "Chelsea blow as Moises Caicedo confirms fitness scare on international duty",
+            "summary": "Midfielder has endured an injury-impacted season for Chelsea",
+            "url": "https://www.standard.co.uk/sport/football/caicedo-injury-update-chelsea-fc-b1305504.html",
+            "publisher_domain": "standard.co.uk",
+            "publisher_name_hint": null,
+            "source_feed": "Evening Standard Sport",
+            "published": "2026-11-19T09:35:36+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "moises_caicedo"
+          },
+          {
             "title": "“I didn’t feel good” – Chelsea have a fresh injury worry for key player",
             "summary": "Moises Caicedo’s worrying injury string looks set to continue as he told reporters that he didn’t feel good during an Ecuador win. If you enjoy…",
             "url": "https://www.talkchelsea.net/injury-news/didnt-feel-good-chelsea-fresh-injury-worry-key-player",
@@ -21505,18 +21540,21 @@
         ],
         "source_urls": [
           "https://www.football.london/chelsea-fc/news/xabi-alonso-handed-major-injury-34928548",
+          "https://www.standard.co.uk/sport/football/caicedo-injury-update-chelsea-fc-b1305504.html",
           "https://www.talkchelsea.net/injury-news/didnt-feel-good-chelsea-fresh-injury-worry-key-player"
         ],
         "publisher_domains": [
           "football.london",
+          "standard.co.uk",
           "talkchelsea.net"
         ],
         "source_feeds": [
+          "Evening Standard Sport",
           "Football London Chelsea",
           "TalkChelsea"
         ],
-        "publisher_count": 2,
-        "observation_count": 2,
+        "publisher_count": 3,
+        "observation_count": 3,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
       "last_processed_at": "2026-11-18T18:13:42.037716+00:00",
@@ -21656,7 +21694,7 @@
       "event_id": "29ada95465a1c2fb3c118a62",
       "title": "Chelsea injury update: Joao Pedro, Emi Martinez, Reece James latest news and return dates",
       "first_seen_at": "2026-11-18T11:57:59.980930+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-19T06:15:28+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -21902,7 +21940,7 @@
       "event_id": "81102598e2570b751e609bc7",
       "title": "What the pundits say about Chelsea’s Champions League qualification chances after 10 games of new season",
       "first_seen_at": "2026-11-18T12:56:06.064102+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T12:28:58+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -21962,7 +22000,7 @@
       "event_id": "7c0a2181b65f1cf2d0468466",
       "title": "Xabi Alonso facing new Chelsea team selection dilemma after Emi Martinez fitness boost",
       "first_seen_at": "2026-11-18T13:21:11.727859+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T12:57:14+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -22024,7 +22062,7 @@
       "event_id": "0f53f596ff8967d84c0aa89e",
       "title": "Manchester United approached forgotten Chelsea player as manager - and it wasn't Cesc Fabregas: report",
       "first_seen_at": "2026-11-18T13:21:11.727859+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T13:03:13+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -22084,7 +22122,7 @@
       "event_id": "7f01172ca4839ee07f0aa722",
       "title": "How 13 Chelsea stars got on during international break from scintillating Morgan Rogers to all-action Pedro Neto",
       "first_seen_at": "2026-11-18T13:21:11.727859+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T13:03:49+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -22144,7 +22182,7 @@
       "event_id": "1975fb1fc123cd99a5fe25ae",
       "title": "Chelsea and Manchester United lead tributes as Juan Mata announces football retirement",
       "first_seen_at": "2026-11-18T13:21:11.727859+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T13:13:43+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -22444,7 +22482,7 @@
       "event_id": "46bf53e65521f062b1dfbdbd",
       "title": "Cole Palmer is ‘better than some of the other guys’ in England squad, says Chelsea legend who tells star to step up",
       "first_seen_at": "2026-11-18T14:41:39.526392+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T14:21:06+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -22624,7 +22662,7 @@
       "event_id": "5182420b941bd302f7d9a9c9",
       "title": "Arsenal willing to make sales to beat Chelsea and Liverpool to Scott signing",
       "first_seen_at": "2026-11-18T15:06:01.202164+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T15:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -22684,7 +22722,7 @@
       "event_id": "e954401ecf27893754d293bc",
       "title": "Arsenal willing to make sales to beat Chelsea and Liverpool to Scott signing",
       "first_seen_at": "2026-11-18T15:06:01.202164+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T15:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -22804,7 +22842,7 @@
       "event_id": "64a0e9499a79e18d610953f0",
       "title": "Chelsea tickets and VIP hospitality deals for Premier League games at Stamford Bridge from just £155pp",
       "first_seen_at": "2026-11-18T15:06:01.202164+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T15:01:04+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -22864,7 +22902,7 @@
       "event_id": "34a1872b4a07480b32f09efa",
       "title": "Chelsea star Martinez backs Paz to inherit Messi’s number 10 shirt for Argentina",
       "first_seen_at": "2026-11-18T15:31:09.061093+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T15:27:01+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -23064,7 +23102,7 @@
       "event_id": "68dd12f360a096130d0a08ee",
       "title": "Training gallery: All eyes on Leeds as international stars return | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-18T15:44:08.276409+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T15:31:56+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -23306,10 +23344,10 @@
     },
     "5ab4c4e805c98cf771415adf": {
       "event_id": "5ab4c4e805c98cf771415adf",
-      "title": "Liverpool and Chelsea approached over potential €70m transfer opportunity",
+      "title": "Chelsea urged to snub Alex Scott in January for £60m Arsenal star Martin Zubimendi",
       "first_seen_at": "2026-11-18T16:49:12.305259+00:00",
-      "last_seen_at": "2026-11-18T20:39:23.825401+00:00",
-      "last_published_at": "2026-11-18T16:30:44+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
+      "last_published_at": "2026-11-19T09:43:59+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
         "caughtoffside.com",
@@ -23318,24 +23356,24 @@
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "5ab4c4e805c98cf771415adf",
-        "title": "Liverpool and Chelsea approached over potential €70m transfer opportunity",
+        "title": "Chelsea urged to snub Alex Scott in January for £60m Arsenal star Martin Zubimendi",
         "story_type": "transfer_rumour",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-18T16:30:44+00:00",
-        "best_summary": "Arsenal are reportedly prepared to sell Martin Zubimendi in the January transfer window, with Liverpool, Real Madrid and Chelsea monitoring his situation ahead of a potential move. The Spanish midfielder has struggled to establish himself as a regular starter under Mikel Arteta this season, raising questions about his long-term future at the Emirates Stadium. According […] The post Liverpool and Chelsea approached over potential €70m transfer opportunity appeared first on CaughtOffside .",
-        "representative_title": "Liverpool and Chelsea approached over potential €70m transfer opportunity",
-        "representative_url": "https://www.caughtoffside.com/2026/11/18/liverpool-and-chelsea-approached-over-potential-e70m-transfer-opportunity",
-        "representative_publisher": "caughtoffside.com",
+        "published": "2026-11-19T09:43:59+00:00",
+        "best_summary": "Jimmy Floyd Hasselbaink has urged Chelsea to abandon their pursuit of Bournemouth midfielder Alex Scott and launch a January move for Arsenal outcast Martin Zubimendi. The former striker believes Xabi Alonso needs an established winner with world-class pedigree to instantly strengthen his engine room.",
+        "representative_title": "Chelsea urged to snub Alex Scott in January for £60m Arsenal star Martin Zubimendi",
+        "representative_url": "https://sports.yahoo.com/articles/chelsea-urged-snub-alex-scott-094359732.html",
+        "representative_publisher": "sports.yahoo.com",
         "representative_publisher_type": "other_direct_domain",
         "source_observations": [
           {
-            "title": "Liverpool and Chelsea approached over potential €70m transfer opportunity",
-            "summary": "Arsenal are reportedly prepared to sell Martin Zubimendi in the January transfer window, with Liverpool, Real Madrid and Chelsea monitoring his situation ahead of a potential move. The Spanish midfielder has struggled to establish himself as a regular starter under Mikel Arteta this season, raising questions about his long-term future at the Emirates Stadium. According […] The post Liverpool and Chelsea approached over potential €70m transfer opportunity appeared first on CaughtOffside .",
-            "url": "https://www.caughtoffside.com/2026/11/18/liverpool-and-chelsea-approached-over-potential-e70m-transfer-opportunity",
-            "publisher_domain": "caughtoffside.com",
-            "publisher_name_hint": "CaughtOffside",
-            "source_feed": "CaughtOffside",
-            "published": "2026-11-18T16:30:44+00:00",
+            "title": "Chelsea urged to snub Alex Scott in January for £60m Arsenal star Martin Zubimendi",
+            "summary": "Jimmy Floyd Hasselbaink has urged Chelsea to abandon their pursuit of Bournemouth midfielder Alex Scott and launch a January move for Arsenal outcast Martin Zubimendi. The former striker believes Xabi Alonso needs an established winner with world-class pedigree to instantly strengthen his engine room.",
+            "url": "https://sports.yahoo.com/articles/chelsea-urged-snub-alex-scott-094359732.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "GOAL.com",
+            "source_feed": "Yahoo Sports",
+            "published": "2026-11-19T09:43:59+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "transfer_rumour",
@@ -23345,13 +23383,13 @@
           }
         ],
         "source_urls": [
-          "https://www.caughtoffside.com/2026/11/18/liverpool-and-chelsea-approached-over-potential-e70m-transfer-opportunity"
+          "https://sports.yahoo.com/articles/chelsea-urged-snub-alex-scott-094359732.html"
         ],
         "publisher_domains": [
-          "caughtoffside.com"
+          "sports.yahoo.com"
         ],
         "source_feeds": [
-          "CaughtOffside"
+          "Yahoo Sports"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -23369,7 +23407,7 @@
       "event_id": "9cc69b402eec3a7de119bcb9",
       "title": "Former Chelsea director Michael Emenalo advising Leicester City",
       "first_seen_at": "2026-11-18T17:44:34.122226+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T17:35:37+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -23549,7 +23587,7 @@
       "event_id": "02d9004003232e4cb682f2b8",
       "title": "Enzo Maresca comparison proves Chelsea made right call with Xabi Alonso",
       "first_seen_at": "2026-11-18T18:13:14.345070+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -23855,7 +23893,7 @@
       "event_id": "80f850b9ff5b8ebc76db6eab",
       "title": "Confirmed Chelsea Women line up vs PSG | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-18T19:02:42.921552+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T18:45:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -23978,7 +24016,7 @@
       "event_id": "529ef6f4486a00050356cc45",
       "title": "Arsenal ‘enter Alex Scott race with Gunners ready to reorganise midfield to beat Chelsea to England star transfer’",
       "first_seen_at": "2026-11-18T19:41:16.227818+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T19:33:46+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -24038,7 +24076,7 @@
       "event_id": "5c2245e80b1979a2520a1763",
       "title": "Chelsea FCW vs. Paris Saint-Germain Féminine, UEFA Women’s Champions League: Confirmed lineups; how to watch",
       "first_seen_at": "2026-11-18T19:42:58.218296+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T19:19:37+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -24098,7 +24136,7 @@
       "event_id": "47b61fb6133e7f4d97f5abaa",
       "title": "Chelsea snatch late winner vs PSG to move top of WCL table",
       "first_seen_at": "2026-11-18T20:06:35.187910+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T22:00:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -24179,7 +24217,7 @@
       "event_id": "52174ffe31f962dd53c9c87d",
       "title": "Chelsea 1-0 Paris Saint-Germain: Women’s Champions League – as it happened",
       "first_seen_at": "2026-11-18T20:08:18.593210+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T22:14:15+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -24367,7 +24405,7 @@
       "event_id": "7f8f65b6e9d217fc834f851c",
       "title": "Chelsea 1-0 PSG: Women's Champions League reaction as Blues secure late win - as it happened",
       "first_seen_at": "2026-11-18T20:08:18.593210+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T13:45:35+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -24392,7 +24430,7 @@
             "url": "https://www.msn.com/en-us/news/other/chelsea-vs-psg-live-womens-champions-league-score-updates-and-commentary/ar-AA2hHHFl",
             "publisher_domain": "msn.com",
             "publisher_name_hint": "msn.com",
-            "source_feed": "Bing News discovery: Chelsea Champions League",
+            "source_feed": "Bing News discovery: Chelsea Women Champions League",
             "published": "2026-11-18T13:45:35+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "chelsea_women",
@@ -24409,7 +24447,7 @@
           "msn.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea Champions League"
+          "Bing News discovery: Chelsea Women Champions League"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -24547,7 +24585,7 @@
       "event_id": "d079473374c5feac24da1025",
       "title": "Buurman scores late winner for Chelsea while Man City earn back-to-back Champions League victories",
       "first_seen_at": "2026-11-18T20:32:39.073982+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T22:59:07+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -24670,7 +24708,7 @@
       "event_id": "9f0dca9c0f326565458005f0",
       "title": "Chelsea star Estevao aims thinly-veiled jibe at Xabi Alonso and offers two-word response to PSG links",
       "first_seen_at": "2026-11-18T20:37:45.678693+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T20:34:51+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -24790,7 +24828,7 @@
       "event_id": "350ccca9b1bebeeee86690de",
       "title": "Ex-Chelsea chief accepts new role at former Premier League champions",
       "first_seen_at": "2026-11-18T21:06:09.764715+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T20:46:54+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -24975,7 +25013,7 @@
       "event_id": "ffe4cfd76906b5a9cb445149",
       "title": "Ex-Chelsea chief accepts new role at former Premier League champions",
       "first_seen_at": "2026-11-18T21:07:46.069642+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T12:46:54+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -25035,7 +25073,7 @@
       "event_id": "ecf020d4a3b171f8c1a21c7f",
       "title": "Chelsea get good team news for this weekend as two injured players return for national team",
       "first_seen_at": "2026-11-18T21:31:06.719556+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T21:07:56+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -25095,7 +25133,7 @@
       "event_id": "ee225d183ecd3aae47f5e69b",
       "title": "Chelsea get good team news for this weekend as two injured players return for national team",
       "first_seen_at": "2026-11-18T21:32:54.170852+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T13:07:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -25155,7 +25193,7 @@
       "event_id": "8a75a93f0dabfb4469ff1915",
       "title": "Chelsea: Mykhailo Mudryk points finger for drugs ban as Tottenham loan star prepares for comeback",
       "first_seen_at": "2026-11-18T22:01:17.469542+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T21:45:26+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -25217,7 +25255,7 @@
       "event_id": "82261d4c0c0bf54bfaee1457",
       "title": "Man City and Real Madrid win in Women's Champions League. Chelsea hosting Paris Saint-Germain",
       "first_seen_at": "2026-11-18T22:03:00.587389+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T12:19:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -25337,7 +25375,7 @@
       "event_id": "465320cf40d407ce50738268",
       "title": "Chelsea 1-0 PSG, Women’s Champions League: Post-match reaction",
       "first_seen_at": "2026-11-18T22:03:00.587389+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T13:51:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -25362,7 +25400,7 @@
             "url": "https://sports.yahoo.com/articles/chelsea-1-0-psg-women-215144069.html",
             "publisher_domain": "sports.yahoo.com",
             "publisher_name_hint": "sports.yahoo.com",
-            "source_feed": "Bing News discovery: Chelsea Champions League",
+            "source_feed": "Bing News discovery: Chelsea Women Champions League",
             "published": "2026-11-18T13:51:00+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "chelsea_women",
@@ -25379,7 +25417,7 @@
           "sports.yahoo.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea Champions League"
+          "Bing News discovery: Chelsea Women Champions League"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -25517,7 +25555,7 @@
       "event_id": "130603c7508a96d9b0ea4321",
       "title": "Veerle Buurman scrambles late WCL winner to push blunt Chelsea past PSG",
       "first_seen_at": "2026-11-18T22:26:15.302161+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T22:06:45+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -25593,7 +25631,7 @@
       "event_id": "5feb0ac216d0b2be5d8bc5ff",
       "title": "Buurman rescues late Chelsea win against PSG",
       "first_seen_at": "2026-11-18T22:26:15.302161+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-18T22:13:49+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -25731,7 +25769,7 @@
       "event_id": "7a3fd3212d279153dea9b512",
       "title": "Chelsea: Mykhailo Mudryk reveals key Xabi Alonso message before Tottenham loan move",
       "first_seen_at": "2026-11-18T22:26:15.302161+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T22:19:47+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -25995,7 +26033,7 @@
       "event_id": "f1bec4ae154151673a631536",
       "title": "Chelsea 1-0 PSG: Veerle Buurman scores late winner as Sonia Bompastor's side go top of Women's Champions League table",
       "first_seen_at": "2026-11-18T22:27:59.785699+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T14:12:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -26020,7 +26058,7 @@
             "url": "https://www.skysports.com/football/news/13613600/chelsea-1-0-psg-veerle-buurman-scores-late-winner-as-sonia-bompastors-side-go-top-of-womens-champions-league-table",
             "publisher_domain": "skysports.com",
             "publisher_name_hint": "skysports.com",
-            "source_feed": "Bing News discovery: Chelsea Champions League",
+            "source_feed": "Bing News discovery: Chelsea Women Champions League",
             "published": "2026-11-18T14:12:00+00:00",
             "publisher_type": "established_domain",
             "team_scope": "chelsea_women",
@@ -26037,7 +26075,7 @@
           "skysports.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea Champions League"
+          "Bing News discovery: Chelsea Women Champions League"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -26177,7 +26215,7 @@
       "event_id": "fe59817638a8d510b0c9ae0b",
       "title": "Chelsea FCW 1-0 Paris Saint-Germain Féminine, UEFA Women’s Champions League: Post-match reaction",
       "first_seen_at": "2026-11-18T22:27:59.785699+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T21:51:44+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -26599,7 +26637,7 @@
       "event_id": "a1e52d1c92e6f3e7c5b1bc36",
       "title": "Match report: Chelsea Women 1-0 Paris Saint-Germain | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-18T22:58:19.427657+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T22:36:39+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -26662,7 +26700,7 @@
       "event_id": "2c76bc44e2efada33b9a857d",
       "title": "Mykhailo Mudryk not ruling out Chelsea renaissance as he names three clubs he held talks with before Tottenham loan",
       "first_seen_at": "2026-11-18T23:21:07.977343+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T22:57:01+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -26906,7 +26944,7 @@
       "event_id": "f38fd67532f862f1aa4fd638",
       "title": "Chelsea star reaches major milestone with part of £40m transfer mission achieved",
       "first_seen_at": "2026-11-18T23:23:32.443395+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T14:14:04+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -27226,7 +27264,7 @@
       "event_id": "6ba0a0030cee5da2cca74bd1",
       "title": "How to get Manchester City vs Chelsea tickets: Premier League prices, fixture information, last-minute sales & more",
       "first_seen_at": "2026-11-18T23:23:32.443395+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T15:00:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -27267,7 +27305,7 @@
             "url": "https://www.msn.com/en-gb/sport/football/chelsea-leave-it-late-while-man-city-earn-back-to-back-victories/ar-AA2hIKwv",
             "publisher_domain": "msn.com",
             "publisher_name_hint": "msn.com",
-            "source_feed": "Bing News discovery: Chelsea Champions League",
+            "source_feed": "Bing News discovery: Chelsea Women Champions League",
             "published": "2026-11-18T15:00:00+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
@@ -27286,8 +27324,8 @@
           "msn.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea Champions League",
-          "Bing News discovery: Chelsea Premier League"
+          "Bing News discovery: Chelsea Premier League",
+          "Bing News discovery: Chelsea Women Champions League"
         ],
         "publisher_count": 2,
         "observation_count": 2,
@@ -27305,7 +27343,7 @@
       "event_id": "f225da81dd22fc40c22a74ea",
       "title": "Chelsea are FLYING in UWCL and WSL | Do they need to improve their Attack? - Attacking Third",
       "first_seen_at": "2026-11-18T23:23:32.443395+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T15:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -27792,7 +27830,7 @@
       "event_id": "2bab13f5438206164accf9fe",
       "title": "Sonia Bompastor: Chelsea need to find better balance between attack and defence",
       "first_seen_at": "2026-11-18T23:53:30.347517+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T15:34:08+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -27852,7 +27890,7 @@
       "event_id": "1fbf1b23512fc25db485c18e",
       "title": "Bompastor: Everyone in the team loves to defend | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-18T23:53:30.347517+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T23:41:36+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -28035,7 +28073,7 @@
       "event_id": "1aa13376426cd4234b923126",
       "title": "Chelsea beats PSG on late goal and moves atop Women's Champions League. Real Madrid, City also win",
       "first_seen_at": "2026-11-19T00:25:18.712535+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T10:08:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -28580,7 +28618,7 @@
       "event_id": "c7a138880a75335311db2635",
       "title": "Buurman scores late winner for Chelsea while Man City earn back-to-back Champions League victories",
       "first_seen_at": "2026-11-19T06:12:54.459031+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-18T22:59:07+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -28645,7 +28683,7 @@
       "event_id": "11c41aab1ad74d924370198d",
       "title": "Arsenal and Chelsea learn £100m price tag to sign Premier League star",
       "first_seen_at": "2026-11-19T06:36:03.681601+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-19T06:15:07+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -28781,7 +28819,7 @@
       "event_id": "5607d26269c9d5cf662c0d36",
       "title": "Chelsea injury update: Joao Pedro, Emi Martinez, Reece James latest news and return dates",
       "first_seen_at": "2026-11-19T06:37:30.146772+00:00",
-      "last_seen_at": "2026-11-19T07:42:45.217033+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-19T06:15:28+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -28846,7 +28884,7 @@
       "event_id": "2fff951f87aba32b7e4e3cbb",
       "title": "Chelsea consensus reached over £137m January double deal with Xabi Alonso mission identified",
       "first_seen_at": "2026-11-19T07:16:05.049588+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-19T07:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -28966,7 +29004,7 @@
       "event_id": "d402d23da65b735ab3c62e7c",
       "title": "Transfer news LIVE: Vinicius to Arsenal; Nusa bid; Man Utd plot Paz talks; Chelsea, Liverpool latest",
       "first_seen_at": "2026-11-19T07:41:05.414301+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-19T07:15:42+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -29086,7 +29124,7 @@
       "event_id": "94b4febafd609d7166aaf645",
       "title": "Chelsea star Romoe Lavia doesn’t want to leave club this January",
       "first_seen_at": "2026-11-19T08:06:09.514058+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-19T08:01:20+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -29345,7 +29383,7 @@
       "event_id": "7f3754727ba84b9baab1d2bb",
       "title": "Walsh outlines importance of Blues' competitive mentality after PSG win | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-19T08:37:35.992645+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-19T08:14:41+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -29357,7 +29395,7 @@
         "title": "Walsh outlines importance of Blues' competitive mentality after PSG win | News | Official Site - Chelsea Football Club",
         "story_type": "match_reaction",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-19T08:14:41+00:00",
+        "published": "2026-11-19T06:30:00+00:00",
         "best_summary": "Walsh outlines importance of Blues' competitive mentality after PSG win | News | Official Site Chelsea Football Club",
         "representative_title": "Walsh outlines importance of Blues' competitive mentality after PSG win | News | Official Site - Chelsea Football Club",
         "representative_url": "https://www.chelseafc.com/en/news/article/walsh-outlines-importance-of-blues-competitive-mentality-after-psg-win",
@@ -29371,7 +29409,7 @@
             "publisher_domain": "chelseafc.com",
             "publisher_name_hint": "Chelsea Football Club",
             "source_feed": "Google News official-source discovery",
-            "published": "2026-11-19T08:14:41+00:00",
+            "published": "2026-11-19T06:30:00+00:00",
             "publisher_type": "official_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "match_reaction",
@@ -29468,7 +29506,7 @@
       "event_id": "d15202124f80a88100d32eed",
       "title": "Ibrahim Rabbaj named in Morocco squad for Under-17 World Cup | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-19T09:02:53.718863+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-19T08:40:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -29591,7 +29629,7 @@
       "event_id": "324a936a41d0aa6e8de33fc6",
       "title": "Alejandro Garnacho: Emery has ‘made his mind up’ on Chelsea loanee ahead of January talks",
       "first_seen_at": "2026-11-19T09:25:05.357401+00:00",
-      "last_seen_at": "2026-11-19T09:25:05.357401+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
       "last_published_at": "2026-11-19T09:17:54+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -29711,7 +29749,7 @@
       "event_id": "28ae6f9f8bf6c0cd473b40fb",
       "title": "Twilio Powers Chelsea FC to Cut Campaign Launch Times from 48 Hours to Under 15 Minutes",
       "first_seen_at": "2026-11-19T09:26:57.594535+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-19T01:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -29771,7 +29809,7 @@
       "event_id": "e656dc2f55125508dad0cf0c",
       "title": "Chelsea make “unbelievable player” admired by Guardiola their number one target",
       "first_seen_at": "2026-11-19T09:26:57.594535+00:00",
-      "last_seen_at": "2026-11-19T09:26:57.594535+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
       "last_published_at": "2026-11-19T09:24:53+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -29814,6 +29852,186 @@
         ],
         "source_feeds": [
           "CaughtOffside"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "5e408e0a78b99fc62f50b026": {
+      "event_id": "5e408e0a78b99fc62f50b026",
+      "title": "Mudryk says Xabi Alonso sent him to Tottenham to play and wants him back at Chelsea",
+      "first_seen_at": "2026-11-19T09:51:23.324289+00:00",
+      "last_seen_at": "2026-11-19T09:51:23.324289+00:00",
+      "last_published_at": "2026-11-19T08:08:34+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "chelsea.news"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "5e408e0a78b99fc62f50b026",
+        "title": "Mudryk says Xabi Alonso sent him to Tottenham to play and wants him back at Chelsea",
+        "story_type": "transfer_rumour",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-19T08:08:34+00:00",
+        "best_summary": "Mykhailo Mudryk says Xabi Alonso told him to go on loan to Tottenham, play regularly and then come back to Chelsea. The message points to a future at Stamford Bridge, though Spurs reportedly hold an option to keep him. The post Mudryk says Xabi Alonso sent him to Tottenham to play and wants him back at Chelsea appeared first on Chelsea News .",
+        "representative_title": "Mudryk says Xabi Alonso sent him to Tottenham to play and wants him back at Chelsea",
+        "representative_url": "https://chelsea.news/2026/11/mudryk-says-xabi-alonso-sent-him-to-tottenham-to-play-and-wants-him-back-at-chelsea",
+        "representative_publisher": "chelsea.news",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Mudryk says Xabi Alonso sent him to Tottenham to play and wants him back at Chelsea",
+            "summary": "Mykhailo Mudryk says Xabi Alonso told him to go on loan to Tottenham, play regularly and then come back to Chelsea. The message points to a future at Stamford Bridge, though Spurs reportedly hold an option to keep him. The post Mudryk says Xabi Alonso sent him to Tottenham to play and wants him back at Chelsea appeared first on Chelsea News .",
+            "url": "https://chelsea.news/2026/11/mudryk-says-xabi-alonso-sent-him-to-tottenham-to-play-and-wants-him-back-at-chelsea",
+            "publisher_domain": "chelsea.news",
+            "publisher_name_hint": null,
+            "source_feed": "Chelsea.news",
+            "published": "2026-11-19T08:08:34+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "transfer_rumour",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://chelsea.news/2026/11/mudryk-says-xabi-alonso-sent-him-to-tottenham-to-play-and-wants-him-back-at-chelsea"
+        ],
+        "publisher_domains": [
+          "chelsea.news"
+        ],
+        "source_feeds": [
+          "Chelsea.news"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "1ad4a93f5e1c60903de3ed0f": {
+      "event_id": "1ad4a93f5e1c60903de3ed0f",
+      "title": "Buurman rescues late Chelsea win against PSG",
+      "first_seen_at": "2026-11-19T09:53:40.519636+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
+      "last_published_at": "2026-11-18T14:13:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "bbc.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "1ad4a93f5e1c60903de3ed0f",
+        "title": "Buurman rescues late Chelsea win against PSG",
+        "story_type": "match_report",
+        "team_scope": "chelsea_women",
+        "published": "2026-11-18T14:13:00+00:00",
+        "best_summary": "Veerle Buurman scores an 87th-minute winner for Chelsea as they edge past Paris St-Germain 1-0 in the Women's Champions League to move top of the table.",
+        "representative_title": "Buurman rescues late Chelsea win against PSG",
+        "representative_url": "https://www.bbc.com/sport/football/videos/cjy5xkq5wwrgo",
+        "representative_publisher": "bbc.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Buurman rescues late Chelsea win against PSG",
+            "summary": "Veerle Buurman scores an 87th-minute winner for Chelsea as they edge past Paris St-Germain 1-0 in the Women's Champions League to move top of the table.",
+            "url": "https://www.bbc.com/sport/football/videos/cjy5xkq5wwrgo",
+            "publisher_domain": "bbc.com",
+            "publisher_name_hint": "bbc.com",
+            "source_feed": "Bing News discovery: Chelsea Champions League",
+            "published": "2026-11-18T14:13:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "veerle_buurman"
+          }
+        ],
+        "source_urls": [
+          "https://www.bbc.com/sport/football/videos/cjy5xkq5wwrgo"
+        ],
+        "publisher_domains": [
+          "bbc.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea Champions League"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "47347b19f4d6b68404c8c42c": {
+      "event_id": "47347b19f4d6b68404c8c42c",
+      "title": "Chelsea urged to snub Alex Scott in January for £60m Arsenal star Martin Zubimendi",
+      "first_seen_at": "2026-11-19T09:53:40.519636+00:00",
+      "last_seen_at": "2026-11-19T09:53:40.519636+00:00",
+      "last_published_at": "2026-11-19T09:43:59+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "sports.yahoo.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "47347b19f4d6b68404c8c42c",
+        "title": "Chelsea urged to snub Alex Scott in January for £60m Arsenal star Martin Zubimendi",
+        "story_type": "transfer_rumour",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-19T09:43:59+00:00",
+        "best_summary": "Jimmy Floyd Hasselbaink has urged Chelsea to abandon their pursuit of Bournemouth midfielder Alex Scott and launch a January move for Arsenal outcast Martin Zubimendi. The former striker believes Xabi Alonso needs an established winner with world-class pedigree to instantly strengthen his engine room.",
+        "representative_title": "Chelsea urged to snub Alex Scott in January for £60m Arsenal star Martin Zubimendi",
+        "representative_url": "https://sports.yahoo.com/articles/chelsea-urged-snub-alex-scott-094359732.html",
+        "representative_publisher": "sports.yahoo.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea urged to snub Alex Scott in January for £60m Arsenal star Martin Zubimendi",
+            "summary": "Jimmy Floyd Hasselbaink has urged Chelsea to abandon their pursuit of Bournemouth midfielder Alex Scott and launch a January move for Arsenal outcast Martin Zubimendi. The former striker believes Xabi Alonso needs an established winner with world-class pedigree to instantly strengthen his engine room.",
+            "url": "https://sports.yahoo.com/articles/chelsea-urged-snub-alex-scott-094359732.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "Yahoo Sports",
+            "source_feed": "Yahoo Sports",
+            "published": "2026-11-19T09:43:59+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "transfer_rumour",
+            "opponent_key": "arsenal",
+            "fixture_key": "",
+            "subject_key": "zubimendi"
+          }
+        ],
+        "source_urls": [
+          "https://sports.yahoo.com/articles/chelsea-urged-snub-alex-scott-094359732.html"
+        ],
+        "publisher_domains": [
+          "sports.yahoo.com"
+        ],
+        "source_feeds": [
+          "Yahoo Sports"
         ],
         "publisher_count": 1,
         "observation_count": 1,
