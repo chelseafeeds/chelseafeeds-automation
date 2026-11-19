@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T01:49:31.535856+00:00",
+  "updated_at": "2026-11-19T01:50:05.499286+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -26820,7 +26820,7 @@
       "publisher_domains": [
         "bbc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "d653fe16da14e45c636adda5",
         "title": "Chelsea score late to beat PSG and close on last eight",
@@ -26862,12 +26862,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-19T01:50:05.499286+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea score late to beat PSG and close on last eight",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "f38fd67532f862f1aa4fd638": {
