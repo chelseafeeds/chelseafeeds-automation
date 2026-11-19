@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T20:43:33.525026+00:00",
+  "updated_at": "2026-11-19T20:44:01.881309+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -27675,7 +27675,7 @@
       "publisher_domains": [
         "the4thofficial.net"
       ],
-      "status": "rejected_quality_gate",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "7ddc97ac5613fa158ac14427",
         "title": "Martinez, Acheampong And Estevao To Start | 4-2-3-1 Chelsea Predicted Lineup Vs Leeds United",
@@ -27717,15 +27717,12 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": "2026-11-19T20:18:52.332658+00:00",
-      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_at": "2026-11-19T20:44:01.881309+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
       "last_processed_headline": "Chelsea looks to rebound against in-form James Trafford, Leeds",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [
-        "search_description_is_complete",
-        "substantive_article_body_minimum_250_words"
-      ],
+      "last_quality_failures": [],
       "force_evidence_refresh": false
     },
     "f9b8b8a673018ccaf2c41b99": {
