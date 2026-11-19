@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T03:41:38.369836+00:00",
+  "updated_at": "2026-11-19T03:42:09.478920+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -24071,7 +24071,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "47b61fb6133e7f4d97f5abaa",
         "title": "Chelsea snatch late winner vs PSG to move top of WCL table",
@@ -24129,9 +24129,9 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-19T03:42:09.478920+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea snatch late winner vs PSG to move top of WCL table",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
