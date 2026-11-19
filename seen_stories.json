@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-19T14:22:52.150447+00:00",
+  "updated_at": "2026-11-19T14:23:21.244724+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -30686,7 +30686,7 @@
         "msn.com",
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "ed065b35040f2b621ca56e97",
         "title": "Chelsea injury nightmare? Moises Caicedo explains shock substitution and provides fitness update ahead of Leeds clash",
@@ -30780,9 +30780,9 @@
         "observation_count": 4,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-19T14:23:21.244724+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea injury nightmare? Moises Caicedo explains shock substitution and provides fitness update ahead of Leeds clash",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
