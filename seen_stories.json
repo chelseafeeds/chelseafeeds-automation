@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T17:07:44.479891+00:00",
+  "updated_at": "2026-11-20T17:08:13.024209+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -42711,7 +42711,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "31778b38121779d75d1c2850",
         "title": "Training gallery: Blues make last preparations for Leeds | News | Official Site - Chelsea Football Club",
@@ -42754,12 +42754,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T17:08:13.024209+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Training gallery: Blues make last preparations for Leeds | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     }
   }
