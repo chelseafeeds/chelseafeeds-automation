@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T05:08:18.885268+00:00",
+  "updated_at": "2026-11-20T05:08:51.251517+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -31940,7 +31940,7 @@
       "publisher_domains": [
         "mirror.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "17a4d139fabfcce63b325c34",
         "title": "Mykhailo Mudryk points finger of blame over failed drugs test that led to Chelsea ban",
@@ -31982,9 +31982,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T05:08:51.251517+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Mykhailo Mudryk points finger of blame over failed drugs test that led to Chelsea ban",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
