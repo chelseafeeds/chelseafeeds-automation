@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T08:04:52.021462+00:00",
+  "updated_at": "2026-11-20T08:05:21.561246+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -36105,7 +36105,7 @@
       "publisher_domains": [
         "fourfourtwo.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "456624408a6a8539e355b2fc",
         "title": "Buy, Hold or Sell: FPL expert reveals GW11 transfers cheat sheet amid controversial Chelsea verdict",
@@ -36153,7 +36153,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "8863581101535239736",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/fpl-expert-bigmanbakars-gw11-cheat.html",
+      "scheduled_for_utc": "2026-11-20T08:10:20Z",
+      "last_blogger_status_updated_at": "2026-11-20T08:05:21.561235+00:00"
     },
     "a0d0b78c0c32816210037f66": {
       "event_id": "a0d0b78c0c32816210037f66",
