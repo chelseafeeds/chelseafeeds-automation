@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T06:37:00.574052+00:00",
+  "updated_at": "2026-11-20T06:37:39.917129+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -35854,7 +35854,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "36bece0a191f8a937cd0589a",
         "title": "Estevao agreement reached, Joao Pedro decision made - Chelsea line-ups for Leeds United clash",
@@ -35896,9 +35896,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T06:37:39.917129+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Estevao agreement reached, Joao Pedro decision made - Chelsea line-ups for Leeds United clash",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
