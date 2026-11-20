@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T13:43:47.203014+00:00",
+  "updated_at": "2026-11-20T13:44:03.318175+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -37518,7 +37518,7 @@
         "football.london",
         "naijanews.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "published",
       "candidate_snapshot": {
         "event_id": "468cd4b35513f24d7d2e0d50",
         "title": "Arsenal, Chelsea and Tottenham vote for extra protection as Man City case rumbles on",
@@ -37602,7 +37602,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "already_live",
+      "blogger_post_id": "235569912171576973",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/arsenal-chelsea-and-tottenham-vote-for.html",
+      "scheduled_for_utc": "2026-11-19T15:48:47Z",
+      "last_blogger_status_updated_at": "2026-11-20T13:44:03.318160+00:00"
     },
     "3e6fddfd13251fb880d67f65": {
       "event_id": "3e6fddfd13251fb880d67f65",
