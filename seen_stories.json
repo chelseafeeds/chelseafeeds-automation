@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T16:07:53.225754+00:00",
+  "updated_at": "2026-11-20T16:08:28.189167+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -41463,7 +41463,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "2cf6b2ad6e3e6dbd068ca2ab",
         "title": "Premier League ticket news: Coventry City away and Newcastle United at home | News | Official Site - Chelsea Football Club",
@@ -41506,12 +41506,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T16:08:28.189167+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Premier League ticket news: Coventry City away and Newcastle United at home | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "title_present_and_reasonable"
+      ],
       "force_evidence_refresh": false
     },
     "8183962ce19ae089dc2d9b3a": {
