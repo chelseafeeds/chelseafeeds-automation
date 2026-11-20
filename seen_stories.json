@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T17:32:59.026592+00:00",
+  "updated_at": "2026-11-20T17:33:26.738418+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -41969,7 +41969,7 @@
         "standard.co.uk",
         "straitstimes.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "6fe7795f50fe35efb8d9b03b",
         "title": "Xabi Alonso press conference LIVE: Chelsea boss on Joao Pedro injury, Caicedo latest and Leeds",
@@ -42235,7 +42235,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1501681262664624476",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-face-leeds-without-joao-pedro.html",
+      "scheduled_for_utc": "2026-11-20T17:38:25Z",
+      "last_blogger_status_updated_at": "2026-11-20T17:33:26.738403+00:00"
     },
     "20488f6e07bde1750803ae26": {
       "event_id": "20488f6e07bde1750803ae26",
