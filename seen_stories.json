@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T18:08:28.964449+00:00",
+  "updated_at": "2026-11-20T18:09:08.998025+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -43067,7 +43067,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "58de5f145fb6dc429e38514d",
         "title": "Alonso says Blues are ‘building an identity’ but need consistency | News | Official Site - Chelsea Football Club",
@@ -43116,7 +43116,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "2359060530433427871",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/alonso-says-chelsea-are-building.html",
+      "scheduled_for_utc": "2026-11-20T18:14:07Z",
+      "last_blogger_status_updated_at": "2026-11-20T18:09:08.998010+00:00"
     }
   }
 }
