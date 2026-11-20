@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T14:07:27.190189+00:00",
+  "updated_at": "2026-11-20T14:07:54.546515+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -36787,7 +36787,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "105387ad561e61bbc6671e7e",
         "title": "Chelsea star Mykhailo Mudryk in stunning Arsenal transfer admission ahead of Tottenham return",
@@ -36829,9 +36829,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T14:07:54.546515+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea star Mykhailo Mudryk in stunning Arsenal transfer admission ahead of Tottenham return",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
