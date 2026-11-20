@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T13:15:31.818328+00:00",
+  "updated_at": "2026-11-20T13:16:00.383045+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -38403,7 +38403,7 @@
         "squawka.com",
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "135ce2441f7e2b234ae382dd",
         "title": "Chelsea XI vs Leeds: Confirmed team news, predicted lineup, Joao Pedro injury latest for Premier League",
@@ -38498,9 +38498,9 @@
         "observation_count": 4,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T13:16:00.383045+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea XI vs Leeds: Confirmed team news, predicted lineup, Joao Pedro injury latest for Premier League",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
