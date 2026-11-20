@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T14:08:19.150005+00:00",
+  "updated_at": "2026-11-20T14:29:27.313450+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -630,10 +630,10 @@
     },
     "5f596cb901f438b5057f6780": {
       "event_id": "5f596cb901f438b5057f6780",
-      "title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
+      "title": "Chelsea latest: Alonso gives updates on Joao Pedro, Martinez, James and more",
       "first_seen_at": "2026-11-11T12:51:34.962528+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
-      "last_published_at": "2026-11-20T13:10:00+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
+      "last_published_at": "2026-11-20T14:20:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "skysports.com"
@@ -644,30 +644,30 @@
       "last_processed_headline": "Chelsea latest: 'Blues join race to sign Arsenal midfielder'",
       "candidate_snapshot": {
         "event_id": "5f596cb901f438b5057f6780",
-        "title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
-        "story_type": "match_preview",
+        "title": "Chelsea latest: Alonso gives updates on Joao Pedro, Martinez, James and more",
+        "story_type": "general_news",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-20T13:10:00+00:00",
+        "published": "2026-11-20T14:20:00+00:00",
         "best_summary": "",
-        "representative_title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
+        "representative_title": "Chelsea latest: Alonso gives updates on Joao Pedro, Martinez, James and more",
         "representative_url": "https://www.skysports.com/football/live-blog/11095/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
         "representative_publisher": "skysports.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
+            "title": "Chelsea latest: Alonso gives updates on Joao Pedro, Martinez, James and more",
             "summary": "",
             "url": "https://www.skysports.com/football/live-blog/11095/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
             "publisher_domain": "skysports.com",
             "publisher_name_hint": null,
             "source_feed": "Sky Sports Football",
-            "published": "2026-11-20T13:10:00+00:00",
+            "published": "2026-11-20T14:20:00+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
-            "story_type": "match_preview",
+            "story_type": "general_news",
             "opponent_key": "",
             "fixture_key": "",
-            "subject_key": ""
+            "subject_key": "joao_pedro"
           }
         ],
         "source_urls": [
@@ -13419,10 +13419,10 @@
     },
     "f624ce674540d0601d2c171a": {
       "event_id": "f624ce674540d0601d2c171a",
-      "title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
+      "title": "Chelsea latest: Alonso gives updates on Joao Pedro, Martinez, James and more",
       "first_seen_at": "2026-11-17T12:26:08.616179+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
-      "last_published_at": "2026-11-20T13:10:00+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_published_at": "2026-11-20T14:20:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "skysports.com"
@@ -13430,30 +13430,30 @@
       "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "f624ce674540d0601d2c171a",
-        "title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
-        "story_type": "match_preview",
+        "title": "Chelsea latest: Alonso gives updates on Joao Pedro, Martinez, James and more",
+        "story_type": "general_news",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-20T13:10:00+00:00",
+        "published": "2026-11-20T14:20:00+00:00",
         "best_summary": "",
-        "representative_title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
+        "representative_title": "Chelsea latest: Alonso gives updates on Joao Pedro, Martinez, James and more",
         "representative_url": "https://www.skysports.com/football/live-blog/11661/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
         "representative_publisher": "skysports.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
+            "title": "Chelsea latest: Alonso gives updates on Joao Pedro, Martinez, James and more",
             "summary": "",
             "url": "https://www.skysports.com/football/live-blog/11661/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
             "publisher_domain": "skysports.com",
             "publisher_name_hint": "Sky Sports Premier League",
             "source_feed": "Sky Sports Premier League",
-            "published": "2026-11-20T13:10:00+00:00",
+            "published": "2026-11-20T14:20:00+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
-            "story_type": "match_preview",
+            "story_type": "general_news",
             "opponent_key": "",
             "fixture_key": "",
-            "subject_key": ""
+            "subject_key": "joao_pedro"
           }
         ],
         "source_urls": [
@@ -30085,7 +30085,7 @@
       "event_id": "8e4a137937039d02b500d9b5",
       "title": "Arsenal, Chelsea and Tottenham vote for extra protection as Man City case rumbles on",
       "first_seen_at": "2026-11-19T10:17:28.345737+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-19T15:05:22+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -30910,7 +30910,7 @@
       "event_id": "34aed3ebcebf45a37fe16bea",
       "title": "Chelsea XI vs Leeds: Confirmed team news, predicted lineup, Joao Pedro injury latest for Premier League",
       "first_seen_at": "2026-11-19T11:22:28.456759+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-20T11:18:10+00:00",
       "last_observation_count": 4,
       "publisher_domains": [
@@ -33363,7 +33363,7 @@
       "event_id": "ce15c156fdb74ce4094547fa",
       "title": "Chelsea told to snub Alex Scott and sign Arsenal star despite ‘agreement’ with top target",
       "first_seen_at": "2026-11-19T16:49:16.995141+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-19T16:40:44+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33543,7 +33543,7 @@
       "event_id": "358cde9470db4300b7637335",
       "title": "FA Youth Cup date and venue confirmed | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-19T17:18:34.652756+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T17:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33606,7 +33606,7 @@
       "event_id": "99b7e0c575dab13d65548cdb",
       "title": "Where should £100m Arsenal, Chelsea and Liverpool target Alex Scott go if Bournemouth sell?",
       "first_seen_at": "2026-11-19T17:41:03.241188+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T17:16:28+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33791,7 +33791,7 @@
       "event_id": "cd854ca6e22fef512dceda65",
       "title": "Man Utd: ‘Real chance’ Mauricio Pochettino first signing will arrive from Chelsea with transfer ‘in mind’",
       "first_seen_at": "2026-11-19T17:45:15.303410+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-19T17:43:22+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33851,7 +33851,7 @@
       "event_id": "ab7ae027a971d0ba7450918c",
       "title": "Thomas Frank confirms Chelsea man ‘very close’ to becoming his first Crystal Palace signing",
       "first_seen_at": "2026-11-19T18:11:04.701634+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T17:50:15+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33915,7 +33915,7 @@
       "event_id": "1bd1d7cd4df27e5511aeb0f0",
       "title": "Source claims Chelsea want January centre back – and have set their sights way too high",
       "first_seen_at": "2026-11-19T18:11:04.701634+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-19T18:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33975,7 +33975,7 @@
       "event_id": "e0a282f7236fd224c88fe636",
       "title": "Chelsea warned over loss on £55m star as Serie A clubs eye January transfer",
       "first_seen_at": "2026-11-19T18:11:04.701634+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T18:06:28+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -34095,7 +34095,7 @@
       "event_id": "9721503c408179d4e9ecee68",
       "title": "Training gallery: All together for Leeds | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-19T18:13:28.794949+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T17:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -34158,7 +34158,7 @@
       "event_id": "3bc532df44697f6fb3a6e344",
       "title": "Andrew Pennie signs first professional contract | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-19T18:13:28.794949+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T18:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -34945,7 +34945,7 @@
       "event_id": "945cc85d03bc1223a770018d",
       "title": "Leeds confirm huge injury boost for Chelsea clash as two stars return",
       "first_seen_at": "2026-11-19T21:11:00.367544+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T21:02:19+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35007,7 +35007,7 @@
       "event_id": "e90ba2d57d4b5d3dabc5c72a",
       "title": "Ally’s Acca boost: Get 11/1 on Bournemouth, Aston Villa, Chelsea and Falkirk to win",
       "first_seen_at": "2026-11-19T21:12:54.995878+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-20T09:30:35+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35495,7 +35495,7 @@
       "event_id": "cb0b869ec5f8a48e47d277e6",
       "title": "Chelsea FC joins with Zara to launch kidswear collection | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-19T22:31:53.421818+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T22:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35639,7 +35639,7 @@
       "event_id": "802886e0eba4e20787e1221f",
       "title": "Mykhailo Mudryk can do one, Tottenham should send him back to Chelsea now",
       "first_seen_at": "2026-11-19T23:21:06.584190+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T23:05:05+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35821,7 +35821,7 @@
       "event_id": "043d17b2b0947e114b46ec38",
       "title": "The Prospects: Reggie Walsh, Chelsea",
       "first_seen_at": "2026-11-20T05:31:11.081370+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T05:15:51+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35883,7 +35883,7 @@
       "event_id": "36bece0a191f8a937cd0589a",
       "title": "Estevao agreement reached, Joao Pedro decision made - Chelsea line-ups for Leeds United clash",
       "first_seen_at": "2026-11-20T06:11:07.866644+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T06:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35948,7 +35948,7 @@
       "event_id": "b70d443d742652e55fd82e29",
       "title": "Sjoeke Nusken: There is more to come from us | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T06:13:17.254477+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T06:05:05+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36112,7 +36112,7 @@
       "event_id": "30844c8165ce8b53ce5e8125",
       "title": "Trent Alexander-Arnold transfer, Rudiger return and Estevao exit - 26 Chelsea questions answered",
       "first_seen_at": "2026-11-20T07:10:58.675212+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T07:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36172,7 +36172,7 @@
       "event_id": "456624408a6a8539e355b2fc",
       "title": "Buy, Hold or Sell: FPL expert reveals GW11 transfers cheat sheet amid controversial Chelsea verdict",
       "first_seen_at": "2026-11-20T07:10:58.675212+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T07:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36298,7 +36298,7 @@
       "event_id": "5dced33f63c060b2583e38d0",
       "title": "Emiliano Martinez appears ready to return for Chelsea, but will he?",
       "first_seen_at": "2026-11-20T07:37:47.992854+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T18:24:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36358,7 +36358,7 @@
       "event_id": "d5e5dbd3b1946fec66373ef4",
       "title": "Trent Alexander-Arnold transfer, Rudiger return and Estevao exit - 26 Chelsea questions answered",
       "first_seen_at": "2026-11-20T07:37:47.992854+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T23:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36478,7 +36478,7 @@
       "event_id": "43ad606ae9eabc502878f954",
       "title": "Transfer news LIVE: Vinicius to Arsenal; Chelsea learn Scott price; Man Utd, Liverpool latest",
       "first_seen_at": "2026-11-20T08:31:07.698672+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T08:24:21+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36658,7 +36658,7 @@
       "event_id": "9988baada734423a4c1d9fc5",
       "title": "Leeds game travel update – disruption on the Piccadilly and District Lines | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T08:32:39.131125+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T08:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36781,7 +36781,7 @@
       "event_id": "105387ad561e61bbc6671e7e",
       "title": "Chelsea star Mykhailo Mudryk in stunning Arsenal transfer admission ahead of Tottenham return",
       "first_seen_at": "2026-11-20T08:58:17.666523+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T08:51:19+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36846,7 +36846,7 @@
       "event_id": "491586a25086d53233351cdc",
       "title": "Transfer news LIVE: Vinicius to Arsenal; Chelsea learn Scott price; Man Utd, Liverpool latest",
       "first_seen_at": "2026-11-20T08:57:36.971327+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T00:53:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36906,7 +36906,7 @@
       "event_id": "fedfa2acefa060d4699feabd",
       "title": "Transfer news LIVE: Vinicius to Arsenal; Chelsea told Scott fee",
       "first_seen_at": "2026-11-20T08:59:45.657756+00:00",
-      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T00:24:21+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37086,7 +37086,7 @@
       "event_id": "6193c209600826bcab4cd4d1",
       "title": "Chelsea Under-18 vs Arsenal Under-18: How to watch it live | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T09:10:39.756565+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T09:50:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37367,7 +37367,7 @@
       "event_id": "23b57518d07e70803c8b96ad",
       "title": "Estêvão is Brazil's brightest young talent. Is Chelsea the right place for him?",
       "first_seen_at": "2026-11-20T09:37:46.671889+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T01:01:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37427,7 +37427,7 @@
       "event_id": "6b444145d5a7a473094a0bbd",
       "title": "Ally’s Acca boost: Get 11/1 on Bournemouth, Aston Villa, Chelsea and Falkirk to win",
       "first_seen_at": "2026-11-20T09:37:46.671889+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T09:30:35+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37547,7 +37547,7 @@
       "event_id": "468cd4b35513f24d7d2e0d50",
       "title": "Arsenal, Chelsea and Tottenham vote for extra protection as Man City case rumbles on",
       "first_seen_at": "2026-11-20T10:02:21.286094+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T15:05:22+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -37770,7 +37770,7 @@
       "event_id": "74aa818e5656c280d63474d4",
       "title": "Emegha: 'When the time comes, I will be ready' | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T10:02:21.286094+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37893,7 +37893,7 @@
       "event_id": "be08bf001535d5d925c5885c",
       "title": "Palace latest: Frank adds Chelsea coach to his backroom staff",
       "first_seen_at": "2026-11-20T10:16:59.665722+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-19T17:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37953,7 +37953,7 @@
       "event_id": "8861cbd3cba117ef863abd21",
       "title": "Sources: Newcastle and Chelsea race to sign Hearts sensation Jaedon Donkor",
       "first_seen_at": "2026-11-20T10:16:59.665722+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-20T10:03:53+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -38073,7 +38073,7 @@
       "event_id": "2f35a37098254f016bacbfa9",
       "title": "Women's Super League ticket news: Brighton away | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T10:18:26.901943+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -38136,7 +38136,7 @@
       "event_id": "3fdef5209842371a2aba61ee",
       "title": "Chelsea vs Leeds United: Preview, team news, tips & H2H",
       "first_seen_at": "2026-11-20T10:42:40.790790+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T03:25:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -38436,7 +38436,7 @@
       "event_id": "135ce2441f7e2b234ae382dd",
       "title": "Chelsea XI vs Leeds: Confirmed team news, predicted lineup, Joao Pedro injury latest for Premier League",
       "first_seen_at": "2026-11-20T11:05:27.728580+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T03:18:10+00:00",
       "last_observation_count": 8,
       "publisher_domains": [
@@ -38505,51 +38505,6 @@
             "subject_key": "joao_pedro"
           },
           {
-            "title": "Chelsea dealt injury blow as Alonso issues new Joao Pedro update",
-            "summary": "Chelsea dealt injury blow as Xabi Alonso issues new Joao Pedro update - Blues have missed star striker for a month ...",
-            "url": "https://www.msn.com/en-us/news/other/chelsea-dealt-injury-blow-as-alonso-issues-new-joao-pedro-update/ar-AA2hREQE",
-            "publisher_domain": "msn.com",
-            "publisher_name_hint": "msn.com",
-            "source_feed": "Bing News discovery: Chelsea injury team news",
-            "published": "2026-11-20T05:52:12+00:00",
-            "publisher_type": "other_direct_domain",
-            "team_scope": "mens_first_team_or_club",
-            "story_type": "injury_update",
-            "opponent_key": "",
-            "fixture_key": "",
-            "subject_key": "joao_pedro"
-          },
-          {
-            "title": "Chelsea dealt injury blow as Xabi Alonso issues new Joao Pedro update",
-            "summary": "Joao Pedro is still not fit to face Leeds United this weekend, Chelsea manager Xabi Alonso has revealed. The Blues have been unable to call on the striker since his shock omission from their starting ...",
-            "url": "https://sports.yahoo.com/articles/chelsea-dealt-injury-blow-xabi-135212623.html",
-            "publisher_domain": "sports.yahoo.com",
-            "publisher_name_hint": "sports.yahoo.com",
-            "source_feed": "Bing News discovery: Chelsea injury team news",
-            "published": "2026-11-20T05:52:00+00:00",
-            "publisher_type": "other_direct_domain",
-            "team_scope": "mens_first_team_or_club",
-            "story_type": "injury_update",
-            "opponent_key": "",
-            "fixture_key": "",
-            "subject_key": "joao_pedro"
-          },
-          {
-            "title": "Joao Pedro’s importance to Chelsea and why they need him back soon",
-            "summary": "Joao Pedro has missed Chelsea's past three league games through injury and the Blues are suffering without their main striker.",
-            "url": "https://www.squawka.com/en/features/joao-pedro-analysis-importance-chelsea",
-            "publisher_domain": "squawka.com",
-            "publisher_name_hint": "squawka.com",
-            "source_feed": "Bing News discovery: Chelsea injury team news",
-            "published": "2026-11-20T04:00:00+00:00",
-            "publisher_type": "other_direct_domain",
-            "team_scope": "mens_first_team_or_club",
-            "story_type": "injury_update",
-            "opponent_key": "",
-            "fixture_key": "",
-            "subject_key": "joao_pedro"
-          },
-          {
             "title": "Chelsea XI vs Leeds: Confirmed team news, predicted lineup, Joao Pedro injury latest for Premier League",
             "summary": "Xabi Alonso is juggling a few fitness concerns - and selection headaches - ahead of Leeds visit",
             "url": "https://www.standard.co.uk/sport/football/chelsea-fc-xi-vs-leeds-confirmed-team-news-predicted-lineup-joao-pedro-injury-latest-premier-league-b1305661.html",
@@ -38581,20 +38536,15 @@
           }
         ],
         "source_urls": [
-          "https://sports.yahoo.com/articles/chelsea-dealt-injury-blow-xabi-135212623.html",
           "https://www.football.london/chelsea-fc/news/joao-pedro-moises-caicedo-injury-34942170",
           "https://www.football.london/chelsea-fc/news/xabi-alonso-press-conference-live-34932673",
-          "https://www.msn.com/en-us/news/other/chelsea-dealt-injury-blow-as-alonso-issues-new-joao-pedro-update/ar-AA2hREQE",
           "https://www.msn.com/en-us/news/other/chelsea-xi-vs-leeds-confirmed-team-news-and-predicted-lineup/ar-AA2hQ05P",
-          "https://www.squawka.com/en/features/joao-pedro-analysis-importance-chelsea",
           "https://www.standard.co.uk/sport/football/chelsea-fc-injury-latest-joao-pedro-alonso-b1305726.html",
           "https://www.standard.co.uk/sport/football/chelsea-fc-xi-vs-leeds-confirmed-team-news-predicted-lineup-joao-pedro-injury-latest-premier-league-b1305661.html"
         ],
         "publisher_domains": [
           "football.london",
           "msn.com",
-          "sports.yahoo.com",
-          "squawka.com",
           "standard.co.uk"
         ],
         "source_feeds": [
@@ -38602,8 +38552,8 @@
           "Evening Standard Sport",
           "Football London Chelsea"
         ],
-        "publisher_count": 5,
-        "observation_count": 8,
+        "publisher_count": 3,
+        "observation_count": 5,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
       "last_processed_at": "2026-11-20T13:16:00.383045+00:00",
@@ -38623,7 +38573,7 @@
       "event_id": "f3ebcf8f666fb827354fd8fc",
       "title": "Bompastor updates on Manaka Matsukubo availability | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T11:05:27.728580+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T11:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -38866,7 +38816,7 @@
       "event_id": "5fae7d875b1c62efda494b15",
       "title": "Xabi Alonso’s Chelsea so far: Are the Blues headed in the right direction?",
       "first_seen_at": "2026-11-20T11:46:11.548575+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-20T11:26:47+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -38926,7 +38876,7 @@
       "event_id": "cf3518f408d8cf089eab5483",
       "title": "Chelsea player says moving to Arsenal was his “dream” in latest ill-advised comments",
       "first_seen_at": "2026-11-20T11:46:11.548575+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-20T11:36:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39106,7 +39056,7 @@
       "event_id": "c0eb2d39da3856f8c27ae5fe",
       "title": "Chelsea aim to sign Bayern Munich teenager – and already have loan move planned",
       "first_seen_at": "2026-11-20T12:00:45.374919+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-20T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39166,7 +39116,7 @@
       "event_id": "b702deb7baa68e23b3758a33",
       "title": "How Mykhailo Mudryk's unsolicited interview turned into a moany mess: With gaffes galore - including his Arsenal 'dream' - the £89m man hasn't endeared himself to either Spurs or Chelsea, writes KIERAN GILL",
       "first_seen_at": "2026-11-20T12:26:01.385943+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T13:13:54+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -39421,7 +39371,7 @@
       "event_id": "9cfb21158f966ccd45bb0e41",
       "title": "Chelsea might try and sign £40m Premier League star likened to Reece James",
       "first_seen_at": "2026-11-20T12:27:23.396559+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T04:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39541,7 +39491,7 @@
       "event_id": "a6256ca72ec1f9bbc60e6db3",
       "title": "Made in Cobham: Andrew Pennie | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T12:27:23.396559+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39604,7 +39554,7 @@
       "event_id": "a4809f6d6f2aa165603f2bee",
       "title": "Mykhailo Mudryk reveals real reason he joined Chelsea over Arsenal with explosive claim",
       "first_seen_at": "2026-11-20T12:50:59.867081+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T12:41:21+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39664,7 +39614,7 @@
       "event_id": "3adfd4ed2d8607d7a5ef6984",
       "title": "Leeds United defender James Justin issues ‘spilling out’ warning ahead of Premier League clash with Chelsea",
       "first_seen_at": "2026-11-20T12:52:23.511474+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T04:00:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39724,7 +39674,7 @@
       "event_id": "1dd1b78cfa1dcace61258eb3",
       "title": "“Saved my life” – Chelsea’s 2012 assister explains how one goalkeeper save changed his career",
       "first_seen_at": "2026-11-20T13:13:00.347234+00:00",
-      "last_seen_at": "2026-11-20T14:06:00.534675+00:00",
+      "last_seen_at": "2026-11-20T14:27:42.518799+00:00",
       "last_published_at": "2026-11-20T13:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39964,7 +39914,7 @@
       "event_id": "02a6b6f36c663fc4232b8a4e",
       "title": "Sonia Bompastor backing Manaka Matsukubo to help Chelsea cement top spot",
       "first_seen_at": "2026-11-20T13:15:31.818328+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T04:39:32+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -40024,7 +39974,7 @@
       "event_id": "6e72a4dc8565aa4ebcad9df4",
       "title": "Football’s most brutal sackings including Chelsea legend axed while on MOTD and boss who only had job for 10 MINUTES",
       "first_seen_at": "2026-11-20T13:41:11.934434+00:00",
-      "last_seen_at": "2026-11-20T14:07:27.190189+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
       "last_published_at": "2026-11-20T13:27:22+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -40187,6 +40137,367 @@
         ],
         "source_feeds": [
           "Bing News discovery: Chelsea Premier League"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "730ead6969240ca88086fbb1": {
+      "event_id": "730ead6969240ca88086fbb1",
+      "title": "Daniel Farke shows what he thinks of Chelsea with clear demand to Leeds United players",
+      "first_seen_at": "2026-11-20T14:27:42.518799+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_published_at": "2026-11-20T14:00:13+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "football.london"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "730ead6969240ca88086fbb1",
+        "title": "Daniel Farke shows what he thinks of Chelsea with clear demand to Leeds United players",
+        "story_type": "general_news",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-20T14:00:13+00:00",
+        "best_summary": "Leeds United haven't won at Stamford Bridge since 1999 but Daniel Farke wants to make history when they meet Xabi Alonso's men in West London on Saturday",
+        "representative_title": "Daniel Farke shows what he thinks of Chelsea with clear demand to Leeds United players",
+        "representative_url": "https://www.football.london/chelsea-fc/news/daniel-farke-shows-what-thinks-34942721",
+        "representative_publisher": "football.london",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Daniel Farke shows what he thinks of Chelsea with clear demand to Leeds United players",
+            "summary": "Leeds United haven't won at Stamford Bridge since 1999 but Daniel Farke wants to make history when they meet Xabi Alonso's men in West London on Saturday",
+            "url": "https://www.football.london/chelsea-fc/news/daniel-farke-shows-what-thinks-34942721",
+            "publisher_domain": "football.london",
+            "publisher_name_hint": "Football London Chelsea",
+            "source_feed": "Football London Chelsea",
+            "published": "2026-11-20T14:00:13+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "general_news",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.football.london/chelsea-fc/news/daniel-farke-shows-what-thinks-34942721"
+        ],
+        "publisher_domains": [
+          "football.london"
+        ],
+        "source_feeds": [
+          "Football London Chelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "ba9e3a3415171969a12daaf2": {
+      "event_id": "ba9e3a3415171969a12daaf2",
+      "title": "Arsenal: Romano reveals what he ‘can guarantee’ about Zubimendi to Chelsea",
+      "first_seen_at": "2026-11-20T14:27:42.518799+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_published_at": "2026-11-20T06:20:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "football365.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "ba9e3a3415171969a12daaf2",
+        "title": "Arsenal: Romano reveals what he ‘can guarantee’ about Zubimendi to Chelsea",
+        "story_type": "transfer_rumour",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-20T06:20:00+00:00",
+        "best_summary": "Fabrizio Romano has revealed that Chelsea head coach Xabi Alonso “is a big fan” of Martin Zubimendi amid reports the Arsenal midfielder could move to Stamford Bridge. The Spaniard has been out of ...",
+        "representative_title": "Arsenal: Romano reveals what he ‘can guarantee’ about Zubimendi to Chelsea",
+        "representative_url": "https://www.football365.com/news/arsenal-romano-can-guarantee-chelsea-transfer-zubimendi",
+        "representative_publisher": "football365.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Arsenal: Romano reveals what he ‘can guarantee’ about Zubimendi to Chelsea",
+            "summary": "Fabrizio Romano has revealed that Chelsea head coach Xabi Alonso “is a big fan” of Martin Zubimendi amid reports the Arsenal midfielder could move to Stamford Bridge. The Spaniard has been out of ...",
+            "url": "https://www.football365.com/news/arsenal-romano-can-guarantee-chelsea-transfer-zubimendi",
+            "publisher_domain": "football365.com",
+            "publisher_name_hint": "football365.com",
+            "source_feed": "Bing News discovery: Chelsea transfer news",
+            "published": "2026-11-20T06:20:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "transfer_rumour",
+            "opponent_key": "arsenal",
+            "fixture_key": "",
+            "subject_key": "zubimendi"
+          }
+        ],
+        "source_urls": [
+          "https://www.football365.com/news/arsenal-romano-can-guarantee-chelsea-transfer-zubimendi"
+        ],
+        "publisher_domains": [
+          "football365.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea transfer news"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "b2b3fcc9c4cbf5243a79080f": {
+      "event_id": "b2b3fcc9c4cbf5243a79080f",
+      "title": "Chelsea dealt injury blow as Alonso issues new Joao Pedro update",
+      "first_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_published_at": "2026-11-20T05:52:12+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "msn.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "b2b3fcc9c4cbf5243a79080f",
+        "title": "Chelsea dealt injury blow as Alonso issues new Joao Pedro update",
+        "story_type": "injury_update",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-20T05:52:12+00:00",
+        "best_summary": "Chelsea dealt injury blow as Xabi Alonso issues new Joao Pedro update - Blues have missed star striker for a month ...",
+        "representative_title": "Chelsea dealt injury blow as Alonso issues new Joao Pedro update",
+        "representative_url": "https://www.msn.com/en-us/sports/soccer/chelsea-dealt-injury-blow-as-alonso-issues-new-joao-pedro-update/ar-AA2hREQE",
+        "representative_publisher": "msn.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea dealt injury blow as Alonso issues new Joao Pedro update",
+            "summary": "Chelsea dealt injury blow as Xabi Alonso issues new Joao Pedro update - Blues have missed star striker for a month ...",
+            "url": "https://www.msn.com/en-us/sports/soccer/chelsea-dealt-injury-blow-as-alonso-issues-new-joao-pedro-update/ar-AA2hREQE",
+            "publisher_domain": "msn.com",
+            "publisher_name_hint": "msn.com",
+            "source_feed": "Bing News discovery: Chelsea injury team news",
+            "published": "2026-11-20T05:52:12+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "joao_pedro"
+          }
+        ],
+        "source_urls": [
+          "https://www.msn.com/en-us/sports/soccer/chelsea-dealt-injury-blow-as-alonso-issues-new-joao-pedro-update/ar-AA2hREQE"
+        ],
+        "publisher_domains": [
+          "msn.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea injury team news"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "c67a352196dcaa44e91e03f8": {
+      "event_id": "c67a352196dcaa44e91e03f8",
+      "title": "Joao Pedro and Moises Caicedo injury latest as Xabi Alonso gives seven-player Chelsea update",
+      "first_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_published_at": "2026-11-20T05:52:35+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "msn.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "c67a352196dcaa44e91e03f8",
+        "title": "Joao Pedro and Moises Caicedo injury latest as Xabi Alonso gives seven-player Chelsea update",
+        "story_type": "injury_update",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-20T05:52:35+00:00",
+        "best_summary": "Xabi Alonso has provided the latest Chelsea injury news ahead of the weekend clash against Leeds United ...",
+        "representative_title": "Joao Pedro and Moises Caicedo injury latest as Xabi Alonso gives seven-player Chelsea update",
+        "representative_url": "https://www.msn.com/en-gb/news/other/joao-pedro-and-moises-caicedo-injury-latest-as-xabi-alonso-gives-seven-player-chelsea-update/ar-AA2hRzHv",
+        "representative_publisher": "msn.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Joao Pedro and Moises Caicedo injury latest as Xabi Alonso gives seven-player Chelsea update",
+            "summary": "Xabi Alonso has provided the latest Chelsea injury news ahead of the weekend clash against Leeds United ...",
+            "url": "https://www.msn.com/en-gb/news/other/joao-pedro-and-moises-caicedo-injury-latest-as-xabi-alonso-gives-seven-player-chelsea-update/ar-AA2hRzHv",
+            "publisher_domain": "msn.com",
+            "publisher_name_hint": "msn.com",
+            "source_feed": "Bing News discovery: Chelsea injury team news",
+            "published": "2026-11-20T05:52:35+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "joao_pedro"
+          }
+        ],
+        "source_urls": [
+          "https://www.msn.com/en-gb/news/other/joao-pedro-and-moises-caicedo-injury-latest-as-xabi-alonso-gives-seven-player-chelsea-update/ar-AA2hRzHv"
+        ],
+        "publisher_domains": [
+          "msn.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea injury team news"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "381580d91a0f3fe179c91ecd": {
+      "event_id": "381580d91a0f3fe179c91ecd",
+      "title": "Moises Caicedo injury status for Chelsea vs Leeds confirmed",
+      "first_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_published_at": "2026-11-20T05:55:58+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "msn.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "381580d91a0f3fe179c91ecd",
+        "title": "Moises Caicedo injury status for Chelsea vs Leeds confirmed",
+        "story_type": "injury_update",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-20T05:55:58+00:00",
+        "best_summary": "The international break provides a chance for a lot of players to work their way back to fitness. For others, they travel to their home nation to represent their national team and risk injury. One ...",
+        "representative_title": "Moises Caicedo injury status for Chelsea vs Leeds confirmed",
+        "representative_url": "https://www.msn.com/en-au/news/other/moises-caicedo-injury-status-for-chelsea-vs-leeds-confirmed/ar-AA2hRHLr",
+        "representative_publisher": "msn.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Moises Caicedo injury status for Chelsea vs Leeds confirmed",
+            "summary": "The international break provides a chance for a lot of players to work their way back to fitness. For others, they travel to their home nation to represent their national team and risk injury. One ...",
+            "url": "https://www.msn.com/en-au/news/other/moises-caicedo-injury-status-for-chelsea-vs-leeds-confirmed/ar-AA2hRHLr",
+            "publisher_domain": "msn.com",
+            "publisher_name_hint": "msn.com",
+            "source_feed": "Bing News discovery: Chelsea injury team news",
+            "published": "2026-11-20T05:55:58+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "moises_caicedo"
+          }
+        ],
+        "source_urls": [
+          "https://www.msn.com/en-au/news/other/moises-caicedo-injury-status-for-chelsea-vs-leeds-confirmed/ar-AA2hRHLr"
+        ],
+        "publisher_domains": [
+          "msn.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea injury team news"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "91897e9fa5f5a6a54cbebb24": {
+      "event_id": "91897e9fa5f5a6a54cbebb24",
+      "title": "Xabi Alonso confirms Chelsea team news for Leeds | News | Official Site - Chelsea Football Club",
+      "first_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_seen_at": "2026-11-20T14:29:27.313450+00:00",
+      "last_published_at": "2026-11-20T14:09:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "chelseafc.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "91897e9fa5f5a6a54cbebb24",
+        "title": "Xabi Alonso confirms Chelsea team news for Leeds | News | Official Site - Chelsea Football Club",
+        "story_type": "team_news",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-20T14:09:00+00:00",
+        "best_summary": "Xabi Alonso confirms Chelsea team news for Leeds | News | Official Site Chelsea Football Club",
+        "representative_title": "Xabi Alonso confirms Chelsea team news for Leeds | News | Official Site - Chelsea Football Club",
+        "representative_url": "https://www.chelseafc.com/en/news/article/xabi-alonso-confirms-chelsea-team-news-for-leeds",
+        "representative_publisher": "chelseafc.com",
+        "representative_publisher_type": "official_domain",
+        "source_observations": [
+          {
+            "title": "Xabi Alonso confirms Chelsea team news for Leeds | News | Official Site - Chelsea Football Club",
+            "summary": "Xabi Alonso confirms Chelsea team news for Leeds | News | Official Site Chelsea Football Club",
+            "url": "https://www.chelseafc.com/en/news/article/xabi-alonso-confirms-chelsea-team-news-for-leeds",
+            "publisher_domain": "chelseafc.com",
+            "publisher_name_hint": "Chelsea Football Club",
+            "source_feed": "Google News official-source discovery",
+            "published": "2026-11-20T14:09:00+00:00",
+            "publisher_type": "official_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "team_news",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "",
+            "discovery_timestamp_source": "Google News RSS; discovery only"
+          }
+        ],
+        "source_urls": [
+          "https://www.chelseafc.com/en/news/article/xabi-alonso-confirms-chelsea-team-news-for-leeds"
+        ],
+        "publisher_domains": [
+          "chelseafc.com"
+        ],
+        "source_feeds": [
+          "Google News official-source discovery"
         ],
         "publisher_count": 1,
         "observation_count": 1,
