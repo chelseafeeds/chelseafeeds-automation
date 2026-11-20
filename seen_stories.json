@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T22:21:41.471794+00:00",
+  "updated_at": "2026-11-20T22:22:12.665570+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -43552,7 +43552,7 @@
       "publisher_domains": [
         "mirror.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "9783a8df90afad62b5173966",
         "title": "Chelsea fined £150,000 by FA for anti-Catholic and anti-Irish chants as statement issued",
@@ -43600,7 +43600,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7838992726367356082",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-150000-fa-fine-upheld-after.html",
+      "scheduled_for_utc": "2026-11-20T22:27:06Z",
+      "last_blogger_status_updated_at": "2026-11-20T22:22:07.390747+00:00"
     },
     "aa4396caefcf65f82253cba0": {
       "event_id": "aa4396caefcf65f82253cba0",
@@ -44047,7 +44052,7 @@
       "publisher_domains": [
         "nytimes.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "2b362d23644ae8ed39a3677e",
         "title": "Chelsea fined £150k and warned over future conduct for sectarian chants in FA Cup tie",
@@ -44095,7 +44100,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "9151934527046327135",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-fined-150k-and-warned-over.html",
+      "scheduled_for_utc": "2026-11-20T22:27:11Z",
+      "last_blogger_status_updated_at": "2026-11-20T22:22:12.665548+00:00"
     },
     "e597288b9f72a8d167d45235": {
       "event_id": "e597288b9f72a8d167d45235",
