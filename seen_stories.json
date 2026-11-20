@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T01:24:02.310844+00:00",
+  "updated_at": "2026-11-20T01:24:26.447312+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -31748,7 +31748,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "bfa1f28e63af15c4c3f96af5",
         "title": "Chelsea: Ten things we've learnt about Xabi Alonso's Blues after 10 Premier League games",
@@ -31796,7 +31796,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4495903516934578596",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/what-sky-sports-says-about-xabi-alonsos.html",
+      "scheduled_for_utc": "2026-11-20T01:29:25Z",
+      "last_blogger_status_updated_at": "2026-11-20T01:24:26.447297+00:00"
     },
     "2b454167aceaa5741aca1b2f": {
       "event_id": "2b454167aceaa5741aca1b2f",
