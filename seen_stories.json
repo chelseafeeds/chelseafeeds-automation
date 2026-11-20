@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T00:37:27.696312+00:00",
+  "updated_at": "2026-11-20T00:37:57.037478+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -34863,7 +34863,7 @@
       "publisher_domains": [
         "footballinsider247.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "01fc032261a8aff05b14a890",
         "title": "Chelsea: Emiliano Martinez or Mike Penders vs Leeds debate settled by 2.23 stat",
@@ -34905,12 +34905,16 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T00:37:57.037478+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea: Emiliano Martinez or Mike Penders vs Leeds debate settled by 2.23 stat",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "search_description_length",
+        "search_description_is_complete",
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "945cc85d03bc1223a770018d": {
