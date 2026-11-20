@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T15:39:26.630208+00:00",
+  "updated_at": "2026-11-20T15:39:48.532267+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -41388,7 +41388,7 @@
       "publisher_domains": [
         "goal.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "dcc14a0677ee2b0baf61c6cd",
         "title": "Chelsea vs Leeds United",
@@ -41436,7 +41436,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7335893207975702373",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/how-to-watch-chelsea-vs-leeds-united.html",
+      "scheduled_for_utc": "2026-11-20T15:44:47Z",
+      "last_blogger_status_updated_at": "2026-11-20T15:39:48.532248+00:00"
     }
   }
 }
