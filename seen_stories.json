@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T22:21:02.826638+00:00",
+  "updated_at": "2026-11-20T22:21:41.471794+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -43552,7 +43552,7 @@
       "publisher_domains": [
         "mirror.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "9783a8df90afad62b5173966",
         "title": "Chelsea fined £150,000 by FA for anti-Catholic and anti-Irish chants as statement issued",
@@ -43594,9 +43594,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T22:21:41.471794+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea fined £150,000 by FA for anti-Catholic and anti-Irish chants as statement issued",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
@@ -44047,7 +44047,7 @@
       "publisher_domains": [
         "nytimes.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "2b362d23644ae8ed39a3677e",
         "title": "Chelsea fined £150k and warned over future conduct for sectarian chants in FA Cup tie",
@@ -44089,9 +44089,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T22:21:41.471794+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea fined £150k and warned over future conduct for sectarian chants in FA Cup tie",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
