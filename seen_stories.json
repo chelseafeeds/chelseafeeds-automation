@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T12:52:49.577829+00:00",
+  "updated_at": "2026-11-20T13:15:31.818328+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -13419,10 +13419,10 @@
     },
     "f624ce674540d0601d2c171a": {
       "event_id": "f624ce674540d0601d2c171a",
-      "title": "Chelsea latest: Martinez keeps clean sheet on return from broken jaw",
+      "title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
       "first_seen_at": "2026-11-17T12:26:08.616179+00:00",
-      "last_seen_at": "2026-11-19T06:51:10.427696+00:00",
-      "last_published_at": "2026-11-18T07:00:00+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
+      "last_published_at": "2026-11-20T13:10:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "skysports.com"
@@ -13430,27 +13430,27 @@
       "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "f624ce674540d0601d2c171a",
-        "title": "Chelsea latest: Martinez keeps clean sheet on return from broken jaw",
-        "story_type": "general_news",
+        "title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
+        "story_type": "match_preview",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-18T07:00:00+00:00",
+        "published": "2026-11-20T13:10:00+00:00",
         "best_summary": "",
-        "representative_title": "Chelsea latest: Martinez keeps clean sheet on return from broken jaw",
+        "representative_title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
         "representative_url": "https://www.skysports.com/football/live-blog/11661/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
         "representative_publisher": "skysports.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Chelsea latest: Martinez keeps clean sheet on return from broken jaw",
+            "title": "Chelsea latest: Alonso to speak ahead of Leeds clash",
             "summary": "",
             "url": "https://www.skysports.com/football/live-blog/11661/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
             "publisher_domain": "skysports.com",
             "publisher_name_hint": "Sky Sports Premier League",
             "source_feed": "Sky Sports Premier League",
-            "published": "2026-11-18T07:00:00+00:00",
+            "published": "2026-11-20T13:10:00+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
-            "story_type": "general_news",
+            "story_type": "match_preview",
             "opponent_key": "",
             "fixture_key": "",
             "subject_key": ""
@@ -30085,7 +30085,7 @@
       "event_id": "8e4a137937039d02b500d9b5",
       "title": "Arsenal, Chelsea and Tottenham vote for extra protection as Man City case rumbles on",
       "first_seen_at": "2026-11-19T10:17:28.345737+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-19T15:05:22+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -30910,7 +30910,7 @@
       "event_id": "34aed3ebcebf45a37fe16bea",
       "title": "Chelsea XI vs Leeds: Confirmed team news, predicted lineup, Joao Pedro injury latest for Premier League",
       "first_seen_at": "2026-11-19T11:22:28.456759+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-20T11:18:10+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -31999,7 +31999,7 @@
       "event_id": "5448db87d1538daf38e643d7",
       "title": "Two Chelsea fixtures moved including evening match fans are fearful of",
       "first_seen_at": "2026-11-19T13:51:14.378763+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T13:30:08+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -32301,7 +32301,7 @@
       "event_id": "bca01e148613356398c4fa40",
       "title": "Chelsea take massive step towards record-breaking Alex Scott transfer after Bournemouth development",
       "first_seen_at": "2026-11-19T14:46:02.800602+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-19T14:26:32+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33331,7 +33331,7 @@
       "event_id": "ce15c156fdb74ce4094547fa",
       "title": "Chelsea told to snub Alex Scott and sign Arsenal star despite ‘agreement’ with top target",
       "first_seen_at": "2026-11-19T16:49:16.995141+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-19T16:40:44+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33511,7 +33511,7 @@
       "event_id": "358cde9470db4300b7637335",
       "title": "FA Youth Cup date and venue confirmed | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-19T17:18:34.652756+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T17:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33574,7 +33574,7 @@
       "event_id": "99b7e0c575dab13d65548cdb",
       "title": "Where should £100m Arsenal, Chelsea and Liverpool target Alex Scott go if Bournemouth sell?",
       "first_seen_at": "2026-11-19T17:41:03.241188+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T17:16:28+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33759,7 +33759,7 @@
       "event_id": "cd854ca6e22fef512dceda65",
       "title": "Man Utd: ‘Real chance’ Mauricio Pochettino first signing will arrive from Chelsea with transfer ‘in mind’",
       "first_seen_at": "2026-11-19T17:45:15.303410+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-19T17:43:22+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33819,7 +33819,7 @@
       "event_id": "ab7ae027a971d0ba7450918c",
       "title": "Thomas Frank confirms Chelsea man ‘very close’ to becoming his first Crystal Palace signing",
       "first_seen_at": "2026-11-19T18:11:04.701634+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T17:50:15+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33883,7 +33883,7 @@
       "event_id": "1bd1d7cd4df27e5511aeb0f0",
       "title": "Source claims Chelsea want January centre back – and have set their sights way too high",
       "first_seen_at": "2026-11-19T18:11:04.701634+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-19T18:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -33943,7 +33943,7 @@
       "event_id": "e0a282f7236fd224c88fe636",
       "title": "Chelsea warned over loss on £55m star as Serie A clubs eye January transfer",
       "first_seen_at": "2026-11-19T18:11:04.701634+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T18:06:28+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -34063,7 +34063,7 @@
       "event_id": "9721503c408179d4e9ecee68",
       "title": "Training gallery: All together for Leeds | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-19T18:13:28.794949+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T17:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -34126,7 +34126,7 @@
       "event_id": "3bc532df44697f6fb3a6e344",
       "title": "Andrew Pennie signs first professional contract | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-19T18:13:28.794949+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T18:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -34913,7 +34913,7 @@
       "event_id": "945cc85d03bc1223a770018d",
       "title": "Leeds confirm huge injury boost for Chelsea clash as two stars return",
       "first_seen_at": "2026-11-19T21:11:00.367544+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T21:02:19+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -34975,7 +34975,7 @@
       "event_id": "e90ba2d57d4b5d3dabc5c72a",
       "title": "Ally’s Acca boost: Get 11/1 on Bournemouth, Aston Villa, Chelsea and Falkirk to win",
       "first_seen_at": "2026-11-19T21:12:54.995878+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-20T09:30:35+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35338,7 +35338,7 @@
       "event_id": "3d2dd21e03d87135036e75ce",
       "title": "Chelsea youngster Pennie signs first professional contract",
       "first_seen_at": "2026-11-19T22:07:41.943976+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T13:52:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35463,7 +35463,7 @@
       "event_id": "cb0b869ec5f8a48e47d277e6",
       "title": "Chelsea FC joins with Zara to launch kidswear collection | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-19T22:31:53.421818+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T22:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35607,7 +35607,7 @@
       "event_id": "802886e0eba4e20787e1221f",
       "title": "Mykhailo Mudryk can do one, Tottenham should send him back to Chelsea now",
       "first_seen_at": "2026-11-19T23:21:06.584190+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T23:05:05+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35789,7 +35789,7 @@
       "event_id": "043d17b2b0947e114b46ec38",
       "title": "The Prospects: Reggie Walsh, Chelsea",
       "first_seen_at": "2026-11-20T05:31:11.081370+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T05:15:51+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35814,7 +35814,7 @@
             "url": "https://www.nytimes.com/athletic/7794748/2026/11/20/reggie-walsh-chelsea-prospects",
             "publisher_domain": "nytimes.com",
             "publisher_name_hint": "nytimes.com",
-            "source_feed": "Bing News discovery: Chelsea Champions League",
+            "source_feed": "Bing News discovery: Chelsea loan players",
             "published": "2026-11-19T16:00:00+00:00",
             "publisher_type": "established_domain",
             "team_scope": "academy_youth",
@@ -35831,7 +35831,7 @@
           "nytimes.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea Champions League"
+          "Bing News discovery: Chelsea loan players"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -35851,7 +35851,7 @@
       "event_id": "36bece0a191f8a937cd0589a",
       "title": "Estevao agreement reached, Joao Pedro decision made - Chelsea line-ups for Leeds United clash",
       "first_seen_at": "2026-11-20T06:11:07.866644+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T06:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -35916,7 +35916,7 @@
       "event_id": "b70d443d742652e55fd82e29",
       "title": "Sjoeke Nusken: There is more to come from us | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T06:13:17.254477+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T06:05:05+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36080,7 +36080,7 @@
       "event_id": "30844c8165ce8b53ce5e8125",
       "title": "Trent Alexander-Arnold transfer, Rudiger return and Estevao exit - 26 Chelsea questions answered",
       "first_seen_at": "2026-11-20T07:10:58.675212+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T07:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36140,7 +36140,7 @@
       "event_id": "456624408a6a8539e355b2fc",
       "title": "Buy, Hold or Sell: FPL expert reveals GW11 transfers cheat sheet amid controversial Chelsea verdict",
       "first_seen_at": "2026-11-20T07:10:58.675212+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T07:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36266,7 +36266,7 @@
       "event_id": "5dced33f63c060b2583e38d0",
       "title": "Emiliano Martinez appears ready to return for Chelsea, but will he?",
       "first_seen_at": "2026-11-20T07:37:47.992854+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T18:24:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36326,7 +36326,7 @@
       "event_id": "d5e5dbd3b1946fec66373ef4",
       "title": "Trent Alexander-Arnold transfer, Rudiger return and Estevao exit - 26 Chelsea questions answered",
       "first_seen_at": "2026-11-20T07:37:47.992854+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T23:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36386,7 +36386,7 @@
       "event_id": "59ffbdf512ebde367730f3b9",
       "title": "Chelsea vs Leeds Lineups and Team News: Caicedo Doubt, Estevao Has to Start",
       "first_seen_at": "2026-11-20T07:58:00.273907+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T07:54:07+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36399,7 +36399,7 @@
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-20T07:54:07+00:00",
-        "best_summary": "Chelsea face Leeds at Stamford Bridge at 3pm on Saturday with Moisés Caicedo a doubt and João Pedro still out. Leeds have no new injuries, and Estevao should start for Chelsea.",
+        "best_summary": "Chelsea host Leeds at 3pm on Saturday with Moisés Caicedo a doubt and João Pedro out. Leeds have no new injuries, and Estevao should start for Chelsea.",
         "representative_title": "Chelsea vs Leeds Lineups and Team News: Caicedo Doubt, Estevao Has to Start",
         "representative_url": "https://thefalse9.com/2026/11/chelsea-vs-leeds-predicted-lineup-team-news-21-november.html",
         "representative_publisher": "thefalse9.com",
@@ -36407,7 +36407,7 @@
         "source_observations": [
           {
             "title": "Chelsea vs Leeds Lineups and Team News: Caicedo Doubt, Estevao Has to Start",
-            "summary": "Chelsea face Leeds at Stamford Bridge at 3pm on Saturday with Moisés Caicedo a doubt and João Pedro still out. Leeds have no new injuries, and Estevao should start for Chelsea.",
+            "summary": "Chelsea host Leeds at 3pm on Saturday with Moisés Caicedo a doubt and João Pedro out. Leeds have no new injuries, and Estevao should start for Chelsea.",
             "url": "https://thefalse9.com/2026/11/chelsea-vs-leeds-predicted-lineup-team-news-21-november.html",
             "publisher_domain": "thefalse9.com",
             "publisher_name_hint": "The False 9",
@@ -36446,7 +36446,7 @@
       "event_id": "43ad606ae9eabc502878f954",
       "title": "Transfer news LIVE: Vinicius to Arsenal; Chelsea learn Scott price; Man Utd, Liverpool latest",
       "first_seen_at": "2026-11-20T08:31:07.698672+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T08:24:21+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36626,7 +36626,7 @@
       "event_id": "9988baada734423a4c1d9fc5",
       "title": "Leeds game travel update – disruption on the Piccadilly and District Lines | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T08:32:39.131125+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T08:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36749,7 +36749,7 @@
       "event_id": "105387ad561e61bbc6671e7e",
       "title": "Chelsea star Mykhailo Mudryk in stunning Arsenal transfer admission ahead of Tottenham return",
       "first_seen_at": "2026-11-20T08:58:17.666523+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T08:51:19+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36809,7 +36809,7 @@
       "event_id": "491586a25086d53233351cdc",
       "title": "Transfer news LIVE: Vinicius to Arsenal; Chelsea learn Scott price; Man Utd, Liverpool latest",
       "first_seen_at": "2026-11-20T08:57:36.971327+00:00",
-      "last_seen_at": "2026-11-20T11:48:00.614542+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T00:53:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -36869,7 +36869,7 @@
       "event_id": "fedfa2acefa060d4699feabd",
       "title": "Transfer news LIVE: Vinicius to Arsenal; Chelsea told Scott fee",
       "first_seen_at": "2026-11-20T08:59:45.657756+00:00",
-      "last_seen_at": "2026-11-20T12:02:23.866831+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T00:24:21+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37049,7 +37049,7 @@
       "event_id": "6193c209600826bcab4cd4d1",
       "title": "Chelsea Under-18 vs Arsenal Under-18: How to watch it live | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T09:10:39.756565+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T09:50:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37330,7 +37330,7 @@
       "event_id": "23b57518d07e70803c8b96ad",
       "title": "Estêvão is Brazil's brightest young talent. Is Chelsea the right place for him?",
       "first_seen_at": "2026-11-20T09:37:46.671889+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T01:01:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37390,7 +37390,7 @@
       "event_id": "6b444145d5a7a473094a0bbd",
       "title": "Ally’s Acca boost: Get 11/1 on Bournemouth, Aston Villa, Chelsea and Falkirk to win",
       "first_seen_at": "2026-11-20T09:37:46.671889+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T09:30:35+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37510,7 +37510,7 @@
       "event_id": "468cd4b35513f24d7d2e0d50",
       "title": "Arsenal, Chelsea and Tottenham vote for extra protection as Man City case rumbles on",
       "first_seen_at": "2026-11-20T10:02:21.286094+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T15:05:22+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -37728,7 +37728,7 @@
       "event_id": "74aa818e5656c280d63474d4",
       "title": "Emegha: 'When the time comes, I will be ready' | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T10:02:21.286094+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37791,7 +37791,7 @@
       "event_id": "e178e46b1c9a411380624f5a",
       "title": "Palace latest: Frank adds Chelsea coach to his backroom staff",
       "first_seen_at": "2026-11-20T10:16:59.665722+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-19T17:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37851,7 +37851,7 @@
       "event_id": "be08bf001535d5d925c5885c",
       "title": "Palace latest: Frank adds Chelsea coach to his backroom staff",
       "first_seen_at": "2026-11-20T10:16:59.665722+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-19T17:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37911,7 +37911,7 @@
       "event_id": "8861cbd3cba117ef863abd21",
       "title": "Sources: Newcastle and Chelsea race to sign Hearts sensation Jaedon Donkor",
       "first_seen_at": "2026-11-20T10:16:59.665722+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-20T10:03:53+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -38031,7 +38031,7 @@
       "event_id": "2f35a37098254f016bacbfa9",
       "title": "Women's Super League ticket news: Brighton away | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T10:18:26.901943+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -38094,8 +38094,8 @@
       "event_id": "3fdef5209842371a2aba61ee",
       "title": "Chelsea vs Leeds United: Preview, team news, tips & H2H",
       "first_seen_at": "2026-11-20T10:42:40.790790+00:00",
-      "last_seen_at": "2026-11-20T10:42:40.790790+00:00",
-      "last_published_at": "2026-11-19T13:25:00+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
+      "last_published_at": "2026-11-20T03:25:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "afrik-foot.com"
@@ -38106,7 +38106,7 @@
         "title": "Chelsea vs Leeds United: Preview, team news, tips & H2H",
         "story_type": "injury_update",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-19T13:25:00+00:00",
+        "published": "2026-11-20T03:25:00+00:00",
         "best_summary": "Chelsea vs Leeds United will be played at Stamford Bridge on Saturday. Team news, injury details, head to head fixtures and tips are detailed ...",
         "representative_title": "Chelsea vs Leeds United: Preview, team news, tips & H2H",
         "representative_url": "https://www.afrik-foot.com/en-ng/chelsea-vs-leeds-united-preview-news-tips",
@@ -38120,7 +38120,7 @@
             "publisher_domain": "afrik-foot.com",
             "publisher_name_hint": "afrik-foot.com",
             "source_feed": "Bing News discovery: Chelsea injury team news",
-            "published": "2026-11-19T13:25:00+00:00",
+            "published": "2026-11-20T03:25:00+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "injury_update",
@@ -38394,7 +38394,7 @@
       "event_id": "135ce2441f7e2b234ae382dd",
       "title": "Chelsea XI vs Leeds: Confirmed team news, predicted lineup, Joao Pedro injury latest for Premier League",
       "first_seen_at": "2026-11-20T11:05:27.728580+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T01:55:05+00:00",
       "last_observation_count": 4,
       "publisher_domains": [
@@ -38510,7 +38510,7 @@
       "event_id": "f3ebcf8f666fb827354fd8fc",
       "title": "Bompastor updates on Manaka Matsukubo availability | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T11:05:27.728580+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T11:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -38753,7 +38753,7 @@
       "event_id": "5fae7d875b1c62efda494b15",
       "title": "Xabi Alonso’s Chelsea so far: Are the Blues headed in the right direction?",
       "first_seen_at": "2026-11-20T11:46:11.548575+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-20T11:26:47+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -38813,7 +38813,7 @@
       "event_id": "cf3518f408d8cf089eab5483",
       "title": "Chelsea player says moving to Arsenal was his “dream” in latest ill-advised comments",
       "first_seen_at": "2026-11-20T11:46:11.548575+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-20T11:36:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -38993,7 +38993,7 @@
       "event_id": "c0eb2d39da3856f8c27ae5fe",
       "title": "Chelsea aim to sign Bayern Munich teenager – and already have loan move planned",
       "first_seen_at": "2026-11-20T12:00:45.374919+00:00",
-      "last_seen_at": "2026-11-20T12:50:59.867081+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
       "last_published_at": "2026-11-20T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39053,7 +39053,7 @@
       "event_id": "b702deb7baa68e23b3758a33",
       "title": "How Mykhailo Mudryk's unsolicited interview turned into a moany mess: With gaffes galore - including his Arsenal 'dream' - the £89m man hasn't endeared himself to either Spurs or Chelsea, writes KIERAN GILL",
       "first_seen_at": "2026-11-20T12:26:01.385943+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T12:10:08+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -39188,7 +39188,7 @@
       "event_id": "ad48f30b05832e9c2a9cada6",
       "title": "Chelsea leading the race to sign £100m-rated Premier League star",
       "first_seen_at": "2026-11-20T12:27:23.396559+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T03:50:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39308,7 +39308,7 @@
       "event_id": "9cfb21158f966ccd45bb0e41",
       "title": "Chelsea might try and sign £40m Premier League star likened to Reece James",
       "first_seen_at": "2026-11-20T12:27:23.396559+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T04:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39428,7 +39428,7 @@
       "event_id": "a6256ca72ec1f9bbc60e6db3",
       "title": "Made in Cobham: Andrew Pennie | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T12:27:23.396559+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39491,7 +39491,7 @@
       "event_id": "a4809f6d6f2aa165603f2bee",
       "title": "Mykhailo Mudryk reveals real reason he joined Chelsea over Arsenal with explosive claim",
       "first_seen_at": "2026-11-20T12:50:59.867081+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T12:41:21+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39551,7 +39551,7 @@
       "event_id": "3adfd4ed2d8607d7a5ef6984",
       "title": "Leeds United defender James Justin issues ‘spilling out’ warning ahead of Premier League clash with Chelsea",
       "first_seen_at": "2026-11-20T12:52:23.511474+00:00",
-      "last_seen_at": "2026-11-20T12:52:23.511474+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
       "last_published_at": "2026-11-20T04:00:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -39594,6 +39594,306 @@
         ],
         "source_feeds": [
           "Bing News discovery: Chelsea Premier League"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "1dd1b78cfa1dcace61258eb3": {
+      "event_id": "1dd1b78cfa1dcace61258eb3",
+      "title": "“Saved my life” – Chelsea’s 2012 assister explains how one goalkeeper save changed his career",
+      "first_seen_at": "2026-11-20T13:13:00.347234+00:00",
+      "last_seen_at": "2026-11-20T13:13:00.347234+00:00",
+      "last_published_at": "2026-11-20T13:00:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "talkchelsea.net"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "1dd1b78cfa1dcace61258eb3",
+        "title": "“Saved my life” – Chelsea’s 2012 assister explains how one goalkeeper save changed his career",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-20T13:00:00+00:00",
+        "best_summary": "Juan Mata has shared a great story about the 2012 Champions League final, where he missed Chelsea’s first penalty. If you enjoy Talk Chelsea coverage…",
+        "representative_title": "“Saved my life” – Chelsea’s 2012 assister explains how one goalkeeper save changed his career",
+        "representative_url": "https://www.talkchelsea.net/news-now/chelsea-2012-assister-one-save-changed-his-career",
+        "representative_publisher": "talkchelsea.net",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "“Saved my life” – Chelsea’s 2012 assister explains how one goalkeeper save changed his career",
+            "summary": "Juan Mata has shared a great story about the 2012 Champions League final, where he missed Chelsea’s first penalty. If you enjoy Talk Chelsea coverage…",
+            "url": "https://www.talkchelsea.net/news-now/chelsea-2012-assister-one-save-changed-his-career",
+            "publisher_domain": "talkchelsea.net",
+            "publisher_name_hint": null,
+            "source_feed": "TalkChelsea",
+            "published": "2026-11-20T13:00:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.talkchelsea.net/news-now/chelsea-2012-assister-one-save-changed-his-career"
+        ],
+        "publisher_domains": [
+          "talkchelsea.net"
+        ],
+        "source_feeds": [
+          "TalkChelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "f07c746a2e74c5e4e4306d95": {
+      "event_id": "f07c746a2e74c5e4e4306d95",
+      "title": "“Saved my life” – Chelsea’s 2012 assister explains how one goalkeeper save changed his career",
+      "first_seen_at": "2026-11-20T13:13:00.347234+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
+      "last_published_at": "2026-11-20T13:00:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "sports.yahoo.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "f07c746a2e74c5e4e4306d95",
+        "title": "“Saved my life” – Chelsea’s 2012 assister explains how one goalkeeper save changed his career",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-20T13:00:00+00:00",
+        "best_summary": "Juan Mata has shared a great story about the 2012 Champions League final, where he missed Chelsea’s first penalty.If you enjoy Talk Chelsea coverage and want to see more of it, add us as a preferred...",
+        "representative_title": "“Saved my life” – Chelsea’s 2012 assister explains how one goalkeeper save changed his career",
+        "representative_url": "https://sports.yahoo.com/articles/saved-life-chelsea-2012-assister-130000752.html",
+        "representative_publisher": "sports.yahoo.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "“Saved my life” – Chelsea’s 2012 assister explains how one goalkeeper save changed his career",
+            "summary": "Juan Mata has shared a great story about the 2012 Champions League final, where he missed Chelsea’s first penalty.If you enjoy Talk Chelsea coverage and want to see more of it, add us as a preferred...",
+            "url": "https://sports.yahoo.com/articles/saved-life-chelsea-2012-assister-130000752.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "Yahoo Sports",
+            "source_feed": "Yahoo Sports",
+            "published": "2026-11-20T13:00:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://sports.yahoo.com/articles/saved-life-chelsea-2012-assister-130000752.html"
+        ],
+        "publisher_domains": [
+          "sports.yahoo.com"
+        ],
+        "source_feeds": [
+          "Yahoo Sports"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "ea8b4afe3ea21c2f2d574893": {
+      "event_id": "ea8b4afe3ea21c2f2d574893",
+      "title": "'It was my dream!' - Chelsea star Mykhailo Mudryk makes shocking Arsenal transfer admission while on loan at Tottenham",
+      "first_seen_at": "2026-11-20T13:15:31.818328+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
+      "last_published_at": "2026-11-20T01:33:36+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "msn.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "ea8b4afe3ea21c2f2d574893",
+        "title": "'It was my dream!' - Chelsea star Mykhailo Mudryk makes shocking Arsenal transfer admission while on loan at Tottenham",
+        "story_type": "general_news",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-20T01:33:36+00:00",
+        "best_summary": "Mykhailo Mudryk has sensationally revealed that he had his heart set on a move to Arsenal before eventually joining Chelsea in a high-profile transfer. The Ukrainian international, who is currently on ...",
+        "representative_title": "'It was my dream!' - Chelsea star Mykhailo Mudryk makes shocking Arsenal transfer admission while on loan at Tottenham",
+        "representative_url": "https://www.msn.com/en-gb/news/other/it-was-my-dream-chelsea-star-mykhailo-mudryk-makes-shocking-arsenal-transfer-admission-while-on-loan-at-tottenham/ar-AA2hQk8g",
+        "representative_publisher": "msn.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "'It was my dream!' - Chelsea star Mykhailo Mudryk makes shocking Arsenal transfer admission while on loan at Tottenham",
+            "summary": "Mykhailo Mudryk has sensationally revealed that he had his heart set on a move to Arsenal before eventually joining Chelsea in a high-profile transfer. The Ukrainian international, who is currently on ...",
+            "url": "https://www.msn.com/en-gb/news/other/it-was-my-dream-chelsea-star-mykhailo-mudryk-makes-shocking-arsenal-transfer-admission-while-on-loan-at-tottenham/ar-AA2hQk8g",
+            "publisher_domain": "msn.com",
+            "publisher_name_hint": "msn.com",
+            "source_feed": "Bing News discovery: Chelsea transfer news",
+            "published": "2026-11-20T01:33:36+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "general_news",
+            "opponent_key": "arsenal",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.msn.com/en-gb/news/other/it-was-my-dream-chelsea-star-mykhailo-mudryk-makes-shocking-arsenal-transfer-admission-while-on-loan-at-tottenham/ar-AA2hQk8g"
+        ],
+        "publisher_domains": [
+          "msn.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea transfer news"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "69c72a15eb4c3193bfafef91": {
+      "event_id": "69c72a15eb4c3193bfafef91",
+      "title": "Chelsea Transfer News: Alex Scott Move Edges Closer as Bournemouth Prepare for Major January Sale",
+      "first_seen_at": "2026-11-20T13:15:31.818328+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
+      "last_published_at": "2026-11-20T03:50:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "eplindex.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "69c72a15eb4c3193bfafef91",
+        "title": "Chelsea Transfer News: Alex Scott Move Edges Closer as Bournemouth Prepare for Major January Sale",
+        "story_type": "transfer_rumour",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-20T03:50:00+00:00",
+        "best_summary": "Chelsea leading the race to sign £100m-rated Premier League star by Ahmed Khan on Nov 20, 2026 for EPLindex.com ...",
+        "representative_title": "Chelsea Transfer News: Alex Scott Move Edges Closer as Bournemouth Prepare for Major January Sale",
+        "representative_url": "https://eplindex.com/152602/chelsea-leading-the-race-to-sign-100m-rated-premier-league-star.html",
+        "representative_publisher": "eplindex.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea Transfer News: Alex Scott Move Edges Closer as Bournemouth Prepare for Major January Sale",
+            "summary": "Chelsea leading the race to sign £100m-rated Premier League star by Ahmed Khan on Nov 20, 2026 for EPLindex.com ...",
+            "url": "https://eplindex.com/152602/chelsea-leading-the-race-to-sign-100m-rated-premier-league-star.html",
+            "publisher_domain": "eplindex.com",
+            "publisher_name_hint": "eplindex.com",
+            "source_feed": "Bing News discovery: Chelsea transfer news",
+            "published": "2026-11-20T03:50:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "transfer_rumour",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://eplindex.com/152602/chelsea-leading-the-race-to-sign-100m-rated-premier-league-star.html"
+        ],
+        "publisher_domains": [
+          "eplindex.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea transfer news"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "02a6b6f36c663fc4232b8a4e": {
+      "event_id": "02a6b6f36c663fc4232b8a4e",
+      "title": "Sonia Bompastor backing Manaka Matsukubo to help Chelsea cement top spot",
+      "first_seen_at": "2026-11-20T13:15:31.818328+00:00",
+      "last_seen_at": "2026-11-20T13:15:31.818328+00:00",
+      "last_published_at": "2026-11-20T04:39:32+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "msn.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "02a6b6f36c663fc4232b8a4e",
+        "title": "Sonia Bompastor backing Manaka Matsukubo to help Chelsea cement top spot",
+        "story_type": "transfer_rumour",
+        "team_scope": "chelsea_women",
+        "published": "2026-11-20T04:39:32+00:00",
+        "best_summary": "Summer signing Matsukubo has not been involved for the past two games, but could be involved again at Liverpool.",
+        "representative_title": "Sonia Bompastor backing Manaka Matsukubo to help Chelsea cement top spot",
+        "representative_url": "https://www.msn.com/en-gb/news/other/sonia-bompastor-backing-manaka-matsukubo-to-help-chelsea-cement-top-spot/ar-AA2hQDHj",
+        "representative_publisher": "msn.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Sonia Bompastor backing Manaka Matsukubo to help Chelsea cement top spot",
+            "summary": "Summer signing Matsukubo has not been involved for the past two games, but could be involved again at Liverpool.",
+            "url": "https://www.msn.com/en-gb/news/other/sonia-bompastor-backing-manaka-matsukubo-to-help-chelsea-cement-top-spot/ar-AA2hQDHj",
+            "publisher_domain": "msn.com",
+            "publisher_name_hint": "msn.com",
+            "source_feed": "Bing News discovery: Sonia Bompastor Chelsea",
+            "published": "2026-11-20T04:39:32+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "transfer_rumour",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.msn.com/en-gb/news/other/sonia-bompastor-backing-manaka-matsukubo-to-help-chelsea-cement-top-spot/ar-AA2hQDHj"
+        ],
+        "publisher_domains": [
+          "msn.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Sonia Bompastor Chelsea"
         ],
         "publisher_count": 1,
         "observation_count": 1,
