@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T02:30:34.004606+00:00",
+  "updated_at": "2026-11-20T02:31:06.505630+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -33706,7 +33706,7 @@
       "publisher_domains": [
         "espn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "2bec1c51eab20938b7d3e4e4",
         "title": "Valentín Barco on Chelsea career so far: 'I think I can give a lot more'",
@@ -33748,9 +33748,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T02:31:06.505630+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Valentín Barco on Chelsea career so far: 'I think I can give a lot more'",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
