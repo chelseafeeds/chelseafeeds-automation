@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T18:34:18.773652+00:00",
+  "updated_at": "2026-11-20T18:34:49.342650+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -34948,7 +34948,7 @@
         "talksport.com",
         "teamtalk.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "e90ba2d57d4b5d3dabc5c72a",
         "title": "Ally’s Acca boost: Get 11/1 on Bournemouth, Aston Villa, Chelsea and Falkirk to win",
@@ -34990,12 +34990,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T18:34:49.342650+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Ally’s Acca boost: Get 11/1 on Bournemouth, Aston Villa, Chelsea and Falkirk to win",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "63e04687508d205afcd2ae75": {
