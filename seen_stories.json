@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-20T07:12:24.887825+00:00",
+  "updated_at": "2026-11-20T07:13:03.262967+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -35983,7 +35983,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "2f03ac6bd03799b0c12d19e8",
         "title": "Nine players set to miss Chelsea vs Leeds with anxious Joao Pedro injury wait",
@@ -36025,12 +36025,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-20T07:13:03.262967+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Nine players set to miss Chelsea vs Leeds with anxious Joao Pedro injury wait",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "30844c8165ce8b53ce5e8125": {
