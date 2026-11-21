@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T21:53:44.547311+00:00",
+  "updated_at": "2026-11-21T21:53:47.183763+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -57632,7 +57632,7 @@
         "standard.co.uk",
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "f571d46d93ef957abff48de5",
         "title": "Will Joao Pedro play against Leeds? Latest Chelsea team news after Xabi Alonso update",
@@ -57716,7 +57716,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5245629253979459444",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/joaopedro-remains-sidelined-as-chelsea.html",
+      "scheduled_for_utc": "2026-11-21T21:58:45Z",
+      "last_blogger_status_updated_at": "2026-11-21T21:53:47.183739+00:00"
     },
     "32782373121c9bf588833710": {
       "event_id": "32782373121c9bf588833710",
