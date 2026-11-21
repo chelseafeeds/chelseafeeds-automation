@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T23:23:41.751141+00:00",
+  "updated_at": "2026-11-21T23:24:01.972076+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -63606,7 +63606,7 @@
         "independent.co.uk",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "5b25f13f6403e4b1bfc494c6",
         "title": "Xabi Alonso delivers Moises Caicedo injury update as Chelsea star hit with fresh setback",
@@ -63672,7 +63672,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "675956187090255157",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/xabi-alonso-updates-on-moises-caicedo.html",
+      "scheduled_for_utc": "2026-11-21T23:29:00Z",
+      "last_blogger_status_updated_at": "2026-11-21T23:24:01.972061+00:00"
     },
     "7b998a25ff137327c124ea56": {
       "event_id": "7b998a25ff137327c124ea56",
