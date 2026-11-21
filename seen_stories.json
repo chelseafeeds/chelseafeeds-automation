@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T16:56:56.588168+00:00",
+  "updated_at": "2026-11-21T17:22:24.517149+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -30949,7 +30949,7 @@
       "event_id": "34aed3ebcebf45a37fe16bea",
       "title": "Will Joao Pedro play against Leeds? Latest Chelsea team news after Xabi Alonso update",
       "first_seen_at": "2026-11-19T11:22:28.456759+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-21T09:25:29+00:00",
       "last_observation_count": 8,
       "publisher_domains": [
@@ -37361,7 +37361,7 @@
       "event_id": "23b57518d07e70803c8b96ad",
       "title": "Estêvão is Brazil's brightest young talent. Is Chelsea the right place for him?",
       "first_seen_at": "2026-11-20T09:37:46.671889+00:00",
-      "last_seen_at": "2026-11-21T16:29:40.040024+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-21T12:08:06+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37541,10 +37541,10 @@
     },
     "468cd4b35513f24d7d2e0d50": {
       "event_id": "468cd4b35513f24d7d2e0d50",
-      "title": "Premier League Predictions: Arsenal march on, Chelsea frustrated and Poch starts with a point at Liverpool",
+      "title": "Premier League live updates: Chelsea face Leeds; Tottenham against Ipswich",
       "first_seen_at": "2026-11-20T10:02:21.286094+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
-      "last_published_at": "2026-11-20T17:00:00+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_published_at": "2026-11-21T15:13:42+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
         "101greatgoals.com",
@@ -37556,25 +37556,25 @@
       "status": "published",
       "candidate_snapshot": {
         "event_id": "468cd4b35513f24d7d2e0d50",
-        "title": "Premier League Predictions: Arsenal march on, Chelsea frustrated and Poch starts with a point at Liverpool",
+        "title": "Premier League live updates: Chelsea face Leeds; Tottenham against Ipswich",
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-20T17:00:00+00:00",
-        "best_summary": "Club football makes a welcome return this weekend after the international break. There are some mouthwatering games to look forward to, so here are our Premier League predictions...",
-        "representative_title": "Premier League Predictions: Arsenal march on, Chelsea frustrated and Poch starts with a point at Liverpool",
-        "representative_url": "https://www.101greatgoals.com/football/premier-league/premier-league-predictions-arsenal-march-on-chelsea-frustrated-poch-starts-with-a-point-at-liverpool",
-        "representative_publisher": "101greatgoals.com",
-        "representative_publisher_type": "other_direct_domain",
+        "published": "2026-11-21T15:13:42+00:00",
+        "best_summary": "Club soccer returns across Europe this weekend following the final international break of 2026. Follow live with ESPN.",
+        "representative_title": "Premier League live updates: Chelsea face Leeds; Tottenham against Ipswich",
+        "representative_url": "https://www.espn.com/soccer/story/_/id/50532558/premier-league-live-updates-man-city-chelsea-arsenal",
+        "representative_publisher": "espn.com",
+        "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Premier League Predictions: Arsenal march on, Chelsea frustrated and Poch starts with a point at Liverpool",
-            "summary": "Club football makes a welcome return this weekend after the international break. There are some mouthwatering games to look forward to, so here are our Premier League predictions...",
-            "url": "https://www.101greatgoals.com/football/premier-league/premier-league-predictions-arsenal-march-on-chelsea-frustrated-poch-starts-with-a-point-at-liverpool",
-            "publisher_domain": "101greatgoals.com",
+            "title": "Premier League live updates: Chelsea face Leeds; Tottenham against Ipswich",
+            "summary": "Club soccer returns across Europe this weekend following the final international break of 2026. Follow live with ESPN.",
+            "url": "https://www.espn.com/soccer/story/_/id/50532558/premier-league-live-updates-man-city-chelsea-arsenal",
+            "publisher_domain": "espn.com",
             "publisher_name_hint": null,
-            "source_feed": "101 Great Goals",
-            "published": "2026-11-20T17:00:00+00:00",
-            "publisher_type": "other_direct_domain",
+            "source_feed": "ESPN Soccer",
+            "published": "2026-11-21T15:13:42+00:00",
+            "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "match_report",
             "opponent_key": "arsenal",
@@ -37583,13 +37583,13 @@
           }
         ],
         "source_urls": [
-          "https://www.101greatgoals.com/football/premier-league/premier-league-predictions-arsenal-march-on-chelsea-frustrated-poch-starts-with-a-point-at-liverpool"
+          "https://www.espn.com/soccer/story/_/id/50532558/premier-league-live-updates-man-city-chelsea-arsenal"
         ],
         "publisher_domains": [
-          "101greatgoals.com"
+          "espn.com"
         ],
         "source_feeds": [
-          "101 Great Goals"
+          "ESPN Soccer"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -39394,7 +39394,7 @@
       "event_id": "a6256ca72ec1f9bbc60e6db3",
       "title": "Made in Cobham: Andrew Pennie | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T12:27:23.396559+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T22:35:15+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -41945,7 +41945,7 @@
       "event_id": "977689abc9801dc72805bce5",
       "title": "Chelsea slapped with huge £150,000 fine after 'f*** the Pope and the IRA' fan chants in last season's FA Cup tie at Charlton",
       "first_seen_at": "2026-11-20T16:28:59.345340+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T23:21:24+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -43079,7 +43079,7 @@
       "event_id": "58de5f145fb6dc429e38514d",
       "title": "Alonso says Blues are ‘building an identity’ but need consistency | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-20T18:07:53.751236+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T23:21:44+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -43385,8 +43385,8 @@
       "event_id": "2d9e04f0029dce80f25ab6a5",
       "title": "Sources: Tom Brady buys stake in Chelsea after Birmingham exit",
       "first_seen_at": "2026-11-20T18:31:07.262818+00:00",
-      "last_seen_at": "2026-11-21T16:29:40.040024+00:00",
-      "last_published_at": "2026-11-21T13:33:19+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_published_at": "2026-11-21T16:50:22+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "espn.com"
@@ -43397,7 +43397,7 @@
         "title": "Sources: Tom Brady buys stake in Chelsea after Birmingham exit",
         "story_type": "general_news",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-21T13:33:19+00:00",
+        "published": "2026-11-21T16:50:22+00:00",
         "best_summary": "Seven-time Super Bowl champion quarterback Tom Brady has invested in Chelsea soccer club, sources confirmed to ESPN and NFL Network.",
         "representative_title": "Sources: Tom Brady buys stake in Chelsea after Birmingham exit",
         "representative_url": "https://www.espn.com/soccer/story/_/id/50542238/nfl-legend-tom-brady-buys-shares-chelsea-sources",
@@ -43411,7 +43411,7 @@
             "publisher_domain": "espn.com",
             "publisher_name_hint": null,
             "source_feed": "ESPN Soccer",
-            "published": "2026-11-21T13:33:19+00:00",
+            "published": "2026-11-21T16:50:22+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "general_news",
@@ -43524,7 +43524,7 @@
       "event_id": "9783a8df90afad62b5173966",
       "title": "Chelsea fined £150,000 by FA for anti-Catholic and anti-Irish chants as statement issued",
       "first_seen_at": "2026-11-20T19:01:09.551917+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T18:54:41+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -43649,7 +43649,7 @@
       "event_id": "e73a84b573395132490fe0dc",
       "title": "Tom Brady 'buys stake in Premier League giants Chelsea'... just days after his shock exit from Birmingham City",
       "first_seen_at": "2026-11-20T19:26:06.509131+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T08:42:36+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -44011,7 +44011,7 @@
       "event_id": "2b362d23644ae8ed39a3677e",
       "title": "Chelsea fined £150k and warned over future conduct for sectarian chants in FA Cup tie",
       "first_seen_at": "2026-11-20T20:06:01.202221+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-20T19:44:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -44316,7 +44316,7 @@
       "event_id": "c83c6fea642f1ef92238a7a1",
       "title": "NFL legend Tom Brady in talks to buy minority Chelsea stake",
       "first_seen_at": "2026-11-20T20:29:51.161489+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T20:07:30+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -44436,7 +44436,7 @@
       "event_id": "0550a3749311b5fe5017b370",
       "title": "Antonio Conte hits back after missing out on Man United job: Ex-Chelsea boss warns clubs they are 'frightened of winning' if they don't hire him in cryptic interview after Mauricio Pochettino landed Old Trafford gig",
       "first_seen_at": "2026-11-20T20:29:51.161489+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T20:50:20+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -44736,7 +44736,7 @@
       "event_id": "d11f2f94147493592d4629ae",
       "title": "NFL legend Tom Brady in advanced talks over buying minor stake in Chelsea",
       "first_seen_at": "2026-11-20T20:56:07.205902+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-20T20:46:48+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -44920,7 +44920,7 @@
       "event_id": "b71e2346476ab769af4b5744",
       "title": "Liverpool FCW vs. Chelsea FCW, Women’s Super League: Preview, team news, how to watch",
       "first_seen_at": "2026-11-20T20:58:03.587224+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T20:24:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -45100,7 +45100,7 @@
       "event_id": "2cf4ba33e56e3728a0015a23",
       "title": "How should Chelsea line up against Leeds United?",
       "first_seen_at": "2026-11-20T21:25:37.875764+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T20:47:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -45400,7 +45400,7 @@
       "event_id": "9ad87ea9dc5ee824751d6015",
       "title": "Xabi Alonso drops new Chelsea transfer hint amid injury crisis",
       "first_seen_at": "2026-11-20T22:46:04.372457+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T22:30:55+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -45462,8 +45462,8 @@
       "event_id": "36fcc40de5061b3d44275ef3",
       "title": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
       "first_seen_at": "2026-11-20T22:46:04.372457+00:00",
-      "last_seen_at": "2026-11-21T07:40:50.244900+00:00",
-      "last_published_at": "2026-11-20T22:30:59+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_published_at": "2026-11-21T07:56:12+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
         "independent.co.uk",
@@ -45475,22 +45475,37 @@
         "title": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-20T22:30:59+00:00",
-        "best_summary": "Chelsea were exposed by a traditional No9 in their last outing at Sunderland and Dominic Calvert-Lewin could do the same",
+        "published": "2026-11-21T07:56:12+00:00",
+        "best_summary": "Some major takeaways.Matchday 11 of the Premier League continued this Saturday with the 4pm kick-offs.Beaten 1-0 at Sunderland before the international break, Chelsea lost 4-1 to Leeds United at Stamf...",
         "representative_title": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
-        "representative_url": "https://www.independent.co.uk/sport/football/chelsea-leeds-preview-prediction-xabi-alonso-calvert-lewin-b3088906.html",
+        "representative_url": "https://www.independent.co.uk/sport/football/chelsea-leeds-preview-prediction-xabi-alonso-calvert-lewin-b3089078.html",
         "representative_publisher": "independent.co.uk",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
             "title": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
             "summary": "Chelsea were exposed by a traditional No9 in their last outing at Sunderland and Dominic Calvert-Lewin could do the same",
-            "url": "https://www.independent.co.uk/sport/football/chelsea-leeds-preview-prediction-xabi-alonso-calvert-lewin-b3088906.html",
+            "url": "https://www.independent.co.uk/sport/football/chelsea-leeds-preview-prediction-xabi-alonso-calvert-lewin-b3089078.html",
             "publisher_domain": "independent.co.uk",
-            "publisher_name_hint": "The Independent Football",
+            "publisher_name_hint": null,
             "source_feed": "The Independent Football",
-            "published": "2026-11-20T22:30:59+00:00",
+            "published": "2026-11-21T07:56:12+00:00",
             "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "sunderland",
+            "fixture_key": "",
+            "subject_key": ""
+          },
+          {
+            "title": "Premier League: Chelsea sink, Tottenham bounce back, Bournemouth on fire",
+            "summary": "Some major takeaways.Matchday 11 of the Premier League continued this Saturday with the 4pm kick-offs.Beaten 1-0 at Sunderland before the international break, Chelsea lost 4-1 to Leeds United at Stamf...",
+            "url": "https://sports.yahoo.com/articles/premier-league-chelsea-sink-tottenham-170400294.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "OneFootball",
+            "source_feed": "Yahoo Sports",
+            "published": "2026-11-21T17:04:00+00:00",
+            "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "match_report",
             "opponent_key": "sunderland",
@@ -45499,17 +45514,21 @@
           }
         ],
         "source_urls": [
-          "https://www.independent.co.uk/sport/football/chelsea-leeds-preview-prediction-xabi-alonso-calvert-lewin-b3088906.html"
+          "https://sports.yahoo.com/articles/premier-league-chelsea-sink-tottenham-170400294.html",
+          "https://www.independent.co.uk/sport/football/chelsea-leeds-preview-prediction-xabi-alonso-calvert-lewin-b3089078.html"
         ],
         "publisher_domains": [
-          "independent.co.uk"
+          "independent.co.uk",
+          "sports.yahoo.com"
         ],
         "source_feeds": [
-          "The Independent Football"
+          "The Independent Football",
+          "Yahoo Sports"
         ],
-        "publisher_count": 1,
-        "observation_count": 1,
-        "corroboration_status": "single_publisher_observation"
+        "publisher_count": 2,
+        "observation_count": 2,
+        "corroboration_status": "multiple_publishers_observed_independence_not_proven",
+        "evidence_refresh": true
       },
       "last_processed_at": "2026-11-20T23:48:12.450834+00:00",
       "last_editorial_outcome": "rejected_quality_gate",
@@ -45525,7 +45544,7 @@
       "event_id": "47edd58349fdd1ad9f2d6e26",
       "title": "Roberto De Zerbi defends Mykhailo Mudryk after on-loan star angered Spurs fans with interview gaffes - including admitting he wanted to join Arsenal",
       "first_seen_at": "2026-11-20T22:46:04.372457+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T22:35:31+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -45585,7 +45604,7 @@
       "event_id": "990a8e53fc69d48b253ea371",
       "title": "NFL great Brady could buy Chelsea stake",
       "first_seen_at": "2026-11-20T22:46:04.372457+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-20T22:36:35+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -45610,21 +45629,6 @@
             "url": "https://www.bbc.co.uk/sport/football/articles/cmg46k97k92do?at_medium=RSS&at_campaign=rss",
             "publisher_domain": "bbc.co.uk",
             "publisher_name_hint": null,
-            "source_feed": "BBC Sport",
-            "published": "2026-11-20T22:36:35+00:00",
-            "publisher_type": "established_domain",
-            "team_scope": "mens_first_team_or_club",
-            "story_type": "general_news",
-            "opponent_key": "",
-            "fixture_key": "",
-            "subject_key": ""
-          },
-          {
-            "title": "NFL great Brady could buy Chelsea stake",
-            "summary": "American football great Tom Brady is looking to invest in Chelsea through ownership group Clearlake Capital.",
-            "url": "https://www.bbc.co.uk/sport/football/articles/cmg46k97k92do?at_medium=RSS&at_campaign=rss",
-            "publisher_domain": "bbc.co.uk",
-            "publisher_name_hint": null,
             "source_feed": "BBC Sport Premier League",
             "published": "2026-11-20T22:36:35+00:00",
             "publisher_type": "established_domain",
@@ -45642,11 +45646,10 @@
           "bbc.co.uk"
         ],
         "source_feeds": [
-          "BBC Sport",
           "BBC Sport Premier League"
         ],
         "publisher_count": 1,
-        "observation_count": 2,
+        "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
       "last_processed_at": null,
@@ -45844,7 +45847,7 @@
       "event_id": "c0ebfc812373a7a2e3670872",
       "title": "A footballer who loves getting cards! Tottenham star Tosin Adarabioyo opens up on his passion for collecting as he launches trading card shop in London with Chelsea's Reece James and Levi Colwill",
       "first_seen_at": "2026-11-20T23:08:53.400026+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T23:06:24+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -46857,7 +46860,7 @@
       "event_id": "7133ac1dbb03f1d4852db22f",
       "title": "Chelsea vs Leeds United Premier League game preview: Team news and injury latest",
       "first_seen_at": "2026-11-21T03:48:03.554400+00:00",
-      "last_seen_at": "2026-11-21T16:10:30.306350+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T02:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -47132,7 +47135,7 @@
       "event_id": "0579d841d2a29d4151c958c1",
       "title": "AS Roma weigh loan move for Chelsea’s Jamie Gittens",
       "first_seen_at": "2026-11-21T05:46:02.525312+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-21T05:40:43+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -47970,7 +47973,7 @@
       "event_id": "1b4752269c4b6f5d3d868a19",
       "title": "Predicted Chelsea team vs Leeds as Joao Pedro solution found and Estevao Willian decision made",
       "first_seen_at": "2026-11-21T07:26:03.361897+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T07:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -48095,7 +48098,7 @@
       "event_id": "b6d86de774e2e34c80d50632",
       "title": "Bompastor highlights Cuthbert's importance ahead of 'difficult' Liverpool test | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T07:27:56.745037+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T07:21:33+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -48930,7 +48933,7 @@
       "event_id": "1660a1b1e8bda8b39684c58f",
       "title": "Chelsea vs. Leeds United, Premier League: Preview, team news, how to watch",
       "first_seen_at": "2026-11-21T08:07:25.748948+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T07:42:11+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -49050,7 +49053,7 @@
       "event_id": "28e12a7fe0dde2be63554661",
       "title": "The Chelsea loanee turning heads and Championship defenders at 17",
       "first_seen_at": "2026-11-21T08:13:41.027752+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-21T08:05:46+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -49368,7 +49371,7 @@
       "event_id": "3bb3219e0d9682c1bb06ac02",
       "title": "Hasselbaink tells Chelsea to choose Zubimendi over Alex Scott in January",
       "first_seen_at": "2026-11-21T08:31:50.030748+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-21T08:24:36+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -49743,7 +49746,7 @@
       "event_id": "aa5999064a04acd45912b6c3",
       "title": "How many red cards? Revisiting the brutal Chelsea vs Leeds FA Cup final",
       "first_seen_at": "2026-11-21T09:06:03.894971+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T08:55:06+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -49803,7 +49806,7 @@
       "event_id": "6a2f13e2c78949cc58284f3d",
       "title": "Alonso underlines importance of control on and off the ball | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T09:07:48.444193+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T09:05:10+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -50046,7 +50049,7 @@
       "event_id": "9e2db8cc0fdb48d6c30db4e4",
       "title": "Chelsea fans’ preferred lineup against Leeds United: Back four and Mike Penders",
       "first_seen_at": "2026-11-21T09:30:01.893622+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T09:15:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -50106,7 +50109,7 @@
       "event_id": "b98e50843e5b2fb4545e20c9",
       "title": "Recalling Leeds’ last win at Chelsea: McPhail, Leboeuf & a minor Premier League classic",
       "first_seen_at": "2026-11-21T09:54:07.991450+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T08:55:15+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -50166,12 +50169,14 @@
       "event_id": "44c5bcb990e18cc950b70524",
       "title": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
       "first_seen_at": "2026-11-21T09:56:29.525949+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T07:56:12+00:00",
-      "last_observation_count": 2,
+      "last_observation_count": 5,
       "publisher_domains": [
         "bleachernation.com",
-        "independent.co.uk"
+        "independent.co.uk",
+        "si.com",
+        "sports.yahoo.com"
       ],
       "status": "observed_not_processed",
       "candidate_snapshot": {
@@ -50179,19 +50184,34 @@
         "title": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-21T07:56:12+00:00",
-        "best_summary": "Chelsea were exposed by a traditional No9 in their last outing at Sunderland and Dominic Calvert-Lewin could do the same",
+        "published": "2026-11-20T20:24:00+00:00",
+        "best_summary": "Some major takeaways.Matchday 11 of the Premier League continued this Saturday with the 4pm kick-offs.Beaten 1-0 at Sunderland before the international break, Chelsea lost 4-1 to Leeds United at Stamf...",
         "representative_title": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
         "representative_url": "https://www.independent.co.uk/sport/football/chelsea-leeds-preview-prediction-xabi-alonso-calvert-lewin-b3089078.html",
         "representative_publisher": "independent.co.uk",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
+            "title": "Chelsea FC vs. Leeds United Prediction, Picks, Live Odds – Nov. 21",
+            "summary": "Chelsea FC will play at home versus Leeds United on Saturday, after mixed results in their most recent games in the Premier League -- a loss to Sunderland AFC ...",
+            "url": "https://www.bleachernation.com/picks/2026/11/20/chelsea-fc-vs-leeds-united-prediction-picks-live-odds-nov-21",
+            "publisher_domain": "bleachernation.com",
+            "publisher_name_hint": "bleachernation.com",
+            "source_feed": "Bing News discovery: \"Chelsea FC\" latest",
+            "published": "2026-11-20T20:24:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "sunderland",
+            "fixture_key": "",
+            "subject_key": ""
+          },
+          {
             "title": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
             "summary": "Chelsea were exposed by a traditional No9 in their last outing at Sunderland and Dominic Calvert-Lewin could do the same",
             "url": "https://www.independent.co.uk/sport/football/chelsea-leeds-preview-prediction-xabi-alonso-calvert-lewin-b3089078.html",
             "publisher_domain": "independent.co.uk",
-            "publisher_name_hint": null,
+            "publisher_name_hint": "The Independent Football",
             "source_feed": "The Independent Football",
             "published": "2026-11-21T07:56:12+00:00",
             "publisher_type": "established_domain",
@@ -50200,20 +50220,75 @@
             "opponent_key": "sunderland",
             "fixture_key": "",
             "subject_key": ""
+          },
+          {
+            "title": "Chelsea Player Ratings vs. Leeds: Defensive Horror Show Heaps Pressure on Alonso",
+            "summary": "There was no response from a miserable defeat to Sunderland before the international break.",
+            "url": "https://www.si.com/soccer/chelsea-player-ratings-vs-leeds-11-21-26",
+            "publisher_domain": "si.com",
+            "publisher_name_hint": "Sports Illustrated",
+            "source_feed": "Sports Illustrated",
+            "published": "2026-11-21T17:10:51+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "sunderland",
+            "fixture_key": "",
+            "subject_key": ""
+          },
+          {
+            "title": "Premier League: Chelsea sink, Tottenham bounce back, Bournemouth on fire",
+            "summary": "Some major takeaways.Matchday 11 of the Premier League continued this Saturday with the 4pm kick-offs.Beaten 1-0 at Sunderland before the international break, Chelsea lost 4-1 to Leeds United at ...",
+            "url": "https://sports.yahoo.com/articles/premier-league-chelsea-sink-tottenham-170400294.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "sports.yahoo.com",
+            "source_feed": "Bing News discovery: Chelsea Premier League",
+            "published": "2026-11-21T09:04:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "sunderland",
+            "fixture_key": "",
+            "subject_key": ""
+          },
+          {
+            "title": "Premier League: Chelsea sink, Tottenham bounce back, Bournemouth on fire",
+            "summary": "Some major takeaways.Matchday 11 of the Premier League continued this Saturday with the 4pm kick-offs.Beaten 1-0 at Sunderland before the international break, Chelsea lost 4-1 to Leeds United at Stamf...",
+            "url": "https://sports.yahoo.com/articles/premier-league-chelsea-sink-tottenham-170400294.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "Yahoo Sports",
+            "source_feed": "Yahoo Sports",
+            "published": "2026-11-21T17:04:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "sunderland",
+            "fixture_key": "",
+            "subject_key": ""
           }
         ],
         "source_urls": [
-          "https://www.independent.co.uk/sport/football/chelsea-leeds-preview-prediction-xabi-alonso-calvert-lewin-b3089078.html"
+          "https://sports.yahoo.com/articles/premier-league-chelsea-sink-tottenham-170400294.html",
+          "https://www.bleachernation.com/picks/2026/11/20/chelsea-fc-vs-leeds-united-prediction-picks-live-odds-nov-21",
+          "https://www.independent.co.uk/sport/football/chelsea-leeds-preview-prediction-xabi-alonso-calvert-lewin-b3089078.html",
+          "https://www.si.com/soccer/chelsea-player-ratings-vs-leeds-11-21-26"
         ],
         "publisher_domains": [
-          "independent.co.uk"
+          "bleachernation.com",
+          "independent.co.uk",
+          "si.com",
+          "sports.yahoo.com"
         ],
         "source_feeds": [
-          "The Independent Football"
+          "Bing News discovery: \"Chelsea FC\" latest",
+          "Bing News discovery: Chelsea Premier League",
+          "Sports Illustrated",
+          "The Independent Football",
+          "Yahoo Sports"
         ],
-        "publisher_count": 1,
-        "observation_count": 1,
-        "corroboration_status": "single_publisher_observation"
+        "publisher_count": 4,
+        "observation_count": 5,
+        "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
       "last_processed_at": null,
       "last_editorial_outcome": null,
@@ -50287,7 +50362,7 @@
       "event_id": "77bee2114c86c0673dd9f91b",
       "title": "Chelsea still ‘very keen' on Everton's Harrison Armstrong after summer transfer twist",
       "first_seen_at": "2026-11-21T09:56:29.525949+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T00:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -50467,7 +50542,7 @@
       "event_id": "4d69f4324bfd43d01259aacd",
       "title": "NFL legend Tom Brady in talks to buy Chelsea stake after Birmingham City exit",
       "first_seen_at": "2026-11-21T11:11:13.228510+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T10:52:37+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -50527,7 +50602,7 @@
       "event_id": "3f3ff8927dbe8dba5a1c2d59",
       "title": "Kieran Gibbs recalls his infamous Chelsea red card",
       "first_seen_at": "2026-11-21T11:11:13.228510+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T11:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -50769,7 +50844,7 @@
       "event_id": "5660bf5163e8cfb6e241527c",
       "title": "Chelsea lose appeal against £150,000 FA fine for anti-Catholic and anti-Irish chanting",
       "first_seen_at": "2026-11-21T11:30:06.010313+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-21T10:33:31+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -50949,7 +51024,7 @@
       "event_id": "6b72d222c681bd32247cf3da",
       "title": "Chelsea Women's starting line up vs Liverpool confirmed | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T11:57:56.486470+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T11:45:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -51012,7 +51087,7 @@
       "event_id": "6470f035e0a62e3cb40cf084",
       "title": "Watch Chelsea vs Leeds United: Live Streams and TV Channels",
       "first_seen_at": "2026-11-21T12:20:57.540943+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -51403,7 +51478,7 @@
       "event_id": "396983e0b7ab5583e133d5ae",
       "title": "WSL: Leaders Chelsea start without recognised striker at Liverpool",
       "first_seen_at": "2026-11-21T12:51:08.554445+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T04:25:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -51583,7 +51658,7 @@
       "event_id": "84c92c7e02dce50fd7aa4b09",
       "title": "Liverpool FCW vs. Chelsea FCW, Women’s Super League: Confirmed lineups; how to watch",
       "first_seen_at": "2026-11-21T12:53:31.666747+00:00",
-      "last_seen_at": "2026-11-21T16:32:50.097474+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T03:52:30+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -51643,7 +51718,7 @@
       "event_id": "d99af2476007caed960caccb",
       "title": "Premier League Soccer: Stream Chelsea vs. Leeds Live From Anywhere",
       "first_seen_at": "2026-11-21T12:53:31.666747+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T04:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -51945,7 +52020,7 @@
       "event_id": "d60ff059344eebe697b659d6",
       "title": "Transfer news LIVE: Arsenal in ‘serious’ midfield move; Chelsea learn Scott price; Man Utd, Liverpool latest",
       "first_seen_at": "2026-11-21T12:59:59.050863+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T12:47:09+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52003,10 +52078,10 @@
     },
     "26406a4728589e4c65c4b6f2": {
       "event_id": "26406a4728589e4c65c4b6f2",
-      "title": "Chelsea vs Leeds United LIVE - Okafor and Calvert-Lewin goals have visitors in dreamland",
+      "title": "Chelsea vs Leeds United highlights as dominant Whites put Blues to sword at Stamford Bridge",
       "first_seen_at": "2026-11-21T13:26:11.118431+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
-      "last_published_at": "2026-11-21T16:25:56+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T17:16:47+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
         "football.london"
@@ -52014,24 +52089,24 @@
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "26406a4728589e4c65c4b6f2",
-        "title": "Chelsea vs Leeds United LIVE - Okafor and Calvert-Lewin goals have visitors in dreamland",
+        "title": "Chelsea vs Leeds United highlights as dominant Whites put Blues to sword at Stamford Bridge",
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-21T16:25:56+00:00",
+        "published": "2026-11-21T17:16:47+00:00",
         "best_summary": "Follow along with all of the live action from Stamford Bridge as Chelsea welcome Leeds United in the Premier League this afternoon",
-        "representative_title": "Chelsea vs Leeds United LIVE - Okafor and Calvert-Lewin goals have visitors in dreamland",
+        "representative_title": "Chelsea vs Leeds United highlights as dominant Whites put Blues to sword at Stamford Bridge",
         "representative_url": "https://www.football.london/chelsea-fc/fixtures-results/chelsea-vs-leeds-united-live-34944144",
         "representative_publisher": "football.london",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Chelsea vs Leeds United LIVE - Okafor and Calvert-Lewin goals have visitors in dreamland",
+            "title": "Chelsea vs Leeds United highlights as dominant Whites put Blues to sword at Stamford Bridge",
             "summary": "Follow along with all of the live action from Stamford Bridge as Chelsea welcome Leeds United in the Premier League this afternoon",
             "url": "https://www.football.london/chelsea-fc/fixtures-results/chelsea-vs-leeds-united-live-34944144",
             "publisher_domain": "football.london",
             "publisher_name_hint": "Football London Chelsea",
             "source_feed": "Football London Chelsea",
-            "published": "2026-11-21T16:25:56+00:00",
+            "published": "2026-11-21T17:16:47+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "match_report",
@@ -52065,7 +52140,7 @@
       "event_id": "0d73987a20b30469aefab459",
       "title": "Willian on the Premier league sides he turned down to join Chelsea",
       "first_seen_at": "2026-11-21T13:26:11.118431+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T13:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52183,9 +52258,9 @@
     },
     "ab5c42f6b4cc6cc597778856": {
       "event_id": "ab5c42f6b4cc6cc597778856",
-      "title": "Chelsea falling apart as Leeds extend lead LIVE!",
+      "title": "Leeds dismantle Chelsea as pressure grows on Alonso LIVE!",
       "first_seen_at": "2026-11-21T13:26:11.118431+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T13:03:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52194,18 +52269,18 @@
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "ab5c42f6b4cc6cc597778856",
-        "title": "Chelsea falling apart as Leeds extend lead LIVE!",
+        "title": "Leeds dismantle Chelsea as pressure grows on Alonso LIVE!",
         "story_type": "general_news",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-21T13:03:00+00:00",
         "best_summary": "",
-        "representative_title": "Chelsea falling apart as Leeds extend lead LIVE!",
+        "representative_title": "Leeds dismantle Chelsea as pressure grows on Alonso LIVE!",
         "representative_url": "https://www.skysports.com/football/chelsea-vs-leeds-united/live/559547",
         "representative_publisher": "skysports.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Chelsea falling apart as Leeds extend lead LIVE!",
+            "title": "Leeds dismantle Chelsea as pressure grows on Alonso LIVE!",
             "summary": "",
             "url": "https://www.skysports.com/football/chelsea-vs-leeds-united/live/559547",
             "publisher_domain": "skysports.com",
@@ -52245,7 +52320,7 @@
       "event_id": "ff1b2fcefff418fd0f246b02",
       "title": "How to watch Chelsea vs Leeds United soccer for free today: English Premier League live stream, TV channel, odds",
       "first_seen_at": "2026-11-21T13:28:30.238988+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T19:45:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52545,7 +52620,7 @@
       "event_id": "5bdf85196a964497bb374a08",
       "title": "Team selection is referendum on Romeo Lavia; at turning point in Chelsea career",
       "first_seen_at": "2026-11-21T13:55:57.251977+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-21T13:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52665,7 +52740,7 @@
       "event_id": "c3761fd01c5223f08b064cbc",
       "title": "Chelsea XI vs Leeds: Starting lineup, confirmed team news, injury latest for Premier League today",
       "first_seen_at": "2026-11-21T13:55:57.251977+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T13:49:23+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52725,7 +52800,7 @@
       "event_id": "07abe9e41f7ca66742bbfe28",
       "title": "Team News: Summer signing gets debut as Alonso picks attacking team to face Leeds",
       "first_seen_at": "2026-11-21T13:55:57.251977+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-21T13:52:26+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52785,7 +52860,7 @@
       "event_id": "8c98023c76c78f96606f0137",
       "title": "Under-18 Premier League report: Chelsea 5-0 Arsenal | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T13:57:39.486847+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T13:20:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52848,7 +52923,7 @@
       "event_id": "0c1f021913eca9f7fbf88351",
       "title": "Confirmed Chelsea line up vs Leeds | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T13:57:39.486847+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T13:45:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52911,7 +52986,7 @@
       "event_id": "c0eecd61f246e3ea554375e5",
       "title": "Who is Olutayo Subuloye? Chelsea youngster on bench for Leeds clash",
       "first_seen_at": "2026-11-21T14:21:07.243682+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T13:57:20+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52971,7 +53046,7 @@
       "event_id": "8797a693c4fa7e88e48ec254",
       "title": "Chelsea v Leeds: Confirmed team news as Blues look to strengthen top-four credentials",
       "first_seen_at": "2026-11-21T14:21:07.243682+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T14:01:14+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -53031,7 +53106,7 @@
       "event_id": "77bbfa7c778d59cf844ed828",
       "title": "Elon Musk’s lawyer joining Tom Brady in buying Chelsea stake",
       "first_seen_at": "2026-11-21T14:21:07.243682+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
       "last_published_at": "2026-11-21T14:20:05+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -53347,7 +53422,7 @@
       "event_id": "3dc77b0d5c987efd93760797",
       "title": "Chelsea vs. Leeds United, Premier League: Lineups & Game Thread",
       "first_seen_at": "2026-11-21T14:23:33.065205+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T13:52:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -53407,7 +53482,7 @@
       "event_id": "0f1b6c20452ed59f649bc7c4",
       "title": "Chelsea vs Leeds Confirmed Lineups: Emegha Starts, Martínez Back in Goal",
       "first_seen_at": "2026-11-21T14:23:33.065205+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T14:05:41+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -53525,10 +53600,10 @@
     },
     "3fdd30076d512df49ebd5826": {
       "event_id": "3fdd30076d512df49ebd5826",
-      "title": "Chelsea v Leeds, Tottenham v Ipswich, and more: football clockwatch – live",
+      "title": "Chelsea 1-4 Leeds, Tottenham 2-0 Ipswich, and more: football clockwatch – live",
       "first_seen_at": "2026-11-21T14:51:03.785506+00:00",
-      "last_seen_at": "2026-11-21T16:53:49.795706+00:00",
-      "last_published_at": "2026-11-21T16:39:53+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_published_at": "2026-11-21T17:04:01+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "theguardian.com"
@@ -53536,24 +53611,24 @@
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "3fdd30076d512df49ebd5826",
-        "title": "Chelsea v Leeds, Tottenham v Ipswich, and more: football clockwatch – live",
+        "title": "Chelsea 1-4 Leeds, Tottenham 2-0 Ipswich, and more: football clockwatch – live",
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-21T16:39:53+00:00",
+        "published": "2026-11-21T17:04:01+00:00",
         "best_summary": "⚽️ Follow updates from the Premier League and beyond ⚽️ Live scores | Table | Follow on TikTok | And mail Emillia Championship fixtures Millwall 0-1 QPR Norwich City 2-1 Cardiff City Southampton 2-0 Derby County West Ham v Preston North End Bolton Wanderers v Portsmouth Middlesbrough v Bristol City Lincoln City v Wrexham Swansea City v West Brom Wolves v Charlton Athletic Stoke City v Birmingham City Sheffield United v Watford Continue reading...",
-        "representative_title": "Chelsea v Leeds, Tottenham v Ipswich, and more: football clockwatch – live",
+        "representative_title": "Chelsea 1-4 Leeds, Tottenham 2-0 Ipswich, and more: football clockwatch – live",
         "representative_url": "https://www.theguardian.com/football/live/2026/nov/21/chelsea-v-leeds-tottenham-v-ipswich-and-more-football-clockwatch-live",
         "representative_publisher": "theguardian.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Chelsea v Leeds, Tottenham v Ipswich, and more: football clockwatch – live",
+            "title": "Chelsea 1-4 Leeds, Tottenham 2-0 Ipswich, and more: football clockwatch – live",
             "summary": "⚽️ Follow updates from the Premier League and beyond ⚽️ Live scores | Table | Follow on TikTok | And mail Emillia Championship fixtures Millwall 0-1 QPR Norwich City 2-1 Cardiff City Southampton 2-0 Derby County West Ham v Preston North End Bolton Wanderers v Portsmouth Middlesbrough v Bristol City Lincoln City v Wrexham Swansea City v West Brom Wolves v Charlton Athletic Stoke City v Birmingham City Sheffield United v Watford Continue reading...",
             "url": "https://www.theguardian.com/football/live/2026/nov/21/chelsea-v-leeds-tottenham-v-ipswich-and-more-football-clockwatch-live",
             "publisher_domain": "theguardian.com",
             "publisher_name_hint": null,
             "source_feed": "The Guardian Football",
-            "published": "2026-11-21T16:39:53+00:00",
+            "published": "2026-11-21T17:04:01+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "match_report",
@@ -53587,7 +53662,7 @@
       "event_id": "1c81be70207dec0eaad42b67",
       "title": "Can you name everybody to play for Chelsea & Leeds since 1992?",
       "first_seen_at": "2026-11-21T14:51:03.785506+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T14:47:54+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -53879,7 +53954,7 @@
       "event_id": "6f24e8c071453e27f71e21bf",
       "title": "Chelsea vs. Leeds LIVE: Premier League updates, score and commentary",
       "first_seen_at": "2026-11-21T14:52:37.746997+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T08:16:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -53997,10 +54072,10 @@
     },
     "b599cbc8819227e57bd131d2": {
       "event_id": "b599cbc8819227e57bd131d2",
-      "title": "Chelsea vs Leeds live updates: Calvert-Lewin converts controversial penalty",
+      "title": "Chelsea vs Leeds live updates: Visitors smash Alonso’s haggard Blues for first Stamford Bridge win this century",
       "first_seen_at": "2026-11-21T14:52:37.746997+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
-      "last_published_at": "2026-11-21T08:30:00+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T08:59:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "nbcsports.com"
@@ -54008,24 +54083,24 @@
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "b599cbc8819227e57bd131d2",
-        "title": "Chelsea vs Leeds live updates: Calvert-Lewin converts controversial penalty",
+        "title": "Chelsea vs Leeds live updates: Visitors smash Alonso’s haggard Blues for first Stamford Bridge win this century",
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-21T08:30:00+00:00",
+        "published": "2026-11-21T08:59:00+00:00",
         "best_summary": "MOTM candidate Dominic Calvert-Lewin slams home controversial penalty, long-reviewed by VAR after handball on Morgan Rogers. Noah Okafor and Anton Stach healthy for Leeds, though Stach amongst the ...",
-        "representative_title": "Chelsea vs Leeds live updates: Calvert-Lewin converts controversial penalty",
+        "representative_title": "Chelsea vs Leeds live updates: Visitors smash Alonso’s haggard Blues for first Stamford Bridge win this century",
         "representative_url": "https://www.nbcsports.com/soccer/live/chelsea-vs-leeds-live-updates-score-goals-highlights-stats-2026-november-21",
         "representative_publisher": "nbcsports.com",
         "representative_publisher_type": "other_direct_domain",
         "source_observations": [
           {
-            "title": "Chelsea vs Leeds live updates: Calvert-Lewin converts controversial penalty",
+            "title": "Chelsea vs Leeds live updates: Visitors smash Alonso’s haggard Blues for first Stamford Bridge win this century",
             "summary": "MOTM candidate Dominic Calvert-Lewin slams home controversial penalty, long-reviewed by VAR after handball on Morgan Rogers. Noah Okafor and Anton Stach healthy for Leeds, though Stach amongst the ...",
             "url": "https://www.nbcsports.com/soccer/live/chelsea-vs-leeds-live-updates-score-goals-highlights-stats-2026-november-21",
             "publisher_domain": "nbcsports.com",
             "publisher_name_hint": "nbcsports.com",
-            "source_feed": "Bing News discovery: Chelsea Premier League",
-            "published": "2026-11-21T08:30:00+00:00",
+            "source_feed": "Bing News discovery: \"Chelsea FC\" latest",
+            "published": "2026-11-21T08:59:00+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "match_report",
@@ -54041,7 +54116,7 @@
           "nbcsports.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea Premier League"
+          "Bing News discovery: \"Chelsea FC\" latest"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -54119,7 +54194,7 @@
       "event_id": "aad3722d1f22607ec5de4aa9",
       "title": "Xabi Alonso on Emmanuel Emegha selection for Leeds clash | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T14:52:37.746997+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T14:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -54180,10 +54255,10 @@
     },
     "3840c295c8270d623d9ddeca": {
       "event_id": "3840c295c8270d623d9ddeca",
-      "title": "Chelsea vs Leeds - Premier League: Latest updates and score as Noah Okafor grabs a second goal to heap misery on stodgy Blues, plus all the action from the 3pm kick-offs",
+      "title": "Chelsea vs Leeds - Premier League: Reaction as dominant visitors score FOUR in thrashing of Blues",
       "first_seen_at": "2026-11-21T15:15:58.883684+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
-      "last_published_at": "2026-11-21T16:51:57+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T17:16:17+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
         "dailymail.com"
@@ -54191,42 +54266,42 @@
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "3840c295c8270d623d9ddeca",
-        "title": "Chelsea vs Leeds - Premier League: Latest updates and score as Noah Okafor grabs a second goal to heap misery on stodgy Blues, plus all the action from the 3pm kick-offs",
-        "story_type": "match_report",
+        "title": "Chelsea vs Leeds - Premier League: Reaction as dominant visitors score FOUR in thrashing of Blues",
+        "story_type": "match_reaction",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-21T16:51:57+00:00",
+        "published": "2026-11-21T17:16:17+00:00",
         "best_summary": "Follow Daily Mail Sport's live blog for the latest score, team news and updates as Manchester City entertain Fulham in the Premier League at the Etihad Stadium.",
-        "representative_title": "Chelsea vs Leeds - Premier League: Latest updates and score as Noah Okafor grabs a second goal to heap misery on stodgy Blues, plus all the action from the 3pm kick-offs",
+        "representative_title": "Chelsea vs Leeds - Premier League: Reaction as dominant visitors score FOUR in thrashing of Blues",
         "representative_url": "https://www.dailymail.com/sport/football/article-16308753/Manchester-City-vs-Fulham-Premier-League-Live-scores-team-news-updates-Enzo-Marescas-look-end-losing-streak.html?ns_mchannel=rss&ns_campaign=1490&ito=1490",
         "representative_publisher": "dailymail.com",
         "representative_publisher_type": "other_direct_domain",
         "source_observations": [
           {
-            "title": "Chelsea vs Leeds - Premier League: Latest updates and score as Noah Okafor grabs a second goal to heap misery on stodgy Blues, plus all the action from the 3pm kick-offs",
+            "title": "Chelsea vs Leeds - Premier League: Reaction as dominant visitors score FOUR in thrashing of Blues",
             "summary": "Follow Daily Mail Sport's live blog for the latest score, team news and updates as Manchester City entertain Fulham in the Premier League at the Etihad Stadium.",
             "url": "https://www.dailymail.com/sport/football/article-16308753/Manchester-City-vs-Fulham-Premier-League-Live-scores-team-news-updates-Enzo-Marescas-look-end-losing-streak.html?ns_mchannel=rss&ns_campaign=1490&ito=1490",
             "publisher_domain": "dailymail.com",
             "publisher_name_hint": "Daily Mail Football",
             "source_feed": "Daily Mail Football",
-            "published": "2026-11-21T16:51:57+00:00",
+            "published": "2026-11-21T17:16:17+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
-            "story_type": "match_report",
+            "story_type": "match_reaction",
             "opponent_key": "manchester_city",
             "fixture_key": "",
             "subject_key": ""
           },
           {
-            "title": "Chelsea vs Leeds - Premier League: Latest updates and score as Noah Okafor grabs a second goal to heap misery on stodgy Blues, plus all the action from the 3pm kick-offs",
+            "title": "Chelsea vs Leeds - Premier League: Reaction as dominant visitors score FOUR in thrashing of Blues",
             "summary": "Follow Daily Mail Sport's live blog for the latest score, team news and updates as Manchester City entertain Fulham in the Premier League at the Etihad Stadium.",
             "url": "https://www.dailymail.com/sport/football/article-16308753/Manchester-City-vs-Fulham-Premier-League-Live-scores-team-news-updates-Enzo-Marescas-look-end-losing-streak.html?ns_mchannel=rss&ns_campaign=1490&ito=1490",
             "publisher_domain": "dailymail.com",
             "publisher_name_hint": "Daily Mail Football",
             "source_feed": "Daily Mail Football",
-            "published": "2026-11-21T16:51:57+00:00",
+            "published": "2026-11-21T17:16:17+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
-            "story_type": "match_report",
+            "story_type": "match_reaction",
             "opponent_key": "manchester_city",
             "fixture_key": "",
             "subject_key": ""
@@ -54488,7 +54563,7 @@
       "event_id": "78c664254cda75b03faef871",
       "title": "Liverpool FCW 0-0 Chelsea FCW, Women’s Super League: Post-match reaction",
       "first_seen_at": "2026-11-21T15:20:23.523292+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T06:39:52+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -54608,7 +54683,7 @@
       "event_id": "a6873f513a2de362ece52425",
       "title": "Liverpool keeper Keating holds leaders Chelsea at bay in scoreless WSL draw",
       "first_seen_at": "2026-11-21T15:20:23.523292+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T15:03:50+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -54807,7 +54882,7 @@
       "event_id": "4feed09646a1baa2c6f102c0",
       "title": "Liverpool FCW 0-0 Chelsea FCW, Women’s Super League: Post-match reaction",
       "first_seen_at": "2026-11-21T15:17:31.886062+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T14:39:52+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -54867,7 +54942,7 @@
       "event_id": "0df4424353c76601359c25c4",
       "title": "Match report: Liverpool 0-0 Chelsea | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T15:17:31.886062+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T14:50:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -55033,7 +55108,7 @@
       "event_id": "da69a364f76bde6f97554d3d",
       "title": "Liverpool frustrate WSL league leaders Chelsea to grind out point",
       "first_seen_at": "2026-11-21T16:05:52.409917+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T15:58:40+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -55153,8 +55228,8 @@
       "event_id": "bd5f111209365b2bb9855c62",
       "title": "Premier League live updates: Chelsea face Leeds; Tottenham against Ipswich",
       "first_seen_at": "2026-11-21T16:10:30.306350+00:00",
-      "last_seen_at": "2026-11-21T16:32:50.097474+00:00",
-      "last_published_at": "2026-11-21T06:26:49+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T07:33:11+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "msn.com"
@@ -55165,7 +55240,7 @@
         "title": "Premier League live updates: Chelsea face Leeds; Tottenham against Ipswich",
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-21T06:26:49+00:00",
+        "published": "2026-11-21T07:33:11+00:00",
         "best_summary": "Club soccer returns across Europe this weekend following the final international break of 2026. Follow live with ESPN.",
         "representative_title": "Premier League live updates: Chelsea face Leeds; Tottenham against Ipswich",
         "representative_url": "https://www.msn.com/en-us/news/other/premier-league-live-updates-chelsea-face-leeds-tottenham-against-ipswich/ar-AA2hV3Y0",
@@ -55179,7 +55254,7 @@
             "publisher_domain": "msn.com",
             "publisher_name_hint": "msn.com",
             "source_feed": "Bing News discovery: Chelsea Premier League",
-            "published": "2026-11-21T06:26:49+00:00",
+            "published": "2026-11-21T07:33:11+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "match_report",
@@ -55213,7 +55288,7 @@
       "event_id": "22ff8d2aad65c0e361e3d962",
       "title": "Liverpool 0-0 Chelsea: Khiara Keating stars as Blues drop points in WSL title race",
       "first_seen_at": "2026-11-21T16:07:40.833836+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T07:15:00+00:00",
       "last_observation_count": 4,
       "publisher_domains": [
@@ -55312,7 +55387,7 @@
       "event_id": "7f4fc9da45472e97d58e0cc1",
       "title": "Moises Caicedo limps off injured after sickening fall in Chelsea’s clash vs Leeds as fans say ‘this is scary to watch’",
       "first_seen_at": "2026-11-21T16:10:30.306350+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T07:39:45+00:00",
       "last_observation_count": 5,
       "publisher_domains": [
@@ -55435,7 +55510,7 @@
       "event_id": "a72552e32ae77e92612bc099",
       "title": "Liverpool frustrate WSL league leaders Chelsea to grind out point",
       "first_seen_at": "2026-11-21T16:10:30.306350+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T07:58:40+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -55495,7 +55570,7 @@
       "event_id": "fd8f01507bb7b17bbcc7c5ed",
       "title": "Will Joao Pedro play against Leeds? Latest Chelsea team news after Xabi Alonso update",
       "first_seen_at": "2026-11-21T16:07:40.833836+00:00",
-      "last_seen_at": "2026-11-21T16:10:30.306350+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T09:25:29+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -55555,7 +55630,7 @@
       "event_id": "cfcedbe6ebd4acc9291fb586",
       "title": "Mike Dean speaks mind on Chelsea penalty controversy as Xabi Alonso fumes at VAR decision",
       "first_seen_at": "2026-11-21T16:29:40.040024+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T16:27:21+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -55615,7 +55690,7 @@
       "event_id": "29ea132208fa2daab26569d7",
       "title": "Chelsea vs Leeds live streaming: Kick-off time, team news, prediction and where to watch Premier League 2026-27 match",
       "first_seen_at": "2026-11-21T16:32:50.097474+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-20T21:29:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -55855,7 +55930,7 @@
       "event_id": "cb840970265c531fa9ffa2ae",
       "title": "Liverpool frustrate WSL league leaders Chelsea to grind out point",
       "first_seen_at": "2026-11-21T16:56:02.102215+00:00",
-      "last_seen_at": "2026-11-21T16:56:02.102215+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
       "last_published_at": "2026-11-21T07:58:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -55898,6 +55973,1268 @@
         ],
         "source_feeds": [
           "Bing News discovery: Sonia Bompastor Chelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "f6c7621ca41a395efef6eb92": {
+      "event_id": "f6c7621ca41a395efef6eb92",
+      "title": "Chelsea 1 Leeds 4: Pressure piles on Xabi Alonso as furious Blues fans storm out early during Stamford Bridge mauling",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T16:58:05+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "thesun.co.uk"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "f6c7621ca41a395efef6eb92",
+        "title": "Chelsea 1 Leeds 4: Pressure piles on Xabi Alonso as furious Blues fans storm out early during Stamford Bridge mauling",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T16:58:05+00:00",
+        "best_summary": "BILLIONS cannot buy you a backbone. Chelsea started the season with the Premier League’s most fearsome forward line, but now look like one of the softest sides in the top flight - torn apart by Leeds for a third Prem defeat in four. Xabi Alonso, pressure growing around him, insisted his boys were ready for...",
+        "representative_title": "Chelsea 1 Leeds 4: Pressure piles on Xabi Alonso as furious Blues fans storm out early during Stamford Bridge mauling",
+        "representative_url": "https://www.thesun.co.uk/sport/41098432/chelsea-1-leeds-4-noah-okafor-dominic-calvert-lewin",
+        "representative_publisher": "thesun.co.uk",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea 1 Leeds 4: Pressure piles on Xabi Alonso as furious Blues fans storm out early during Stamford Bridge mauling",
+            "summary": "BILLIONS cannot buy you a backbone. Chelsea started the season with the Premier League’s most fearsome forward line, but now look like one of the softest sides in the top flight - torn apart by Leeds for a third Prem defeat in four. Xabi Alonso, pressure growing around him, insisted his boys were ready for...",
+            "url": "https://www.thesun.co.uk/sport/41098432/chelsea-1-leeds-4-noah-okafor-dominic-calvert-lewin",
+            "publisher_domain": "thesun.co.uk",
+            "publisher_name_hint": "The Sun Football",
+            "source_feed": "The Sun Football",
+            "published": "2026-11-21T16:58:05+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.thesun.co.uk/sport/41098432/chelsea-1-leeds-4-noah-okafor-dominic-calvert-lewin"
+        ],
+        "publisher_domains": [
+          "thesun.co.uk"
+        ],
+        "source_feeds": [
+          "The Sun Football"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "7d3bee0ad7aef91ae9ec78d8": {
+      "event_id": "7d3bee0ad7aef91ae9ec78d8",
+      "title": "Is the pressure growing for Xabi Alonso after Leeds’s first win at Chelsea since 1999?",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T08:58:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "nytimes.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "7d3bee0ad7aef91ae9ec78d8",
+        "title": "Is the pressure growing for Xabi Alonso after Leeds’s first win at Chelsea since 1999?",
+        "story_type": "match_reaction",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T08:58:00+00:00",
+        "best_summary": "Leeds United beat Chelsea 4-1 to give them their first victory at Stamford Bridge since 1999. The hosts took the lead after a well-worked move up the pitch in the 25th minute, with Emanuel Emegha ...",
+        "representative_title": "Is the pressure growing for Xabi Alonso after Leeds’s first win at Chelsea since 1999?",
+        "representative_url": "https://www.nytimes.com/athletic/7792042/2026/11/21/chelsea-leeds-result-report-analysis",
+        "representative_publisher": "nytimes.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Is the pressure growing for Xabi Alonso after Leeds’s first win at Chelsea since 1999?",
+            "summary": "Leeds United beat Chelsea 4-1 to give them their first victory at Stamford Bridge since 1999. The hosts took the lead after a well-worked move up the pitch in the 25th minute, with Emanuel Emegha ...",
+            "url": "https://www.nytimes.com/athletic/7792042/2026/11/21/chelsea-leeds-result-report-analysis",
+            "publisher_domain": "nytimes.com",
+            "publisher_name_hint": "nytimes.com",
+            "source_feed": "Bing News discovery: \"Chelsea FC\" latest",
+            "published": "2026-11-21T08:58:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_reaction",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.nytimes.com/athletic/7792042/2026/11/21/chelsea-leeds-result-report-analysis"
+        ],
+        "publisher_domains": [
+          "nytimes.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: \"Chelsea FC\" latest"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "299502712c66c7ff95ac040f": {
+      "event_id": "299502712c66c7ff95ac040f",
+      "title": "Chelsea player ratings vs Leeds United as Estevao quiet, Cole Palmer poor and 4/10s abysmal",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T16:58:47+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "football.london"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "299502712c66c7ff95ac040f",
+        "title": "Chelsea player ratings vs Leeds United as Estevao quiet, Cole Palmer poor and 4/10s abysmal",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T16:58:47+00:00",
+        "best_summary": "Here are our full Chelsea player ratings after the Blues were beaten at home to Leeds United on Saturday afternoon",
+        "representative_title": "Chelsea player ratings vs Leeds United as Estevao quiet, Cole Palmer poor and 4/10s abysmal",
+        "representative_url": "https://www.football.london/chelsea-fc/news/chelsea-player-ratings-vs-leeds-34947377",
+        "representative_publisher": "football.london",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea player ratings vs Leeds United as Estevao quiet, Cole Palmer poor and 4/10s abysmal",
+            "summary": "Here are our full Chelsea player ratings after the Blues were beaten at home to Leeds United on Saturday afternoon",
+            "url": "https://www.football.london/chelsea-fc/news/chelsea-player-ratings-vs-leeds-34947377",
+            "publisher_domain": "football.london",
+            "publisher_name_hint": "Football London Chelsea",
+            "source_feed": "Football London Chelsea",
+            "published": "2026-11-21T16:58:47+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "cole_palmer"
+          }
+        ],
+        "source_urls": [
+          "https://www.football.london/chelsea-fc/news/chelsea-player-ratings-vs-leeds-34947377"
+        ],
+        "publisher_domains": [
+          "football.london"
+        ],
+        "source_feeds": [
+          "Football London Chelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "c121907877361e6a77173259": {
+      "event_id": "c121907877361e6a77173259",
+      "title": "The shocking Premier League table over the course of Todd Boehly’s reign as Chelsea chairman",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T16:59:26+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "planetfootball.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "c121907877361e6a77173259",
+        "title": "The shocking Premier League table over the course of Todd Boehly’s reign as Chelsea chairman",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T16:59:26+00:00",
+        "best_summary": "Look away now, Todd Boehly. The post The shocking Premier League table over the course of Todd Boehly’s reign as Chelsea chairman appeared first on Planet Football .",
+        "representative_title": "The shocking Premier League table over the course of Todd Boehly’s reign as Chelsea chairman",
+        "representative_url": "https://www.planetfootball.com/chelsea/chelsea-takeover-blueco-table-shocking",
+        "representative_publisher": "planetfootball.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "The shocking Premier League table over the course of Todd Boehly’s reign as Chelsea chairman",
+            "summary": "Look away now, Todd Boehly. The post The shocking Premier League table over the course of Todd Boehly’s reign as Chelsea chairman appeared first on Planet Football .",
+            "url": "https://www.planetfootball.com/chelsea/chelsea-takeover-blueco-table-shocking",
+            "publisher_domain": "planetfootball.com",
+            "publisher_name_hint": "Planet Football",
+            "source_feed": "Planet Football",
+            "published": "2026-11-21T16:59:26+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.planetfootball.com/chelsea/chelsea-takeover-blueco-table-shocking"
+        ],
+        "publisher_domains": [
+          "planetfootball.com"
+        ],
+        "source_feeds": [
+          "Planet Football"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "9d31bd40549247851da7307f": {
+      "event_id": "9d31bd40549247851da7307f",
+      "title": "Leeds dismantle Chelsea as pressure grows on Alonso",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T17:00:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "skysports.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "9d31bd40549247851da7307f",
+        "title": "Leeds dismantle Chelsea as pressure grows on Alonso",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T17:00:00+00:00",
+        "best_summary": "Leeds dismantled Chelsea and increased the pressure on manager Xabi Alonso with an outstanding performance in a 4-1 win at Stamford Bridge.",
+        "representative_title": "Leeds dismantle Chelsea as pressure grows on Alonso",
+        "representative_url": "https://www.skysports.com/football/chelsea-vs-leeds-united/report/559547",
+        "representative_publisher": "skysports.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Leeds dismantle Chelsea as pressure grows on Alonso",
+            "summary": "Leeds dismantled Chelsea and increased the pressure on manager Xabi Alonso with an outstanding performance in a 4-1 win at Stamford Bridge.",
+            "url": "https://www.skysports.com/football/chelsea-vs-leeds-united/report/559547",
+            "publisher_domain": "skysports.com",
+            "publisher_name_hint": "Sky Sports Premier League",
+            "source_feed": "Sky Sports Premier League",
+            "published": "2026-11-21T17:00:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "559547",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.skysports.com/football/chelsea-vs-leeds-united/report/559547"
+        ],
+        "publisher_domains": [
+          "skysports.com"
+        ],
+        "source_feeds": [
+          "Sky Sports Premier League"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "d450ea6315645d2fe5602195": {
+      "event_id": "d450ea6315645d2fe5602195",
+      "title": "Josh Acheampong awful, only 7/10 impresses - Chelsea player ratings vs Leeds",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_published_at": "2026-11-21T17:00:39+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "footballinsider247.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "d450ea6315645d2fe5602195",
+        "title": "Josh Acheampong awful, only 7/10 impresses - Chelsea player ratings vs Leeds",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T17:00:39+00:00",
+        "best_summary": "",
+        "representative_title": "Josh Acheampong awful, only 7/10 impresses - Chelsea player ratings vs Leeds",
+        "representative_url": "https://www.footballinsider247.com/chelsea/match/josh-acheampong-awful-only-710-impresses-chelsea-player-ratings-vs-leeds",
+        "representative_publisher": "footballinsider247.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Josh Acheampong awful, only 7/10 impresses - Chelsea player ratings vs Leeds",
+            "summary": "",
+            "url": "https://www.footballinsider247.com/chelsea/match/josh-acheampong-awful-only-710-impresses-chelsea-player-ratings-vs-leeds",
+            "publisher_domain": "footballinsider247.com",
+            "publisher_name_hint": null,
+            "source_feed": "Football Insider",
+            "published": "2026-11-21T17:00:39+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.footballinsider247.com/chelsea/match/josh-acheampong-awful-only-710-impresses-chelsea-player-ratings-vs-leeds"
+        ],
+        "publisher_domains": [
+          "footballinsider247.com"
+        ],
+        "source_feeds": [
+          "Football Insider"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "538e8e8dcacfb397a6e77c9a": {
+      "event_id": "538e8e8dcacfb397a6e77c9a",
+      "title": "Chelsea 1-4 Leeds: Visitors end 27-year wait for Stamford Bridge win in style",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T17:02:56+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "101greatgoals.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "538e8e8dcacfb397a6e77c9a",
+        "title": "Chelsea 1-4 Leeds: Visitors end 27-year wait for Stamford Bridge win in style",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T17:02:56+00:00",
+        "best_summary": "Leeds ended their unfortunate record in ruthless fashion.",
+        "representative_title": "Chelsea 1-4 Leeds: Visitors end 27-year wait for Stamford Bridge win in style",
+        "representative_url": "https://www.101greatgoals.com/football/premier-league/chelsea-leeds-result-report-goals",
+        "representative_publisher": "101greatgoals.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea 1-4 Leeds: Visitors end 27-year wait for Stamford Bridge win in style",
+            "summary": "Leeds ended their unfortunate record in ruthless fashion.",
+            "url": "https://www.101greatgoals.com/football/premier-league/chelsea-leeds-result-report-goals",
+            "publisher_domain": "101greatgoals.com",
+            "publisher_name_hint": "101 Great Goals",
+            "source_feed": "101 Great Goals",
+            "published": "2026-11-21T17:02:56+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.101greatgoals.com/football/premier-league/chelsea-leeds-result-report-goals"
+        ],
+        "publisher_domains": [
+          "101greatgoals.com"
+        ],
+        "source_feeds": [
+          "101 Great Goals"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "549502a999870eab6d8e2112": {
+      "event_id": "549502a999870eab6d8e2112",
+      "title": "Premier League: Leaders Arsenal visit Newcastle after Leeds win 4-1 at Chelsea",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T17:06:27+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "sports.yahoo.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "549502a999870eab6d8e2112",
+        "title": "Premier League: Leaders Arsenal visit Newcastle after Leeds win 4-1 at Chelsea",
+        "story_type": "match_reaction",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T17:06:27+00:00",
+        "best_summary": "Follow live as Arsenal bid to go eight points clear at the top of the Premier League against Newcastle.",
+        "representative_title": "Premier League: Leaders Arsenal visit Newcastle after Leeds win 4-1 at Chelsea",
+        "representative_url": "https://sports.yahoo.com/articles/premier-league-five-games-coming-142149404.html",
+        "representative_publisher": "sports.yahoo.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Premier League: Leaders Arsenal visit Newcastle after Leeds win 4-1 at Chelsea",
+            "summary": "Follow live as Arsenal bid to go eight points clear at the top of the Premier League against Newcastle.",
+            "url": "https://sports.yahoo.com/articles/premier-league-five-games-coming-142149404.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "Yahoo Sports",
+            "source_feed": "Yahoo Sports",
+            "published": "2026-11-21T17:06:27+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_reaction",
+            "opponent_key": "arsenal",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://sports.yahoo.com/articles/premier-league-five-games-coming-142149404.html"
+        ],
+        "publisher_domains": [
+          "sports.yahoo.com"
+        ],
+        "source_feeds": [
+          "Yahoo Sports"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "a5acb3eb67b84dbc803c4ff8": {
+      "event_id": "a5acb3eb67b84dbc803c4ff8",
+      "title": "Chelsea player ratings vs Leeds: Cole Palmer anonymous and Estevao blunt as Blues humiliated at home",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T17:11:29+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "standard.co.uk"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "a5acb3eb67b84dbc803c4ff8",
+        "title": "Chelsea player ratings vs Leeds: Cole Palmer anonymous and Estevao blunt as Blues humiliated at home",
+        "story_type": "match_reaction",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T17:11:29+00:00",
+        "best_summary": "Xabi Alonso very much under the microscope after latest home defeat",
+        "representative_title": "Chelsea player ratings vs Leeds: Cole Palmer anonymous and Estevao blunt as Blues humiliated at home",
+        "representative_url": "https://www.standard.co.uk/sport/football/chelsea-fc-player-ratings-vs-leeds-palmer-estevao-b1305837.html",
+        "representative_publisher": "standard.co.uk",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea player ratings vs Leeds: Cole Palmer anonymous and Estevao blunt as Blues humiliated at home",
+            "summary": "Xabi Alonso very much under the microscope after latest home defeat",
+            "url": "https://www.standard.co.uk/sport/football/chelsea-fc-player-ratings-vs-leeds-palmer-estevao-b1305837.html",
+            "publisher_domain": "standard.co.uk",
+            "publisher_name_hint": "Evening Standard Sport",
+            "source_feed": "Evening Standard Sport",
+            "published": "2026-11-21T17:11:29+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_reaction",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "cole_palmer"
+          }
+        ],
+        "source_urls": [
+          "https://www.standard.co.uk/sport/football/chelsea-fc-player-ratings-vs-leeds-palmer-estevao-b1305837.html"
+        ],
+        "publisher_domains": [
+          "standard.co.uk"
+        ],
+        "source_feeds": [
+          "Evening Standard Sport"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "e0c531aba7d26f34bed0602e": {
+      "event_id": "e0c531aba7d26f34bed0602e",
+      "title": "Chelsea 1-4 Leeds: Dismal Blues roundly beaten as scrutiny on Xabi Alonso grows",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T17:12:32+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "standard.co.uk"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "e0c531aba7d26f34bed0602e",
+        "title": "Chelsea 1-4 Leeds: Dismal Blues roundly beaten as scrutiny on Xabi Alonso grows",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T17:12:32+00:00",
+        "best_summary": "Blues have now won just one of their last five matches in all competitions",
+        "representative_title": "Chelsea 1-4 Leeds: Dismal Blues roundly beaten as scrutiny on Xabi Alonso grows",
+        "representative_url": "https://www.standard.co.uk/sport/football/chelsea-fc-leeds-result-alonso-pressure-b1305836.html",
+        "representative_publisher": "standard.co.uk",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea 1-4 Leeds: Dismal Blues roundly beaten as scrutiny on Xabi Alonso grows",
+            "summary": "Blues have now won just one of their last five matches in all competitions",
+            "url": "https://www.standard.co.uk/sport/football/chelsea-fc-leeds-result-alonso-pressure-b1305836.html",
+            "publisher_domain": "standard.co.uk",
+            "publisher_name_hint": "Evening Standard Sport",
+            "source_feed": "Evening Standard Sport",
+            "published": "2026-11-21T17:12:32+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.standard.co.uk/sport/football/chelsea-fc-leeds-result-alonso-pressure-b1305836.html"
+        ],
+        "publisher_domains": [
+          "standard.co.uk"
+        ],
+        "source_feeds": [
+          "Evening Standard Sport"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "86e6cf88983c7ded8c34cd65": {
+      "event_id": "86e6cf88983c7ded8c34cd65",
+      "title": "Noah Okafor at the double as Leeds hit back to demolish sorry Chelsea",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_published_at": "2026-11-21T17:14:52+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "theguardian.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "86e6cf88983c7ded8c34cd65",
+        "title": "Noah Okafor at the double as Leeds hit back to demolish sorry Chelsea",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T17:14:52+00:00",
+        "best_summary": "Xabi Alonso is straying towards crisis territory. Here’s a mind-bending statistic: Chelsea are eighth but have now lost more league games than Manchester United. They were bullied by a rampant Leeds, who fully merited their first win at Stamford Bridge since returning to the top of the table with a 2-0 victory in December 1999, and can look forward to another season with no European football if they do not sharpen up soon. It is not really worth dwelling on the fact that the second Leeds goal, a",
+        "representative_title": "Noah Okafor at the double as Leeds hit back to demolish sorry Chelsea",
+        "representative_url": "https://www.theguardian.com/football/2026/nov/21/chelsea-leeds-premier-league-match-report",
+        "representative_publisher": "theguardian.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Noah Okafor at the double as Leeds hit back to demolish sorry Chelsea",
+            "summary": "Xabi Alonso is straying towards crisis territory. Here’s a mind-bending statistic: Chelsea are eighth but have now lost more league games than Manchester United. They were bullied by a rampant Leeds, who fully merited their first win at Stamford Bridge since returning to the top of the table with a 2-0 victory in December 1999, and can look forward to another season with no European football if they do not sharpen up soon. It is not really worth dwelling on the fact that the second Leeds goal, a",
+            "url": "https://www.theguardian.com/football/2026/nov/21/chelsea-leeds-premier-league-match-report",
+            "publisher_domain": "theguardian.com",
+            "publisher_name_hint": null,
+            "source_feed": "The Guardian Chelsea",
+            "published": "2026-11-21T17:14:52+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "morgan_rogers"
+          }
+        ],
+        "source_urls": [
+          "https://www.theguardian.com/football/2026/nov/21/chelsea-leeds-premier-league-match-report"
+        ],
+        "publisher_domains": [
+          "theguardian.com"
+        ],
+        "source_feeds": [
+          "The Guardian Chelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "614d79f0d3e334075fead7ce": {
+      "event_id": "614d79f0d3e334075fead7ce",
+      "title": "Chelsea defender branded a ‘disgrace’ v Leeds: ‘He has been really poor’",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_published_at": "2026-11-21T17:15:20+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "football365.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "614d79f0d3e334075fead7ce",
+        "title": "Chelsea defender branded a ‘disgrace’ v Leeds: ‘He has been really poor’",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T17:15:20+00:00",
+        "best_summary": "Steve Sidwell has hammered a Chelsea defender for his performance against Leeds United at Stamford Bridge.",
+        "representative_title": "Chelsea defender branded a ‘disgrace’ v Leeds: ‘He has been really poor’",
+        "representative_url": "https://www.football365.com/news/wesley-fofana-chelsea-leeds-steve-sidwell-verdict",
+        "representative_publisher": "football365.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea defender branded a ‘disgrace’ v Leeds: ‘He has been really poor’",
+            "summary": "Steve Sidwell has hammered a Chelsea defender for his performance against Leeds United at Stamford Bridge.",
+            "url": "https://www.football365.com/news/wesley-fofana-chelsea-leeds-steve-sidwell-verdict",
+            "publisher_domain": "football365.com",
+            "publisher_name_hint": null,
+            "source_feed": "Football365",
+            "published": "2026-11-21T17:15:20+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.football365.com/news/wesley-fofana-chelsea-leeds-steve-sidwell-verdict"
+        ],
+        "publisher_domains": [
+          "football365.com"
+        ],
+        "source_feeds": [
+          "Football365"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "3a41047d47b1750ceadd99d1": {
+      "event_id": "3a41047d47b1750ceadd99d1",
+      "title": "Premier League live scores: Chelsea thrashed at home by Leeds before Arsenal face Newcastle",
+      "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_seen_at": "2026-11-21T17:20:22.181460+00:00",
+      "last_published_at": "2026-11-21T17:16:39+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "nytimes.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "3a41047d47b1750ceadd99d1",
+        "title": "Premier League live scores: Chelsea thrashed at home by Leeds before Arsenal face Newcastle",
+        "story_type": "opinion_analysis",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T17:16:39+00:00",
+        "best_summary": "Follow news, updates and analysis from today’s fixtures in the Premier League.",
+        "representative_title": "Premier League live scores: Chelsea thrashed at home by Leeds before Arsenal face Newcastle",
+        "representative_url": "https://www.nytimes.com/athletic/live-blogs/premier-league-live-updates-scores-results-news/XgcjO3hBj7Js",
+        "representative_publisher": "nytimes.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Premier League live scores: Chelsea thrashed at home by Leeds before Arsenal face Newcastle",
+            "summary": "Follow news, updates and analysis from today’s fixtures in the Premier League.",
+            "url": "https://www.nytimes.com/athletic/live-blogs/premier-league-live-updates-scores-results-news/XgcjO3hBj7Js",
+            "publisher_domain": "nytimes.com",
+            "publisher_name_hint": null,
+            "source_feed": "The Athletic",
+            "published": "2026-11-21T17:16:39+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "opinion_analysis",
+            "opponent_key": "arsenal",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.nytimes.com/athletic/live-blogs/premier-league-live-updates-scores-results-news/XgcjO3hBj7Js"
+        ],
+        "publisher_domains": [
+          "nytimes.com"
+        ],
+        "source_feeds": [
+          "The Athletic"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "29abb6766b72a5b2ce591a26": {
+      "event_id": "29abb6766b72a5b2ce591a26",
+      "title": "Leaders Chelsea held to scoreless WSL draw by Liverpool",
+      "first_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T06:56:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "reuters.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "29abb6766b72a5b2ce591a26",
+        "title": "Leaders Chelsea held to scoreless WSL draw by Liverpool",
+        "story_type": "match_report",
+        "team_scope": "chelsea_women",
+        "published": "2026-11-21T06:56:00+00:00",
+        "best_summary": "A superb individual display from Liverpool keeper Khiara Keating helped her ​side to get a scoreless draw ‌with Chelsea on Saturday that could knock the Blues off the top of the Women's Super ​League ...",
+        "representative_title": "Leaders Chelsea held to scoreless WSL draw by Liverpool",
+        "representative_url": "https://www.reuters.com/sports/soccer/leaders-chelsea-held-scoreless-wsl-draw-by-liverpool-2026-11-21",
+        "representative_publisher": "reuters.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Leaders Chelsea held to scoreless WSL draw by Liverpool",
+            "summary": "A superb individual display from Liverpool keeper Khiara Keating helped her ​side to get a scoreless draw ‌with Chelsea on Saturday that could knock the Blues off the top of the Women's Super ​League ...",
+            "url": "https://www.reuters.com/sports/soccer/leaders-chelsea-held-scoreless-wsl-draw-by-liverpool-2026-11-21",
+            "publisher_domain": "reuters.com",
+            "publisher_name_hint": "reuters.com",
+            "source_feed": "Bing News discovery: Chelsea Women WSL",
+            "published": "2026-11-21T06:56:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.reuters.com/sports/soccer/leaders-chelsea-held-scoreless-wsl-draw-by-liverpool-2026-11-21"
+        ],
+        "publisher_domains": [
+          "reuters.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea Women WSL"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "8603920159519eb2f3a1df02": {
+      "event_id": "8603920159519eb2f3a1df02",
+      "title": "Reece James called the best captain of Emmanuel Emegha’s career — and Chelsea should love hearing it",
+      "first_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T07:07:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "el-balad.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "8603920159519eb2f3a1df02",
+        "title": "Reece James called the best captain of Emmanuel Emegha’s career — and Chelsea should love hearing it",
+        "story_type": "general_news",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T07:07:00+00:00",
+        "best_summary": "Emmanuel Emegha says Reece James is the best captain he has ever had, praising how the Chelsea leader made him feel comfortable.",
+        "representative_title": "Reece James called the best captain of Emmanuel Emegha’s career — and Chelsea should love hearing it",
+        "representative_url": "https://www.el-balad.com/17068805",
+        "representative_publisher": "el-balad.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Reece James called the best captain of Emmanuel Emegha’s career — and Chelsea should love hearing it",
+            "summary": "Emmanuel Emegha says Reece James is the best captain he has ever had, praising how the Chelsea leader made him feel comfortable.",
+            "url": "https://www.el-balad.com/17068805",
+            "publisher_domain": "el-balad.com",
+            "publisher_name_hint": "el-balad.com",
+            "source_feed": "Bing News discovery: Reece James Chelsea",
+            "published": "2026-11-21T07:07:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "general_news",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "reece_james"
+          }
+        ],
+        "source_urls": [
+          "https://www.el-balad.com/17068805"
+        ],
+        "publisher_domains": [
+          "el-balad.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Reece James Chelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "93dc5a11a4ad13b20c07d678": {
+      "event_id": "93dc5a11a4ad13b20c07d678",
+      "title": "Chelsea player ratings vs Leeds United as Estevao quiet, Cole Palmer poor and 4/10s abysmal",
+      "first_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T08:58:47+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "msn.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "93dc5a11a4ad13b20c07d678",
+        "title": "Chelsea player ratings vs Leeds United as Estevao quiet, Cole Palmer poor and 4/10s abysmal",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T08:58:47+00:00",
+        "best_summary": "Here are our full Chelsea player ratings after the Blues were beaten at home to Leeds United on Saturday afternoon ...",
+        "representative_title": "Chelsea player ratings vs Leeds United as Estevao quiet, Cole Palmer poor and 4/10s abysmal",
+        "representative_url": "https://www.msn.com/en-gb/sport/football/chelsea-player-ratings-vs-leeds-united-as-estevao-quiet-cole-palmer-poor-and-4-10s-abysmal/ar-AA2hVVRR",
+        "representative_publisher": "msn.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea player ratings vs Leeds United as Estevao quiet, Cole Palmer poor and 4/10s abysmal",
+            "summary": "Here are our full Chelsea player ratings after the Blues were beaten at home to Leeds United on Saturday afternoon ...",
+            "url": "https://www.msn.com/en-gb/sport/football/chelsea-player-ratings-vs-leeds-united-as-estevao-quiet-cole-palmer-poor-and-4-10s-abysmal/ar-AA2hVVRR",
+            "publisher_domain": "msn.com",
+            "publisher_name_hint": "msn.com",
+            "source_feed": "Bing News discovery: Cole Palmer Chelsea",
+            "published": "2026-11-21T08:58:47+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "cole_palmer"
+          }
+        ],
+        "source_urls": [
+          "https://www.msn.com/en-gb/sport/football/chelsea-player-ratings-vs-leeds-united-as-estevao-quiet-cole-palmer-poor-and-4-10s-abysmal/ar-AA2hVVRR"
+        ],
+        "publisher_domains": [
+          "msn.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Cole Palmer Chelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "06cc25f21a6170fd92e8742d": {
+      "event_id": "06cc25f21a6170fd92e8742d",
+      "title": "Chelsea 1-4 Leeds United, Premier League: Post-match reaction, ratings",
+      "first_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T08:58:48+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "msn.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "06cc25f21a6170fd92e8742d",
+        "title": "Chelsea 1-4 Leeds United, Premier League: Post-match reaction, ratings",
+        "story_type": "match_reaction",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T08:58:48+00:00",
+        "best_summary": "Chelsea quickly established control and set about breaking down the visitors, who responded by kicking anything and everything in sight, taking advantage of some typical refereeing leniency early in ...",
+        "representative_title": "Chelsea 1-4 Leeds United, Premier League: Post-match reaction, ratings",
+        "representative_url": "https://www.msn.com/en-us/news/other/chelsea-1-4-leeds-united-premier-league-post-match-reaction-ratings/ar-AA2hVLI5",
+        "representative_publisher": "msn.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea 1-4 Leeds United, Premier League: Post-match reaction, ratings",
+            "summary": "Chelsea quickly established control and set about breaking down the visitors, who responded by kicking anything and everything in sight, taking advantage of some typical refereeing leniency early in ...",
+            "url": "https://www.msn.com/en-us/news/other/chelsea-1-4-leeds-united-premier-league-post-match-reaction-ratings/ar-AA2hVLI5",
+            "publisher_domain": "msn.com",
+            "publisher_name_hint": "msn.com",
+            "source_feed": "Bing News discovery: Chelsea Premier League",
+            "published": "2026-11-21T08:58:48+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_reaction",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.msn.com/en-us/news/other/chelsea-1-4-leeds-united-premier-league-post-match-reaction-ratings/ar-AA2hVLI5"
+        ],
+        "publisher_domains": [
+          "msn.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea Premier League"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "a18ca0c826924773a0bb440f": {
+      "event_id": "a18ca0c826924773a0bb440f",
+      "title": "Chelsea player ratings vs Leeds: Cole Palmer anonymous as six 4/10s struggle in loss",
+      "first_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T08:59:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "msn.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "a18ca0c826924773a0bb440f",
+        "title": "Chelsea player ratings vs Leeds: Cole Palmer anonymous as six 4/10s struggle in loss",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T08:59:00+00:00",
+        "best_summary": "Express Sport hands out player ratings from Stamford Bridge.",
+        "representative_title": "Chelsea player ratings vs Leeds: Cole Palmer anonymous as six 4/10s struggle in loss",
+        "representative_url": "https://www.msn.com/en-gb/news/other/chelsea-player-ratings-vs-leeds-cole-palmer-anonymous-as-six-410s-struggle-in-loss/ar-AA2hVuXM",
+        "representative_publisher": "msn.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea player ratings vs Leeds: Cole Palmer anonymous as six 4/10s struggle in loss",
+            "summary": "Express Sport hands out player ratings from Stamford Bridge.",
+            "url": "https://www.msn.com/en-gb/news/other/chelsea-player-ratings-vs-leeds-cole-palmer-anonymous-as-six-410s-struggle-in-loss/ar-AA2hVuXM",
+            "publisher_domain": "msn.com",
+            "publisher_name_hint": "msn.com",
+            "source_feed": "Bing News discovery: Cole Palmer Chelsea",
+            "published": "2026-11-21T08:59:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "cole_palmer"
+          }
+        ],
+        "source_urls": [
+          "https://www.msn.com/en-gb/news/other/chelsea-player-ratings-vs-leeds-cole-palmer-anonymous-as-six-410s-struggle-in-loss/ar-AA2hVuXM"
+        ],
+        "publisher_domains": [
+          "msn.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Cole Palmer Chelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "4b14449dcb625df8db0fe195": {
+      "event_id": "4b14449dcb625df8db0fe195",
+      "title": "Chelsea player ratings vs Leeds: Palmer anonymous as Blues humiliated",
+      "first_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T09:11:29+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "msn.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "4b14449dcb625df8db0fe195",
+        "title": "Chelsea player ratings vs Leeds: Palmer anonymous as Blues humiliated",
+        "story_type": "match_reaction",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T09:11:29+00:00",
+        "best_summary": "Chelsea player ratings vs Leeds: Cole Palmer anonymous and Estevao blunt as Blues humiliated at home - Xabi Alonso very much under the microscope after latest home defeat ...",
+        "representative_title": "Chelsea player ratings vs Leeds: Palmer anonymous as Blues humiliated",
+        "representative_url": "https://www.msn.com/en-gb/sport/football/chelsea-player-ratings-vs-leeds-palmer-anonymous-as-blues-humiliated/ar-AA2hVhCm",
+        "representative_publisher": "msn.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea player ratings vs Leeds: Palmer anonymous as Blues humiliated",
+            "summary": "Chelsea player ratings vs Leeds: Cole Palmer anonymous and Estevao blunt as Blues humiliated at home - Xabi Alonso very much under the microscope after latest home defeat ...",
+            "url": "https://www.msn.com/en-gb/sport/football/chelsea-player-ratings-vs-leeds-palmer-anonymous-as-blues-humiliated/ar-AA2hVhCm",
+            "publisher_domain": "msn.com",
+            "publisher_name_hint": "msn.com",
+            "source_feed": "Bing News discovery: Cole Palmer Chelsea",
+            "published": "2026-11-21T09:11:29+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_reaction",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "cole_palmer"
+          }
+        ],
+        "source_urls": [
+          "https://www.msn.com/en-gb/sport/football/chelsea-player-ratings-vs-leeds-palmer-anonymous-as-blues-humiliated/ar-AA2hVhCm"
+        ],
+        "publisher_domains": [
+          "msn.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Cole Palmer Chelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "ef8529e1a57cefa7440fbefb": {
+      "event_id": "ef8529e1a57cefa7440fbefb",
+      "title": "Match report: Chelsea 1-4 Leeds | News | Official Site - Chelsea Football Club",
+      "first_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T16:30:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "chelseafc.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "ef8529e1a57cefa7440fbefb",
+        "title": "Match report: Chelsea 1-4 Leeds | News | Official Site - Chelsea Football Club",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T16:30:00+00:00",
+        "best_summary": "Match report: Chelsea 1-4 Leeds | News | Official Site Chelsea Football Club",
+        "representative_title": "Match report: Chelsea 1-4 Leeds | News | Official Site - Chelsea Football Club",
+        "representative_url": "https://www.chelseafc.com/en/news/article/match-report-chelsea-1-4-leeds",
+        "representative_publisher": "chelseafc.com",
+        "representative_publisher_type": "official_domain",
+        "source_observations": [
+          {
+            "title": "Match report: Chelsea 1-4 Leeds | News | Official Site - Chelsea Football Club",
+            "summary": "Match report: Chelsea 1-4 Leeds | News | Official Site Chelsea Football Club",
+            "url": "https://www.chelseafc.com/en/news/article/match-report-chelsea-1-4-leeds",
+            "publisher_domain": "chelseafc.com",
+            "publisher_name_hint": "Chelsea Football Club",
+            "source_feed": "Google News official-source discovery",
+            "published": "2026-11-21T16:30:00+00:00",
+            "publisher_type": "official_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "",
+            "discovery_timestamp_source": "Google News RSS; discovery only"
+          }
+        ],
+        "source_urls": [
+          "https://www.chelseafc.com/en/news/article/match-report-chelsea-1-4-leeds"
+        ],
+        "publisher_domains": [
+          "chelseafc.com"
+        ],
+        "source_feeds": [
+          "Google News official-source discovery"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "d58a4f0e911d87b1724f280d": {
+      "event_id": "d58a4f0e911d87b1724f280d",
+      "title": "Bompastor provides Mayra Ramirez and Manaka Matsukubo injury update | News | Official Site - Chelsea Football Club",
+      "first_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_seen_at": "2026-11-21T17:22:24.517149+00:00",
+      "last_published_at": "2026-11-21T17:00:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "chelseafc.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "d58a4f0e911d87b1724f280d",
+        "title": "Bompastor provides Mayra Ramirez and Manaka Matsukubo injury update | News | Official Site - Chelsea Football Club",
+        "story_type": "injury_update",
+        "team_scope": "chelsea_women",
+        "published": "2026-11-21T17:00:00+00:00",
+        "best_summary": "Bompastor provides Mayra Ramirez and Manaka Matsukubo injury update | News | Official Site Chelsea Football Club",
+        "representative_title": "Bompastor provides Mayra Ramirez and Manaka Matsukubo injury update | News | Official Site - Chelsea Football Club",
+        "representative_url": "https://www.chelseafc.com/en/news/article/bompastor-provides-mayra-ramirez-and-manaka-matsukubo-injury-update",
+        "representative_publisher": "chelseafc.com",
+        "representative_publisher_type": "official_domain",
+        "source_observations": [
+          {
+            "title": "Bompastor provides Mayra Ramirez and Manaka Matsukubo injury update | News | Official Site - Chelsea Football Club",
+            "summary": "Bompastor provides Mayra Ramirez and Manaka Matsukubo injury update | News | Official Site Chelsea Football Club",
+            "url": "https://www.chelseafc.com/en/news/article/bompastor-provides-mayra-ramirez-and-manaka-matsukubo-injury-update",
+            "publisher_domain": "chelseafc.com",
+            "publisher_name_hint": "Chelsea Football Club",
+            "source_feed": "Google News official-source discovery",
+            "published": "2026-11-21T17:00:00+00:00",
+            "publisher_type": "official_domain",
+            "team_scope": "chelsea_women",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "",
+            "discovery_timestamp_source": "Google News RSS; discovery only"
+          }
+        ],
+        "source_urls": [
+          "https://www.chelseafc.com/en/news/article/bompastor-provides-mayra-ramirez-and-manaka-matsukubo-injury-update"
+        ],
+        "publisher_domains": [
+          "chelseafc.com"
+        ],
+        "source_feeds": [
+          "Google News official-source discovery"
         ],
         "publisher_count": 1,
         "observation_count": 1,
