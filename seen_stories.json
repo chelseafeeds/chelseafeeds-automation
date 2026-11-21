@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T20:27:41.887446+00:00",
+  "updated_at": "2026-11-21T20:28:11.717694+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -55284,7 +55284,7 @@
         "skysports.com",
         "weaintgotnohistory.sbnation.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "22ff8d2aad65c0e361e3d962",
         "title": "Liverpool 0-0 Chelsea: Khiara Keating stars as Blues drop points in WSL title race",
@@ -55385,7 +55385,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "2081808110981823790",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-women-held-0-0-by-liverpool-as.html",
+      "scheduled_for_utc": "2026-11-21T20:33:10Z",
+      "last_blogger_status_updated_at": "2026-11-21T20:28:11.717680+00:00"
     },
     "7f4fc9da45472e97d58e0cc1": {
       "event_id": "7f4fc9da45472e97d58e0cc1",
