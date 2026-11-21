@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T19:43:42.603131+00:00",
+  "updated_at": "2026-11-21T19:44:06.067807+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -51865,7 +51865,7 @@
         "theguardian.com",
         "weaintgotnohistory.sbnation.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "b3156aefcc87b67313371e49",
         "title": "Liverpool frustrate Chelsea as Keating heroics leave WSL title race wide open",
@@ -51913,7 +51913,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7979389370416676389",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-women-held-to-0-0-draw-at.html",
+      "scheduled_for_utc": "2026-11-21T19:49:04Z",
+      "last_blogger_status_updated_at": "2026-11-21T19:44:06.067787+00:00"
     },
     "62d543394a0aac970ad5ed3f": {
       "event_id": "62d543394a0aac970ad5ed3f",
