@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T08:58:40.749690+00:00",
+  "updated_at": "2026-11-21T08:59:03.411283+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -48109,7 +48109,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "1b4752269c4b6f5d3d868a19",
         "title": "Predicted Chelsea team vs Leeds as Joao Pedro solution found and Estevao Willian decision made",
@@ -48157,7 +48157,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "8500338224976761510",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-vs-leeds-predicted-line-up.html",
+      "scheduled_for_utc": "2026-11-21T09:04:02Z",
+      "last_blogger_status_updated_at": "2026-11-21T08:59:03.411269+00:00"
     },
     "4e48b58a3ec60d555691122f": {
       "event_id": "4e48b58a3ec60d555691122f",
