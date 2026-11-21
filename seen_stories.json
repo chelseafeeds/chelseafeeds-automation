@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T18:21:57.279177+00:00",
+  "updated_at": "2026-11-21T18:22:27.258332+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -50219,7 +50219,7 @@
         "si.com",
         "sports.yahoo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "44c5bcb990e18cc950b70524",
         "title": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
@@ -50332,9 +50332,9 @@
         "observation_count": 5,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-21T18:22:27.258332+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
