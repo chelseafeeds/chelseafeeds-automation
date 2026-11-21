@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T14:52:20.425111+00:00",
+  "updated_at": "2026-11-21T14:52:37.849142+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -48491,7 +48491,7 @@
         "msn.com",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "4209cd0874a9760b554f1aa0",
         "title": "Every word Xabi Alonso said on coping without Joao Pedro, Caicedo fitness and Chelsea's identity",
@@ -48608,7 +48608,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4034479561835963309",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/every-word-xabi-alonso-said-on-coping.html",
+      "scheduled_for_utc": "2026-11-21T14:57:36Z",
+      "last_blogger_status_updated_at": "2026-11-21T14:52:37.849126+00:00"
     },
     "34113093a6b2bc07571cb280": {
       "event_id": "34113093a6b2bc07571cb280",
