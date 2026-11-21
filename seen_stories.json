@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T13:28:56.338630+00:00",
+  "updated_at": "2026-11-21T13:29:15.209418+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -48472,7 +48472,7 @@
         "msn.com",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "4ec8b7770b5189fd93df7aab",
         "title": "Joao Pedro and Moises Caicedo injury latest as Xabi Alonso gives seven-player Chelsea update",
@@ -48588,7 +48588,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7259617218950476634",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/xabi-alonsos-sevenplayer-injury-update.html",
+      "scheduled_for_utc": "2026-11-21T13:34:13Z",
+      "last_blogger_status_updated_at": "2026-11-21T13:29:15.209407+00:00"
     },
     "4209cd0874a9760b554f1aa0": {
       "event_id": "4209cd0874a9760b554f1aa0",
