@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T22:15:21.307225+00:00",
+  "updated_at": "2026-11-21T22:15:44.689291+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -60742,7 +60742,7 @@
       "publisher_domains": [
         "sports.ndtv.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "35183adb2f8e76b4f5c9e86a",
         "title": "Premier League: Manchester City Stumble Again In Fulham Draw, Chelsea Thrashed By Leeds",
@@ -60790,7 +60790,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7745846942899779239",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/leeds-united-thrash-chelsea-4-1-as.html",
+      "scheduled_for_utc": "2026-11-21T22:20:44Z",
+      "last_blogger_status_updated_at": "2026-11-21T22:15:44.689279+00:00"
     },
     "aafd037c7d4c1af2716873a2": {
       "event_id": "aafd037c7d4c1af2716873a2",
