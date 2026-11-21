@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T08:07:54.092892+00:00",
+  "updated_at": "2026-11-21T08:08:14.690782+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -47764,7 +47764,7 @@
         "msn.com",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "0ab21d6aa82c26f41e3678c3",
         "title": "Xabi Alonso press conference LIVE: Chelsea boss on Joao Pedro injury, Caicedo latest and Leeds",
@@ -47947,7 +47947,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5308333916086598450",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-injury-update-ahead-of-leeds_0106912720.html",
+      "scheduled_for_utc": "2026-11-21T08:13:13Z",
+      "last_blogger_status_updated_at": "2026-11-21T08:08:14.690760+00:00"
     },
     "96a7534e3fd56bf4bb0dba8c": {
       "event_id": "96a7534e3fd56bf4bb0dba8c",
