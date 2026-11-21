@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T03:48:40.480869+00:00",
+  "updated_at": "2026-11-21T03:49:08.960404+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -40314,7 +40314,7 @@
         "msn.com",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "b2b3fcc9c4cbf5243a79080f",
         "title": "Xabi Alonso press conference LIVE: Chelsea boss on Joao Pedro injury, Caicedo latest and Leeds",
@@ -40528,7 +40528,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5002151039370961681",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/alonso-confirms-pedro-lacroix-and-james.html",
+      "scheduled_for_utc": "2026-11-21T03:54:08Z",
+      "last_blogger_status_updated_at": "2026-11-21T03:49:08.960391+00:00"
     },
     "c67a352196dcaa44e91e03f8": {
       "event_id": "c67a352196dcaa44e91e03f8",
