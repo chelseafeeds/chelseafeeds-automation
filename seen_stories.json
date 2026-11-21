@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T16:56:31.678553+00:00",
+  "updated_at": "2026-11-21T16:56:56.588168+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -54938,7 +54938,7 @@
         "standard.co.uk",
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "d94ad43de369cfc9c2a04e62",
         "title": "Moises Caicedo limps off injured after sickening fall in Chelsea’s clash vs Leeds as fans say ‘this is scary to watch’",
@@ -55022,7 +55022,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3202449507713416018",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/caicedo-forced-off-with-scary-injury-as.html",
+      "scheduled_for_utc": "2026-11-21T17:01:55Z",
+      "last_blogger_status_updated_at": "2026-11-21T16:56:56.588149+00:00"
     },
     "da69a364f76bde6f97554d3d": {
       "event_id": "da69a364f76bde6f97554d3d",
