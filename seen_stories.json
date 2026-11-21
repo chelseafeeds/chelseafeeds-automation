@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T22:43:28.726020+00:00",
+  "updated_at": "2026-11-21T22:43:45.095998+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -61722,7 +61722,7 @@
         "skysports.com",
         "telecomasia.net"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "89545f0951b7799c9a5394fe",
         "title": "Problems for passive Man City as Chelsea are bullied by Leeds - Premier League hits and misses",
@@ -61787,7 +61787,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "2708814421907667489",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/problems-for-passive-man-city-as.html",
+      "scheduled_for_utc": "2026-11-21T22:48:44Z",
+      "last_blogger_status_updated_at": "2026-11-21T22:43:45.095976+00:00"
     },
     "f6eebfd91390345c065b787c": {
       "event_id": "f6eebfd91390345c065b787c",
