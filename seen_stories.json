@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T02:13:16.571367+00:00",
+  "updated_at": "2026-11-21T02:13:34.085101+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -40262,7 +40262,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "ba9e3a3415171969a12daaf2",
         "title": "Arsenal: Romano reveals what he ‘can guarantee’ about Zubimendi to Chelsea",
@@ -40310,7 +40310,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1370626507396513879",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/romano-says-xabi-alonso-is-big-fan-of.html",
+      "scheduled_for_utc": "2026-11-21T02:18:33Z",
+      "last_blogger_status_updated_at": "2026-11-21T02:13:34.085085+00:00"
     },
     "b2b3fcc9c4cbf5243a79080f": {
       "event_id": "b2b3fcc9c4cbf5243a79080f",
