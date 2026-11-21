@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T20:06:20.497108+00:00",
+  "updated_at": "2026-11-21T20:27:41.887446+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -55284,7 +55284,7 @@
         "skysports.com",
         "weaintgotnohistory.sbnation.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "22ff8d2aad65c0e361e3d962",
         "title": "Liverpool 0-0 Chelsea: Khiara Keating stars as Blues drop points in WSL title race",
@@ -55379,9 +55379,9 @@
         "observation_count": 4,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-21T20:27:41.887446+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Liverpool 0-0 Chelsea: Khiara Keating stars as Blues drop points in WSL title race",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
