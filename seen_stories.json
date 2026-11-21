@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T01:48:20.007241+00:00",
+  "updated_at": "2026-11-21T01:48:36.301588+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -46634,7 +46634,7 @@
         "thesun.co.uk",
         "thesun.ie"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "ce39dc2d74b4752935919503",
         "title": "Chelsea could get double injury boost as Xabi Alonso backs two key men to return early",
@@ -46682,7 +46682,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "537068774371003234",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-could-get-double-injury-boost.html",
+      "scheduled_for_utc": "2026-11-21T01:53:35Z",
+      "last_blogger_status_updated_at": "2026-11-21T01:48:36.301569+00:00"
     },
     "ca1474778a42d553f36ea528": {
       "event_id": "ca1474778a42d553f36ea528",
