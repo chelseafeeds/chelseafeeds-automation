@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T00:58:33.849181+00:00",
+  "updated_at": "2026-11-21T00:58:54.269342+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -46394,7 +46394,7 @@
         "football-italia.net",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "4a8288e32ee3929142d29fd4",
         "title": "Transfer news LIVE: Vinicius to Arsenal; Chelsea learn Scott price; Man Utd, Liverpool latest",
@@ -46478,7 +46478,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1103186785118616387",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-transfer-rumour-conte-insights.html",
+      "scheduled_for_utc": "2026-11-21T01:03:53Z",
+      "last_blogger_status_updated_at": "2026-11-21T00:58:54.269328+00:00"
     },
     "f5a57fb9b527c24d17b5e4a1": {
       "event_id": "f5a57fb9b527c24d17b5e4a1",
