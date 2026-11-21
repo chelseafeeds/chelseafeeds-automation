@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-21T11:13:43.277762+00:00",
+  "updated_at": "2026-11-21T11:14:01.375382+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -48471,7 +48471,7 @@
       "publisher_domains": [
         "independent.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "27479a130c9936e33a302c03",
         "title": "Chelsea must toughen up against Leeds – or risk being ‘bullied’ again",
@@ -48519,7 +48519,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5717229860774700438",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-must-toughen-up-against-leeds.html",
+      "scheduled_for_utc": "2026-11-21T11:19:00Z",
+      "last_blogger_status_updated_at": "2026-11-21T11:14:01.375365+00:00"
     },
     "4ec8b7770b5189fd93df7aab": {
       "event_id": "4ec8b7770b5189fd93df7aab",
