@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T00:07:57.814776+00:00",
+  "updated_at": "2026-11-22T00:08:14.800313+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -63812,7 +63812,7 @@
         "independent.co.uk",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "0433557520276dc289c5575a",
         "title": "Xabi Alonso delivers Moises Caicedo injury update as Chelsea star hit with fresh setback",
@@ -63896,7 +63896,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7011225425428658962",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/caicedo-forced-off-as-chelseas-midfield.html",
+      "scheduled_for_utc": "2026-11-22T00:13:14Z",
+      "last_blogger_status_updated_at": "2026-11-22T00:08:14.800295+00:00"
     },
     "198f2ae855fbcd898362bdde": {
       "event_id": "198f2ae855fbcd898362bdde",
