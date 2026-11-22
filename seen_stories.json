@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T03:22:22.211162+00:00",
+  "updated_at": "2026-11-22T03:22:51.776590+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -55583,7 +55583,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "cfcedbe6ebd4acc9291fb586",
         "title": "Mike Dean speaks mind on Chelsea penalty controversy as Xabi Alonso fumes at VAR decision",
@@ -55625,9 +55625,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-22T03:22:51.776590+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Mike Dean speaks mind on Chelsea penalty controversy as Xabi Alonso fumes at VAR decision",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
@@ -55943,7 +55943,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "f6c7621ca41a395efef6eb92",
         "title": "Chelsea 1 Leeds 4: Pressure piles on Xabi Alonso as furious Blues fans storm out early during Stamford Bridge mauling",
@@ -55985,12 +55985,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-22T03:22:51.776590+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea 1 Leeds 4: Pressure piles on Xabi Alonso as furious Blues fans storm out early during Stamford Bridge mauling",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "title_present_and_reasonable",
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "7d3bee0ad7aef91ae9ec78d8": {
