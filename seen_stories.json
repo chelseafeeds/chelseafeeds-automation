@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T11:22:55.992383+00:00",
+  "updated_at": "2026-11-22T11:47:27.026584+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -13421,7 +13421,7 @@
       "event_id": "f624ce674540d0601d2c171a",
       "title": "Chelsea latest: 'He was in pain' - Alonso gives update on Caicedo injury",
       "first_seen_at": "2026-11-17T12:26:08.616179+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T20:50:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -37362,8 +37362,8 @@
       "event_id": "23b57518d07e70803c8b96ad",
       "title": "Estêvão is Brazil's brightest young talent. Is Chelsea the right place for him?",
       "first_seen_at": "2026-11-20T09:37:46.671889+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
-      "last_published_at": "2026-11-21T12:08:06+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
+      "last_published_at": "2026-11-22T11:18:42+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "espn.com"
@@ -37374,7 +37374,7 @@
         "title": "Estêvão is Brazil's brightest young talent. Is Chelsea the right place for him?",
         "story_type": "general_news",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-21T12:08:06+00:00",
+        "published": "2026-11-22T11:18:42+00:00",
         "best_summary": "Estêvão is widely regarded as Brazil's brightest young talent, but he has struggled for playing time at Chelsea.",
         "representative_title": "Estêvão is Brazil's brightest young talent. Is Chelsea the right place for him?",
         "representative_url": "https://www.espn.com/soccer/story/_/id/50523536/estevao-brazil-young-talent-chelsea",
@@ -37388,7 +37388,7 @@
             "publisher_domain": "espn.com",
             "publisher_name_hint": null,
             "source_feed": "ESPN Soccer",
-            "published": "2026-11-21T12:08:06+00:00",
+            "published": "2026-11-22T11:18:42+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "general_news",
@@ -37544,7 +37544,7 @@
       "event_id": "468cd4b35513f24d7d2e0d50",
       "title": "Jose Mourinho points to Arsenal, Chelsea and Man City and says Madrid ‘weren’t 100% focused’",
       "first_seen_at": "2026-11-20T10:02:21.286094+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T23:36:09+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -51030,7 +51030,7 @@
       "event_id": "6470f035e0a62e3cb40cf084",
       "title": "Watch Chelsea vs Leeds United: Live Streams and TV Channels",
       "first_seen_at": "2026-11-21T12:20:57.540943+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -51841,7 +51841,7 @@
       "event_id": "b3156aefcc87b67313371e49",
       "title": "Liverpool FCW vs. Chelsea FCW, Women’s Super League: Confirmed lineups; how to watch",
       "first_seen_at": "2026-11-21T12:53:31.666747+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T18:34:55+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -51969,7 +51969,7 @@
       "event_id": "d60ff059344eebe697b659d6",
       "title": "Transfer news LIVE: Arsenal in ‘serious’ midfield move; Chelsea learn Scott price; Man Utd, Liverpool latest",
       "first_seen_at": "2026-11-21T12:59:59.050863+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T12:47:09+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52029,7 +52029,7 @@
       "event_id": "26406a4728589e4c65c4b6f2",
       "title": "Chelsea vs Leeds United highlights as dominant Whites put Blues to sword at Stamford Bridge",
       "first_seen_at": "2026-11-21T13:26:11.118431+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T17:16:47+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -52089,7 +52089,7 @@
       "event_id": "0d73987a20b30469aefab459",
       "title": "Willian on the Premier league sides he turned down to join Chelsea",
       "first_seen_at": "2026-11-21T13:26:11.118431+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T13:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52329,7 +52329,7 @@
       "event_id": "6ee3b68a6db6cbb59cb6681c",
       "title": "Transfer news LIVE: Arsenal in ‘serious’ midfield move; Chelsea learn Scott price; Man Utd, Liverpool latest",
       "first_seen_at": "2026-11-21T13:31:22.925436+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T13:07:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52569,7 +52569,7 @@
       "event_id": "5bdf85196a964497bb374a08",
       "title": "Team selection is referendum on Romeo Lavia; at turning point in Chelsea career",
       "first_seen_at": "2026-11-21T13:55:57.251977+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T13:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52689,7 +52689,7 @@
       "event_id": "c3761fd01c5223f08b064cbc",
       "title": "Chelsea XI vs Leeds: Starting lineup, confirmed team news, injury latest for Premier League today",
       "first_seen_at": "2026-11-21T13:55:57.251977+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T13:49:23+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52749,7 +52749,7 @@
       "event_id": "07abe9e41f7ca66742bbfe28",
       "title": "Team News: Summer signing gets debut as Alonso picks attacking team to face Leeds",
       "first_seen_at": "2026-11-21T13:55:57.251977+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T13:52:26+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52809,7 +52809,7 @@
       "event_id": "8c98023c76c78f96606f0137",
       "title": "Under-18 Premier League report: Chelsea 5-0 Arsenal | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T13:57:39.486847+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T13:20:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52872,7 +52872,7 @@
       "event_id": "0c1f021913eca9f7fbf88351",
       "title": "Confirmed Chelsea line up vs Leeds | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T13:57:39.486847+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T13:45:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52935,7 +52935,7 @@
       "event_id": "c0eecd61f246e3ea554375e5",
       "title": "Who is Olutayo Subuloye? Chelsea youngster on bench for Leeds clash",
       "first_seen_at": "2026-11-21T14:21:07.243682+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T13:57:20+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52995,7 +52995,7 @@
       "event_id": "8797a693c4fa7e88e48ec254",
       "title": "Chelsea v Leeds: Confirmed team news as Blues look to strengthen top-four credentials",
       "first_seen_at": "2026-11-21T14:21:07.243682+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T14:01:14+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -53055,7 +53055,7 @@
       "event_id": "77bbfa7c778d59cf844ed828",
       "title": "Elon Musk’s lawyer joining Tom Brady in buying Chelsea stake",
       "first_seen_at": "2026-11-21T14:21:07.243682+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T14:20:05+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -53355,7 +53355,7 @@
       "event_id": "3dc77b0d5c987efd93760797",
       "title": "Chelsea vs. Leeds United, Premier League: Lineups & Game Thread",
       "first_seen_at": "2026-11-21T14:23:33.065205+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T13:52:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -54129,7 +54129,7 @@
       "event_id": "aad3722d1f22607ec5de4aa9",
       "title": "Xabi Alonso on Emmanuel Emegha selection for Leeds clash | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T14:52:37.746997+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T14:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -54544,7 +54544,7 @@
       "event_id": "63d64d9b7a8220de40bbac2b",
       "title": "Soccer-Leaders Chelsea held to scoreless WSL draw by Liverpool",
       "first_seen_at": "2026-11-21T15:20:23.523292+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T14:56:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -54604,7 +54604,7 @@
       "event_id": "a6873f513a2de362ece52425",
       "title": "WSL roundup: Chelsea thwarted by Liverpool keeper, London City move to third",
       "first_seen_at": "2026-11-21T15:20:23.523292+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T20:54:39+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -54740,7 +54740,7 @@
       "event_id": "5aaaae5cd63c91eb8b8de5e1",
       "title": "Keating stars as Liverpool hold high-flying Chelsea to goalless draw",
       "first_seen_at": "2026-11-21T15:20:23.523292+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T18:34:55+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -54823,7 +54823,7 @@
       "event_id": "4feed09646a1baa2c6f102c0",
       "title": "Liverpool FCW 0-0 Chelsea FCW, Women’s Super League: Post-match reaction",
       "first_seen_at": "2026-11-21T15:17:31.886062+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T14:39:52+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -54883,7 +54883,7 @@
       "event_id": "0df4424353c76601359c25c4",
       "title": "Match report: Liverpool 0-0 Chelsea | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T15:17:31.886062+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T14:50:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -55031,7 +55031,7 @@
       "event_id": "da69a364f76bde6f97554d3d",
       "title": "Liverpool frustrate WSL league leaders Chelsea to grind out point",
       "first_seen_at": "2026-11-21T16:05:52.409917+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T19:29:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -55564,7 +55564,7 @@
       "event_id": "cfcedbe6ebd4acc9291fb586",
       "title": "Mike Dean speaks mind on Chelsea penalty controversy as Xabi Alonso fumes at VAR decision",
       "first_seen_at": "2026-11-21T16:29:40.040024+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T16:27:21+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -56052,7 +56052,7 @@
       "event_id": "299502712c66c7ff95ac040f",
       "title": "Chelsea player ratings vs Leeds United as Estevao quiet, Cole Palmer poor and 4/10s abysmal",
       "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T16:58:47+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -56114,7 +56114,7 @@
       "event_id": "c121907877361e6a77173259",
       "title": "The shocking Premier League table since Chelsea’s disastrous BlueCo takeover in 2022",
       "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T16:59:26+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -56174,7 +56174,7 @@
       "event_id": "9d31bd40549247851da7307f",
       "title": "Leeds dismantle Chelsea as pressure grows on Alonso",
       "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T17:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -56294,7 +56294,7 @@
       "event_id": "538e8e8dcacfb397a6e77c9a",
       "title": "Chelsea 1-4 Leeds: Visitors end 27-year wait for Stamford Bridge win in style",
       "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T17:02:56+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -56414,7 +56414,7 @@
       "event_id": "a5acb3eb67b84dbc803c4ff8",
       "title": "Chelsea player ratings vs Leeds: Four 3/10s as Cole Palmer anonymous",
       "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T17:23:39+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -56474,7 +56474,7 @@
       "event_id": "e0c531aba7d26f34bed0602e",
       "title": "Chelsea 1-4 Leeds: Dismal Blues roundly beaten as scrutiny on Xabi Alonso grows",
       "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T17:12:32+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -56534,7 +56534,7 @@
       "event_id": "86e6cf88983c7ded8c34cd65",
       "title": "‘Fragile’ Chelsea must toughen up after Leeds humiliation, admits Xabi Alonso",
       "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T19:20:51+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -56610,7 +56610,7 @@
       "event_id": "614d79f0d3e334075fead7ce",
       "title": "Chelsea defender branded a ‘disgrace’ v Leeds: ‘He has been really poor’",
       "first_seen_at": "2026-11-21T17:20:22.181460+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T17:15:20+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -57090,7 +57090,7 @@
       "event_id": "ef8529e1a57cefa7440fbefb",
       "title": "Match report: Chelsea 1-4 Leeds | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T17:22:24.517149+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T16:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -57153,7 +57153,7 @@
       "event_id": "d58a4f0e911d87b1724f280d",
       "title": "Bompastor provides Mayra Ramirez and Manaka Matsukubo injury update | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T17:22:24.517149+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T17:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -57276,7 +57276,7 @@
       "event_id": "48aba2e65102226d6de387a9",
       "title": "Leeds run riot at Stamford Bridge as Chelsea crumble",
       "first_seen_at": "2026-11-21T17:36:22.076057+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T17:23:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -57963,7 +57963,7 @@
       "event_id": "903da3857884990ff7a5bf32",
       "title": "Chelsea 1-4 Leeds United, Premier League: Post-match reaction, ratings",
       "first_seen_at": "2026-11-21T17:37:58.922918+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T16:58:48+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -58083,7 +58083,7 @@
       "event_id": "8e75dffbc4099f942f581764",
       "title": "Alonso no closer to Chelsea answers while Leeds party like it’s 1999",
       "first_seen_at": "2026-11-21T18:01:00.875559+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T17:28:30+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -58263,7 +58263,7 @@
       "event_id": "230915a2ba5eff1a47dd7ef6",
       "title": "Xabi Alonso’s Chelsea sack prediction could come true as Leeds expose everything wrong with BlueCo project",
       "first_seen_at": "2026-11-21T18:01:00.875559+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T18:00:32+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -58323,7 +58323,7 @@
       "event_id": "1bd6820dd6cd25f7c6cb9b91",
       "title": "Leeds 'created piece of history' in Chelsea win - Farke",
       "first_seen_at": "2026-11-21T18:01:00.875559+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T17:42:14+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -58519,7 +58519,7 @@
       "event_id": "ffa71b9c0c6526638f8d9b79",
       "title": "Xabi Alonso post-match interview - Chelsea v Leeds United",
       "first_seen_at": "2026-11-21T18:01:00.875559+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T17:51:03+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -59186,7 +59186,7 @@
       "event_id": "2e1abbd3283954c40c3e1a1c",
       "title": "Xabi Alonso speaks out as Chelsea fans turn on manager after Leeds thrashing",
       "first_seen_at": "2026-11-21T18:19:55.949357+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T18:13:32+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -59246,7 +59246,7 @@
       "event_id": "80ca4610f1c6a6c4cd2e6305",
       "title": "Alonso highlights Chelsea ‘fragility’ after Leeds defeat",
       "first_seen_at": "2026-11-21T18:19:55.949357+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T18:14:20+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -59526,7 +59526,7 @@
       "event_id": "5543ff3b2ce4601e81c448dd",
       "title": "Every word Xabi Alonso said on Leeds loss, 'fragile' Chelsea, Caicedo injury and penalty decision",
       "first_seen_at": "2026-11-21T18:45:58.056301+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T18:18:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -59828,7 +59828,7 @@
       "event_id": "692113a4c3da385a5f63a37f",
       "title": "‘Rotten’ – Shell-shocked Jason Cundy gives Xabi Alonso Chelsea sack warning as fans turn on manager",
       "first_seen_at": "2026-11-21T19:11:05.979457+00:00",
-      "last_seen_at": "2026-11-22T11:16:57.828607+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T18:55:48+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -59888,7 +59888,7 @@
       "event_id": "7048d8a66397025f610beefa",
       "title": "Chelsea’s deep and ongoing issues revealed by Leeds drubbing",
       "first_seen_at": "2026-11-21T19:11:05.979457+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T19:41:05+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -60008,7 +60008,7 @@
       "event_id": "6d3491b43320d0dd03afcf5d",
       "title": "Xabi Alonso issues ‘harsh’ VAR verdict as Chelsea fall foul of penalty controversy in Leeds loss",
       "first_seen_at": "2026-11-21T19:11:05.979457+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T19:03:39+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -60068,7 +60068,7 @@
       "event_id": "5d0283f56dd982a26f066f25",
       "title": "'Fragile' and 'miles off it' - Alonso's Chelsea honeymoon is over",
       "first_seen_at": "2026-11-21T19:11:05.979457+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T19:04:09+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -60204,7 +60204,7 @@
       "event_id": "79b89352cf22cc5f2f5f099e",
       "title": "Alonso updates on Caicedo’s game-changing injury | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T19:13:05.712047+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T18:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -60327,7 +60327,7 @@
       "event_id": "4c91dc581f8ac34355fe7a77",
       "title": "11 astonishing stats from Leeds United’s statement 4-1 victory away at Chelsea",
       "first_seen_at": "2026-11-21T19:17:02.912135+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T18:35:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -61532,7 +61532,7 @@
       "event_id": "51c17a7be32b568a3cc57f71",
       "title": "Leeds dominate Chelsea for first Stamford Bridge win since 1999",
       "first_seen_at": "2026-11-21T20:27:58.133652+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T19:59:13+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -61613,7 +61613,7 @@
       "event_id": "4044863e7b7363a5bb6fe021",
       "title": "Cole Palmer dismisses Joao Pedro and refuses to applaud Chelsea fans after 4-1 Leeds mauling",
       "first_seen_at": "2026-11-21T20:27:58.133652+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T12:16:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -61971,7 +61971,7 @@
       "event_id": "dc9ca2a877518a18d7ba8abf",
       "title": "Bompastor: We must be more clinical and find a better balance | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-21T20:30:01.358663+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T20:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -62035,7 +62035,7 @@
       "event_id": "19e5fa543ed2b0bf209c06f2",
       "title": "“Pain” – Alonso gives worrying update on essential Chelsea player who is being horribly managed",
       "first_seen_at": "2026-11-21T20:46:49.100859+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T20:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -62095,7 +62095,7 @@
       "event_id": "2901ffc9c462d9462301d712",
       "title": "Cole Palmer ‘confronted by Joao Pedro and Chelsea coach’ after ignoring fans",
       "first_seen_at": "2026-11-21T20:46:49.100859+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T20:37:05+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -62395,7 +62395,7 @@
       "event_id": "01a5000df99fd4936af3886c",
       "title": "Alonso: Chelsea are fragile and need to be tougher",
       "first_seen_at": "2026-11-21T21:11:09.492409+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-21T19:13:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -62455,7 +62455,7 @@
       "event_id": "d8d40e2b2bbda618f237cc11",
       "title": "Alonso: Chelsea are fragile and need to be tougher",
       "first_seen_at": "2026-11-21T21:11:09.492409+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T19:13:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -62575,7 +62575,7 @@
       "event_id": "2a172042a06b9e115eca132a",
       "title": "Frustrated Cole Palmer shares frosty exchange with Joao Pedro after upsetting Chelsea staff member before walking off down the tunnel after 4-1 drubbing by Leeds",
       "first_seen_at": "2026-11-21T21:11:09.492409+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T00:04:53+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -62650,7 +62650,7 @@
       "event_id": "f67bd1322c9973e07cf093ad",
       "title": "Palmer confronted by Joao Pedro and Chelsea coach after ignoring fans",
       "first_seen_at": "2026-11-21T21:13:07.371790+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T12:37:05+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -63394,7 +63394,7 @@
       "event_id": "91d091a3b7b72e00c66e84df",
       "title": "Leeds stars celebrate epic Chelsea win with Luke Littler-inspired party as away dressing room goes wild",
       "first_seen_at": "2026-11-21T22:41:07.793677+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T22:27:48+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -63780,7 +63780,7 @@
       "event_id": "b9cf7e3fea7bd690d01a2649",
       "title": "Chelsea in 'fragile moment' as Caicedo injury adds to pain of Leeds rout",
       "first_seen_at": "2026-11-21T23:21:15.160353+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T01:13:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -64048,7 +64048,7 @@
       "event_id": "bd3c4ea5ead2d49f29c1aa23",
       "title": "Chelsea intend contact to complete record-breaking January transfer after star says YES to Xabi Alonso",
       "first_seen_at": "2026-11-21T23:23:08.579590+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T15:04:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -64288,7 +64288,7 @@
       "event_id": "17e376dc0dd0b98a882bc68d",
       "title": "Xabi Alonso delivers Moises Caicedo injury update as Chelsea star hit with fresh setback",
       "first_seen_at": "2026-11-22T00:20:19.569674+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T18:19:58+00:00",
       "last_observation_count": 4,
       "publisher_domains": [
@@ -64392,7 +64392,7 @@
       "event_id": "bd626572c4a17193f58e3c5b",
       "title": "Jose Mourinho points to Arsenal, Chelsea and Man City and says Madrid ‘weren’t 100% focused’",
       "first_seen_at": "2026-11-22T00:20:19.569674+00:00",
-      "last_seen_at": "2026-11-22T10:25:29.140003+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T23:36:09+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -64813,7 +64813,7 @@
       "event_id": "784c0bb10a0ed8840127211c",
       "title": "Xabi Alonso is under scrutiny, but Chelsea are not built for this Premier League",
       "first_seen_at": "2026-11-22T05:26:10.343250+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T05:14:31+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -65053,7 +65053,7 @@
       "event_id": "906e9d82e5feeb751bc08825",
       "title": "Cole Palmer's heated back and forth with Chelsea duo as Xabi Alonso tasked with tough decision",
       "first_seen_at": "2026-11-22T06:07:51.413344+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T06:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -65113,7 +65113,7 @@
       "event_id": "c741a345e662069f11b7b247",
       "title": "Bronze frustrated after dominant display against Liverpool | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-22T06:07:51.413344+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T06:04:48+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -65296,7 +65296,7 @@
       "event_id": "57adc617af23b715f5ed5809",
       "title": "Cole Palmer's heated back and forth with Chelsea duo as Xabi Alonso tasked with tough decision",
       "first_seen_at": "2026-11-22T06:28:42.155248+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T22:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -65356,7 +65356,7 @@
       "event_id": "73519bfb9253e50e9b26b160",
       "title": "Cool Palmer has turned into Complaining Cole... his sulking as his club lurches into crisis doesn't say a lot for Chelsea's cultural reset, writes KIERAN GILL",
       "first_seen_at": "2026-11-22T07:06:04.126821+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T09:11:35+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -65570,7 +65570,7 @@
       "event_id": "bd898b81a9c1130e12f79782",
       "title": "Cole Palmer's sulking in a crisis doesn't say a lot for Chelsea's cultural reset, writes Kieran Gill",
       "first_seen_at": "2026-11-22T07:33:05.088578+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-21T22:47:52+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -65810,7 +65810,7 @@
       "event_id": "b9e74cb47c7488e4f4e77484",
       "title": "The Rafa Benitez curse Xabi Alonso could suffer if Chelsea don’t find an identity",
       "first_seen_at": "2026-11-22T08:20:57.531532+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T07:54:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -65870,7 +65870,7 @@
       "event_id": "b34a4df8c16b5d67df76635c",
       "title": "César Azpilicueta: ‘At Chelsea a draw was a catastrophe – if you can’t perform, you’re out’",
       "first_seen_at": "2026-11-22T08:20:57.531532+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-22T08:00:21+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -66249,7 +66249,7 @@
       "event_id": "4721eb52f70ade49d7b4b61b",
       "title": "Chelsea fans at Stamford Bridge turned on one player during Leeds defeat",
       "first_seen_at": "2026-11-22T09:12:44.231749+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T01:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -66309,7 +66309,7 @@
       "event_id": "33c7974ce14cfbfe7282628d",
       "title": "Xabi Alonso sent Chelsea sack warning as ‘rotten’ and ‘disgusting’ Blues are slammed for Leeds loss",
       "first_seen_at": "2026-11-22T09:36:07.632175+00:00",
-      "last_seen_at": "2026-11-22T11:20:28.202618+00:00",
+      "last_seen_at": "2026-11-22T11:46:03.539837+00:00",
       "last_published_at": "2026-11-22T09:28:52+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -66495,7 +66495,7 @@
       "event_id": "1afd9373050594faea5ea747",
       "title": "VIDEO: Cole Palmer caught in HEATED clash with Chelsea team-mate Joao Pedro after Leeds humiliation",
       "first_seen_at": "2026-11-22T10:25:29.140003+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T02:15:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -66555,7 +66555,7 @@
       "event_id": "b897245cca908d49f0a20fe1",
       "title": "Keeper voted Star of the Match in Liverpool stalemate | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-22T10:25:29.140003+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -66618,7 +66618,7 @@
       "event_id": "9a349d70b19ec034f58c6369",
       "title": "Xabi Alonso addresses Cole Palmer ‘touchline row’ with Joao Pedro moments after Chelsea defeat",
       "first_seen_at": "2026-11-22T10:56:09.366343+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T02:38:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -66651,6 +66651,21 @@
             "opponent_key": "",
             "fixture_key": "",
             "subject_key": "cole_palmer"
+          },
+          {
+            "title": "Xabi Alonso addresses Cole Palmer ‘touchline row’ with Joao Pedro moments after Chelsea defeat",
+            "summary": "",
+            "url": "https://talksport.com/football/4724409/xabi-alonso-cole-palmer-touchline-row-joao-pedro-chelsea",
+            "publisher_domain": "talksport.com",
+            "publisher_name_hint": "talkSPORT Football",
+            "source_feed": "talkSPORT Football",
+            "published": "2026-11-22T10:37:54+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_reaction",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "cole_palmer"
           }
         ],
         "source_urls": [
@@ -66660,10 +66675,11 @@
           "talksport.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Cole Palmer Chelsea"
+          "Bing News discovery: Cole Palmer Chelsea",
+          "talkSPORT Football"
         ],
         "publisher_count": 1,
-        "observation_count": 1,
+        "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
       "last_processed_at": null,
@@ -66678,7 +66694,7 @@
       "event_id": "f28fcf78ad8b0d01b4817a55",
       "title": "Snooker star Neil Robertson demands Xabi Alonso QUIT after Chelsea’s 4-1 mauling at home to Leeds",
       "first_seen_at": "2026-11-22T11:15:18.713076+00:00",
-      "last_seen_at": "2026-11-22T11:22:16.696411+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
       "last_published_at": "2026-11-22T11:04:11+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -66784,6 +66800,142 @@
         ],
         "publisher_count": 1,
         "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "3f5cee6f908e17c5ef2f0280": {
+      "event_id": "3f5cee6f908e17c5ef2f0280",
+      "title": "Xabi Alonso warned Chelsea sack decision could be imminent as fans turn on manager",
+      "first_seen_at": "2026-11-22T11:46:03.539837+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
+      "last_published_at": "2026-11-22T11:29:41+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "standard.co.uk"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "3f5cee6f908e17c5ef2f0280",
+        "title": "Xabi Alonso warned Chelsea sack decision could be imminent as fans turn on manager",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-22T11:29:41+00:00",
+        "best_summary": "A “disgusting” 4-1 home defeat to Leeds leaves the manager faces serious questions",
+        "representative_title": "Xabi Alonso warned Chelsea sack decision could be imminent as fans turn on manager",
+        "representative_url": "https://www.standard.co.uk/sport/football/chelsea-fc-alonso-sack-decision-b1305890.html",
+        "representative_publisher": "standard.co.uk",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Xabi Alonso warned Chelsea sack decision could be imminent as fans turn on manager",
+            "summary": "A “disgusting” 4-1 home defeat to Leeds leaves the manager faces serious questions",
+            "url": "https://www.standard.co.uk/sport/football/chelsea-fc-alonso-sack-decision-b1305890.html",
+            "publisher_domain": "standard.co.uk",
+            "publisher_name_hint": "Evening Standard Sport",
+            "source_feed": "Evening Standard Sport",
+            "published": "2026-11-22T11:29:41+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.standard.co.uk/sport/football/chelsea-fc-alonso-sack-decision-b1305890.html"
+        ],
+        "publisher_domains": [
+          "standard.co.uk"
+        ],
+        "source_feeds": [
+          "Evening Standard Sport"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "88963f4338a6b1adf6e2893d": {
+      "event_id": "88963f4338a6b1adf6e2893d",
+      "title": "Chelsea consider move for 29-year-old Premier League-proven midfielder",
+      "first_seen_at": "2026-11-22T11:46:03.539837+00:00",
+      "last_seen_at": "2026-11-22T11:47:27.026584+00:00",
+      "last_published_at": "2026-11-21T19:40:00+00:00",
+      "last_observation_count": 2,
+      "publisher_domains": [
+        "caughtoffside.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "88963f4338a6b1adf6e2893d",
+        "title": "Chelsea consider move for 29-year-old Premier League-proven midfielder",
+        "story_type": "transfer_rumour",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-21T19:40:00+00:00",
+        "best_summary": "Chelsea have joined Manchester United in monitoring Scott McTominay as uncertainty grows over the midfielder’s long-term future at Napoli. The Scotland international has transformed his reputation since leaving Old Trafford in 2024, becoming one of Serie A’s most influential midfielders and helping Napoli win the Scudetto in his first full season. However, contract talks have […] The post Chelsea consider move for 29-year-old Premier League-proven midfielder appeared first on CaughtOffside .",
+        "representative_title": "Chelsea consider move for 29-year-old Premier League-proven midfielder",
+        "representative_url": "https://www.caughtoffside.com/2026/11/22/chelsea-move-premier-league-proven-midfielder",
+        "representative_publisher": "caughtoffside.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea consider move for 29-year-old Premier League-proven midfielder",
+            "summary": "Chelsea, along with Man United, are reportedly interested in a move for Napoli midfielder Scott McTominay after his contract talks stalled.",
+            "url": "https://www.caughtoffside.com/2026/11/22/chelsea-move-premier-league-proven-midfielder",
+            "publisher_domain": "caughtoffside.com",
+            "publisher_name_hint": "caughtoffside.com",
+            "source_feed": "Bing News discovery: Chelsea contract news",
+            "published": "2026-11-21T19:40:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "transfer_rumour",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          },
+          {
+            "title": "Chelsea consider move for 29-year-old Premier League-proven midfielder",
+            "summary": "Chelsea have joined Manchester United in monitoring Scott McTominay as uncertainty grows over the midfielder’s long-term future at Napoli. The Scotland international has transformed his reputation since leaving Old Trafford in 2024, becoming one of Serie A’s most influential midfielders and helping Napoli win the Scudetto in his first full season. However, contract talks have […] The post Chelsea consider move for 29-year-old Premier League-proven midfielder appeared first on CaughtOffside .",
+            "url": "https://www.caughtoffside.com/2026/11/22/chelsea-move-premier-league-proven-midfielder",
+            "publisher_domain": "caughtoffside.com",
+            "publisher_name_hint": "CaughtOffside",
+            "source_feed": "CaughtOffside",
+            "published": "2026-11-22T11:40:25+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "transfer_rumour",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.caughtoffside.com/2026/11/22/chelsea-move-premier-league-proven-midfielder"
+        ],
+        "publisher_domains": [
+          "caughtoffside.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea contract news",
+          "CaughtOffside"
+        ],
+        "publisher_count": 1,
+        "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
       "last_processed_at": null,
