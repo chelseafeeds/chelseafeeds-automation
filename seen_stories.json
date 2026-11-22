@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T03:22:51.776590+00:00",
+  "updated_at": "2026-11-22T03:23:09.724568+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -55583,7 +55583,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "cfcedbe6ebd4acc9291fb586",
         "title": "Mike Dean speaks mind on Chelsea penalty controversy as Xabi Alonso fumes at VAR decision",
@@ -55631,7 +55631,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4912777011951955065",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/mike-dean-and-xabi-alonso-react-to.html",
+      "scheduled_for_utc": "2026-11-22T03:28:09Z",
+      "last_blogger_status_updated_at": "2026-11-22T03:23:09.724541+00:00"
     },
     "29ea132208fa2daab26569d7": {
       "event_id": "29ea132208fa2daab26569d7",
