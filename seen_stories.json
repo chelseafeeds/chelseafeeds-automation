@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T18:01:50.766633+00:00",
+  "updated_at": "2026-11-22T18:02:14.222225+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -65765,7 +65765,7 @@
       "publisher_domains": [
         "independent.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "b9e74cb47c7488e4f4e77484",
         "title": "The Rafa Benitez curse Xabi Alonso could suffer if Chelsea don’t find an identity",
@@ -65813,7 +65813,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4636733188036397273",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-fans-boo-after-leeds-drubbing.html",
+      "scheduled_for_utc": "2026-11-22T18:07:13Z",
+      "last_blogger_status_updated_at": "2026-11-22T18:02:14.222199+00:00"
     },
     "b34a4df8c16b5d67df76635c": {
       "event_id": "b34a4df8c16b5d67df76635c",
