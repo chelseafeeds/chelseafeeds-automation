@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T22:54:13.231311+00:00",
+  "updated_at": "2026-11-22T22:54:29.359060+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -66623,7 +66623,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "f28fcf78ad8b0d01b4817a55",
         "title": "Snooker star Neil Robertson demands Xabi Alonso QUIT after Chelsea’s 4-1 mauling at home to Leeds",
@@ -66671,7 +66671,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7922977392922174898",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/snooker-star-neil-robertson-urges-xabi.html",
+      "scheduled_for_utc": "2026-11-22T22:59:28Z",
+      "last_blogger_status_updated_at": "2026-11-22T22:54:29.359039+00:00"
     },
     "48882c6249090ea1331cdd7b": {
       "event_id": "48882c6249090ea1331cdd7b",
