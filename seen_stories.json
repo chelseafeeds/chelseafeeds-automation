@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T07:08:17.541301+00:00",
+  "updated_at": "2026-11-22T07:08:18.181360+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -61584,7 +61584,7 @@
       "publisher_domains": [
         "bbc.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "51c17a7be32b568a3cc57f71",
         "title": "Leeds dominate Chelsea for first Stamford Bridge win since 1999",
@@ -61648,7 +61648,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "2005023591785715216",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/leeds-united-secure-historic-4-1.html",
+      "scheduled_for_utc": "2026-11-22T07:13:16Z",
+      "last_blogger_status_updated_at": "2026-11-22T07:08:18.181345+00:00"
     },
     "4044863e7b7363a5bb6fe021": {
       "event_id": "4044863e7b7363a5bb6fe021",
