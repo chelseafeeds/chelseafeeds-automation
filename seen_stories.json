@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T10:02:33.419577+00:00",
+  "updated_at": "2026-11-22T10:03:00.182674+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -63383,7 +63383,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "91d091a3b7b72e00c66e84df",
         "title": "Leeds stars celebrate epic Chelsea win with Luke Littler-inspired party as away dressing room goes wild",
@@ -63425,12 +63425,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-22T10:03:00.182674+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Leeds stars celebrate epic Chelsea win with Luke Littler-inspired party as away dressing room goes wild",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "title_present_and_reasonable"
+      ],
       "force_evidence_refresh": false
     },
     "87d28b943c503a6ad2c8dfe7": {
