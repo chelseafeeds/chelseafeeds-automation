@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T20:34:20.844615+00:00",
+  "updated_at": "2026-11-22T20:34:47.421962+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -62223,7 +62223,7 @@
       "publisher_domains": [
         "cbssports.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "3eff7484349ab877f0b6ec2a",
         "title": "Leeds expose Chelsea's unresolved defensive problems as Xabi Alonso's crew yet to find footing",
@@ -62271,7 +62271,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6798375063103651082",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/leeds-expose-chelseas-unresolved.html",
+      "scheduled_for_utc": "2026-11-22T20:39:46Z",
+      "last_blogger_status_updated_at": "2026-11-22T20:34:47.421939+00:00"
     },
     "5438e27be95374e7dc6f65aa": {
       "event_id": "5438e27be95374e7dc6f65aa",
