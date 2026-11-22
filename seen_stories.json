@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T01:39:31.616378+00:00",
+  "updated_at": "2026-11-22T01:39:55.002425+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -55496,7 +55496,7 @@
         "standard.co.uk",
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "fd8f01507bb7b17bbcc7c5ed",
         "title": "Will Joao Pedro play against Leeds? Latest Chelsea team news after Xabi Alonso update",
@@ -55562,7 +55562,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6499067349906616575",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/joao-pedro-still-out-as-chelsea-face.html",
+      "scheduled_for_utc": "2026-11-22T01:44:54Z",
+      "last_blogger_status_updated_at": "2026-11-22T01:39:55.002411+00:00"
     },
     "cfcedbe6ebd4acc9291fb586": {
       "event_id": "cfcedbe6ebd4acc9291fb586",
