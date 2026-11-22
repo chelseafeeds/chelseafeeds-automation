@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T09:31:59.026824+00:00",
+  "updated_at": "2026-11-22T09:32:22.327290+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -63032,7 +63032,7 @@
       "publisher_domains": [
         "nytimes.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "99a7f04bc76ab4d9c88d6118",
         "title": "Premier League Forum: Can Alonso turn Chelsea around? How crucial could Raya injury be for Arsenal?",
@@ -63080,7 +63080,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4556314915768083064",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/premier-league-forum-can-alonso-turn.html",
+      "scheduled_for_utc": "2026-11-22T09:37:21Z",
+      "last_blogger_status_updated_at": "2026-11-22T09:32:22.327265+00:00"
     },
     "8d2a9c9fdba40b398866cdc7": {
       "event_id": "8d2a9c9fdba40b398866cdc7",
