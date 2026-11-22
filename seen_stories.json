@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T19:19:05.013570+00:00",
+  "updated_at": "2026-11-22T19:19:25.064576+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -62038,7 +62038,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "2901ffc9c462d9462301d712",
         "title": "Cole Palmer ‘confronted by Joao Pedro and Chelsea coach’ after ignoring fans",
@@ -62086,7 +62086,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7684159218552212391",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/cole-palmer-confronted-by-joao-pedro.html",
+      "scheduled_for_utc": "2026-11-22T19:24:24Z",
+      "last_blogger_status_updated_at": "2026-11-22T19:19:25.064531+00:00"
     },
     "b6f445878ac328bdd381524b": {
       "event_id": "b6f445878ac328bdd381524b",
