@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T12:32:43.958748+00:00",
+  "updated_at": "2026-11-22T12:33:11.931954+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -65834,7 +65834,7 @@
       "publisher_domains": [
         "theguardian.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "b34a4df8c16b5d67df76635c",
         "title": "César Azpilicueta: ‘At Chelsea a draw was a catastrophe – if you can’t perform, you’re out’",
@@ -65892,9 +65892,9 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-22T12:33:11.931954+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "César Azpilicueta: ‘At Chelsea a draw was a catastrophe – if you can’t perform, you’re out’",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
