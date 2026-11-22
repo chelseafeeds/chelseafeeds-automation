@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T02:26:34.369854+00:00",
+  "updated_at": "2026-11-22T02:27:05.719427+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -54760,7 +54760,7 @@
         "skysports.com",
         "weaintgotnohistory.sbnation.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "5aaaae5cd63c91eb8b8de5e1",
         "title": "Liverpool Women vs Chelsea Women; Barclays Women's Super League",
@@ -54820,9 +54820,9 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-22T02:27:05.719427+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Liverpool Women vs Chelsea Women; Barclays Women's Super League",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
@@ -59440,7 +59440,7 @@
         "standard.co.uk",
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "783a74a0d0c023ab779a1888",
         "title": "Three points from Chelsea’s 4-1 defeat to Leeds with Cole Palmer among big names becoming major problem for Xabi Alonso",
@@ -59482,9 +59482,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-22T02:27:05.719427+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Three points from Chelsea’s 4-1 defeat to Leeds with Cole Palmer among big names becoming major problem for Xabi Alonso",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
