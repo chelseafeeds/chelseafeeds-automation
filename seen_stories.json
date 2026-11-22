@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T02:27:05.719427+00:00",
+  "updated_at": "2026-11-22T02:27:34.194755+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -54760,7 +54760,7 @@
         "skysports.com",
         "weaintgotnohistory.sbnation.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "5aaaae5cd63c91eb8b8de5e1",
         "title": "Liverpool Women vs Chelsea Women; Barclays Women's Super League",
@@ -54826,7 +54826,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "918275835592856358",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-women-held-to-0-0-draw-by.html",
+      "scheduled_for_utc": "2026-11-22T02:32:33Z",
+      "last_blogger_status_updated_at": "2026-11-22T02:27:34.194738+00:00"
     },
     "4feed09646a1baa2c6f102c0": {
       "event_id": "4feed09646a1baa2c6f102c0",
@@ -59440,7 +59445,7 @@
         "standard.co.uk",
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "783a74a0d0c023ab779a1888",
         "title": "Three points from Chelsea’s 4-1 defeat to Leeds with Cole Palmer among big names becoming major problem for Xabi Alonso",
@@ -59488,7 +59493,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3170505698190853341",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-injury-crisis-deepens-as-cole.html",
+      "scheduled_for_utc": "2026-11-22T02:32:28Z",
+      "last_blogger_status_updated_at": "2026-11-22T02:27:29.283203+00:00"
     },
     "5543ff3b2ce4601e81c448dd": {
       "event_id": "5543ff3b2ce4601e81c448dd",
