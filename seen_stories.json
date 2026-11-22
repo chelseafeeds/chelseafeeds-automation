@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T10:58:32.205959+00:00",
+  "updated_at": "2026-11-22T10:58:48.530151+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -66358,7 +66358,7 @@
         "sports.yahoo.com",
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "726bd8dfdd6e8e589383aee4",
         "title": "Three points from Chelsea’s 4-1 defeat to Leeds with Cole Palmer among big names becoming major problem for Xabi Alonso",
@@ -66406,7 +66406,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1480066684325569036",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-4-1-leeds-loss-fuels-injury.html",
+      "scheduled_for_utc": "2026-11-22T11:03:47Z",
+      "last_blogger_status_updated_at": "2026-11-22T10:58:48.530130+00:00"
     },
     "036a0b7a7172b4598a7cce5c": {
       "event_id": "036a0b7a7172b4598a7cce5c",
