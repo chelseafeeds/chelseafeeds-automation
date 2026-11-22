@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T07:07:32.781561+00:00",
+  "updated_at": "2026-11-22T07:07:58.690473+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -61584,7 +61584,7 @@
       "publisher_domains": [
         "bbc.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "51c17a7be32b568a3cc57f71",
         "title": "Leeds dominate Chelsea for first Stamford Bridge win since 1999",
@@ -61642,9 +61642,9 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-22T07:07:58.690473+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Leeds dominate Chelsea for first Stamford Bridge win since 1999",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
