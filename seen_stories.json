@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T17:44:03.008501+00:00",
+  "updated_at": "2026-11-22T17:44:20.548324+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -67156,7 +67156,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "6bd289b255c1cf2eb4889a3b",
         "title": "Chelsea's next five Premier League fixtures compared to Brighton, Liverpool and Man City",
@@ -67204,7 +67204,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7631018173072708671",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-next-five-premier-league.html",
+      "scheduled_for_utc": "2026-11-22T17:49:19Z",
+      "last_blogger_status_updated_at": "2026-11-22T17:44:20.548301+00:00"
     },
     "6748dd1fe9c71d33fa4a4576": {
       "event_id": "6748dd1fe9c71d33fa4a4576",
