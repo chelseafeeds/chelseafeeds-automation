@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T14:48:21.157361+00:00",
+  "updated_at": "2026-11-22T14:48:42.603761+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -66262,7 +66262,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "33c7974ce14cfbfe7282628d",
         "title": "Xabi Alonso sent Chelsea sack warning as ‘rotten’ and ‘disgusting’ Blues are slammed for Leeds loss",
@@ -66310,7 +66310,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7247407247354389901",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-boss-xabi-alonso-given-sack.html",
+      "scheduled_for_utc": "2026-11-22T14:53:41Z",
+      "last_blogger_status_updated_at": "2026-11-22T14:48:42.603746+00:00"
     },
     "726bd8dfdd6e8e589383aee4": {
       "event_id": "726bd8dfdd6e8e589383aee4",
