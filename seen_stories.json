@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T02:37:59.506469+00:00",
+  "updated_at": "2026-11-22T02:38:31.761062+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -58809,7 +58809,7 @@
         "metro.co.uk",
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "543e3d373d5fdb7ad0860430",
         "title": "Three points from Chelsea’s 4-1 defeat to Leeds with Cole Palmer among big names becoming major problem for Xabi Alonso",
@@ -58884,9 +58884,9 @@
         "observation_count": 3,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-22T02:38:31.761062+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Three points from Chelsea’s 4-1 defeat to Leeds with Cole Palmer among big names becoming major problem for Xabi Alonso",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
