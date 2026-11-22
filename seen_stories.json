@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T16:03:05.114371+00:00",
+  "updated_at": "2026-11-22T16:03:23.287151+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -64811,7 +64811,7 @@
       "publisher_domains": [
         "nytimes.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "784c0bb10a0ed8840127211c",
         "title": "Xabi Alonso is under scrutiny, but Chelsea are not built for this Premier League",
@@ -64859,7 +64859,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7663817161451669590",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/xabi-alonso-is-under-scrutiny-but.html",
+      "scheduled_for_utc": "2026-11-22T16:08:21Z",
+      "last_blogger_status_updated_at": "2026-11-22T16:03:23.287136+00:00"
     },
     "8d67090b96c5e0d836d70c79": {
       "event_id": "8d67090b96c5e0d836d70c79",
