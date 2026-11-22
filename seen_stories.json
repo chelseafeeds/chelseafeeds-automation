@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-22T13:27:39.233625+00:00",
+  "updated_at": "2026-11-22T13:28:07.510487+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -67640,7 +67640,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "e8b8d00657153d35f991c20f",
         "title": "Bompastor: Lola Brown’s mentality is ‘unbelievable’ | News | Official Site - Chelsea Football Club",
@@ -67683,12 +67683,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-22T13:28:07.510487+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Bompastor: Lola Brown’s mentality is ‘unbelievable’ | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     }
   }
