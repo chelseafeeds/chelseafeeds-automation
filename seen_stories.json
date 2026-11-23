@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T23:48:11.798930+00:00",
+  "updated_at": "2026-11-23T23:48:36.595543+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -73256,7 +73256,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "37fa04f8e7bff565e2414b1c",
         "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
@@ -73304,7 +73304,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "8199586691017575739",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/paul-merson-questions-liverpools-view.html",
+      "scheduled_for_utc": "2026-11-23T23:53:35Z",
+      "last_blogger_status_updated_at": "2026-11-23T23:48:36.595520+00:00"
     },
     "512af4a583ae765c39d4b389": {
       "event_id": "512af4a583ae765c39d4b389",
