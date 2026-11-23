@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T21:23:42.583625+00:00",
+  "updated_at": "2026-11-23T21:24:00.063702+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -72334,7 +72334,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "a12a44b9a63aac3b0340cf65",
         "title": "Emmanuel Emegha: Police launch investigation as Chelsea striker ‘robbed’ after Leeds game",
@@ -72382,7 +72382,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "2120877996708354709",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/police-investigate-robbery-of-chelsea.html",
+      "scheduled_for_utc": "2026-11-23T21:28:59Z",
+      "last_blogger_status_updated_at": "2026-11-23T21:24:00.063687+00:00"
     },
     "9c7b0c25568feaa1d02bfa20": {
       "event_id": "9c7b0c25568feaa1d02bfa20",
