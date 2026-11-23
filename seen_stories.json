@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T12:29:35.069141+00:00",
+  "updated_at": "2026-11-23T12:30:07.887651+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -73239,7 +73239,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "620926570495c71a5ad1c4b5",
         "title": "Chelsea get new Morgan Rogers penalty review after Leeds handball controversy",
@@ -73281,9 +73281,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-23T12:30:07.887651+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea get new Morgan Rogers penalty review after Leeds handball controversy",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
