@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T00:07:44.592929+00:00",
+  "updated_at": "2026-11-23T00:08:14.889725+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -67998,7 +67998,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "9214736f31a6f338aaf1a4c7",
         "title": "Timid Xabi Alonso is starting to look just as soft as Chelsea flops – he’s got to get angry to sort this mess out",
@@ -68040,9 +68040,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-23T00:08:14.889725+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Timid Xabi Alonso is starting to look just as soft as Chelsea flops – he’s got to get angry to sort this mess out",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
