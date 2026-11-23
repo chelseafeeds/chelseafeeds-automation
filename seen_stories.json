@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T07:23:23.315828+00:00",
+  "updated_at": "2026-11-23T07:23:45.022589+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -70761,7 +70761,7 @@
         "msn.com",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "f68c07cd8c17291dd30b9d97",
         "title": "Chelsea injury update: Moises Caicedo, Joao Pedro, Jorrel Hato latest news and return dates",
@@ -70809,7 +70809,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5675135556354773553",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-injury-update-moises-caicedo.html",
+      "scheduled_for_utc": "2026-11-23T07:28:43Z",
+      "last_blogger_status_updated_at": "2026-11-23T07:23:45.022573+00:00"
     },
     "8e9e44c6afde560fa8f50ebe": {
       "event_id": "8e9e44c6afde560fa8f50ebe",
