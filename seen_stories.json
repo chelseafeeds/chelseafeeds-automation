@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T04:22:54.905310+00:00",
+  "updated_at": "2026-11-23T04:23:21.421062+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -37368,7 +37368,7 @@
       "publisher_domains": [
         "espn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "23b57518d07e70803c8b96ad",
         "title": "Estêvão is Brazil's brightest young talent. Is Chelsea the right place for him?",
@@ -37410,12 +37410,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-23T04:23:21.421062+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Estêvão is Brazil's brightest young talent. Is Chelsea the right place for him?",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "6b444145d5a7a473094a0bbd": {
