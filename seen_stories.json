@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T13:13:40.744648+00:00",
+  "updated_at": "2026-11-23T13:13:58.506968+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -73845,7 +73845,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "61ca043e1de5a524b6bd6e32",
         "title": "Cole Palmer admission made as Xabi Alonso sweats on Joao Pedro Chelsea injury news",
@@ -73909,7 +73909,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "451859157270714790",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/cole-palmer-admission-made-as-xabi.html",
+      "scheduled_for_utc": "2026-11-23T13:18:57Z",
+      "last_blogger_status_updated_at": "2026-11-23T13:13:58.506951+00:00"
     },
     "fcbd0afa5d03d3a76fddfd61": {
       "event_id": "fcbd0afa5d03d3a76fddfd61",
