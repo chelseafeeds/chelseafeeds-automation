@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T10:28:00.036687+00:00",
+  "updated_at": "2026-11-23T10:28:40.254250+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -72237,7 +72237,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "0239385051a1b2de7f5aaa00",
         "title": "Transfer news LIVE: Shock Arsenal move, Kroupi twist; Man Utd want Toney; Chelsea double deal; Liverpool latest",
@@ -72279,12 +72279,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-23T10:28:40.254250+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Transfer news LIVE: Shock Arsenal move, Kroupi twist; Man Utd want Toney; Chelsea double deal; Liverpool latest",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "f32d040abbc71dab3eb6b2e5": {
