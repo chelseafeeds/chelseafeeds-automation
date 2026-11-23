@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T14:13:29.357473+00:00",
+  "updated_at": "2026-11-23T14:38:10.298411+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -36900,7 +36900,7 @@
       "event_id": "fedfa2acefa060d4699feabd",
       "title": "Transfer news live: Vinicius to Arsenal; Chelsea told Scott fee",
       "first_seen_at": "2026-11-20T08:59:45.657756+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T03:27:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -63573,12 +63573,13 @@
     },
     "5b25f13f6403e4b1bfc494c6": {
       "event_id": "5b25f13f6403e4b1bfc494c6",
-      "title": "Xabi Alonso delivers Moises Caicedo injury update as Chelsea star hit with fresh setback",
+      "title": "Forgotten Chelsea star could be Xabi Alonso's solution if Moises Caicedo injury fears come true",
       "first_seen_at": "2026-11-21T22:43:02.697104+00:00",
-      "last_seen_at": "2026-11-22T18:01:14.657138+00:00",
-      "last_published_at": "2026-11-21T18:19:58+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
+      "last_published_at": "2026-11-23T14:07:57+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
+        "football.london",
         "independent.co.uk",
         "sports.yahoo.com",
         "standard.co.uk"
@@ -63586,54 +63587,24 @@
       "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "5b25f13f6403e4b1bfc494c6",
-        "title": "Xabi Alonso delivers Moises Caicedo injury update as Chelsea star hit with fresh setback",
+        "title": "Forgotten Chelsea star could be Xabi Alonso's solution if Moises Caicedo injury fears come true",
         "story_type": "injury_update",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-21T18:19:58+00:00",
-        "best_summary": "Moises Caicedo Injury Adds to Chelsea Problems After Leeds DefeatChelsea have another problem to manage, and this one matters. Moises Caicedo went down early in the defeat to Leeds at Stamford ...",
-        "representative_title": "Xabi Alonso delivers Moises Caicedo injury update as Chelsea star hit with fresh setback",
-        "representative_url": "https://www.standard.co.uk/sport/football/caicedo-injury-latest-chelsea-fc-b1305828.html",
-        "representative_publisher": "standard.co.uk",
+        "published": "2026-11-23T14:07:57+00:00",
+        "best_summary": "Moises Caicedo limped off in the first half of Chelsea's defeat to Leeds United but Xabi Alonso may just have a solution to the problem",
+        "representative_title": "Forgotten Chelsea star could be Xabi Alonso's solution if Moises Caicedo injury fears come true",
+        "representative_url": "https://www.football.london/chelsea-fc/news/forgotten-chelsea-star-could-xabi-34953666",
+        "representative_publisher": "football.london",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Moises Caicedo forced off in tears as Chelsea injury crisis worsens",
-            "summary": "Chelsea will be sweating over the fitness of their midfield lynchpin after his latest setback",
-            "url": "https://www.independent.co.uk/sport/football/moises-caicedo-chelsea-injury-latest-leeds-b3089185.html",
-            "publisher_domain": "independent.co.uk",
-            "publisher_name_hint": "The Independent Football",
-            "source_feed": "The Independent Football",
-            "published": "2026-11-22T00:03:59+00:00",
-            "publisher_type": "established_domain",
-            "team_scope": "mens_first_team_or_club",
-            "story_type": "injury_update",
-            "opponent_key": "",
-            "fixture_key": "",
-            "subject_key": "moises_caicedo"
-          },
-          {
-            "title": "Chelsea facing huge injury scare after Leeds United defeat",
-            "summary": "Moises Caicedo Injury Adds to Chelsea Problems After Leeds DefeatChelsea have another problem to manage, and this one matters. Moises Caicedo went down early in the defeat to Leeds at Stamford ...",
-            "url": "https://sports.yahoo.com/articles/chelsea-facing-huge-injury-scare-135000592.html",
-            "publisher_domain": "sports.yahoo.com",
-            "publisher_name_hint": "sports.yahoo.com",
-            "source_feed": "Bing News discovery: Chelsea injury team news",
-            "published": "2026-11-22T05:49:00+00:00",
-            "publisher_type": "other_direct_domain",
-            "team_scope": "mens_first_team_or_club",
-            "story_type": "injury_update",
-            "opponent_key": "",
-            "fixture_key": "",
-            "subject_key": "moises_caicedo"
-          },
-          {
-            "title": "Xabi Alonso delivers Moises Caicedo injury update as Chelsea star hit with fresh setback",
-            "summary": "Ecuador midfielder picked up an issue during the international break but was deemed fit enough to start on Saturday",
-            "url": "https://www.standard.co.uk/sport/football/caicedo-injury-latest-chelsea-fc-b1305828.html",
-            "publisher_domain": "standard.co.uk",
-            "publisher_name_hint": "Evening Standard Sport",
-            "source_feed": "Evening Standard Sport",
-            "published": "2026-11-21T18:19:58+00:00",
+            "title": "Forgotten Chelsea star could be Xabi Alonso's solution if Moises Caicedo injury fears come true",
+            "summary": "Moises Caicedo limped off in the first half of Chelsea's defeat to Leeds United but Xabi Alonso may just have a solution to the problem",
+            "url": "https://www.football.london/chelsea-fc/news/forgotten-chelsea-star-could-xabi-34953666",
+            "publisher_domain": "football.london",
+            "publisher_name_hint": null,
+            "source_feed": "Football London Chelsea",
+            "published": "2026-11-23T14:07:57+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "injury_update",
@@ -63643,23 +63614,17 @@
           }
         ],
         "source_urls": [
-          "https://sports.yahoo.com/articles/chelsea-facing-huge-injury-scare-135000592.html",
-          "https://www.independent.co.uk/sport/football/moises-caicedo-chelsea-injury-latest-leeds-b3089185.html",
-          "https://www.standard.co.uk/sport/football/caicedo-injury-latest-chelsea-fc-b1305828.html"
+          "https://www.football.london/chelsea-fc/news/forgotten-chelsea-star-could-xabi-34953666"
         ],
         "publisher_domains": [
-          "independent.co.uk",
-          "sports.yahoo.com",
-          "standard.co.uk"
+          "football.london"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea injury team news",
-          "Evening Standard Sport",
-          "The Independent Football"
+          "Football London Chelsea"
         ],
-        "publisher_count": 3,
-        "observation_count": 3,
-        "corroboration_status": "multiple_publishers_observed_independence_not_proven"
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
       },
       "last_processed_at": "2026-11-21T23:23:41.751141+00:00",
       "last_editorial_outcome": "draft_created_unpublished",
@@ -68541,7 +68506,7 @@
       "event_id": "75d1a0f04038ddef52470439",
       "title": "Passive Xabi Alonso has no answers to Chelsea’s biggest ongoing problem",
       "first_seen_at": "2026-11-22T15:16:15.160432+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-22T15:13:14+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -68721,7 +68686,7 @@
       "event_id": "00983a5bb66f8a6b1e9da4c7",
       "title": "“Living off his name” – Journalist tells Chelsea to drop key player who is not performing",
       "first_seen_at": "2026-11-22T16:01:01.849209+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-22T16:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -69870,7 +69835,7 @@
       "event_id": "087fa71538ca296c6c146351",
       "title": "Chelsea star Emmanuel Emegha reveals he was ROBBED after scoring first Premier League goal in Leeds loss",
       "first_seen_at": "2026-11-22T22:56:35.319040+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-22T22:53:50+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -69882,13 +69847,28 @@
         "title": "Chelsea star Emmanuel Emegha reveals he was ROBBED after scoring first Premier League goal in Leeds loss",
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-22T22:53:50+00:00",
+        "published": "2026-11-22T14:53:00+00:00",
         "best_summary": "CHELSEA striker Emmanuel Emegha revealed that he was robbed after Saturday's match against Leeds. Emegha, 23, marked his first Blues start with a goal despite his side going down 4-1 at Stamford Bridge. On Sunday evening, the former Strasbourg star posted a worrying update to Instagram. It read: \"First goal, disappointing result, we’ll be back...",
         "representative_title": "Chelsea star Emmanuel Emegha reveals he was ROBBED after scoring first Premier League goal in Leeds loss",
         "representative_url": "https://www.thesun.co.uk/sport/41110978/chelsea-emmanuel-emegha-robbed",
         "representative_publisher": "thesun.co.uk",
         "representative_publisher_type": "established_domain",
         "source_observations": [
+          {
+            "title": "Chelsea star Emmanuel Emegha reveals he was ROBBED after scoring first Premier League goal in Leeds loss",
+            "summary": "CHELSEA striker Emmanuel Emegha revealed that he was robbed after Saturday’s match against Leeds. Emegha, 23, marked his first Blues start with a goal despite his side going down 4-1 at ...",
+            "url": "https://www.thesun.co.uk/sport/41110978/chelsea-emmanuel-emegha-robbed",
+            "publisher_domain": "thesun.co.uk",
+            "publisher_name_hint": "thesun.co.uk",
+            "source_feed": "Bing News discovery: Chelsea Premier League",
+            "published": "2026-11-22T14:53:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          },
           {
             "title": "Chelsea star Emmanuel Emegha reveals he was ROBBED after scoring first Premier League goal in Leeds loss",
             "summary": "CHELSEA striker Emmanuel Emegha revealed that he was robbed after Saturday's match against Leeds. Emegha, 23, marked his first Blues start with a goal despite his side going down 4-1 at Stamford Bridge. On Sunday evening, the former Strasbourg star posted a worrying update to Instagram. It read: \"First goal, disappointing result, we’ll be back...",
@@ -69912,10 +69892,11 @@
           "thesun.co.uk"
         ],
         "source_feeds": [
+          "Bing News discovery: Chelsea Premier League",
           "The Sun Football"
         ],
         "publisher_count": 1,
-        "observation_count": 1,
+        "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
       "last_processed_at": "2026-11-22T22:58:47.420352+00:00",
@@ -69933,7 +69914,7 @@
       "event_id": "48cba9ff2478331e70d640c6",
       "title": "Chelsea forward Emmanuel Emegha victim of robbery after defeat to Leeds",
       "first_seen_at": "2026-11-22T23:21:11.265179+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-22T22:59:50+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -69995,8 +69976,8 @@
       "event_id": "8ee26c2b8cf8a997638cde08",
       "title": "Chelsea star Emmanuel Emegha ROBBED by phone snatcher in London after leaving Stamford Bridge following 4-1 hammering by Leeds",
       "first_seen_at": "2026-11-22T23:38:27.536740+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
-      "last_published_at": "2026-11-23T08:22:13+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
+      "last_published_at": "2026-11-23T14:19:04+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
         "dailymail.com"
@@ -70007,7 +69988,7 @@
         "title": "Chelsea star Emmanuel Emegha ROBBED by phone snatcher in London after leaving Stamford Bridge following 4-1 hammering by Leeds",
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-23T08:22:13+00:00",
+        "published": "2026-11-23T14:19:04+00:00",
         "best_summary": "Chelsea striker Emmanuel Emegha was robbed after leaving Stamford Bridge on Saturday evening, with the 23-year-old Dutchman having scored in his first start for the club.",
         "representative_title": "Chelsea star Emmanuel Emegha ROBBED by phone snatcher in London after leaving Stamford Bridge following 4-1 hammering by Leeds",
         "representative_url": "https://www.dailymail.com/sport/football/article-16313915/Emmanuel-Emegha-ROBBED-Chelsea-Leeds.html?ns_mchannel=rss&ns_campaign=1490&ito=1490",
@@ -70021,7 +70002,7 @@
             "publisher_domain": "dailymail.com",
             "publisher_name_hint": "Daily Mail Football",
             "source_feed": "Daily Mail Football",
-            "published": "2026-11-23T08:22:13+00:00",
+            "published": "2026-11-23T14:19:04+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "match_report",
@@ -70036,7 +70017,7 @@
             "publisher_domain": "dailymail.com",
             "publisher_name_hint": "Daily Mail Football",
             "source_feed": "Daily Mail Football",
-            "published": "2026-11-23T08:22:13+00:00",
+            "published": "2026-11-23T14:19:04+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "match_report",
@@ -70250,7 +70231,7 @@
       "event_id": "56fc6fe8d1531c120a8bce02",
       "title": "Chelsea board backs Xabi Alonso despite Leeds United defeat",
       "first_seen_at": "2026-11-23T05:41:06.066797+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T05:28:29+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -70432,7 +70413,7 @@
       "event_id": "0b6baf9807ff7311417631b9",
       "title": "The brutally honest Chelsea assessment Xabi Alonso will agree with as £342m decision questioned",
       "first_seen_at": "2026-11-23T06:06:07.004796+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T06:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -70492,7 +70473,7 @@
       "event_id": "1c30743affc7ff9e10c59d04",
       "title": "The Score: Man Utd’s reverse Midas touch, Chelsea’s damning stat and Spurs’ next Bale",
       "first_seen_at": "2026-11-23T06:07:55.460200+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T06:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -70554,7 +70535,7 @@
       "event_id": "71ec9ba286e212d79ab023a7",
       "title": "Chelsea Diary: Away days and Academy derby on the agenda | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-23T06:07:55.460200+00:00",
-      "last_seen_at": "2026-11-23T14:03:20.297058+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T06:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -70739,7 +70720,7 @@
       "event_id": "f68c07cd8c17291dd30b9d97",
       "title": "Chelsea injury update: Moises Caicedo, Joao Pedro, Reece James latest news and return dates",
       "first_seen_at": "2026-11-23T06:57:40.061327+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T06:15:19+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -71082,7 +71063,7 @@
       "event_id": "6ec6d791660ca87aa5dda677",
       "title": "Chelsea 1-4 Leeds United, Player Ratings: To the Hall of Shame in near record time",
       "first_seen_at": "2026-11-23T07:22:57.637889+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T07:00:24+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -71223,7 +71204,7 @@
       "event_id": "1e4c627cb158e35fff7fda0c",
       "title": "Alonso: ‘Fragile’ Chelsea not ‘at the level required’",
       "first_seen_at": "2026-11-23T07:22:57.637889+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T07:11:12+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -71403,7 +71384,7 @@
       "event_id": "4f5b13ab81d51bd3f3811d71",
       "title": "Transfer news LIVE: Shock Arsenal move, Kroupi twist; Man Utd want Toney; Chelsea double deal; Liverpool latest",
       "first_seen_at": "2026-11-23T08:06:46.483596+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T12:07:34+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -71523,7 +71504,7 @@
       "event_id": "761999090b5509c41c2ff20c",
       "title": "Chelsea star reveals he was 'robbed' after Leeds thrashing as statement released",
       "first_seen_at": "2026-11-23T08:06:46.483596+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T07:51:50+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -71648,7 +71629,7 @@
       "event_id": "50ab8940786267fa09665ed1",
       "title": "Gary Neville gives Leeds United nod after win vs Chelsea in 'strange' Premier League verdict",
       "first_seen_at": "2026-11-23T08:33:21.644597+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T00:04:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -71768,7 +71749,7 @@
       "event_id": "66d82df3ee6df511fbe14e64",
       "title": "Xabi Alonso At Risk Of Champions League Failure As Daunting Chelsea Run Awaits",
       "first_seen_at": "2026-11-23T08:33:21.644597+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-22T23:44:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -71828,7 +71809,7 @@
       "event_id": "57623316496d48dbc08013b9",
       "title": "Chelsea reach decision on sacking Xabi Alonso amid dressing room ‘mutiny’ rumours",
       "first_seen_at": "2026-11-23T08:56:10.340321+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T08:38:07+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -72070,7 +72051,7 @@
       "event_id": "a012388148abb1906e1c847e",
       "title": "Chelsea FC, all the broadcast information at a glance: Who is showing the Blues’ matches live on TV and via live stream?",
       "first_seen_at": "2026-11-23T09:22:53.591428+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T00:37:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -72133,7 +72114,7 @@
       "event_id": "ce86d284c9ae028c7ac63148",
       "title": "Mourning the untimely but inevitable loss of the season’s greatest Leeds statistic",
       "first_seen_at": "2026-11-23T10:01:00.473773+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T09:40:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -72193,7 +72174,7 @@
       "event_id": "b4cc1ec36f57f25336b839f4",
       "title": "Chelsea player completed two passes in an hour – Alonso’s tactical challenge clear",
       "first_seen_at": "2026-11-23T10:01:00.473773+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -72375,7 +72356,7 @@
       "event_id": "a12a44b9a63aac3b0340cf65",
       "title": "Emmanuel Emegha: Police launch investigation as Chelsea striker ‘robbed’ after Leeds game",
       "first_seen_at": "2026-11-23T10:26:18.201555+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T10:16:19+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -72495,7 +72476,7 @@
       "event_id": "2efd06103083a40379c9eacc",
       "title": "Chelsea consider €40m winger transfer at Xabi Alonso request",
       "first_seen_at": "2026-11-23T10:43:23.452287+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T01:47:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -72615,7 +72596,7 @@
       "event_id": "e8b67a97f888531ee932a7c1",
       "title": "Chelsea's Emmanuel Emegha victim of theft after first Premier League start",
       "first_seen_at": "2026-11-23T11:05:59.465294+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T11:00:49+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -72795,7 +72776,7 @@
       "event_id": "6ab9f9a3f6b06e378b1c56e9",
       "title": "Chelsea respond after Emmanuel Emegha 'robbed' following Leeds United defeat",
       "first_seen_at": "2026-11-23T11:31:07.891977+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T11:11:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -72915,7 +72896,7 @@
       "event_id": "e6b0f539400c4069b9dc0fc3",
       "title": "Transfer news LIVE: Shock Arsenal move, Kroupi twist; Man Utd want Toney; Chelsea double deal; Liverpool latest",
       "first_seen_at": "2026-11-23T11:33:00.113088+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T04:07:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -73035,7 +73016,7 @@
       "event_id": "c2f1f48c7213e6b3778d0852",
       "title": "FA Youth Cup ticket news: Derby County away | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-23T11:39:11.849238+00:00",
-      "last_seen_at": "2026-11-23T14:03:20.297058+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T11:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -73218,7 +73199,7 @@
       "event_id": "620926570495c71a5ad1c4b5",
       "title": "Chelsea get new Morgan Rogers penalty review after Leeds handball controversy",
       "first_seen_at": "2026-11-23T12:01:14.793831+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T11:43:43+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -73283,7 +73264,7 @@
       "event_id": "dc573b94f3400cbb72dcba1f",
       "title": "Chelsea respond after Emmanuel Emegha 'robbed' following Leeds United defeat",
       "first_seen_at": "2026-11-23T12:02:56.470706+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T03:11:45+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -73341,9 +73322,9 @@
     },
     "37fa04f8e7bff565e2414b1c": {
       "event_id": "37fa04f8e7bff565e2414b1c",
-      "title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+      "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
       "first_seen_at": "2026-11-23T12:26:16.875015+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T12:08:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -73352,18 +73333,18 @@
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "37fa04f8e7bff565e2414b1c",
-        "title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+        "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
         "story_type": "match_reaction",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-23T12:08:00+00:00",
         "best_summary": "In his latest Sky Sports column, Paul Merson has raised doubts about whether Xabi Alonso is good enough as Chelsea manager - after another disappointing defeat in the Premier League.",
-        "representative_title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+        "representative_title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
         "representative_url": "https://www.skysports.com/football/news/12040/13615585/paul-merson-believes-liverpool-knew-xabi-alonso-wasnt-good-enough-and-were-seeing-it-play-out-as-chelsea-manager",
         "representative_publisher": "skysports.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+            "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
             "summary": "In his latest Sky Sports column, Paul Merson has raised doubts about whether Xabi Alonso is good enough as Chelsea manager - after another disappointing defeat in the Premier League.",
             "url": "https://www.skysports.com/football/news/12040/13615585/paul-merson-believes-liverpool-knew-xabi-alonso-wasnt-good-enough-and-were-seeing-it-play-out-as-chelsea-manager",
             "publisher_domain": "skysports.com",
@@ -73401,9 +73382,9 @@
     },
     "512af4a583ae765c39d4b389": {
       "event_id": "512af4a583ae765c39d4b389",
-      "title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+      "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
       "first_seen_at": "2026-11-23T12:26:16.875015+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T12:08:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -73412,18 +73393,18 @@
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "512af4a583ae765c39d4b389",
-        "title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+        "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
         "story_type": "match_reaction",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-23T12:08:00+00:00",
         "best_summary": "In his latest Sky Sports column, Paul Merson has raised doubts about whether Xabi Alonso is good enough as Chelsea manager - after another disappointing defeat in the Premier League.",
-        "representative_title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+        "representative_title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
         "representative_url": "https://www.skysports.com/football/news/11095/13615585/paul-merson-believes-liverpool-knew-xabi-alonso-wasnt-good-enough-and-were-seeing-it-play-out-as-chelsea-manager",
         "representative_publisher": "skysports.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+            "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
             "summary": "In his latest Sky Sports column, Paul Merson has raised doubts about whether Xabi Alonso is good enough as Chelsea manager - after another disappointing defeat in the Premier League.",
             "url": "https://www.skysports.com/football/news/11095/13615585/paul-merson-believes-liverpool-knew-xabi-alonso-wasnt-good-enough-and-were-seeing-it-play-out-as-chelsea-manager",
             "publisher_domain": "skysports.com",
@@ -73461,9 +73442,9 @@
     },
     "d15a6cdba80f8cb9fa6ffeed": {
       "event_id": "d15a6cdba80f8cb9fa6ffeed",
-      "title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+      "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
       "first_seen_at": "2026-11-23T12:26:16.875015+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T12:08:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -73472,18 +73453,18 @@
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "d15a6cdba80f8cb9fa6ffeed",
-        "title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+        "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
         "story_type": "match_reaction",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-23T12:08:00+00:00",
         "best_summary": "In his latest Sky Sports column, Paul Merson has raised doubts about whether Xabi Alonso is good enough as Chelsea manager - after another disappointing defeat in the Premier League.",
-        "representative_title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+        "representative_title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
         "representative_url": "https://news.sky.com/story/paul-merson-believes-liverpool-knew-xabi-alonso-wasnt-good-enough-and-were-seeing-it-play-out-as-chelsea-manager-13615585",
         "representative_publisher": "news.sky.com",
         "representative_publisher_type": "other_direct_domain",
         "source_observations": [
           {
-            "title": "Merson on Chelsea: My biggest worry is Liverpool knew Alonso wasn't good enough",
+            "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
             "summary": "In his latest Sky Sports column, Paul Merson has raised doubts about whether Xabi Alonso is good enough as Chelsea manager - after another disappointing defeat in the Premier League.",
             "url": "https://news.sky.com/story/paul-merson-believes-liverpool-knew-xabi-alonso-wasnt-good-enough-and-were-seeing-it-play-out-as-chelsea-manager-13615585",
             "publisher_domain": "news.sky.com",
@@ -73523,7 +73504,7 @@
       "event_id": "f3a0c5b18d9c1df2870b02fa",
       "title": "Chelsea considering move for former Manchester United star",
       "first_seen_at": "2026-11-23T12:29:35.069141+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T03:50:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -73643,7 +73624,7 @@
       "event_id": "7515b1173d043a519de56e21",
       "title": "Chelsea striker Emmanuel Emegha robbed after Leeds thrashing",
       "first_seen_at": "2026-11-23T12:29:35.069141+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T12:47:52+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -73763,7 +73744,7 @@
       "event_id": "dfe77f02510a6f24ba6620c7",
       "title": "Chelsea striker’s afternoon goes from amazing to terrible as debut goal followed by robbery",
       "first_seen_at": "2026-11-23T12:43:18.485950+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T12:41:59+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -73888,7 +73869,7 @@
       "event_id": "fcbd0afa5d03d3a76fddfd61",
       "title": "McTominay approves Man Utd return over Chelsea transfer with Napoli future up in the air",
       "first_seen_at": "2026-11-23T13:11:07.402485+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T12:58:30+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -74008,7 +73989,7 @@
       "event_id": "c1bfba16d7bffd8613efaeb1",
       "title": "Cole Palmer admission made as Xabi Alonso sweats on Joao Pedro Chelsea injury news",
       "first_seen_at": "2026-11-23T13:13:08.327233+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T12:25:09+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -74071,7 +74052,7 @@
       "event_id": "e09839f9eaa4f75df764091b",
       "title": "'When I look at the law...' - Ex-PGMOL chief re-analyses controversial Calvert-Lewin footage in Leeds vs Chelsea",
       "first_seen_at": "2026-11-23T13:36:01.392879+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T13:15:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -74131,7 +74112,7 @@
       "event_id": "6a0814c1c9a4504fb548174a",
       "title": "Chelsea ‘ready to SELL Marco Palestra just months after £43m move as they line up mega January transfer replacement’",
       "first_seen_at": "2026-11-23T13:36:01.392879+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T05:19:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -74267,7 +74248,7 @@
       "event_id": "92bb4a3b5e12c1a7eb0973b3",
       "title": "Former Chelsea star, 36, makes major career change as he lands brand new job just months after being released",
       "first_seen_at": "2026-11-23T14:01:08.055302+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T13:48:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -74280,7 +74261,7 @@
         "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-23T13:48:02+00:00",
-        "best_summary": "FORMER Premier League star Patrick van Aanholt has swapped matches for menswear - by opening a clothes shop. The Holland international had seven seasons with Chelsea, making eight Blues appearances. https://www.instagram.com/p/DGJM69IMCvU/ He went on to spend three years at Sunderland followed by four with Crystal Palace. Chelsea also loaned the defender out to Coventry, Newcastle,...",
+        "best_summary": "FORMER Premier League star Patrick van Aanholt has swapped matches for menswear - by opening a CLOTHES SHOP. The Holland international had seven seasons with Chelsea, making eight Blues appearances. https://www.instagram.com/p/DGJM69IMCvU/ He went on to spend three years at Sunderland followed by four with Crystal Palace. Chelsea also loaned the defender out to Coventry, Newcastle,...",
         "representative_title": "Former Chelsea star, 36, makes major career change as he lands brand new job just months after being released",
         "representative_url": "https://www.thesun.co.uk/sport/41116298/chelsea-patrick-van-aanholt-clothes-shop-den-bosch",
         "representative_publisher": "thesun.co.uk",
@@ -74288,7 +74269,7 @@
         "source_observations": [
           {
             "title": "Former Chelsea star, 36, makes major career change as he lands brand new job just months after being released",
-            "summary": "FORMER Premier League star Patrick van Aanholt has swapped matches for menswear - by opening a clothes shop. The Holland international had seven seasons with Chelsea, making eight Blues appearances. https://www.instagram.com/p/DGJM69IMCvU/ He went on to spend three years at Sunderland followed by four with Crystal Palace. Chelsea also loaned the defender out to Coventry, Newcastle,...",
+            "summary": "FORMER Premier League star Patrick van Aanholt has swapped matches for menswear - by opening a CLOTHES SHOP. The Holland international had seven seasons with Chelsea, making eight Blues appearances. https://www.instagram.com/p/DGJM69IMCvU/ He went on to spend three years at Sunderland followed by four with Crystal Palace. Chelsea also loaned the defender out to Coventry, Newcastle,...",
             "url": "https://www.thesun.co.uk/sport/41116298/chelsea-patrick-van-aanholt-clothes-shop-den-bosch",
             "publisher_domain": "thesun.co.uk",
             "publisher_name_hint": "The Sun Football",
@@ -74327,7 +74308,7 @@
       "event_id": "2ed38015334f8e00d9711baf",
       "title": "How Chelsea’s 24 team changes under Alonso compare to rest of Premier League",
       "first_seen_at": "2026-11-23T14:01:08.055302+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T14:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -74387,8 +74368,8 @@
       "event_id": "948b09dfcc07d62e7fb48040",
       "title": "Chelsea Star Emmanuel Emegha Robbed Hours After 4-1 Defeat to Leeds, Expensive Items Stolen",
       "first_seen_at": "2026-11-23T14:03:20.297058+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
-      "last_published_at": "2026-11-22T16:27:00+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
+      "last_published_at": "2026-11-23T06:27:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "legit.ng"
@@ -74399,7 +74380,7 @@
         "title": "Chelsea Star Emmanuel Emegha Robbed Hours After 4-1 Defeat to Leeds, Expensive Items Stolen",
         "story_type": "match_reaction",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-22T16:27:00+00:00",
+        "published": "2026-11-23T06:27:00+00:00",
         "best_summary": "Emmanuel Emegha says items were stolen from his car in London after scoring on his first Premier League start in Chelsea's 4-1 loss to Leeds at Stamford Bridge.",
         "representative_title": "Chelsea Star Emmanuel Emegha Robbed Hours After 4-1 Defeat to Leeds, Expensive Items Stolen",
         "representative_url": "https://www.legit.ng/sports/football/1742863-emmanuel-emegha-robbed-hours-chelseas-4-1-defeat-leeds-expensive-items-stolen",
@@ -74413,7 +74394,7 @@
             "publisher_domain": "legit.ng",
             "publisher_name_hint": "legit.ng",
             "source_feed": "Bing News discovery: Chelsea Premier League",
-            "published": "2026-11-22T16:27:00+00:00",
+            "published": "2026-11-23T06:27:00+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
             "story_type": "match_reaction",
@@ -74447,7 +74428,7 @@
       "event_id": "cacaed0e256d6c614454a3ef",
       "title": "Chelsea star Emmanuel Emegha robbed by thieves after scoring first Premier League goal",
       "first_seen_at": "2026-11-23T14:03:20.297058+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
       "last_published_at": "2026-11-23T05:06:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -74507,7 +74488,7 @@
       "event_id": "aee4515bc5347613a2d7419f",
       "title": "Chelsea have 'serious doubts' about Xabi Alonso after 'shocking' Leeds defeat",
       "first_seen_at": "2026-11-23T14:09:10.980243+00:00",
-      "last_seen_at": "2026-11-23T14:09:10.980243+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
       "last_published_at": "2026-11-23T13:45:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -74567,8 +74548,8 @@
       "event_id": "38f61d538679602f3df6ed7b",
       "title": "Iraola owns Manchester United with Chelsea, Glasner, Maresca and Arsenal all branded losers",
       "first_seen_at": "2026-11-23T14:09:10.980243+00:00",
-      "last_seen_at": "2026-11-23T14:12:57.206779+00:00",
-      "last_published_at": "2026-11-23T06:05:00+00:00",
+      "last_seen_at": "2026-11-23T14:36:09.361003+00:00",
+      "last_published_at": "2026-11-23T14:05:57+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
         "football365.com"
@@ -74577,10 +74558,10 @@
       "candidate_snapshot": {
         "event_id": "38f61d538679602f3df6ed7b",
         "title": "Iraola owns Manchester United with Chelsea, Glasner, Maresca and Arsenal all branded losers",
-        "story_type": "match_report",
+        "story_type": "general_news",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-23T06:05:00+00:00",
-        "best_summary": "It is not known whether Marco Rose was pre-emptively channelling Gary Neville of entire headloss fame when the Bournemouth manager referred to the 5-1 defeat to Chelsea in October as “a real slap”. He ...",
+        "published": "2026-11-23T14:05:57+00:00",
+        "best_summary": "Manchester United belong to Andoni Iraola, but no-one will want to claim ownership of Chelsea, Oliver Glasner or Enzo Maresca currently.",
         "representative_title": "Iraola owns Manchester United with Chelsea, Glasner, Maresca and Arsenal all branded losers",
         "representative_url": "https://www.football365.com/news/premier-league-winners-losers-iraola-manchester-united-chelsea",
         "representative_publisher": "football365.com",
@@ -74588,15 +74569,15 @@
         "source_observations": [
           {
             "title": "Iraola owns Manchester United with Chelsea, Glasner, Maresca and Arsenal all branded losers",
-            "summary": "It is not known whether Marco Rose was pre-emptively channelling Gary Neville of entire headloss fame when the Bournemouth manager referred to the 5-1 defeat to Chelsea in October as “a real slap”. He ...",
+            "summary": "Manchester United belong to Andoni Iraola, but no-one will want to claim ownership of Chelsea, Oliver Glasner or Enzo Maresca currently.",
             "url": "https://www.football365.com/news/premier-league-winners-losers-iraola-manchester-united-chelsea",
             "publisher_domain": "football365.com",
-            "publisher_name_hint": "football365.com",
-            "source_feed": "Bing News discovery: Chelsea Premier League",
-            "published": "2026-11-23T06:05:00+00:00",
+            "publisher_name_hint": null,
+            "source_feed": "Football365",
+            "published": "2026-11-23T14:05:57+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
-            "story_type": "match_report",
+            "story_type": "general_news",
             "opponent_key": "arsenal",
             "fixture_key": "",
             "subject_key": ""
@@ -74609,7 +74590,7 @@
           "football365.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea Premier League"
+          "Football365"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -74670,6 +74651,265 @@
         ],
         "source_feeds": [
           "Bing News discovery: Chelsea transfer news"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "8bd403f90c59fb6e79594aa8": {
+      "event_id": "8bd403f90c59fb6e79594aa8",
+      "title": "How Xabi Alonso compares to Chelsea’s other BlueCo bosses after first 11 games and disastrous home defeat to Leeds",
+      "first_seen_at": "2026-11-23T14:36:09.361003+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
+      "last_published_at": "2026-11-23T14:17:37+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "thesun.co.uk"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "8bd403f90c59fb6e79594aa8",
+        "title": "How Xabi Alonso compares to Chelsea’s other BlueCo bosses after first 11 games and disastrous home defeat to Leeds",
+        "story_type": "match_reaction",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-23T14:17:37+00:00",
+        "best_summary": "XABI ALONSO is already walking on thin ice at Chelsea after damning statistics revealed he has made one of the worst starts of any Blues boss under the club's current ownership. The Spaniard has collected just 16 points from his first 11 Premier League matches, with only Graham Potter and Mauricio Pochettino managing fewer during...",
+        "representative_title": "How Xabi Alonso compares to Chelsea’s other BlueCo bosses after first 11 games and disastrous home defeat to Leeds",
+        "representative_url": "https://www.thesun.co.uk/sport/41115918/xabi-alonso-chelseas-blueco-leeds-mauricio-pochettino",
+        "representative_publisher": "thesun.co.uk",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "How Xabi Alonso compares to Chelsea’s other BlueCo bosses after first 11 games and disastrous home defeat to Leeds",
+            "summary": "XABI ALONSO is already walking on thin ice at Chelsea after damning statistics revealed he has made one of the worst starts of any Blues boss under the club's current ownership. The Spaniard has collected just 16 points from his first 11 Premier League matches, with only Graham Potter and Mauricio Pochettino managing fewer during...",
+            "url": "https://www.thesun.co.uk/sport/41115918/xabi-alonso-chelseas-blueco-leeds-mauricio-pochettino",
+            "publisher_domain": "thesun.co.uk",
+            "publisher_name_hint": "The Sun Football",
+            "source_feed": "The Sun Football",
+            "published": "2026-11-23T14:17:37+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_reaction",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.thesun.co.uk/sport/41115918/xabi-alonso-chelseas-blueco-leeds-mauricio-pochettino"
+        ],
+        "publisher_domains": [
+          "thesun.co.uk"
+        ],
+        "source_feeds": [
+          "The Sun Football"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "77396a44a70bd60f845e3c77": {
+      "event_id": "77396a44a70bd60f845e3c77",
+      "title": "Cole Palmer admission made as Xabi Alonso sweats on Joao Pedro Chelsea injury news",
+      "first_seen_at": "2026-11-23T14:38:10.298411+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
+      "last_published_at": "2026-11-23T04:24:00+00:00",
+      "last_observation_count": 2,
+      "publisher_domains": [
+        "aol.co.uk",
+        "football.london"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "77396a44a70bd60f845e3c77",
+        "title": "Cole Palmer admission made as Xabi Alonso sweats on Joao Pedro Chelsea injury news",
+        "story_type": "injury_update",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-23T04:24:00+00:00",
+        "best_summary": "Cole Palmer has been criticised for his performance against Leeds United on Saturday, as well as his recent form, but a former Chelsea player has jumped to his defence ...",
+        "representative_title": "Cole Palmer admission made as Xabi Alonso sweats on Joao Pedro Chelsea injury news",
+        "representative_url": "https://www.football.london/chelsea-fc/news/cole-palmer-admission-made-xabi-34953297",
+        "representative_publisher": "football.london",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Cole Palmer admission made as Xabi Alonso sweats on Joao Pedro Chelsea injury news",
+            "summary": "Cole Palmer has been criticised for his performance against Leeds United on Saturday, as well as his recent form, but a former Chelsea player has jumped to his defence ...",
+            "url": "https://www.aol.co.uk/articles/cole-palmer-admission-made-xabi-122509000.html",
+            "publisher_domain": "aol.co.uk",
+            "publisher_name_hint": "aol.co.uk",
+            "source_feed": "Bing News discovery: Cole Palmer Chelsea",
+            "published": "2026-11-23T04:24:00+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "cole_palmer"
+          },
+          {
+            "title": "Cole Palmer admission made as Xabi Alonso sweats on Joao Pedro Chelsea injury news",
+            "summary": "Cole Palmer has been criticised for his performance against Leeds United on Saturday, as well as his recent form, but a former Chelsea player has jumped to his defence",
+            "url": "https://www.football.london/chelsea-fc/news/cole-palmer-admission-made-xabi-34953297",
+            "publisher_domain": "football.london",
+            "publisher_name_hint": "Football London Chelsea",
+            "source_feed": "Football London Chelsea",
+            "published": "2026-11-23T12:25:09+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "cole_palmer"
+          }
+        ],
+        "source_urls": [
+          "https://www.aol.co.uk/articles/cole-palmer-admission-made-xabi-122509000.html",
+          "https://www.football.london/chelsea-fc/news/cole-palmer-admission-made-xabi-34953297"
+        ],
+        "publisher_domains": [
+          "aol.co.uk",
+          "football.london"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Cole Palmer Chelsea",
+          "Football London Chelsea"
+        ],
+        "publisher_count": 2,
+        "observation_count": 2,
+        "corroboration_status": "multiple_publishers_observed_independence_not_proven"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "321a863d4b268bddb3f2fc67": {
+      "event_id": "321a863d4b268bddb3f2fc67",
+      "title": "Xabi Alonso retains Chelsea faith despite defence concerns and fan backlash",
+      "first_seen_at": "2026-11-23T14:38:10.298411+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
+      "last_published_at": "2026-11-23T06:20:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "telegraph.co.uk"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "321a863d4b268bddb3f2fc67",
+        "title": "Xabi Alonso retains Chelsea faith despite defence concerns and fan backlash",
+        "story_type": "match_report",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-23T06:20:00+00:00",
+        "best_summary": "Manager backed to turn around results and win over supporters, but there may be more churn among club’s football leadership team ...",
+        "representative_title": "Xabi Alonso retains Chelsea faith despite defence concerns and fan backlash",
+        "representative_url": "https://www.telegraph.co.uk/football/2026/11/23/xabi-alonso-retains-chelsea-faith-despite-defence-concerns",
+        "representative_publisher": "telegraph.co.uk",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Xabi Alonso retains Chelsea faith despite defence concerns and fan backlash",
+            "summary": "Manager backed to turn around results and win over supporters, but there may be more churn among club’s football leadership team ...",
+            "url": "https://www.telegraph.co.uk/football/2026/11/23/xabi-alonso-retains-chelsea-faith-despite-defence-concerns",
+            "publisher_domain": "telegraph.co.uk",
+            "publisher_name_hint": "telegraph.co.uk",
+            "source_feed": "Bing News discovery: Chelsea Premier League",
+            "published": "2026-11-23T06:20:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_report",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.telegraph.co.uk/football/2026/11/23/xabi-alonso-retains-chelsea-faith-despite-defence-concerns"
+        ],
+        "publisher_domains": [
+          "telegraph.co.uk"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea Premier League"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "fe9d44d2090f74ae68d27677": {
+      "event_id": "fe9d44d2090f74ae68d27677",
+      "title": "Forgotten Chelsea star could be Xabi Alonso's solution if Moises Caicedo injury fears come true",
+      "first_seen_at": "2026-11-23T14:38:10.298411+00:00",
+      "last_seen_at": "2026-11-23T14:38:10.298411+00:00",
+      "last_published_at": "2026-11-23T14:07:57+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "football.london"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "fe9d44d2090f74ae68d27677",
+        "title": "Forgotten Chelsea star could be Xabi Alonso's solution if Moises Caicedo injury fears come true",
+        "story_type": "injury_update",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-23T14:07:57+00:00",
+        "best_summary": "Moises Caicedo limped off in the first half of Chelsea's defeat to Leeds United but Xabi Alonso may just have a solution to the problem",
+        "representative_title": "Forgotten Chelsea star could be Xabi Alonso's solution if Moises Caicedo injury fears come true",
+        "representative_url": "https://www.football.london/chelsea-fc/news/forgotten-chelsea-star-could-xabi-34953666",
+        "representative_publisher": "football.london",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Forgotten Chelsea star could be Xabi Alonso's solution if Moises Caicedo injury fears come true",
+            "summary": "Moises Caicedo limped off in the first half of Chelsea's defeat to Leeds United but Xabi Alonso may just have a solution to the problem",
+            "url": "https://www.football.london/chelsea-fc/news/forgotten-chelsea-star-could-xabi-34953666",
+            "publisher_domain": "football.london",
+            "publisher_name_hint": "Football London Chelsea",
+            "source_feed": "Football London Chelsea",
+            "published": "2026-11-23T14:07:57+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "moises_caicedo"
+          }
+        ],
+        "source_urls": [
+          "https://www.football.london/chelsea-fc/news/forgotten-chelsea-star-could-xabi-34953666"
+        ],
+        "publisher_domains": [
+          "football.london"
+        ],
+        "source_feeds": [
+          "Football London Chelsea"
         ],
         "publisher_count": 1,
         "observation_count": 1,
