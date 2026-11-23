@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T05:17:16.278840+00:00",
+  "updated_at": "2026-11-23T05:42:55.423241+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -52516,7 +52516,7 @@
       "event_id": "bd6b753a823dfb830ea76561",
       "title": "Transfer news live: ‘Serious’ Arsenal move; Chelsea told Scott fee",
       "first_seen_at": "2026-11-21T13:28:30.238988+00:00",
-      "last_seen_at": "2026-11-23T05:13:01.279859+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T05:50:26+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -52529,7 +52529,7 @@
         "story_type": "transfer_rumour",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-22T05:50:26+00:00",
-        "best_summary": "Transfer news LIVE: Arsenal in ‘serious’ midfield move; Chelsea learn Scott price; Man Utd, Liverpool latest - Keep up to date with all the latest news, rumours and gossip ...",
+        "best_summary": "Transfer news LIVE: Arsenal in ‘serious’ midfield move; Chelsea learn Scott price; Man Utd, Liverpool latest - Keep up to date with all the latest news, rumours and gossip",
         "representative_title": "Transfer news live: ‘Serious’ Arsenal move; Chelsea told Scott fee",
         "representative_url": "https://www.msn.com/en-us/news/other/transfer-news-live-serious-arsenal-move-chelsea-told-scott-fee/ar-AA2gz75f",
         "representative_publisher": "msn.com",
@@ -52537,7 +52537,7 @@
         "source_observations": [
           {
             "title": "Transfer news live: ‘Serious’ Arsenal move; Chelsea told Scott fee",
-            "summary": "Transfer news LIVE: Arsenal in ‘serious’ midfield move; Chelsea learn Scott price; Man Utd, Liverpool latest - Keep up to date with all the latest news, rumours and gossip ...",
+            "summary": "Transfer news LIVE: Arsenal in ‘serious’ midfield move; Chelsea learn Scott price; Man Utd, Liverpool latest - Keep up to date with all the latest news, rumours and gossip",
             "url": "https://www.msn.com/en-us/news/other/transfer-news-live-serious-arsenal-move-chelsea-told-scott-fee/ar-AA2gz75f",
             "publisher_domain": "msn.com",
             "publisher_name_hint": "msn.com",
@@ -54731,7 +54731,7 @@
       "event_id": "5aaaae5cd63c91eb8b8de5e1",
       "title": "Keating’s seven saves hold Chelsea 0-0 and give City a chance to go top before the break",
       "first_seen_at": "2026-11-21T15:20:23.523292+00:00",
-      "last_seen_at": "2026-11-23T05:14:31.811162+00:00",
+      "last_seen_at": "2026-11-23T05:41:06.066797+00:00",
       "last_published_at": "2026-11-22T11:18:32+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -61649,7 +61649,7 @@
       "event_id": "89545f0951b7799c9a5394fe",
       "title": "Chelsea's next five Premier League fixtures compared to Brighton, Liverpool and Man City",
       "first_seen_at": "2026-11-21T20:30:01.358663+00:00",
-      "last_seen_at": "2026-11-23T05:14:31.811162+00:00",
+      "last_seen_at": "2026-11-23T05:41:06.066797+00:00",
       "last_published_at": "2026-11-22T12:00:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -64982,7 +64982,7 @@
       "event_id": "906e9d82e5feeb751bc08825",
       "title": "Cole Palmer's heated back and forth with Chelsea duo as Xabi Alonso tasked with tough decision",
       "first_seen_at": "2026-11-22T06:07:51.413344+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T06:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -65044,7 +65044,7 @@
       "event_id": "c741a345e662069f11b7b247",
       "title": "Bronze frustrated after dominant display against Liverpool | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-22T06:07:51.413344+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T06:04:48+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -65287,7 +65287,7 @@
       "event_id": "73519bfb9253e50e9b26b160",
       "title": "Cool Palmer has turned into Complaining Cole... his sulking as his club lurches into crisis doesn't say a lot for Chelsea's cultural reset, writes KIERAN GILL",
       "first_seen_at": "2026-11-22T07:06:04.126821+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T09:11:35+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -65726,7 +65726,7 @@
       "event_id": "b9e74cb47c7488e4f4e77484",
       "title": "The Rafa Benitez curse Xabi Alonso could suffer if Chelsea don’t find an identity",
       "first_seen_at": "2026-11-22T08:20:57.531532+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T13:21:04+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -65791,7 +65791,7 @@
       "event_id": "b34a4df8c16b5d67df76635c",
       "title": "César Azpilicueta: ‘At Chelsea a draw was a catastrophe – if you can’t perform, you’re out’",
       "first_seen_at": "2026-11-22T08:20:57.531532+00:00",
-      "last_seen_at": "2026-11-23T05:14:31.811162+00:00",
+      "last_seen_at": "2026-11-23T05:41:06.066797+00:00",
       "last_published_at": "2026-11-22T08:00:21+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -66237,7 +66237,7 @@
       "event_id": "33c7974ce14cfbfe7282628d",
       "title": "Xabi Alonso sent Chelsea sack warning as ‘rotten’ and ‘disgusting’ Blues are slammed for Leeds loss",
       "first_seen_at": "2026-11-22T09:36:07.632175+00:00",
-      "last_seen_at": "2026-11-23T05:14:31.811162+00:00",
+      "last_seen_at": "2026-11-23T05:41:06.066797+00:00",
       "last_published_at": "2026-11-22T09:28:52+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -66489,7 +66489,7 @@
       "event_id": "b897245cca908d49f0a20fe1",
       "title": "Keeper voted Star of the Match in Liverpool stalemate | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-22T10:25:29.140003+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -66552,7 +66552,7 @@
       "event_id": "9a349d70b19ec034f58c6369",
       "title": "Xabi Alonso addresses Cole Palmer ‘touchline row’ with Joao Pedro moments after Chelsea defeat",
       "first_seen_at": "2026-11-22T10:56:09.366343+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T10:37:54+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -66739,7 +66739,7 @@
       "event_id": "3f5cee6f908e17c5ef2f0280",
       "title": "Xabi Alonso warned Chelsea sack decision could be imminent as fans turn on manager",
       "first_seen_at": "2026-11-22T11:46:03.539837+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T11:29:41+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -66801,7 +66801,7 @@
       "event_id": "88963f4338a6b1adf6e2893d",
       "title": "Chelsea consider move for 29-year-old Premier League-proven midfielder",
       "first_seen_at": "2026-11-22T11:46:03.539837+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T11:40:25+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -67117,7 +67117,7 @@
       "event_id": "6bd289b255c1cf2eb4889a3b",
       "title": "Chelsea's next five Premier League fixtures compared to Brighton, Liverpool and Man City",
       "first_seen_at": "2026-11-22T12:32:43.958748+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -67367,7 +67367,7 @@
       "event_id": "938b2dbc3274fbe1ac0a64e0",
       "title": "Romeo Lavia: This is not the moment to panic | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-22T12:55:41.104047+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -67490,7 +67490,7 @@
       "event_id": "00015bd0b7950a668e69672a",
       "title": "Chelsea humiliation brutally summarised by top pundit after Leeds battering",
       "first_seen_at": "2026-11-22T13:26:06.002653+00:00",
-      "last_seen_at": "2026-11-23T05:14:31.811162+00:00",
+      "last_seen_at": "2026-11-23T05:41:06.066797+00:00",
       "last_published_at": "2026-11-22T13:21:14+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -67610,7 +67610,7 @@
       "event_id": "e8b8d00657153d35f991c20f",
       "title": "Bompastor: Lola Brown’s mentality is ‘unbelievable’ | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-22T13:27:39.233625+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T13:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -68056,7 +68056,7 @@
       "event_id": "70ed367ba72a24393a304731",
       "title": "Chelsea set crystal clear Champions League goal as £60m problem comes to light",
       "first_seen_at": "2026-11-22T14:26:01.270987+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T14:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -68118,7 +68118,7 @@
       "event_id": "0faf32ae023234a907375cd5",
       "title": "Chelsea: Alonso faces ‘MUTINY’ in dressing room as Blues lead race for his replacement",
       "first_seen_at": "2026-11-22T14:26:01.270987+00:00",
-      "last_seen_at": "2026-11-23T05:14:31.811162+00:00",
+      "last_seen_at": "2026-11-23T05:41:06.066797+00:00",
       "last_published_at": "2026-11-22T14:23:14+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -68540,7 +68540,7 @@
       "event_id": "75d1a0f04038ddef52470439",
       "title": "Passive Xabi Alonso has no answers to Chelsea’s biggest ongoing problem",
       "first_seen_at": "2026-11-22T15:16:15.160432+00:00",
-      "last_seen_at": "2026-11-23T05:14:31.811162+00:00",
+      "last_seen_at": "2026-11-23T05:41:06.066797+00:00",
       "last_published_at": "2026-11-22T15:13:14+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -68720,7 +68720,7 @@
       "event_id": "00983a5bb66f8a6b1e9da4c7",
       "title": "“Living off his name” – Journalist tells Chelsea to drop key player who is not performing",
       "first_seen_at": "2026-11-22T16:01:01.849209+00:00",
-      "last_seen_at": "2026-11-23T05:14:31.811162+00:00",
+      "last_seen_at": "2026-11-23T05:41:06.066797+00:00",
       "last_published_at": "2026-11-22T16:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -68780,7 +68780,7 @@
       "event_id": "33c8c5b7811f468e201b60fa",
       "title": "Romeo Lavia warns Chelsea not to give in to panic after Leeds thrashing: 'This hurts'",
       "first_seen_at": "2026-11-22T16:02:35.843571+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T07:34:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -68842,7 +68842,7 @@
       "event_id": "028834d53bc975add7e840d4",
       "title": "Report reveals Chelsea’s stance on Xabi Alonso’s future",
       "first_seen_at": "2026-11-22T16:51:05.483712+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T16:32:07+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -69084,7 +69084,7 @@
       "event_id": "1f8fd71394447dcb9b0ebe87",
       "title": "Report: Juventus, Milan and Napoli on alert as Chelsea open door to Palestra exit",
       "first_seen_at": "2026-11-22T17:41:09.435293+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T17:31:28+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -69869,7 +69869,7 @@
       "event_id": "087fa71538ca296c6c146351",
       "title": "Chelsea star Emmanuel Emegha reveals he was ROBBED after scoring first Premier League goal in Leeds loss",
       "first_seen_at": "2026-11-22T22:56:35.319040+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T22:53:50+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -69932,7 +69932,7 @@
       "event_id": "48cba9ff2478331e70d640c6",
       "title": "Chelsea forward Emmanuel Emegha victim of robbery after defeat to Leeds",
       "first_seen_at": "2026-11-22T23:21:11.265179+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T22:59:50+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -69994,7 +69994,7 @@
       "event_id": "8ee26c2b8cf8a997638cde08",
       "title": "Chelsea star Emmanuel Emegha was ROBBED in the aftermath of his side's 4-1 defeat by Leeds - as striker confirms 'no one was hurt'",
       "first_seen_at": "2026-11-22T23:38:27.536740+00:00",
-      "last_seen_at": "2026-11-23T05:16:11.537337+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T23:41:01+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -70189,7 +70189,7 @@
       "event_id": "305cb052964868d7d3e54b30",
       "title": "Tom Brady Reportedly Purchases Minority Stake in Chelsea FC Following Birmingham City Departure",
       "first_seen_at": "2026-11-23T04:47:58.778784+00:00",
-      "last_seen_at": "2026-11-23T05:13:01.279859+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
       "last_published_at": "2026-11-22T16:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -70232,6 +70232,186 @@
         ],
         "source_feeds": [
           "Bing News discovery: \"Chelsea FC\" latest"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "56fc6fe8d1531c120a8bce02": {
+      "event_id": "56fc6fe8d1531c120a8bce02",
+      "title": "Chelsea board backs Xabi Alonso despite Leeds United defeat",
+      "first_seen_at": "2026-11-23T05:41:06.066797+00:00",
+      "last_seen_at": "2026-11-23T05:41:06.066797+00:00",
+      "last_published_at": "2026-11-23T05:28:29+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "chelseafclatestnews.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "56fc6fe8d1531c120a8bce02",
+        "title": "Chelsea board backs Xabi Alonso despite Leeds United defeat",
+        "story_type": "match_reaction",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-23T05:28:29+00:00",
+        "best_summary": "Chelsea have no intention of making a shock decision to sack Xabi Alonso, despite a humiliating 4-1 defeat to Leeds United on Saturday that has intensified scrutiny on the Spanish manager. Chelsea Hold Firm: Club Backs Xabi Alonso Despite Leeds Drubbing According to Mail Sport, the Blues hierarchy will not make any kneejerk reactions and […]",
+        "representative_title": "Chelsea board backs Xabi Alonso despite Leeds United defeat",
+        "representative_url": "https://chelseafclatestnews.com/chelsea-board-backs-xabi-alonso-despite-leeds-united-defeat-204233",
+        "representative_publisher": "chelseafclatestnews.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea board backs Xabi Alonso despite Leeds United defeat",
+            "summary": "Chelsea have no intention of making a shock decision to sack Xabi Alonso, despite a humiliating 4-1 defeat to Leeds United on Saturday that has intensified scrutiny on the Spanish manager. Chelsea Hold Firm: Club Backs Xabi Alonso Despite Leeds Drubbing According to Mail Sport, the Blues hierarchy will not make any kneejerk reactions and […]",
+            "url": "https://chelseafclatestnews.com/chelsea-board-backs-xabi-alonso-despite-leeds-united-defeat-204233",
+            "publisher_domain": "chelseafclatestnews.com",
+            "publisher_name_hint": null,
+            "source_feed": "Chelsea FC Latest News",
+            "published": "2026-11-23T05:28:29+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_reaction",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://chelseafclatestnews.com/chelsea-board-backs-xabi-alonso-despite-leeds-united-defeat-204233"
+        ],
+        "publisher_domains": [
+          "chelseafclatestnews.com"
+        ],
+        "source_feeds": [
+          "Chelsea FC Latest News"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "52584d29a8e6c2475e12d79a": {
+      "event_id": "52584d29a8e6c2475e12d79a",
+      "title": "Chelsea make Xabi Alonso sack decision after Leeds United humiliation at Stamford Bridge",
+      "first_seen_at": "2026-11-23T05:41:06.066797+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
+      "last_published_at": "2026-11-23T05:30:11+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "sports.yahoo.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "52584d29a8e6c2475e12d79a",
+        "title": "Chelsea make Xabi Alonso sack decision after Leeds United humiliation at Stamford Bridge",
+        "story_type": "opinion_analysis",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-23T05:30:11+00:00",
+        "best_summary": "Xabi Alonso is facing the first major crisis of his Chelsea tenure after a humiliating 4-1 home defeat to Leeds United sparked a furious reaction from the Stamford Bridge faithful. Despite the growing unrest, the Blues hierarchy have delivered a definitive verdict on the Spaniard's immediate future in the dugout.",
+        "representative_title": "Chelsea make Xabi Alonso sack decision after Leeds United humiliation at Stamford Bridge",
+        "representative_url": "https://sports.yahoo.com/articles/chelsea-xabi-alonso-sack-decision-053011503.html",
+        "representative_publisher": "sports.yahoo.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea make Xabi Alonso sack decision after Leeds United humiliation at Stamford Bridge",
+            "summary": "Xabi Alonso is facing the first major crisis of his Chelsea tenure after a humiliating 4-1 home defeat to Leeds United sparked a furious reaction from the Stamford Bridge faithful. Despite the growing unrest, the Blues hierarchy have delivered a definitive verdict on the Spaniard's immediate future in the dugout.",
+            "url": "https://sports.yahoo.com/articles/chelsea-xabi-alonso-sack-decision-053011503.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "Yahoo Sports",
+            "source_feed": "Yahoo Sports",
+            "published": "2026-11-23T05:30:11+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "opinion_analysis",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://sports.yahoo.com/articles/chelsea-xabi-alonso-sack-decision-053011503.html"
+        ],
+        "publisher_domains": [
+          "sports.yahoo.com"
+        ],
+        "source_feeds": [
+          "Yahoo Sports"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "0ca373e07bafde585aaa2ea2": {
+      "event_id": "0ca373e07bafde585aaa2ea2",
+      "title": "Chelsea make Xabi Alonso sack decision after Leeds United humiliation at Stamford Bridge",
+      "first_seen_at": "2026-11-23T05:42:55.423241+00:00",
+      "last_seen_at": "2026-11-23T05:42:55.423241+00:00",
+      "last_published_at": "2026-11-22T16:00:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "goal.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "0ca373e07bafde585aaa2ea2",
+        "title": "Chelsea make Xabi Alonso sack decision after Leeds United humiliation at Stamford Bridge",
+        "story_type": "match_reaction",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-22T16:00:00+00:00",
+        "best_summary": "Chelsea will not sack Xabi Alonso despite a 4-1 home defeat to Leeds United and growing pressure from fans at Stamford Bridge.",
+        "representative_title": "Chelsea make Xabi Alonso sack decision after Leeds United humiliation at Stamford Bridge",
+        "representative_url": "https://www.goal.com/en-us/news/chelsea-xabi-alonso-sack-decision-leeds-4-1/bltb51f43e902dbee63",
+        "representative_publisher": "goal.com",
+        "representative_publisher_type": "established_domain",
+        "source_observations": [
+          {
+            "title": "Chelsea make Xabi Alonso sack decision after Leeds United humiliation at Stamford Bridge",
+            "summary": "Chelsea will not sack Xabi Alonso despite a 4-1 home defeat to Leeds United and growing pressure from fans at Stamford Bridge.",
+            "url": "https://www.goal.com/en-us/news/chelsea-xabi-alonso-sack-decision-leeds-4-1/bltb51f43e902dbee63",
+            "publisher_domain": "goal.com",
+            "publisher_name_hint": "goal.com",
+            "source_feed": "Bing News discovery: Chelsea Premier League",
+            "published": "2026-11-22T16:00:00+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_reaction",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.goal.com/en-us/news/chelsea-xabi-alonso-sack-decision-leeds-4-1/bltb51f43e902dbee63"
+        ],
+        "publisher_domains": [
+          "goal.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Chelsea Premier League"
         ],
         "publisher_count": 1,
         "observation_count": 1,
