@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T02:23:14.203533+00:00",
+  "updated_at": "2026-11-23T02:23:42.901938+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -66549,7 +66549,7 @@
       "publisher_domains": [
         "talksport.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "9a349d70b19ec034f58c6369",
         "title": "Xabi Alonso addresses Cole Palmer ‘touchline row’ with Joao Pedro moments after Chelsea defeat",
@@ -66607,12 +66607,14 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-23T02:23:42.901938+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Xabi Alonso addresses Cole Palmer ‘touchline row’ with Joao Pedro moments after Chelsea defeat",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "f28fcf78ad8b0d01b4817a55": {
