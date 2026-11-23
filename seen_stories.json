@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T22:17:48.822741+00:00",
+  "updated_at": "2026-11-23T22:18:15.975649+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -77825,7 +77825,7 @@
       "publisher_domains": [
         "goal.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "2cb970f2b00b7bccb6d1c25b",
         "title": "Chelsea FC, all the broadcast information at a glance: Who is showing the Blues’ matches live on TV and via live stream?",
@@ -77867,12 +77867,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-23T22:18:15.975649+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea FC, all the broadcast information at a glance: Who is showing the Blues’ matches live on TV and via live stream?",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "title_present_and_reasonable",
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     }
   }
