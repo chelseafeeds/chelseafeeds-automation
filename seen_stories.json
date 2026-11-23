@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T17:58:26.339224+00:00",
+  "updated_at": "2026-11-23T17:58:43.259380+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -75674,7 +75674,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "d5f72d26a4d46f5d5235b2ce",
         "title": "PGA Division 1 report: Chelsea Women Under-18s 10-2 Birmingham City | News | Official Site - Chelsea Football Club",
@@ -75723,7 +75723,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1110220286748948006",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-women-under18s-thump-birmingham.html",
+      "scheduled_for_utc": "2026-11-23T18:03:42Z",
+      "last_blogger_status_updated_at": "2026-11-23T17:58:43.259355+00:00"
     }
   }
 }
