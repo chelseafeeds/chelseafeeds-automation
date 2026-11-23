@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T05:13:28.585660+00:00",
+  "updated_at": "2026-11-23T05:13:46.717503+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -51789,7 +51789,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "3a9148b67b69200b2f9cc116",
         "title": "Transfer news LIVE: Arsenal in ‘serious’ midfield move; Chelsea learn Scott price; Man Utd, Liverpool latest",
@@ -51837,7 +51837,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6885504285217726455",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-learn-bournemouth-demand.html",
+      "scheduled_for_utc": "2026-11-23T05:18:46Z",
+      "last_blogger_status_updated_at": "2026-11-23T05:13:46.717478+00:00"
     },
     "b3156aefcc87b67313371e49": {
       "event_id": "b3156aefcc87b67313371e49",
