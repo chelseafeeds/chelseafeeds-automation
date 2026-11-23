@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T19:36:05.338385+00:00",
+  "updated_at": "2026-11-23T19:36:24.789500+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -74229,7 +74229,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "92bb4a3b5e12c1a7eb0973b3",
         "title": "Former Chelsea star, 36, makes major career change as he lands brand new job just months after being released",
@@ -74277,7 +74277,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4551404902085926589",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/former-chelsea-defender-patrick-van.html",
+      "scheduled_for_utc": "2026-11-23T19:41:23Z",
+      "last_blogger_status_updated_at": "2026-11-23T19:36:24.789476+00:00"
     },
     "2ed38015334f8e00d9711baf": {
       "event_id": "2ed38015334f8e00d9711baf",
