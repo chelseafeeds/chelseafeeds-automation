@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-23T00:08:14.889725+00:00",
+  "updated_at": "2026-11-23T00:08:40.989184+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -67998,7 +67998,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "9214736f31a6f338aaf1a4c7",
         "title": "Timid Xabi Alonso is starting to look just as soft as Chelsea flops – he’s got to get angry to sort this mess out",
@@ -68046,7 +68046,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7376170945051745293",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/xabi-alonsos-soft-start-chelseas.html",
+      "scheduled_for_utc": "2026-11-23T00:13:40Z",
+      "last_blogger_status_updated_at": "2026-11-23T00:08:40.989163+00:00"
     },
     "70ed367ba72a24393a304731": {
       "event_id": "70ed367ba72a24393a304731",
