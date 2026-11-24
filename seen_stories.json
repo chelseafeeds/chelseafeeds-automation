@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T22:28:58.430252+00:00",
+  "updated_at": "2026-11-24T22:39:49.555941+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -81859,7 +81859,7 @@
       "publisher_domains": [
         "footballinsider247.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "880d0449884e9e3d34c9bbf9",
         "title": "Sources: Cesc Fabregas' stance on Chelsea move amid Xabi Alonso sack latest",
@@ -81901,12 +81901,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-24T22:39:49.555941+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Sources: Cesc Fabregas' stance on Chelsea move amid Xabi Alonso sack latest",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "44efca7e707a13390ba21a7e": {
