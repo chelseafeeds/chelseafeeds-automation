@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T23:26:48.801918+00:00",
+  "updated_at": "2026-11-24T23:27:14.537688+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -86485,7 +86485,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "bb79cb0eeeebacdba46a3595",
         "title": "Chelsea transfer news: Blues will push to sign Bournemouth midfielder Alex Scott in January - Paper Talk",
@@ -86533,7 +86533,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4917324590871799609",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-aim-to-sign-bournemouth.html",
+      "scheduled_for_utc": "2026-11-24T23:32:13Z",
+      "last_blogger_status_updated_at": "2026-11-24T23:27:14.537668+00:00"
     }
   }
 }
