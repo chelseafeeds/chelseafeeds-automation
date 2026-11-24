@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T18:17:49.361549+00:00",
+  "updated_at": "2026-11-24T18:32:39.489591+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -84357,7 +84357,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "0829771be815bfa707030a1a",
         "title": "‘I couldn’t care less’: Wesley Fofana risks Chelsea fan fury as he laughs off criticism",
@@ -84399,12 +84399,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-24T18:32:39.489591+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "‘I couldn’t care less’: Wesley Fofana risks Chelsea fan fury as he laughs off criticism",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "da73c7e8890f652dcce411aa": {
