@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T05:48:09.236670+00:00",
+  "updated_at": "2026-11-24T05:48:31.000352+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -73325,7 +73325,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "512af4a583ae765c39d4b389",
         "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
@@ -73373,7 +73373,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5939326027022189125",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/paul-merson-questions-xabi-alonsos.html",
+      "scheduled_for_utc": "2026-11-24T05:53:30Z",
+      "last_blogger_status_updated_at": "2026-11-24T05:48:31.000340+00:00"
     },
     "d15a6cdba80f8cb9fa6ffeed": {
       "event_id": "d15a6cdba80f8cb9fa6ffeed",
