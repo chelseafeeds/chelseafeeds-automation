@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T08:08:45.441280+00:00",
+  "updated_at": "2026-11-24T08:09:07.600093+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -79313,7 +79313,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "ca831a85b9fd7f0272650091",
         "title": "Piers Morgan brands Cole Palmer a ‘d***head’ for what Chelsea star did after humiliating defeat at home to Leeds",
@@ -79377,7 +79377,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7217013827569700883",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/piers-morgan-slams-cole-palmer-after.html",
+      "scheduled_for_utc": "2026-11-24T08:14:06Z",
+      "last_blogger_status_updated_at": "2026-11-24T08:09:07.600071+00:00"
     },
     "59929abb7115ba633ec151ca": {
       "event_id": "59929abb7115ba633ec151ca",
