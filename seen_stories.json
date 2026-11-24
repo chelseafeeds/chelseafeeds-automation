@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T19:03:18.027126+00:00",
+  "updated_at": "2026-11-24T19:03:43.903204+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -85081,7 +85081,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "b1f37669a5dc0cd87e707d28",
         "title": "POLL: Should Chelsea fine or drop Wesley Fofana over bombshell interview and money claims?",
@@ -85123,9 +85123,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-24T19:03:43.903204+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "POLL: Should Chelsea fine or drop Wesley Fofana over bombshell interview and money claims?",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
