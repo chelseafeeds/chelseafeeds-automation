@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T00:12:35.037583+00:00",
+  "updated_at": "2026-11-24T00:13:08.470506+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -74416,7 +74416,7 @@
       "publisher_domains": [
         "footballinsider247.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "aee4515bc5347613a2d7419f",
         "title": "Chelsea have 'serious doubts' about Xabi Alonso after 'shocking' Leeds defeat",
@@ -74458,12 +74458,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-24T00:13:08.470506+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea have 'serious doubts' about Xabi Alonso after 'shocking' Leeds defeat",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "38f61d538679602f3df6ed7b": {
