@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T16:39:32.997163+00:00",
+  "updated_at": "2026-11-24T16:39:55.257906+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -83765,7 +83765,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "5388f76400f225d301e4ea5f",
         "title": "Chelsea star makes astonishing penalty admission as 25-year-old reveals ‘serious’ retirement plan",
@@ -83813,7 +83813,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5268647673884312225",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-defender-wesley-fofana-admits.html",
+      "scheduled_for_utc": "2026-11-24T16:44:54Z",
+      "last_blogger_status_updated_at": "2026-11-24T16:39:55.257888+00:00"
     },
     "75ae269923a7af6ee138c699": {
       "event_id": "75ae269923a7af6ee138c699",
