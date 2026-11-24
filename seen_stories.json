@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T10:36:20.039670+00:00",
+  "updated_at": "2026-11-24T10:36:53.939461+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -79913,7 +79913,7 @@
         "sports.yahoo.com",
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "37a62d9c77fc6ecb7077690f",
         "title": "Chelsea injury update: Moises Caicedo, Joao Pedro, Reece James latest news and return dates",
@@ -79973,12 +79973,14 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-24T10:36:53.939461+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea injury update: Moises Caicedo, Joao Pedro, Reece James latest news and return dates",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "84d2479c74c5a6008f34b299": {
