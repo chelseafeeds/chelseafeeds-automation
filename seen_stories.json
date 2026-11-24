@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T14:02:17.636318+00:00",
+  "updated_at": "2026-11-24T14:02:57.032539+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -82203,7 +82203,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "a7d3cfea3900d3c0921186ca",
         "title": "Chelsea icon, 38, who also played for Arsenal reveals how club tried signing him 18 months BEFORE huge transfer move",
@@ -82261,9 +82261,9 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-24T14:02:57.032539+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea icon, 38, who also played for Arsenal reveals how club tried signing him 18 months BEFORE huge transfer move",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
