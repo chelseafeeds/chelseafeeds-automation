@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T14:02:57.032539+00:00",
+  "updated_at": "2026-11-24T14:03:23.899126+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -82203,7 +82203,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "a7d3cfea3900d3c0921186ca",
         "title": "Chelsea icon, 38, who also played for Arsenal reveals how club tried signing him 18 months BEFORE huge transfer move",
@@ -82267,7 +82267,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1008857114397869309",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/willian-says-chelsea-chased-him-18.html",
+      "scheduled_for_utc": "2026-11-24T14:08:22Z",
+      "last_blogger_status_updated_at": "2026-11-24T14:03:23.899104+00:00"
     },
     "8d0bc5f930da79aa60a0bb2a": {
       "event_id": "8d0bc5f930da79aa60a0bb2a",
