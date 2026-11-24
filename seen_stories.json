@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T06:49:58.765620+00:00",
+  "updated_at": "2026-11-24T06:50:20.189041+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -75562,7 +75562,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "5c8f9359ad756069fba42b4c",
         "title": "The Chelsea problem Xabi Alonso cannot ignore - and who is really to blame",
@@ -75610,7 +75610,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1122649527978367097",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/the-chelsea-problem-xabi-alonso-cannot.html",
+      "scheduled_for_utc": "2026-11-24T06:55:19Z",
+      "last_blogger_status_updated_at": "2026-11-24T06:50:20.189020+00:00"
     },
     "d5f72d26a4d46f5d5235b2ce": {
       "event_id": "d5f72d26a4d46f5d5235b2ce",
