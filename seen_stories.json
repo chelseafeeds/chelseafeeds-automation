@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T12:53:38.112882+00:00",
+  "updated_at": "2026-11-24T12:54:00.098058+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -80716,7 +80716,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "30cdafe8cf5b94758d95a87e",
         "title": "‘I’m done with football’ – Chelsea star Wesley Fofana admits he was ready to retire after hitting rock bottom",
@@ -80764,7 +80764,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5041020780466786945",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/wesley-fofanas-injury-nightmare-chelsea.html",
+      "scheduled_for_utc": "2026-11-24T12:58:58Z",
+      "last_blogger_status_updated_at": "2026-11-24T12:54:00.098030+00:00"
     },
     "d43a443269cd36526f9d2db8": {
       "event_id": "d43a443269cd36526f9d2db8",
