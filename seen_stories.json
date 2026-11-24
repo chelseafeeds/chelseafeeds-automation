@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T09:10:12.405564+00:00",
+  "updated_at": "2026-11-24T09:10:30.733723+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -79239,7 +79239,7 @@
       "publisher_domains": [
         "footballinsider247.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "0840cf52307813c55db0c2d4",
         "title": "Chelsea's dressing room 'know the writing is on the wall' for Xabi Alonso - expert",
@@ -79287,7 +79287,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3664208771909008159",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-dressing-room-know-writing-is.html",
+      "scheduled_for_utc": "2026-11-24T09:15:30Z",
+      "last_blogger_status_updated_at": "2026-11-24T09:10:30.733702+00:00"
     },
     "ca831a85b9fd7f0272650091": {
       "event_id": "ca831a85b9fd7f0272650091",
