@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T14:48:12.350501+00:00",
+  "updated_at": "2026-11-24T14:48:44.432869+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -81521,7 +81521,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "f00b49b0b9e4fed0dc89c99d",
         "title": "Jamie Carragher tells Chelsea to sign giant centre-back with Levi Colwill and Wesley Fofana ‘looking like novices’",
@@ -81569,7 +81569,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3263577650753199991",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/carragher-urges-chelsea-to-recruit.html",
+      "scheduled_for_utc": "2026-11-24T14:53:43Z",
+      "last_blogger_status_updated_at": "2026-11-24T14:48:44.432851+00:00"
     },
     "39988c1e7bea5a2bc5b87156": {
       "event_id": "39988c1e7bea5a2bc5b87156",
