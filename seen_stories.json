@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T05:47:37.964828+00:00",
+  "updated_at": "2026-11-24T05:48:09.236670+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -73325,7 +73325,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "512af4a583ae765c39d4b389",
         "title": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
@@ -73367,9 +73367,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-24T05:48:09.236670+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Merson: My worry for Chelsea is that Liverpool thought Alonso wasn't good enough",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
