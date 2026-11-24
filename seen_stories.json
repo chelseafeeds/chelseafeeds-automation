@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T20:13:48.592293+00:00",
+  "updated_at": "2026-11-24T20:14:10.211969+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -80660,7 +80660,7 @@
       "publisher_domains": [
         "goal.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "afe7bf254e08778d1bb010b2",
         "title": "Piers Morgan labels Chelsea star Cole Palmer a ‘d***head’ and slams ‘rotten attitude’ after Leeds United humiliation",
@@ -80708,7 +80708,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7031247586291556725",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/piers-morgan-and-nicky-butt-criticise.html",
+      "scheduled_for_utc": "2026-11-24T20:19:08Z",
+      "last_blogger_status_updated_at": "2026-11-24T20:14:10.211947+00:00"
     },
     "30cdafe8cf5b94758d95a87e": {
       "event_id": "30cdafe8cf5b94758d95a87e",
