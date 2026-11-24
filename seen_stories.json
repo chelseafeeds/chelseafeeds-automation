@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T07:14:43.621226+00:00",
+  "updated_at": "2026-11-24T07:15:13.689231+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -77116,7 +77116,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "4004a2e386247eefa784a515",
         "title": "‘If this was Liam Rosenior’: Xabi Alonso’s Chelsea future questioned amid Liverpool ‘snub’",
@@ -77164,7 +77164,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1596987882867129993",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/if-this-was-liam-rosenior-xabi-alonsos.html",
+      "scheduled_for_utc": "2026-11-24T07:20:12Z",
+      "last_blogger_status_updated_at": "2026-11-24T07:15:13.689214+00:00"
     },
     "6678303480a193b7b0e70011": {
       "event_id": "6678303480a193b7b0e70011",
