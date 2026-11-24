@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T15:53:02.776667+00:00",
+  "updated_at": "2026-11-24T15:53:38.821988+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -84321,7 +84321,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "8cf6474ebca076652a191f27",
         "title": "Norwich City vs Chelsea Cobham Next Gen: How to watch it live | News | Official Site - Chelsea Football Club",
@@ -84364,12 +84364,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-24T15:53:38.821988+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Norwich City vs Chelsea Cobham Next Gen: How to watch it live | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "0829771be815bfa707030a1a": {
