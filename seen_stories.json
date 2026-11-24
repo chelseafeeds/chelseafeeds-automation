@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T01:13:21.631051+00:00",
+  "updated_at": "2026-11-24T01:13:46.310439+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -74598,7 +74598,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "8bd403f90c59fb6e79594aa8",
         "title": "How Xabi Alonso compares to Chelsea’s other BlueCo bosses after first 11 games and disastrous home defeat to Leeds",
@@ -74646,7 +74646,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "2862002641877769699",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/alonsos-shaky-start-16-points-in-11.html",
+      "scheduled_for_utc": "2026-11-24T01:18:44Z",
+      "last_blogger_status_updated_at": "2026-11-24T01:13:46.310416+00:00"
     },
     "77396a44a70bd60f845e3c77": {
       "event_id": "77396a44a70bd60f845e3c77",
