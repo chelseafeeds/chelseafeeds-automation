@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-24T07:42:48.804258+00:00",
+  "updated_at": "2026-11-24T07:43:15.245391+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -78992,7 +78992,7 @@
       "publisher_domains": [
         "nytimes.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "c49b11399f2331b7a18e2dba",
         "title": "Leeds made history while Chelsea and Man Utd imploded. Who won the Premier League weekend?",
@@ -79034,9 +79034,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-24T07:43:15.245391+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Leeds made history while Chelsea and Man Utd imploded. Who won the Premier League weekend?",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
