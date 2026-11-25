@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T15:18:45.174275+00:00",
+  "updated_at": "2026-11-25T15:19:02.749102+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -88599,7 +88599,7 @@
         "football.london",
         "msn.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "dc41a9fbdfd4f3e4a9187f6b",
         "title": "Wesley Fofana agreement reached with Chelsea transfer priority clear after Jamie Carragher rant",
@@ -88665,7 +88665,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1484410533062952243",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/unverified-reports-claim-chelsea-have.html",
+      "scheduled_for_utc": "2026-11-25T15:24:02Z",
+      "last_blogger_status_updated_at": "2026-11-25T15:19:02.749082+00:00"
     },
     "539bf726646c66368a780385": {
       "event_id": "539bf726646c66368a780385",
