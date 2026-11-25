@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T04:27:21.031989+00:00",
+  "updated_at": "2026-11-25T04:27:51.126362+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -83675,7 +83675,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "9e2e48ff931e6e74609b3b8d",
         "title": "Cole Palmer is worse under Xabi Alonso than any other Chelsea boss – but stats offer hope he can return to top form",
@@ -83717,12 +83717,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-25T04:27:51.126362+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Cole Palmer is worse under Xabi Alonso than any other Chelsea boss – but stats offer hope he can return to top form",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "title_present_and_reasonable",
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "5388f76400f225d301e4ea5f": {
