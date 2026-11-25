@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T09:18:44.362181+00:00",
+  "updated_at": "2026-11-25T09:19:03.933257+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -87387,7 +87387,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "3704ad62e851595194eade3d",
         "title": "Viral Chelsea fan Astrid Wett suffers wardrobe malfunction but laughs off outfit choice",
@@ -87435,7 +87435,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6279414852794945302",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-fan-astrid-wett-laughs-off.html",
+      "scheduled_for_utc": "2026-11-25T09:24:03Z",
+      "last_blogger_status_updated_at": "2026-11-25T09:19:03.933235+00:00"
     },
     "a4ba1150b981da29146338a2": {
       "event_id": "a4ba1150b981da29146338a2",
