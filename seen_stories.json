@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T07:30:12.211404+00:00",
+  "updated_at": "2026-11-25T07:30:46.722516+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -87201,7 +87201,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "37b8a3d7f4442566adfb5be7",
         "title": "Wesley Fofana agreement reached with Chelsea transfer priority clear after Jamie Carragher rant",
@@ -87249,7 +87249,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6419604223825859628",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/wesley-fofana-agreement-reached-with.html",
+      "scheduled_for_utc": "2026-11-25T07:35:45Z",
+      "last_blogger_status_updated_at": "2026-11-25T07:30:46.722493+00:00"
     },
     "8c00a61396252a6de3be500c": {
       "event_id": "8c00a61396252a6de3be500c",
