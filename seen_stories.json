@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T22:29:07.945517+00:00",
+  "updated_at": "2026-11-25T22:29:27.702203+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -91979,7 +91979,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "fe0200c6db33d951dc15a671",
         "title": "Chelsea tipped to sign Liverpool star on a free as fix for huge Xabi Alonso problem",
@@ -92027,7 +92027,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5064482194201719947",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-tipped-to-sign-liverpool.html",
+      "scheduled_for_utc": "2026-11-25T22:34:27Z",
+      "last_blogger_status_updated_at": "2026-11-25T22:29:27.702181+00:00"
     },
     "8554b97e3fda30cb04c2e259": {
       "event_id": "8554b97e3fda30cb04c2e259",
