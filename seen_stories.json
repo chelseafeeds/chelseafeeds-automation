@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T13:14:23.561801+00:00",
+  "updated_at": "2026-11-25T13:35:56.953017+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -89294,7 +89294,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "2d5272fa9e6ef9f43d1dd645",
         "title": "Made in Cobham: Heze Grimwade | News | Official Site - Chelsea Football Club",
@@ -89337,12 +89337,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-25T13:35:56.953017+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Made in Cobham: Heze Grimwade | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "f287e9c519e16a73067f19df": {
