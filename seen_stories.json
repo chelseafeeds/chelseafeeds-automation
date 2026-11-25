@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T14:47:34.399220+00:00",
+  "updated_at": "2026-11-25T14:49:47.696344+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -632,7 +632,7 @@
       "event_id": "5f596cb901f438b5057f6780",
       "title": "Chelsea latest: Club did not sanction controversial Fofana interview",
       "first_seen_at": "2026-11-11T12:51:34.962528+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-25T10:21:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13421,7 +13421,7 @@
       "event_id": "f624ce674540d0601d2c171a",
       "title": "Chelsea latest: Club did not sanction controversial Fofana interview",
       "first_seen_at": "2026-11-17T12:26:08.616179+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T10:21:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -81962,9 +81962,9 @@
     },
     "e5b7bf3c9f873e2a024497e1": {
       "event_id": "e5b7bf3c9f873e2a024497e1",
-      "title": "Transfer rumors, news: PSG eye Chelsea's Estêvão, Bayern's Luis Díaz amid injury woes",
+      "title": "Chelsea face transfer interest from PSG for attacking player after double injury blow",
       "first_seen_at": "2026-11-24T11:35:01.980030+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-25T10:22:51+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -81974,14 +81974,14 @@
       "status": "observed_not_processed",
       "candidate_snapshot": {
         "event_id": "e5b7bf3c9f873e2a024497e1",
-        "title": "Transfer rumors, news: PSG eye Chelsea's Estêvão, Bayern's Luis Díaz amid injury woes",
+        "title": "Chelsea face transfer interest from PSG for attacking player after double injury blow",
         "story_type": "transfer_rumour",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-24T14:38:39+00:00",
+        "published": "2026-11-25T10:22:51+00:00",
         "best_summary": "Chelsea are facing fresh interest in Estêvão Willian from Paris Saint-Germain as the European champions assess their attacking options ahead of the January transfer window. The French giants have suffered a significant double injury blow, with Désiré Doué and Khvicha Kvaratskhelia sustaining serious knee injuries. Their absences have prompted PSG to explore potential reinforcements, with […] The post Chelsea face transfer interest from PSG for attacking player after double injury blow appeared f",
-        "representative_title": "Transfer rumors, news: PSG eye Chelsea's Estêvão, Bayern's Luis Díaz amid injury woes",
-        "representative_url": "https://www.msn.com/en-us/news/other/transfer-rumors-news-psg-eye-chelseas-est%C3%AAv%C3%A3o-bayerns-luis-d%C3%ADaz-amid-injury-woes/ar-AA2i6mp8",
-        "representative_publisher": "msn.com",
+        "representative_title": "Chelsea face transfer interest from PSG for attacking player after double injury blow",
+        "representative_url": "https://www.caughtoffside.com/2026/11/25/chelsea-face-transfer-interest-from-psg-attacking-player",
+        "representative_publisher": "caughtoffside.com",
         "representative_publisher_type": "other_direct_domain",
         "source_observations": [
           {
@@ -81989,7 +81989,7 @@
             "summary": "Chelsea are facing fresh interest in Estêvão Willian from Paris Saint-Germain as the European champions assess their attacking options ahead of the January transfer window. The French giants have suffered a significant double injury blow, with Désiré Doué and Khvicha Kvaratskhelia sustaining serious knee injuries. Their absences have prompted PSG to explore potential reinforcements, with […] The post Chelsea face transfer interest from PSG for attacking player after double injury blow appeared f",
             "url": "https://www.caughtoffside.com/2026/11/25/chelsea-face-transfer-interest-from-psg-attacking-player",
             "publisher_domain": "caughtoffside.com",
-            "publisher_name_hint": "CaughtOffside",
+            "publisher_name_hint": null,
             "source_feed": "CaughtOffside",
             "published": "2026-11-25T10:22:51+00:00",
             "publisher_type": "other_direct_domain",
@@ -81998,38 +81998,20 @@
             "opponent_key": "",
             "fixture_key": "",
             "subject_key": "estêvão"
-          },
-          {
-            "title": "Transfer rumors, news: PSG eye Chelsea's Estêvão, Bayern's Luis Díaz amid injury woes",
-            "summary": "Both Arsenal and Newcastle United are looking to improve their attack by signing Inter's Pio Esposito. Transfer Talk has the latest.",
-            "url": "https://www.msn.com/en-us/news/other/transfer-rumors-news-psg-eye-chelseas-est%C3%AAv%C3%A3o-bayerns-luis-d%C3%ADaz-amid-injury-woes/ar-AA2i6mp8",
-            "publisher_domain": "msn.com",
-            "publisher_name_hint": "msn.com",
-            "source_feed": "Bing News discovery: Chelsea transfer news",
-            "published": "2026-11-24T14:38:39+00:00",
-            "publisher_type": "other_direct_domain",
-            "team_scope": "mens_first_team_or_club",
-            "story_type": "transfer_rumour",
-            "opponent_key": "arsenal",
-            "fixture_key": "",
-            "subject_key": "estêvão"
           }
         ],
         "source_urls": [
-          "https://www.caughtoffside.com/2026/11/25/chelsea-face-transfer-interest-from-psg-attacking-player",
-          "https://www.msn.com/en-us/news/other/transfer-rumors-news-psg-eye-chelseas-est%C3%AAv%C3%A3o-bayerns-luis-d%C3%ADaz-amid-injury-woes/ar-AA2i6mp8"
+          "https://www.caughtoffside.com/2026/11/25/chelsea-face-transfer-interest-from-psg-attacking-player"
         ],
         "publisher_domains": [
-          "caughtoffside.com",
-          "msn.com"
+          "caughtoffside.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea transfer news",
           "CaughtOffside"
         ],
-        "publisher_count": 2,
-        "observation_count": 2,
-        "corroboration_status": "multiple_publishers_observed_independence_not_proven"
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
       },
       "last_processed_at": null,
       "last_editorial_outcome": null,
@@ -82774,7 +82756,7 @@
       "event_id": "6e400ff44583fc2e40361f7a",
       "title": "Chelsea star Wesley Fofana risks angering Blues fans as he LAUGHS off penalty miss against Liverpool and reveals he considered quitting football - before being reminded of his £200,000-per-week contract",
       "first_seen_at": "2026-11-24T13:16:01.966075+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-24T14:55:53+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -83987,7 +83969,7 @@
       "event_id": "cf63bd7647f3751224abfb78",
       "title": "Chelsea could be set for dramatic slide down the table if bad news is confirmed this week",
       "first_seen_at": "2026-11-24T15:03:08.109526+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-24T15:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -84107,7 +84089,7 @@
       "event_id": "4331c6c0b568c214d292898f",
       "title": "McTominay meeting in Manchester TODAY after approving Man Utd return over Chelsea transfer",
       "first_seen_at": "2026-11-24T15:03:08.109526+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-24T15:00:38+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -84287,7 +84269,7 @@
       "event_id": "8cf6474ebca076652a191f27",
       "title": "Norwich City vs Chelsea Cobham Next Gen: How to watch it live | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-24T15:28:43.648557+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-24T15:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -84350,7 +84332,7 @@
       "event_id": "0829771be815bfa707030a1a",
       "title": "‘I couldn’t care less’: Wesley Fofana risks Chelsea fan fury as he laughs off criticism",
       "first_seen_at": "2026-11-24T15:51:12.092042+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-24T15:21:08+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -84592,7 +84574,7 @@
       "event_id": "6474df3c071e4e0d33fbaac6",
       "title": "Wesley Fofana picks worst possible time to deliver two bombshell Chelsea revelations",
       "first_seen_at": "2026-11-24T16:39:40.486336+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-24T16:28:55+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -84714,7 +84696,7 @@
       "event_id": "1d51767b1414af51ee1e8839",
       "title": "‘Fragile’ Chelsea ‘can’t handle setbacks’ as legend defends Cole Palmer",
       "first_seen_at": "2026-11-24T17:06:06.687871+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-24T16:53:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -84779,7 +84761,7 @@
       "event_id": "ab5aba0b16c804184b0f56ed",
       "title": "Chelsea player laughs about missed penalty and makes contract claim in another unauthorised interview",
       "first_seen_at": "2026-11-24T17:06:06.687871+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-24T17:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -85081,7 +85063,7 @@
       "event_id": "b1f37669a5dc0cd87e707d28",
       "title": "POLL: Should Chelsea fine or drop Wesley Fofana over bombshell interview and money claims?",
       "first_seen_at": "2026-11-24T18:01:03.623348+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-24T17:52:14+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -85206,7 +85188,7 @@
       "event_id": "6d2b3a7d9fa8bbb352dca261",
       "title": "Training gallery: Building to bounce back | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-24T18:02:51.315109+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-24T17:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -86290,7 +86272,7 @@
       "event_id": "f46edacfe66ebb93460e22d5",
       "title": "Papers: Chelsea will push to sign Bournemouth's Scott in January",
       "first_seen_at": "2026-11-24T23:24:08.299034+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-24T23:02:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -86350,7 +86332,7 @@
       "event_id": "9a9793f8120cc95bff4be557",
       "title": "Papers: Chelsea will push to sign Bournemouth's Scott in January",
       "first_seen_at": "2026-11-24T23:24:08.299034+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-24T23:02:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -86957,7 +86939,7 @@
       "event_id": "05fa257a0835eab74e3effac",
       "title": "Unai Emery's telling 14-word comment as Chelsea's Alejandro Garnacho hits new low",
       "first_seen_at": "2026-11-25T06:07:16.119760+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T06:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -87079,7 +87061,7 @@
       "event_id": "f2ae87f1b9a2cf736c70ab80",
       "title": "Chelsea thinking about re-signing Joao Felix again this season",
       "first_seen_at": "2026-11-25T06:56:04.242255+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-25T06:41:43+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -87199,7 +87181,7 @@
       "event_id": "37b8a3d7f4442566adfb5be7",
       "title": "Wesley Fofana agreement reached with Chelsea transfer priority clear after Jamie Carragher rant",
       "first_seen_at": "2026-11-25T07:10:54.484080+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T07:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -87385,7 +87367,7 @@
       "event_id": "3704ad62e851595194eade3d",
       "title": "Viral Chelsea fan Astrid Wett suffers wardrobe malfunction but laughs off outfit choice",
       "first_seen_at": "2026-11-25T07:30:20.311122+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T07:04:48+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -87450,7 +87432,7 @@
       "event_id": "a4ba1150b981da29146338a2",
       "title": "Transfer news LIVE: Arsenal get Kroupi update; new Man Utd target; Scott to Chelsea twist; Liverpool latest",
       "first_seen_at": "2026-11-25T07:30:20.311122+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T10:30:28+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -87755,7 +87737,7 @@
       "event_id": "31e74f9f7057f5e4b6791d5b",
       "title": "Transfer news LIVE: Arsenal get Kroupi update; new Man Utd target; Scott to Chelsea twist; Liverpool latest",
       "first_seen_at": "2026-11-25T08:43:37.648050+00:00",
-      "last_seen_at": "2026-11-25T13:13:49.653676+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T02:51:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -87815,7 +87797,7 @@
       "event_id": "824edd0cc4c0fe2fd011c924",
       "title": "Alejandro Garnacho’s Aston Villa dream turns into a nightmare as Unai Emery explains why Chelsea loanee was frozen out of Champions League",
       "first_seen_at": "2026-11-25T08:43:37.648050+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T00:27:55+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -87875,7 +87857,7 @@
       "event_id": "954dd77181bf9c16afe25e54",
       "title": "Wesley Fofana controversy means one thing has to happen from Xabi Alonso and Chelsea",
       "first_seen_at": "2026-11-25T09:41:07.729654+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T09:18:19+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -88000,7 +87982,7 @@
       "event_id": "8914d06a0bf0769ca08e551e",
       "title": "Ornstein: “Rise of Lavia” means Chelsea may not end up signing midfielder in January",
       "first_seen_at": "2026-11-25T10:07:08.296593+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-25T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -88060,7 +88042,7 @@
       "event_id": "341bfa50eb9824537ba80be5",
       "title": "Chelsea decide to sack Alonso during this season on one condition – he is ‘failing minimum expectation’",
       "first_seen_at": "2026-11-25T10:36:14.182294+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-25T10:14:36+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -88122,7 +88104,7 @@
       "event_id": "7906132146cb90a7e27abce8",
       "title": "‘Positive’ talks held as Chelsea make progress on statement January signing",
       "first_seen_at": "2026-11-25T10:36:14.182294+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T10:18:01+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -88182,7 +88164,7 @@
       "event_id": "93abb21454d64e5b53dfa1dd",
       "title": "Chelsea face transfer interest from PSG for attacking player after double injury blow",
       "first_seen_at": "2026-11-25T10:38:03.441994+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T10:22:51+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -88192,10 +88174,10 @@
       "candidate_snapshot": {
         "event_id": "93abb21454d64e5b53dfa1dd",
         "title": "Chelsea face transfer interest from PSG for attacking player after double injury blow",
-        "story_type": "injury_update",
+        "story_type": "transfer_rumour",
         "team_scope": "mens_first_team_or_club",
-        "published": "2026-11-24T18:22:00+00:00",
-        "best_summary": "After suffering a double injury blow, PSG are looking to make a move for Chelsea winger Estevao who is struggling for playing time.",
+        "published": "2026-11-25T10:22:51+00:00",
+        "best_summary": "Chelsea are facing fresh interest in Estêvão Willian from Paris Saint-Germain as the European champions assess their attacking options ahead of the January transfer window. The French giants have suffered a significant double injury blow, with Désiré Doué and Khvicha Kvaratskhelia sustaining serious knee injuries. Their absences have prompted PSG to explore potential reinforcements, with […] The post Chelsea face transfer interest from PSG for attacking player after double injury blow appeared f",
         "representative_title": "Chelsea face transfer interest from PSG for attacking player after double injury blow",
         "representative_url": "https://www.caughtoffside.com/2026/11/25/chelsea-face-transfer-interest-from-psg-attacking-player",
         "representative_publisher": "caughtoffside.com",
@@ -88203,18 +88185,18 @@
         "source_observations": [
           {
             "title": "Chelsea face transfer interest from PSG for attacking player after double injury blow",
-            "summary": "After suffering a double injury blow, PSG are looking to make a move for Chelsea winger Estevao who is struggling for playing time.",
+            "summary": "Chelsea are facing fresh interest in Estêvão Willian from Paris Saint-Germain as the European champions assess their attacking options ahead of the January transfer window. The French giants have suffered a significant double injury blow, with Désiré Doué and Khvicha Kvaratskhelia sustaining serious knee injuries. Their absences have prompted PSG to explore potential reinforcements, with […] The post Chelsea face transfer interest from PSG for attacking player after double injury blow appeared f",
             "url": "https://www.caughtoffside.com/2026/11/25/chelsea-face-transfer-interest-from-psg-attacking-player",
             "publisher_domain": "caughtoffside.com",
-            "publisher_name_hint": "caughtoffside.com",
-            "source_feed": "Bing News discovery: Chelsea transfer news",
-            "published": "2026-11-24T18:22:00+00:00",
+            "publisher_name_hint": "CaughtOffside",
+            "source_feed": "CaughtOffside",
+            "published": "2026-11-25T10:22:51+00:00",
             "publisher_type": "other_direct_domain",
             "team_scope": "mens_first_team_or_club",
-            "story_type": "injury_update",
+            "story_type": "transfer_rumour",
             "opponent_key": "",
             "fixture_key": "",
-            "subject_key": "estevao"
+            "subject_key": "estêvão"
           }
         ],
         "source_urls": [
@@ -88224,7 +88206,7 @@
           "caughtoffside.com"
         ],
         "source_feeds": [
-          "Bing News discovery: Chelsea transfer news"
+          "CaughtOffside"
         ],
         "publisher_count": 1,
         "observation_count": 1,
@@ -88242,7 +88224,7 @@
       "event_id": "6ea90a6bbc1b524de49268a2",
       "title": "Wesley Fofana agreement reached with Chelsea transfer priority clear after Jamie Carragher rant",
       "first_seen_at": "2026-11-25T10:38:03.441994+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-25T07:00:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -88367,7 +88349,7 @@
       "event_id": "eb08099f30e40a757e5bc5b7",
       "title": "Two presents Xabi Alonso wants on his birthday before Chelsea's trip to Nottingham Forest",
       "first_seen_at": "2026-11-25T10:53:53.380296+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T10:40:05+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -88489,7 +88471,7 @@
       "event_id": "2b0c112810420bec769867e5",
       "title": "Why Xabi Alonso’s vision and Chelsea’s reality remain worlds apart",
       "first_seen_at": "2026-11-25T11:05:03.114516+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T10:58:33+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -88808,7 +88790,7 @@
       "event_id": "a2dcdef702b8564d19ca87f5",
       "title": "Nottingham Forest vs Chelsea: Delap backed after Blues team news",
       "first_seen_at": "2026-11-25T11:55:11.249129+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T11:47:51+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -88868,7 +88850,7 @@
       "event_id": "1995743271d0a2277d7d2e33",
       "title": "Get 35% off True Blue Membership for one week only | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-25T11:56:45.475419+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T11:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -88931,7 +88913,7 @@
       "event_id": "c9ccdaa153cd2f73cb9ebe53",
       "title": "“Like kids” – Jamie Carragher says Chelsea need signing in January or Champions League places at risk",
       "first_seen_at": "2026-11-25T12:09:16.634735+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-25T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -89066,7 +89048,7 @@
       "event_id": "86b9aceb5862879c4109d5dd",
       "title": "Former Liverpool, Man City, Chelsea and Arsenal star Sterling handed suspended prison sentence",
       "first_seen_at": "2026-11-25T12:09:16.634735+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T12:08:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -89306,7 +89288,7 @@
       "event_id": "2d5272fa9e6ef9f43d1dd645",
       "title": "Made in Cobham: Heze Grimwade | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-25T12:10:45.064177+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -89369,7 +89351,7 @@
       "event_id": "f287e9c519e16a73067f19df",
       "title": "Wesley Fofana's future at Chelsea is now completely clear after new reveal",
       "first_seen_at": "2026-11-25T12:36:13.470108+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-25T12:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -89429,7 +89411,7 @@
       "event_id": "51e37c34105fd4f7c605c1cd",
       "title": "Alejandro Garnacho takes Aston Villa action with Chelsea transfer now in the balance",
       "first_seen_at": "2026-11-25T12:36:13.470108+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T12:08:04+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -89729,7 +89711,7 @@
       "event_id": "cfb4eed77c08f13874e811cb",
       "title": "Man Utd fans say ‘he’d unironically start for us’ as Garnacho deletes all trace of Aston Villa and Chelsea",
       "first_seen_at": "2026-11-25T13:00:58.700580+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T12:41:25+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -89849,7 +89831,7 @@
       "event_id": "65ba0d4322eb8187e0e1aec6",
       "title": "Terry Venables: A born leader remembered | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-25T13:02:32.177977+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T09:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -89912,7 +89894,7 @@
       "event_id": "f8916665f7b382eb7084a518",
       "title": "Ornstein drops key update on Xabi Alonso sack at Chelsea as Liverpool comparison made",
       "first_seen_at": "2026-11-25T13:11:53.254976+00:00",
-      "last_seen_at": "2026-11-25T14:34:18.208908+00:00",
+      "last_seen_at": "2026-11-25T14:47:46.932859+00:00",
       "last_published_at": "2026-11-25T13:00:56+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -89972,7 +89954,7 @@
       "event_id": "3f8073df5452e823efaa385d",
       "title": "Chelsea told to hijack transfer for 'magnificent' Man Utd target in January",
       "first_seen_at": "2026-11-25T13:13:49.653676+00:00",
-      "last_seen_at": "2026-11-25T13:13:49.653676+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T03:45:42+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -90032,7 +90014,7 @@
       "event_id": "fa21d804bbe760a7188a4e0c",
       "title": "Inside the life of Becky Spencer | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-25T14:07:36.140049+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T14:05:16+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -90155,7 +90137,7 @@
       "event_id": "fc2aa50dafbf61f9b0993511",
       "title": "Alejandro Garnacho takes matters into his own hands as Chelsea transfer falling apart",
       "first_seen_at": "2026-11-25T14:33:32.820296+00:00",
-      "last_seen_at": "2026-11-25T14:36:10.548325+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
       "last_published_at": "2026-11-25T05:11:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -90318,6 +90300,247 @@
         ],
         "source_feeds": [
           "Bing News discovery: Reece James Chelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "e286c6bc91672de23b4e1125": {
+      "event_id": "e286c6bc91672de23b4e1125",
+      "title": "Former Chelsea hero N'Golo Kante set for emotional homecoming to Stamford Bridge with Fenerbahce",
+      "first_seen_at": "2026-11-25T14:47:46.932859+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
+      "last_published_at": "2026-11-25T14:32:16+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "sports.yahoo.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "e286c6bc91672de23b4e1125",
+        "title": "Former Chelsea hero N'Golo Kante set for emotional homecoming to Stamford Bridge with Fenerbahce",
+        "story_type": "general_news",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-25T14:32:16+00:00",
+        "best_summary": "N'Golo Kante is set for an emotional return to Stamford Bridge on Wednesday night as Fenerbahce face Shakhtar Donetsk in London. Although the Chelsea legend admits his former home remains special, he insists sentiment must wait while praising the travelling Turkish supporters who have made the trip to England.",
+        "representative_title": "Former Chelsea hero N'Golo Kante set for emotional homecoming to Stamford Bridge with Fenerbahce",
+        "representative_url": "https://sports.yahoo.com/soccer/articles/former-chelsea-hero-ngolo-kante-143216128.html",
+        "representative_publisher": "sports.yahoo.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Former Chelsea hero N'Golo Kante set for emotional homecoming to Stamford Bridge with Fenerbahce",
+            "summary": "N'Golo Kante is set for an emotional return to Stamford Bridge on Wednesday night as Fenerbahce face Shakhtar Donetsk in London. Although the Chelsea legend admits his former home remains special, he insists sentiment must wait while praising the travelling Turkish supporters who have made the trip to England.",
+            "url": "https://sports.yahoo.com/soccer/articles/former-chelsea-hero-ngolo-kante-143216128.html",
+            "publisher_domain": "sports.yahoo.com",
+            "publisher_name_hint": "Yahoo Sports",
+            "source_feed": "Yahoo Sports",
+            "published": "2026-11-25T14:32:16+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "general_news",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://sports.yahoo.com/soccer/articles/former-chelsea-hero-ngolo-kante-143216128.html"
+        ],
+        "publisher_domains": [
+          "sports.yahoo.com"
+        ],
+        "source_feeds": [
+          "Yahoo Sports"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "89afac01963cef01fcf0549d": {
+      "event_id": "89afac01963cef01fcf0549d",
+      "title": "Nottingham Forest v Chelsea: Preview, expected line-ups and where to watch",
+      "first_seen_at": "2026-11-25T14:47:46.932859+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
+      "last_published_at": "2026-11-25T14:40:41+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "101greatgoals.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "89afac01963cef01fcf0549d",
+        "title": "Nottingham Forest v Chelsea: Preview, expected line-ups and where to watch",
+        "story_type": "match_preview",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-25T14:40:41+00:00",
+        "best_summary": "Chelsea have won just one of their last five games in all competitions. They go to Nottingham Forest on Friday night. Read our preview here...",
+        "representative_title": "Nottingham Forest v Chelsea: Preview, expected line-ups and where to watch",
+        "representative_url": "https://www.101greatgoals.com/match-previews/premier-league-matches/nottingham-forest-v-chelsea-preview-expected-line-ups-stats-stream-where-to-watch",
+        "representative_publisher": "101greatgoals.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Nottingham Forest v Chelsea: Preview, expected line-ups and where to watch",
+            "summary": "Chelsea have won just one of their last five games in all competitions. They go to Nottingham Forest on Friday night. Read our preview here...",
+            "url": "https://www.101greatgoals.com/match-previews/premier-league-matches/nottingham-forest-v-chelsea-preview-expected-line-ups-stats-stream-where-to-watch",
+            "publisher_domain": "101greatgoals.com",
+            "publisher_name_hint": "101 Great Goals",
+            "source_feed": "101 Great Goals",
+            "published": "2026-11-25T14:40:41+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "match_preview",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": ""
+          }
+        ],
+        "source_urls": [
+          "https://www.101greatgoals.com/match-previews/premier-league-matches/nottingham-forest-v-chelsea-preview-expected-line-ups-stats-stream-where-to-watch"
+        ],
+        "publisher_domains": [
+          "101greatgoals.com"
+        ],
+        "source_feeds": [
+          "101 Great Goals"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "76499ec7114a4668c0cdbc02": {
+      "event_id": "76499ec7114a4668c0cdbc02",
+      "title": "Man Utd warned against £75m move for Chelsea’s Gusto",
+      "first_seen_at": "2026-11-25T14:49:47.696344+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
+      "last_published_at": "2026-11-25T06:17:18+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "msn.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "76499ec7114a4668c0cdbc02",
+        "title": "Man Utd warned against £75m move for Chelsea’s Gusto",
+        "story_type": "transfer_rumour",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-25T06:17:18+00:00",
+        "best_summary": "Manchester United have been urged to avoid pursuing a move for wantaway Chelsea full-back Malo Gusto in the January transfer window. United made a disappointing start to life under their new head ...",
+        "representative_title": "Man Utd warned against £75m move for Chelsea’s Gusto",
+        "representative_url": "https://www.msn.com/en-xl/news/other/man-utd-warned-against-75m-move-for-chelsea-s-gusto/ar-AA2ickTB",
+        "representative_publisher": "msn.com",
+        "representative_publisher_type": "other_direct_domain",
+        "source_observations": [
+          {
+            "title": "Man Utd warned against £75m move for Chelsea’s Gusto",
+            "summary": "Manchester United have been urged to avoid pursuing a move for wantaway Chelsea full-back Malo Gusto in the January transfer window. United made a disappointing start to life under their new head ...",
+            "url": "https://www.msn.com/en-xl/news/other/man-utd-warned-against-75m-move-for-chelsea-s-gusto/ar-AA2ickTB",
+            "publisher_domain": "msn.com",
+            "publisher_name_hint": "msn.com",
+            "source_feed": "Bing News discovery: Malo Gusto Chelsea",
+            "published": "2026-11-25T06:17:18+00:00",
+            "publisher_type": "other_direct_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "transfer_rumour",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "malo_gusto"
+          }
+        ],
+        "source_urls": [
+          "https://www.msn.com/en-xl/news/other/man-utd-warned-against-75m-move-for-chelsea-s-gusto/ar-AA2ickTB"
+        ],
+        "publisher_domains": [
+          "msn.com"
+        ],
+        "source_feeds": [
+          "Bing News discovery: Malo Gusto Chelsea"
+        ],
+        "publisher_count": 1,
+        "observation_count": 1,
+        "corroboration_status": "single_publisher_observation"
+      },
+      "last_processed_at": null,
+      "last_editorial_outcome": null,
+      "last_processed_headline": null,
+      "last_editorial_source_domains": [],
+      "last_editorial_source_urls": [],
+      "last_quality_failures": [],
+      "force_evidence_refresh": false
+    },
+    "658b42d8835d37020ab97e4f": {
+      "event_id": "658b42d8835d37020ab97e4f",
+      "title": "Entertainment for the whole family – Join us for Families at the Bridge! | News | Official Site - Chelsea Football Club",
+      "first_seen_at": "2026-11-25T14:49:47.696344+00:00",
+      "last_seen_at": "2026-11-25T14:49:47.696344+00:00",
+      "last_published_at": "2026-11-25T14:30:00+00:00",
+      "last_observation_count": 1,
+      "publisher_domains": [
+        "chelseafc.com"
+      ],
+      "status": "observed_not_processed",
+      "candidate_snapshot": {
+        "event_id": "658b42d8835d37020ab97e4f",
+        "title": "Entertainment for the whole family – Join us for Families at the Bridge! | News | Official Site - Chelsea Football Club",
+        "story_type": "general_news",
+        "team_scope": "mens_first_team_or_club",
+        "published": "2026-11-25T14:30:00+00:00",
+        "best_summary": "Entertainment for the whole family – Join us for Families at the Bridge! | News | Official Site Chelsea Football Club",
+        "representative_title": "Entertainment for the whole family – Join us for Families at the Bridge! | News | Official Site - Chelsea Football Club",
+        "representative_url": "https://www.chelseafc.com/en/news/article/entertainment-for-the-whole-family-join-us-for-families-at-the-bridge",
+        "representative_publisher": "chelseafc.com",
+        "representative_publisher_type": "official_domain",
+        "source_observations": [
+          {
+            "title": "Entertainment for the whole family – Join us for Families at the Bridge! | News | Official Site - Chelsea Football Club",
+            "summary": "Entertainment for the whole family – Join us for Families at the Bridge! | News | Official Site Chelsea Football Club",
+            "url": "https://www.chelseafc.com/en/news/article/entertainment-for-the-whole-family-join-us-for-families-at-the-bridge",
+            "publisher_domain": "chelseafc.com",
+            "publisher_name_hint": "Chelsea Football Club",
+            "source_feed": "Google News official-source discovery",
+            "published": "2026-11-25T14:30:00+00:00",
+            "publisher_type": "official_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "general_news",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "",
+            "discovery_timestamp_source": "Google News RSS; discovery only"
+          }
+        ],
+        "source_urls": [
+          "https://www.chelseafc.com/en/news/article/entertainment-for-the-whole-family-join-us-for-families-at-the-bridge"
+        ],
+        "publisher_domains": [
+          "chelseafc.com"
+        ],
+        "source_feeds": [
+          "Google News official-source discovery"
         ],
         "publisher_count": 1,
         "observation_count": 1,
