@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T02:23:12.401966+00:00",
+  "updated_at": "2026-11-25T02:23:53.624922+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -84582,7 +84582,7 @@
       "publisher_domains": [
         "talksport.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "6474df3c071e4e0d33fbaac6",
         "title": "Wesley Fofana picks worst possible time to deliver two bombshell Chelsea revelations",
@@ -84624,12 +84624,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-25T02:23:53.624922+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Wesley Fofana picks worst possible time to deliver two bombshell Chelsea revelations",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "633721fc56442358d7948b41": {
