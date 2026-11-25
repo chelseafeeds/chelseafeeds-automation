@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T05:32:47.474486+00:00",
+  "updated_at": "2026-11-25T05:33:17.876869+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -79794,7 +79794,7 @@
       "publisher_domains": [
         "fourfourtwo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "d9eba38c964eea1927f37ae0",
         "title": "Willian reveals the strange Chelsea gift that helped him decide to join the club",
@@ -79836,9 +79836,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-25T05:33:17.876869+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Willian reveals the strange Chelsea gift that helped him decide to join the club",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
