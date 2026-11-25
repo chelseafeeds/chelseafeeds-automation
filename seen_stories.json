@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T09:43:24.402187+00:00",
+  "updated_at": "2026-11-25T09:43:53.086517+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -87877,7 +87877,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "954dd77181bf9c16afe25e54",
         "title": "Wesley Fofana controversy means one thing has to happen from Xabi Alonso and Chelsea",
@@ -87919,9 +87919,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-25T09:43:53.086517+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Wesley Fofana controversy means one thing has to happen from Xabi Alonso and Chelsea",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
