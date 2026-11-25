@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T15:41:52.762902+00:00",
+  "updated_at": "2026-11-25T15:42:25.225935+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -88802,7 +88802,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "a2dcdef702b8564d19ca87f5",
         "title": "Nottingham Forest vs Chelsea: Delap backed after Blues team news",
@@ -88844,12 +88844,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-25T15:42:25.225935+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Nottingham Forest vs Chelsea: Delap backed after Blues team news",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "1995743271d0a2277d7d2e33": {
