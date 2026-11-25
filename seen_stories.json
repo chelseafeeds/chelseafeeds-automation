@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T07:57:58.233433+00:00",
+  "updated_at": "2026-11-25T07:58:23.463204+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -87565,7 +87565,7 @@
       "publisher_domains": [
         "goal.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "0cf04331755c27cd5fe3162b",
         "title": "Nottingham Forest vs Chelsea Premier League preview: All you need to know",
@@ -87607,9 +87607,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-25T07:58:23.463204+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Nottingham Forest vs Chelsea Premier League preview: All you need to know",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
