@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T23:03:06.936334+00:00",
+  "updated_at": "2026-11-25T23:03:38.329518+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -93749,7 +93749,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "ffba9cb40d1ecc3ff5dd100c",
         "title": "Van Dijk can leave Liverpool for Chelsea as Reds captain finally dispensable",
@@ -93791,9 +93791,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-25T23:03:38.329518+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Van Dijk can leave Liverpool for Chelsea as Reds captain finally dispensable",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
