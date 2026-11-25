@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T02:47:30.660540+00:00",
+  "updated_at": "2026-11-25T02:48:04.534477+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -84722,7 +84722,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "1d51767b1414af51ee1e8839",
         "title": "‘Fragile’ Chelsea ‘can’t handle setbacks’ as legend defends Cole Palmer",
@@ -84770,7 +84770,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7823536128070416798",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/hasselbaink-warns-chelsea-of-fragility.html",
+      "scheduled_for_utc": "2026-11-25T02:53:03Z",
+      "last_blogger_status_updated_at": "2026-11-25T02:48:04.534451+00:00"
     },
     "ab5aba0b16c804184b0f56ed": {
       "event_id": "ab5aba0b16c804184b0f56ed",
