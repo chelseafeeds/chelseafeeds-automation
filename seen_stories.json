@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T21:23:36.276998+00:00",
+  "updated_at": "2026-11-25T21:23:59.227477+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -89938,7 +89938,7 @@
       "publisher_domains": [
         "football365.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "f8916665f7b382eb7084a518",
         "title": "Ornstein drops key update on Xabi Alonso sack at Chelsea as Liverpool comparison made",
@@ -89986,7 +89986,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1941875700981251868",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/ornstein-drops-key-update-on-xabi.html",
+      "scheduled_for_utc": "2026-11-25T21:28:58Z",
+      "last_blogger_status_updated_at": "2026-11-25T21:23:59.227448+00:00"
     },
     "3f8073df5452e823efaa385d": {
       "event_id": "3f8073df5452e823efaa385d",
