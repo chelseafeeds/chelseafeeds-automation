@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-25T06:57:27.056065+00:00",
+  "updated_at": "2026-11-25T06:58:00.488608+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -86959,7 +86959,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "05fa257a0835eab74e3effac",
         "title": "Unai Emery's telling 14-word comment as Chelsea's Alejandro Garnacho hits new low",
@@ -87001,12 +87001,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-25T06:58:00.488608+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Unai Emery's telling 14-word comment as Chelsea's Alejandro Garnacho hits new low",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "9d789cda8a6ea67bed486ed2": {
