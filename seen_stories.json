@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T04:12:20.273044+00:00",
+  "updated_at": "2026-11-26T04:12:45.265729+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -91485,7 +91485,7 @@
         "football365.com",
         "msn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "9144b22a837aed345378f66d",
         "title": "Man Utd: ‘Verbal agreement’ reached with Red Devils to sign Chelsea star in January on one condition",
@@ -91544,9 +91544,9 @@
         "observation_count": 2,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-26T04:12:45.265729+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Man Utd: ‘Verbal agreement’ reached with Red Devils to sign Chelsea star in January on one condition",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
