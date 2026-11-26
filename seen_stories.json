@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T10:18:18.763911+00:00",
+  "updated_at": "2026-11-26T10:18:47.039642+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -95986,7 +95986,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "a82bb310fa020ba175d8dac7",
         "title": "Transfer news LIVE: Arsenal told Kroupi decision; Liverpool done deal; Man Utd twist; Chelsea latest",
@@ -96028,12 +96028,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-26T10:18:47.039642+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Transfer news LIVE: Arsenal told Kroupi decision; Liverpool done deal; Man Utd twist; Chelsea latest",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "34dd61541997fa67cbee48a8": {
