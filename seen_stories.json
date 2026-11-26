@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T16:32:39.864690+00:00",
+  "updated_at": "2026-11-26T16:33:14.189530+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -99448,7 +99448,7 @@
       "publisher_domains": [
         "talksport.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "8acb713d12b1b05c937ada2a",
         "title": "Football news LIVE: Pogba on Drive, Chelsea fitness update as Alonso addresses Fofana interview, Spurs injury blow",
@@ -99490,12 +99490,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-26T16:33:14.189530+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Football news LIVE: Pogba on Drive, Chelsea fitness update as Alonso addresses Fofana interview, Spurs injury blow",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "title_present_and_reasonable",
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "cc2e9c9121ef0cc2f1759d5a": {
