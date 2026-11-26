@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T01:18:13.451465+00:00",
+  "updated_at": "2026-11-26T01:18:30.940687+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -92972,7 +92972,7 @@
         "talkchelsea.net",
         "talksport.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "14dd9fbf086f058801efafd3",
         "title": "Simon Jordan reveals how Chelsea signed Alejandro Garnacho for £40m after Zoom interview",
@@ -93020,7 +93020,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6062131653829353685",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/garnacho-loan-woes-at-villa-cast-doubt.html",
+      "scheduled_for_utc": "2026-11-26T01:23:29Z",
+      "last_blogger_status_updated_at": "2026-11-26T01:18:30.940663+00:00"
     },
     "af983180da79713d5dbbc9c3": {
       "event_id": "af983180da79713d5dbbc9c3",
