@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T08:18:49.379022+00:00",
+  "updated_at": "2026-11-26T08:19:11.195886+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -95277,7 +95277,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "226d82ce1f771dc34d97b2db",
         "title": "Joao Pedro visits former club as he recovers from injury that Chelsea fear ‘could keep him out for rest of the year’",
@@ -95325,7 +95325,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "739845514858961496",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/joao-pedros-injury-sidelines-brazilian.html",
+      "scheduled_for_utc": "2026-11-26T08:24:10Z",
+      "last_blogger_status_updated_at": "2026-11-26T08:19:11.195861+00:00"
     },
     "488c6ffc5ccfbaeb5814cff8": {
       "event_id": "488c6ffc5ccfbaeb5814cff8",
@@ -95577,7 +95582,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "822b1b563d3c7ab2fd4ca21c",
         "title": "Ibrahim Rabbaj and Morocco target knockout spot at Under-17 World Cup | News | Official Site - Chelsea Football Club",
@@ -95626,7 +95631,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6951246509401101908",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/ibrahim-rabbaj-and-morocco-aim-for.html",
+      "scheduled_for_utc": "2026-11-26T08:24:07Z",
+      "last_blogger_status_updated_at": "2026-11-26T08:19:07.824913+00:00"
     },
     "2cdd5245e9f2173c65c970be": {
       "event_id": "2cdd5245e9f2173c65c970be",
