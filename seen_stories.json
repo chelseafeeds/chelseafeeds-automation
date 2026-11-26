@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T15:24:32.918969+00:00",
+  "updated_at": "2026-11-26T15:24:53.755634+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -99157,7 +99157,7 @@
         "standard.co.uk",
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "f913193edebf030eb3ba1542",
         "title": "Joao Pedro visits former club as he recovers from injury that Chelsea fear ‘could keep him out for rest of the year’",
@@ -99291,7 +99291,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1522619200611624450",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/joao-pedros-watford-visit-highlights.html",
+      "scheduled_for_utc": "2026-11-26T15:29:53Z",
+      "last_blogger_status_updated_at": "2026-11-26T15:24:53.755609+00:00"
     },
     "d0d93728b7422d683063a84d": {
       "event_id": "d0d93728b7422d683063a84d",
