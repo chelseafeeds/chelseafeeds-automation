@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T04:12:45.265729+00:00",
+  "updated_at": "2026-11-26T04:13:06.365887+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -91485,7 +91485,7 @@
         "football365.com",
         "msn.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "9144b22a837aed345378f66d",
         "title": "Man Utd: ‘Verbal agreement’ reached with Red Devils to sign Chelsea star in January on one condition",
@@ -91550,7 +91550,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "1033916684271817691",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/malo-gusto-linked-to-manchester-united_0938574563.html",
+      "scheduled_for_utc": "2026-11-26T04:18:05Z",
+      "last_blogger_status_updated_at": "2026-11-26T04:13:06.365863+00:00"
     },
     "4de89866ce242ab35df3280e": {
       "event_id": "4de89866ce242ab35df3280e",
