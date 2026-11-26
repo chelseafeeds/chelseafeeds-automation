@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T12:55:55.462601+00:00",
+  "updated_at": "2026-11-26T12:56:19.232888+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -96569,7 +96569,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "6087a266a6ebed59d89d69bb",
         "title": "Delap's chance at redemption against toothless Chelsea",
@@ -96617,7 +96617,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7545318518232371209",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/liam-delap-seeks-redemption-as-chelseas.html",
+      "scheduled_for_utc": "2026-11-26T13:01:17Z",
+      "last_blogger_status_updated_at": "2026-11-26T12:56:19.232864+00:00"
     },
     "4bda65ef7c172c41c951a925": {
       "event_id": "4bda65ef7c172c41c951a925",
