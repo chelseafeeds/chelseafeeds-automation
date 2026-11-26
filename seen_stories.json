@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T16:35:17.240167+00:00",
+  "updated_at": "2026-11-26T16:45:40.618074+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -96707,7 +96707,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "4bda65ef7c172c41c951a925",
         "title": "Delap's chance at redemption against toothless Chelsea",
@@ -96749,12 +96749,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-26T16:45:40.618074+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Delap's chance at redemption against toothless Chelsea",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "search_description_is_complete",
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "85b28ef6e737eb64091a0271": {
