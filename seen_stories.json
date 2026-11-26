@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T13:43:06.378356+00:00",
+  "updated_at": "2026-11-26T13:43:26.454348+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -94192,7 +94192,7 @@
         "101greatgoals.com",
         "msn.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "5473c3d4d5b8cbb4bd0d0800",
         "title": "Premier League Predictions: Arsenal and Liverpool joy but misery and frustration for Chelsea, Man United and Man City",
@@ -94240,7 +94240,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "144315958197244840",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-transfer-activity-ahead-of.html",
+      "scheduled_for_utc": "2026-11-26T13:48:25Z",
+      "last_blogger_status_updated_at": "2026-11-26T13:43:26.454327+00:00"
     },
     "d2249d6422cfa52d4968708d": {
       "event_id": "d2249d6422cfa52d4968708d",
