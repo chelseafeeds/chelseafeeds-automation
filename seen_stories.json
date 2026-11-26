@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T16:08:13.338375+00:00",
+  "updated_at": "2026-11-26T16:08:43.060373+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -99735,7 +99735,7 @@
         "standard.co.uk",
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "116a7f1214dcf5d7159d422a",
         "title": "Joao Pedro visits former club as he recovers from injury that Chelsea fear ‘could keep him out for rest of the year’",
@@ -99869,7 +99869,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "2047321010869860325",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/joao-pedros-injury-update-chelsea-fear.html",
+      "scheduled_for_utc": "2026-11-26T16:13:41Z",
+      "last_blogger_status_updated_at": "2026-11-26T16:08:43.060349+00:00"
     },
     "ac88d786b7670b0d9ce01fee": {
       "event_id": "ac88d786b7670b0d9ce01fee",
