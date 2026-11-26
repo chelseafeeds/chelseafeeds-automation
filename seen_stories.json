@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T02:48:16.676071+00:00",
+  "updated_at": "2026-11-26T02:48:43.241852+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -93180,7 +93180,7 @@
         "talksport.com",
         "yardbarker.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "6851508dc090d00cc38223b7",
         "title": "Simon Jordan reveals how Chelsea signed Alejandro Garnacho for £40m after Zoom interview",
@@ -93258,12 +93258,14 @@
         "observation_count": 3,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-26T02:48:43.241852+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Simon Jordan reveals how Chelsea signed Alejandro Garnacho for £40m after Zoom interview",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "d477a4a90d8a19114dac89e3": {
