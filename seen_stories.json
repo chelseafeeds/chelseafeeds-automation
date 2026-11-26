@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T14:08:01.476159+00:00",
+  "updated_at": "2026-11-26T14:14:47.723920+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -630,9 +630,9 @@
     },
     "5f596cb901f438b5057f6780": {
       "event_id": "5f596cb901f438b5057f6780",
-      "title": "Chelsea latest: Alonso faces media ahead of Forest trip",
+      "title": "Chelsea latest: Alonso demands response from Leeds defeat",
       "first_seen_at": "2026-11-11T12:51:34.962528+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T13:08:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -644,18 +644,18 @@
       "last_processed_headline": "Chelsea latest: 'Blues join race to sign Arsenal midfielder'",
       "candidate_snapshot": {
         "event_id": "5f596cb901f438b5057f6780",
-        "title": "Chelsea latest: Alonso faces media ahead of Forest trip",
-        "story_type": "match_preview",
+        "title": "Chelsea latest: Alonso demands response from Leeds defeat",
+        "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-26T13:08:00+00:00",
         "best_summary": "",
-        "representative_title": "Chelsea latest: Alonso faces media ahead of Forest trip",
+        "representative_title": "Chelsea latest: Alonso demands response from Leeds defeat",
         "representative_url": "https://www.skysports.com/football/live-blog/11095/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
         "representative_publisher": "skysports.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Chelsea latest: Alonso faces media ahead of Forest trip",
+            "title": "Chelsea latest: Alonso demands response from Leeds defeat",
             "summary": "",
             "url": "https://www.skysports.com/football/live-blog/11095/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
             "publisher_domain": "skysports.com",
@@ -664,7 +664,7 @@
             "published": "2026-11-26T13:08:00+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
-            "story_type": "match_preview",
+            "story_type": "match_report",
             "opponent_key": "",
             "fixture_key": "",
             "subject_key": ""
@@ -13357,9 +13357,9 @@
     },
     "e306282f1a85a88671fa2eca": {
       "event_id": "e306282f1a85a88671fa2eca",
-      "title": "Chelsea latest: Alonso faces media ahead of Forest trip",
+      "title": "Chelsea latest: Alonso demands response from Leeds defeat",
       "first_seen_at": "2026-11-17T12:26:08.616179+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T13:08:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -13368,18 +13368,18 @@
       "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "e306282f1a85a88671fa2eca",
-        "title": "Chelsea latest: Alonso faces media ahead of Forest trip",
-        "story_type": "match_preview",
+        "title": "Chelsea latest: Alonso demands response from Leeds defeat",
+        "story_type": "match_report",
         "team_scope": "mens_first_team_or_club",
         "published": "2026-11-26T13:08:00+00:00",
         "best_summary": "",
-        "representative_title": "Chelsea latest: Alonso faces media ahead of Forest trip",
+        "representative_title": "Chelsea latest: Alonso demands response from Leeds defeat",
         "representative_url": "https://www.skysports.com/football/live-blog/12040/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
         "representative_publisher": "skysports.com",
         "representative_publisher_type": "established_domain",
         "source_observations": [
           {
-            "title": "Chelsea latest: Alonso faces media ahead of Forest trip",
+            "title": "Chelsea latest: Alonso demands response from Leeds defeat",
             "summary": "",
             "url": "https://www.skysports.com/football/live-blog/12040/13025497/chelsea-transfer-news-rumours-and-gossip-live-updates-and-latest-on-deals-signings-loans-and-contracts",
             "publisher_domain": "skysports.com",
@@ -13388,7 +13388,7 @@
             "published": "2026-11-26T13:08:00+00:00",
             "publisher_type": "established_domain",
             "team_scope": "mens_first_team_or_club",
-            "story_type": "match_preview",
+            "story_type": "match_report",
             "opponent_key": "",
             "fixture_key": "",
             "subject_key": ""
@@ -22882,7 +22882,7 @@
       "event_id": "64a0e9499a79e18d610953f0",
       "title": "Chelsea tickets and VIP hospitality deals for Premier League matches at Stamford Bridge from just £155pp",
       "first_seen_at": "2026-11-18T15:06:01.202164+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T10:53:34+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -90060,7 +90060,7 @@
       "event_id": "fa21d804bbe760a7188a4e0c",
       "title": "Inside the life of Becky Spencer | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-25T14:07:36.140049+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T15:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -90423,7 +90423,7 @@
       "event_id": "89afac01963cef01fcf0549d",
       "title": "Nottingham Forest v Chelsea: Preview, expected line-ups and where to watch",
       "first_seen_at": "2026-11-25T14:47:46.932859+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T09:09:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -90543,7 +90543,7 @@
       "event_id": "658b42d8835d37020ab97e4f",
       "title": "Entertainment for the whole family – Join us for Families at the Bridge! | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-25T14:49:47.696344+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T14:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -90726,7 +90726,7 @@
       "event_id": "67f2de7eda22069947cac953",
       "title": "Chelsea XI vs Nottingham Forest: Confirmed team news, predicted lineup and injury latest for Premier League",
       "first_seen_at": "2026-11-25T15:39:47.980123+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T15:39:05+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -90970,7 +90970,7 @@
       "event_id": "df7afce00059276873746763",
       "title": "Wesley Fofana accidentally exposed the rotten culture problem at Chelsea - they must sack him",
       "first_seen_at": "2026-11-25T16:11:13.321292+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T15:59:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -91481,7 +91481,7 @@
       "event_id": "9144b22a837aed345378f66d",
       "title": "Man Utd: ‘Verbal agreement’ reached with Red Devils to sign Chelsea star in January on one condition",
       "first_seen_at": "2026-11-25T16:47:49.116471+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-25T15:48:05+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -91667,7 +91667,7 @@
       "event_id": "d5d06decbfc8cfc59cb675c9",
       "title": "Chelsea Confidential: Meet Sebas Parrilla, the fiery, marathon-running, Bruce Springsteen fan Xabi Alonso trusts above all others - and why he's the man to fix Blues' defensive crisis",
       "first_seen_at": "2026-11-25T17:16:12.581413+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T17:04:54+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -91727,7 +91727,7 @@
       "event_id": "4d1ffb1fd3b088cf795ddbbb",
       "title": "Former Liverpool captain says Chelsea should sign Virgil van Dijk",
       "first_seen_at": "2026-11-25T17:16:12.581413+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T17:05:59+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -91969,7 +91969,7 @@
       "event_id": "fe0200c6db33d951dc15a671",
       "title": "Chelsea tipped to sign Liverpool star on a free as fix for huge Xabi Alonso problem",
       "first_seen_at": "2026-11-25T17:37:08.286651+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T17:13:47+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -92034,7 +92034,7 @@
       "event_id": "8554b97e3fda30cb04c2e259",
       "title": "Xabi Alonso totally against Enzo Maresca as two messages delivered in Chelsea dressing room",
       "first_seen_at": "2026-11-25T17:37:08.286651+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T17:25:30+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -92096,7 +92096,7 @@
       "event_id": "1548f4122b5ab514f1ec08ea",
       "title": "Exclusive says Chelsea player given permission to leave in January after Alonso talks",
       "first_seen_at": "2026-11-25T17:37:08.286651+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-25T17:33:39+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -92216,7 +92216,7 @@
       "event_id": "03979295c966a2da2371e121",
       "title": "Chelsea Cobham Next Gen discover EFL Trophy Round of 32 opponents | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-25T17:38:56.788591+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T17:10:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -92459,7 +92459,7 @@
       "event_id": "dd6ac36213b0e08416c50dc6",
       "title": "Chelsea urged to sign Virgil van Dijk next summer with Liverpool future uncertain",
       "first_seen_at": "2026-11-25T18:16:15.673740+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T17:59:15+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -92943,7 +92943,7 @@
       "event_id": "14dd9fbf086f058801efafd3",
       "title": "Simon Jordan reveals how Chelsea signed Alejandro Garnacho for £40m after Zoom interview",
       "first_seen_at": "2026-11-25T18:57:37.828023+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T18:49:23+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -93292,7 +93292,7 @@
       "event_id": "3525cf5dbe33139d4f27ef7f",
       "title": "“I’m a fighter” – Chelsea’s new striker promises to be a “nightmare” for defenders",
       "first_seen_at": "2026-11-25T20:20:58.969755+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-25T20:09:11+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -93712,7 +93712,7 @@
       "event_id": "ffba9cb40d1ecc3ff5dd100c",
       "title": "Van Dijk can leave Liverpool for Chelsea as Reds captain finally dispensable",
       "first_seen_at": "2026-11-25T22:26:08.006891+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-25T22:19:37+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -93899,7 +93899,7 @@
       "event_id": "11a0c288a30a64a612831ab6",
       "title": "Simon Jordan reveals how Chelsea signed Alejandro Garnacho for £40m after Zoom interview",
       "first_seen_at": "2026-11-25T23:03:06.936334+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-25T14:48:28+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -94003,7 +94003,7 @@
       "event_id": "8200c8ffa1a43dd985929273",
       "title": "Fenerbahce squeeze past Shakhtar to seal back-to-back wins",
       "first_seen_at": "2026-11-25T23:26:18.217841+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T23:16:18+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -94185,7 +94185,7 @@
       "event_id": "5473c3d4d5b8cbb4bd0d0800",
       "title": "Premier League stars who famously refused to learn English after Glasner dig including Arsenal Invincible & Chelsea boss",
       "first_seen_at": "2026-11-26T00:26:20.145935+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T12:15:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -94270,7 +94270,7 @@
       "event_id": "d2249d6422cfa52d4968708d",
       "title": "Chelsea predicted lineup vs. Nottingham Forest: Xabi Alonso to make striker decision ahead of key Premier League clash",
       "first_seen_at": "2026-11-26T00:26:20.145935+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T16:04:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -94450,7 +94450,7 @@
       "event_id": "af7aa8c3871a01510568e73b",
       "title": "Liam Delap’s Chelsea exit, what went wrong, and why they’ll fear Forest reprisal",
       "first_seen_at": "2026-11-26T05:21:11.547263+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T05:03:44+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -94572,7 +94572,7 @@
       "event_id": "d9f173c0f257da27b76bfd84",
       "title": "Bryan King questions Cole Palmer’s faith in Xabi Alonso tactics",
       "first_seen_at": "2026-11-26T06:05:20.862472+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T06:02:53+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -94711,7 +94711,7 @@
       "event_id": "cd9c5d6bfe2e1daaed723a17",
       "title": "Six Man Utd deals that can happen in January as Chelsea star 'strikes verbal agreement'",
       "first_seen_at": "2026-11-26T06:31:05.638947+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T06:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -94833,7 +94833,7 @@
       "event_id": "1fc1c159121e4a666a1583c3",
       "title": "Cole Palmer disagreement and Wesley Fofana dropped - Chelsea line-ups for Nottingham Forest",
       "first_seen_at": "2026-11-26T07:08:44.036663+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T07:00:00+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -94893,7 +94893,7 @@
       "event_id": "90b63eade48931e50f04e9d7",
       "title": "Xabi Alonso celebrates 45th birthday with night in with wife Nagore as she shares pic of Chelsea boss enjoying cake",
       "first_seen_at": "2026-11-26T07:08:44.036663+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T07:02:23+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -95135,7 +95135,7 @@
       "event_id": "0feb0a0f796766f5f903c5b6",
       "title": "Transfer news LIVE: Arsenal told Kroupi decision; Liverpool done deal; Man Utd twist; Chelsea latest",
       "first_seen_at": "2026-11-26T07:51:04.300688+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T13:47:35+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -95255,7 +95255,7 @@
       "event_id": "81e6224e9a1afc4f7bf5ba46",
       "title": "How should Chelsea line up against Nottingham Forest?",
       "first_seen_at": "2026-11-26T07:53:00.933500+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T07:33:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -95315,9 +95315,9 @@
       "event_id": "226d82ce1f771dc34d97b2db",
       "title": "Joao Pedro visits former club as he recovers from injury that Chelsea fear ‘could keep him out for rest of the year’",
       "first_seen_at": "2026-11-26T08:16:08.967239+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T08:09:59+00:00",
-      "last_observation_count": 2,
+      "last_observation_count": 3,
       "publisher_domains": [
         "standard.co.uk",
         "thesun.co.uk"
@@ -95351,6 +95351,21 @@
             "subject_key": "joao_pedro"
           },
           {
+            "title": "Chelsea: Joao Pedro and Moises Caicedo injury latest as Xabi Alonso issues three-man update",
+            "summary": "Joao Pedro remains sidelined but Moises Caicedo is available as Chelsea prepare for Friday night’s trip to to Nottingham Forest.",
+            "url": "https://www.standard.co.uk/sport/football/chelsea-injury-update-joao-pedro-caicedo-lacroix-b1306484.html",
+            "publisher_domain": "standard.co.uk",
+            "publisher_name_hint": "Evening Standard Sport",
+            "source_feed": "Evening Standard Sport",
+            "published": "2026-11-26T14:07:34+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "joao_pedro"
+          },
+          {
             "title": "Joao Pedro visits former club as he recovers from injury that Chelsea fear ‘could keep him out for rest of the year’",
             "summary": "JOAO PEDRO returned to former club Watford while remaining sidelined with a serious knock. The Brazilian forward enjoyed an electric start to the season in Xabi Alonso's Chelsea side. He scored five times and assisted three in the opening six games of the season, before sustaining a thigh injury ahead of the Blues' clash with...",
             "url": "https://www.thesun.co.uk/sport/41155938/joao-pedro-visits-watford-injury-recovery",
@@ -95368,6 +95383,7 @@
         ],
         "source_urls": [
           "https://www.standard.co.uk/sport/football/chelsea-fc-injury-news-joao-pedro-b1306486.html",
+          "https://www.standard.co.uk/sport/football/chelsea-injury-update-joao-pedro-caicedo-lacroix-b1306484.html",
           "https://www.thesun.co.uk/sport/41155938/joao-pedro-visits-watford-injury-recovery"
         ],
         "publisher_domains": [
@@ -95379,7 +95395,7 @@
           "The Sun Football"
         ],
         "publisher_count": 2,
-        "observation_count": 2,
+        "observation_count": 3,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
       "last_processed_at": "2026-11-26T08:18:49.379022+00:00",
@@ -95459,7 +95475,7 @@
       "event_id": "aa95b9dd23643ce820054788",
       "title": "Chelsea eyeing Antonio Rudiger return in three-man January shortlist - Transfer expert",
       "first_seen_at": "2026-11-26T08:18:14.216536+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T22:55:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -95639,7 +95655,7 @@
       "event_id": "822b1b563d3c7ab2fd4ca21c",
       "title": "Ibrahim Rabbaj and Morocco target knockout spot at Under-17 World Cup | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-26T08:18:14.216536+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T08:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -95705,7 +95721,7 @@
       "event_id": "2cdd5245e9f2173c65c970be",
       "title": "Nottingham Forest vs Chelsea Lineups and Team News: Emegha Has to Start",
       "first_seen_at": "2026-11-26T08:18:14.216536+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T08:00:16+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -95825,7 +95841,7 @@
       "event_id": "9ed26923242fb5e379bbd261",
       "title": "Harry Maguire - the coach! Man United star spearheading innovative new AI training app Feedz - with Man United, Chelsea and Sunderland among those signing up for platform",
       "first_seen_at": "2026-11-26T08:37:34.511405+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T10:12:14+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -95960,7 +95976,7 @@
       "event_id": "721efac677f254e3e01ca7c9",
       "title": "Cole Palmer disagreement and Wesley Fofana dropped - Chelsea line-ups for Nottingham Forest",
       "first_seen_at": "2026-11-26T08:39:27.508127+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T23:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -96020,7 +96036,7 @@
       "event_id": "a82bb310fa020ba175d8dac7",
       "title": "Transfer news LIVE: Arsenal told Kroupi decision; Liverpool done deal; Man Utd twist; Chelsea latest",
       "first_seen_at": "2026-11-26T08:39:27.508127+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T04:05:00+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -96120,7 +96136,7 @@
       "event_id": "34dd61541997fa67cbee48a8",
       "title": "Chelsea Under-21s drawn away at MK Dons in the EFL Trophy round of 32",
       "first_seen_at": "2026-11-26T08:46:22.348977+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T07:55:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -96180,7 +96196,7 @@
       "event_id": "52b7738c7c94ee31f5f269ec",
       "title": "Crystal Palace Under-18 vs Chelsea Under-18: How to watch it live | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-26T09:12:17.775913+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T09:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -96363,7 +96379,7 @@
       "event_id": "762b6fcce28bf1f06cd5bf1d",
       "title": "Just in: Chelsea eye surprise return for Champions League winner in January",
       "first_seen_at": "2026-11-26T09:48:57.565259+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T09:47:35+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -96439,7 +96455,7 @@
       "event_id": "29b1bc8349f087268853056f",
       "title": "Shoppers rush for Kitbag’s football shirt sale at up to 60% off with discount code — Man U, Arsenal, Chelsea and more",
       "first_seen_at": "2026-11-26T10:16:06.504625+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T09:31:02+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -96559,7 +96575,7 @@
       "event_id": "dfbde09eda326fff8a6d874b",
       "title": "“I hate admitting it” – Chelsea star running out of excuses for poor form, says ex-Blue",
       "first_seen_at": "2026-11-26T10:16:06.504625+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T09:58:13+00:00",
       "last_observation_count": 2,
       "publisher_domains": [
@@ -96619,7 +96635,7 @@
       "event_id": "6087a266a6ebed59d89d69bb",
       "title": "Delap's chance at redemption against toothless Chelsea",
       "first_seen_at": "2026-11-26T10:16:06.504625+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -96684,7 +96700,7 @@
       "event_id": "4bda65ef7c172c41c951a925",
       "title": "Delap's chance at redemption against toothless Chelsea",
       "first_seen_at": "2026-11-26T10:16:06.504625+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -96744,7 +96760,7 @@
       "event_id": "85b28ef6e737eb64091a0271",
       "title": "Delap's chance at redemption against toothless Chelsea",
       "first_seen_at": "2026-11-26T10:16:06.504625+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T10:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -96889,7 +96905,7 @@
       "event_id": "900f8f37acea851d2a58fe1c",
       "title": "Chelsea hold talks to sign a colossal upgrade on Cole Palmer",
       "first_seen_at": "2026-11-26T10:43:00.990229+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-25T23:10:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -96949,7 +96965,7 @@
       "event_id": "17ebe3b77edd0970928bf386",
       "title": "Cole Palmer 'could get Xabi Alonso sacked' after 'embarrassing' Chelsea twist - expert",
       "first_seen_at": "2026-11-26T10:43:00.990229+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T01:28:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97009,7 +97025,7 @@
       "event_id": "9ea577a2efc10a68635af762",
       "title": "Joao Pedro visits former club as he recovers from injury that Chelsea fear ‘could keep him out for rest of the year’",
       "first_seen_at": "2026-11-26T10:43:00.990229+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T08:09:59+00:00",
       "last_observation_count": 3,
       "publisher_domains": [
@@ -97046,6 +97062,21 @@
             "subject_key": "joao_pedro"
           },
           {
+            "title": "Chelsea: Joao Pedro and Moises Caicedo injury latest as Xabi Alonso issues three-man update",
+            "summary": "Joao Pedro remains sidelined but Moises Caicedo is available as Chelsea prepare for Friday night’s trip to to Nottingham Forest.",
+            "url": "https://www.standard.co.uk/sport/football/chelsea-injury-update-joao-pedro-caicedo-lacroix-b1306484.html",
+            "publisher_domain": "standard.co.uk",
+            "publisher_name_hint": null,
+            "source_feed": "Evening Standard Sport",
+            "published": "2026-11-26T14:07:34+00:00",
+            "publisher_type": "established_domain",
+            "team_scope": "mens_first_team_or_club",
+            "story_type": "injury_update",
+            "opponent_key": "",
+            "fixture_key": "",
+            "subject_key": "joao_pedro"
+          },
+          {
             "title": "Joao Pedro visits former club as he recovers from injury that Chelsea fear ‘could keep him out for rest of the year’",
             "summary": "JOAO PEDRO returned to former club Watford while remaining sidelined with a serious knock. The Brazilian forward enjoyed an electric start to the season in Xabi Alonso's Chelsea side. He scored five times and assisted three in the opening six games of the season, before sustaining a thigh injury ahead of the Blues' clash with...",
             "url": "https://www.thesun.co.uk/sport/41155938/joao-pedro-visits-watford-injury-recovery",
@@ -97063,6 +97094,7 @@
         ],
         "source_urls": [
           "https://www.standard.co.uk/sport/football/chelsea-fc-injury-news-joao-pedro-b1306486.html",
+          "https://www.standard.co.uk/sport/football/chelsea-injury-update-joao-pedro-caicedo-lacroix-b1306484.html",
           "https://www.thesun.co.uk/sport/41155938/joao-pedro-visits-watford-injury-recovery"
         ],
         "publisher_domains": [
@@ -97074,7 +97106,7 @@
           "The Sun Football"
         ],
         "publisher_count": 2,
-        "observation_count": 2,
+        "observation_count": 3,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
       "last_processed_at": "2026-11-26T11:56:49.207184+00:00",
@@ -97154,7 +97186,7 @@
       "event_id": "090500a540912b0be736c471",
       "title": "Chelsea eye shock reunion with former Champions League hero as Xabi Alonso looks to fix defensive crisis",
       "first_seen_at": "2026-11-26T10:47:27.231484+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T02:31:18+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97214,7 +97246,7 @@
       "event_id": "0f27df04891b91465af0d66b",
       "title": "“He’s brilliant” – Chelsea & Man United urged to sign “magnificent” Premier League star",
       "first_seen_at": "2026-11-26T11:21:09.875519+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T11:00:24+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97274,7 +97306,7 @@
       "event_id": "9bf18addf157d2475fe1c127",
       "title": "Virgil van Dijk to Chelsea? Blues urged to launch sensational summer raid for Liverpool captain as contract stand-off continues at Anfield",
       "first_seen_at": "2026-11-26T11:23:08.200073+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T02:54:29+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97334,7 +97366,7 @@
       "event_id": "1ee64168666a74b7ab213ef0",
       "title": "Just in: Chelsea eye surprise return for Champions League winner in January",
       "first_seen_at": "2026-11-26T11:23:08.200073+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T03:09:27+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97394,7 +97426,7 @@
       "event_id": "5091a57dc62aaf0317f5f57e",
       "title": "Bjorn back stronger than ever for club and country | News | Official Site - Chelsea Football Club",
       "first_seen_at": "2026-11-26T11:23:08.200073+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T11:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97457,7 +97489,7 @@
       "event_id": "973dc9f43b159e61084819c0",
       "title": "“Like Phil Foden” – Pundit says he’s “making excuses” for Chelsea star who needs to step up",
       "first_seen_at": "2026-11-26T11:43:58.945894+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T11:41:11+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97577,7 +97609,7 @@
       "event_id": "bdba62e162bb131beae3e1ef",
       "title": "Chelsea make January decision on Malo Gusto following crunch talks",
       "first_seen_at": "2026-11-26T11:59:18.912353+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T03:24:40+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97697,7 +97729,7 @@
       "event_id": "fde095b42a208eed07381c63",
       "title": "Wesley Fofana won’t be laughing when Antonio Rudiger returns to Chelsea in January",
       "first_seen_at": "2026-11-26T12:26:21.411551+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T12:04:06+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97757,7 +97789,7 @@
       "event_id": "6934c0c9a8d27cda1c29a0d8",
       "title": "Chelsea fans fume ‘they sold our best centre-back and left us with garbage’ as Chalobah’s incredible Como stats revealed",
       "first_seen_at": "2026-11-26T12:26:21.411551+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T12:16:16+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97817,7 +97849,7 @@
       "event_id": "6958f652d953eaa8950d6be9",
       "title": "Man Utd warned off ‘crazy’ signing as Chelsea transfer ‘agreement’ confirmed",
       "first_seen_at": "2026-11-26T12:28:14.695450+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T04:01:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97877,7 +97909,7 @@
       "event_id": "18daadd887171417773f3f67",
       "title": "Chelsea star faces sack as ‘date revealed’ for Manchester City 115 charges appeal verdict",
       "first_seen_at": "2026-11-26T12:51:20.278475+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T12:26:15+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97937,7 +97969,7 @@
       "event_id": "8739fa39726b10aff56839bb",
       "title": "Athletic claims Chelsea players “unconvinced” by Alonso methods in first rumblings of discontent",
       "first_seen_at": "2026-11-26T12:51:20.278475+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T12:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -97997,7 +98029,7 @@
       "event_id": "b52ff2ec9ad9fdd519092f84",
       "title": "Xabi Alonso press conference LIVE - Chelsea boss on Fofana interview, Joao Pedro, Palmer form",
       "first_seen_at": "2026-11-26T12:51:20.278475+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T12:30:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -98117,7 +98149,7 @@
       "event_id": "eea09ab636a9c9f8ff63e44b",
       "title": "Flares turn Stamford Bridge red as ‘30,000 Fenerbahce fans’ take over Chelsea’s home",
       "first_seen_at": "2026-11-26T12:51:20.278475+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T12:40:23+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -98177,7 +98209,7 @@
       "event_id": "010c24e36aa39249941240a6",
       "title": "'Not the Chelsea of before' – SWP sounds alarm over Alonso's struggling Blues",
       "first_seen_at": "2026-11-26T12:53:18.182106+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T04:29:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -98297,7 +98329,7 @@
       "event_id": "393ab0413e364de2807c0e53",
       "title": "Chelsea’s “meek” defenders “not good enough in individual duels”",
       "first_seen_at": "2026-11-26T13:15:03.971346+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T13:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -98417,7 +98449,7 @@
       "event_id": "431839b396c2fdd3052584b7",
       "title": "Dan Ndoye and 21st percentile midfielder axed: Three Nottingham Forest players who should be dropped to pile misery on Chelsea",
       "first_seen_at": "2026-11-26T13:41:01.562474+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T12:56:20+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -98537,7 +98569,7 @@
       "event_id": "adbccb75aacb44d6ffc1ad96",
       "title": "Chelsea starter should be dropped for poor form – but Blues have nobody to replace him with",
       "first_seen_at": "2026-11-26T13:41:01.562474+00:00",
-      "last_seen_at": "2026-11-26T14:06:02.106263+00:00",
+      "last_seen_at": "2026-11-26T14:13:26.202293+00:00",
       "last_published_at": "2026-11-26T13:16:15+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -98597,7 +98629,7 @@
       "event_id": "be3bed59d304db6965ab4ae5",
       "title": "'He’s brilliant' – Chelsea & Man United urged to sign 'magnificent' Premier League star",
       "first_seen_at": "2026-11-26T13:42:39.499726+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T03:00:00+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
@@ -98657,7 +98689,7 @@
       "event_id": "1b35acf7ac48a65c1dc9a6be",
       "title": "Chelsea keeping tabs on 21-year-old defender ahead of January transfer window: reports",
       "first_seen_at": "2026-11-26T14:07:30.698681+00:00",
-      "last_seen_at": "2026-11-26T14:07:30.698681+00:00",
+      "last_seen_at": "2026-11-26T14:14:47.723920+00:00",
       "last_published_at": "2026-11-26T05:27:26+00:00",
       "last_observation_count": 1,
       "publisher_domains": [
