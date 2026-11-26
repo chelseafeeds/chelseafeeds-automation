@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-26T08:18:14.216536+00:00",
+  "updated_at": "2026-11-26T08:18:49.379022+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -95277,7 +95277,7 @@
       "publisher_domains": [
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "226d82ce1f771dc34d97b2db",
         "title": "Joao Pedro visits former club as he recovers from injury that Chelsea fear ‘could keep him out for rest of the year’",
@@ -95319,9 +95319,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-26T08:18:49.379022+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Joao Pedro visits former club as he recovers from injury that Chelsea fear ‘could keep him out for rest of the year’",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
@@ -95577,7 +95577,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "822b1b563d3c7ab2fd4ca21c",
         "title": "Ibrahim Rabbaj and Morocco target knockout spot at Under-17 World Cup | News | Official Site - Chelsea Football Club",
@@ -95620,9 +95620,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-26T08:18:49.379022+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Ibrahim Rabbaj and Morocco target knockout spot at Under-17 World Cup | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
