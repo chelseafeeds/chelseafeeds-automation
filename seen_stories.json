@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T10:38:10.968978+00:00",
+  "updated_at": "2026-11-27T10:38:28.004142+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -107650,7 +107650,7 @@
         "football.london",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "a03ef3c302ec0db3dab331af",
         "title": "Xabi Alonso provides double Chelsea injury update on Joao Pedro and Moises Caicedo",
@@ -107780,7 +107780,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5880791029113975869",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/xabi-alonso-gives-double-injury-update.html",
+      "scheduled_for_utc": "2026-11-27T10:43:27Z",
+      "last_blogger_status_updated_at": "2026-11-27T10:38:28.004118+00:00"
     },
     "604b9a9ae29f5fbac36922d0": {
       "event_id": "604b9a9ae29f5fbac36922d0",
