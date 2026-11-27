@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T03:23:00.888422+00:00",
+  "updated_at": "2026-11-27T03:23:31.015567+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -98335,7 +98335,7 @@
         "standard.co.uk",
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "3e0b7e61cb4d40e13ee72a8e",
         "title": "Premier League stars who famously refused to learn English after Glasner dig including Arsenal Invincible & Chelsea boss",
@@ -98413,12 +98413,14 @@
         "observation_count": 3,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T03:23:31.015567+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Premier League stars who famously refused to learn English after Glasner dig including Arsenal Invincible & Chelsea boss",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "title_present_and_reasonable"
+      ],
       "force_evidence_refresh": false
     },
     "393ab0413e364de2807c0e53": {
@@ -101557,7 +101559,7 @@
         "standard.co.uk",
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "f1e5a0280fa58ba83392ab49",
         "title": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
@@ -101699,9 +101701,9 @@
         "observation_count": 7,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T03:23:31.015567+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
