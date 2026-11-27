@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T02:47:54.195894+00:00",
+  "updated_at": "2026-11-27T02:48:16.338854+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -100350,7 +100350,7 @@
         "sports.yahoo.com",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "ebeeb4eb0f8e4272f25dc0b4",
         "title": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
@@ -100531,7 +100531,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7570589494072078539",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/joao-pedro-ruled-out-of-nottingham.html",
+      "scheduled_for_utc": "2026-11-27T02:53:12Z",
+      "last_blogger_status_updated_at": "2026-11-27T02:48:12.962433+00:00"
     },
     "c1c998a620bebbc5050cb0cf": {
       "event_id": "c1c998a620bebbc5050cb0cf",
@@ -100547,7 +100552,7 @@
         "sports.yahoo.com",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "c1c998a620bebbc5050cb0cf",
         "title": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
@@ -100729,7 +100734,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "5428756325992176714",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/joao-pedro-makes-surprise-appearance-as.html",
+      "scheduled_for_utc": "2026-11-27T02:53:15Z",
+      "last_blogger_status_updated_at": "2026-11-27T02:48:16.338831+00:00"
     },
     "7f60da0ed349500e7de18035": {
       "event_id": "7f60da0ed349500e7de18035",
