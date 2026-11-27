@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T07:40:22.687559+00:00",
+  "updated_at": "2026-11-27T07:40:52.391254+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -105594,7 +105594,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "7c0d3f20c0cee86296cdec77",
         "title": "Predicted Chelsea team vs Nottingham Forest as Wesley Fofana decision made and Estevao benched",
@@ -105658,7 +105658,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6486380610068171949",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/predicted-chelsea-lineup-vs-nottingham.html",
+      "scheduled_for_utc": "2026-11-27T07:45:50Z",
+      "last_blogger_status_updated_at": "2026-11-27T07:40:52.391233+00:00"
     },
     "8ca4a5fa07477efb35659344": {
       "event_id": "8ca4a5fa07477efb35659344",
