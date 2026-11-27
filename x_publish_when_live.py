@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Wait until a scheduled Blogger post is actually live, then publish title + thumbnail + tags to X."""
+"""Wait until a scheduled Blogger post is live, then publish its clickable website card to X."""
 import os, re, sys, time, json
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 import requests
 from requests_oauthlib import OAuth1Session
 
@@ -34,6 +34,8 @@ def make_tags(title, labels):
     return tags
 
 def conservative_x_length(text):
+    # X shortens posted URLs to a fixed t.co length of 23 characters.
+    text = re.sub(r"https?://\\S+", "x" * 23, text)
     # Conservative Basic-tier guard: Unicode-heavy text is counted more strictly.
     total = 0
     for ch in text:
@@ -55,10 +57,7 @@ def main():
     refresh_token = required("BLOGGER_REFRESH_TOKEN")
     post_id = required("BLOGGER_POST_ID")
     title = required("ARTICLE_TITLE")
-    image_path = required("ARTICLE_THUMBNAIL_PATH")
     labels = json.loads(os.getenv("ARTICLE_LABELS_JSON", "[]"))
-    if not os.path.isfile(image_path):
-        raise RuntimeError("Article thumbnail file is missing; refusing to post text without its image.")
 
     token_response = requests.post("https://oauth2.googleapis.com/token", data={
         "client_id": client_id, "client_secret": client_secret,
@@ -85,36 +84,38 @@ def main():
     if not live_post:
         raise RuntimeError("Blogger post did not become live within 35 minutes; X publication was withheld.")
 
+    article_url = str(live_post.get("url", "")).strip()
+    parsed_url = urlparse(article_url)
+    if parsed_url.scheme != "https" or parsed_url.hostname not in {"www.chelseafeeds.com", "chelseafeeds.com"}:
+        raise RuntimeError(f"Unexpected Blogger permalink; refusing to publish an unsafe or non-ChelseaFeeds link: {article_url!r}")
+
     tags = make_tags(title, labels)
-    text = title.strip()
-    if tags:
-        text += "\n\n" + " ".join(tags)
+    def compose_text(current_tags):
+        parts = [title.strip()]
+        if current_tags:
+            parts.append(" ".join(current_tags))
+        parts.append(article_url)
+        return "\\n\\n".join(parts)
+
+    text = compose_text(tags)
     length = conservative_x_length(text)
+    while tags and length > 260:
+        tags.pop()
+        text = compose_text(tags)
+        length = conservative_x_length(text)
     if length > 260:
-        while tags and length > 260:
-            tags.pop()
-            text = title.strip() + (("\n\n" + " ".join(tags)) if tags else "")
-            length = conservative_x_length(text)
-    if length > 260:
-        raise RuntimeError(f"Title alone exceeds conservative Basic X limit ({length}/260); X post withheld.")
+        raise RuntimeError(f"Article title plus permalink exceeds conservative Basic X limit ({length}/260); X post withheld.")
 
     auth = OAuth1Session(
         required("X_API_KEY"), client_secret=required("X_API_SECRET"),
         resource_owner_key=required("X_ACCESS_TOKEN"),
         resource_owner_secret=required("X_ACCESS_TOKEN_SECRET")
     )
-    with open(image_path, "rb") as image_file:
-        media_response = auth.post(
-            "https://upload.twitter.com/1.1/media/upload.json",
-            files={"media": image_file},
-            data={"media_category": "tweet_image"},
-            timeout=90
-        )
-    media_response.raise_for_status()
-    media_id = str(media_response.json()["media_id_string"])
+    # Do not attach media separately: X may prioritize uploaded media over the URL card.
+    # The Blogger permalink carries the article-specific Open Graph image and X card metadata.
     tweet_response = auth.post(
         "https://api.x.com/2/tweets",
-        json={"text": text, "media": {"media_ids": [media_id]}},
+        json={"text": text},
         headers={"Content-Type": "application/json"},
         timeout=45
     )
@@ -125,7 +126,9 @@ def main():
         "tweet_id": tweet_id,
         "tweet_url": f"https://x.com/i/web/status/{tweet_id}" if tweet_id else "",
         "blogger_post_id": post_id,
-        "blogger_url": live_post.get("url", ""),
+        "blogger_url": article_url,
+        "card_mode": "website_link_preview",
+        "media_uploaded_separately": False,
         "character_guard": length,
         "tags": tags
     }, ensure_ascii=False))
