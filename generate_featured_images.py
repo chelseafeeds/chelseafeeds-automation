@@ -96,7 +96,7 @@ def process_one(story, draft, images_dir, session, api_key, source_images=None):
         ranked.sort(key=lambda x: x[0], reverse=True)
         _, candidate, matched = ranked[0]
         image_url = candidate["url"]
-        credit_text = "ChelseaFeeds"
+        credit_text = "Featured by ChelseaFeeds"
         source_page = candidate.get("page_url", "")
         license_name = candidate.get("license_name", "")
         license_url = candidate.get("license_url", "")
@@ -105,7 +105,7 @@ def process_one(story, draft, images_dir, session, api_key, source_images=None):
         candidate = {}
         image_url = BLOG_LOGO_URL
         matched = []
-        credit_text = "ChelseaFeeds"
+        credit_text = "Featured by ChelseaFeeds"
         source_page = "https://www.chelseafeeds.com/"
         license_name = ""
         license_url = ""
