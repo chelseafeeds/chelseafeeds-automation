@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T03:23:31.015567+00:00",
+  "updated_at": "2026-11-27T03:23:48.025661+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -101559,7 +101559,7 @@
         "standard.co.uk",
         "thesun.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "f1e5a0280fa58ba83392ab49",
         "title": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
@@ -101707,7 +101707,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3355894560981740975",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/joao-pedros-surprise-training-return.html",
+      "scheduled_for_utc": "2026-11-27T03:28:47Z",
+      "last_blogger_status_updated_at": "2026-11-27T03:23:48.025640+00:00"
     },
     "7fdcbb9fbe7eb470cba24f0f": {
       "event_id": "7fdcbb9fbe7eb470cba24f0f",
