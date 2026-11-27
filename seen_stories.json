@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T20:12:45.849870+00:00",
+  "updated_at": "2026-11-27T20:13:15.669399+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -114184,7 +114184,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "87e0ed4e4b7093416dd7e845",
         "title": "Xabi Alonso on changes for Forest and 'fundamentals of football' | News | Official Site - Chelsea Football Club",
@@ -114227,12 +114227,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T20:13:15.669399+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Xabi Alonso on changes for Forest and 'fundamentals of football' | News | Official Site - Chelsea Football Club",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "5c77147a35a1f11533aae133": {
