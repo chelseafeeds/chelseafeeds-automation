@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T12:33:13.846663+00:00",
+  "updated_at": "2026-11-27T12:33:45.105626+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -107356,7 +107356,7 @@
       "publisher_domains": [
         "telegraph.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "f4e200675e5d72753b41545f",
         "title": "Nottingham Forest vs Chelsea predictions: Premier League bet builder, tips and odds",
@@ -107398,9 +107398,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T12:33:45.105626+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Nottingham Forest vs Chelsea predictions: Premier League bet builder, tips and odds",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
