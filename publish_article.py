@@ -39,14 +39,12 @@ def attach_featured_image(article_html, image_url, alt_text):
     source_type = os.getenv("FEATURED_IMAGE_SOURCE_TYPE", "").strip()
     credit_text = os.getenv("FEATURED_IMAGE_CREDIT_TEXT", "ChelseaFeeds").strip()
     credit_url = os.getenv("FEATURED_IMAGE_CREDIT_URL", "").strip()
-    if source_type == "article_source_photo":
-        source = urlparse(credit_url)
-        if source.scheme != "https" or not source.netloc:
-            raise RuntimeError("Source-article photo is missing a valid HTTPS attribution page.")
+    if source_type in {"article_source_photo", "chelseafeeds_blog_logo"}:
+        credit = urlparse(credit_url)
+        if credit.scheme != "https" or credit.netloc != "www.chelseafeeds.com":
+            raise RuntimeError("Featured image must use the approved ChelseaFeeds attribution link.")
         caption = ('<figcaption style="font-size: small; color: #666; text-align: center;">'
-                   f'{html.escape(credit_text)} · <a href="{html.escape(credit_url, quote=True)}" rel="nofollow noopener">Image source</a></figcaption>')
-    elif source_type == "chelseafeeds_blog_logo":
-        caption = ('<figcaption style="font-size: small; color: #666; text-align: center;">ChelseaFeeds</figcaption>')
+                   f'Image credit: <a href="{html.escape(credit_url, quote=True)}" rel="noopener">{html.escape(credit_text or "ChelseaFeeds")}</a></figcaption>')
     else:
         raise RuntimeError("Featured image must be a relevant source-article photo or the ChelseaFeeds blog logo.")
     if image_url in article_html:
