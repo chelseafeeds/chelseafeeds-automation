@@ -87,7 +87,7 @@ def main():
     if source_type not in {"article_source_photo", "chelseafeeds_blog_logo"}:
         raise RuntimeError(f"Unsupported featured image source type: {source_type}")
     # Display ChelseaFeeds attribution; preserve the original source URL internally.
-    credit_text = "ChelseaFeeds"
+    credit_text = "Featured by ChelseaFeeds"
     credit_url = "https://www.chelseafeeds.com/"
     original_source_page = str(featured.get("source_page") or "").strip()
     license_name = re.sub(r"\s+", " ", str(featured.get("license_name") or "")).strip()[:100]
