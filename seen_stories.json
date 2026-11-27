@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T08:47:59.980997+00:00",
+  "updated_at": "2026-11-27T08:48:18.018906+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -106332,7 +106332,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "9febc5cec3b2f1d6509d3325",
         "title": "Alejandro Garnacho termination decision made as Chelsea learn of major transfer U-turn",
@@ -106380,7 +106380,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "3456664455289134715",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/alejandro-garnachos-aston-villa-future.html",
+      "scheduled_for_utc": "2026-11-27T08:53:17Z",
+      "last_blogger_status_updated_at": "2026-11-27T08:48:18.018882+00:00"
     },
     "9319dc04003d36ae4226d439": {
       "event_id": "9319dc04003d36ae4226d439",
