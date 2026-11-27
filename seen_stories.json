@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T06:12:44.851915+00:00",
+  "updated_at": "2026-11-27T06:13:18.423960+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -105004,7 +105004,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "1413fdf5ccb07cd79ddec318",
         "title": "I played for Chelsea in the Premier League - now I'm 36 and sell clothes",
@@ -105046,9 +105046,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T06:13:18.423960+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "I played for Chelsea in the Premier League - now I'm 36 and sell clothes",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
