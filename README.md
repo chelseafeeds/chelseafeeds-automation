@@ -24,7 +24,7 @@ Default model: `openai/gpt-oss-120b`. Model availability and rate limits can cha
 
 The featured-image pipeline now follows this order for every article:
 
-1. **Relevant licensed photograph:** search Wikimedia Commons using the article headline and context. A candidate must pass relevance and image validation checks. Licence metadata is not required by the current selection policy; the original article page, image URL and original source page and image URL are retained internally for traceability. This does not establish reuse permission.
+1. **Relevant licensed photograph:** search Wikimedia Commons using the article headline and context. A candidate must pass relevance and image validation checks. Licence metadata is not required by the current selection policy; the original article page and image URL are retained internally for traceability. This does not establish reuse permission.
 2. **AI-generated editorial illustration:** not currently active in the production image script.
 3. **Branded fallback:** if no sufficiently relevant original-article image is found, use the ChelseaFeeds logo.
 
