@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T07:58:24.664123+00:00",
+  "updated_at": "2026-11-27T07:58:43.520745+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -105310,7 +105310,7 @@
       "publisher_domains": [
         "telegraph.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "57b7488f1275f80c330b5f0c",
         "title": "Wesley Fofana apologises for unauthorised interview that infuriated Chelsea fans",
@@ -105358,7 +105358,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6024875772590431059",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/wesley-fofana-apologises-for.html",
+      "scheduled_for_utc": "2026-11-27T08:03:42Z",
+      "last_blogger_status_updated_at": "2026-11-27T07:58:43.520727+00:00"
     },
     "d4acc19a4714f84a8848c8e5": {
       "event_id": "d4acc19a4714f84a8848c8e5",
