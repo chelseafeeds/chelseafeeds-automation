@@ -86,19 +86,19 @@ def main():
     source_type = str(featured.get("source_type") or "branded_graphic_fallback").strip()
     if source_type not in {"article_source_photo", "chelseafeeds_blog_logo"}:
         raise RuntimeError(f"Unsupported featured image source type: {source_type}")
-    credit_text = re.sub(r"\s+", " ", str(featured.get("credit_text") or "ChelseaFeeds editorial graphic")).strip()[:500]
-    credit_url = str(featured.get("source_page") or "").strip()
+    # Display ChelseaFeeds attribution; preserve the original source URL internally.
+    credit_text = "ChelseaFeeds"
+    credit_url = "https://www.chelseafeeds.com/"
+    original_source_page = str(featured.get("source_page") or "").strip()
     license_name = re.sub(r"\s+", " ", str(featured.get("license_name") or "")).strip()[:100]
     license_url = str(featured.get("license_url") or "").strip()
     if source_type == "article_source_photo":
-        if (not credit_url.startswith("https://")
+        if (not original_source_page.startswith("https://")
                 or not featured.get("source_image_url", "").startswith("https://")):
-            raise RuntimeError("Source-article image must retain its original article page and image URL for attribution.")
+            raise RuntimeError("Source-article image must retain its original article page and image URL for internal traceability.")
         # Missing licence metadata is permitted by the configured selection policy.
         # It is not represented as verified permission or public-domain status.
     if source_type == "chelseafeeds_blog_logo":
-        credit_text = "ChelseaFeeds blog logo"
-        credit_url = "https://www.chelseafeeds.com/"
         license_name = ""
         license_url = ""
     output_file = os.environ.get("GITHUB_OUTPUT")
@@ -110,6 +110,7 @@ def main():
         out.write(f"source_type={source_type}\n")
         out.write(f"credit_text={credit_text.replace(chr(10), ' ').replace(chr(13), ' ')}\n")
         out.write(f"credit_url={credit_url}\n")
+        out.write(f"original_source_page={original_source_page if source_type == 'article_source_photo' else ''}\n")
         out.write(f"license_name={license_name}\n")
         out.write(f"license_url={license_url}\n")
     print(json.dumps({"featured_image_status": "uploaded_and_publicly_verified",
