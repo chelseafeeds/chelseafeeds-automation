@@ -24,9 +24,9 @@ Default model: `openai/gpt-oss-120b`. Model availability and rate limits can cha
 
 The featured-image pipeline now follows this order for every article:
 
-1. **Relevant licensed photograph:** search Wikimedia Commons using the article headline and context. A candidate must pass relevance, image-size and licence checks. Only CC0, public-domain, or CC BY 2.0/3.0/4.0 files are accepted automatically. The original file page, creator, licence and attribution are saved with the article.
-2. **AI-generated editorial illustration:** if no sufficiently relevant licensed photo is found, use the OpenAI Images API to create a scene based on the article headline, excerpt and visual prompt. It must be an illustration, not fake documentary photography or an imitation of a real player's likeness. The generated image carries an "AI ILLUSTRATION" disclosure.
-3. **Branded fallback:** if neither source is available, retain the previous locally generated ChelseaFeeds graphic. The report records which method was used.
+1. **Relevant licensed photograph:** search Wikimedia Commons using the article headline and context. A candidate must pass relevance and image validation checks. Licence metadata is not required by the current selection policy; the original article page, image URL and available creator/credit information are retained. This does not establish reuse permission.
+2. **AI-generated editorial illustration:** not currently active in the production image script.
+3. **Branded fallback:** if no sufficiently relevant original-article image is found, use the ChelseaFeeds logo.
 
 All final images are normalized to 1200 × 675 JPEGs. Commons images receive a visible creator/source/licence credit in the Blogger article. AI images are identified as illustrations. News-publisher and social-media images are never scraped.
 
@@ -36,7 +36,7 @@ In GitHub repository Settings → Secrets and variables → Actions, optionally 
 
 - `OPENAI_API_KEY` — an OpenAI API key with image-generation API access.
 
-The image workflow uses `gpt-image-2.5-flare` by default. Image generation is a paid API operation; check current API pricing and organization/model access before adding the key. Without this secret, the system still attempts a properly licensed Commons photograph and otherwise uses the branded fallback. The existing Groq key does not automatically provide OpenAI image-generation access.
+AI image generation is not currently connected to the production thumbnail script. The presence of `OPENAI_API_KEY` alone does not enable thumbnail generation.
 
 The system never treats an AI illustration as a real match photograph. A Commons licence does not automatically clear every possible personality, trademark or other non-copyright restriction; source files still need appropriate editorial review.
 
