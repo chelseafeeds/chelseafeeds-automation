@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T13:18:02.472416+00:00",
+  "updated_at": "2026-11-27T13:18:38.582928+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -106996,7 +106996,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "ae050de4ffabab0784b48193",
         "title": "How to watch Nottingham Forest vs Chelsea",
@@ -107038,12 +107038,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T13:18:38.582928+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "How to watch Nottingham Forest vs Chelsea",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "0119437b2dac30dfb66f6cda": {
