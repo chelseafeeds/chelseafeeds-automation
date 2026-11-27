@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T19:08:23.865102+00:00",
+  "updated_at": "2026-11-27T19:08:47.348978+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -112766,7 +112766,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "06ed0bb3fa89f822626e4c63",
         "title": "Liverpool suspension risks: Key duo walking Premier League tightrope before Chelsea clash",
@@ -112814,7 +112814,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4645345638994229018",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/liverpool-face-suspension-dilemma-ahead.html",
+      "scheduled_for_utc": "2026-11-27T19:13:43Z",
+      "last_blogger_status_updated_at": "2026-11-27T19:08:43.969250+00:00"
     },
     "2c36e10c71f090e869d3bf2a": {
       "event_id": "2c36e10c71f090e869d3bf2a",
@@ -113502,7 +113507,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "4cd8a5bd0a35bbb1708413ab",
         "title": "Chelsea XI vs Nottingham Forest: Starting lineup, confirmed team news, injury latest for Premier League today",
@@ -113550,7 +113555,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "811934010308970137",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-boosted-ahead-of-nottingham.html",
+      "scheduled_for_utc": "2026-11-27T19:13:46Z",
+      "last_blogger_status_updated_at": "2026-11-27T19:08:47.348958+00:00"
     },
     "c4686cd804bba5dc20125227": {
       "event_id": "c4686cd804bba5dc20125227",
