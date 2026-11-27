@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Use a relevant image embedded in the source article; otherwise use the ChelseaFeeds logo."""
+"""Use a relevant image embedded in the source article; otherwise use the ChelseaFeeds logo.
+
+Source-page images may be selected without machine-readable licence metadata at the
+site owner's direction. This is not copyright clearance; source attribution is retained.
+"""
 from __future__ import annotations
 
 import argparse
@@ -83,16 +87,16 @@ def process_one(story, draft, images_dir, session, api_key, source_images=None):
             continue
         alt = " ".join([candidate.get("alt_text", ""), candidate.get("caption", "")])
         score, matched = relevance_score(story, draft, alt)
-        # Only reuse photos carrying an explicit image/figure-level licence
-        # that is on the allowlist; source-page attribution alone is not a reuse right.
-        if score >= 3 and candidate.get("rights_explicit") is True and license_allowed(candidate.get("license_name")) and candidate.get("license_url", "").startswith("https://"):
+        # Require relevance, but do not require machine-readable licence metadata.
+        # Attribution is preserved; missing metadata is not permission or public domain.
+        if score >= 3:
             ranked.append((score, candidate, matched))
     source_type = "article_source_photo"
     if ranked:
         ranked.sort(key=lambda x: x[0], reverse=True)
         _, candidate, matched = ranked[0]
         image_url = candidate["url"]
-        credit_text = candidate.get("creator") or "Licensed image from the original article source"
+        credit_text = candidate.get("creator") or "Image from the original article source"
         source_page = candidate.get("page_url", "")
         license_name = candidate.get("license_name", "")
         license_url = candidate.get("license_url", "")
@@ -131,7 +135,7 @@ def process_one(story, draft, images_dir, session, api_key, source_images=None):
         "bytes": destination.stat().st_size, "source_type": source_type,
         "source_page": source_page, "source_image_url": image_url,
         "credit_text": credit_text, "license_name": license_name, "license_url": license_url,
-        "rights_explicit": bool(license_name and license_url), "matched_terms": matched,
+        "rights_explicit": bool(license_name and license_url), "reuse_permission_verified": bool(license_name and license_url), "matched_terms": matched,
         "relevance_score": len(matched), "branded": source_type == "chelseafeeds_blog_logo"
     }
 
@@ -210,17 +214,19 @@ def main():
     report_path = output / "editorial_report.json"
     if report_path.is_file():
         report = json.loads(report_path.read_text(encoding="utf-8"))
-        report["thumbnail_method"] = "relevant_source_article_photo_else_chelseafeeds_blog_logo"
+        report["thumbnail_method"] = "relevant_source_article_photo_without_licence_gate_else_chelseafeeds_blog_logo"
         report["featured_image_pipeline"] = {
             "image_counts": counts,
             "eligible_blogger_posts": len(eligible_posts),
             "held_for_image_review": held_for_image_review,
             "fallback_policy": "Use the ChelseaFeeds blog logo when no relevant source-article image is available.",
-            "source_photo_attribution_saved": True
+            "source_photo_attribution_saved": True,
+            "licence_gate": "relevance_required_but_licence_metadata_not_required",
+            "copyright_clearance": "not_verified_for_unlicensed_source_images"
         }
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
-        "featured_image_pipeline": "relevant_article_photo_else_chelseafeeds_blog_logo",
+        "featured_image_pipeline": "relevant_article_photo_without_licence_gate_else_chelseafeeds_blog_logo",
         "image_counts": counts, "eligible_blogger_posts": len(eligible_posts),
         "held_for_image_review": held_for_image_review, "images_directory": str(output / "images"),
         "fallback_policy": "ChelseaFeeds blog logo is used whenever no relevant image is available in the source article."
