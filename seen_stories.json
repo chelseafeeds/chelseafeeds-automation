@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T22:31:58.087835+00:00",
+  "updated_at": "2026-11-27T22:36:29.632785+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -117274,7 +117274,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "scheduled",
+      "status": "published",
       "candidate_snapshot": {
         "event_id": "1c69b03af992bbbca3e94d7e",
         "title": "Vote for Sandy Baltimore to win WSL Goal of the Month award! | News | Official Site - Chelsea Football Club",
