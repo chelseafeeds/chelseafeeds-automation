@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T06:13:18.423960+00:00",
+  "updated_at": "2026-11-27T06:13:46.795372+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -105004,7 +105004,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "1413fdf5ccb07cd79ddec318",
         "title": "I played for Chelsea in the Premier League - now I'm 36 and sell clothes",
@@ -105052,7 +105052,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "7448120718301858999",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/i-played-for-chelsea-in-premier-league.html",
+      "scheduled_for_utc": "2026-11-27T06:18:45Z",
+      "last_blogger_status_updated_at": "2026-11-27T06:13:46.795347+00:00"
     },
     "0c74d16c93e6f3a670d8178e": {
       "event_id": "0c74d16c93e6f3a670d8178e",
