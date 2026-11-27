@@ -81,7 +81,7 @@ jobs:
           python related_links.py --self-test
           python update_processing_history.py --self-test
 
-      - name: Test source-photo preference and ChelseaFeeds logo fallback
+      - name: Test relevant source-photo selection without a licence-metadata gate
         run: python generate_featured_images.py --self-test
 
       - name: Compile-check publishing integration
@@ -99,7 +99,7 @@ jobs:
         run: |
           python process_news.py --input input/news_candidates.json --output output
 
-      - name: Use relevant source-article photos, with ChelseaFeeds logo fallback
+      - name: Use relevant original-article photos without a licence-metadata gate; otherwise use ChelseaFeeds logo
         run: python generate_featured_images.py --output output
 
       - name: Save editorial results and generated images
