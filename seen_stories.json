@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T00:58:19.579248+00:00",
+  "updated_at": "2026-11-27T00:58:44.273006+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -103835,7 +103835,7 @@
         "sports.yahoo.com",
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "dac5b47691242155db2e9a24",
         "title": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
@@ -104043,9 +104043,9 @@
         "observation_count": 11,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T00:58:44.273006+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
