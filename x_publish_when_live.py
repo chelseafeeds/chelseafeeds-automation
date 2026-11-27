@@ -35,7 +35,7 @@ def make_tags(title, labels):
 
 def conservative_x_length(text):
     # X shortens posted URLs to a fixed t.co length of 23 characters.
-    text = re.sub(r"https?://\\S+", "x" * 23, text)
+    text = re.sub(r"https?://\S+", "x" * 23, text)
     # Conservative Basic-tier guard: Unicode-heavy text is counted more strictly.
     total = 0
     for ch in text:
@@ -95,7 +95,7 @@ def main():
         if current_tags:
             parts.append(" ".join(current_tags))
         parts.append(article_url)
-        return "\\n\\n".join(parts)
+        return "\n\n".join(parts)
 
     text = compose_text(tags)
     length = conservative_x_length(text)
