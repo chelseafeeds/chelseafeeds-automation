@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T02:47:25.819155+00:00",
+  "updated_at": "2026-11-27T02:47:54.195894+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -100350,7 +100350,7 @@
         "sports.yahoo.com",
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "ebeeb4eb0f8e4272f25dc0b4",
         "title": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
@@ -100525,9 +100525,9 @@
         "observation_count": 9,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T02:47:54.195894+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
@@ -100547,7 +100547,7 @@
         "sports.yahoo.com",
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "c1c998a620bebbc5050cb0cf",
         "title": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
@@ -100723,9 +100723,9 @@
         "observation_count": 9,
         "corroboration_status": "multiple_publishers_observed_independence_not_proven"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T02:47:54.195894+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
