@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T11:06:30.165847+00:00",
+  "updated_at": "2026-11-27T11:06:48.902102+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -108045,7 +108045,7 @@
       "publisher_domains": [
         "bbc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "f4cf246b618d0306db79ebba",
         "title": "'Anyone in the league can beat Chelsea'",
@@ -108093,7 +108093,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "6363068907263754392",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelseas-winless-november-continues.html",
+      "scheduled_for_utc": "2026-11-27T11:11:48Z",
+      "last_blogger_status_updated_at": "2026-11-27T11:06:48.902080+00:00"
     },
     "96c87dea62407955a7e00103": {
       "event_id": "96c87dea62407955a7e00103",
