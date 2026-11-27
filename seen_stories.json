@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T14:07:45.306152+00:00",
+  "updated_at": "2026-11-27T14:08:17.410902+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -106629,7 +106629,7 @@
         "football.london",
         "msn.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "685421ca2456b13fd3ca8970",
         "title": "Alejandro Garnacho termination decision made as Chelsea learn of major transfer U-turn",
@@ -106671,9 +106671,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T14:08:17.410902+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Alejandro Garnacho termination decision made as Chelsea learn of major transfer U-turn",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
