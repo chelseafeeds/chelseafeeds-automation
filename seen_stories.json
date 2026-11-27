@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T18:13:15.692775+00:00",
+  "updated_at": "2026-11-27T18:13:44.113971+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -112672,7 +112672,7 @@
       "publisher_domains": [
         "football.london"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "0340c3e65e0410510c302643",
         "title": "Nottingham Forest vs Chelsea LIVE: Kick-off time, confirmed team news, goal and score updates",
@@ -112730,12 +112730,14 @@
         "observation_count": 2,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T18:13:44.113971+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Nottingham Forest vs Chelsea LIVE: Kick-off time, confirmed team news, goal and score updates",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "06ed0bb3fa89f822626e4c63": {
