@@ -44,7 +44,7 @@ def attach_featured_image(article_html, image_url, alt_text):
         if credit.scheme != "https" or credit.netloc != "www.chelseafeeds.com":
             raise RuntimeError("Featured image must use the approved ChelseaFeeds attribution link.")
         caption = ('<figcaption style="font-size: small; color: #666; text-align: center;">'
-                   f'Image credit: <a href="{html.escape(credit_url, quote=True)}" rel="noopener">{html.escape(credit_text or "ChelseaFeeds")}</a></figcaption>')
+                   f'{html.escape(credit_text or "Featured by ChelseaFeeds")} · <a href="{html.escape(credit_url, quote=True)}" rel="noopener">ChelseaFeeds</a></figcaption>')
     else:
         raise RuntimeError("Featured image must be a relevant source-article photo or the ChelseaFeeds blog logo.")
     if image_url in article_html:
