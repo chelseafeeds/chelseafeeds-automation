@@ -73,11 +73,10 @@ def slug(value):
     return (value[:70].strip("-") or "chelsea-story")
 
 def extract_source_images(html, page_url):
-    """Extract article-embedded images with image-specific, machine-readable reuse evidence.
+    """Extract article-embedded images and retain any available licence metadata.
 
-    A page-wide licence is deliberately NOT inherited by every image on the page.
-    Images without an explicit licence attached to that image/figure are retained
-    as evidence only and cannot pass the publishing gate.
+    Licence metadata is recorded when present but is not required for image
+    selection under the current user-approved source-image policy.
     """
     from urllib.parse import urljoin
     soup = BeautifulSoup(html or "", "html.parser")
