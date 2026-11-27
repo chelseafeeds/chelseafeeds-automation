@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T22:31:33.054767+00:00",
+  "updated_at": "2026-11-27T22:31:58.087835+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -117274,7 +117274,7 @@
       "publisher_domains": [
         "chelseafc.com"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "1c69b03af992bbbca3e94d7e",
         "title": "Vote for Sandy Baltimore to win WSL Goal of the Month award! | News | Official Site - Chelsea Football Club",
@@ -117323,7 +117323,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "4628574455787714026",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-women-call-for-fans-to-vote.html",
+      "scheduled_for_utc": "2026-11-27T22:36:57Z",
+      "last_blogger_status_updated_at": "2026-11-27T22:31:58.087809+00:00"
     },
     "33fecc0f70659262fab27b5a": {
       "event_id": "33fecc0f70659262fab27b5a",
