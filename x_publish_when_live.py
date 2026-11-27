@@ -72,7 +72,7 @@ def main():
     while time.time() < deadline:
         response = requests.get(post_url, headers=headers, timeout=30)
         if response.status_code == 404:
-            time.sleep(30); continue
+            time.sleep(5); continue
         response.raise_for_status()
         item = response.json()
         status = str(item.get("status", "")).upper()
@@ -80,7 +80,7 @@ def main():
             live_post = item
             break
         print(f"Blogger post is not live yet (status={status or 'pending'}); checking again in 30 seconds.", flush=True)
-        time.sleep(30)
+        time.sleep(5)
     if not live_post:
         raise RuntimeError("Blogger post did not become live within 35 minutes; X publication was withheld.")
 
