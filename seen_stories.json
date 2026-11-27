@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T14:10:57.518286+00:00",
+  "updated_at": "2026-11-27T14:32:16.599397+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -106568,7 +106568,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "2385334bdb001d353a5d410e",
         "title": "Chelsea XI vs Nottingham Forest: Predicted lineup, confirmed team news, injury latest for Premier League today",
@@ -106610,12 +106610,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T14:32:16.599397+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea XI vs Nottingham Forest: Predicted lineup, confirmed team news, injury latest for Premier League today",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "title_present_and_reasonable"
+      ],
       "force_evidence_refresh": false
     },
     "685421ca2456b13fd3ca8970": {
