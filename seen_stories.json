@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T19:07:52.682112+00:00",
+  "updated_at": "2026-11-27T19:08:23.865102+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -112766,7 +112766,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "06ed0bb3fa89f822626e4c63",
         "title": "Liverpool suspension risks: Key duo walking Premier League tightrope before Chelsea clash",
@@ -112808,9 +112808,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T19:08:23.865102+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Liverpool suspension risks: Key duo walking Premier League tightrope before Chelsea clash",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
@@ -113502,7 +113502,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "4cd8a5bd0a35bbb1708413ab",
         "title": "Chelsea XI vs Nottingham Forest: Starting lineup, confirmed team news, injury latest for Premier League today",
@@ -113544,9 +113544,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T19:08:23.865102+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Chelsea XI vs Nottingham Forest: Starting lineup, confirmed team news, injury latest for Premier League today",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
