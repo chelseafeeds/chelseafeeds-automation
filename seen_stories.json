@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T00:58:44.273006+00:00",
+  "updated_at": "2026-11-27T00:59:01.869885+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -103835,7 +103835,7 @@
         "sports.yahoo.com",
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "dac5b47691242155db2e9a24",
         "title": "Joao Pedro makes surprise appearance as Chelsea injury return nears",
@@ -104049,7 +104049,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "2684753408367125012",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/joao-pedros-surprise-club-visit.html",
+      "scheduled_for_utc": "2026-11-27T01:04:01Z",
+      "last_blogger_status_updated_at": "2026-11-27T00:59:01.869864+00:00"
     },
     "955c020cf582c08a883db954": {
       "event_id": "955c020cf582c08a883db954",
