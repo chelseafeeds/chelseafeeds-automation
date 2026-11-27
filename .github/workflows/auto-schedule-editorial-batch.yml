@@ -180,14 +180,11 @@ jobs:
           matches=[p for p in posts if str(p.get("event_id",""))==event_id]
           if len(matches)!=1: raise SystemExit("Article metadata did not resolve uniquely")
           p=matches[0]
-          image=p.get("featured_image") or {}
-          print(json.dumps({"title":p.get("title",""),"labels":p.get("labels",[]),"image_path":"input/"+image.get("local_path","")}))
+          print(json.dumps({"title":p.get("title",""),"labels":p.get("labels",[])}))
           PY
           )"
             title="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["title"])' "$meta")"
             labels="$(python -c 'import json,sys; print(json.dumps(json.loads(sys.argv[1]).get("labels",[])))' "$meta")"
-            thumbnail="$(python -c 'import json,sys; print(json.loads(sys.argv[1])["image_path"])' "$meta")"
-
             if [ -z "$X_API_KEY" ] || [ -z "$X_API_SECRET" ] || [ -z "$X_ACCESS_TOKEN" ] || [ -z "$X_ACCESS_TOKEN_SECRET" ]; then
               echo "X credentials are not configured; Blogger post is retained without an X announcement: $event_id"
               continue
@@ -197,7 +194,6 @@ jobs:
             BLOGGER_POST_ID="$post_id" \
             ARTICLE_TITLE="$title" \
             ARTICLE_LABELS_JSON="$labels" \
-            ARTICLE_THUMBNAIL_PATH="$thumbnail" \
             python x_publish_when_live.py > "$RUNNER_TEMP/x-$event_id.log" 2>&1 &
             pids+=("$!")
           done < "$RUNNER_TEMP/event_ids.txt"
