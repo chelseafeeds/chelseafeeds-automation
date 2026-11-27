@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-27T17:12:54.056823+00:00",
+  "updated_at": "2026-11-27T17:13:22.407561+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -111903,7 +111903,7 @@
       "publisher_domains": [
         "fourfourtwo.com"
       ],
-      "status": "observed_not_processed",
+      "status": "draft_created_unpublished",
       "candidate_snapshot": {
         "event_id": "cb345b0288e3b9de1d118166",
         "title": "Watch Nottingham Forest vs Chelsea: FREE streams and TV channels",
@@ -111945,9 +111945,9 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-27T17:13:22.407561+00:00",
+      "last_editorial_outcome": "draft_created_unpublished",
+      "last_processed_headline": "Watch Nottingham Forest vs Chelsea: FREE streams and TV channels",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
