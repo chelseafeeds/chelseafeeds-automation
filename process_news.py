@@ -717,6 +717,14 @@ def process(input_path, output_dir):
                      str(story.get("title") or "untitled")[:140])
         source_urls = [x["url"] for x in story_source_records(story)]
         fetched = []
+        # Retrieve image candidates only; this does not restore factual evidence
+        # checks or use fetched page text to verify article claims.
+        image_source_candidates = []
+        for image_source_url in source_urls[:5]:
+            image_page = fetch_source(image_source_url, session)
+            image_source_candidates.extend(image_page.get("source_images", []))
+        logging.info("IMAGE_SOURCE_DISCOVERY event=%s candidates=%d pages_checked=%d",
+                     story.get("event_id"), len(image_source_candidates), min(5, len(source_urls)))
         assessment = {"evidence_tier": "collector_only_no_page_fetch", "evidence_score": 0,
             "minimum_evidence_score": 0, "accessible_source_count": 0,
             "accessible_publisher_domains": [], "official_source_count": 0,
@@ -801,7 +809,7 @@ def process(input_path, output_dir):
                     drafts.append({"event_id": story.get("event_id"), "collector_headline": story.get("title"),
                         "story_type": story.get("story_type"), "team_scope": story.get("team_scope"),
                         "source_urls": source_urls,
-                        "source_images": [],
+                        "source_images": image_source_candidates,
                         "evidence_assessment": assessment,
                         "auto_schedule_eligible": True,
                         "verification_status": "collector_only_not_independently_verified", "claims_verified": False,
