@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-28T09:51:32.010366+00:00",
+  "updated_at": "2026-11-28T09:52:05.526910+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -116646,7 +116646,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "00c770284bca33045f727d38",
         "title": "Chelsea player ratings vs Nottingham Forest: Defender handed 3/10 for ‘critical error’ in worrying defeat",
@@ -116688,12 +116688,15 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-28T09:52:05.526910+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Chelsea player ratings vs Nottingham Forest: Defender handed 3/10 for ‘critical error’ in worrying defeat",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "title_present_and_reasonable",
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "19b54ffeec9a3f5fc5e549ba": {
