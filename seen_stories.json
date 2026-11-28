@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-28T07:59:49.620944+00:00",
+  "updated_at": "2026-11-28T08:00:21.897203+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -115671,7 +115671,7 @@
         "sports.yahoo.com",
         "thesun.co.uk"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "83a3ecffe5eb0529e7403a72",
         "title": "Nottingham Forest 3 Chelsea 2: Alonso clinging on to his job as baffling XI and Fofana horror show blow up in his face",
@@ -115713,12 +115713,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-28T08:00:21.897203+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Nottingham Forest 3 Chelsea 2: Alonso clinging on to his job as baffling XI and Fofana horror show blow up in his face",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "c6605747b338e7d2d427ac4a": {
