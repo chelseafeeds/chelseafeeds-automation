@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-28T06:47:43.566741+00:00",
+  "updated_at": "2026-11-28T06:48:11.580454+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -116473,7 +116473,7 @@
       "publisher_domains": [
         "skysports.com"
       ],
-      "status": "observed_not_processed",
+      "status": "rejected_quality_gate",
       "candidate_snapshot": {
         "event_id": "7002eb699c5bc3995773ba14",
         "title": "Forest beat Chelsea to heap pressure on Alonso as Fofana is booed",
@@ -116515,12 +116515,14 @@
         "observation_count": 1,
         "corroboration_status": "single_publisher_observation"
       },
-      "last_processed_at": null,
-      "last_editorial_outcome": null,
-      "last_processed_headline": null,
+      "last_processed_at": "2026-11-28T06:48:11.580454+00:00",
+      "last_editorial_outcome": "rejected_quality_gate",
+      "last_processed_headline": "Forest beat Chelsea to heap pressure on Alonso as Fofana is booed",
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
-      "last_quality_failures": [],
+      "last_quality_failures": [
+        "substantive_article_body_minimum_250_words"
+      ],
       "force_evidence_refresh": false
     },
     "f04997fb3c23db0af7c0d844": {
