@@ -1,6 +1,6 @@
 {
   "history_version": "4.0",
-  "updated_at": "2026-11-28T11:59:16.049493+00:00",
+  "updated_at": "2026-11-28T11:59:34.768776+00:00",
   "events": {
     "bf00aad98795469daf798bd0": {
       "event_id": "bf00aad98795469daf798bd0",
@@ -120043,7 +120043,7 @@
       "publisher_domains": [
         "standard.co.uk"
       ],
-      "status": "draft_created_unpublished",
+      "status": "scheduled",
       "candidate_snapshot": {
         "event_id": "c4a4372e9ea7c749360299b5",
         "title": "Chelsea: Xabi Alonso facing new dilemma amid Premier League suspension risk for Liverpool clash",
@@ -120091,7 +120091,12 @@
       "last_editorial_source_domains": [],
       "last_editorial_source_urls": [],
       "last_quality_failures": [],
-      "force_evidence_refresh": false
+      "force_evidence_refresh": false,
+      "blogger_status": "scheduled",
+      "blogger_post_id": "9165147692670506231",
+      "blogger_post_url": "https://www.chelseafeeds.com/2026/11/chelsea-manager-xabi-alonso-faces.html",
+      "scheduled_for_utc": "2026-11-28T12:04:34Z",
+      "last_blogger_status_updated_at": "2026-11-28T11:59:34.768751+00:00"
     },
     "e521eb022b0959324d44ac79": {
       "event_id": "e521eb022b0959324d44ac79",
